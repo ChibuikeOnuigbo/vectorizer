@@ -301,6 +301,12 @@
     if (label) label.textContent = on ? "Converting" : "Convert";
     els.convertBtn?.classList.toggle("loading", on);
   }
+  function refreshIcons() {
+    try {
+      if (window.lucide && typeof window.lucide.createIcons === "function") window.lucide.createIcons();
+      if (typeof window.initLucide === "function") window.initLucide();
+    } catch {}
+  }
   function setView(name) {
     if (els.landing) els.landing.hidden = name !== "landing";
     if (els.upload) els.upload.hidden = name !== "upload";
@@ -312,6 +318,8 @@
     window.scrollTo({ top: 0 });
     if (name === "manual") refreshManualStatus();
     saveProject();
+    // Lucide + Tailwind + shadcn + Icon8 + FontAwesome all use SVG, refresh after view change
+    setTimeout(refreshIcons, 50);
   }
   function showResult(meta, modelUsed) {
     state.meta = meta;
@@ -785,6 +793,7 @@
     if (els.viewFloatDrag) els.viewFloatDrag.classList.remove("active");
     applyViewTransform();
     document.body.style.overflow = "hidden";
+    setTimeout(refreshIcons, 50);
   }
   function closeView() {
     if (els.viewOverlay) els.viewOverlay.hidden = true;
@@ -800,6 +809,7 @@
     if (els.compareOverlay) els.compareOverlay.hidden = false;
     state.compareOpen = true;
     updateCompare(50);
+    setTimeout(refreshIcons, 50);
   }
   function closeCompare() {
     if (els.compareOverlay) els.compareOverlay.hidden = true;
@@ -822,6 +832,7 @@
 
   function showChoice() {
     if (els.choiceOverlay) els.choiceOverlay.hidden = false;
+    setTimeout(refreshIcons, 50);
   }
   function hideChoice() {
     if (els.choiceOverlay) els.choiceOverlay.hidden = true;

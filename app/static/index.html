@@ -6,15 +6,23 @@
 <title>Vectorizer image to SVG</title>
 <meta name="description" content="Convert PNG JPG WebP GIF BMP to clean scalable SVG">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F8CFF'/%3E%3Cpath d='M8 22 C 12 8, 20 8, 24 14 M20 14 L24 14 L24 10' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  corePlugins: { preflight: false },
-  theme: { extend: { colors: { brand: '#4f8cff' } } }
-}
-</script>
-<link rel="stylesheet" href="/static/fontawesome/all.min.css">
+<!-- Tailwind self-hosted to avoid CDN block, Lucide SVG icons (shadcn uses Lucide) -->
+<link rel="stylesheet" href="/static/tailwind/tailwind.css">
 <link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/fontawesome/all.min.css">
+<script src="/static/lucide/lucide.min.js"></script>
+<script>
+// Init Lucide icons - SVG, no rectangles, shadcn uses Lucide, Tailwind compatible
+function initLucide() {
+  if (window.lucide) {
+    try { lucide.createIcons(); } catch(e) { console.log("lucide error", e); }
+  }
+}
+document.addEventListener('DOMContentLoaded', initLucide);
+window.addEventListener('load', initLucide);
+// Expose for app.js to call after view changes
+window.initLucide = initLucide;
+</script>
 <script src="/static/fontawesome/all.min.js" defer></script>
 </head>
 <body>
@@ -24,15 +32,15 @@ tailwind.config = {
 <header class="top-nav">
   <div class="top-nav-inner">
     <a class="brand" href="/" id="brandHome">
-      <span class="brand-mark"><i class="fa-solid fa-bezier-curve"></i></span>
+      <span class="brand-mark"><i data-lucide="pen-tool"></i></span>
       <span class="brand-name">Vectorizer</span>
     </a>
     <nav class="top-nav-actions" aria-label="Primary">
-      <button class="nav-btn" id="navHome" type="button" title="Home"><i class="fa-solid fa-house"></i></button>
-      <button class="nav-btn" id="navUpload" type="button" title="Upload"><i class="fa-solid fa-cloud-arrow-up"></i></button>
-      <button class="nav-btn" id="navSimple" type="button" title="Simple Studio"><i class="fa-solid fa-wand-magic-sparkles"></i></button>
-      <button class="nav-btn" id="navAdvanced" type="button" title="Advanced Studio"><i class="fa-solid fa-sliders"></i></button>
-      <button class="nav-btn nav-btn-ghost" id="navManual" type="button" title="Manual Training"><i class="fa-solid fa-database"></i></button>
+      <button class="nav-btn" id="navHome" type="button" title="Home"><i data-lucide="house"></i></button>
+      <button class="nav-btn" id="navUpload" type="button" title="Upload"><i data-lucide="cloud-upload"></i></button>
+      <button class="nav-btn" id="navSimple" type="button" title="Simple Studio"><i data-lucide="sparkles"></i></button>
+      <button class="nav-btn" id="navAdvanced" type="button" title="Advanced Studio"><i data-lucide="sliders-horizontal"></i></button>
+      <button class="nav-btn nav-btn-ghost" id="navManual" type="button" title="Manual Training"><i data-lucide="database"></i></button>
     </nav>
   </div>
 </header>
@@ -45,12 +53,12 @@ tailwind.config = {
         <h1>Image to SVG in one click</h1>
         <p class="sub">Upload a raster image and get a clean scalable vector ready to use</p>
         <div class="landing-actions">
-          <button class="btn btn-primary btn-lg" id="startBtn" type="button"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload an image</span></button>
+          <button class="btn btn-primary btn-lg" id="startBtn" type="button"><i data-lucide="cloud-upload"></i><span>Upload an image</span></button>
         </div>
         <div class="landing-meta">
-          <span><i class="fa-solid fa-check"></i> PNG JPG WebP GIF BMP</span>
-          <span><i class="fa-solid fa-check"></i> Up to 20 MB</span>
-          <span><i class="fa-solid fa-check"></i> Smart model picks best settings</span>
+          <span><i data-lucide="check"></i> PNG JPG WebP GIF BMP</span>
+          <span><i data-lucide="check"></i> Up to 20 MB</span>
+          <span><i data-lucide="check"></i> Smart model picks best settings</span>
         </div>
       </div>
     </div>
@@ -60,11 +68,11 @@ tailwind.config = {
   <section class="view view-upload" id="upload" hidden>
     <div class="upload-inner">
       <div class="upload-header">
-        <button class="btn btn-ghost btn-sm" id="backBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></button>
+        <button class="btn btn-ghost btn-sm" id="backBtn" type="button"><i data-lucide="arrow-left"></i><span>Back</span></button>
         <h2>Upload image</h2>
       </div>
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload image">
-        <div class="dropzone-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <div class="dropzone-icon"><i data-lucide="cloud-upload"></i></div>
         <p class="dz-main">Drop an image here or click to browse</p>
         <p class="dz-hint">PNG JPG WebP GIF BMP up to 20 MB</p>
         <p class="dz-hint">You can also paste from clipboard</p>
@@ -72,11 +80,11 @@ tailwind.config = {
       <div class="upload-controls">
         <div class="upload-methods">
           <div class="method-card active" id="methodModel" data-method="model">
-            <h4><i class="fa-solid fa-brain"></i> Smart Model</h4>
+            <h4><i data-lucide="brain"></i> Smart Model</h4>
             <p>AI picks best settings for each image</p>
           </div>
           <div class="method-card" id="methodClassic" data-method="classic">
-            <h4><i class="fa-solid fa-layer-group"></i> Classic Best Tier</h4>
+            <h4><i data-lucide="layers"></i> Classic Best Tier</h4>
             <p>Proven heuristic with presets for logos icons illustration</p>
           </div>
         </div>
@@ -87,18 +95,18 @@ tailwind.config = {
         </label>
         <div class="classic-options" id="classicOptions" hidden>
           <div class="field-select">
-            <label><i class="fa-solid fa-wand-magic-sparkles"></i> Classic preset</label>
+            <label><i data-lucide="sparkles"></i> Classic preset</label>
             <div class="preset-grid">
-              <button class="preset-btn active" data-preset="logo" type="button"><i class="fa-solid fa-certificate"></i><span>Logo</span></button>
-              <button class="preset-btn" data-preset="icon" type="button"><i class="fa-solid fa-icons"></i><span>Icon</span></button>
-              <button class="preset-btn" data-preset="illustration" type="button"><i class="fa-solid fa-palette"></i><span>Illustration</span></button>
-              <button class="preset-btn" data-preset="lqip" type="button"><i class="fa-solid fa-image"></i><span>LQIP</span></button>
-              <button class="preset-btn" data-preset="artistic" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Artistic</span></button>
-              <button class="preset-btn" data-preset="custom" type="button"><i class="fa-solid fa-sliders"></i><span>Custom</span></button>
+              <button class="preset-btn active" data-preset="logo" type="button"><i data-lucide="award"></i><span>Logo</span></button>
+              <button class="preset-btn" data-preset="icon" type="button"><i data-lucide="shapes"></i><span>Icon</span></button>
+              <button class="preset-btn" data-preset="illustration" type="button"><i data-lucide="palette"></i><span>Illustration</span></button>
+              <button class="preset-btn" data-preset="lqip" type="button"><i data-lucide="image"></i><span>LQIP</span></button>
+              <button class="preset-btn" data-preset="artistic" type="button"><i data-lucide="sparkles"></i><span>Artistic</span></button>
+              <button class="preset-btn" data-preset="custom" type="button"><i data-lucide="sliders-horizontal"></i><span>Custom</span></button>
             </div>
           </div>
         </div>
-        <button class="btn btn-primary" id="convertBtn" type="button"><i class="fa-solid fa-bolt"></i><span class="btn-label">Convert</span></button>
+        <button class="btn btn-primary" id="convertBtn" type="button"><i data-lucide="zap"></i><span class="btn-label">Convert</span></button>
       </div>
       <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" hidden>
     </div>
@@ -112,16 +120,16 @@ tailwind.config = {
         <p>Source and vector result with essential controls</p>
       </div>
       <div class="studio-actions">
-        <button class="btn btn-ghost btn-sm" id="newBtn" type="button"><i class="fa-solid fa-plus"></i><span>New image</span></button>
-        <button class="btn btn-ghost btn-sm" id="openAdvancedBtn" type="button"><i class="fa-solid fa-up-right-from-square"></i><span>Advanced</span></button>
+        <button class="btn btn-ghost btn-sm" id="newBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
+        <button class="btn btn-ghost btn-sm" id="openAdvancedBtn" type="button"><i data-lucide="external-link"></i><span>Advanced</span></button>
       </div>
     </div>
     <div class="studio-grid">
       <div class="studio-panel">
         <div class="panel-head">
-          <h3><i class="fa-regular fa-image"></i> Source</h3>
+          <h3><i data-lucide="image"></i> Source</h3>
           <div class="panel-tools">
-            <button class="icon-btn" id="srcFitBtn" type="button" title="Fit to screen"><i class="fa-solid fa-expand"></i></button>
+            <button class="icon-btn" id="srcFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
           </div>
         </div>
         <div class="preview-box" id="srcPreviewBox"><img id="resultOriginal" alt="Original image"></div>
@@ -129,22 +137,22 @@ tailwind.config = {
       </div>
       <div class="studio-panel studio-panel-result">
         <div class="panel-head">
-          <h3><i class="fa-solid fa-bezier-curve"></i> Vector result</h3>
+          <h3><i data-lucide="pen-tool"></i> Vector result</h3>
           <div class="panel-tools zoom-group" role="group" aria-label="Zoom controls">
-            <button class="icon-btn" id="zoomOutBtn" type="button" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button class="icon-btn" id="zoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
             <span class="zoom-level" id="zoomLevel">100%</span>
-            <button class="icon-btn" id="zoomInBtn" type="button" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-            <button class="icon-btn" id="zoomFitBtn" type="button" title="Fit to screen"><i class="fa-solid fa-expand"></i></button>
-            <button class="icon-btn" id="zoomResetBtn" type="button" title="Reset view"><i class="fa-solid fa-rotate-left"></i></button>
+            <button class="icon-btn" id="zoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
+            <button class="icon-btn" id="zoomFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+            <button class="icon-btn" id="zoomResetBtn" type="button" title="Reset view"><i data-lucide="rotate-ccw"></i></button>
           </div>
         </div>
         <div class="preview-box checker result-box" id="resultSvgBox"><img id="resultSvg" alt="Vectorized SVG"></div>
         <div class="panel-meta" id="resultMeta"></div>
         <div class="panel-actions">
-          <button class="btn btn-primary" id="downloadBtn" type="button"><i class="fa-solid fa-download"></i><span>Download SVG</span></button>
-          <button class="btn btn-secondary" id="viewBtn" type="button"><i class="fa-solid fa-eye"></i><span>Fullscreen</span></button>
-          <button class="btn btn-ghost" id="compareBtn" type="button"><i class="fa-solid fa-code-compare"></i><span>Compare</span></button>
-          <button class="btn btn-ghost" id="bgToggleBtn" type="button"><i class="fa-solid fa-circle-half-stroke"></i><span>Background</span></button>
+          <button class="btn btn-primary" id="downloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+          <button class="btn btn-secondary" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
+          <button class="btn btn-ghost" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+          <button class="btn btn-ghost" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
         </div>
       </div>
     </div>
@@ -158,8 +166,8 @@ tailwind.config = {
         <p>Deeper control for detailed inspection and export</p>
       </div>
       <div class="studio-actions">
-        <button class="btn btn-ghost btn-sm" id="advBackSimpleBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Simple</span></button>
-        <button class="btn btn-ghost btn-sm" id="advNewBtn" type="button"><i class="fa-solid fa-plus"></i><span>New image</span></button>
+        <button class="btn btn-ghost btn-sm" id="advBackSimpleBtn" type="button"><i data-lucide="arrow-left"></i><span>Simple</span></button>
+        <button class="btn btn-ghost btn-sm" id="advNewBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
       </div>
     </div>
     <div class="advanced-grid">
@@ -167,67 +175,67 @@ tailwind.config = {
         <div class="studio-grid">
           <div class="studio-panel">
             <div class="panel-head">
-              <h3><i class="fa-regular fa-image"></i> Source</h3>
+              <h3><i data-lucide="image"></i> Source</h3>
               <div class="panel-tools">
-                <button class="icon-btn" id="advSrcFitBtn" type="button" title="Fit to screen"><i class="fa-solid fa-expand"></i></button>
+                <button class="icon-btn" id="advSrcFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
               </div>
             </div>
             <div class="preview-box" id="advSrcPreviewBox"><img id="advResultOriginal" alt="Original image"></div>
           </div>
           <div class="studio-panel studio-panel-result">
             <div class="panel-head">
-              <h3><i class="fa-solid fa-bezier-curve"></i> Vector result</h3>
+              <h3><i data-lucide="pen-tool"></i> Vector result</h3>
               <div class="panel-tools zoom-group">
-                <button class="icon-btn" id="advZoomOutBtn" type="button" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button class="icon-btn" id="advZoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
                 <span class="zoom-level" id="advZoomLevel">100%</span>
-                <button class="icon-btn" id="advZoomInBtn" type="button" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-                <button class="icon-btn" id="advZoomFitBtn" type="button" title="Fit to screen"><i class="fa-solid fa-expand"></i></button>
-                <button class="icon-btn" id="advZoomResetBtn" type="button" title="Reset view"><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="icon-btn" id="advZoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
+                <button class="icon-btn" id="advZoomFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+                <button class="icon-btn" id="advZoomResetBtn" type="button" title="Reset view"><i data-lucide="rotate-ccw"></i></button>
               </div>
             </div>
             <div class="preview-box checker result-box" id="advResultSvgBox"><img id="advResultSvg" alt="Vectorized SVG"></div>
             <div class="panel-meta" id="advResultMeta"></div>
             <div class="panel-actions">
-              <button class="btn btn-primary" id="advDownloadBtn" type="button"><i class="fa-solid fa-download"></i><span>Download SVG</span></button>
-              <button class="btn btn-secondary" id="advViewBtn" type="button"><i class="fa-solid fa-eye"></i><span>Fullscreen</span></button>
-              <button class="btn btn-ghost" id="advCompareBtn" type="button"><i class="fa-solid fa-code-compare"></i><span>Compare</span></button>
+              <button class="btn btn-primary" id="advDownloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+              <button class="btn btn-secondary" id="advViewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
+              <button class="btn btn-ghost" id="advCompareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
             </div>
           </div>
         </div>
       </div>
       <aside class="advanced-sidebar">
         <div class="sidebar-card">
-          <button class="sidebar-head" type="button" data-toggle="params"><h3><i class="fa-solid fa-sliders"></i> Vectorization settings</h3><i class="fa-solid fa-chevron-down toggle-icon"></i></button>
+          <button class="sidebar-head" type="button" data-toggle="params"><h3><i data-lucide="sliders-horizontal"></i> Vectorization settings</h3><i data-lucide="chevron-down"></i></button>
           <div class="sidebar-body" id="paramsBody">
             <div class="field field-select">
-              <label><i class="fa-solid fa-layer-group"></i> Profile</label>
+              <label><i data-lucide="layers"></i> Profile</label>
               <select id="advProfile"><option value="flat">Flat</option><option value="photo">Photo</option></select>
             </div>
             <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i class="fa-solid fa-palette"></i> Color precision</span><span class="slider-value" id="advCpVal">6</span></div>
+              <div class="slider-header"><span class="slider-label"><i data-lucide="palette"></i> Color precision</span><span class="slider-value" id="advCpVal">6</span></div>
               <div class="slider-wrap"><input type="range" class="slider" id="advCp" min="1" max="8" value="6"></div>
               <div class="slider-meta"><span>Simple</span><span>Detailed</span></div>
             </div>
             <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i class="fa-solid fa-object-group"></i> Layer difference</span><span class="slider-value" id="advLdVal">16</span></div>
+              <div class="slider-header"><span class="slider-label"><i data-lucide="group"></i> Layer difference</span><span class="slider-value" id="advLdVal">16</span></div>
               <div class="slider-wrap"><input type="range" class="slider" id="advLd" min="6" max="40" value="16"></div>
               <div class="slider-meta"><span>Tight</span><span>Loose</span></div>
             </div>
             <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i class="fa-solid fa-filter"></i> Filter speckle</span><span class="slider-value" id="advFsVal">4</span></div>
+              <div class="slider-header"><span class="slider-label"><i data-lucide="filter"></i> Filter speckle</span><span class="slider-value" id="advFsVal">4</span></div>
               <div class="slider-wrap"><input type="range" class="slider" id="advFs" min="0" max="3" value="2" step="1"></div>
               <div class="slider-meta"><span>Keep small</span><span>Remove small</span></div>
             </div>
             <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i class="fa-solid fa-repeat"></i> Max iterations</span><span class="slider-value" id="advMiVal">18</span></div>
+              <div class="slider-header"><span class="slider-label"><i data-lucide="repeat"></i> Max iterations</span><span class="slider-value" id="advMiVal">18</span></div>
               <div class="slider-wrap"><input type="range" class="slider" id="advMi" min="8" max="48" value="18"></div>
               <div class="slider-meta"><span>Fast</span><span>Precise</span></div>
             </div>
-            <button class="btn btn-secondary btn-sm" id="advReconvertBtn" type="button"><i class="fa-solid fa-rotate"></i><span>Reconvert with these settings</span></button>
+            <button class="btn btn-secondary btn-sm" id="advReconvertBtn" type="button"><i data-lucide="rotate-ccw"></i><span>Reconvert with these settings</span></button>
           </div>
         </div>
         <div class="sidebar-card">
-          <button class="sidebar-head" type="button" data-toggle="inspect"><h3><i class="fa-solid fa-magnifying-glass-chart"></i> Inspection</h3><i class="fa-solid fa-chevron-down toggle-icon"></i></button>
+          <button class="sidebar-head" type="button" data-toggle="inspect"><h3><i data-lucide="search"></i> Inspection</h3><i data-lucide="chevron-down"></i></button>
           <div class="sidebar-body" id="inspectBody">
             <div class="inspect-row"><span>Colors</span><strong id="inspectColors">—</strong></div>
             <div class="inspect-row"><span>Paths</span><strong id="inspectPaths">—</strong></div>
@@ -243,29 +251,29 @@ tailwind.config = {
   <!-- MANUAL TRAINING -->
   <section class="view view-manual" id="manual" hidden>
     <div class="manual-header">
-      <button class="btn btn-ghost btn-sm" id="manualBackBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></button>
+      <button class="btn btn-ghost btn-sm" id="manualBackBtn" type="button"><i data-lucide="arrow-left"></i><span>Back</span></button>
       <div class="manual-title"><h2>Manual Training</h2><p>Collect images and results to help train and improve the model</p></div>
     </div>
     <div class="manual-status" id="manualStatus">Loading status</div>
     <div class="manual-grid">
       <div class="manual-card">
-        <h3><i class="fa-solid fa-images"></i> Section 1 Upload Images</h3>
+        <h3><i data-lucide="image"></i> Section 1 Upload Images</h3>
         <p>Upload as many images as possible pure geometric no text general images plus blurred increasing hardness</p>
-        <div class="dropzone dropzone-sm" id="manualDropzone1" role="button" tabindex="0"><div class="dropzone-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><p class="dz-main">Drop images here or click to browse</p><p class="dz-hint">Multiple files collected for training</p></div>
+        <div class="dropzone dropzone-sm" id="manualDropzone1" role="button" tabindex="0"><div class="dropzone-icon"><i data-lucide="cloud-upload"></i></div><p class="dz-main">Drop images here or click to browse</p><p class="dz-hint">Multiple files collected for training</p></div>
         <input type="file" id="manualFileInput1" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" multiple hidden>
         <div class="manual-list" id="manualList1"></div>
       </div>
       <div class="manual-card">
-        <h3><i class="fa-solid fa-file-code"></i> Section 2 Upload Results</h3>
+        <h3><i data-lucide="file-code"></i> Section 2 Upload Results</h3>
         <p>Upload SVG results or JSON params for images in Section 1</p>
-        <div class="dropzone dropzone-sm" id="manualDropzone2" role="button" tabindex="0"><div class="dropzone-icon"><i class="fa-solid fa-file-arrow-up"></i></div><p class="dz-main">Drop results here or click to browse</p><p class="dz-hint">SVG or JSON collected as ground truth</p></div>
+        <div class="dropzone dropzone-sm" id="manualDropzone2" role="button" tabindex="0"><div class="dropzone-icon"><i data-lucide="file-up"></i></div><p class="dz-main">Drop results here or click to browse</p><p class="dz-hint">SVG or JSON collected as ground truth</p></div>
         <input type="file" id="manualFileInput2" accept=".svg,.json,.png,.jpg" multiple hidden>
         <div class="manual-list" id="manualList2"></div>
       </div>
     </div>
     <div class="manual-actions">
-      <button class="btn btn-primary" id="manualTrainBtn" type="button"><i class="fa-solid fa-brain"></i><span>Train Now</span></button>
-      <button class="btn btn-secondary" id="manualRefreshBtn" type="button"><i class="fa-solid fa-rotate"></i><span>Refresh Status</span></button>
+      <button class="btn btn-primary" id="manualTrainBtn" type="button"><i data-lucide="brain"></i><span>Train Now</span></button>
+      <button class="btn btn-secondary" id="manualRefreshBtn" type="button"><i data-lucide="rotate-ccw"></i><span>Refresh Status</span></button>
     </div>
     <div class="manual-log" id="manualLog"></div>
   </section>
@@ -273,7 +281,7 @@ tailwind.config = {
 
 <div class="drop-overlay" id="dropOverlay" hidden>
   <div class="drop-inner">
-    <i class="fa-solid fa-cloud-arrow-up"></i>
+    <i data-lucide="cloud-upload"></i>
     <p>Drop your image to convert</p>
     <small>Only when you want to upload a new image</small>
   </div>
@@ -286,18 +294,18 @@ tailwind.config = {
     <p>Pick where you want to work with your new vector</p>
     <div class="choice-grid">
       <div class="choice-card" id="choiceSimple" data-choice="simple">
-        <div class="choice-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div class="choice-card-icon"><i data-lucide="sparkles"></i></div>
         <h3>Simple Studio</h3>
         <small>Clean focused view source and vector essential controls perfect for quick work</small>
       </div>
       <div class="choice-card" id="choiceAdvanced" data-choice="advanced">
-        <div class="choice-card-icon"><i class="fa-solid fa-sliders"></i></div>
+        <div class="choice-card-icon"><i data-lucide="sliders-horizontal"></i></div>
         <h3>Advanced Studio</h3>
         <small>Deeper control detailed inspection sliders compare and pro tools</small>
       </div>
     </div>
     <div style="display:flex; gap:10px; justify-content:center; margin-top:8px;">
-      <button class="btn btn-ghost btn-sm" id="choiceCloseBtn" type="button"><i class="fa-solid fa-xmark"></i><span>Close</span></button>
+      <button class="btn btn-ghost btn-sm" id="choiceCloseBtn" type="button"><i data-lucide="x"></i><span>Close</span></button>
     </div>
   </div>
 </div>
@@ -305,39 +313,39 @@ tailwind.config = {
 <div class="view-overlay" id="viewOverlay" hidden>
   <div class="view-toolbar">
     <div class="view-toolbar-left">
-      <button class="view-close-btn" id="viewCloseBtn" type="button" aria-label="Close fullscreen" title="Close fullscreen Esc"><i class="fa-solid fa-xmark"></i></button>
+      <button class="view-close-btn" id="viewCloseBtn" type="button" aria-label="Close fullscreen" title="Close fullscreen Esc"><i data-lucide="x"></i></button>
       <span class="view-title" id="viewTitle">SVG preview</span>
     </div>
     <div class="view-toolbar-center">
       <div class="view-zoom-group" role="group" aria-label="Zoom controls">
-        <button class="view-tool-btn" id="viewZoomOutBtn" type="button" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+        <button class="view-tool-btn" id="viewZoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
         <span class="view-zoom-level" id="viewZoomLevel">100%</span>
-        <button class="view-tool-btn" id="viewZoomInBtn" type="button" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+        <button class="view-tool-btn" id="viewZoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
       </div>
       <div class="view-zoom-group" role="group" aria-label="View tools">
-        <button class="view-tool-btn" id="viewFitBtn" type="button" title="Fit to screen"><i class="fa-solid fa-expand"></i></button>
-        <button class="view-tool-btn" id="viewActualBtn" type="button" title="Actual size"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-        <button class="view-tool-btn" id="viewDragBtn" type="button" title="Drag to pan"><i class="fa-solid fa-hand"></i></button>
+        <button class="view-tool-btn" id="viewFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+        <button class="view-tool-btn" id="viewActualBtn" type="button" title="Actual size"><i data-lucide="maximize-2"></i></button>
+        <button class="view-tool-btn" id="viewDragBtn" type="button" title="Drag to pan"><i data-lucide="hand"></i></button>
       </div>
     </div>
     <div class="view-actions">
-      <button class="btn btn-primary btn-sm" id="viewDownloadBtn" type="button"><i class="fa-solid fa-download"></i><span>Download SVG</span></button>
-      <button class="btn btn-ghost btn-sm" id="viewCloseBtn2" type="button"><i class="fa-solid fa-xmark"></i><span>Exit</span></button>
+      <button class="btn btn-primary btn-sm" id="viewDownloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+      <button class="btn btn-ghost btn-sm" id="viewCloseBtn2" type="button"><i data-lucide="x"></i><span>Exit</span></button>
     </div>
   </div>
   <div class="view-stage checker" id="viewStage">
     <div class="view-stage-inner" id="viewStageInner"></div>
     <div class="view-stage-hint" id="viewHint">
-      <span><i class="fa-solid fa-hand"></i> Drag to pan</span>
-      <span><i class="fa-solid fa-magnifying-glass"></i> Scroll to zoom</span>
-      <span><i class="fa-solid fa-keyboard"></i> Esc to exit</span>
+      <span><i data-lucide="hand"></i> Drag to pan</span>
+      <span><i data-lucide="search"></i> Scroll to zoom</span>
+      <span><i data-lucide="keyboard"></i> Esc to exit</span>
     </div>
     <div class="view-floating-tools" id="viewFloatingTools">
-      <button class="view-tool-btn" id="viewFloatZoomOut" type="button" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-      <button class="view-tool-btn" id="viewFloatZoomIn" type="button" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+      <button class="view-tool-btn" id="viewFloatZoomOut" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
+      <button class="view-tool-btn" id="viewFloatZoomIn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
       <div style="width:1px; height:18px; background:var(--line); margin:0 2px;"></div>
-      <button class="view-tool-btn" id="viewFloatDrag" type="button" title="Drag"><i class="fa-solid fa-up-right-from-square"></i></button>
-      <button class="view-tool-btn" id="viewFloatFit" type="button" title="Fit"><i class="fa-solid fa-expand"></i></button>
+      <button class="view-tool-btn" id="viewFloatDrag" type="button" title="Drag"><i data-lucide="external-link"></i></button>
+      <button class="view-tool-btn" id="viewFloatFit" type="button" title="Fit"><i data-lucide="maximize"></i></button>
     </div>
   </div>
 </div>
@@ -345,13 +353,13 @@ tailwind.config = {
 <div class="compare-overlay" id="compareOverlay" hidden>
   <div class="compare-toolbar">
     <span>Compare drag slider to see source and vector difference</span>
-    <button class="icon-btn" id="compareCloseBtn" type="button" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="icon-btn" id="compareCloseBtn" type="button" title="Close"><i data-lucide="x"></i></button>
   </div>
   <div class="compare-stage" id="compareStage">
     <div class="compare-img"><img id="compareSrc" alt="Source"></div>
     <div class="compare-img compare-vector"><img id="compareVec" alt="Vector"></div>
     <div class="compare-divider" id="compareDivider"></div>
-    <div class="compare-handle" id="compareHandle"><i class="fa-solid fa-code-compare"></i></div>
+    <div class="compare-handle" id="compareHandle"><i data-lucide="git-compare-arrows"></i></div>
     <input type="range" class="compare-slider-custom" id="compareSlider" min="0" max="100" value="50" aria-label="Compare slider">
   </div>
 </div>
