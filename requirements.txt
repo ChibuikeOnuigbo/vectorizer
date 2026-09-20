@@ -1,0 +1,15 @@
+# web
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+# imaging
+pillow>=10.0
+numpy>=1.26
+# vectorization
+vtracer>=0.6
+# smart model (training + desktop CLI)
+onnx>=1.15
+onnxruntime>=1.17
+# site scraper
+playwright>=1.40
+beautifulsoup4>=4.12

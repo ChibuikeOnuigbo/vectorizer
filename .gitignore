@@ -6,3 +6,19 @@ build/
 .env.local
 .DS_Store
 Thumbs.db
+# local dependency installs (see requirements.txt / scripts/setup-browser.sh)
+vendor/
+qa/node_modules/
+web/
+# QA artifacts
+qa/shots/
+qa/bad.txt
+# model pipeline artifacts (regenerate: see README "Smart model")
+model/data/
+model/out/
+model/scraped/
+# local scratch
+image-search/
+__pycache__/
+*.pyc
+qa/qa-summary.json

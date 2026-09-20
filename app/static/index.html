@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vectorizer — image to SVG</title>
+<meta name="description" content="Convert PNG, JPG, WebP, GIF or BMP to a clean scalable SVG.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F8CFF'/%3E%3Cpath d='M8 22 C 12 8, 20 8, 24 14 M20 14 L24 14 L24 10' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/" id="brandHome">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="#4F8CFF"/>
+      <path d="M8 22 C 12 8, 20 8, 24 14 M20 14 L24 14 L24 10" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span>Vectorizer</span>
+  </a>
+</header>
+
+<main>
+  <!-- ============ LANDING ============ -->
+  <section class="view view-landing container" id="landing">
+    <h1>Image to SVG in one click.</h1>
+    <p class="sub">Upload a raster image, download a clean scalable vector.</p>
+    <img class="hero-img" src="/static/img/hero.jpg" alt="Colorful geometric artwork" width="500" height="333">
+    <div class="cta-row">
+      <button class="btn btn-primary btn-xl" id="startBtn" type="button">Upload an image</button>
+      <button class="btn btn-ghost btn-xl" id="manualBtn" type="button">Manual Training</button>
+      <button class="btn btn-ghost btn-xl" id="debugBtn" type="button">Debug Vet (Strict)</button>
+    </div>
+  </section>
+
+  <!-- ============ UPLOAD ============ -->
+  <section class="view view-upload container" id="upload" hidden>
+    <button class="back-link" id="backBtn" type="button">&larr; Back</button>
+    <div class="dropzone" id="dropzone" role="button" tabindex="0">
+      <svg class="dz-icon" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path d="M12 16V4m0 0 4 4m-4-4L8 8M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="dz-main">Drop an image here, paste, or click to browse</p>
+      <p class="dz-hint">PNG · JPG · WebP · GIF · BMP — up to 20 MB</p>
+    </div>
+    <div class="upload-controls">
+      <label class="model-toggle" for="modelToggle">
+        <input type="checkbox" id="modelToggle" checked>
+        <span class="switch" aria-hidden="true"></span>
+        <span class="mt-text"><strong>Smart model</strong><small>Picks the best settings for each image</small></span>
+      </label>
+      <button class="btn btn-primary btn-lg" id="convertBtn" type="button">
+        <span class="btn-label">Convert</span>
+      </button>
+    </div>
+    <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" hidden>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section class="view view-result container" id="result" hidden>
+    <div class="result-head">
+      <h2>Your vector is ready</h2>
+      <p class="result-meta" id="resultMeta"></p>
+    </div>
+    <div class="result-grid">
+      <figure class="result-card">
+        <div class="preview-box"><img id="resultOriginal" alt="Original image"></div>
+        <figcaption>Original</figcaption>
+      </figure>
+      <figure class="result-card">
+        <div class="preview-box checker" id="resultSvgBox"><img id="resultSvg" alt="Vectorized SVG"></div>
+        <figcaption>Vector · SVG</figcaption>
+      </figure>
+    </div>
+    <div class="result-actions">
+      <button class="btn btn-primary btn-lg" id="downloadBtn" type="button">Download SVG</button>
+      <button class="btn btn-ghost btn-lg" id="viewBtn" type="button">View</button>
+      <button class="btn btn-ghost btn-lg" id="newBtn" type="button">New image</button>
+    </div>
+  </section>
+
+  <!-- ============ MANUAL TRAINING (debug, strict) ============ -->
+  <section class="view view-manual container" id="manual" hidden>
+    <button class="back-link" id="manualBackBtn" type="button">&larr; Back</button>
+    <h2>Manual Training — Collect & Train</h2>
+    <p class="sub">Section 1: upload as many images as possible. Section 2: upload results for those images. Site collects and trains, helps improve model. Very strict, for debug.</p>
+    <div class="manual-status" id="manualStatus">Loading status...</div>
+    <div class="manual-grid">
+      <div class="manual-card">
+        <h3>Section 1 — Upload Images (as many as possible)</h3>
+        <p>Upload PNG/JPG/WebP/GIF/BMP, up to 20 MB each, multiple files. These are pure geometric no-text general images, generated img have no text, plus blurred increasing hardness.</p>
+        <div class="dropzone" id="manualDropzone1" role="button" tabindex="0">
+          <p class="dz-main">Drop images here or click to browse (Section 1)</p>
+          <p class="dz-hint">Multiple files — collected for training</p>
+        </div>
+        <input type="file" id="manualFileInput1" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" multiple hidden>
+        <div class="manual-list" id="manualList1"></div>
+      </div>
+      <div class="manual-card">
+        <h3>Section 2 — Upload Results for Images</h3>
+        <p>Upload SVG results or JSON params for images in Section 1. Next upload section collects results, site trains and helps improve. Strict grading.</p>
+        <div class="dropzone" id="manualDropzone2" role="button" tabindex="0">
+          <p class="dz-main">Drop results here or click to browse (Section 2)</p>
+          <p class="dz-hint">SVG or JSON — collected as ground truth</p>
+        </div>
+        <input type="file" id="manualFileInput2" accept=".svg,.json,.png,.jpg" multiple hidden>
+        <div class="manual-list" id="manualList2"></div>
+      </div>
+    </div>
+    <div class="manual-actions">
+      <button class="btn btn-primary btn-lg" id="manualTrainBtn" type="button">Train Now (Manual + Existing)</button>
+      <button class="btn btn-ghost btn-lg" id="manualRefreshBtn" type="button">Refresh Status</button>
+    </div>
+    <div class="manual-log" id="manualLog"></div>
+  </section>
+
+  <!-- ============ DEBUG VET (very strict) ============ -->
+  <section class="view view-debug container" id="debug" hidden>
+    <button class="back-link" id="debugBackBtn" type="button">&larr; Back</button>
+    <h2>Debug Vet — Very Strict Scan & Grade</h2>
+    <p class="sub">Vets the model well again, be very strict, scans result and grades strictly. Shows score, coverage, precision, color_err, paths, PASS/FAIL.</p>
+    <div class="debug-controls">
+      <label>Limit: <input type="number" id="debugLimit" value="20" min="1" max="100" style="width:80px"></label>
+      <button class="btn btn-primary" id="debugVetBtn" type="button">Vet Model (Strict)</button>
+    </div>
+    <div class="debug-status" id="debugStatus">Click Vet to run strict grading...</div>
+    <div class="debug-results" id="debugResults"></div>
+  </section>
+</main>
+
+<footer class="site-footer container">
+  <span>Vectorizer — raster&nbsp;→&nbsp;vector.</span>
+</footer>
+
+<!-- drop overlay -->
+<div class="drop-overlay" id="dropOverlay" hidden>
+  <div class="drop-inner">
+    <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true"><path d="M12 16V4m0 0 4 4m-4-4L8 8M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p>Drop your image to convert</p>
+  </div>
+</div>
+
+<!-- fullscreen view overlay -->
+<div class="view-overlay" id="viewOverlay" hidden>
+  <div class="view-toolbar">
+    <span class="view-title" id="viewTitle">SVG preview</span>
+    <div class="view-actions">
+      <button class="btn btn-primary" id="viewDownloadBtn" type="button">Download SVG</button>
+      <button class="btn btn-ghost" id="viewCloseBtn" type="button" aria-label="Close">&#10005;</button>
+    </div>
+  </div>
+  <div class="view-stage checker" id="viewStage"></div>
+</div>
+
+<!-- toast -->
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
