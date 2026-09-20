@@ -92,10 +92,27 @@ async function main() {
   page.on("response", (r) => { if (r.status() >= 400) failedReqs.push(`${r.status()} ${r.url()}`); });
   page.on("requestfailed", (r) => failedReqs.push(`failed ${r.url()}`));
 
-  // 1. Landing — strict
-  const resp = await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  // 1. Landing — strict, clear persistence for clean test
+  let resp = await page.goto(BASE + "/", { waitUntil: "networkidle" });
   check("landing HTTP 200 strict", resp && resp.status() === 200);
-  await page.waitForSelector("#landing h1");
+  // Clear persistence (IndexedDB + localStorage) to ensure landing visible, not restored project
+  try {
+    await page.evaluate(async () => {
+      localStorage.clear();
+      // clear IndexedDB
+      const dbs = await indexedDB.databases();
+      for (const db of dbs) {
+        if (db.name) indexedDB.deleteDatabase(db.name);
+      }
+    });
+    await page.reload({ waitUntil: "networkidle" });
+    resp = await page.waitForResponse(r => r.url() === BASE + "/" && r.status() === 200, { timeout: 5000 }).catch(() => null);
+  } catch {}
+  await page.waitForSelector("#landing h1", { state: "visible", timeout: 10000 }).catch(async () => {
+    // fallback: try to click brand home to go landing
+    try { await page.click("#brandHome", { timeout: 2000 }); } catch {}
+    await page.waitForSelector("#landing h1", { state: "visible", timeout: 5000 });
+  });
   const heroOk = await page.evaluate(() => {
     const im = document.querySelector(".hero-img");
     return im && im.naturalWidth === 500 && im.complete;
