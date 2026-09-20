@@ -1,4 +1,4 @@
-/* Vectorizer — complete UI redesign, Simple Studio + Advanced Studio, persistence, custom sliders, pro fullscreen viewer with drag + zoom */
+/* Vectorizer — simplified landing, icons only nav, two methods model and classic best tier, choice modal, custom sliders, pro viewer with floating tools, compare dotted line */
 (() => {
   "use strict";
 
@@ -9,22 +9,21 @@
     result: $("result"),
     advanced: $("advanced"),
     manual: $("manual"),
-    debug: $("debug"),
     startBtn: $("startBtn"),
-    landingAdvancedBtn: $("landingAdvancedBtn"),
-    manualBtn: $("navManual"),
-    debugBtn: $("navDebug"),
+    navHome: $("navHome"),
+    navUpload: $("navUpload"),
     navSimple: $("navSimple"),
     navAdvanced: $("navAdvanced"),
     navManual: $("navManual"),
-    navDebug: $("navDebug"),
     backBtn: $("backBtn"),
     manualBackBtn: $("manualBackBtn"),
-    debugBackBtn: $("debugBackBtn"),
     dropzone: $("dropzone"),
     convertBtn: $("convertBtn"),
     modelToggle: $("modelToggle"),
     fileInput: $("fileInput"),
+    methodModel: $("methodModel"),
+    methodClassic: $("methodClassic"),
+    classicOptions: $("classicOptions"),
     resultOriginal: $("resultOriginal"),
     resultSvg: $("resultSvg"),
     resultMeta: $("resultMeta"),
@@ -43,7 +42,6 @@
     srcFitBtn: $("srcFitBtn"),
     compareBtn: $("compareBtn"),
     bgToggleBtn: $("bgToggleBtn"),
-    // advanced
     advBackSimpleBtn: $("advBackSimpleBtn"),
     advNewBtn: $("advNewBtn"),
     advResultOriginal: $("advResultOriginal"),
@@ -75,9 +73,6 @@
     inspectKb: $("inspectKb"),
     inspectTime: $("inspectTime"),
     inspectTrans: $("inspectTrans"),
-    sidebarDebugBtn: $("sidebarDebugBtn"),
-    sidebarManualBtn: $("sidebarManualBtn"),
-    // overlays
     dropOverlay: $("dropOverlay"),
     viewOverlay: $("viewOverlay"),
     viewStage: $("viewStage"),
@@ -92,16 +87,25 @@
     viewFitBtn: $("viewFitBtn"),
     viewActualBtn: $("viewActualBtn"),
     viewDragBtn: $("viewDragBtn"),
+    viewFloatZoomOut: $("viewFloatZoomOut"),
+    viewFloatZoomIn: $("viewFloatZoomIn"),
+    viewFloatDrag: $("viewFloatDrag"),
+    viewFloatFit: $("viewFloatFit"),
     viewHint: $("viewHint"),
     compareOverlay: $("compareOverlay"),
     compareStage: $("compareStage"),
     compareSrc: $("compareSrc"),
     compareVec: $("compareVec"),
     compareSlider: $("compareSlider"),
+    compareDivider: $("compareDivider"),
+    compareHandle: $("compareHandle"),
     compareCloseBtn: $("compareCloseBtn"),
+    choiceOverlay: $("choiceOverlay"),
+    choiceSimple: $("choiceSimple"),
+    choiceAdvanced: $("choiceAdvanced"),
+    choiceCloseBtn: $("choiceCloseBtn"),
     toast: $("toast"),
     brandHome: $("brandHome"),
-    // manual
     manualStatus: $("manualStatus"),
     manualDropzone1: $("manualDropzone1"),
     manualFileInput1: $("manualFileInput1"),
@@ -112,11 +116,6 @@
     manualTrainBtn: $("manualTrainBtn"),
     manualRefreshBtn: $("manualRefreshBtn"),
     manualLog: $("manualLog"),
-    // debug
-    debugLimit: $("debugLimit"),
-    debugVetBtn: $("debugVetBtn"),
-    debugStatus: $("debugStatus"),
-    debugResults: $("debugResults"),
   };
 
   const ACCEPTED = [".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp"];
@@ -144,7 +143,7 @@
     layer_difference: 16,
     filter_speckle: 4,
     max_iterations: 18,
-    // fullscreen viewer
+    classicPreset: "logo",
     viewZoom: 100,
     viewPanX: 0,
     viewPanY: 0,
@@ -159,7 +158,15 @@
   let toastTimer = null;
   window.__vz = { view: "landing", model: { status: "idle", lastParams: null, lastError: null } };
 
-  /* ---------- IndexedDB persistence ---------- */
+  const CLASSIC_PRESETS = {
+    logo: { profile: "flat", color_precision: 3, layer_difference: 24, filter_speckle: 4, max_iterations: 12, corner_threshold: 60 },
+    icon: { profile: "flat", color_precision: 4, layer_difference: 18, filter_speckle: 2, max_iterations: 16, corner_threshold: 70 },
+    illustration: { profile: "flat", color_precision: 6, layer_difference: 14, filter_speckle: 4, max_iterations: 20, corner_threshold: 50 },
+    lqip: { profile: "photo", color_precision: 5, layer_difference: 20, filter_speckle: 6, max_iterations: 18, corner_threshold: 40 },
+    artistic: { profile: "photo", color_precision: 7, layer_difference: 10, filter_speckle: 8, max_iterations: 28, corner_threshold: 30 },
+    custom: null,
+  };
+
   function openDB() {
     return new Promise((resolve, reject) => {
       const req = indexedDB.open(DB_NAME, DB_VERSION);
@@ -204,6 +211,7 @@
         layer_difference: state.layer_difference,
         filter_speckle: state.filter_speckle,
         max_iterations: state.max_iterations,
+        classicPreset: state.classicPreset,
         zoom: state.zoom,
         advZoom: state.advZoom,
         view: window.__vz.view,
@@ -227,6 +235,7 @@
       state.layer_difference = proj.layer_difference || 16;
       state.filter_speckle = proj.filter_speckle || 4;
       state.max_iterations = proj.max_iterations || 18;
+      state.classicPreset = proj.classicPreset || "logo";
       state.zoom = proj.zoom || 100;
       state.advZoom = proj.advZoom || 100;
       if (blob) {
@@ -261,14 +270,14 @@
         else setView("result");
         applyZoom();
         initSlidersFill();
-        toast("Project restored from previous session", "ok");
+        applyClassicPreset(state.classicPreset, false);
+        toast("Project restored", "ok");
         return true;
       }
     } catch {}
     return false;
   }
 
-  /* ---------- helpers ---------- */
   function toast(msg, kind) {
     if (!els.toast) return;
     els.toast.textContent = msg;
@@ -298,17 +307,14 @@
     if (els.result) els.result.hidden = name !== "result";
     if (els.advanced) els.advanced.hidden = name !== "advanced";
     if (els.manual) els.manual.hidden = name !== "manual";
-    if (els.debug) els.debug.hidden = name !== "debug";
     window.__vz.view = name;
     localStorage.setItem("vz_view", name);
     window.scrollTo({ top: 0 });
     if (name === "manual") refreshManualStatus();
-    if (name === "debug" && els.debugStatus) els.debugStatus.textContent = "Click Vet to run strict grading";
     saveProject();
   }
   function showResult(meta, modelUsed) {
     state.meta = meta;
-    setView("result");
     const parts = [`${meta.colors} colors`, `${meta.paths} paths`, `${meta.kb} KB`];
     if (meta.transparent_bg) parts.push("transparent background");
     if (modelUsed) parts.push("smart model");
@@ -323,6 +329,7 @@
     if (els.inspectTrans) els.inspectTrans.textContent = meta.transparent_bg ? "yes" : "no";
     applyZoom();
     saveProject();
+    showChoice();
   }
   function makeBlobUrl() {
     if (state.svgUrl) URL.revokeObjectURL(state.svgUrl);
@@ -363,7 +370,6 @@
     applyZoom();
   }
 
-  /* ---------- custom slider fill ---------- */
   function updateSliderFill(input) {
     if (!input || !input.classList.contains("slider")) return;
     const min = parseFloat(input.min) || 0;
@@ -374,9 +380,42 @@
   }
   function initSlidersFill() {
     document.querySelectorAll("input.slider").forEach(updateSliderFill);
+    const cs = document.getElementById("compareSlider");
+    if (cs) {
+      const min = parseFloat(cs.min) || 0;
+      const max = parseFloat(cs.max) || 100;
+      const val = parseFloat(cs.value) || 50;
+      const pct = ((val - min) / (max - min)) * 100;
+      cs.style.setProperty("--fill", pct + "%");
+    }
   }
 
-  /* ---------- smart model (ONNX in browser) ---------- */
+  function applyClassicPreset(preset, updateUI = true) {
+    state.classicPreset = preset;
+    const p = CLASSIC_PRESETS[preset];
+    if (p && updateUI) {
+      state.profile = p.profile;
+      state.color_precision = p.color_precision;
+      state.layer_difference = p.layer_difference;
+      state.filter_speckle = p.filter_speckle;
+      state.max_iterations = p.max_iterations;
+      if (els.advProfile) els.advProfile.value = p.profile;
+      if (els.advCp) els.advCp.value = p.color_precision;
+      if (els.advLd) els.advLd.value = p.layer_difference;
+      if (els.advFs) els.advFs.value = Math.log2(p.filter_speckle);
+      if (els.advMi) els.advMi.value = p.max_iterations;
+      if (els.advCpVal) els.advCpVal.textContent = p.color_precision;
+      if (els.advLdVal) els.advLdVal.textContent = p.layer_difference;
+      if (els.advFsVal) els.advFsVal.textContent = p.filter_speckle;
+      if (els.advMiVal) els.advMiVal.textContent = p.max_iterations;
+      initSlidersFill();
+    }
+    document.querySelectorAll(".preset-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-preset") === preset);
+    });
+    saveProject();
+  }
+
   let ortPromise = null;
   function loadOrt() {
     if (window.ort) return Promise.resolve(window.ort);
@@ -521,7 +560,6 @@
     ]);
   }
 
-  /* ---------- convert flow ---------- */
   async function convert(file) {
     if (state.busy) return;
     const err = validFile(file);
@@ -534,11 +572,12 @@
       state.sourceUrl = URL.createObjectURL(file);
       if (els.resultOriginal) els.resultOriginal.src = state.sourceUrl;
       if (els.advResultOriginal) els.advResultOriginal.src = state.sourceUrl;
-      if (els.srcMeta) els.srcMeta.textContent = `${file.name} — ${(file.size/1024).toFixed(1)} KB`;
+      if (els.srcMeta) els.srcMeta.textContent = `${file.name} ${ (file.size/1024).toFixed(1)} KB`;
 
       const fd = new FormData();
       fd.append("file", file);
-      if (els.modelToggle.checked) {
+      const useModel = els.modelToggle.checked;
+      if (useModel) {
         try {
           const p = await withTimeout(modelParamsFor(file), 8000);
           fd.append("use_model", "1");
@@ -568,8 +607,27 @@
         } catch (me) {
           window.__vz.model.status = "error";
           window.__vz.model.lastError = String(me && me.message || me);
-          toast("Smart model unavailable using standard settings", "error");
+          toast("Smart model unavailable using classic best tier", "error");
+          // fallback to classic preset
+          const preset = CLASSIC_PRESETS[state.classicPreset];
+          if (preset) {
+            fd.append("profile", preset.profile);
+            fd.append("color_precision", String(preset.color_precision));
+            fd.append("layer_difference", String(preset.layer_difference));
+            fd.append("filter_speckle", String(preset.filter_speckle));
+            fd.append("max_iterations", String(preset.max_iterations));
+            fd.append("corner_threshold", String(preset.corner_threshold));
+          }
         }
+      } else {
+        // classic best tier method with preset
+        const preset = CLASSIC_PRESETS[state.classicPreset] || CLASSIC_PRESETS.logo;
+        fd.append("profile", preset.profile);
+        fd.append("color_precision", String(preset.color_precision));
+        fd.append("layer_difference", String(preset.layer_difference));
+        fd.append("filter_speckle", String(preset.filter_speckle));
+        fd.append("max_iterations", String(preset.max_iterations));
+        fd.append("corner_threshold", String(preset.corner_threshold));
       }
       const res = await fetch("/api/convert", { method: "POST", body: fd });
       const data = await res.json().catch(() => ({}));
@@ -617,17 +675,16 @@
     }
   }
 
-  /* ---------- manual training & debug vet ---------- */
   async function refreshManualStatus() {
     if (!els.manualStatus) return;
     try {
       const res = await fetch("/api/manual/status");
       const data = await res.json();
       els.manualStatus.innerHTML = `
-        <strong>Collected:</strong> ${data.total_images} images Section 1 · ${data.total_results} results Section 2 · ONNX ${(data.onnx_size/1024/1024).toFixed(2)} MB · Model ${data.model_exists ? "exists" : "missing"}<br>
+        <strong>Collected</strong> ${data.total_images} images Section 1 and ${data.total_results} results Section 2 and ONNX ${(data.onnx_size/1024/1024).toFixed(2)} MB and Model ${data.model_exists ? "exists" : "missing"}<br>
         <small>${data.note || ""}</small><br>
-        <small>Images sample: ${(data.images_sample||[]).slice(0,5).join(", ")}</small><br>
-        <small>Results sample: ${(data.results_sample||[]).slice(0,5).join(", ")}</small>
+        <small>Images sample ${(data.images_sample||[]).slice(0,5).join(", ")}</small><br>
+        <small>Results sample ${(data.results_sample||[]).slice(0,5).join(", ")}</small>
       `;
       if (els.manualLog && data.last_training) {
         els.manualLog.innerHTML = "<h4>Last training continuous</h4><pre>" + JSON.stringify(data.last_training, null, 2) + "</pre>";
@@ -659,68 +716,32 @@
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || res.status);
       toast(data.msg, "ok");
-      if (els.manualLog) els.manualLog.innerHTML += "<p>Training started check status in 30s ONNX will update model improves</p>";
+      if (els.manualLog) els.manualLog.innerHTML += "<p>Training started check status in 30s ONNX will update</p>";
     } catch (e) {
       toast("Train failed " + e.message, "error");
     }
   }
-  async function vetModelStrict() {
-    if (!els.debugStatus || !els.debugResults) return;
-    const limit = parseInt(els.debugLimit?.value || "20", 10) || 20;
-    els.debugStatus.textContent = `Vetting model very strictly limit ${limit} scanning result and grading strictly`;
-    els.debugResults.innerHTML = "<p>Running strict scan</p>";
-    try {
-      const res = await fetch(`/api/debug/vet?limit=${limit}`);
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      els.debugStatus.innerHTML = `
-        <strong>Strict Vet Result:</strong> ${data.pass} PASS ${data.fail} FAIL ${data.total} total pass rate ${(data.pass_rate*100).toFixed(1)}% avg score ${data.avg_score}<br>
-        <small>Thresholds ${data.thresholds.clean} | ${data.thresholds.blurred}</small><br>
-        <small>Model ${data.model.arch} ONNX ${(data.model.onnx_size/1024/1024).toFixed(2)} MB</small>
-      `;
-      const rows = data.results.map(r => {
-        if (r.error) return `<div class="debug-row fail">${r.name} ERROR ${r.error}</div>`;
-        const cls = r.grade === "PASS" ? "pass" : "fail";
-        return `<div class="debug-row ${cls}">
-          <strong>${r.name}</strong> ${r.grade} score ${r.score} cov ${r.coverage} prec ${r.precision} color err ${r.color_err} paths ${r.paths} ${r.is_clean ? "clean" : "blurred"}<br>
-          <small>strict score ok ${r.strict.score_ok} coverage ok ${r.strict.coverage_ok} precision ok ${r.strict.precision_ok} color ok ${r.strict.color_ok} paths ok ${r.strict.paths_ok} params ${JSON.stringify(r.params)}</small>
-        </div>`;
-      }).join("");
-      els.debugResults.innerHTML = rows;
-      toast(`Vet done ${data.pass} PASS ${data.fail} FAIL`, data.fail > 0 ? "error" : "ok");
-    } catch (e) {
-      els.debugStatus.textContent = "Vet failed " + e.message;
-      toast("Vet failed " + e.message, "error");
-    }
-  }
 
-  /* ---------- fullscreen view — pro viewer with zoom, drag, no accidental close ---------- */
   function applyViewTransform() {
     if (!els.viewStageInner) return;
     const scale = state.viewZoom / 100;
     els.viewStageInner.style.transform = `translate(${state.viewPanX}px, ${state.viewPanY}px) scale(${scale})`;
     if (els.viewZoomLevel) els.viewZoomLevel.textContent = Math.round(state.viewZoom) + "%";
-    // update cursor hint
     if (els.viewStage) {
-      if (state.viewZoom > 100 || state.viewDragMode) {
-        els.viewStage.classList.add("drag-mode");
-      } else {
-        els.viewStage.classList.remove("drag-mode");
-      }
+      if (state.viewZoom > 100 || state.viewDragMode) els.viewStage.classList.add("drag-mode");
+      else els.viewStage.classList.remove("drag-mode");
     }
   }
   function setViewZoom(delta, anchor) {
     const oldZoom = state.viewZoom;
     let newZoom = oldZoom + delta;
     newZoom = Math.max(25, Math.min(800, newZoom));
-    // if anchor provided, adjust pan to keep anchor stable
     if (anchor && els.viewStage) {
       const rect = els.viewStage.getBoundingClientRect();
       const cx = rect.width / 2, cy = rect.height / 2;
       const ax = anchor.x - rect.left - cx;
       const ay = anchor.y - rect.top - cy;
       const scaleRatio = newZoom / oldZoom;
-      // pan adjustment: keep point under cursor stable
       state.viewPanX = anchor.panX + (ax - ax * scaleRatio) + (state.viewPanX - anchor.panX) * scaleRatio;
       state.viewPanY = anchor.panY + (ay - ay * scaleRatio) + (state.viewPanY - anchor.panY) * scaleRatio;
     }
@@ -729,10 +750,7 @@
   }
   function setViewZoomAbsolute(zoom, center) {
     state.viewZoom = Math.max(25, Math.min(800, zoom));
-    if (center) {
-      state.viewPanX = 0;
-      state.viewPanY = 0;
-    }
+    if (center) { state.viewPanX = 0; state.viewPanY = 0; }
     applyViewTransform();
   }
   function fitView() {
@@ -744,7 +762,6 @@
 
   function openView() {
     if (!state.svgText) return;
-    // ensure inner container exists
     if (!els.viewStageInner) {
       els.viewStageInner = document.createElement("div");
       els.viewStageInner.id = "viewStageInner";
@@ -765,6 +782,7 @@
     state.viewPanY = 0;
     state.viewDragMode = false;
     if (els.viewDragBtn) els.viewDragBtn.classList.remove("active");
+    if (els.viewFloatDrag) els.viewFloatDrag.classList.remove("active");
     applyViewTransform();
     document.body.style.overflow = "hidden";
   }
@@ -772,9 +790,7 @@
     if (els.viewOverlay) els.viewOverlay.hidden = true;
     state.viewOpen = false;
     state.viewIsDragging = false;
-    if (els.viewStage) {
-      els.viewStage.classList.remove("dragging");
-    }
+    if (els.viewStage) els.viewStage.classList.remove("dragging");
     document.body.style.overflow = "";
   }
   function openCompare() {
@@ -793,16 +809,27 @@
     const v = Math.max(0, Math.min(100, val));
     const vec = document.querySelector(".compare-vector");
     if (vec) vec.style.clipPath = `inset(0 0 0 ${v}%)`;
+    if (els.compareDivider) els.compareDivider.style.left = v + "%";
+    if (els.compareHandle) els.compareHandle.style.left = v + "%";
+    const cs = els.compareSlider;
+    if (cs) {
+      const min = parseFloat(cs.min) || 0;
+      const max = parseFloat(cs.max) || 100;
+      const pct = ((v - min) / (max - min)) * 100;
+      cs.style.setProperty("--fill", pct + "%");
+    }
   }
 
-  /* ---------- wiring ---------- */
+  function showChoice() {
+    if (els.choiceOverlay) els.choiceOverlay.hidden = false;
+  }
+  function hideChoice() {
+    if (els.choiceOverlay) els.choiceOverlay.hidden = true;
+  }
+
   if (els.startBtn) els.startBtn.addEventListener("click", () => setView("upload"));
-  if (els.landingAdvancedBtn) els.landingAdvancedBtn.addEventListener("click", () => {
-    if (state.svgText) setView("advanced");
-    else setView("upload");
-  });
-  if (els.manualBtn) els.manualBtn.addEventListener("click", () => setView("manual"));
-  if (els.debugBtn) els.debugBtn.addEventListener("click", () => setView("debug"));
+  if (els.navHome) els.navHome.addEventListener("click", () => setView("landing"));
+  if (els.navUpload) els.navUpload.addEventListener("click", () => setView("upload"));
   if (els.navSimple) els.navSimple.addEventListener("click", () => {
     if (state.svgText) setView("result");
     else setView("landing");
@@ -812,10 +839,8 @@
     else setView("upload");
   });
   if (els.navManual) els.navManual.addEventListener("click", () => setView("manual"));
-  if (els.navDebug) els.navDebug.addEventListener("click", () => setView("debug"));
   if (els.backBtn) els.backBtn.addEventListener("click", () => setView("landing"));
   if (els.manualBackBtn) els.manualBackBtn.addEventListener("click", () => setView("landing"));
-  if (els.debugBackBtn) els.debugBackBtn.addEventListener("click", () => setView("landing"));
   if (els.newBtn) els.newBtn.addEventListener("click", () => setView("upload"));
   if (els.advNewBtn) els.advNewBtn.addEventListener("click", () => setView("upload"));
   if (els.openAdvancedBtn) els.openAdvancedBtn.addEventListener("click", () => setView("advanced"));
@@ -843,7 +868,6 @@
   if (els.downloadBtn) els.downloadBtn.addEventListener("click", download);
   if (els.advDownloadBtn) els.advDownloadBtn.addEventListener("click", download);
 
-  // zoom controls — simple studio
   if (els.zoomOutBtn) els.zoomOutBtn.addEventListener("click", () => setZoom(-25, false));
   if (els.zoomInBtn) els.zoomInBtn.addEventListener("click", () => setZoom(25, false));
   if (els.zoomFitBtn) els.zoomFitBtn.addEventListener("click", () => fitZoom(false));
@@ -855,23 +879,10 @@
   if (els.advZoomResetBtn) els.advZoomResetBtn.addEventListener("click", () => fitZoom(true));
   if (els.advSrcFitBtn) els.advSrcFitBtn.addEventListener("click", () => fitZoom(true));
 
-  // inspection — clicking result opens fullscreen view, NOT upload
-  if (els.resultSvgBox) {
-    els.resultSvgBox.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openView();
-    });
-  }
-  if (els.advResultSvgBox) {
-    els.advResultSvgBox.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openView();
-    });
-  }
+  if (els.resultSvgBox) els.resultSvgBox.addEventListener("click", (e) => { e.stopPropagation(); openView(); });
+  if (els.advResultSvgBox) els.advResultSvgBox.addEventListener("click", (e) => { e.stopPropagation(); openView(); });
   if (els.viewBtn) els.viewBtn.addEventListener("click", openView);
   if (els.advViewBtn) els.advViewBtn.addEventListener("click", openView);
-
-  // fullscreen viewer controls — pro tools
   if (els.viewCloseBtn) els.viewCloseBtn.addEventListener("click", closeView);
   if (els.viewCloseBtn2) els.viewCloseBtn2.addEventListener("click", closeView);
   if (els.viewDownloadBtn) els.viewDownloadBtn.addEventListener("click", download);
@@ -879,31 +890,29 @@
   if (els.viewZoomInBtn) els.viewZoomInBtn.addEventListener("click", () => setViewZoom(25));
   if (els.viewFitBtn) els.viewFitBtn.addEventListener("click", fitView);
   if (els.viewActualBtn) els.viewActualBtn.addEventListener("click", () => setViewZoomAbsolute(100, true));
-  if (els.viewDragBtn) {
-    els.viewDragBtn.addEventListener("click", () => {
-      state.viewDragMode = !state.viewDragMode;
-      els.viewDragBtn.classList.toggle("active", state.viewDragMode);
-      if (els.viewStage) els.viewStage.classList.toggle("drag-mode", state.viewDragMode || state.viewZoom > 100);
-    });
-  }
+  if (els.viewFloatZoomOut) els.viewFloatZoomOut.addEventListener("click", () => setViewZoom(-25));
+  if (els.viewFloatZoomIn) els.viewFloatZoomIn.addEventListener("click", () => setViewZoom(25));
+  if (els.viewFloatFit) els.viewFloatFit.addEventListener("click", fitView);
+  const toggleDrag = () => {
+    state.viewDragMode = !state.viewDragMode;
+    if (els.viewDragBtn) els.viewDragBtn.classList.toggle("active", state.viewDragMode);
+    if (els.viewFloatDrag) els.viewFloatDrag.classList.toggle("active", state.viewDragMode);
+    if (els.viewStage) els.viewStage.classList.toggle("drag-mode", state.viewDragMode || state.viewZoom > 100);
+  };
+  if (els.viewDragBtn) els.viewDragBtn.addEventListener("click", toggleDrag);
+  if (els.viewFloatDrag) els.viewFloatDrag.addEventListener("click", toggleDrag);
 
-  // view stage pan & zoom interactions — fix: clicking canvas does NOT force exit
   if (els.viewStage) {
-    // wheel zoom
     els.viewStage.addEventListener("wheel", (e) => {
       if (!state.viewOpen) return;
       e.preventDefault();
       const delta = e.deltaY > 0 ? -25 : 25;
       setViewZoom(delta, { x: e.clientX, y: e.clientY, panX: state.viewPanX, panY: state.viewPanY });
     }, { passive: false });
-
-    // mouse drag pan
     els.viewStage.addEventListener("mousedown", (e) => {
       if (!state.viewOpen) return;
-      // only left button, and only if zoomed or drag mode active
       if (e.button !== 0) return;
       if (state.viewZoom <= 100 && !state.viewDragMode) return;
-      // prevent closing, start drag
       e.preventDefault();
       state.viewIsDragging = true;
       state.viewDragStartX = e.clientX;
@@ -927,8 +936,6 @@
       if (els.viewStage) els.viewStage.classList.remove("dragging");
       if (els.viewStageInner) els.viewStageInner.classList.remove("dragging");
     });
-
-    // touch pan & pinch zoom
     let lastTouchDist = null;
     let lastTouchCenter = null;
     els.viewStage.addEventListener("touchstart", (e) => {
@@ -978,14 +985,8 @@
       if (els.viewStage) els.viewStage.classList.remove("dragging");
       if (els.viewStageInner) els.viewStageInner.classList.remove("dragging");
     });
-
-    // IMPORTANT FIX: clicking canvas does NOT force exit from zoom
-    // Only clicking the overlay background outside stage (not image) would close, but we disable that to prevent accidental exit
-    // So we do NOT close on viewStage click anymore — only X buttons and Esc close
-    // If user explicitly wants to close by clicking background, they can click the dark area outside inner? We keep it disabled to fix bug
   }
 
-  // compare
   if (els.compareBtn) els.compareBtn.addEventListener("click", openCompare);
   if (els.advCompareBtn) els.advCompareBtn.addEventListener("click", openCompare);
   if (els.compareCloseBtn) els.compareCloseBtn.addEventListener("click", closeCompare);
@@ -1006,39 +1007,31 @@
     });
   }
 
-  // advanced params — custom sliders
   function bindRange(input, valEl, key) {
     if (!input || !valEl) return;
     const update = () => {
       updateSliderFill(input);
-      let displayVal = input.value;
       if (key === "filter_speckle") {
         const exp = parseInt(input.value, 10);
         const v = Math.pow(2, exp);
-        displayVal = v;
         valEl.textContent = v;
         state[key] = v;
       } else {
         valEl.textContent = input.value;
-        state[key] = input.type === "range" ? parseInt(input.value, 10) : input.value;
-        if (key === "profile") state[key] = input.value;
+        state[key] = parseInt(input.value, 10);
       }
       saveProject();
     };
     input.addEventListener("input", update);
-    // init
     update();
   }
   bindRange(els.advCp, els.advCpVal, "color_precision");
   bindRange(els.advLd, els.advLdVal, "layer_difference");
   bindRange(els.advFs, els.advFsVal, "filter_speckle");
   bindRange(els.advMi, els.advMiVal, "max_iterations");
-  if (els.advProfile) {
-    els.advProfile.addEventListener("change", () => { state.profile = els.advProfile.value; saveProject(); });
-  }
+  if (els.advProfile) els.advProfile.addEventListener("change", () => { state.profile = els.advProfile.value; saveProject(); });
   if (els.advReconvertBtn) els.advReconvertBtn.addEventListener("click", reconvertWithAdvanced);
 
-  // sidebar collapsible
   document.querySelectorAll("[data-toggle]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.getAttribute("data-toggle");
@@ -1049,10 +1042,7 @@
       btn.parentElement.classList.toggle("collapsed", !isHidden);
     });
   });
-  if (els.sidebarDebugBtn) els.sidebarDebugBtn.addEventListener("click", () => setView("debug"));
-  if (els.sidebarManualBtn) els.sidebarManualBtn.addEventListener("click", () => setView("manual"));
 
-  // manual training wiring
   if (els.manualDropzone1 && els.manualFileInput1) {
     els.manualDropzone1.addEventListener("click", () => els.manualFileInput1.click());
     els.manualDropzone1.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); els.manualFileInput1.click(); } });
@@ -1071,9 +1061,39 @@
   }
   if (els.manualTrainBtn) els.manualTrainBtn.addEventListener("click", triggerManualTrain);
   if (els.manualRefreshBtn) els.manualRefreshBtn.addEventListener("click", refreshManualStatus);
-  if (els.debugVetBtn) els.debugVetBtn.addEventListener("click", vetModelStrict);
 
-  /* ---------- drag and drop ---------- */
+  // two methods
+  function setMethod(method) {
+    const isModel = method === "model";
+    if (els.modelToggle) els.modelToggle.checked = isModel;
+    if (els.methodModel) els.methodModel.classList.toggle("active", isModel);
+    if (els.methodClassic) els.methodClassic.classList.toggle("active", !isModel);
+    if (els.classicOptions) els.classicOptions.hidden = isModel;
+  }
+  if (els.methodModel) els.methodModel.addEventListener("click", () => setMethod("model"));
+  if (els.methodClassic) els.methodClassic.addEventListener("click", () => setMethod("classic"));
+  if (els.modelToggle) {
+    els.modelToggle.addEventListener("change", () => {
+      setMethod(els.modelToggle.checked ? "model" : "classic");
+    });
+  }
+  document.querySelectorAll(".preset-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const preset = btn.getAttribute("data-preset");
+      applyClassicPreset(preset, true);
+    });
+  });
+
+  // choice modal
+  if (els.choiceSimple) els.choiceSimple.addEventListener("click", () => { hideChoice(); setView("result"); });
+  if (els.choiceAdvanced) els.choiceAdvanced.addEventListener("click", () => { hideChoice(); setView("advanced"); });
+  if (els.choiceCloseBtn) els.choiceCloseBtn.addEventListener("click", hideChoice);
+  if (els.choiceOverlay) {
+    els.choiceOverlay.addEventListener("click", (e) => {
+      if (e.target === els.choiceOverlay) hideChoice();
+    });
+  }
+
   let dragDepth = 0;
   let dragHasFiles = false;
   function isFileDrag(e) {
@@ -1138,6 +1158,7 @@
     if (e.key === "Escape") {
       if (state.viewOpen) closeView();
       if (state.compareOpen) closeCompare();
+      if (els.choiceOverlay && !els.choiceOverlay.hidden) hideChoice();
       if (els.dropOverlay && !els.dropOverlay.hidden) {
         els.dropOverlay.hidden = true;
         document.body.classList.remove("dragging");
@@ -1145,7 +1166,6 @@
         dragHasFiles = false;
       }
     }
-    // viewer shortcuts
     if (state.viewOpen) {
       if (e.key === "+" || e.key === "=") { e.preventDefault(); setViewZoom(25); }
       if (e.key === "-" || e.key === "_") { e.preventDefault(); setViewZoom(-25); }
@@ -1154,13 +1174,13 @@
     }
   });
 
-  // init
   (async () => {
     initSlidersFill();
+    applyClassicPreset(state.classicPreset, false);
     const restored = await loadProject();
     if (!restored) {
       const v = localStorage.getItem("vz_view");
-      if (v && ["landing", "upload", "result", "advanced", "manual", "debug"].includes(v)) setView(v);
+      if (v && ["landing", "upload", "result", "advanced", "manual"].includes(v)) setView(v);
       else setView("landing");
     }
     applyZoom();

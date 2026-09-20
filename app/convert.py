@@ -44,9 +44,21 @@ ALPHA_CUTOFF = 128       # alpha above this = content, below = background
 FLAT_ERR = 35.0          # mean 4-color reconstruction error (0-441) below this = flat art
 
 BASELINE_FLAT = dict(profile="flat", color_precision=3, layer_difference=24,
-                     filter_speckle=4, max_iterations=12)
+                     filter_speckle=4, max_iterations=12, corner_threshold=60,
+                     length_threshold=4.0, path_precision=8)
 BASELINE_PHOTO = dict(profile="photo", color_precision=7, layer_difference=12,
-                      filter_speckle=8, max_iterations=40)
+                      filter_speckle=8, max_iterations=40, corner_threshold=60,
+                      length_threshold=3.5, path_precision=8)
+
+# Cloudinary inspired presets — best tier method
+PRESETS = {
+    "logo": dict(profile="flat", color_precision=3, layer_difference=24, filter_speckle=4, max_iterations=12, corner_threshold=60, length_threshold=4.0),
+    "icon": dict(profile="flat", color_precision=4, layer_difference=18, filter_speckle=2, max_iterations=16, corner_threshold=70, length_threshold=4.0),
+    "illustration": dict(profile="flat", color_precision=6, layer_difference=14, filter_speckle=4, max_iterations=20, corner_threshold=50, length_threshold=3.5),
+    "lqip": dict(profile="photo", color_precision=5, layer_difference=20, filter_speckle=6, max_iterations=18, corner_threshold=40, length_threshold=4.5),
+    "artistic": dict(profile="photo", color_precision=7, layer_difference=10, filter_speckle=8, max_iterations=28, corner_threshold=30, length_threshold=3.0),
+    "custom": None,
+}
 
 # Candidates for the synthetic transparent background. Chosen at runtime so
 # the one used is maximally far from the image's actual colors.
@@ -288,15 +300,30 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     baseline when params is None). params keys: profile, color_precision,
     layer_difference, filter_speckle, max_iterations (all optional)."""
     params = params or {}
+    # handle preset shortcut
+    preset_name = params.get("preset")
+    if preset_name and preset_name in PRESETS and PRESETS[preset_name]:
+        # preset overrides if explicit param not given
+        preset = PRESETS[preset_name]
+        for k, v in preset.items():
+            if k not in params:
+                params[k] = v
+
     flat = params.get("profile", "flat" if a["is_flat"] else "photo") == "flat"
     cp = int(params.get("color_precision", BASELINE_FLAT["color_precision"] if flat else BASELINE_PHOTO["color_precision"]))
     ld = int(params.get("layer_difference", BASELINE_FLAT["layer_difference"] if flat else BASELINE_PHOTO["layer_difference"]))
     sp = int(params.get("filter_speckle", BASELINE_FLAT["filter_speckle"] if flat else BASELINE_PHOTO["filter_speckle"]))
     mi = int(params.get("max_iterations", BASELINE_FLAT["max_iterations"] if flat else BASELINE_PHOTO["max_iterations"]))
+    ct = int(params.get("corner_threshold", BASELINE_FLAT["corner_threshold"] if flat else BASELINE_PHOTO["corner_threshold"]))
+    lt = float(params.get("length_threshold", BASELINE_FLAT["length_threshold"] if flat else BASELINE_PHOTO["length_threshold"]))
+    pp = int(params.get("path_precision", BASELINE_FLAT["path_precision"] if flat else BASELINE_PHOTO["path_precision"]))
     cp = min(max(cp, 1), 8)
     ld = min(max(ld, 4), 48)
     sp = min(max(sp, 1), 16)
     mi = min(max(mi, 8), 48)
+    ct = min(max(ct, 10), 110)
+    lt = min(max(lt, 2.0), 10.0)
+    pp = min(max(pp, 3), 12)
 
     w, h = a["w"], a["h"]
     with tempfile.TemporaryDirectory() as td:
@@ -310,11 +337,8 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             src, out,
             colormode="color", hierarchical="cutout",
             max_iterations=mi, color_precision=cp, layer_difference=ld,
-            # Speckle must stay small: large values delete the thin
-            # 2-4px "bridge" fragments where line-art strokes cross,
-            # which reads as holes in the final vector.
-            filter_speckle=sp, corner_threshold=60,
-            length_threshold=4.0 if flat else 3.5, path_precision=8,
+            filter_speckle=sp, corner_threshold=ct,
+            length_threshold=lt, path_precision=pp,
         )
         svg = open(out, encoding="utf-8").read()
 
@@ -324,11 +348,36 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     return _tidy(svg, w, h, flat)
 
 
+def _pick_best_preset(a: dict) -> dict:
+    """Cloudinary inspired best tier: pick preset based on image analysis"""
+    w, h = a["w"], a["h"]
+    flat_err = a.get("flat_err", 100)
+    is_flat = a.get("is_flat", False)
+    has_alpha = a.get("has_alpha", False)
+    # small icons
+    if max(w, h) < 128 and is_flat:
+        return PRESETS["icon"]
+    # logos: flat, low error, transparent, few colors
+    if is_flat and flat_err < 15 and has_alpha:
+        return PRESETS["logo"]
+    if is_flat and flat_err < 25:
+        return PRESETS["illustration"]
+    if not is_flat and flat_err > 60:
+        # photo like
+        if max(w, h) < 300:
+            return PRESETS["lqip"]
+        return PRESETS["artistic"]
+    # default
+    return PRESETS["logo"] if is_flat else PRESETS["illustration"]
+
 def vectorize(img_bytes: bytes, params: dict | None = None) -> dict:
     """Convert raster bytes to a clean SVG. Returns {svg, meta}."""
     t0 = time.time()
     img = Image.open(io.BytesIO(img_bytes))
     a = analyze(img)
+    # best tier method when no params: use Cloudinary inspired preset picking
+    if params is None:
+        params = _pick_best_preset(a)
     svg = trace_with(a, params)
 
     fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)

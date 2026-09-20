@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vectorizer — image to SVG</title>
+<title>Vectorizer image to SVG</title>
 <meta name="description" content="Convert PNG JPG WebP GIF BMP to clean scalable SVG">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F8CFF'/%3E%3Cpath d='M8 22 C 12 8, 20 8, 24 14 M20 14 L24 14 L24 10' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/static/fontawesome/all.min.css">
@@ -20,25 +20,24 @@
       <span class="brand-name">Vectorizer</span>
     </a>
     <nav class="top-nav-actions" aria-label="Primary">
-      <button class="nav-btn" id="navSimple" type="button" title="Simple Studio"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Simple Studio</span></button>
-      <button class="nav-btn" id="navAdvanced" type="button" title="Advanced Studio"><i class="fa-solid fa-sliders"></i><span>Advanced Studio</span></button>
-      <div class="nav-sep" aria-hidden="true"></div>
-      <button class="nav-btn nav-btn-ghost" id="navManual" type="button" title="Manual Training"><i class="fa-solid fa-database"></i><span>Manual Training</span></button>
-      <button class="nav-btn nav-btn-ghost nav-btn-debug" id="navDebug" type="button" title="Debug Vet"><i class="fa-solid fa-bug"></i><span>Debug</span></button>
+      <button class="nav-btn" id="navHome" type="button" title="Home"><i class="fa-solid fa-house"></i></button>
+      <button class="nav-btn" id="navUpload" type="button" title="Upload"><i class="fa-solid fa-cloud-arrow-up"></i></button>
+      <button class="nav-btn" id="navSimple" type="button" title="Simple Studio"><i class="fa-solid fa-wand-magic-sparkles"></i></button>
+      <button class="nav-btn" id="navAdvanced" type="button" title="Advanced Studio"><i class="fa-solid fa-sliders"></i></button>
+      <button class="nav-btn nav-btn-ghost" id="navManual" type="button" title="Manual Training"><i class="fa-solid fa-database"></i></button>
     </nav>
   </div>
 </header>
 
 <main class="app-main">
-  <!-- LANDING -->
+  <!-- LANDING simplified no hero image no overlay only upload -->
   <section class="view view-landing" id="landing">
     <div class="landing-inner">
       <div class="landing-copy">
         <h1>Image to SVG in one click</h1>
-        <p class="sub">Upload a raster image and get a clean scalable vector that is ready to use</p>
+        <p class="sub">Upload a raster image and get a clean scalable vector ready to use</p>
         <div class="landing-actions">
-          <button class="btn btn-primary" id="startBtn" type="button"><span>Upload an image</span></button>
-          <button class="btn btn-secondary" id="landingAdvancedBtn" type="button"><span>Open Advanced Studio</span></button>
+          <button class="btn btn-primary btn-lg" id="startBtn" type="button"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload an image</span></button>
         </div>
         <div class="landing-meta">
           <span><i class="fa-solid fa-check"></i> PNG JPG WebP GIF BMP</span>
@@ -46,13 +45,10 @@
           <span><i class="fa-solid fa-check"></i> Smart model picks best settings</span>
         </div>
       </div>
-      <div class="landing-visual">
-        <img class="hero-img" src="/static/img/hero.jpg" alt="Colorful geometric artwork" width="500" height="333">
-      </div>
     </div>
   </section>
 
-  <!-- UPLOAD -->
+  <!-- UPLOAD with two ways to vectorize model and best tier method -->
   <section class="view view-upload" id="upload" hidden>
     <div class="upload-inner">
       <div class="upload-header">
@@ -66,18 +62,41 @@
         <p class="dz-hint">You can also paste from clipboard</p>
       </div>
       <div class="upload-controls">
+        <div class="upload-methods">
+          <div class="method-card active" id="methodModel" data-method="model">
+            <h4><i class="fa-solid fa-brain"></i> Smart Model</h4>
+            <p>AI picks best settings for each image</p>
+          </div>
+          <div class="method-card" id="methodClassic" data-method="classic">
+            <h4><i class="fa-solid fa-layer-group"></i> Classic Best Tier</h4>
+            <p>Proven heuristic with presets for logos icons illustration</p>
+          </div>
+        </div>
         <label class="model-toggle" for="modelToggle">
           <input type="checkbox" id="modelToggle" checked>
           <span class="switch" aria-hidden="true"></span>
-          <span class="mt-text"><strong>Smart model</strong><small>Chooses best settings for each image</small></span>
+          <span class="mt-text"><strong>Use smart model</strong><small>When off choose classic preset below</small></span>
         </label>
+        <div class="classic-options" id="classicOptions" hidden>
+          <div class="field-select">
+            <label><i class="fa-solid fa-wand-magic-sparkles"></i> Classic preset</label>
+            <div class="preset-grid">
+              <button class="preset-btn active" data-preset="logo" type="button"><i class="fa-solid fa-certificate"></i><span>Logo</span></button>
+              <button class="preset-btn" data-preset="icon" type="button"><i class="fa-solid fa-icons"></i><span>Icon</span></button>
+              <button class="preset-btn" data-preset="illustration" type="button"><i class="fa-solid fa-palette"></i><span>Illustration</span></button>
+              <button class="preset-btn" data-preset="lqip" type="button"><i class="fa-solid fa-image"></i><span>LQIP</span></button>
+              <button class="preset-btn" data-preset="artistic" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Artistic</span></button>
+              <button class="preset-btn" data-preset="custom" type="button"><i class="fa-solid fa-sliders"></i><span>Custom</span></button>
+            </div>
+          </div>
+        </div>
         <button class="btn btn-primary" id="convertBtn" type="button"><i class="fa-solid fa-bolt"></i><span class="btn-label">Convert</span></button>
       </div>
       <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" hidden>
     </div>
   </section>
 
-  <!-- SIMPLE STUDIO / RESULT -->
+  <!-- SIMPLE STUDIO -->
   <section class="view view-result" id="result" hidden>
     <div class="studio-header">
       <div class="studio-title">
@@ -86,7 +105,7 @@
       </div>
       <div class="studio-actions">
         <button class="btn btn-ghost btn-sm" id="newBtn" type="button"><i class="fa-solid fa-plus"></i><span>New image</span></button>
-        <button class="btn btn-ghost btn-sm" id="openAdvancedBtn" type="button"><i class="fa-solid fa-up-right-from-square"></i><span>Open in Advanced Studio</span></button>
+        <button class="btn btn-ghost btn-sm" id="openAdvancedBtn" type="button"><i class="fa-solid fa-up-right-from-square"></i><span>Advanced</span></button>
       </div>
     </div>
     <div class="studio-grid">
@@ -131,7 +150,7 @@
         <p>Deeper control for detailed inspection and export</p>
       </div>
       <div class="studio-actions">
-        <button class="btn btn-ghost btn-sm" id="advBackSimpleBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Back to Simple Studio</span></button>
+        <button class="btn btn-ghost btn-sm" id="advBackSimpleBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Simple</span></button>
         <button class="btn btn-ghost btn-sm" id="advNewBtn" type="button"><i class="fa-solid fa-plus"></i><span>New image</span></button>
       </div>
     </div>
@@ -209,14 +228,6 @@
             <div class="inspect-row"><span>Transparent</span><strong id="inspectTrans">—</strong></div>
           </div>
         </div>
-        <div class="sidebar-card sidebar-card-debug">
-          <button class="sidebar-head" type="button" data-toggle="debug"><h3><i class="fa-solid fa-bug"></i> Developer</h3><i class="fa-solid fa-chevron-down toggle-icon"></i></button>
-          <div class="sidebar-body" id="debugBody" hidden>
-            <p class="small muted">Debug tools are for development and strict vetting. They do not affect main workflow.</p>
-            <button class="btn btn-ghost btn-sm" id="sidebarDebugBtn" type="button"><i class="fa-solid fa-vial"></i><span>Open Debug Vet</span></button>
-            <button class="btn btn-ghost btn-sm" id="sidebarManualBtn" type="button"><i class="fa-solid fa-database"></i><span>Open Manual Training</span></button>
-          </div>
-        </div>
       </aside>
     </div>
   </section>
@@ -225,20 +236,20 @@
   <section class="view view-manual" id="manual" hidden>
     <div class="manual-header">
       <button class="btn btn-ghost btn-sm" id="manualBackBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></button>
-      <div class="manual-title"><h2>Manual Training</h2><p>Collect images and results to help train and improve the model. Very strict for debug.</p></div>
+      <div class="manual-title"><h2>Manual Training</h2><p>Collect images and results to help train and improve the model</p></div>
     </div>
-    <div class="manual-status" id="manualStatus">Loading status...</div>
+    <div class="manual-status" id="manualStatus">Loading status</div>
     <div class="manual-grid">
       <div class="manual-card">
-        <h3><i class="fa-solid fa-images"></i> Section 1 — Upload Images</h3>
-        <p>Upload as many images as possible. These are pure geometric no text general images, plus blurred increasing hardness. Site collects them.</p>
+        <h3><i class="fa-solid fa-images"></i> Section 1 Upload Images</h3>
+        <p>Upload as many images as possible pure geometric no text general images plus blurred increasing hardness</p>
         <div class="dropzone dropzone-sm" id="manualDropzone1" role="button" tabindex="0"><div class="dropzone-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><p class="dz-main">Drop images here or click to browse</p><p class="dz-hint">Multiple files collected for training</p></div>
         <input type="file" id="manualFileInput1" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" multiple hidden>
         <div class="manual-list" id="manualList1"></div>
       </div>
       <div class="manual-card">
-        <h3><i class="fa-solid fa-file-code"></i> Section 2 — Upload Results</h3>
-        <p>Upload SVG results or JSON params for images in Section 1. Next upload section collects results and helps train.</p>
+        <h3><i class="fa-solid fa-file-code"></i> Section 2 Upload Results</h3>
+        <p>Upload SVG results or JSON params for images in Section 1</p>
         <div class="dropzone dropzone-sm" id="manualDropzone2" role="button" tabindex="0"><div class="dropzone-icon"><i class="fa-solid fa-file-arrow-up"></i></div><p class="dz-main">Drop results here or click to browse</p><p class="dz-hint">SVG or JSON collected as ground truth</p></div>
         <input type="file" id="manualFileInput2" accept=".svg,.json,.png,.jpg" multiple hidden>
         <div class="manual-list" id="manualList2"></div>
@@ -250,28 +261,7 @@
     </div>
     <div class="manual-log" id="manualLog"></div>
   </section>
-
-  <!-- DEBUG VET -->
-  <section class="view view-debug" id="debug" hidden>
-    <div class="debug-header">
-      <button class="btn btn-ghost btn-sm" id="debugBackBtn" type="button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></button>
-      <div class="debug-title"><h2>Debug Vet — Very Strict</h2><p>Vets model well again, be very strict, scans result and grades strictly for debug purpose.</p></div>
-    </div>
-    <div class="debug-controls">
-      <label class="field-inline">Limit <input type="number" id="debugLimit" value="20" min="1" max="100"></label>
-      <button class="btn btn-primary" id="debugVetBtn" type="button"><i class="fa-solid fa-vial"></i><span>Vet Model Strict</span></button>
-    </div>
-    <div class="debug-status" id="debugStatus">Click Vet to run strict grading</div>
-    <div class="debug-results" id="debugResults"></div>
-  </section>
 </main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span>Vectorizer — raster to vector</span>
-    <span class="footer-meta">Simple Studio for focused work · Advanced Studio for deeper control · Project persists on refresh</span>
-  </div>
-</footer>
 
 <div class="drop-overlay" id="dropOverlay" hidden>
   <div class="drop-inner">
@@ -281,10 +271,33 @@
   </div>
 </div>
 
+<!-- Choice modal after upload two options Simple Studio Advanced Studio -->
+<div class="choice-overlay" id="choiceOverlay" hidden>
+  <div class="choice-inner">
+    <h2>Vector ready choose workspace</h2>
+    <p>Pick where you want to work with your new vector</p>
+    <div class="choice-grid">
+      <div class="choice-card" id="choiceSimple" data-choice="simple">
+        <div class="choice-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Simple Studio</h3>
+        <small>Clean focused view source and vector essential controls perfect for quick work</small>
+      </div>
+      <div class="choice-card" id="choiceAdvanced" data-choice="advanced">
+        <div class="choice-card-icon"><i class="fa-solid fa-sliders"></i></div>
+        <h3>Advanced Studio</h3>
+        <small>Deeper control detailed inspection sliders compare and pro tools</small>
+      </div>
+    </div>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:8px;">
+      <button class="btn btn-ghost btn-sm" id="choiceCloseBtn" type="button"><i class="fa-solid fa-xmark"></i><span>Close</span></button>
+    </div>
+  </div>
+</div>
+
 <div class="view-overlay" id="viewOverlay" hidden>
   <div class="view-toolbar">
     <div class="view-toolbar-left">
-      <button class="view-close-btn" id="viewCloseBtn" type="button" aria-label="Close fullscreen" title="Close fullscreen (Esc)"><i class="fa-solid fa-xmark"></i></button>
+      <button class="view-close-btn" id="viewCloseBtn" type="button" aria-label="Close fullscreen" title="Close fullscreen Esc"><i class="fa-solid fa-xmark"></i></button>
       <span class="view-title" id="viewTitle">SVG preview</span>
     </div>
     <div class="view-toolbar-center">
@@ -295,8 +308,8 @@
       </div>
       <div class="view-zoom-group" role="group" aria-label="View tools">
         <button class="view-tool-btn" id="viewFitBtn" type="button" title="Fit to screen"><i class="fa-solid fa-expand"></i></button>
-        <button class="view-tool-btn" id="viewActualBtn" type="button" title="Actual size 100%"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-        <button class="view-tool-btn" id="viewDragBtn" type="button" title="Drag to pan"><i class="fa-solid fa-up-right-from-square"></i><i class="fa-solid fa-hand" style="font-size:10px; margin-left:-4px;"></i></button>
+        <button class="view-tool-btn" id="viewActualBtn" type="button" title="Actual size"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <button class="view-tool-btn" id="viewDragBtn" type="button" title="Drag to pan"><i class="fa-solid fa-hand"></i></button>
       </div>
     </div>
     <div class="view-actions">
@@ -311,18 +324,27 @@
       <span><i class="fa-solid fa-magnifying-glass"></i> Scroll to zoom</span>
       <span><i class="fa-solid fa-keyboard"></i> Esc to exit</span>
     </div>
+    <div class="view-floating-tools" id="viewFloatingTools">
+      <button class="view-tool-btn" id="viewFloatZoomOut" type="button" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+      <button class="view-tool-btn" id="viewFloatZoomIn" type="button" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+      <div style="width:1px; height:18px; background:var(--line); margin:0 2px;"></div>
+      <button class="view-tool-btn" id="viewFloatDrag" type="button" title="Drag"><i class="fa-solid fa-up-right-from-square"></i></button>
+      <button class="view-tool-btn" id="viewFloatFit" type="button" title="Fit"><i class="fa-solid fa-expand"></i></button>
+    </div>
   </div>
 </div>
 
 <div class="compare-overlay" id="compareOverlay" hidden>
   <div class="compare-toolbar">
-    <span>Compare — drag slider to compare source and vector</span>
+    <span>Compare drag slider to see source and vector difference</span>
     <button class="icon-btn" id="compareCloseBtn" type="button" title="Close"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="compare-stage" id="compareStage">
     <div class="compare-img"><img id="compareSrc" alt="Source"></div>
     <div class="compare-img compare-vector"><img id="compareVec" alt="Vector"></div>
-    <input type="range" id="compareSlider" min="0" max="100" value="50" aria-label="Compare slider">
+    <div class="compare-divider" id="compareDivider"></div>
+    <div class="compare-handle" id="compareHandle"><i class="fa-solid fa-code-compare"></i></div>
+    <input type="range" class="compare-slider-custom" id="compareSlider" min="0" max="100" value="50" aria-label="Compare slider">
   </div>
 </div>
 

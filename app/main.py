@@ -53,18 +53,36 @@ async def convert(
     layer_difference: str | None = Form(None),
     filter_speckle: str | None = Form(None),
     max_iterations: str | None = Form(None),
+    corner_threshold: str | None = Form(None),
+    preset: str | None = Form(None),
 ):
     data = await file.read()
     if not data:
         raise HTTPException(400, "Empty file")
     if len(data) > MAX_UPLOAD_BYTES:
-        raise HTTPException(413, "File too large (max 20 MB)")
+        raise HTTPException(413, "File too large max 20 MB")
     name = (file.filename or "image").lower()
     if not any(name.endswith(e) for e in ALLOWED_EXT):
-        raise HTTPException(415, "Unsupported file type. Use PNG, JPG, WebP, GIF or BMP.")
+        raise HTTPException(415, "Unsupported file type Use PNG JPG WebP GIF BMP")
 
     params = None
-    if use_model == "1":
+    # best tier method: if preset given use it, else if use_model 1 use model params, else classic
+    if preset and preset in ("logo", "icon", "illustration", "lqip", "artistic", "custom"):
+        params = {"preset": preset}
+        # allow override with explicit params
+        if profile in ("flat", "photo"):
+            params["profile"] = profile
+        for key, raw, lo, hi in (
+            ("color_precision", color_precision, 1, 8),
+            ("layer_difference", layer_difference, 6, 40),
+            ("filter_speckle", filter_speckle, 1, 8),
+            ("max_iterations", max_iterations, 8, 48),
+            ("corner_threshold", corner_threshold, 10, 110),
+        ):
+            v = _clamped_int(raw, lo, hi)
+            if v is not None:
+                params[key] = v
+    elif use_model == "1":
         params = {}
         if profile in ("flat", "photo"):
             params["profile"] = profile
@@ -73,18 +91,25 @@ async def convert(
             ("layer_difference", layer_difference, 6, 40),
             ("filter_speckle", filter_speckle, 1, 8),
             ("max_iterations", max_iterations, 8, 48),
+            ("corner_threshold", corner_threshold, 10, 110),
         ):
             v = _clamped_int(raw, lo, hi)
             if v is not None:
                 params[key] = v
         if not params:
             params = None
+    else:
+        # classic best tier without model: pick preset if given else let vectorize pick best tier
+        if preset:
+            params = {"preset": preset}
+        else:
+            params = None
 
     try:
         return JSONResponse(vectorize(data, params))
     except Exception as exc:  # noqa: BLE001
         log.exception("conversion failed")
-        raise HTTPException(422, f"Could not vectorize this image: {exc}") from exc
+        raise HTTPException(422, f"Could not vectorize this image {exc}") from exc
 
 
 app.mount("/static", StaticFiles(directory=STATIC), name="static")

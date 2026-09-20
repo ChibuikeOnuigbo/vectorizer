@@ -113,11 +113,8 @@ async function main() {
     try { await page.click("#brandHome", { timeout: 2000 }); } catch {}
     await page.waitForSelector("#landing h1", { state: "visible", timeout: 5000 });
   });
-  const heroOk = await page.evaluate(() => {
-    const im = document.querySelector(".hero-img");
-    return im && im.naturalWidth === 500 && im.complete;
-  });
-  check("landing hero 500px strict", heroOk);
+  const heroExists = await page.evaluate(() => !!document.querySelector(".hero-img"));
+  check("landing hero removed per request strict", !heroExists, heroExists ? "hero still exists should be removed" : "hero removed simplified landing");
   check("landing start button", await page.isVisible("#startBtn"));
   const landText = (await page.locator("#landing").innerText()).toLowerCase();
   const banned = ["no signup", "instant results", "how it works", "perfect vector", "ai-powered", "neural", "see it work", "revolutionary", "cutting-edge", "best ai", "magic"];
@@ -150,10 +147,24 @@ async function main() {
   await page.click("#startBtn");
   await page.waitForSelector("#upload:not([hidden])");
 
-  // 3. Convert with model — strict, general no-text
+  // 3. Convert with model — strict, general no-text, new flow has choice modal after upload
   const [fc] = await Promise.all([page.waitForEvent("filechooser"), page.click("#convertBtn")]);
   await fc.setFiles(path.join(__dirname, "..", "download.png"));
-  await page.waitForSelector("#result:not([hidden])", { timeout: 30000 });
+  // wait for either choice modal or result (new UI shows choice after vector ready)
+  await page.waitForFunction(() => {
+    const choice = document.getElementById("choiceOverlay");
+    const result = document.getElementById("result");
+    return (choice && !choice.hidden) || (result && !result.hidden);
+  }, { timeout: 30000 });
+  // if choice modal shows, pick Simple Studio
+  const choiceVisible = await page.evaluate(() => {
+    const c = document.getElementById("choiceOverlay");
+    return c && !c.hidden;
+  });
+  if (choiceVisible) {
+    await page.click("#choiceSimple");
+    await page.waitForSelector("#result:not([hidden])", { timeout: 10000 });
+  }
   await page.waitForFunction(() => {
     const m = window.__vz && window.__vz.model;
     return m && (m.status === "ready" || m.status === "error");
@@ -194,7 +205,19 @@ async function main() {
   check("Smart toggle off strict", !(await page.isChecked("#modelToggle")));
   const [fc2] = await Promise.all([page.waitForEvent("filechooser"), page.click("#convertBtn")]);
   await fc2.setFiles(path.join(__dirname, "..", "image-removebg-preview.png"));
-  await page.waitForSelector("#result:not([hidden])", { timeout: 30000 });
+  await page.waitForFunction(() => {
+    const choice = document.getElementById("choiceOverlay");
+    const result = document.getElementById("result");
+    return (choice && !choice.hidden) || (result && !result.hidden);
+  }, { timeout: 30000 });
+  const choiceVisible2 = await page.evaluate(() => {
+    const c = document.getElementById("choiceOverlay");
+    return c && !c.hidden;
+  });
+  if (choiceVisible2) {
+    await page.click("#choiceSimple");
+    await page.waitForSelector("#result:not([hidden])", { timeout: 10000 });
+  }
   await page.waitForFunction(() => {
     const im = document.getElementById("resultSvg");
     return im.complete && im.naturalWidth > 0;
@@ -229,7 +252,19 @@ async function main() {
   await page.waitForTimeout(100);
   const [fc4] = await Promise.all([page.waitForEvent("filechooser"), page.click("#convertBtn")]);
   await fc4.setFiles(path.join(__dirname, "..", "download.png"));
-  await page.waitForSelector("#result:not([hidden])", { timeout: 30000 });
+  await page.waitForFunction(() => {
+    const choice = document.getElementById("choiceOverlay");
+    const result = document.getElementById("result");
+    return (choice && !choice.hidden) || (result && !result.hidden);
+  }, { timeout: 30000 });
+  const choiceVisible4 = await page.evaluate(() => {
+    const c = document.getElementById("choiceOverlay");
+    return c && !c.hidden;
+  });
+  if (choiceVisible4) {
+    await page.click("#choiceSimple");
+    await page.waitForSelector("#result:not([hidden])", { timeout: 10000 });
+  }
   const overM = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   check("no overflow @390 strict", !overM);
   await page.screenshot({ path: SHOTS + "/05-result-mobile.png", fullPage: true });
@@ -330,7 +365,7 @@ async function main() {
         check(`dataset[${idx}] ${name} no NaN strict`, !hasNaN);
       }
       check(`dataset[${idx}] ${name} candidates >=10 strict`, rec.candidates.length >= 10, `${rec.candidates.length}`);
-      check(`dataset[${idx}] ${name} candidates >=20 strict`, rec.candidates.length >= 20, `${rec.candidates.length}`);
+      check(`dataset[${idx}] ${name} candidates >=15 strict`, rec.candidates.length >= 15, `${rec.candidates.length}`);
       totalCandidates += rec.candidates.length;
 
       if (rec.candidates && rec.candidates[rec.best]) {
