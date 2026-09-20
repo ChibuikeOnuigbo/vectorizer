@@ -1,4 +1,4 @@
-/* Vectorizer — complete UI redesign, Simple Studio + Advanced Studio, persistence, strict vetting, manual training */
+/* Vectorizer — complete UI redesign, Simple Studio + Advanced Studio, persistence, custom sliders, pro fullscreen viewer with drag + zoom */
 (() => {
   "use strict";
 
@@ -81,9 +81,18 @@
     dropOverlay: $("dropOverlay"),
     viewOverlay: $("viewOverlay"),
     viewStage: $("viewStage"),
+    viewStageInner: $("viewStageInner"),
     viewTitle: $("viewTitle"),
     viewDownloadBtn: $("viewDownloadBtn"),
     viewCloseBtn: $("viewCloseBtn"),
+    viewCloseBtn2: $("viewCloseBtn2"),
+    viewZoomOutBtn: $("viewZoomOutBtn"),
+    viewZoomInBtn: $("viewZoomInBtn"),
+    viewZoomLevel: $("viewZoomLevel"),
+    viewFitBtn: $("viewFitBtn"),
+    viewActualBtn: $("viewActualBtn"),
+    viewDragBtn: $("viewDragBtn"),
+    viewHint: $("viewHint"),
     compareOverlay: $("compareOverlay"),
     compareStage: $("compareStage"),
     compareSrc: $("compareSrc"),
@@ -135,12 +144,22 @@
     layer_difference: 16,
     filter_speckle: 4,
     max_iterations: 18,
+    // fullscreen viewer
+    viewZoom: 100,
+    viewPanX: 0,
+    viewPanY: 0,
+    viewIsDragging: false,
+    viewDragStartX: 0,
+    viewDragStartY: 0,
+    viewPanStartX: 0,
+    viewPanStartY: 0,
+    viewDragMode: false,
   };
 
   let toastTimer = null;
   window.__vz = { view: "landing", model: { status: "idle", lastParams: null, lastError: null } };
 
-  /* ---------- IndexedDB persistence — project state survives refresh ---------- */
+  /* ---------- IndexedDB persistence ---------- */
   function openDB() {
     return new Promise((resolve, reject) => {
       const req = indexedDB.open(DB_NAME, DB_VERSION);
@@ -191,10 +210,7 @@
         timestamp: Date.now(),
       };
       await idbSet("project", data);
-      if (state.sourceFile) {
-        // store source as blob for persistence
-        await idbSet("source_blob", state.sourceFile);
-      }
+      if (state.sourceFile) await idbSet("source_blob", state.sourceFile);
       localStorage.setItem("vz_view", window.__vz.view);
     } catch {}
   }
@@ -203,7 +219,6 @@
       const proj = await idbGet("project");
       const blob = await idbGet("source_blob");
       if (!proj || !proj.svgText) return false;
-      // restore
       state.fileName = proj.fileName || "vector.svg";
       state.svgText = proj.svgText;
       state.meta = proj.meta || null;
@@ -221,7 +236,6 @@
         if (els.resultOriginal) els.resultOriginal.src = state.sourceUrl;
         if (els.advResultOriginal) els.advResultOriginal.src = state.sourceUrl;
       }
-      // restore result
       if (state.svgText) {
         if (state.svgUrl) URL.revokeObjectURL(state.svgUrl);
         const b = new Blob([state.svgText], { type: "image/svg+xml" });
@@ -235,7 +249,6 @@
           els.resultMeta.textContent = parts.join("  ·  ");
           if (els.advResultMeta) els.advResultMeta.textContent = parts.join("  ·  ");
         }
-        // inspect
         if (state.meta) {
           if (els.inspectColors) els.inspectColors.textContent = state.meta.colors;
           if (els.inspectPaths) els.inspectPaths.textContent = state.meta.paths;
@@ -243,11 +256,11 @@
           if (els.inspectTime) els.inspectTime.textContent = state.meta.seconds + "s";
           if (els.inspectTrans) els.inspectTrans.textContent = state.meta.transparent_bg ? "yes" : "no";
         }
-        // show result view if we had a project
         const savedView = proj.view || localStorage.getItem("vz_view") || "result";
         if (savedView === "advanced") setView("advanced");
         else setView("result");
         applyZoom();
+        initSlidersFill();
         toast("Project restored from previous session", "ok");
         return true;
       }
@@ -340,17 +353,27 @@
     saveProject();
   }
   function setZoom(delta, isAdv) {
-    if (isAdv) {
-      state.advZoom = Math.max(25, Math.min(400, state.advZoom + delta));
-    } else {
-      state.zoom = Math.max(25, Math.min(400, state.zoom + delta));
-    }
+    if (isAdv) state.advZoom = Math.max(25, Math.min(400, state.advZoom + delta));
+    else state.zoom = Math.max(25, Math.min(400, state.zoom + delta));
     applyZoom();
   }
   function fitZoom(isAdv) {
     if (isAdv) state.advZoom = 100;
     else state.zoom = 100;
     applyZoom();
+  }
+
+  /* ---------- custom slider fill ---------- */
+  function updateSliderFill(input) {
+    if (!input || !input.classList.contains("slider")) return;
+    const min = parseFloat(input.min) || 0;
+    const max = parseFloat(input.max) || 100;
+    const val = parseFloat(input.value) || 0;
+    const pct = ((val - min) / (max - min)) * 100;
+    input.style.setProperty("--fill", pct + "%");
+  }
+  function initSlidersFill() {
+    document.querySelectorAll("input.slider").forEach(updateSliderFill);
   }
 
   /* ---------- smart model (ONNX in browser) ---------- */
@@ -498,7 +521,7 @@
     ]);
   }
 
-  /* ---------- convert flow — explicit upload only, fix bug ---------- */
+  /* ---------- convert flow ---------- */
   async function convert(file) {
     if (state.busy) return;
     const err = validFile(file);
@@ -531,7 +554,6 @@
           state.layer_difference = p.layer_difference;
           state.filter_speckle = p.filter_speckle;
           state.max_iterations = p.max_iterations;
-          // update advanced controls
           if (els.advProfile) els.advProfile.value = p.profile;
           if (els.advCp) els.advCp.value = p.color_precision;
           if (els.advLd) els.advLd.value = p.layer_difference;
@@ -541,6 +563,7 @@
           if (els.advLdVal) els.advLdVal.textContent = p.layer_difference;
           if (els.advFsVal) els.advFsVal.textContent = p.filter_speckle;
           if (els.advMiVal) els.advMiVal.textContent = p.max_iterations;
+          initSlidersFill();
           modelUsed = true;
         } catch (me) {
           window.__vz.model.status = "error";
@@ -594,7 +617,7 @@
     }
   }
 
-  /* ---------- manual training & debug vet (very strict) ---------- */
+  /* ---------- manual training & debug vet ---------- */
   async function refreshManualStatus() {
     if (!els.manualStatus) return;
     try {
@@ -671,21 +694,88 @@
     }
   }
 
-  /* ---------- fullscreen view & compare — inspection state, not upload ---------- */
+  /* ---------- fullscreen view — pro viewer with zoom, drag, no accidental close ---------- */
+  function applyViewTransform() {
+    if (!els.viewStageInner) return;
+    const scale = state.viewZoom / 100;
+    els.viewStageInner.style.transform = `translate(${state.viewPanX}px, ${state.viewPanY}px) scale(${scale})`;
+    if (els.viewZoomLevel) els.viewZoomLevel.textContent = Math.round(state.viewZoom) + "%";
+    // update cursor hint
+    if (els.viewStage) {
+      if (state.viewZoom > 100 || state.viewDragMode) {
+        els.viewStage.classList.add("drag-mode");
+      } else {
+        els.viewStage.classList.remove("drag-mode");
+      }
+    }
+  }
+  function setViewZoom(delta, anchor) {
+    const oldZoom = state.viewZoom;
+    let newZoom = oldZoom + delta;
+    newZoom = Math.max(25, Math.min(800, newZoom));
+    // if anchor provided, adjust pan to keep anchor stable
+    if (anchor && els.viewStage) {
+      const rect = els.viewStage.getBoundingClientRect();
+      const cx = rect.width / 2, cy = rect.height / 2;
+      const ax = anchor.x - rect.left - cx;
+      const ay = anchor.y - rect.top - cy;
+      const scaleRatio = newZoom / oldZoom;
+      // pan adjustment: keep point under cursor stable
+      state.viewPanX = anchor.panX + (ax - ax * scaleRatio) + (state.viewPanX - anchor.panX) * scaleRatio;
+      state.viewPanY = anchor.panY + (ay - ay * scaleRatio) + (state.viewPanY - anchor.panY) * scaleRatio;
+    }
+    state.viewZoom = newZoom;
+    applyViewTransform();
+  }
+  function setViewZoomAbsolute(zoom, center) {
+    state.viewZoom = Math.max(25, Math.min(800, zoom));
+    if (center) {
+      state.viewPanX = 0;
+      state.viewPanY = 0;
+    }
+    applyViewTransform();
+  }
+  function fitView() {
+    state.viewZoom = 100;
+    state.viewPanX = 0;
+    state.viewPanY = 0;
+    applyViewTransform();
+  }
+
   function openView() {
     if (!state.svgText) return;
+    // ensure inner container exists
+    if (!els.viewStageInner) {
+      els.viewStageInner = document.createElement("div");
+      els.viewStageInner.id = "viewStageInner";
+      els.viewStageInner.className = "view-stage-inner";
+      els.viewStage.appendChild(els.viewStageInner);
+    }
     const img = document.createElement("img");
     img.src = makeBlobUrl();
     img.alt = "Vectorized SVG fullscreen";
-    while (els.viewStage.firstChild) els.viewStage.removeChild(els.viewStage.firstChild);
-    els.viewStage.appendChild(img);
+    img.draggable = false;
+    while (els.viewStageInner.firstChild) els.viewStageInner.removeChild(els.viewStageInner.firstChild);
+    els.viewStageInner.appendChild(img);
     if (els.viewTitle) els.viewTitle.textContent = state.fileName;
     if (els.viewOverlay) els.viewOverlay.hidden = false;
     state.viewOpen = true;
+    state.viewZoom = 100;
+    state.viewPanX = 0;
+    state.viewPanY = 0;
+    state.viewDragMode = false;
+    if (els.viewDragBtn) els.viewDragBtn.classList.remove("active");
+    applyViewTransform();
+    document.body.style.overflow = "hidden";
   }
   function closeView() {
     if (els.viewOverlay) els.viewOverlay.hidden = true;
     state.viewOpen = false;
+    state.viewIsDragging = false;
+    if (els.viewStage) {
+      els.viewStage.classList.remove("dragging");
+    }
+    document.body.style.overflow = "";
   }
   function openCompare() {
     if (!state.sourceUrl || !state.svgUrl) { toast("Need source and vector to compare", "error"); return; }
@@ -705,7 +795,7 @@
     if (vec) vec.style.clipPath = `inset(0 0 0 ${v}%)`;
   }
 
-  /* ---------- wiring — explicit upload only, fix bug where clicking result triggers upload ---------- */
+  /* ---------- wiring ---------- */
   if (els.startBtn) els.startBtn.addEventListener("click", () => setView("upload"));
   if (els.landingAdvancedBtn) els.landingAdvancedBtn.addEventListener("click", () => {
     if (state.svgText) setView("advanced");
@@ -753,7 +843,7 @@
   if (els.downloadBtn) els.downloadBtn.addEventListener("click", download);
   if (els.advDownloadBtn) els.advDownloadBtn.addEventListener("click", download);
 
-  // zoom controls — coherent group
+  // zoom controls — simple studio
   if (els.zoomOutBtn) els.zoomOutBtn.addEventListener("click", () => setZoom(-25, false));
   if (els.zoomInBtn) els.zoomInBtn.addEventListener("click", () => setZoom(25, false));
   if (els.zoomFitBtn) els.zoomFitBtn.addEventListener("click", () => fitZoom(false));
@@ -765,10 +855,9 @@
   if (els.advZoomResetBtn) els.advZoomResetBtn.addEventListener("click", () => fitZoom(true));
   if (els.advSrcFitBtn) els.advSrcFitBtn.addEventListener("click", () => fitZoom(true));
 
-  // inspection — clicking result opens fullscreen view, NOT upload (fix bug)
+  // inspection — clicking result opens fullscreen view, NOT upload
   if (els.resultSvgBox) {
     els.resultSvgBox.addEventListener("click", (e) => {
-      // inspection state, not upload state
       e.stopPropagation();
       openView();
     });
@@ -781,13 +870,121 @@
   }
   if (els.viewBtn) els.viewBtn.addEventListener("click", openView);
   if (els.advViewBtn) els.advViewBtn.addEventListener("click", openView);
+
+  // fullscreen viewer controls — pro tools
   if (els.viewCloseBtn) els.viewCloseBtn.addEventListener("click", closeView);
+  if (els.viewCloseBtn2) els.viewCloseBtn2.addEventListener("click", closeView);
   if (els.viewDownloadBtn) els.viewDownloadBtn.addEventListener("click", download);
-  if (els.viewOverlay) {
-    els.viewOverlay.addEventListener("click", (e) => {
-      if (e.target === els.viewStage || e.target === els.viewOverlay) closeView();
+  if (els.viewZoomOutBtn) els.viewZoomOutBtn.addEventListener("click", () => setViewZoom(-25));
+  if (els.viewZoomInBtn) els.viewZoomInBtn.addEventListener("click", () => setViewZoom(25));
+  if (els.viewFitBtn) els.viewFitBtn.addEventListener("click", fitView);
+  if (els.viewActualBtn) els.viewActualBtn.addEventListener("click", () => setViewZoomAbsolute(100, true));
+  if (els.viewDragBtn) {
+    els.viewDragBtn.addEventListener("click", () => {
+      state.viewDragMode = !state.viewDragMode;
+      els.viewDragBtn.classList.toggle("active", state.viewDragMode);
+      if (els.viewStage) els.viewStage.classList.toggle("drag-mode", state.viewDragMode || state.viewZoom > 100);
     });
   }
+
+  // view stage pan & zoom interactions — fix: clicking canvas does NOT force exit
+  if (els.viewStage) {
+    // wheel zoom
+    els.viewStage.addEventListener("wheel", (e) => {
+      if (!state.viewOpen) return;
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? -25 : 25;
+      setViewZoom(delta, { x: e.clientX, y: e.clientY, panX: state.viewPanX, panY: state.viewPanY });
+    }, { passive: false });
+
+    // mouse drag pan
+    els.viewStage.addEventListener("mousedown", (e) => {
+      if (!state.viewOpen) return;
+      // only left button, and only if zoomed or drag mode active
+      if (e.button !== 0) return;
+      if (state.viewZoom <= 100 && !state.viewDragMode) return;
+      // prevent closing, start drag
+      e.preventDefault();
+      state.viewIsDragging = true;
+      state.viewDragStartX = e.clientX;
+      state.viewDragStartY = e.clientY;
+      state.viewPanStartX = state.viewPanX;
+      state.viewPanStartY = state.viewPanY;
+      els.viewStage.classList.add("dragging");
+      if (els.viewStageInner) els.viewStageInner.classList.add("dragging");
+    });
+    window.addEventListener("mousemove", (e) => {
+      if (!state.viewIsDragging) return;
+      const dx = e.clientX - state.viewDragStartX;
+      const dy = e.clientY - state.viewDragStartY;
+      state.viewPanX = state.viewPanStartX + dx;
+      state.viewPanY = state.viewPanStartY + dy;
+      applyViewTransform();
+    });
+    window.addEventListener("mouseup", () => {
+      if (!state.viewIsDragging) return;
+      state.viewIsDragging = false;
+      if (els.viewStage) els.viewStage.classList.remove("dragging");
+      if (els.viewStageInner) els.viewStageInner.classList.remove("dragging");
+    });
+
+    // touch pan & pinch zoom
+    let lastTouchDist = null;
+    let lastTouchCenter = null;
+    els.viewStage.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        if (state.viewZoom <= 100 && !state.viewDragMode) return;
+        state.viewIsDragging = true;
+        state.viewDragStartX = e.touches[0].clientX;
+        state.viewDragStartY = e.touches[0].clientY;
+        state.viewPanStartX = state.viewPanX;
+        state.viewPanStartY = state.viewPanY;
+      } else if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        lastTouchDist = Math.hypot(dx, dy);
+        lastTouchCenter = {
+          x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+          y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+          panX: state.viewPanX,
+          panY: state.viewPanY,
+        };
+      }
+    }, { passive: false });
+    els.viewStage.addEventListener("touchmove", (e) => {
+      if (e.touches.length === 1 && state.viewIsDragging) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - state.viewDragStartX;
+        const dy = e.touches[0].clientY - state.viewDragStartY;
+        state.viewPanX = state.viewPanStartX + dx;
+        state.viewPanY = state.viewPanStartY + dy;
+        applyViewTransform();
+      } else if (e.touches.length === 2 && lastTouchDist !== null) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const dist = Math.hypot(dx, dy);
+        const delta = (dist - lastTouchDist) * 0.5;
+        if (Math.abs(delta) > 2) {
+          setViewZoom(delta, lastTouchCenter);
+          lastTouchDist = dist;
+        }
+      }
+    }, { passive: false });
+    els.viewStage.addEventListener("touchend", () => {
+      state.viewIsDragging = false;
+      lastTouchDist = null;
+      lastTouchCenter = null;
+      if (els.viewStage) els.viewStage.classList.remove("dragging");
+      if (els.viewStageInner) els.viewStageInner.classList.remove("dragging");
+    });
+
+    // IMPORTANT FIX: clicking canvas does NOT force exit from zoom
+    // Only clicking the overlay background outside stage (not image) would close, but we disable that to prevent accidental exit
+    // So we do NOT close on viewStage click anymore — only X buttons and Esc close
+    // If user explicitly wants to close by clicking background, they can click the dark area outside inner? We keep it disabled to fix bug
+  }
+
   // compare
   if (els.compareBtn) els.compareBtn.addEventListener("click", openCompare);
   if (els.advCompareBtn) els.advCompareBtn.addEventListener("click", openCompare);
@@ -809,22 +1006,28 @@
     });
   }
 
-  // advanced params
+  // advanced params — custom sliders
   function bindRange(input, valEl, key) {
     if (!input || !valEl) return;
-    input.addEventListener("input", () => {
-      valEl.textContent = input.value;
+    const update = () => {
+      updateSliderFill(input);
+      let displayVal = input.value;
       if (key === "filter_speckle") {
         const exp = parseInt(input.value, 10);
         const v = Math.pow(2, exp);
+        displayVal = v;
         valEl.textContent = v;
         state[key] = v;
       } else {
+        valEl.textContent = input.value;
         state[key] = input.type === "range" ? parseInt(input.value, 10) : input.value;
         if (key === "profile") state[key] = input.value;
       }
       saveProject();
-    });
+    };
+    input.addEventListener("input", update);
+    // init
+    update();
   }
   bindRange(els.advCp, els.advCpVal, "color_precision");
   bindRange(els.advLd, els.advLdVal, "layer_difference");
@@ -870,7 +1073,7 @@
   if (els.manualRefreshBtn) els.manualRefreshBtn.addEventListener("click", refreshManualStatus);
   if (els.debugVetBtn) els.debugVetBtn.addEventListener("click", vetModelStrict);
 
-  /* ---------- drag and drop — only explicit upload, fix bug where result click shows drop overlay forever ---------- */
+  /* ---------- drag and drop ---------- */
   let dragDepth = 0;
   let dragHasFiles = false;
   function isFileDrag(e) {
@@ -893,12 +1096,8 @@
   });
   window.addEventListener("dragleave", (e) => {
     if (!dragHasFiles) return;
-    // only decrement if leaving window or relevant target
-    if (e.target === document.documentElement || e.target === document.body) {
-      dragDepth = 0;
-    } else {
-      dragDepth = Math.max(0, dragDepth - 1);
-    }
+    if (e.target === document.documentElement || e.target === document.body) dragDepth = 0;
+    else dragDepth = Math.max(0, dragDepth - 1);
     if (dragDepth === 0) {
       if (els.dropOverlay) els.dropOverlay.hidden = true;
       document.body.classList.remove("dragging");
@@ -912,22 +1111,13 @@
     dragHasFiles = false;
     if (els.dropOverlay) els.dropOverlay.hidden = true;
     document.body.classList.remove("dragging");
-    // Only handle drop if in upload view or landing — explicit upload action
-    // In result view, drop should still allow replace image as explicit action
     const files = e.dataTransfer && e.dataTransfer.files;
     const f = files && files[0];
     if (f) {
-      // If in result or advanced, treat as replace image — explicit
-      if (window.__vz.view === "result" || window.__vz.view === "advanced") {
-        convert(f);
-      } else if (window.__vz.view === "upload" || window.__vz.view === "landing") {
-        convert(f);
-      } else if (window.__vz.view === "manual") {
-        // in manual, check which dropzone is hovered? For simplicity, upload to Section 1
-        uploadManual(files, "/api/manual/images", els.manualList1);
-      } else {
-        convert(f);
-      }
+      if (window.__vz.view === "result" || window.__vz.view === "advanced") convert(f);
+      else if (window.__vz.view === "upload" || window.__vz.view === "landing") convert(f);
+      else if (window.__vz.view === "manual") uploadManual(files, "/api/manual/images", els.manualList1);
+      else convert(f);
     }
   });
   window.addEventListener("paste", (e) => {
@@ -938,7 +1128,6 @@
         const f = it.getAsFile();
         if (f) {
           if (!f.name) f.name = "pasted-image.png";
-          // paste is explicit upload
           convert(f);
         }
         break;
@@ -956,20 +1145,24 @@
         dragHasFiles = false;
       }
     }
+    // viewer shortcuts
+    if (state.viewOpen) {
+      if (e.key === "+" || e.key === "=") { e.preventDefault(); setViewZoom(25); }
+      if (e.key === "-" || e.key === "_") { e.preventDefault(); setViewZoom(-25); }
+      if (e.key === "0") { e.preventDefault(); fitView(); }
+      if (e.key === "1") { e.preventDefault(); setViewZoomAbsolute(100, true); }
+    }
   });
 
-  // init — load persisted project
+  // init
   (async () => {
+    initSlidersFill();
     const restored = await loadProject();
     if (!restored) {
       const v = localStorage.getItem("vz_view");
-      if (v && ["landing", "upload", "result", "advanced", "manual", "debug"].includes(v)) {
-        setView(v);
-      } else {
-        setView("landing");
-      }
+      if (v && ["landing", "upload", "result", "advanced", "manual", "debug"].includes(v)) setView(v);
+      else setView("landing");
     }
-    // ensure zoom applied
     applyZoom();
   })();
 })();
