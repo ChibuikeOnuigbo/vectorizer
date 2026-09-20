@@ -6,8 +6,16 @@
 <title>Vectorizer image to SVG</title>
 <meta name="description" content="Convert PNG JPG WebP GIF BMP to clean scalable SVG">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F8CFF'/%3E%3Cpath d='M8 22 C 12 8, 20 8, 24 14 M20 14 L24 14 L24 10' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  corePlugins: { preflight: false },
+  theme: { extend: { colors: { brand: '#4f8cff' } } }
+}
+</script>
 <link rel="stylesheet" href="/static/fontawesome/all.min.css">
 <link rel="stylesheet" href="/static/style.css">
+<script src="/static/fontawesome/all.min.js" defer></script>
 </head>
 <body>
 <div class="app-bg" aria-hidden="true"></div>
