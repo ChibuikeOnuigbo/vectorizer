@@ -101,7 +101,7 @@ def build_dataset(n_cand=8):
     print(f"Dataset built: {len(records)} images, {sum(len(r['candidates']) for r in records)} candidates in {dt:.0f}s", flush=True)
     return len(records)
 
-def train_model(rounds=2, val_frac=0.10, seed=None):
+def train_model(rounds=4, val_frac=0.10, seed=None):
     if seed is None:
         seed = random.randint(0, 10000)
     print(f"\n=== Training rounds={rounds} val_frac={val_frac} seed={seed} arch 512->256 ===", flush=True)
@@ -237,7 +237,7 @@ def main():
         # But we keep rounds=2 for speed, with base epochs 300+200+200=700 max
         # For continuous, we use rounds=2, val_frac 0.10
         try:
-            hist = train_model(rounds=2, val_frac=0.10, seed=seed)
+            hist = train_model(rounds=4, val_frac=0.10, seed=seed)
             # 6. Export ONNX — result confirm
             export_onnx()
             # 7. Run QA light

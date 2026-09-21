@@ -31,7 +31,7 @@ from model.features import FEATURE_DIM, params_to_targets, targets_to_params
 from model.svg_geom import score
 
 
-def init_net(h1: int = 512, h2: int = 256, out: int = 5, seed: int = 0):
+def init_net(h1: int = 1024, h2: int = 512, out: int = 5, seed: int = 0):
     rng = np.random.default_rng(seed)
     W1 = (rng.standard_normal((FEATURE_DIM, h1)) * np.sqrt(2.0 / FEATURE_DIM)).astype(np.float32)
     b1 = np.zeros(h1, np.float32)
@@ -221,20 +221,20 @@ def main():
         t0 = time.time()
         # Curriculum: hardness increases with time — blur 1.2→2.5→4.0→6.0→8.0→10.0 strict, no-text general 4000, generated img have no text, increase hardness
         if rnd == 0:
-            epochs = 300
+            epochs = 500
             base_lr = 0.0012
-            dropout = 0.15
-            hardness = "easy (clean+notext 4000 no text, generated img have no text)"
+            dropout = 0.12
+            hardness = "easy (clean+notext 4000 no text, generated img have no text) upgraded 1024x512"
         elif rnd == 1:
-            epochs = 200
+            epochs = 400
             base_lr = 0.0008
-            dropout = 0.10
-            hardness = "medium (blur 1.2-2.5 increasing with time)"
+            dropout = 0.08
+            hardness = "medium (blur 1.2-2.5 increasing with time) upgraded"
         else:
-            epochs = 200
+            epochs = 400
             base_lr = 0.0005
-            dropout = 0.06
-            hardness = "hard (blur 4.0-10.0 strict, increasing hardness, strict, hardness 4, generated img have no text)"
+            dropout = 0.05
+            hardness = "hard (blur 4.0-10.0 strict, increasing hardness, strict, hardness 4, generated img have no text) upgraded 1024x512"
 
         net, _ = train_round(net, X, T, epochs=epochs, base_lr=base_lr, batch=128, seed=args.seed + rnd*10, dropout=dropout)
         d, prof_ok = cheap_val(net, val_X, val_T)

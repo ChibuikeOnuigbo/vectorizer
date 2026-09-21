@@ -24,35 +24,41 @@ from model.svg_geom import score
 
 
 def systematic_candidates(is_flat: bool) -> list:
-    """Hand-picked grid that covers the useful parameter space."""
+    """Hand-picked grid that covers the useful parameter space, now includes corner_threshold, length_threshold, path_precision from Cloudinary analysis."""
     out = []
     if is_flat:
         for cp in [2, 3, 4, 5]:
             for ld in [16, 22, 28]:
                 for sp in [1, 2, 4]:
                     for mi in [10, 14, 20]:
-                        out.append(dict(profile="flat", color_precision=cp,
-                                        layer_difference=ld, filter_speckle=sp,
-                                        max_iterations=mi))
+                        for ct in [50, 60, 70]:
+                            out.append(dict(profile="flat", color_precision=cp,
+                                            layer_difference=ld, filter_speckle=sp,
+                                            max_iterations=mi, corner_threshold=ct,
+                                            length_threshold=4.0, path_precision=8))
         # some photo-mode probes for flat images (sometimes better)
         for cp in [5, 6]:
             for ld in [12, 18]:
                 out.append(dict(profile="photo", color_precision=cp,
                                 layer_difference=ld, filter_speckle=2,
-                                max_iterations=24))
+                                max_iterations=24, corner_threshold=50,
+                                length_threshold=3.5, path_precision=8))
     else:
         for cp in [4, 6, 7]:
             for ld in [10, 14, 20]:
                 for sp in [2, 4, 8]:
                     for mi in [24, 32, 40]:
-                        out.append(dict(profile="photo", color_precision=cp,
-                                        layer_difference=ld, filter_speckle=sp,
-                                        max_iterations=mi))
+                        for ct in [30, 50, 70]:
+                            out.append(dict(profile="photo", color_precision=cp,
+                                            layer_difference=ld, filter_speckle=sp,
+                                            max_iterations=mi, corner_threshold=ct,
+                                            length_threshold=3.5, path_precision=8))
         for cp in [3, 4]:
             for ld in [20, 26]:
                 out.append(dict(profile="flat", color_precision=cp,
                                 layer_difference=ld, filter_speckle=2,
-                                max_iterations=16))
+                                max_iterations=16, corner_threshold=60,
+                                length_threshold=4.0, path_precision=8))
     return out
 
 def random_candidates(rng: np.random.Generator, is_flat: bool, n: int = 24) -> list:
@@ -67,6 +73,9 @@ def random_candidates(rng: np.random.Generator, is_flat: bool, n: int = 24) -> l
                 layer_difference=int(rng.integers(10, 34)),
                 filter_speckle=int(rng.choice([1, 2, 4])),
                 max_iterations=int(rng.integers(8, 26)),
+                corner_threshold=int(rng.integers(40, 80)),
+                length_threshold=float(rng.uniform(3.0, 5.0)),
+                path_precision=int(rng.integers(6, 10)),
             ))
         else:
             out.append(dict(
@@ -75,6 +84,9 @@ def random_candidates(rng: np.random.Generator, is_flat: bool, n: int = 24) -> l
                 layer_difference=int(rng.integers(8, 32)),
                 filter_speckle=int(rng.choice([1, 2, 4, 8])),
                 max_iterations=int(rng.integers(16, 49)),
+                corner_threshold=int(rng.integers(20, 80)),
+                length_threshold=float(rng.uniform(2.5, 5.0)),
+                path_precision=int(rng.integers(6, 10)),
             ))
     return out
 
@@ -96,16 +108,17 @@ def build_dataset(image_paths: list, out_dir: str, n_cand: int = 24,
         baseline = dict(BASELINE_FLAT if a["is_flat"] else BASELINE_PHOTO)
         # combine baseline + systematic grid (sampled) + random
         sys_cands = systematic_candidates(a["is_flat"])
-        # sample 12 from systematic to keep runtime reasonable, plus random
-        if len(sys_cands) > 12:
-            idx = rng.choice(len(sys_cands), 12, replace=False)
+        # sample 20 from systematic to keep runtime reasonable but more coverage, plus random
+        if len(sys_cands) > 20:
+            idx = rng.choice(len(sys_cands), 20, replace=False)
             sys_cands = [sys_cands[k] for k in idx]
         cands = [baseline] + sys_cands + random_candidates(rng, a["is_flat"], n_cand)
-        # dedup
+        # dedup including new params
         seen = set()
         uniq = []
         for c in cands:
-            key = (c["profile"], c["color_precision"], c["layer_difference"], c["filter_speckle"], c["max_iterations"])
+            key = (c["profile"], c["color_precision"], c["layer_difference"], c["filter_speckle"], c["max_iterations"],
+                   c.get("corner_threshold", 60), round(c.get("length_threshold", 4.0),1), c.get("path_precision", 8))
             if key not in seen:
                 seen.add(key)
                 uniq.append(c)

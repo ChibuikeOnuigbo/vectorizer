@@ -8,6 +8,7 @@ build/
 Thumbs.db
 # local dependency installs (see requirements.txt / scripts/setup-browser.sh)
 vendor/
+app/deps/
 qa/node_modules/
 web/
 # QA artifacts
