@@ -584,7 +584,7 @@
 
       const fd = new FormData();
       fd.append("file", file);
-      const useModel = els.modelToggle.checked;
+      const useModel = els.methodModel ? els.methodModel.classList.contains("active") : true;
       if (useModel) {
         try {
           const p = await withTimeout(modelParamsFor(file), 8000);
@@ -1076,18 +1076,12 @@
   // two methods
   function setMethod(method) {
     const isModel = method === "model";
-    if (els.modelToggle) els.modelToggle.checked = isModel;
     if (els.methodModel) els.methodModel.classList.toggle("active", isModel);
     if (els.methodClassic) els.methodClassic.classList.toggle("active", !isModel);
     if (els.classicOptions) els.classicOptions.hidden = isModel;
   }
   if (els.methodModel) els.methodModel.addEventListener("click", () => setMethod("model"));
   if (els.methodClassic) els.methodClassic.addEventListener("click", () => setMethod("classic"));
-  if (els.modelToggle) {
-    els.modelToggle.addEventListener("change", () => {
-      setMethod(els.modelToggle.checked ? "model" : "classic");
-    });
-  }
   document.querySelectorAll(".preset-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const preset = btn.getAttribute("data-preset");

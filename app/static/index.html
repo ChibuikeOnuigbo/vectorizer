@@ -68,7 +68,7 @@ window.initLucide = initLucide;
   <section class="view view-upload" id="upload" hidden>
     <div class="upload-inner">
       <div class="upload-header">
-        <button class="btn btn-ghost btn-sm" id="backBtn" type="button"><i data-lucide="arrow-left"></i><span>Back</span></button>
+        <button class="btn btn-secondary btn-sm" id="backBtn" type="button" title="Back" aria-label="Back"><i data-lucide="arrow-left"></i></button>
         <h2>Upload image</h2>
       </div>
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload image">
@@ -88,11 +88,6 @@ window.initLucide = initLucide;
             <p>Proven heuristic with presets for logos icons illustration</p>
           </div>
         </div>
-        <label class="model-toggle" for="modelToggle">
-          <input type="checkbox" id="modelToggle" checked>
-          <span class="switch" aria-hidden="true"></span>
-          <span class="mt-text"><strong>Use smart model</strong><small>When off choose classic preset below</small></span>
-        </label>
         <div class="classic-options" id="classicOptions" hidden>
           <div class="field-select">
             <label><i data-lucide="sparkles"></i> Classic preset</label>
@@ -166,7 +161,7 @@ window.initLucide = initLucide;
         <p>Deeper control for detailed inspection and export</p>
       </div>
       <div class="studio-actions">
-        <button class="btn btn-ghost btn-sm" id="advBackSimpleBtn" type="button"><i data-lucide="arrow-left"></i><span>Simple</span></button>
+        <button class="btn btn-secondary btn-sm" id="advBackSimpleBtn" type="button" title="Back to Simple" aria-label="Back to Simple"><i data-lucide="arrow-left"></i></button>
         <button class="btn btn-ghost btn-sm" id="advNewBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
       </div>
     </div>
@@ -251,7 +246,7 @@ window.initLucide = initLucide;
   <!-- MANUAL TRAINING -->
   <section class="view view-manual" id="manual" hidden>
     <div class="manual-header">
-      <button class="btn btn-ghost btn-sm" id="manualBackBtn" type="button"><i data-lucide="arrow-left"></i><span>Back</span></button>
+      <button class="btn btn-secondary btn-sm" id="manualBackBtn" type="button" title="Back" aria-label="Back"><i data-lucide="arrow-left"></i></button>
       <div class="manual-title"><h2>Manual Training</h2><p>Collect images and results to help train and improve the model</p></div>
     </div>
     <div class="manual-status" id="manualStatus">Loading status</div>

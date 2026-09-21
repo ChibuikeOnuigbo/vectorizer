@@ -184,6 +184,16 @@ body {
 .upload-inner { display: flex; flex-direction: column; gap: var(--space-lg); }
 .upload-header { display: flex; align-items: center; gap: 12px; }
 .upload-header h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+#backBtn, #manualBackBtn, #advBackSimpleBtn {
+  width: 36px; height: 36px; min-height: 36px; padding: 0;
+  display: grid; place-items: center;
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--text);
+  border-radius: 10px; flex: none;
+}
+#backBtn:hover, #manualBackBtn:hover, #advBackSimpleBtn:hover {
+  background: var(--panel-3); border-color: var(--line-strong); color: var(--text);
+}
+#backBtn i, #manualBackBtn i, #advBackSimpleBtn i { font-size: 16px; }
 .dropzone {
   border: 1.5px dashed var(--line-strong); border-radius: var(--radius-lg);
   background: rgba(21, 27, 42, 0.75); min-height: 240px;
