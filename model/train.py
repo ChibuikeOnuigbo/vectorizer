@@ -230,50 +230,49 @@ def main():
 
     for rnd in range(args.rounds + 1):
         t0 = time.time()
-        # Quick mode for small dataset 296 images: use fewer epochs to get model fast, then full training later
-        # Curriculum 8 rounds, hardness increases with time — blur 1.2→2.5→4.0→6.0→8.0→10.0 strict
+        # Full training for more improvement: 8 rounds, hardness increases, blur 1.2->10.0
         if rnd == 0:
-            epochs = 300
+            epochs = 800
             base_lr = 0.0012
             dropout = 0.15
             hardness = "easy clean 4000 no-text pure geometric no text, upgraded 1536x1024x512"
         elif rnd == 1:
-            epochs = 200
+            epochs = 600
             base_lr = 0.0009
             dropout = 0.12
             hardness = "medium blur 1.2-2.5 increasing with time, upgraded 1536x1024x512"
         elif rnd == 2:
-            epochs = 200
+            epochs = 600
             base_lr = 0.0007
             dropout = 0.10
             hardness = "medium-hard blur 2.5-4.0 strict, upgraded"
         elif rnd == 3:
-            epochs = 200
+            epochs = 600
             base_lr = 0.0005
             dropout = 0.08
             hardness = "hard blur 4.0-6.0 strict increasing hardness, upgraded"
         elif rnd == 4:
-            epochs = 150
+            epochs = 500
             base_lr = 0.0004
             dropout = 0.06
             hardness = "hard blur 6.0-8.0 very hard strict, upgraded"
         elif rnd == 5:
-            epochs = 150
+            epochs = 500
             base_lr = 0.0003
             dropout = 0.05
             hardness = "very hard blur 8.0-10.0 extreme, strict"
         elif rnd == 6:
-            epochs = 100
+            epochs = 400
             base_lr = 0.00025
             dropout = 0.04
             hardness = "extreme blur 10.0 + jpeg + heavy, strict"
         elif rnd == 7:
-            epochs = 100
+            epochs = 400
             base_lr = 0.0002
             dropout = 0.03
             hardness = "extreme hardest curriculum final"
         else:
-            epochs = 100
+            epochs = 400
             base_lr = 0.00015
             dropout = 0.02
             hardness = "final polish 1536x1024x512, strictest"

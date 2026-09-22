@@ -25,6 +25,7 @@ ROOT = Path(__file__).parent.parent
 DATA = ROOT / "model" / "data"
 LOGOS = DATA / "logos"
 LOGOS_NOTEXT = DATA / "logos_notext"
+LOGOS_TEXT = DATA / "logos_text"
 DEGRADED = DATA / "degraded"
 DEGRADED_SAMPLE = DATA / "degraded_sample"
 AI = DATA / "ai"
@@ -81,6 +82,7 @@ def build_dataset(n_cand=8):
         sys.executable, "-m", "model.dataset",
         "--images", str(LOGOS),
         "--images", str(LOGOS_NOTEXT),
+        "--images", str(LOGOS_TEXT),
         "--images", str(AI),
         "--images", str(DEGRADED_SAMPLE),
         "--images", "download.png",
@@ -101,10 +103,10 @@ def build_dataset(n_cand=8):
     print(f"Dataset built: {len(records)} images, {sum(len(r['candidates']) for r in records)} candidates in {dt:.0f}s", flush=True)
     return len(records)
 
-def train_model(rounds=4, val_frac=0.10, seed=None):
+def train_model(rounds=6, val_frac=0.10, seed=None):
     if seed is None:
         seed = random.randint(0, 10000)
-    print(f"\n=== Training rounds={rounds} val_frac={val_frac} seed={seed} arch 512->256 ===", flush=True)
+    print(f"\n=== Training rounds={rounds} val_frac={val_frac} seed={seed} arch 1536->1024->512 (3 hidden layers, improved) ===", flush=True)
     cmd = [
         sys.executable, "-m", "model.train",
         "--dataset", str(DATA / "dataset.json"),
@@ -179,7 +181,7 @@ def main():
     print(f"=== CONTINUOUS IMPROVEMENT START ===", flush=True)
     print(f"Start: {time.ctime(start)} end: {time.ctime(end)} ({args.hours}h)", flush=True)
     print(f"Initial no-text: {notext_count}, degraded: {len(list(DEGRADED.glob('*.png')))}", flush=True)
-    print(f"Arch: 1047->512->256->5, blur increasing 1.2->2.5->4.0->6.0->8.0->10.0 with time, hardness increases, strict", flush=True)
+    print(f"Arch: 1047->1536->1024->512->5 (3 hidden layers, larger capacity), blur increasing 1.2->2.5->4.0->6.0->8.0->10.0 with time, hardness increases, strict", flush=True)
     print(f"Generated img have no text: pure geometric 22 shapes, no letters", flush=True)
 
     # initial degraded if missing
@@ -237,7 +239,7 @@ def main():
         # But we keep rounds=2 for speed, with base epochs 300+200+200=700 max
         # For continuous, we use rounds=2, val_frac 0.10
         try:
-            hist = train_model(rounds=4, val_frac=0.10, seed=seed)
+            hist = train_model(rounds=6, val_frac=0.10, seed=seed)
             # 6. Export ONNX — result confirm
             export_onnx()
             # 7. Run QA light
