@@ -43,20 +43,20 @@ MAX_EDGE = 1500          # long edge cap for tracing
 ALPHA_CUTOFF = 128       # alpha above this = content, below = background
 FLAT_ERR = 35.0          # mean 4-color reconstruction error (0-441) below this = flat art
 
-BASELINE_FLAT = dict(profile="flat", color_precision=3, layer_difference=24,
-                     filter_speckle=4, max_iterations=12, corner_threshold=60,
-                     length_threshold=4.0, path_precision=8)
-BASELINE_PHOTO = dict(profile="photo", color_precision=7, layer_difference=12,
-                      filter_speckle=8, max_iterations=40, corner_threshold=60,
-                      length_threshold=3.5, path_precision=8)
+BASELINE_FLAT = dict(profile="flat", color_precision=2, layer_difference=20,
+                     filter_speckle=2, max_iterations=12, corner_threshold=60,
+                     length_threshold=4.5, path_precision=10)
+BASELINE_PHOTO = dict(profile="photo", color_precision=6, layer_difference=12,
+                      filter_speckle=4, max_iterations=30, corner_threshold=50,
+                      length_threshold=3.5, path_precision=10)
 
-# Cloudinary inspired presets — best tier method
+# Cloudinary inspired presets — best tier method improved v2, stricter, cleaner SVG, fewer paths, hole-free
 PRESETS = {
-    "logo": dict(profile="flat", color_precision=3, layer_difference=24, filter_speckle=4, max_iterations=12, corner_threshold=60, length_threshold=4.0),
-    "icon": dict(profile="flat", color_precision=4, layer_difference=18, filter_speckle=2, max_iterations=16, corner_threshold=70, length_threshold=4.0),
-    "illustration": dict(profile="flat", color_precision=6, layer_difference=14, filter_speckle=4, max_iterations=20, corner_threshold=50, length_threshold=3.5),
-    "lqip": dict(profile="photo", color_precision=5, layer_difference=20, filter_speckle=6, max_iterations=18, corner_threshold=40, length_threshold=4.5),
-    "artistic": dict(profile="photo", color_precision=7, layer_difference=10, filter_speckle=8, max_iterations=28, corner_threshold=30, length_threshold=3.0),
+    "logo": dict(profile="flat", color_precision=2, layer_difference=20, filter_speckle=2, max_iterations=12, corner_threshold=60, length_threshold=4.5, path_precision=10),
+    "icon": dict(profile="flat", color_precision=3, layer_difference=16, filter_speckle=1, max_iterations=14, corner_threshold=70, length_threshold=4.5, path_precision=10),
+    "illustration": dict(profile="flat", color_precision=5, layer_difference=12, filter_speckle=3, max_iterations=22, corner_threshold=50, length_threshold=3.5, path_precision=10),
+    "lqip": dict(profile="photo", color_precision=4, layer_difference=18, filter_speckle=4, max_iterations=16, corner_threshold=40, length_threshold=4.0, path_precision=8),
+    "artistic": dict(profile="photo", color_precision=6, layer_difference=10, filter_speckle=6, max_iterations=30, corner_threshold=35, length_threshold=3.0, path_precision=10),
     "custom": None,
 }
 
@@ -349,25 +349,46 @@ def trace_with(a: dict, params: dict | None = None) -> str:
 
 
 def _pick_best_preset(a: dict) -> dict:
-    """Cloudinary inspired best tier: pick preset based on image analysis"""
+    """Cloudinary inspired best tier v2: smarter preset picking based on flatness, alpha, size, edge, color count"""
     w, h = a["w"], a["h"]
     flat_err = a.get("flat_err", 100)
     is_flat = a.get("is_flat", False)
     has_alpha = a.get("has_alpha", False)
-    # small icons
-    if max(w, h) < 128 and is_flat:
+    # Estimate color complexity from working image small palette
+    try:
+        working = a.get("working")
+        if working:
+            small = working.resize((64, 64))
+            # count distinct colors in quantized 16
+            q = small.quantize(colors=16, method=Image.Quantize.FASTOCTREE)
+            colors = len([c for c in (q.getcolors() or []) if c[0] > 64])
+        else:
+            colors = 8
+    except:
+        colors = 8
+
+    # Very tiny icons <64px: icon preset strictest
+    if max(w, h) < 64:
         return PRESETS["icon"]
-    # logos: flat, low error, transparent, few colors
-    if is_flat and flat_err < 15 and has_alpha:
+    # Small icons 64-128 and flat: icon
+    if max(w, h) < 128 and is_flat and colors <= 6:
+        return PRESETS["icon"]
+    # Pure geometric logos: flat, very low error <12, transparent, few colors <=5
+    if is_flat and flat_err < 12 and has_alpha and colors <= 5:
         return PRESETS["logo"]
-    if is_flat and flat_err < 25:
-        return PRESETS["illustration"]
-    if not is_flat and flat_err > 60:
-        # photo like
-        if max(w, h) < 300:
-            return PRESETS["lqip"]
-        return PRESETS["artistic"]
-    # default
+    # Flat logos with low error <18
+    if is_flat and flat_err < 18:
+        return PRESETS["logo"]
+    # Flat illustration: flat but more colors or moderate error 18-35
+    if is_flat and flat_err < 35:
+        return PRESETS["illustration"] if colors > 4 else PRESETS["logo"]
+    # Non-flat small for LQIP
+    if not is_flat and max(w, h) < 200:
+        return PRESETS["lqip"]
+    # Non-flat with high error >55: photo/artistic
+    if not is_flat and flat_err > 55:
+        return PRESETS["artistic"] if max(w, h) > 400 else PRESETS["lqip"]
+    # Default best tier
     return PRESETS["logo"] if is_flat else PRESETS["illustration"]
 
 def vectorize(img_bytes: bytes, params: dict | None = None) -> dict:
