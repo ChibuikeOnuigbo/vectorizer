@@ -31,18 +31,20 @@ from model.features import FEATURE_DIM, params_to_targets, targets_to_params
 from model.svg_geom import score
 
 
-def init_net(h1: int = 1024, h2: int = 512, out: int = 5, seed: int = 0):
+def init_net(h1: int = 1536, h2: int = 1024, h3: int = 512, out: int = 5, seed: int = 0):
     rng = np.random.default_rng(seed)
     W1 = (rng.standard_normal((FEATURE_DIM, h1)) * np.sqrt(2.0 / FEATURE_DIM)).astype(np.float32)
     b1 = np.zeros(h1, np.float32)
     W2 = (rng.standard_normal((h1, h2)) * np.sqrt(2.0 / h1)).astype(np.float32)
     b2 = np.zeros(h2, np.float32)
-    W3 = (rng.standard_normal((h2, out)) * np.sqrt(1.0 / h2)).astype(np.float32)
-    b3 = np.zeros(out, np.float32)
-    return [W1, b1, W2, b2, W3, b3]
+    W3 = (rng.standard_normal((h2, h3)) * np.sqrt(2.0 / h2)).astype(np.float32)
+    b3 = np.zeros(h3, np.float32)
+    W4 = (rng.standard_normal((h3, out)) * np.sqrt(1.0 / h3)).astype(np.float32)
+    b4 = np.zeros(out, np.float32)
+    return [W1, b1, W2, b2, W3, b3, W4, b4]
 
 def forward(net, X, training=False, dropout_rng=None, p_drop=0.12):
-    W1, b1, W2, b2, W3, b3 = net
+    W1, b1, W2, b2, W3, b3, W4, b4 = net
     z1 = X @ W1 + b1
     a1 = np.maximum(z1, 0)
     if training and dropout_rng is not None:
@@ -53,8 +55,13 @@ def forward(net, X, training=False, dropout_rng=None, p_drop=0.12):
     if training and dropout_rng is not None:
         mask2 = (dropout_rng.random(a2.shape) >= p_drop).astype(np.float32) / (1 - p_drop)
         a2 = a2 * mask2
-    y = a2 @ W3 + b3
-    return y, (z1, a1, z2, a2)
+    z3 = a2 @ W3 + b3
+    a3 = np.maximum(z3, 0)
+    if training and dropout_rng is not None:
+        mask3 = (dropout_rng.random(a3.shape) >= p_drop).astype(np.float32) / (1 - p_drop)
+        a3 = a3 * mask3
+    y = a3 @ W4 + b4
+    return y, (z1, a1, z2, a2, z3, a3)
 
 def soft_target(cands: list) -> np.ndarray:
     """Strict: top within 1.0 points, weighted sharply, favor fewer paths."""
@@ -74,8 +81,8 @@ def soft_target(cands: list) -> np.ndarray:
     return acc
 
 def loss_and_grad(net, X, T, cache, wd=3e-4):
-    y, (z1, a1, z2, a2) = cache[0], cache[1]
-    W1, b1, W2, b2, W3, b3 = net
+    y, (z1, a1, z2, a2, z3, a3) = cache[0], cache[1]
+    W1, b1, W2, b2, W3, b3, W4, b4 = net
     n = len(X)
     dy = np.zeros_like(y)
     p0 = 1.0 / (1.0 + np.exp(-np.clip(y[:, 0], -15, 15)))
@@ -85,9 +92,13 @@ def loss_and_grad(net, X, T, cache, wd=3e-4):
     weights = np.array([0, 1.5, 1.5, 1.0, 1.0], dtype=np.float32)  # stricter on cp, ld
     for j in range(1, 5):
         dy[:, j] = weights[j] * (y[:, j] - T[:, j]) / n
-    dW3 = a2.T @ dy
-    db3 = dy.sum(axis=0)
-    da2 = dy @ W3.T
+    dW4 = a3.T @ dy
+    db4 = dy.sum(axis=0)
+    da3 = dy @ W4.T
+    dz3 = da3 * (z3 > 0)
+    dW3 = a2.T @ dz3
+    db3 = dz3.sum(axis=0)
+    da2 = dz3 @ W3.T
     dz2 = da2 * (z2 > 0)
     dW2 = a1.T @ dz2
     db2 = dz2.sum(axis=0)
@@ -97,7 +108,7 @@ def loss_and_grad(net, X, T, cache, wd=3e-4):
     db1 = dz1.sum(axis=0)
     perr = float(np.abs(p0 - T[:, 0]).mean())
     merr = float(np.sqrt(((y[:, 1:] - T[:, 1:]) ** 2).mean()))
-    return perr + merr, [dW1, db1, dW2, db2, dW3, db3]
+    return perr + merr, [dW1, db1, dW2, db2, dW3, db3, dW4, db4]
 
 def adam_init(net):
     m = [np.zeros_like(p) for p in net]
@@ -109,7 +120,7 @@ def adam_step(net, grads, m, v, t, lr=0.001, beta1=0.9, beta2=0.999, eps=1e-8, w
     new_m = []
     new_v = []
     for i, (p, g, mi, vi) in enumerate(zip(net, grads, m, v)):
-        if i in (0, 2, 4):
+        if i in (0, 2, 4, 6):
             g = g + wd * p
         mi = beta1 * mi + (1 - beta1) * g
         vi = beta2 * vi + (1 - beta2) * (g * g)
@@ -202,8 +213,8 @@ def main():
             X.append(f); T.append(t); tr_imgs.append((r["name"], img))
     X = np.stack(X); T = np.stack(T)
     val_X = np.stack(val_X); val_T = np.stack(val_T)
-    print(f"TRAIN ULTRA HARD MODE: train={len(X)} val={len(val_X)} FEATURE_DIM={FEATURE_DIM} arch=1047->512->256->5")
-    print(f"Data: 600 text + 3000 notext (no text general img, pure geometric, generated img have no text) + 10 AI + 1000 degraded (blur 1.2->10.0 increasing with time, strict, hardness 4, increase hardness)")
+    print(f"TRAIN ULTRA HARD MODE V2: train={len(X)} val={len(val_X)} FEATURE_DIM={FEATURE_DIM} arch=1047->1536->1024->512->5 (3 hidden layers)")
+    print(f"Data: 2000 notext pure geometric no text + 1000 logos + 1000 text no bg + 6000 degraded blur 1.2->10.0 increasing with time, strict hardness 4")
 
     base = 0.0
     for name, img in val_imgs:
@@ -219,22 +230,52 @@ def main():
 
     for rnd in range(args.rounds + 1):
         t0 = time.time()
-        # Curriculum: hardness increases with time — blur 1.2→2.5→4.0→6.0→8.0→10.0 strict, no-text general 4000, generated img have no text, increase hardness
+        # Curriculum 8 rounds, hardness increases with time — blur 1.2→2.5→4.0→6.0→8.0→10.0 strict
         if rnd == 0:
-            epochs = 500
+            epochs = 800
             base_lr = 0.0012
-            dropout = 0.12
-            hardness = "easy (clean+notext 4000 no text, generated img have no text) upgraded 1024x512"
+            dropout = 0.15
+            hardness = "easy clean 4000 no-text pure geometric no text, upgraded 1536x1024x512"
         elif rnd == 1:
-            epochs = 400
-            base_lr = 0.0008
+            epochs = 600
+            base_lr = 0.0009
+            dropout = 0.12
+            hardness = "medium blur 1.2-2.5 increasing with time, upgraded 1536x1024x512"
+        elif rnd == 2:
+            epochs = 600
+            base_lr = 0.0007
+            dropout = 0.10
+            hardness = "medium-hard blur 2.5-4.0 strict, upgraded"
+        elif rnd == 3:
+            epochs = 600
+            base_lr = 0.0005
             dropout = 0.08
-            hardness = "medium (blur 1.2-2.5 increasing with time) upgraded"
+            hardness = "hard blur 4.0-6.0 strict increasing hardness, upgraded"
+        elif rnd == 4:
+            epochs = 500
+            base_lr = 0.0004
+            dropout = 0.06
+            hardness = "hard blur 6.0-8.0 very hard strict, upgraded"
+        elif rnd == 5:
+            epochs = 500
+            base_lr = 0.0003
+            dropout = 0.05
+            hardness = "very hard blur 8.0-10.0 extreme, strict"
+        elif rnd == 6:
+            epochs = 400
+            base_lr = 0.00025
+            dropout = 0.04
+            hardness = "extreme blur 10.0 + jpeg + heavy, strict"
+        elif rnd == 7:
+            epochs = 400
+            base_lr = 0.0002
+            dropout = 0.03
+            hardness = "extreme hardest curriculum final"
         else:
             epochs = 400
-            base_lr = 0.0005
-            dropout = 0.05
-            hardness = "hard (blur 4.0-10.0 strict, increasing hardness, strict, hardness 4, generated img have no text) upgraded 1024x512"
+            base_lr = 0.00015
+            dropout = 0.02
+            hardness = "final polish 1536x1024x512, strictest"
 
         net, _ = train_round(net, X, T, epochs=epochs, base_lr=base_lr, batch=128, seed=args.seed + rnd*10, dropout=dropout)
         d, prof_ok = cheap_val(net, val_X, val_T)
@@ -280,8 +321,8 @@ def main():
                 T[tr_pos[j]] = soft_target(r["candidates"])
         print(f"[reinforce] strict beat pool on {improved}/{len(tr_imgs)} images (hardness={hardness})", flush=True)
 
-    W1, b1, W2, b2, W3, b3 = best["net"]
-    np.savez(out_dir / "params.npz", W1=W1, b1=b1, W2=W2, b2=b2, W3=W3, b3=b3,
+    W1, b1, W2, b2, W3, b3, W4, b4 = best["net"]
+    np.savez(out_dir / "params.npz", W1=W1, b1=b1, W2=W2, b2=b2, W3=W3, b3=b3, W4=W4, b4=b4,
              feature_dim=np.array(FEATURE_DIM),
              val_score=np.array(best["score"]),
              best_tag=np.array(best["tag"]))
@@ -291,9 +332,9 @@ def main():
         "best_score": round(best["score"], 2),
         "best_prof_acc": round(best["prof"], 3),
         "rounds": log,
-        "note": "hard mode: 600 text + 600 notext (no text general) + blurred increasing 1.2,2.5,4.0 with time, strict"
+        "note": "hard mode v2: 2000 notext pure geometric no text + 1000 logos + 1000 text no bg + 6000 degraded blur 1.2->10.0 increasing, arch 1536x1024x512, 8 rounds 800+600*3+500*2+400*3"
     }, indent=2))
-    print(f"\nBEST STRICT: {best['tag']} val={best['score']:.2f} vs base {base:.2f} prof-acc={best['prof']:.0%}")
+    print(f"\nBEST STRICT V2: {best['tag']} val={best['score']:.2f} vs base {base:.2f} prof-acc={best['prof']:.0%}")
     print(f"saved -> {out_dir / 'params.npz'}")
 
 if __name__ == "__main__":

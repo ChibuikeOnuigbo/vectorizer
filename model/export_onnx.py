@@ -55,6 +55,31 @@ def build_onnx_3layer(W1, b1, W2, b2, W3, b3, feature_dim):
     onnx.checker.check_model(m)
     return m
 
+def build_onnx_4layer(W1, b1, W2, b2, W3, b3, W4, b4, feature_dim):
+    X = helper.make_tensor_value_info("x", TensorProto.FLOAT, [1, feature_dim])
+    Y = helper.make_tensor_value_info("out", TensorProto.FLOAT, [1, W4.shape[1]])
+    w1t = numpy_helper.from_array(W1.T.astype(np.float32), name="w1")
+    b1t = numpy_helper.from_array(b1.astype(np.float32), name="b1")
+    w2t = numpy_helper.from_array(W2.T.astype(np.float32), name="w2")
+    b2t = numpy_helper.from_array(b2.astype(np.float32), name="b2")
+    w3t = numpy_helper.from_array(W3.T.astype(np.float32), name="w3")
+    b3t = numpy_helper.from_array(b3.astype(np.float32), name="b3")
+    w4t = numpy_helper.from_array(W4.T.astype(np.float32), name="w4")
+    b4t = numpy_helper.from_array(b4.astype(np.float32), name="b4")
+    n1 = helper.make_node("Gemm", ["x", "w1", "b1"], ["z1"], transB=1, name="gemm1")
+    n2 = helper.make_node("Relu", ["z1"], ["a1"], name="relu1")
+    n3 = helper.make_node("Gemm", ["a1", "w2", "b2"], ["z2"], transB=1, name="gemm2")
+    n4 = helper.make_node("Relu", ["z2"], ["a2"], name="relu2")
+    n5 = helper.make_node("Gemm", ["a2", "w3", "b3"], ["z3"], transB=1, name="gemm3")
+    n6 = helper.make_node("Relu", ["z3"], ["a3"], name="relu3")
+    n7 = helper.make_node("Gemm", ["a3", "w4", "b4"], ["out"], transB=1, name="gemm4")
+    g = helper.make_graph([n1, n2, n3, n4, n5, n6, n7], "vectorizer-params-v3", [X], [Y],
+                          [w1t, b1t, w2t, b2t, w3t, b3t, w4t, b4t])
+    m = helper.make_model(g, opset_imports=[helper.make_opsetid("", 13)])
+    m.ir_version = 8
+    onnx.checker.check_model(m)
+    return m
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -65,7 +90,13 @@ def main():
 
     z = np.load(args.npz, allow_pickle=True)
     F = int(z["feature_dim"])
-    if "W3" in z:
+    if "W4" in z:
+        W1, b1, W2, b2, W3, b3, W4, b4 = z["W1"], z["b1"], z["W2"], z["b2"], z["W3"], z["b3"], z["W4"], z["b4"]
+        model = build_onnx_4layer(W1, b1, W2, b2, W3, b3, W4, b4, F)
+        print(f"Building 4-layer model: {F}->{W1.shape[1]}->{W2.shape[1]}->{W3.shape[1]}->{W4.shape[1]}")
+        def numpy_forward(x):
+            return (np.maximum(np.maximum(np.maximum(x @ W1 + b1, 0) @ W2 + b2, 0) @ W3 + b3, 0) @ W4 + b4)
+    elif "W3" in z:
         W1, b1, W2, b2, W3, b3 = z["W1"], z["b1"], z["W2"], z["b2"], z["W3"], z["b3"]
         model = build_onnx_3layer(W1, b1, W2, b2, W3, b3, F)
         print(f"Building 3-layer model: {F}->{W1.shape[1]}->{W2.shape[1]}->{W3.shape[1]}")
