@@ -361,7 +361,7 @@ def snap_state():
 
 # ------------------------------------------------------------------ main
 def main():
-    log("forever training program start, goals: 50K images / 100K steps")
+    log("forever training program start, goals: 70K images / 100K steps")
     prog = load_progress()
     log("progress:", json.dumps(prog))
     for push_cnt in range(10**9):
