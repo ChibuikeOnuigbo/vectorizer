@@ -237,7 +237,7 @@ def manual_status():
                 data_counts[d] = len(list(p.glob("*.png"))) if p.exists() else 0
             forever["images_total"] = sum(data_counts.values())
             forever["images_counts"] = data_counts
-            forever["goals"] = {"images": 50000, "steps": 100000}
+            forever["goals"] = {"images": 70000, "steps": 100000}
     except Exception:
         pass
     return {
@@ -380,3 +380,93 @@ def debug_vet(limit: int = 20):
 @app.get("/")
 def index():
     return FileResponse(STATIC / "index.html")
+
+
+# ============ PROOF REPORT (100 images in/out + verdict collection) ============
+VERDICTS_PATH = Path(__file__).parent.parent / "model_data_snapshot" / "verdicts.jsonl"
+VERDICTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+
+@app.get("/api/test/report")
+def test_report_status():
+    rp = STATIC / "testreport" / "report.json"
+    if not rp.exists():
+        return {"built": False, "msg": "POST /api/test/rebuild to generate"}
+    import json as _js
+    s = _js.loads(rp.read_text())
+    s["built"] = True
+    s["url"] = "/static/test-report.html"
+    s.pop("rows", None)
+    return s
+
+
+@app.post("/api/test/rebuild")
+def test_report_rebuild(n: int = 100):
+    """Rebuild the 100-image proof report in the background."""
+    import threading
+    from .test_report import build_report
+
+    if getattr(test_report_rebuild, "_running", False):
+        return {"ok": False, "msg": "already running"}
+
+    def _run():
+        try:
+            test_report_rebuild._running = True
+            build_report(n)
+        finally:
+            test_report_rebuild._running = False
+
+    threading.Thread(target=_run, daemon=True).start()
+    return {"ok": True, "msg": "rebuild started, watch /api/test/report"}
+
+
+@app.post("/api/manual/verdict")
+async def manual_verdict(request: Request):
+    import json as _js
+    try:
+        body = await request.json()
+    except Exception:
+        raise HTTPException(400, "bad json")
+    i = body.get("i")
+    method = body.get("method")
+    verdict = body.get("verdict")
+    if i is None or method not in ("model", "classic"):
+        raise HTTPException(400, "need i + method model|classic")
+    if verdict not in ("good", "bad", "none"):
+        raise HTTPException(400, "verdict must be good bad or none")
+    rows = {}
+    if VERDICTS_PATH.exists():
+        for line in VERDICTS_PATH.read_text().strip().splitlines():
+            try:
+                v = _js.loads(line)
+                rows[f"{v.get('i')}_{v.get('method')}"] = v
+            except Exception:
+                pass
+    key = f"{i}_{method}"
+    if verdict == "none":
+        rows.pop(key, None)
+    else:
+        rows[key] = {"i": i, "method": method, "verdict": verdict,
+                     "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
+                     "meta": body.get("meta") or {}}
+    with VERDICTS_PATH.open("w") as f:
+        for k in sorted(rows):
+            f.write(_js.dumps(rows[k]) + "\n")
+    return {"ok": True, "saved": key if verdict != "none" else None,
+            "total": len(rows),
+            "note": "appended to model_data_snapshot/verdicts.jsonl, feeds forever training"}
+
+
+@app.get("/api/manual/verdicts")
+def manual_verdicts(limit: int = 300):
+    import json as _js
+    out = []
+    if VERDICTS_PATH.exists():
+        for line in VERDICTS_PATH.read_text().strip().splitlines()[-limit:]:
+            try:
+                out.append(_js.loads(line))
+            except Exception:
+                pass
+    good = sum(1 for v in out if v.get("verdict") == "good")
+    bad = sum(1 for v in out if v.get("verdict") == "bad")
+    return {"total": len(out), "good": good, "bad": bad, "verdicts": out}

@@ -42,7 +42,7 @@ SNAP = ROOT / "model_data_snapshot"
 PARTS = SNAP / "data_parts"
 STATIC_MODEL = ROOT / "app" / "static" / "model"
 
-GOAL_IMAGES = 50_000
+GOAL_IMAGES = 70_000
 GOAL_STEPS = 100_000
 DATASET_CAP = 6000          # rolling window of scored records used for training
 SCORE_CHUNK = 250           # new images scored per iteration (~2.5 min)
