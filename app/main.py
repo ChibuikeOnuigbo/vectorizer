@@ -5,7 +5,7 @@ import logging
 import time
 from pathlib import Path
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -55,6 +55,11 @@ async def convert(
     max_iterations: str | None = Form(None),
     corner_threshold: str | None = Form(None),
     preset: str | None = Form(None),
+    colors: str | None = Form(None),
+    detail: str | None = Form(None),
+    smoothness: str | None = Form(None),
+    enhance: str | None = Form(None),
+    engine: str | None = Form(None),
 ):
     data = await file.read()
     if not data:
@@ -105,11 +110,59 @@ async def convert(
         else:
             params = None
 
+    mode_opts = {
+        "colors": _clamped_int(colors, 2, 128),
+        "detail": _clamped_int(detail, 0, 100),
+        "smoothness": _clamped_int(smoothness, 0, 100),
+        "enhance": enhance == "1",
+        "engine": engine if engine == "best" else None,
+    }
     try:
-        return JSONResponse(vectorize(data, params))
+        return JSONResponse(vectorize(data, params, mode_opts))
     except Exception as exc:  # noqa: BLE001
         log.exception("conversion failed")
         raise HTTPException(422, f"Could not vectorize this image {exc}") from exc
+
+
+# ============ AI ASSIST (user's own API key, see research notes) ============
+from .ai_providers import ai_vectorize, provider_catalog  # noqa: E402
+
+
+@app.get("/api/ai/providers")
+def ai_providers():
+    return {"providers": provider_catalog()}
+
+
+@app.post("/api/ai/vectorize")
+async def ai_vectorize_endpoint(
+    request: Request,
+    file: UploadFile = File(...),
+    provider: str = Form("openrouter"),
+    model: str | None = Form(None),
+    detail: str | None = Form(None),
+    colors: str | None = Form(None),
+):
+    data = await file.read()
+    if not data:
+        raise HTTPException(400, "Empty file")
+    if len(data) > MAX_UPLOAD_BYTES:
+        raise HTTPException(413, "File too large max 20 MB")
+    name = (file.filename or "image").lower()
+    if not any(name.endswith(e) for e in ALLOWED_EXT):
+        raise HTTPException(415, "Unsupported file type Use PNG JPG WebP GIF BMP")
+    key = request.headers.get("x-ai-key", "")
+    try:
+        return JSONResponse(ai_vectorize(
+            data, provider=provider, model=model or "",
+            key=key, detail=detail or "auto",
+            colors=_clamped_int(colors, 2, 128)))
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(502, str(exc)) from exc
+    except Exception as exc:  # noqa: BLE001
+        log.exception("ai vectorize failed")
+        raise HTTPException(500, f"AI vectorize failed {exc}") from exc
 
 
 app.mount("/static", StaticFiles(directory=STATIC), name="static")

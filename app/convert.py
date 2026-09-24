@@ -391,15 +391,98 @@ def _pick_best_preset(a: dict) -> dict:
     # Default best tier
     return PRESETS["logo"] if is_flat else PRESETS["illustration"]
 
-def vectorize(img_bytes: bytes, params: dict | None = None) -> dict:
-    """Convert raster bytes to a clean SVG. Returns {svg, meta}."""
+def sliders_to_params(colors: int | None, detail: int | None,
+                      smoothness: int | None, base: dict | None = None) -> dict:
+    """Map the three user-facing sliders (Colors / Detail / Corner smoothness,
+    same labels as the Cloudinary tool) onto raw vtracer params.
+
+    colors     2..128   → color_precision (bits) + layer_difference
+    detail     0..100   → max_iterations + length_threshold + path_precision
+    smoothness 0..100   → corner_threshold (0 smooth curves .. 100 sharp corners)
+    """
+    p = dict(base or {})
+    if colors is not None:
+        c = min(128, max(2, colors))
+        bits = max(1, min(8, int(round(np.log2(c)))))
+        p["color_precision"] = bits
+        p["layer_difference"] = 16 if bits <= 4 else 12
+    if detail is not None:
+        d = min(100, max(0, detail)) / 100.0
+        p["max_iterations"] = 8 + int(round(d * 40))
+        p["length_threshold"] = 4.5 - d * 2.0      # more detail → shorter segments
+        p["path_precision"] = 3 + int(round(d * 9))
+    if smoothness is not None:
+        s = min(100, max(0, smoothness))
+        p["corner_threshold"] = min(110, max(10, 110 - int(round(s * 0.8))))
+    return p
+
+
+def _enhance_working(a: dict) -> dict:
+    """Optional 'Clean first' step for the no-model mode (vectorizer.io idea):
+    denoise + hard color simplify + slight sharpen before tracing so speckles
+    and JPEG noise do not become noise blobs in the SVG."""
+    b = dict(a)
+    w_img = a["working"].filter(ImageFilter.MedianFilter(3))
+    if not a.get("is_flat"):
+        w_img = w_img.quantize(colors=32, method=Image.Quantize.FASTOCTREE).convert("RGB")
+    w_img = w_img.filter(ImageFilter.UnsharpMask(radius=1.5, percent=110, threshold=3))
+    b["working"] = w_img
+    return b
+
+
+def _score_svg(img: Image.Image, svg: str) -> float:
+    try:
+        from model.svg_geom import score
+        small = img.convert("RGBA")
+        if max(small.size) > 400:
+            f = 400 / max(small.size)
+            small = small.resize((max(1, round(small.size[0] * f)),
+                                  max(1, round(small.size[1] * f))), Image.LANCZOS)
+        return float(score(small, svg, step=6)["score"])
+    except Exception:
+        return 0.0
+
+
+def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | None = None) -> dict:
+    """Convert raster bytes to a clean SVG. Returns {svg, meta}.
+
+    mode_opts keys: colors/detail/smoothness (sliders), enhance (bool),
+    engine ('best' for multi-candidate scoring)."""
+    opts = mode_opts or {}
     t0 = time.time()
     img = Image.open(io.BytesIO(img_bytes))
     a = analyze(img)
     # best tier method when no params: use Cloudinary inspired preset picking
     if params is None:
         params = _pick_best_preset(a)
-    svg = trace_with(a, params)
+    params = sliders_to_params(opts.get("colors"), opts.get("detail"),
+                               opts.get("smoothness"), params)
+    if opts.get("enhance"):
+        a = _enhance_working(a)
+
+    engine = opts.get("engine")
+    if engine == "best":
+        # try the chosen params plus two neighboring presets, keep the winner
+        candidates = [(params, "selected")]
+        for name in ("logo", "illustration"):
+            if not a["is_flat"] and name == "logo":
+                name = "artistic"
+            p = dict(PRESETS[name])
+            if params.get("preset") == name:
+                continue
+            candidates.append((p, name))
+        best_svg, best_score, best_name = None, -1.0, ""
+        for p, name in candidates:
+            try:
+                svg_c = trace_with(a, p)
+                s = _score_svg(img, svg_c)
+                if s > best_score:
+                    best_svg, best_score = svg_c, s
+            except Exception:
+                continue
+        svg = best_svg or trace_with(a, params)
+    else:
+        svg = trace_with(a, params)
 
     fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
     flat = (params or {}).get("profile", "flat" if a["is_flat"] else "photo") == "flat"
@@ -413,4 +496,6 @@ def vectorize(img_bytes: bytes, params: dict | None = None) -> dict:
         "transparent_bg": bool(a["has_alpha"] and not a["keep_bg"]),
         "seconds": round(time.time() - t0, 2),
     }
+    if opts.get("enhance"):
+        meta["enhanced"] = True
     return {"svg": svg, "meta": meta}
