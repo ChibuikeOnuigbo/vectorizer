@@ -224,12 +224,29 @@ def manual_status():
             last_train = [_js.loads(l) for l in lines]
         except Exception:
             pass
+    forever = None
+    try:
+        import json as _js
+        fp = Path(__file__).parent.parent / "model" / "out" / "progress.json"
+        if fp.exists():
+            forever = _js.loads(fp.read_text())
+            data_total = 0
+            data_counts = {}
+            for d in ("logos_notext", "logos", "logos_text", "degraded"):
+                p = Path(__file__).parent.parent / "model" / "data" / d
+                data_counts[d] = len(list(p.glob("*.png"))) if p.exists() else 0
+            forever["images_total"] = sum(data_counts.values())
+            forever["images_counts"] = data_counts
+            forever["goals"] = {"images": 50000, "steps": 100000}
+    except Exception:
+        pass
     return {
         "total_images": len(list(MANUAL_IMAGES.glob("*"))),
         "total_results": len(list(MANUAL_RESULTS.glob("*"))),
         "images_sample": images,
         "results_sample": results,
         "last_training": last_train,
+        "forever_training": forever,
         "model_exists": (Path(__file__).parent.parent / "model" / "out" / "params.npz").exists(),
         "onnx_size": (STATIC / "model" / "params.onnx").stat().st_size if (STATIC / "model" / "params.onnx").exists() else 0,
         "manual_base": str(MANUAL_BASE),
