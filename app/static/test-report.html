@@ -1,0 +1,1974 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vectorizer proof report — 100 images in/out</title><style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #0c0f14; color: #e8ecf4; }
+.head { position: sticky; top: 0; z-index: 50; background: rgba(10,12,17,.92); backdrop-filter: blur(8px); border-bottom: 1px solid #1d2532; padding: 14px 20px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.head h1 { font-size: 17px; margin: 0; }
+.head .stat { font-size: 13px; color: #9aa7bd; }
+.head .stat b { color: #e8ecf4; }
+.pill { background: #16202e; border: 1px solid #26344a; border-radius: 999px; padding: 4px 12px; font-size: 12.5px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 16px; }
+.row { background: #12161d; border: 1px solid #1d2532; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.row-head { display: flex; justify-content: space-between; font-size: 12.5px; color: #9aa7bd; }
+.cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.col { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.col label { font-size: 11.5px; color: #7f8da3; }
+.imgbox { background: repeating-conic-gradient(#1a2230 0 25%, #141a24 0 50%) 0 0/16px 16px; border-radius: 8px; border: 1px solid #1d2532; width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.imgbox img { max-width: 96%; max-height: 96%; object-fit: contain; }
+.meta { font-size: 11px; color: #7f8da3; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.verdicts { display: flex; gap: 6px; }
+.vbtn { border: 1px solid #2a3a55; background: #141b26; color: #c8d4e8; font-size: 12px; padding: 5px 10px; border-radius: 7px; cursor: pointer; }
+.vbtn:hover { border-color: #4f8cff; }
+.vbtn.good.active { background: #12351f; border-color: #2f9749; color: #7ae0a1; }
+.vbtn.bad.active { background: #3a1520; border-color: #d04868; color: #ff9db3; }
+.foot { padding: 20px; color: #9aa7bd; font-size: 13px; }
+.toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: #16202e; border: 1px solid #2a3a55; color: #e8ecf4; padding: 9px 16px; border-radius: 10px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 60; }
+.toast.show { opacity: 1; }
+@media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+</style></head>
+<body>
+<div class="head">
+  <h1>Proof report: 100 test images — input / model / classic</h1>
+  <span class="pill">model avg <b>96.2</b> pts</span>
+  <span class="pill">classic avg <b>95.1</b> pts</span>
+  <span class="pill">best/worst model 100.0 / 70.0</span>
+  <span class="pill">built in 11.5s</span>
+  <span class="pill">verdicts saved <b id="count">0</b></span>
+  <span class="pill">buttons clicked <b id="done">—</b></span>
+  <span class="stat">Click Good/Rubbish per row. Every click is APPENDED to
+  <code>model_data_snapshot/verdicts.jsonl</code> (committed to git). You can
+  also reply in chat with your notes and they get merged the same way.</span>
+</div>
+<div class="grid">
+<div class="row" data-extra="{&quot;m_score&quot;: 95.0, &quot;c_score&quot;: 95.0}">
+  <div class="row-head"><span>#00 · test_000.png</span>
+    <span>model <b style="color:#e8ecf4">95.0</b> · classic <b style="color:#e8ecf4">95.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_000.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_000.svg"></div>
+      <div class="meta">95.0 pts · 1 paths · 3.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,0,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,0,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_000.svg"></div>
+      <div class="meta">95.0 pts · 1 paths · 3.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,0,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,0,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 88.6, &quot;c_score&quot;: 88.6}">
+  <div class="row-head"><span>#01 · test_001.png</span>
+    <span>model <b style="color:#e8ecf4">88.6</b> · classic <b style="color:#e8ecf4">88.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_001.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_001.svg"></div>
+      <div class="meta">88.6 pts · 6 paths · 29.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,1,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,1,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_001.svg"></div>
+      <div class="meta">88.6 pts · 3 paths · 11.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,1,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,1,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#02 · test_002.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_002.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_002.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,2,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,2,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_002.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,2,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,2,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 94.6, &quot;c_score&quot;: 88.6}">
+  <div class="row-head"><span>#03 · test_003.png</span>
+    <span>model <b style="color:#e8ecf4">94.6</b> · classic <b style="color:#e8ecf4">88.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_003.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_003.svg"></div>
+      <div class="meta">94.6 pts · 22 paths · 25.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,3,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,3,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_003.svg"></div>
+      <div class="meta">88.6 pts · 2 paths · 7.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,3,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,3,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.7, &quot;c_score&quot;: 97.7}">
+  <div class="row-head"><span>#04 · test_004.png</span>
+    <span>model <b style="color:#e8ecf4">97.7</b> · classic <b style="color:#e8ecf4">97.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_004.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_004.svg"></div>
+      <div class="meta">97.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,4,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,4,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_004.svg"></div>
+      <div class="meta">97.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,4,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,4,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#05 · test_005.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_005.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_005.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 2.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,5,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,5,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_005.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 2.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,5,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,5,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.1, &quot;c_score&quot;: 86.5}">
+  <div class="row-head"><span>#06 · test_006.png</span>
+    <span>model <b style="color:#e8ecf4">97.1</b> · classic <b style="color:#e8ecf4">86.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_006.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_006.svg"></div>
+      <div class="meta">97.1 pts · 5 paths · 19.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,6,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,6,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_006.svg"></div>
+      <div class="meta">86.5 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,6,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,6,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#07 · test_007.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_007.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_007.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 2.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,7,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,7,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_007.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 2.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,7,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,7,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 90.2, &quot;c_score&quot;: 93.8}">
+  <div class="row-head"><span>#08 · test_008.png</span>
+    <span>model <b style="color:#e8ecf4">90.2</b> · classic <b style="color:#e8ecf4">93.8</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_008.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_008.svg"></div>
+      <div class="meta">90.2 pts · 19 paths · 20.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,8,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,8,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_008.svg"></div>
+      <div class="meta">93.8 pts · 7 paths · 8.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,8,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,8,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.8, &quot;c_score&quot;: 99.1}">
+  <div class="row-head"><span>#09 · test_009.png</span>
+    <span>model <b style="color:#e8ecf4">99.8</b> · classic <b style="color:#e8ecf4">99.1</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_009.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_009.svg"></div>
+      <div class="meta">99.8 pts · 7 paths · 5.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,9,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,9,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_009.svg"></div>
+      <div class="meta">99.1 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,9,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,9,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 87.6, &quot;c_score&quot;: 87.6}">
+  <div class="row-head"><span>#10 · test_010.png</span>
+    <span>model <b style="color:#e8ecf4">87.6</b> · classic <b style="color:#e8ecf4">87.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_010.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_010.svg"></div>
+      <div class="meta">87.6 pts · 1 paths · 2.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,10,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,10,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_010.svg"></div>
+      <div class="meta">87.6 pts · 1 paths · 2.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,10,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,10,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.6, &quot;c_score&quot;: 98.6}">
+  <div class="row-head"><span>#11 · test_011.png</span>
+    <span>model <b style="color:#e8ecf4">98.6</b> · classic <b style="color:#e8ecf4">98.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_011.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_011.svg"></div>
+      <div class="meta">98.6 pts · 1 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,11,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,11,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_011.svg"></div>
+      <div class="meta">98.6 pts · 1 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,11,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,11,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#12 · test_012.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_012.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_012.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 4.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,12,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,12,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_012.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 4.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,12,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,12,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.4, &quot;c_score&quot;: 97.4}">
+  <div class="row-head"><span>#13 · test_013.png</span>
+    <span>model <b style="color:#e8ecf4">97.4</b> · classic <b style="color:#e8ecf4">97.4</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_013.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_013.svg"></div>
+      <div class="meta">97.4 pts · 3 paths · 3.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,13,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,13,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_013.svg"></div>
+      <div class="meta">97.4 pts · 3 paths · 3.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,13,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,13,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#14 · test_014.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_014.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_014.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,14,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,14,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_014.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,14,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,14,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 70.0, &quot;c_score&quot;: 70.0}">
+  <div class="row-head"><span>#15 · test_015.png</span>
+    <span>model <b style="color:#e8ecf4">70.0</b> · classic <b style="color:#e8ecf4">70.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_015.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_015.svg"></div>
+      <div class="meta">70.0 pts · 3 paths · 4.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,15,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,15,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_015.svg"></div>
+      <div class="meta">70.0 pts · 3 paths · 4.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,15,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,15,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 80.8, &quot;c_score&quot;: 77.7}">
+  <div class="row-head"><span>#16 · test_016.png</span>
+    <span>model <b style="color:#e8ecf4">80.8</b> · classic <b style="color:#e8ecf4">77.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_016.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_016.svg"></div>
+      <div class="meta">80.8 pts · 2 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,16,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,16,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_016.svg"></div>
+      <div class="meta">77.7 pts · 1 paths · 1.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,16,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,16,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#17 · test_017.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_017.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_017.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,17,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,17,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_017.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,17,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,17,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 96.4, &quot;c_score&quot;: 93.7}">
+  <div class="row-head"><span>#18 · test_018.png</span>
+    <span>model <b style="color:#e8ecf4">96.4</b> · classic <b style="color:#e8ecf4">93.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_018.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_018.svg"></div>
+      <div class="meta">96.4 pts · 23 paths · 23.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,18,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,18,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_018.svg"></div>
+      <div class="meta">93.7 pts · 8 paths · 10.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,18,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,18,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#19 · test_019.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_019.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_019.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,19,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,19,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_019.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,19,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,19,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 80.9, &quot;c_score&quot;: 80.9}">
+  <div class="row-head"><span>#20 · test_020.png</span>
+    <span>model <b style="color:#e8ecf4">80.9</b> · classic <b style="color:#e8ecf4">80.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_020.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_020.svg"></div>
+      <div class="meta">80.9 pts · 3 paths · 1.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,20,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,20,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_020.svg"></div>
+      <div class="meta">80.9 pts · 3 paths · 1.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,20,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,20,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.3, &quot;c_score&quot;: 72.6}">
+  <div class="row-head"><span>#21 · test_021.png</span>
+    <span>model <b style="color:#e8ecf4">98.3</b> · classic <b style="color:#e8ecf4">72.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_021.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_021.svg"></div>
+      <div class="meta">98.3 pts · 65 paths · 50.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,21,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,21,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_021.svg"></div>
+      <div class="meta">72.6 pts · 4 paths · 5.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,21,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,21,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#22 · test_022.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_022.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_022.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,22,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,22,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_022.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,22,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,22,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.9, &quot;c_score&quot;: 98.9}">
+  <div class="row-head"><span>#23 · test_023.png</span>
+    <span>model <b style="color:#e8ecf4">98.9</b> · classic <b style="color:#e8ecf4">98.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_023.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_023.svg"></div>
+      <div class="meta">98.9 pts · 2 paths · 5.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,23,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,23,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_023.svg"></div>
+      <div class="meta">98.9 pts · 2 paths · 5.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,23,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,23,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.9, &quot;c_score&quot;: 99.9}">
+  <div class="row-head"><span>#24 · test_024.png</span>
+    <span>model <b style="color:#e8ecf4">99.9</b> · classic <b style="color:#e8ecf4">99.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_024.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_024.svg"></div>
+      <div class="meta">99.9 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,24,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,24,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_024.svg"></div>
+      <div class="meta">99.9 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,24,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,24,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 95.4, &quot;c_score&quot;: 95.4}">
+  <div class="row-head"><span>#25 · test_025.png</span>
+    <span>model <b style="color:#e8ecf4">95.4</b> · classic <b style="color:#e8ecf4">95.4</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_025.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_025.svg"></div>
+      <div class="meta">95.4 pts · 2 paths · 2.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,25,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,25,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_025.svg"></div>
+      <div class="meta">95.4 pts · 2 paths · 2.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,25,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,25,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.2, &quot;c_score&quot;: 88.5}">
+  <div class="row-head"><span>#26 · test_026.png</span>
+    <span>model <b style="color:#e8ecf4">97.2</b> · classic <b style="color:#e8ecf4">88.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_026.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_026.svg"></div>
+      <div class="meta">97.2 pts · 9 paths · 24.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,26,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,26,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_026.svg"></div>
+      <div class="meta">88.5 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,26,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,26,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#27 · test_027.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_027.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_027.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,27,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,27,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_027.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,27,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,27,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.7, &quot;c_score&quot;: 91.5}">
+  <div class="row-head"><span>#28 · test_028.png</span>
+    <span>model <b style="color:#e8ecf4">97.7</b> · classic <b style="color:#e8ecf4">91.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_028.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_028.svg"></div>
+      <div class="meta">97.7 pts · 13 paths · 9.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,28,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,28,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_028.svg"></div>
+      <div class="meta">91.5 pts · 5 paths · 5.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,28,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,28,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.2, &quot;c_score&quot;: 97.9}">
+  <div class="row-head"><span>#29 · test_029.png</span>
+    <span>model <b style="color:#e8ecf4">98.2</b> · classic <b style="color:#e8ecf4">97.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_029.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_029.svg"></div>
+      <div class="meta">98.2 pts · 8 paths · 6.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,29,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,29,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_029.svg"></div>
+      <div class="meta">97.9 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,29,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,29,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.4, &quot;c_score&quot;: 98.4}">
+  <div class="row-head"><span>#30 · test_030.png</span>
+    <span>model <b style="color:#e8ecf4">98.4</b> · classic <b style="color:#e8ecf4">98.4</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_030.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_030.svg"></div>
+      <div class="meta">98.4 pts · 2 paths · 3.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,30,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,30,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_030.svg"></div>
+      <div class="meta">98.4 pts · 2 paths · 3.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,30,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,30,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.9, &quot;c_score&quot;: 86.3}">
+  <div class="row-head"><span>#31 · test_031.png</span>
+    <span>model <b style="color:#e8ecf4">97.9</b> · classic <b style="color:#e8ecf4">86.3</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_031.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_031.svg"></div>
+      <div class="meta">97.9 pts · 19 paths · 26.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,31,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,31,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_031.svg"></div>
+      <div class="meta">86.3 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,31,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,31,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#32 · test_032.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_032.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_032.svg"></div>
+      <div class="meta">100.0 pts · 6 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,32,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,32,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_032.svg"></div>
+      <div class="meta">100.0 pts · 6 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,32,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,32,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 93.9, &quot;c_score&quot;: 93.9}">
+  <div class="row-head"><span>#33 · test_033.png</span>
+    <span>model <b style="color:#e8ecf4">93.9</b> · classic <b style="color:#e8ecf4">93.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_033.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_033.svg"></div>
+      <div class="meta">93.9 pts · 3 paths · 5.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,33,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,33,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_033.svg"></div>
+      <div class="meta">93.9 pts · 3 paths · 5.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,33,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,33,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#34 · test_034.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_034.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_034.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,34,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,34,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_034.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,34,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,34,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.3, &quot;c_score&quot;: 99.3}">
+  <div class="row-head"><span>#35 · test_035.png</span>
+    <span>model <b style="color:#e8ecf4">99.3</b> · classic <b style="color:#e8ecf4">99.3</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_035.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_035.svg"></div>
+      <div class="meta">99.3 pts · 1 paths · 0.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,35,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,35,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_035.svg"></div>
+      <div class="meta">99.3 pts · 1 paths · 0.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,35,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,35,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.5, &quot;c_score&quot;: 99.5}">
+  <div class="row-head"><span>#36 · test_036.png</span>
+    <span>model <b style="color:#e8ecf4">99.5</b> · classic <b style="color:#e8ecf4">99.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_036.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_036.svg"></div>
+      <div class="meta">99.5 pts · 1 paths · 1.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,36,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,36,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_036.svg"></div>
+      <div class="meta">99.5 pts · 1 paths · 1.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,36,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,36,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#37 · test_037.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_037.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_037.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,37,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,37,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_037.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,37,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,37,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.4, &quot;c_score&quot;: 95.2}">
+  <div class="row-head"><span>#38 · test_038.png</span>
+    <span>model <b style="color:#e8ecf4">98.4</b> · classic <b style="color:#e8ecf4">95.2</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_038.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_038.svg"></div>
+      <div class="meta">98.4 pts · 15 paths · 14.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,38,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,38,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_038.svg"></div>
+      <div class="meta">95.2 pts · 7 paths · 8.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,38,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,38,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.7, &quot;c_score&quot;: 97.7}">
+  <div class="row-head"><span>#39 · test_039.png</span>
+    <span>model <b style="color:#e8ecf4">97.7</b> · classic <b style="color:#e8ecf4">97.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_039.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_039.svg"></div>
+      <div class="meta">97.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,39,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,39,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_039.svg"></div>
+      <div class="meta">97.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,39,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,39,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.9, &quot;c_score&quot;: 98.9}">
+  <div class="row-head"><span>#40 · test_040.png</span>
+    <span>model <b style="color:#e8ecf4">98.9</b> · classic <b style="color:#e8ecf4">98.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_040.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_040.svg"></div>
+      <div class="meta">98.9 pts · 1 paths · 1.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,40,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,40,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_040.svg"></div>
+      <div class="meta">98.9 pts · 1 paths · 1.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,40,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,40,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.3, &quot;c_score&quot;: 99.3}">
+  <div class="row-head"><span>#41 · test_041.png</span>
+    <span>model <b style="color:#e8ecf4">99.3</b> · classic <b style="color:#e8ecf4">99.3</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_041.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_041.svg"></div>
+      <div class="meta">99.3 pts · 1 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,41,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,41,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_041.svg"></div>
+      <div class="meta">99.3 pts · 1 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,41,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,41,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#42 · test_042.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_042.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_042.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 0.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,42,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,42,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_042.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 0.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,42,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,42,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.1, &quot;c_score&quot;: 99.1}">
+  <div class="row-head"><span>#43 · test_043.png</span>
+    <span>model <b style="color:#e8ecf4">99.1</b> · classic <b style="color:#e8ecf4">99.1</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_043.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_043.svg"></div>
+      <div class="meta">99.1 pts · 3 paths · 3.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,43,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,43,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_043.svg"></div>
+      <div class="meta">99.1 pts · 3 paths · 3.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,43,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,43,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.2, &quot;c_score&quot;: 99.2}">
+  <div class="row-head"><span>#44 · test_044.png</span>
+    <span>model <b style="color:#e8ecf4">99.2</b> · classic <b style="color:#e8ecf4">99.2</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_044.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_044.svg"></div>
+      <div class="meta">99.2 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,44,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,44,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_044.svg"></div>
+      <div class="meta">99.2 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,44,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,44,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.5, &quot;c_score&quot;: 98.5}">
+  <div class="row-head"><span>#45 · test_045.png</span>
+    <span>model <b style="color:#e8ecf4">98.5</b> · classic <b style="color:#e8ecf4">98.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_045.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_045.svg"></div>
+      <div class="meta">98.5 pts · 5 paths · 10.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,45,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,45,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_045.svg"></div>
+      <div class="meta">98.5 pts · 5 paths · 10.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,45,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,45,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 91.5, &quot;c_score&quot;: 91.5}">
+  <div class="row-head"><span>#46 · test_046.png</span>
+    <span>model <b style="color:#e8ecf4">91.5</b> · classic <b style="color:#e8ecf4">91.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_046.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_046.svg"></div>
+      <div class="meta">91.5 pts · 1 paths · 3.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,46,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,46,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_046.svg"></div>
+      <div class="meta">91.5 pts · 1 paths · 3.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,46,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,46,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#47 · test_047.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_047.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_047.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 3.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,47,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,47,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_047.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 3.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,47,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,47,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 95.0, &quot;c_score&quot;: 91.8}">
+  <div class="row-head"><span>#48 · test_048.png</span>
+    <span>model <b style="color:#e8ecf4">95.0</b> · classic <b style="color:#e8ecf4">91.8</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_048.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_048.svg"></div>
+      <div class="meta">95.0 pts · 13 paths · 11.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,48,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,48,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_048.svg"></div>
+      <div class="meta">91.8 pts · 3 paths · 4.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,48,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,48,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.8, &quot;c_score&quot;: 99.2}">
+  <div class="row-head"><span>#49 · test_049.png</span>
+    <span>model <b style="color:#e8ecf4">99.8</b> · classic <b style="color:#e8ecf4">99.2</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_049.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_049.svg"></div>
+      <div class="meta">99.8 pts · 4 paths · 3.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,49,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,49,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_049.svg"></div>
+      <div class="meta">99.2 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,49,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,49,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 93.0, &quot;c_score&quot;: 93.0}">
+  <div class="row-head"><span>#50 · test_050.png</span>
+    <span>model <b style="color:#e8ecf4">93.0</b> · classic <b style="color:#e8ecf4">93.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_050.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_050.svg"></div>
+      <div class="meta">93.0 pts · 5 paths · 4.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,50,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,50,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_050.svg"></div>
+      <div class="meta">93.0 pts · 5 paths · 4.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,50,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,50,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 70.0, &quot;c_score&quot;: 70.0}">
+  <div class="row-head"><span>#51 · test_051.png</span>
+    <span>model <b style="color:#e8ecf4">70.0</b> · classic <b style="color:#e8ecf4">70.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_051.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_051.svg"></div>
+      <div class="meta">70.0 pts · 2 paths · 6.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,51,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,51,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_051.svg"></div>
+      <div class="meta">70.0 pts · 2 paths · 6.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,51,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,51,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#52 · test_052.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_052.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_052.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 1.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,52,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,52,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_052.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 1.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,52,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,52,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.8, &quot;c_score&quot;: 97.8}">
+  <div class="row-head"><span>#53 · test_053.png</span>
+    <span>model <b style="color:#e8ecf4">97.8</b> · classic <b style="color:#e8ecf4">97.8</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_053.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_053.svg"></div>
+      <div class="meta">97.8 pts · 3 paths · 3.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,53,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,53,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_053.svg"></div>
+      <div class="meta">97.8 pts · 3 paths · 3.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,53,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,53,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#54 · test_054.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_054.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_054.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,54,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,54,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_054.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,54,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,54,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.7, &quot;c_score&quot;: 98.7}">
+  <div class="row-head"><span>#55 · test_055.png</span>
+    <span>model <b style="color:#e8ecf4">98.7</b> · classic <b style="color:#e8ecf4">98.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_055.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_055.svg"></div>
+      <div class="meta">98.7 pts · 2 paths · 1.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,55,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,55,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_055.svg"></div>
+      <div class="meta">98.7 pts · 2 paths · 1.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,55,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,55,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 94.4, &quot;c_score&quot;: 93.2}">
+  <div class="row-head"><span>#56 · test_056.png</span>
+    <span>model <b style="color:#e8ecf4">94.4</b> · classic <b style="color:#e8ecf4">93.2</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_056.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_056.svg"></div>
+      <div class="meta">94.4 pts · 3 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,56,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,56,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_056.svg"></div>
+      <div class="meta">93.2 pts · 3 paths · 2.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,56,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,56,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#57 · test_057.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_057.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_057.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,57,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,57,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_057.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,57,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,57,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.8, &quot;c_score&quot;: 87.5}">
+  <div class="row-head"><span>#58 · test_058.png</span>
+    <span>model <b style="color:#e8ecf4">98.8</b> · classic <b style="color:#e8ecf4">87.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_058.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_058.svg"></div>
+      <div class="meta">98.8 pts · 29 paths · 31.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,58,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,58,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_058.svg"></div>
+      <div class="meta">87.5 pts · 5 paths · 6.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,58,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,58,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.8, &quot;c_score&quot;: 99.5}">
+  <div class="row-head"><span>#59 · test_059.png</span>
+    <span>model <b style="color:#e8ecf4">99.8</b> · classic <b style="color:#e8ecf4">99.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_059.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_059.svg"></div>
+      <div class="meta">99.8 pts · 3 paths · 1.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,59,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,59,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_059.svg"></div>
+      <div class="meta">99.5 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,59,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,59,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 87.7, &quot;c_score&quot;: 87.7}">
+  <div class="row-head"><span>#60 · test_060.png</span>
+    <span>model <b style="color:#e8ecf4">87.7</b> · classic <b style="color:#e8ecf4">87.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_060.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_060.svg"></div>
+      <div class="meta">87.7 pts · 1 paths · 1.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,60,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,60,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_060.svg"></div>
+      <div class="meta">87.7 pts · 1 paths · 1.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,60,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,60,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 89.6, &quot;c_score&quot;: 89.6}">
+  <div class="row-head"><span>#61 · test_061.png</span>
+    <span>model <b style="color:#e8ecf4">89.6</b> · classic <b style="color:#e8ecf4">89.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_061.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_061.svg"></div>
+      <div class="meta">89.6 pts · 16 paths · 34.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,61,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,61,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_061.svg"></div>
+      <div class="meta">89.6 pts · 16 paths · 39.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,61,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,61,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#62 · test_062.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_062.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_062.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,62,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,62,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_062.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,62,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,62,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.8, &quot;c_score&quot;: 97.8}">
+  <div class="row-head"><span>#63 · test_063.png</span>
+    <span>model <b style="color:#e8ecf4">97.8</b> · classic <b style="color:#e8ecf4">97.8</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_063.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_063.svg"></div>
+      <div class="meta">97.8 pts · 3 paths · 5.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,63,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,63,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_063.svg"></div>
+      <div class="meta">97.8 pts · 3 paths · 5.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,63,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,63,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#64 · test_064.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_064.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_064.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,64,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,64,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_064.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,64,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,64,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.5, &quot;c_score&quot;: 99.5}">
+  <div class="row-head"><span>#65 · test_065.png</span>
+    <span>model <b style="color:#e8ecf4">99.5</b> · classic <b style="color:#e8ecf4">99.5</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_065.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_065.svg"></div>
+      <div class="meta">99.5 pts · 1 paths · 2.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,65,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,65,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_065.svg"></div>
+      <div class="meta">99.5 pts · 1 paths · 2.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,65,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,65,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 94.4, &quot;c_score&quot;: 94.4}">
+  <div class="row-head"><span>#66 · test_066.png</span>
+    <span>model <b style="color:#e8ecf4">94.4</b> · classic <b style="color:#e8ecf4">94.4</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_066.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_066.svg"></div>
+      <div class="meta">94.4 pts · 2 paths · 6.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,66,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,66,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_066.svg"></div>
+      <div class="meta">94.4 pts · 2 paths · 6.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,66,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,66,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#67 · test_067.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_067.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_067.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,67,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,67,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_067.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,67,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,67,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 75.3, &quot;c_score&quot;: 75.7}">
+  <div class="row-head"><span>#68 · test_068.png</span>
+    <span>model <b style="color:#e8ecf4">75.3</b> · classic <b style="color:#e8ecf4">75.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_068.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_068.svg"></div>
+      <div class="meta">75.3 pts · 3 paths · 4.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,68,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,68,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_068.svg"></div>
+      <div class="meta">75.7 pts · 5 paths · 7.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,68,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,68,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#69 · test_069.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_069.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_069.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,69,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,69,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_069.svg"></div>
+      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,69,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,69,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.6, &quot;c_score&quot;: 98.6}">
+  <div class="row-head"><span>#70 · test_070.png</span>
+    <span>model <b style="color:#e8ecf4">98.6</b> · classic <b style="color:#e8ecf4">98.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_070.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_070.svg"></div>
+      <div class="meta">98.6 pts · 13 paths · 7.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,70,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,70,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_070.svg"></div>
+      <div class="meta">98.6 pts · 13 paths · 7.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,70,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,70,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.9, &quot;c_score&quot;: 93.7}">
+  <div class="row-head"><span>#71 · test_071.png</span>
+    <span>model <b style="color:#e8ecf4">97.9</b> · classic <b style="color:#e8ecf4">93.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_071.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_071.svg"></div>
+      <div class="meta">97.9 pts · 2 paths · 6.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,71,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,71,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_071.svg"></div>
+      <div class="meta">93.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,71,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,71,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#72 · test_072.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_072.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_072.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,72,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,72,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_072.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,72,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,72,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 94.7, &quot;c_score&quot;: 94.7}">
+  <div class="row-head"><span>#73 · test_073.png</span>
+    <span>model <b style="color:#e8ecf4">94.7</b> · classic <b style="color:#e8ecf4">94.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_073.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_073.svg"></div>
+      <div class="meta">94.7 pts · 3 paths · 4.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,73,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,73,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_073.svg"></div>
+      <div class="meta">94.7 pts · 3 paths · 4.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,73,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,73,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#74 · test_074.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_074.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_074.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,74,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,74,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_074.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,74,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,74,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 70.0, &quot;c_score&quot;: 70.0}">
+  <div class="row-head"><span>#75 · test_075.png</span>
+    <span>model <b style="color:#e8ecf4">70.0</b> · classic <b style="color:#e8ecf4">70.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_075.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_075.svg"></div>
+      <div class="meta">70.0 pts · 3 paths · 3.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,75,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,75,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_075.svg"></div>
+      <div class="meta">70.0 pts · 3 paths · 3.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,75,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,75,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.3, &quot;c_score&quot;: 98.3}">
+  <div class="row-head"><span>#76 · test_076.png</span>
+    <span>model <b style="color:#e8ecf4">98.3</b> · classic <b style="color:#e8ecf4">98.3</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_076.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_076.svg"></div>
+      <div class="meta">98.3 pts · 4 paths · 6.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,76,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,76,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_076.svg"></div>
+      <div class="meta">98.3 pts · 4 paths · 6.9 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,76,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,76,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#77 · test_077.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_077.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_077.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,77,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,77,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_077.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,77,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,77,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.9, &quot;c_score&quot;: 92.3}">
+  <div class="row-head"><span>#78 · test_078.png</span>
+    <span>model <b style="color:#e8ecf4">97.9</b> · classic <b style="color:#e8ecf4">92.3</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_078.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_078.svg"></div>
+      <div class="meta">97.9 pts · 36 paths · 31.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,78,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,78,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_078.svg"></div>
+      <div class="meta">92.3 pts · 6 paths · 7.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,78,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,78,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.5, &quot;c_score&quot;: 96.6}">
+  <div class="row-head"><span>#79 · test_079.png</span>
+    <span>model <b style="color:#e8ecf4">97.5</b> · classic <b style="color:#e8ecf4">96.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_079.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_079.svg"></div>
+      <div class="meta">97.5 pts · 9 paths · 8.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,79,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,79,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_079.svg"></div>
+      <div class="meta">96.6 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,79,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,79,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.4, &quot;c_score&quot;: 97.4}">
+  <div class="row-head"><span>#80 · test_080.png</span>
+    <span>model <b style="color:#e8ecf4">97.4</b> · classic <b style="color:#e8ecf4">97.4</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_080.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_080.svg"></div>
+      <div class="meta">97.4 pts · 3 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,80,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,80,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_080.svg"></div>
+      <div class="meta">97.4 pts · 3 paths · 2.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,80,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,80,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 89.3, &quot;c_score&quot;: 89.8}">
+  <div class="row-head"><span>#81 · test_081.png</span>
+    <span>model <b style="color:#e8ecf4">89.3</b> · classic <b style="color:#e8ecf4">89.8</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_081.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_081.svg"></div>
+      <div class="meta">89.3 pts · 1 paths · 1.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,81,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,81,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_081.svg"></div>
+      <div class="meta">89.8 pts · 7 paths · 16.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,81,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,81,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#82 · test_082.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_082.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_082.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,82,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,82,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_082.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,82,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,82,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.9, &quot;c_score&quot;: 98.9}">
+  <div class="row-head"><span>#83 · test_083.png</span>
+    <span>model <b style="color:#e8ecf4">98.9</b> · classic <b style="color:#e8ecf4">98.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_083.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_083.svg"></div>
+      <div class="meta">98.9 pts · 11 paths · 7.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,83,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,83,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_083.svg"></div>
+      <div class="meta">98.9 pts · 11 paths · 7.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,83,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,83,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#84 · test_084.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_084.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_084.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,84,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,84,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_084.svg"></div>
+      <div class="meta">100.0 pts · 1 paths · 0.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,84,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,84,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.2, &quot;c_score&quot;: 98.2}">
+  <div class="row-head"><span>#85 · test_085.png</span>
+    <span>model <b style="color:#e8ecf4">98.2</b> · classic <b style="color:#e8ecf4">98.2</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_085.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_085.svg"></div>
+      <div class="meta">98.2 pts · 2 paths · 1.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,85,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,85,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_085.svg"></div>
+      <div class="meta">98.2 pts · 2 paths · 1.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,85,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,85,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 97.3, &quot;c_score&quot;: 94.9}">
+  <div class="row-head"><span>#86 · test_086.png</span>
+    <span>model <b style="color:#e8ecf4">97.3</b> · classic <b style="color:#e8ecf4">94.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_086.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_086.svg"></div>
+      <div class="meta">97.3 pts · 15 paths · 10.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,86,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,86,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_086.svg"></div>
+      <div class="meta">94.9 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,86,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,86,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#87 · test_087.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_087.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_087.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,87,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,87,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_087.svg"></div>
+      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,87,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,87,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 94.7, &quot;c_score&quot;: 97.0}">
+  <div class="row-head"><span>#88 · test_088.png</span>
+    <span>model <b style="color:#e8ecf4">94.7</b> · classic <b style="color:#e8ecf4">97.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_088.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_088.svg"></div>
+      <div class="meta">94.7 pts · 5 paths · 7.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,88,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,88,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_088.svg"></div>
+      <div class="meta">97.0 pts · 23 paths · 20.7 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,88,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,88,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.8, &quot;c_score&quot;: 99.2}">
+  <div class="row-head"><span>#89 · test_089.png</span>
+    <span>model <b style="color:#e8ecf4">99.8</b> · classic <b style="color:#e8ecf4">99.2</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_089.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_089.svg"></div>
+      <div class="meta">99.8 pts · 3 paths · 2.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,89,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,89,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_089.svg"></div>
+      <div class="meta">99.2 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,89,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,89,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 94.0, &quot;c_score&quot;: 94.0}">
+  <div class="row-head"><span>#90 · test_090.png</span>
+    <span>model <b style="color:#e8ecf4">94.0</b> · classic <b style="color:#e8ecf4">94.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_090.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_090.svg"></div>
+      <div class="meta">94.0 pts · 1 paths · 1.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,90,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,90,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_090.svg"></div>
+      <div class="meta">94.0 pts · 1 paths · 1.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,90,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,90,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 85.6, &quot;c_score&quot;: 85.6}">
+  <div class="row-head"><span>#91 · test_091.png</span>
+    <span>model <b style="color:#e8ecf4">85.6</b> · classic <b style="color:#e8ecf4">85.6</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_091.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_091.svg"></div>
+      <div class="meta">85.6 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,91,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,91,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_091.svg"></div>
+      <div class="meta">85.6 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,91,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,91,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#92 · test_092.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_092.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_092.svg"></div>
+      <div class="meta">100.0 pts · 4 paths · 2.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,92,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,92,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_092.svg"></div>
+      <div class="meta">100.0 pts · 4 paths · 2.1 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,92,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,92,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 91.6, &quot;c_score&quot;: 91.1}">
+  <div class="row-head"><span>#93 · test_093.png</span>
+    <span>model <b style="color:#e8ecf4">91.6</b> · classic <b style="color:#e8ecf4">91.1</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_093.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_093.svg"></div>
+      <div class="meta">91.6 pts · 5 paths · 4.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,93,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,93,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_093.svg"></div>
+      <div class="meta">91.1 pts · 3 paths · 3.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,93,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,93,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.7, &quot;c_score&quot;: 98.7}">
+  <div class="row-head"><span>#94 · test_094.png</span>
+    <span>model <b style="color:#e8ecf4">98.7</b> · classic <b style="color:#e8ecf4">98.7</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_094.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_094.svg"></div>
+      <div class="meta">98.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,94,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,94,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_094.svg"></div>
+      <div class="meta">98.7 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,94,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,94,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.8, &quot;c_score&quot;: 99.8}">
+  <div class="row-head"><span>#95 · test_095.png</span>
+    <span>model <b style="color:#e8ecf4">99.8</b> · classic <b style="color:#e8ecf4">99.8</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_095.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_095.svg"></div>
+      <div class="meta">99.8 pts · 1 paths · 1.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,95,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,95,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_095.svg"></div>
+      <div class="meta">99.8 pts · 1 paths · 1.5 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,95,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,95,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.0, &quot;c_score&quot;: 99.0}">
+  <div class="row-head"><span>#96 · test_096.png</span>
+    <span>model <b style="color:#e8ecf4">99.0</b> · classic <b style="color:#e8ecf4">99.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_096.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_096.svg"></div>
+      <div class="meta">99.0 pts · 1 paths · 3.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,96,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,96,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_096.svg"></div>
+      <div class="meta">99.0 pts · 1 paths · 3.2 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,96,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,96,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+  <div class="row-head"><span>#97 · test_097.png</span>
+    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_097.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_097.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 1.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,97,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,97,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_097.svg"></div>
+      <div class="meta">100.0 pts · 2 paths · 1.6 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,97,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,97,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 98.7, &quot;c_score&quot;: 94.9}">
+  <div class="row-head"><span>#98 · test_098.png</span>
+    <span>model <b style="color:#e8ecf4">98.7</b> · classic <b style="color:#e8ecf4">94.9</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_098.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_098.svg"></div>
+      <div class="meta">98.7 pts · 26 paths · 23.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,98,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,98,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_098.svg"></div>
+      <div class="meta">94.9 pts · 8 paths · 8.4 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,98,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,98,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div>
+<div class="row" data-extra="{&quot;m_score&quot;: 99.9, &quot;c_score&quot;: 99.4}">
+  <div class="row-head"><span>#99 · test_099.png</span>
+    <span>model <b style="color:#e8ecf4">99.9</b> · classic <b style="color:#e8ecf4">99.4</b></span></div>
+  <div class="cols">
+    <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_099.png"></div></div>
+    <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_099.svg"></div>
+      <div class="meta">99.9 pts · 5 paths · 3.8 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,99,'model','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,99,'model','bad')">Rubbish</button>
+      </div></div>
+    <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_099.svg"></div>
+      <div class="meta">99.4 pts · 1 paths · 0.3 KB</div>
+      <div class="verdicts">
+        <button class="vbtn good" onclick="vote(this,99,'classic','good')">Good</button>
+        <button class="vbtn bad" onclick="vote(this,99,'classic','bad')">Rubbish</button>
+      </div></div>
+  </div>
+</div></div>
+<div class="foot">Fresh seeds, never used in training chunks. Scores are the composite coverage/precision/color metric (0-100, 100 = perfect).
+Rebuild: POST /api/test/rebuild. Data feeds the forever training program.</div>
+<script>
+async function vote(btn, i, method, verdict) {
+  const was = btn.classList.contains("active");
+  btn.parentElement.querySelectorAll(".vbtn").forEach(b => b.classList.remove("active"));
+  if (!was) btn.classList.add("active");
+  const rows = btn.closest(".row");
+  const extra = rows ? rows.dataset.extra || "{}" : "{}";
+  try {
+    const res = await fetch("/api/manual/verdict", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ i, method, verdict: was ? "none" : verdict, meta: JSON.parse(extra) })
+    });
+    const d = await res.json();
+    const n = document.getElementById("count");
+    if (n) n.textContent = d.total;
+    toast("saved " + verdict + " for #" + i + " (" + method + "), total " + d.total);
+  } catch (e) { toast("failed " + e.message); }
+  const done = document.getElementById("done");
+  if (done) done.textContent = document.querySelectorAll(".vbtn.active").length;
+}
+function toast(msg) {
+  let t = document.getElementById("toast");
+  if (!t) { t = document.createElement("div"); t.id = "toast"; t.className = "toast"; document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 1800);
+}
+</script>
+</body></html>
