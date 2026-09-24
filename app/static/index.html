@@ -76,12 +76,33 @@ window.initLucide = initLucide;
       <div class="upload-controls">
         <div class="upload-methods">
           <div class="method-card active" id="methodModel" data-method="model">
-            <h4><i data-lucide="brain"></i> Smart Model</h4>
-            <p>AI picks best settings for each image</p>
+            <h4><i data-lucide="brain"></i> Use model</h4>
+            <p>Local smart model picks the best settings free</p>
           </div>
           <div class="method-card" id="methodClassic" data-method="classic">
-            <h4><i data-lucide="layers"></i> Classic Best Tier</h4>
-            <p>Proven heuristic with presets for logos icons illustration</p>
+            <h4><i data-lucide="layers"></i> No model</h4>
+            <p>Classic tracer with presets and sliders</p>
+          </div>
+          <div class="method-card" id="methodAI" data-method="ai">
+            <h4><i data-lucide="wand-2"></i> AI Assist</h4>
+            <p>A vision model redraws it using your own API key</p>
+          </div>
+        </div>
+        <div class="mode-settings" id="modelOptions">
+          <div class="field slider-field">
+            <div class="slider-header"><span class="slider-label"><i data-lucide="palette"></i> Colors</span><span class="slider-value" id="mColorsVal">Auto</span></div>
+            <div class="slider-wrap"><input type="range" class="slider" id="mColors" min="0" max="7" value="0"></div>
+            <div class="slider-meta"><span>Auto</span><span>More colors</span></div>
+          </div>
+          <div class="field slider-field">
+            <div class="slider-header"><span class="slider-label"><i data-lucide="search"></i> Detail level</span><span class="slider-value" id="mDetailVal">50%</span></div>
+            <div class="slider-wrap"><input type="range" class="slider" id="mDetail" min="0" max="100" value="50"></div>
+            <div class="slider-meta"><span>Less</span><span>More</span></div>
+          </div>
+          <div class="field slider-field">
+            <div class="slider-header"><span class="slider-label"><i data-lucide="spline"></i> Corner smoothness</span><span class="slider-value" id="mSmoothVal">50</span></div>
+            <div class="slider-wrap"><input type="range" class="slider" id="mSmooth" min="0" max="100" value="50"></div>
+            <div class="slider-meta"><span>Smooth</span><span>Sharp</span></div>
           </div>
         </div>
         <div class="classic-options" id="classicOptions" hidden>
@@ -96,6 +117,15 @@ window.initLucide = initLucide;
               <button class="preset-btn" data-preset="custom" type="button"><i data-lucide="sliders-horizontal"></i><span>Custom</span></button>
             </div>
           </div>
+          <label class="check-row"><input type="checkbox" id="cEnhance"><span>Clean first remove noise and simplify colors before tracing</span></label>
+          <label class="check-row"><input type="checkbox" id="cBest" checked><span>Try several presets and keep the best result</span></label>
+        </div>
+        <div class="mode-settings mode-ai-settings" id="aiOptions" hidden>
+          <div class="ai-status-row">
+            <span id="aiStatusText">No API key set</span>
+            <button class="btn btn-secondary btn-sm" id="aiOpenSettingsBtn" type="button"><i data-lucide="key-round"></i><span>AI settings</span></button>
+          </div>
+          <p class="ai-hint">Uses your own API key from OpenRouter OpenAI Anthropic Gemini xAI Mistral Groq Together DeepInfra or Fireworks. Key stays in your browser. Quality and cost depend on the model you pick.</p>
         </div>
         <button class="btn btn-primary" id="convertBtn" type="button"><i data-lucide="zap"></i><span class="btn-label">Convert</span></button>
       </div>
@@ -141,6 +171,7 @@ window.initLucide = initLucide;
         <div class="panel-meta" id="resultMeta"></div>
         <div class="panel-actions">
           <button class="btn btn-primary" id="downloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+          <button class="btn btn-secondary" id="aiStudioBtn" type="button" title="Ask a vision model to redraw using your own API key"><i data-lucide="wand-2"></i><span>Redo with AI</span></button>
           <button class="btn btn-secondary" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
           <button class="btn btn-ghost" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
           <button class="btn btn-ghost" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
@@ -297,6 +328,58 @@ window.initLucide = initLucide;
     </div>
     <div style="display:flex; gap:10px; justify-content:center; margin-top:8px;">
       <button class="btn btn-ghost btn-sm" id="choiceCloseBtn" type="button"><i data-lucide="x"></i><span>Close</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- AI settings modal: user's own key, stored only in this browser -->
+<div class="choice-overlay" id="aiOverlay" hidden>
+  <div class="ai-modal" role="dialog" aria-modal="true" aria-label="AI settings">
+    <div class="ai-modal-head">
+      <h2><i data-lucide="key-round"></i> AI Assist settings</h2>
+      <button class="icon-btn" id="aiCloseBtn" type="button" title="Close" aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="ai-modal-body">
+      <div class="field field-select">
+        <label><i data-lucide="server"></i> Provider</label>
+        <select id="aiProvider"></select>
+      </div>
+      <div class="field field-select">
+        <label><i data-lucide="cpu"></i> Model</label>
+        <select id="aiModel"></select>
+      </div>
+      <div class="field">
+        <label for="aiKey"><i data-lucide="key"></i> API key from your provider</label>
+        <input type="password" id="aiKey" autocomplete="off" spellcheck="false" placeholder="Paste your key">
+      </div>
+      <div class="field field-select">
+        <label><i data-lucide="search"></i> Detail</label>
+        <select id="aiDetail">
+          <option value="auto" selected>Auto</option>
+          <option value="low">Low simple output</option>
+          <option value="high">High keep more detail</option>
+        </select>
+      </div>
+      <div class="field slider-field">
+        <div class="slider-header"><span class="slider-label"><i data-lucide="palette"></i> Max colors</span><span class="slider-value" id="aiColorsVal">16</span></div>
+        <div class="slider-wrap"><input type="range" class="slider" id="aiColors" min="2" max="64" value="16"></div>
+        <div class="slider-meta"><span>2</span><span>64</span></div>
+      </div>
+      <div class="ai-security" id="aiSecurity">
+        <p><strong><i data-lucide="shield-check"></i> Security and cost</strong></p>
+        <ul>
+          <li>Your key is stored only in this browser local storage on this site. It is never saved in cookies or sent anywhere else.</li>
+          <li>On convert your image and key travel together to the provider you picked through this app server which forwards them once without storing or logging either.</li>
+          <li>Billing rules and privacy terms of that provider apply to that call and they are your responsibility.</li>
+          <li>Recommended create a fresh key set a low monthly spend limit if the provider offers one and revoke the key when you finish.</li>
+          <li>OpenRouter gives one key for all models including free vision models. Google AI Studio gives a free Gemini key with a generous free tier.</li>
+        </ul>
+        <a id="aiKeysLink" href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">Get a key <i data-lucide="external-link"></i></a>
+      </div>
+    </div>
+    <div class="ai-modal-actions">
+      <button class="btn btn-secondary btn-sm" id="aiClearBtn" type="button"><i data-lucide="trash-2"></i><span>Remove key</span></button>
+      <button class="btn btn-primary btn-sm" id="aiSaveBtn" type="button"><i data-lucide="check"></i><span>Save settings</span></button>
     </div>
   </div>
 </div>

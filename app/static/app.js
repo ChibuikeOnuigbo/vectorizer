@@ -23,7 +23,32 @@
     fileInput: $("fileInput"),
     methodModel: $("methodModel"),
     methodClassic: $("methodClassic"),
+    methodAI: $("methodAI"),
     classicOptions: $("classicOptions"),
+    modelOptions: $("modelOptions"),
+    aiOptions: $("aiOptions"),
+    mColors: $("mColors"),
+    mColorsVal: $("mColorsVal"),
+    mDetail: $("mDetail"),
+    mDetailVal: $("mDetailVal"),
+    mSmooth: $("mSmooth"),
+    mSmoothVal: $("mSmoothVal"),
+    cEnhance: $("cEnhance"),
+    cBest: $("cBest"),
+    aiOpenSettingsBtn: $("aiOpenSettingsBtn"),
+    aiOverlay: $("aiOverlay"),
+    aiProvider: $("aiProvider"),
+    aiModel: $("aiModel"),
+    aiKey: $("aiKey"),
+    aiDetail: $("aiDetail"),
+    aiColors: $("aiColors"),
+    aiColorsVal: $("aiColorsVal"),
+    aiKeysLink: $("aiKeysLink"),
+    aiSaveBtn: $("aiSaveBtn"),
+    aiClearBtn: $("aiClearBtn"),
+    aiCloseBtn: $("aiCloseBtn"),
+    aiStatusText: $("aiStatusText"),
+    aiStudioBtn: $("aiStudioBtn"),
     resultOriginal: $("resultOriginal"),
     resultSvg: $("resultSvg"),
     resultMeta: $("resultMeta"),
@@ -153,6 +178,8 @@
     viewPanStartX: 0,
     viewPanStartY: 0,
     viewDragMode: false,
+    method: "model",
+    mTouched: { colors: false, detail: false, smoothness: false },
   };
 
   let toastTimer = null;
@@ -212,6 +239,7 @@
         filter_speckle: state.filter_speckle,
         max_iterations: state.max_iterations,
         classicPreset: state.classicPreset,
+        method: state.method,
         zoom: state.zoom,
         advZoom: state.advZoom,
         view: window.__vz.view,
@@ -236,6 +264,7 @@
       state.filter_speckle = proj.filter_speckle || 4;
       state.max_iterations = proj.max_iterations || 18;
       state.classicPreset = proj.classicPreset || "logo";
+      if (proj.method && ["model", "classic", "ai"].includes(proj.method)) setMethod(proj.method);
       state.zoom = proj.zoom || 100;
       state.advZoom = proj.advZoom || 100;
       if (blob) {
@@ -568,10 +597,163 @@
     ]);
   }
 
+  // ---------- AI Assist (user's own API key) ----------
+  const AI_SETTINGS_KEY = "vz_ai";
+  let aiCatalog = null;
+  function loadAiSettings() {
+    try {
+      const raw = localStorage.getItem(AI_SETTINGS_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch {}
+    return { provider: "openrouter", model: "", key: "", detail: "auto", colors: 16 };
+  }
+  function saveAiSettings(s) {
+    try { localStorage.setItem(AI_SETTINGS_KEY, JSON.stringify(s)); } catch {}
+  }
+  function sanitizeSvgText(txt) {
+    try {
+      if (!txt || typeof txt !== "string") return null;
+      const doc = new DOMParser().parseFromString(txt, "image/svg+xml");
+      if (doc.querySelector("parsererror")) return null;
+      const root = doc.documentElement;
+      if (!root || root.localName.toLowerCase() !== "svg") return null;
+      const banned = new Set(["script", "foreignobject", "iframe", "object", "embed",
+        "video", "audio", "canvas", "link", "meta", "animate", "set",
+        "animatetransform", "animatemotion", "use", "image", "a", "text", "tspan"]);
+      const clean = (el) => {
+        for (const attr of Array.from(el.attributes)) {
+          const name = attr.name.toLowerCase();
+          const val = String(attr.value || "").toLowerCase().replace(/\s+/g, "");
+          if (name.startsWith("on") || name === "style" || name === "href" ||
+              name === "xlink:href" || val.includes("javascript:") ||
+              val.includes("data:text/html")) el.removeAttribute(attr.name);
+        }
+      };
+      clean(root);
+      const remove = [];
+      for (const el of Array.from(root.querySelectorAll("*"))) {
+        if (banned.has(el.localName.toLowerCase())) { remove.push(el); continue; }
+        clean(el);
+      }
+      remove.forEach((n) => n.parentNode && n.parentNode.removeChild(n));
+      return new XMLSerializer().serializeToString(root);
+    } catch { return null; }
+  }
+  function refreshAiStatus() {
+    const ai = loadAiSettings();
+    const has = !!(ai.key && String(ai.key).length >= 8);
+    if (els.aiStatusText) {
+      els.aiStatusText.innerHTML = has
+        ? `<i data-lucide="check-circle-2"></i> Key saved for ${ai.provider}${ai.model ? " using " + ai.model : ""}`
+        : `<i data-lucide="alert-triangle"></i> No API key set add yours in AI settings`;
+    }
+    setTimeout(refreshIcons, 30);
+  }
+  async function loadAiCatalog() {
+    try {
+      const res = await fetch("/api/ai/providers");
+      const data = await res.json();
+      if (res.ok && data.providers) aiCatalog = data.providers;
+    } catch {}
+    if (!aiCatalog) {
+      aiCatalog = { openrouter: { label: "OpenRouter", models: ["google/gemini-2.5-flash"], keys: "https://openrouter.ai/keys" } };
+    }
+    if (els.aiProvider) {
+      els.aiProvider.innerHTML = Object.entries(aiCatalog)
+        .map(([id, p]) => `<option value="${id}">${p.label}</option>`).join("");
+      const ai = loadAiSettings();
+      if (!aiCatalog[ai.provider]) ai.provider = Object.keys(aiCatalog)[0];
+      els.aiProvider.value = ai.provider;
+      refreshAiModelOptions();
+    }
+  }
+  function refreshAiModelOptions() {
+    if (!els.aiModel || !els.aiProvider) return;
+    const pid = els.aiProvider.value;
+    const p = aiCatalog && aiCatalog[pid];
+    const ai = loadAiSettings();
+    const models = (p && p.models) || [];
+    els.aiModel.innerHTML = models.map((m) => `<option value="${m}">${m}</option>`).join("");
+    if (ai.model && models.includes(ai.model)) els.aiModel.value = ai.model;
+    if (els.aiKeysLink && p && p.keys) els.aiKeysLink.href = p.keys;
+  }
+  function openAiSettings() {
+    const ai = loadAiSettings();
+    if (els.aiKey) els.aiKey.value = ai.key || "";
+    if (els.aiDetail) els.aiDetail.value = ai.detail || "auto";
+    if (els.aiColors) { els.aiColors.value = ai.colors || 16; updateSliderFill(els.aiColors); }
+    if (els.aiColorsVal) els.aiColorsVal.textContent = ai.colors || 16;
+    if (!aiCatalog) loadAiCatalog();
+    else { if (els.aiProvider) els.aiProvider.value = ai.provider; refreshAiModelOptions(); }
+    if (els.aiOverlay) els.aiOverlay.hidden = false;
+    setTimeout(refreshIcons, 30);
+  }
+  function closeAiSettings() {
+    if (els.aiOverlay) els.aiOverlay.hidden = true;
+  }
+  async function aiConvert(file) {
+    const ai = loadAiSettings();
+    if (!ai.key || String(ai.key).length < 8) {
+      openAiSettings();
+      toast("Add your API key in AI settings first", "error");
+      return;
+    }
+    setLoading(true);
+    const ctrl = new AbortController();
+    const killer = setTimeout(() => ctrl.abort(), 240000);
+    try {
+      state.sourceFile = file;
+      if (state.sourceUrl) URL.revokeObjectURL(state.sourceUrl);
+      state.sourceUrl = URL.createObjectURL(file);
+      if (els.resultOriginal) els.resultOriginal.src = state.sourceUrl;
+      if (els.advResultOriginal) els.advResultOriginal.src = state.sourceUrl;
+      if (els.srcMeta) els.srcMeta.textContent = `${file.name} ${(file.size / 1024).toFixed(1)} KB`;
+      toast("AI redrawing your image this can take a while", "ok");
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("provider", ai.provider);
+      fd.append("model", ai.model || "");
+      fd.append("detail", ai.detail || "auto");
+      fd.append("colors", String(ai.colors || 16));
+      const res = await fetch("/api/ai/vectorize", {
+        method: "POST",
+        headers: { "x-ai-key": ai.key },
+        body: fd,
+        signal: ctrl.signal,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
+      const clean = sanitizeSvgText(data.svg);
+      if (!clean) throw new Error("AI returned unusable output try another model");
+      state.svgText = clean;
+      state.fileName = (file.name || "image").replace(/\.[^.]+$/, "") + ".ai.svg";
+      if (els.resultSvg) els.resultSvg.src = makeBlobUrl();
+      if (els.advResultSvg) els.advResultSvg.src = makeBlobUrl();
+      showResult(data.meta, false);
+      toast(`AI vector ready via ${data.meta?.provider || ai.provider}`, "ok");
+    } catch (e) {
+      const msg = e && e.name === "AbortError" ? "Timed out after 4 minutes try another model" : (e.message || "AI convert failed");
+      toast(msg, "error");
+    } finally {
+      clearTimeout(killer);
+      setLoading(false);
+    }
+  }
+
+  function appendSliders(fd) {
+    if (state.mTouched.colors) {
+      const v = parseInt(els.mColors?.value || "0", 10);
+      if (v > 0) fd.append("colors", String(Math.min(128, 2 ** (v + 1))));
+    }
+    if (state.mTouched.detail) fd.append("detail", els.mDetail?.value || "50");
+    if (state.mTouched.smoothness) fd.append("smoothness", els.mSmooth?.value || "50");
+  }
+
   async function convert(file) {
     if (state.busy) return;
     const err = validFile(file);
     if (err) { toast(err, "error"); return; }
+    if (state.method === "ai") { aiConvert(file); return; }
     setLoading(true);
     let modelUsed = false;
     try {
@@ -584,7 +766,7 @@
 
       const fd = new FormData();
       fd.append("file", file);
-      const useModel = els.methodModel ? els.methodModel.classList.contains("active") : true;
+      const useModel = state.method === "model";
       if (useModel) {
         try {
           const p = await withTimeout(modelParamsFor(file), 8000);
@@ -627,6 +809,7 @@
             fd.append("corner_threshold", String(preset.corner_threshold));
           }
         }
+        appendSliders(fd);
       } else {
         // classic best tier method with preset
         const preset = CLASSIC_PRESETS[state.classicPreset] || CLASSIC_PRESETS.logo;
@@ -636,6 +819,9 @@
         fd.append("filter_speckle", String(preset.filter_speckle));
         fd.append("max_iterations", String(preset.max_iterations));
         fd.append("corner_threshold", String(preset.corner_threshold));
+        if (els.cEnhance && els.cEnhance.checked) fd.append("enhance", "1");
+        if (els.cBest && els.cBest.checked) fd.append("engine", "best");
+        appendSliders(fd);
       }
       const res = await fetch("/api/convert", { method: "POST", body: fd });
       const data = await res.json().catch(() => ({}));
@@ -1073,20 +1259,93 @@
   if (els.manualTrainBtn) els.manualTrainBtn.addEventListener("click", triggerManualTrain);
   if (els.manualRefreshBtn) els.manualRefreshBtn.addEventListener("click", refreshManualStatus);
 
-  // two methods
+  // three methods: use model / no model / AI assist
   function setMethod(method) {
-    const isModel = method === "model";
-    if (els.methodModel) els.methodModel.classList.toggle("active", isModel);
-    if (els.methodClassic) els.methodClassic.classList.toggle("active", !isModel);
-    if (els.classicOptions) els.classicOptions.hidden = isModel;
+    state.method = method;
+    if (els.methodModel) els.methodModel.classList.toggle("active", method === "model");
+    if (els.methodClassic) els.methodClassic.classList.toggle("active", method === "classic");
+    if (els.methodAI) els.methodAI.classList.toggle("active", method === "ai");
+    if (els.classicOptions) els.classicOptions.hidden = method !== "classic";
+    if (els.modelOptions) els.modelOptions.hidden = method !== "model";
+    if (els.aiOptions) els.aiOptions.hidden = method !== "ai";
+    if (method === "ai") { refreshAiStatus(); if (!aiCatalog) loadAiCatalog(); }
+    const label = els.convertBtn?.querySelector(".btn-label");
+    if (label) label.textContent = method === "ai" ? "Convert with AI" : "Convert";
+    saveProject();
   }
   if (els.methodModel) els.methodModel.addEventListener("click", () => setMethod("model"));
   if (els.methodClassic) els.methodClassic.addEventListener("click", () => setMethod("classic"));
+  if (els.methodAI) els.methodAI.addEventListener("click", () => setMethod("ai"));
   document.querySelectorAll(".preset-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const preset = btn.getAttribute("data-preset");
       applyClassicPreset(preset, true);
     });
+  });
+
+  // model mode sliders: Colors / Detail level / Corner smoothness
+  const COLORS_STEPS = ["Auto", "4", "8", "16", "32", "64", "128"];
+  if (els.mColors) {
+    els.mColors.addEventListener("input", () => {
+      state.mTouched.colors = parseInt(els.mColors.value, 10) > 0;
+      if (els.mColorsVal) els.mColorsVal.textContent = COLORS_STEPS[parseInt(els.mColors.value, 10)] || "Auto";
+      updateSliderFill(els.mColors);
+      saveProject();
+    });
+  }
+  if (els.mDetail) {
+    els.mDetail.addEventListener("input", () => {
+      state.mTouched.detail = true;
+      if (els.mDetailVal) els.mDetailVal.textContent = els.mDetail.value + "%";
+      updateSliderFill(els.mDetail);
+      saveProject();
+    });
+  }
+  if (els.mSmooth) {
+    els.mSmooth.addEventListener("input", () => {
+      state.mTouched.smoothness = true;
+      if (els.mSmoothVal) els.mSmoothVal.textContent = els.mSmooth.value;
+      updateSliderFill(els.mSmooth);
+      saveProject();
+    });
+  }
+
+  // AI settings modal
+  if (els.aiOpenSettingsBtn) els.aiOpenSettingsBtn.addEventListener("click", openAiSettings);
+  if (els.aiCloseBtn) els.aiCloseBtn.addEventListener("click", closeAiSettings);
+  if (els.aiOverlay) els.aiOverlay.addEventListener("click", (e) => {
+    if (e.target === els.aiOverlay) closeAiSettings();
+  });
+  if (els.aiProvider) els.aiProvider.addEventListener("change", refreshAiModelOptions);
+  if (els.aiColors) els.aiColors.addEventListener("input", () => {
+    if (els.aiColorsVal) els.aiColorsVal.textContent = els.aiColors.value;
+    updateSliderFill(els.aiColors);
+  });
+  if (els.aiSaveBtn) els.aiSaveBtn.addEventListener("click", () => {
+    const s = {
+      provider: els.aiProvider?.value || "openrouter",
+      model: els.aiModel?.value || "",
+      key: (els.aiKey?.value || "").trim(),
+      detail: els.aiDetail?.value || "auto",
+      colors: parseInt(els.aiColors?.value || "16", 10),
+    };
+    saveAiSettings(s);
+    refreshAiStatus();
+    closeAiSettings();
+    toast(s.key ? "AI settings saved in this browser only" : "AI settings saved no key set yet", "ok");
+  });
+  if (els.aiClearBtn) els.aiClearBtn.addEventListener("click", () => {
+    const s = loadAiSettings();
+    s.key = "";
+    saveAiSettings(s);
+    if (els.aiKey) els.aiKey.value = "";
+    refreshAiStatus();
+    toast("API key removed from this browser", "ok");
+  });
+  if (els.aiStudioBtn) els.aiStudioBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!state.sourceFile) { toast("No source image yet", "error"); return; }
+    aiConvert(state.sourceFile);
   });
 
   // choice modal
@@ -1182,6 +1441,8 @@
   (async () => {
     initSlidersFill();
     applyClassicPreset(state.classicPreset, false);
+    loadAiCatalog();
+    refreshAiStatus();
     const restored = await loadProject();
     if (!restored) {
       const v = localStorage.getItem("vz_view");
