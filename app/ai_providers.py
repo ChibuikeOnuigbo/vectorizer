@@ -122,6 +122,13 @@ PROVIDERS = {
         "models": ["accounts/fireworks/models/llama4-maverick-instruct-basic"],
         "keys": "https://fireworks.ai/api-keys",
     },
+    "huggingface": {
+        "label": "Hugging Face",
+        "style": "openai",
+        "url": "https://router.huggingface.co/v1/chat/completions",
+        "models": ["Qwen/Qwen2.5-VL-7B-Instruct", "Qwen/Qwen3-VL-8B-Instruct"],
+        "keys": "https://huggingface.co/settings/tokens",
+    },
 }
 
 FORBIDDEN_TAG_RE = re.compile(
