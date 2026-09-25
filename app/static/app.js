@@ -229,6 +229,15 @@
   }
   async function saveProject() {
     try {
+      // Never overwrite a stored project with an empty one. bindRange()/init
+      // paths call saveProject() before any vector exists, which used to
+      // clobber the user's saved work on every page load (R2 persistence bug
+      // found by qa/qa_regressions.mjs). Without a vector we only persist
+      // the current view name.
+      if (!state.svgText) {
+        localStorage.setItem("vz_view", window.__vz.view);
+        return;
+      }
       const data = {
         fileName: state.fileName,
         svgText: state.svgText,

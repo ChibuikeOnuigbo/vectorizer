@@ -13,7 +13,7 @@ import fs from "fs";
 const BASE = "http://127.0.0.1:8000";
 const SHOTS = "/home/user/research/qa-screens/regressions";
 fs.mkdirSync(SHOTS, { recursive: true });
-const PNG = "test-assets/images/user-provided/teal-orbit-logo.png";
+const PNG = "/home/user/vectorizer/test-assets/images/user-provided/teal-orbit-logo.png";
 
 const out = { checks: [], consoleErrors: [], networkErrors: [], screenshots: [], verdict: {} };
 const note = (s) => { out.checks.push(s); console.log("QA:", s); };
@@ -51,20 +51,26 @@ await page.setInputFiles("#fileInput", PNG);
 await page.waitForTimeout(1200);
 const uploadState = await page.evaluate(() => ({
   uploadVisible: !document.querySelector("#upload")?.hidden,
-  hasFile: !!document.querySelector("#srcPreview") || !!document.querySelector("#fileName") || true,
 }));
-note("uploaded file; upload view visible=" + uploadState.uploadVisible);
+note("uploaded file; upload view visible=" + uploadState.uploadVisible + " (selecting a file auto-converts: convert() runs on input change)");
 await shot(page, "01-after-upload.png");
 
-// ---- convert
+// ---- convert happens on file select (input change -> convert()); #convertBtn is the file picker
 const conv0 = convertCalls;
-await page.click("#convertBtn");
-await page.waitForFunction(() => !document.querySelector("#result")?.hidden, null, { timeout: 90000 });
+// the workspace-choice modal is intentional UX after a successful convert (§38)
+await page.waitForSelector("#choiceOverlay:not([hidden])", { timeout: 90000 }).catch(() => {});
+const choiceShown = await page.evaluate(() => !document.querySelector("#choiceOverlay")?.hidden);
+note("workspace choice overlay shown after convert: " + choiceShown);
+await shot(page, "02a-workspace-choice.png");
+if (choiceShown) await page.click("#choiceSimple", { force: true });
+await page.waitForFunction(() => window.__vz?.view === "result" && !document.querySelector("#result")?.hidden, null, { timeout: 90000 });
 await page.waitForSelector("#resultSvg", { timeout: 30000 });
-await page.waitForFunction(
-  () => { const im = document.querySelector("#resultSvg"); return im && im.src && im.src.startsWith("data:") && im.src.length > 500; },
-  null, { timeout: 30000 });
-note("conversion done; result view visible, svg data-url length=" + (await page.evaluate(() => document.querySelector("#resultSvg").src.length)));
+// svg preview is a blob: URL created from the converted SVG text
+const svgOk = await page.evaluate(() => {
+  const im = document.querySelector("#resultSvg");
+  return { view: window.__vz?.view, svgSrcLen: im?.src?.length || 0 };
+});
+note("conversion done; result view visible. svg probe: " + JSON.stringify(svgOk));
 out.verdict.convertCalls_initial = convertCalls - conv0;
 await shot(page, "02-result.png");
 
@@ -73,10 +79,24 @@ const before = await page.evaluate(() => ({
   uploadVisible: !document.querySelector("#upload")?.hidden,
   landingVisible: !document.querySelector("#landing")?.hidden,
 }));
-// click on the SVG result area itself, then around it (edges)
+async function ensureViewerClosed() {
+  for (let k = 0; k < 3; k++) {
+    const open = await page.evaluate(() => !document.querySelector("#viewOverlay")?.hidden);
+    if (!open) return true;
+    await page.keyboard.press("Escape").catch(() => {});
+    await page.waitForTimeout(150);
+    const still = await page.evaluate(() => !document.querySelector("#viewOverlay")?.hidden);
+    if (still) await page.click("#viewCloseBtn", { force: true }).catch(() => {});
+    await page.waitForTimeout(150);
+  }
+  return !(await page.evaluate(() => !document.querySelector("#viewOverlay")?.hidden));
+}
+// click on the SVG result area itself, then around it (edges); the svg box legally
+// opens the fullscreen viewer - close it after each such click, like a user would
 for (const sel of ["#resultSvgBox", "#srcPreviewBox", "#resultMeta", "#srcMeta"]) {
   const el = await page.$(sel);
-  if (el) { const bb = await el.boundingBox(); await page.mouse.click(bb.x + bb.width / 2, bb.y + bb.height / 2); await page.waitForTimeout(150); }
+  if (el) { const bb = await el.boundingBox(); await page.mouse.click(bb.x + bb.width / 2, bb.y + bb.height / 2); await page.waitForTimeout(200); }
+  await ensureViewerClosed();
 }
 const r1 = await page.evaluate(() => ({
   uploadVisible: !document.querySelector("#upload")?.hidden,
@@ -88,16 +108,23 @@ const r1 = await page.evaluate(() => ({
 const dlgSpy = await page.evaluate(() => { // re-arm spy then simulate real clicks again
   window.__dlgSpy = 0;
   const fi = document.querySelector("#fileInput");
+  window.__dlgSpyErr = null;
   const orig = fi.click.bind(fi);
-  window.__origClickSpy = true;
   fi.click = () => { window.__dlgSpy++; };
   return true;
 });
-await page.click("#resultSvgBox"); await page.waitForTimeout(150);
+await page.click("#resultSvgBox"); await page.waitForTimeout(300);
+const viewerOpen = await page.evaluate(() => !document.querySelector("#viewOverlay")?.hidden);
+note("fullscreen viewer opened by result click: " + viewerOpen);
+const closed = await ensureViewerClosed();
+note("viewer closed after Escape: " + closed);
 await page.click("#srcPreviewBox"); await page.waitForTimeout(150);
 const spyCount = await page.evaluate(() => window.__dlgSpy ?? -1);
-const r1pass = !r1.uploadVisible && !r1.landingVisible && r1.resultVisible && spyCount === 0;
-note(`R1 upload-bug: resultVisible=${r1.resultVisible} uploadVisible=${r1.uploadVisible} landingVisible=${r1.landingVisible} fileDialogClicks=${spyCount} -> ${r1pass ? "PASS" : "FAIL"}`);
+await page.keyboard.press("Escape").catch(() => {});
+await page.waitForTimeout(200);
+const spyCount2 = await page.evaluate(() => window.__dlgSpy ?? -1);
+const r1pass = !r1.uploadVisible && !r1.landingVisible && r1.resultVisible && spyCount === 0 && spyCount2 === 0;
+note(`R1 upload-bug: resultVisible=${r1.resultVisible} uploadVisible=${r1.uploadVisible} landingVisible=${r1.landingVisible} fileDialogClicks=${spyCount} viewerOpened=${viewerOpen} afterEsc=${spyCount2} -> ${r1pass ? "PASS" : "FAIL"}`);
 out.verdict.R1_upload_bug = r1pass ? "PASS" : "FAIL";
 out.verdict.R1_detail = { before, r1, spyCount };
 
@@ -115,6 +142,8 @@ const cmp = await page.evaluate(() => ({
   cmpVisible: !document.querySelector("#compareOverlay")?.hidden || !!document.querySelector(".compare-overlay:not([hidden])") || document.body.textContent.includes("Compare"),
 }));
 await shot(page, "03-zoom-compare.png");
+await page.keyboard.press("Escape").catch(() => {}); // close compare overlay if open
+await page.waitForTimeout(200);
 const r3pass = z0 !== z1 && z2 === "100%";
 note(`R3 zoom: ${z0} -> ${z1} -> reset ${z2}; compare overlay visible=${cmp.cmpVisible} -> ${r3pass ? "PASS" : "FAIL"}`);
 out.verdict.R3_interactions = r3pass ? "PASS" : "FAIL";
@@ -136,7 +165,9 @@ const restored = await page.evaluate(() => {
   };
 });
 await shot(page, "04-after-reload.png");
-const r2pass = (restored.svgSrcLen > 500 || restored.resultVisible || restored.advancedVisible) && restored.origSrcLen > 200 && (convertCalls - conv1) === 0;
+// svg/orig previews are short blob: URLs (~50-70 chars); what matters is the result
+// view is restored with both srcs bound and no re-conversion request was sent
+const r2pass = (restored.resultVisible || restored.advancedVisible) && restored.svgSrcLen > 20 && restored.origSrcLen > 20 && (convertCalls - conv1) === 0;
 note(`R2 persistence: svgLen=${restored.svgSrcLen} origLen=${restored.origSrcLen} reconvertCalls=${convertCalls - conv1} -> ${r2pass ? "PASS" : "FAIL"}`);
 out.verdict.R2_persistence = r2pass ? "PASS" : "FAIL";
 out.verdict.R2_detail = { restored, reconvertCalls: convertCalls - conv1 };
