@@ -1,21 +1,27 @@
 {
-  "current_phase": "stage_b_plus_lucide_finalpass",
-  "total_cases": 8812,
+  "current_phase": "stage_b_plus_bootstrap_round4",
+  "total_cases": 13268,
   "remaining_cases": 0,
-  "current_mode": "full-matrix+roving",
-  "next_action": "commit push; then next round: third family Bootstrap Icons + lucide crops into training + extend proof page",
-  "last_checkpoint": "2026-09-25 23:42:00",
-  "completed_cases": 8812,
-  "last_successful_case": "assetsvg-gen-23rot",
-  "qa_count": 8812,
-  "pair_count": 16377,
-  "dataset_count": 16961,
+  "current_mode": "convert-matrix",
+  "next_action": "commit push; round 5 candidates: Tabler Icons (MIT) as 4th family, lucide stroke crops into training, proof-page growth, full icon-corpus w256/w512 runner expansion",
+  "last_checkpoint": "2026-09-25 23:58:00",
+  "completed_cases": 13268,
+  "last_successful_case": "pix-bootstrap-box2-fill",
+  "qa_count": 13268,
+  "pair_count": 34097,
+  "dataset_count": 39171,
   "near_dup": {
-    "hashed": 13097,
-    "groups": 2112,
-    "edges": 7220,
-    "file": "test-assets/near_dup.json"
+    "hashed": 27643,
+    "groups": 4434,
+    "edges": 26808,
+    "file": "test-assets/near_dup.json",
+    "note": "current as of round-4 full corpus"
   },
   "finalpass": "7/7 PASS incl Esc-closes-AI-modal fix verified live",
-  "guard": "ALWAYS git add scripts/ qa/ dataset/ test-assets/ automation/ model/ app/ (wipe ate un-staged scripts/ once)"
+  "guard": "ALWAYS git add scripts/ qa/ dataset/ test-assets/ automation/ model/ app/ (wipe ate un-staged scripts/ once)",
+  "families": {
+    "fontawesome": 951,
+    "lucide": 1842,
+    "bootstrap": 2078
+  }
 }

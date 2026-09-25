@@ -215,6 +215,11 @@ def build_cases() -> list[dict]:
     icon_index = json.loads((ROOT / "dataset/icons/fontawesome/index.json").read_text())
     lucide_path = ROOT / "dataset/icons/lucide/index.json"
     lucide_index = json.loads(lucide_path.read_text()) if lucide_path.exists() else []
+    boot_path = ROOT / "dataset/icons/bootstrap/index.json"
+    boot_index = []
+    if boot_path.exists():
+        raw_boot = json.loads(boot_path.read_text())
+        boot_index = raw_boot["items"] if isinstance(raw_boot, dict) else raw_boot
 
     def conv(cid, kind, asset, mode, params, expect_reject=False):
         cases.append({"id": cid, "kind": kind, "asset": asset, "mode": mode,
@@ -304,6 +309,19 @@ def build_cases() -> list[dict]:
         conv(f"lucide-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
         conv(f"lucide-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
     for rec in lucide_index[:300]:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if (ROOT / p).exists():
+            cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,
+                          "mode": "classic", "params": {"colors": "8"}})
+
+    # O. third open-license family: every bootstrap icon at w128 (classic+model) + pixel batch
+    for rec in boot_index:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if not (ROOT / p).exists():
+            continue
+        conv(f"boot-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
+        conv(f"boot-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+    for rec in boot_index[:300]:
         p = str(Path(rec["source_svg"]).parent / "input-w128.png")
         if (ROOT / p).exists():
             cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,

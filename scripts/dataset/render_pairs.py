@@ -30,6 +30,7 @@ from PIL import Image, ImageFilter  # noqa: E402
 import urllib.request  # noqa: E402
 
 OUT_LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 300
+BLUR_CAP = int(sys.argv[3]) if len(sys.argv) > 3 else 0  # 0 = all pairs get blur/jpeg §8 variants
 CELL_CSS = lambda cell: f"display:flex;align-items:center;justify-content:center;width:{cell}px;height:{cell}px"  # noqa: E731
 
 
@@ -104,7 +105,8 @@ def png_bytes(im: Image.Image) -> bytes:
 def main() -> None:
     family = sys.argv[2] if len(sys.argv) > 2 else "fontawesome"
     fam_root = ROOT / f"dataset/icons/{family}"
-    index = json.loads((fam_root / "index.json").read_text())[:OUT_LIMIT]
+    raw_index = json.loads((fam_root / "index.json").read_text())
+    index = (raw_index["items"] if isinstance(raw_index, dict) else raw_index)[:OUT_LIMIT]
     cdp = CDP()
     done = 0
     records = []
@@ -128,13 +130,22 @@ def main() -> None:
                 dest = out.parent / f"input-{bglabel}.png"
                 im.save(dest)
                 extra = ""
-                if bglabel == "w128":  # a couple of section-8 conditions on the canonical size
+                pair_n = start + k
+                if bglabel == "w128" and (BLUR_CAP <= 0 or pair_n < BLUR_CAP):
+                    # section-8 conditions on the canonical size; RECORDED in
+                    # renders.json so every file on disk is manifest-visible
                     blur = im.filter(ImageFilter.GaussianBlur(1.4))
                     blur.save(out.parent / "input-blur128.png")
                     buf = io.BytesIO()
                     im.convert("RGB").save(buf, "JPEG", quality=30)
                     Image.open(io.BytesIO(buf.getvalue())).convert("RGBA").save(out.parent / "input-jpeg128.png")
                     extra = " +blur +jpeg"
+                    records.append({"id": rec["id"], "file": str((out.parent / "input-blur128.png").relative_to(ROOT)),
+                                    "condition": "size=128,bg=w128,gaussian-blur-r1.4",
+                                    "variant_of": rec["id"] + ":w128"})
+                    records.append({"id": rec["id"], "file": str((out.parent / "input-jpeg128.png").relative_to(ROOT)),
+                                    "condition": "size=128,bg=w128,jpeg-quality-30",
+                                    "variant_of": rec["id"] + ":w128"})
                 done += 1
                 records.append({"id": rec["id"], "file": str(dest.relative_to(ROOT)), "condition": f"size={px},bg={bglabel}"})
         print(f"rendered batch {start}..{start+len(chunk)-1}: {done} inputs", flush=True)

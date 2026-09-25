@@ -85,13 +85,15 @@ def build() -> dict:
         })
 
     families = ["fontawesome"]
-    if (ROOT / "dataset/icons/lucide/index.json").exists():
-        families.append("lucide")
+    for fam in ("lucide", "bootstrap"):
+        if (ROOT / f"dataset/icons/{fam}/index.json").exists():
+            families.append(fam)
     fa = []
     rendered = []
     for fam in families:
         fam_root = ROOT / f"dataset/icons/{fam}"
-        fa.extend(json.loads((fam_root / "index.json").read_text()))
+        raw_i = json.loads((fam_root / "index.json").read_text())
+        fa.extend(raw_i["items"] if isinstance(raw_i, dict) else raw_i)
         rf = fam_root / "renders.json"
         if rf.exists():
             rendered.extend(json.loads(rf.read_text()))

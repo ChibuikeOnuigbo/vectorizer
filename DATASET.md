@@ -31,11 +31,20 @@ qa/artifacts/                       committed SVG outputs incl. user-image proof
 |---|---|---|---|---|
 | User attachments | USER_PROVIDED | chat uploads 2026-09-25 | user-supplied | 3 (1 exact duplicate kept as evidence) |
 | Generated corpus | GENERATED | `model/make_logos.py`, `model/gen_text_no_bg.py` + deterministic PIL conditions | generated in-repo | 200 base/condition assets |
-| Font Awesome Free 5.15.4 | OPEN_LICENSE_SOURCE | `fontawesome-free` pip package (svg files) | CC BY 4.0 icons / MIT code | 951 SVG + 1,800 raster renders |
+| Font Awesome Free 5.15.4 | OPEN_LICENSE_SOURCE | `fontawesome-free` pip package (svg files) | CC BY 4.0 icons / MIT code | 951 SVG + 6,657 raster renders |
+| Lucide 1.47.0 | OPEN_LICENSE_SOURCE | app's own bundled `app/static/lucide/lucide.min.js` UMD (stroke icons) | ISC | 1,842 SVG + 12,894 raster renders |
+| Bootstrap Icons 1.13.1 | OPEN_LICENSE_SOURCE | official npm package `bootstrap-icons` (fill icons) | MIT | 2,078 SVG + 14,546 raster renders |
 
 Acquisition method: package-installed files copied locally
-(`scripts/dataset/extract_pairs.py`) — no site scraping, no robots
-circumvention, no paywall/auth bypass.
+(`scripts/dataset/extract_pairs.py`, `extract_lucide.py`,
+`extract_bootstrap.py`) — no site scraping, no robots circumvention, no
+paywall/auth bypass. The npm tarball came from the public registry with a
+single `npm pack` call (no mass downloads beyond the one official package).
+
+Family shape coverage: Font Awesome = filled 512-viewBox paths; Lucide =
+minimal 24-viewBox stroke line-art (currentColor); Bootstrap Icons = filled
+16-viewBox glyph shapes. Three distinct geometry styles, all with real
+authored-SVG ground truth.
 
 ## Generated corpus categories (§3)
 
@@ -51,22 +60,32 @@ overlaps, hex cutouts, text, and scatter at 1024px.
 
 Headless Chromium over CDP renders inline SVG grids (10 per row,
 deviceScaleFactor 1), PIL slices cells — deterministic per renderer build.
-Worker: `scripts/dataset/render_pairs.py` (bounded at 300 pairs this pass;
-parametrize limit).
+Worker: `scripts/dataset/render_pairs.py` (`LIMIT FAMILY BLUR_CAP` CLI;
+BLUR_CAP=0 means every pair). Every raster on disk is listed in that
+family's `renders.json` — no untracked files (audited 2026-09-25: records
+== files for all three families).
 
 ## Augmentation / conditions (§8)
 
-Sizes 64/128/256, backgrounds white/dark, gaussian blur, JPEG q30; the
-generated corpus separately covers noise, rotation, grayscale, downscales.
-Every derived file has `transformation_applied` + `variant_of` in the
-manifest; original reference SVGs are never mutated.
+Per icon pair: sizes 64/128/256/512 white-bg, 128 dark-bg (#0b1220,
+light foreground), gaussian blur 1.4 at 128, JPEG q30 at 128 — blur/jpeg
+for **every** pair in all three families (recorded with `variant_of`).
+The generated corpus separately covers noise, rotation, grayscale,
+downscales. Every derived file has the transformation recorded in the
+manifest (`condition` field + `variant_of`); original reference SVGs are
+never mutated.
 
 ## Duplicate handling (§11)
 
-md5 exact-hash on every record (`unique_md5`: 2,353 of 2,354); same-source
-derivatives tracked via `variant_of`, not counted as independent assets.
-The two byte-identical user attachments are recorded as
-`EXACT_DUPLICATE_KEPT_AS_EVIDENCE`.
+md5 exact-hash on every record (see `unique_md5` in the live manifest);
+same-source derivatives tracked via `variant_of`, not counted as
+independent assets. Perceptual near-duplicates (content-bbox aHash + 32×32
+MAE≤3 confirm, `scripts/dataset/near_dup.py`) are reported in
+`test-assets/near_dup.json` and linked from the manifest's `dedup` block —
+largest group is the legitimately look-alike Lucide `book-*` family, kept
+and documented rather than silently merged. **Counting rule:** ORIGINAL assets
+are deduped by exact hash + name collisions; DERIVED_TEST_VARIANTs of the same
+reference are tracked as derivatives, never as new originals.
 
 ## QA/status fields (§32)
 

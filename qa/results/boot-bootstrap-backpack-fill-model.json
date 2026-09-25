@@ -1,0 +1,79 @@
+{
+ "id": "boot-bootstrap-backpack-fill-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/bootstrap/backpack-fill/input-w128.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 23:50:37",
+ "http_status": 200,
+ "latency_ms": 44.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 5738,
+  "sha1": "88cf7a1f33c0",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 3
+   },
+   {
+    "color": "#020202",
+    "count": 1
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 3
+   },
+   {
+    "color": "#020202",
+    "count": 1
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 138,
+  "max_path_commands": 58,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 5738,
+ "svg_sha1": "88cf7a1f33c0",
+ "status": "PASS"
+}

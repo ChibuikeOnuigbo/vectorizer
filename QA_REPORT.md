@@ -1,6 +1,6 @@
 # QA Report — Vectorizer (master directive pass 1)
 
-Generated 2026-09-25 (pass 3, Stage B+Lucide family) from artifacts on disk. Every number below is traceable
+Generated 2026-09-25 (pass 4, +Bootstrap family, full-record re-render) from artifacts on disk. Every number below is traceable
 to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 `automation/TASK_STATE.json`. Nothing is estimated.
 
@@ -8,21 +8,21 @@ to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 
 | Metric | Value | Evidence |
 |---|---|---|
-| Total QA executions | **8,812** | `qa/results/_summary.json` |
-| PASS | **8,799** | same |
+| Total QA executions | **13,268** | `qa/results/_summary.json` |
+| PASS | **13,255** | same |
 | FAIL | **0** | same |
 | ERROR | 0 | same |
 | TIMEOUT | 0 | same |
 | UNSUPPORTED_WITH_REASON | **13** (11-provider validation matrix + 2 AI probes; no user key in sandbox, server rejects gracefully HTTP 400) | `aimode-*.json`, `provider-*.json` |
 | Determinism pairs | 150 run, **150 identical** (exact same input+params ⇒ byte-identical SVG) | `_summary.json` |
 | Latency | avg 198.7 ms, p95 347 ms, max 3.19 s | same |
-| Icon pairs compared to reference SVG | **6,817/6,817 PASS** (FA 3,133 + Lucide 3,684; path ratio 3.05 vs authored) | `qa/results/_icon_compare.json` |
+| Icon pairs compared to reference SVG | **10,973/10,973 PASS** (FA 3,133 + Lucide 3,684 + Bootstrap 4,156; avg path ratio 3.05 vs authored) | `qa/results/_icon_compare.json` |
 | Perceptual near-dup scan | 13,097 rasters hashed (content-bbox aHash + 32×32 MAE confirm): 7,220 edges / 2,112 groups — largest group is the legitimately similar Lucide `book-*` family | `test-assets/near_dup.json` |
 | Visible repository test images | **203** (3 user + 200 generated) | `test-assets/manifest.json` |
-| Test-asset manifest entries | **16,961** (16,960 unique md5; Stage B exceeded 3×) | same |
+| Test-asset manifest entries | **39,171** (39,152 unique md5; 4,871 ORIGINAL icon refs + 34,241 DERIVED + 58 orig user/gen) | same |
 | Open-license SVG ground truth | **951 distinct SVGs** (Font Awesome Free 5.15.4: solid 400 / brands 395 / regular 156 after md5 dedup of 2) | `dataset/icons/fontawesome/index.json` |
-| Raster pair renders | FA **4,755** + Lucide **9,210** (1,842 icons × same conditions) | `dataset/icons/*/renders.json` |
-| Open-license families | **2**: Font Awesome Free (CC BY 4.0/MIT, 951) + Lucide (ISC, 1,842, extracted from app's own bundle) | `dataset/icons/*/index.json` |
+| Raster pair renders | FA **6,657** + Lucide **12,894** + Bootstrap **14,546** — blur/jpeg §8 variants now recorded for EVERY pair (audit: records == files on disk for all families) | `dataset/icons/*/renders.json` |
+| Open-license families | **3**: Font Awesome Free (CC BY 4.0/MIT, 951) + Lucide (ISC, 1,842, app's own bundle) + Bootstrap Icons (MIT, 2,078, official npm package) | `dataset/icons/*/index.json` |
 
 ## Execution matrix (§13/§22)
 
@@ -30,7 +30,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 
 - 200 generated assets × {model, classic, preset:logo} = 600
 - Stage B: every icon 200..950 at w256 classic+model (1,502) + w512 classic (751) = 2,253
-- pixel-score compare: 600 icon cases avg 95.5, p05 87.0, min 70.7 (FA+Lucide sets)
+- pixel-score compare: 900 icon cases avg 94.5, p05 81.8, min 70.7 (FA+Lucide+Bootstrap sets)
 - provider validation matrix: all 11 AI providers = 11
 - 120 icon renders × 2 sizes × {classic, model, preset:icon} = 720 (+160 more icons × 2 modes)
 - 2 user images × 5 modes = 10
@@ -40,7 +40,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 - malformed inputs (empty file, truncated PNG/JPEG/GIF, exe-as-image, 1×1, 2×2000, fully transparent) = 12 — all rejected gracefully or handled without crashing the worker
 - AI mode probes = 2 (no key configured in this sandbox → UNSUPPORTED_WITH_REASON, not faked as tested)
 
-By mode (`by_mode` in `_summary.json`): model 3,115 PASS, classic 5,078,
+By mode (`by_mode` in `_summary.json`): model 5,193 PASS, classic 7,456,
 preset:logo 202, preset:icon 242, preset:illustration 42, preset:lqip 40,
 preset:artistic 40, preset:custom 40, ai 2 UNSUPPORTED.
 
@@ -127,6 +127,13 @@ not prove the drop overlay (a11y DnD limitation — noted, not a defect).
 **Fixed this round:** Escape did not close the AI-assist modal while every
 other overlay closed on Esc — added to the central handler
 (`app/static/app.js`), re-verified PASS.
+
+**Self-audit fix (round 4):** earlier rounds left blur/jpeg rasters on disk
+without renders.json records (FA 600, Lucide 3,684 invisible to the
+manifest). render_pairs.py now records every raster it writes
+(BLUR_CAP argv, records include `variant_of`), all three families were
+re-rendered from scratch, and records==files was asserted. Honest counts,
+no inflated numbers in either direction.
 
 ## §20 reference workflow (mock) + AI analysis scaffold
 
