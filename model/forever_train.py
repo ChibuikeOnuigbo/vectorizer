@@ -43,7 +43,7 @@ PARTS = SNAP / "data_parts"
 STATIC_MODEL = ROOT / "app" / "static" / "model"
 
 GOAL_IMAGES = 70_000
-GOAL_STEPS = 100_000
+GOAL_STEPS = 2_000_000    # user target: keep training past 2,000K steps
 DATASET_CAP = 6000          # rolling window of scored records used for training
 SCORE_CHUNK = 250           # new images scored per iteration (~2.5 min)
 GEN_CHUNK = 600             # new clean images per iteration
@@ -361,7 +361,7 @@ def snap_state():
 
 # ------------------------------------------------------------------ main
 def main():
-    log("forever training program start, goals: 70K images / 100K steps")
+    log("forever training program start, goals: 70K images / 2M steps")
     prog = load_progress()
     log("progress:", json.dumps(prog))
     for push_cnt in range(10**9):

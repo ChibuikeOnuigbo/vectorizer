@@ -237,7 +237,7 @@ def manual_status():
                 data_counts[d] = len(list(p.glob("*.png"))) if p.exists() else 0
             forever["images_total"] = sum(data_counts.values())
             forever["images_counts"] = data_counts
-            forever["goals"] = {"images": 70000, "steps": 100000}
+            forever["goals"] = {"images": 70000, "steps": 2000000}
     except Exception:
         pass
     return {
