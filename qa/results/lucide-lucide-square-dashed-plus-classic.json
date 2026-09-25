@@ -1,0 +1,71 @@
+{
+ "id": "lucide-lucide-square-dashed-plus-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/lucide/square-dashed-plus/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 23:10:23",
+ "http_status": 200,
+ "latency_ms": 55.3,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 3460,
+  "sha1": "05dcd4a28eba",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 6,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 7,
+   "paths": 6,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#f7f7f7",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#f7f7f7",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 107,
+  "max_path_commands": 57,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 3460,
+ "svg_sha1": "05dcd4a28eba",
+ "status": "PASS"
+}

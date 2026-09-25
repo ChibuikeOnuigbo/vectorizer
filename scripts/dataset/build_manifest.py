@@ -71,10 +71,12 @@ def build() -> dict:
     gen_meta = json.loads((ROOT / "test-assets/generated_index.json").read_text())
     for g in gen_meta:
         f = ROOT / g["file"]
+        svgo = ROOT / f"test-assets/svg/{f.stem}.svg"
         entries.append({
             "id": f"gen-{f.stem}", "provenance": "GENERATED",
             "asset_kind": g["asset_kind"], "variant_of": g["variant_of"],
             "image_path": g["file"],
+            "svg_path": str(svgo.relative_to(ROOT)) if svgo.exists() else None,
             "source": "repo procedural generators (model/make_logos.py, gen_text_no_bg.py) + deterministic PIL conditions",
             "license": "generated in-repo, CC0-equivalent (no external imagery)",
             "category": g["category"], "expected_characteristics": g["note"],
@@ -82,8 +84,17 @@ def build() -> dict:
             "test_status": "processed in qa/runner.py (gen-* cases)",
         })
 
-    fa = json.loads((ROOT / "dataset/icons/fontawesome/index.json").read_text())
-    rendered = json.loads((ROOT / "dataset/icons/fontawesome/renders.json").read_text()) if (ROOT / "dataset/icons/fontawesome/renders.json").exists() else []
+    families = ["fontawesome"]
+    if (ROOT / "dataset/icons/lucide/index.json").exists():
+        families.append("lucide")
+    fa = []
+    rendered = []
+    for fam in families:
+        fam_root = ROOT / f"dataset/icons/{fam}"
+        fa.extend(json.loads((fam_root / "index.json").read_text()))
+        rf = fam_root / "renders.json"
+        if rf.exists():
+            rendered.extend(json.loads(rf.read_text()))
     ren_by_id: dict[str, list[dict]] = {}
     for r_ in rendered:
         ren_by_id.setdefault(r_["id"], []).append(r_)
@@ -137,8 +148,13 @@ def build() -> dict:
             "visible_test_image_files": len(entries_counts := [
                 e for e in entries if e.get("image_path") and e.get("provenance") in ("USER_PROVIDED", "GENERATED")]),
         },
-        "dedup": {"method": "md5 exact + same-source derivatives tracked via variant_of",
-                  "notes": dup_notes},
+        "dedup": {
+            "method": "md5 exact + same-source derivatives tracked via variant_of + perceptual near-dup",
+            "notes": dup_notes,
+            "perceptual": json.loads((ROOT / "test-assets/near_dup.json").read_text())["near_dup_group_count"]
+            if (ROOT / "test-assets/near_dup.json").exists() else None,
+            "perceptual_file": "test-assets/near_dup.json",
+        },
         "qa": "qa/results/_summary.json (updated by qa/runner.py); verdicts: model_data_snapshot/verdicts.jsonl",
         "entries": entries,
     }

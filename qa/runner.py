@@ -176,6 +176,12 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
             res["failure_class"] = "UPLOAD_FAILURE"
             res["note"] = "server accepted input that should be rejected"
             break
+        if case["kind"] == "assetsvg" and info["xml_valid"]:
+            # persist the corresponding SVG next to the visible image (§30)
+            out_svg = ROOT / case["svg_out"]
+            out_svg.parent.mkdir(parents=True, exist_ok=True)
+            out_svg.write_text(svg)
+            res["svg_path"] = case["svg_out"]
         if info["xml_valid"] and info["root_is_svg"] and info["counts"]["total_elements"] > 1 and info["bytes"] > 200:
             res["status"] = STATUS_PASS
         elif case["kind"] != "malformed" and info["xml_valid"] and info["counts"]["total_elements"] <= 1:
@@ -207,6 +213,8 @@ def build_cases() -> list[dict]:
     gen_assets = sorted(p.name for p in (ROOT / "test-assets/images/generated").glob("*.png"))
     user_assets = ["blue-bird-appicon.png", "teal-orbit-logo.png"]
     icon_index = json.loads((ROOT / "dataset/icons/fontawesome/index.json").read_text())
+    lucide_path = ROOT / "dataset/icons/lucide/index.json"
+    lucide_index = json.loads(lucide_path.read_text()) if lucide_path.exists() else []
 
     def conv(cid, kind, asset, mode, params, expect_reject=False):
         cases.append({"id": cid, "kind": kind, "asset": asset, "mode": mode,
@@ -288,7 +296,25 @@ def build_cases() -> list[dict]:
             cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,
                           "mode": "classic", "params": {"colors": "8"}})
 
-    # L. provider validation matrix: every AI provider must reject gracefully without a key
+    # M. second open-license family: every lucide icon at w128 (classic+model)
+    for rec in lucide_index:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if not (ROOT / p).exists():
+            continue
+        conv(f"lucide-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
+        conv(f"lucide-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+    for rec in lucide_index[:300]:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if (ROOT / p).exists():
+            cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,
+                          "mode": "classic", "params": {"colors": "8"}})
+
+    # N. corresponding visible SVGs for every generated asset (§30 test-assets/svg/)
+    for a in gen_assets:
+        p = f"test-assets/images/generated/{a}"
+        cases.append({"id": f"assetsvg-{a[:-4]}", "kind": "assetsvg", "asset": p,
+                      "mode": "classic", "params": {"colors": "8", "detail": "50", "smoothness": "50"},
+                      "svg_out": f"test-assets/svg/{a[:-4]}.svg"})
     try:
         from app.ai_providers import provider_catalog
         provs = list(provider_catalog().keys())

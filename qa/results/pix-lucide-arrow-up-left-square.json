@@ -1,0 +1,72 @@
+{
+ "id": "pix-lucide-arrow-up-left-square",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/lucide/arrow-up-left-square/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 23:10:29",
+ "http_status": 200,
+ "latency_ms": 41.9,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 8179,
+  "sha1": "ec28ac8ad4d6",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 4,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 5,
+   "paths": 4,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 2
+   },
+   {
+    "color": "#000000",
+    "count": 2
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 2
+   },
+   {
+    "color": "#000000",
+    "count": 2
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 169,
+  "max_path_commands": 60,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 8179,
+ "svg_sha1": "ec28ac8ad4d6",
+ "pixel_score": 86.7,
+ "status": "PASS"
+}

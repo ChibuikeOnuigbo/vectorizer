@@ -25,7 +25,8 @@ from qa.svg_analysis import analyze_svg, compare_stats  # noqa: E402
 
 def main() -> None:
     out: list[dict] = []
-    results = sorted((ROOT / "qa/results").glob("icon*.json"))
+    results = sorted(list((ROOT / "qa/results").glob("icon*.json"))
+                     + list((ROOT / "qa/results").glob("lucide-*.json")))
     for rp in results:
         res = json.loads(rp.read_text())
         asset = res.get("asset") or ""

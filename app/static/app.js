@@ -1432,6 +1432,7 @@
       if (state.viewOpen) closeView();
       if (state.compareOpen) closeCompare();
       if (els.choiceOverlay && !els.choiceOverlay.hidden) hideChoice();
+      if (els.aiOverlay && !els.aiOverlay.hidden) closeAiSettings();  // parity with other overlays (Esc closes)
       if (els.dropOverlay && !els.dropOverlay.hidden) {
         els.dropOverlay.hidden = true;
         document.body.classList.remove("dragging");

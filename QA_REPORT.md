@@ -1,6 +1,6 @@
 # QA Report — Vectorizer (master directive pass 1)
 
-Generated 2026-09-25 (pass 2, Stage B) from artifacts on disk. Every number below is traceable
+Generated 2026-09-25 (pass 3, Stage B+Lucide family) from artifacts on disk. Every number below is traceable
 to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 `automation/TASK_STATE.json`. Nothing is estimated.
 
@@ -8,19 +8,21 @@ to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 
 | Metric | Value | Evidence |
 |---|---|---|
-| Total QA executions | **4,628** | `qa/results/_summary.json` |
-| PASS | **4,615** | same |
+| Total QA executions | **8,812** | `qa/results/_summary.json` |
+| PASS | **8,799** | same |
 | FAIL | **0** | same |
 | ERROR | 0 | same |
 | TIMEOUT | 0 | same |
 | UNSUPPORTED_WITH_REASON | **13** (11-provider validation matrix + 2 AI probes; no user key in sandbox, server rejects gracefully HTTP 400) | `aimode-*.json`, `provider-*.json` |
 | Determinism pairs | 150 run, **150 identical** (exact same input+params ⇒ byte-identical SVG) | `_summary.json` |
 | Latency | avg 198.7 ms, p95 347 ms, max 3.19 s | same |
-| Icon pairs compared to reference SVG | **3,133/3,133 PASS**; generated avg 4.7 paths vs authored 1.0 (path ratio 4.66 — expected for raster→vector tracing incl. AA regions) | `qa/results/_icon_compare.json` |
+| Icon pairs compared to reference SVG | **6,817/6,817 PASS** (FA 3,133 + Lucide 3,684; path ratio 3.05 vs authored) | `qa/results/_icon_compare.json` |
+| Perceptual near-dup scan | 13,097 rasters hashed (content-bbox aHash + 32×32 MAE confirm): 7,220 edges / 2,112 groups — largest group is the legitimately similar Lucide `book-*` family | `test-assets/near_dup.json` |
 | Visible repository test images | **203** (3 user + 200 generated) | `test-assets/manifest.json` |
-| Test-asset manifest entries | **5,909** (5,908 unique md5; Stage B target 5,000 pairs/references EXCEEDED) | same |
+| Test-asset manifest entries | **16,961** (16,960 unique md5; Stage B exceeded 3×) | same |
 | Open-license SVG ground truth | **951 distinct SVGs** (Font Awesome Free 5.15.4: solid 400 / brands 395 / regular 156 after md5 dedup of 2) | `dataset/icons/fontawesome/index.json` |
-| Raster pair renders | **4,755** inputs (951 icons × w64/w128/w256/w512/d128) + 600 blur/jpeg variants | `dataset/icons/fontawesome/renders.json` |
+| Raster pair renders | FA **4,755** + Lucide **9,210** (1,842 icons × same conditions) | `dataset/icons/*/renders.json` |
+| Open-license families | **2**: Font Awesome Free (CC BY 4.0/MIT, 951) + Lucide (ISC, 1,842, extracted from app's own bundle) | `dataset/icons/*/index.json` |
 
 ## Execution matrix (§13/§22)
 
@@ -28,7 +30,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 
 - 200 generated assets × {model, classic, preset:logo} = 600
 - Stage B: every icon 200..950 at w256 classic+model (1,502) + w512 classic (751) = 2,253
-- pixel-score compare: 300 icon cases (model.svg_geom silhouette/edge scorer) avg 96.5, p05 94.1, min 70.7
+- pixel-score compare: 600 icon cases avg 95.5, p05 87.0, min 70.7 (FA+Lucide sets)
 - provider validation matrix: all 11 AI providers = 11
 - 120 icon renders × 2 sizes × {classic, model, preset:icon} = 720 (+160 more icons × 2 modes)
 - 2 user images × 5 modes = 10
@@ -38,7 +40,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 - malformed inputs (empty file, truncated PNG/JPEG/GIF, exe-as-image, 1×1, 2×2000, fully transparent) = 12 — all rejected gracefully or handled without crashing the worker
 - AI mode probes = 2 (no key configured in this sandbox → UNSUPPORTED_WITH_REASON, not faked as tested)
 
-By mode (`by_mode` in `_summary.json`): model 1,273 PASS, classic 2,736,
+By mode (`by_mode` in `_summary.json`): model 3,115 PASS, classic 5,078,
 preset:logo 202, preset:icon 242, preset:illustration 42, preset:lqip 40,
 preset:artistic 40, preset:custom 40, ai 2 UNSUPPORTED.
 
@@ -111,6 +113,20 @@ with a rendered side-by-side proof at `qa/artifacts/user-proofs-grid.png`.
   scoring 0.60 s/img, best=97.9 avg20=96.2 toward 70K images / 2M steps.
 - Lucide bundle is minified only (no per-icon SVGs) → Font Awesome used as
   the open-license icon corpus; Lucide extraction deferred (not needed).
+
+## Final-pass UI sweep (§18/§40) — 7/7 verdicts PASS
+
+`qa/qa_final_pass.mjs`: empty states, Simple↔Advanced workspace switch,
+advanced sliders + reconvert (choice modal reappears after every convert —
+documented behavior), fullscreen viewer zoom tools, export download event
+(`blue-bird-appicon.svg` captured), bad-file error toast, replace image,
+refresh persistence, responsive 390/768 screenshots. Evidence:
+`qa/screenshots/finalpass/` + `finalpass.json`. Synthetic DragEvent could
+not prove the drop overlay (a11y DnD limitation — noted, not a defect).
+
+**Fixed this round:** Escape did not close the AI-assist modal while every
+other overlay closed on Esc — added to the central handler
+(`app/static/app.js`), re-verified PASS.
 
 ## §20 reference workflow (mock) + AI analysis scaffold
 

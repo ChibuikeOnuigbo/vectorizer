@@ -75,8 +75,9 @@ class CDP:
 def render_grid(cdp: CDP, svgs: list[str], cell: int, bg: str) -> Image.Image:
     cols = 10
     rows = (len(svgs) + cols - 1) // cols
+    fg = "#e5e7eb" if bg != "white" else "black"  # lucide uses stroke=currentColor
     cells = "".join(
-        f'<div style="{CELL_CSS(cell)};background:{bg}">{s}</div>' for s in svgs
+        f'<div style="{CELL_CSS(cell)};background:{bg};color:{fg}">{s}</div>' for s in svgs
     )
     html = f'<html><body style="margin:0"><div style="display:grid;grid-template-columns:repeat({cols},{cell}px);gap:0">{cells}</div></body></html>'
     cdp.call("Emulation.setDeviceMetricsOverride", width=cols * cell, height=rows * cell,
@@ -101,7 +102,9 @@ def png_bytes(im: Image.Image) -> bytes:
 
 
 def main() -> None:
-    index = json.loads((ROOT / "dataset/icons/fontawesome/index.json").read_text())[:OUT_LIMIT]
+    family = sys.argv[2] if len(sys.argv) > 2 else "fontawesome"
+    fam_root = ROOT / f"dataset/icons/{family}"
+    index = json.loads((fam_root / "index.json").read_text())[:OUT_LIMIT]
     cdp = CDP()
     done = 0
     records = []
@@ -115,7 +118,8 @@ def main() -> None:
                 continue
             t = p.read_text(encoding="utf8", errors="ignore")
             texts.append((rec, t))
-        for px, bgm, bglabel in ((64, "white", "w64"), (128, "white", "w128"), (256, "white", "w256"), (128, "#0b1220", "d128")):
+        for px, bgm, bglabel in ((64, "white", "w64"), (128, "white", "w128"), (256, "white", "w256"),
+                                 (512, "white", "w512"), (128, "#0b1220", "d128")):
             grid = render_grid(cdp, [inline_svg(t, px // 2) for _, t in texts], px, bgm)
             for k, (rec, _t) in enumerate(texts):
                 col, row = k % 10, k // 10
@@ -134,9 +138,9 @@ def main() -> None:
                 done += 1
                 records.append({"id": rec["id"], "file": str(dest.relative_to(ROOT)), "condition": f"size={px},bg={bglabel}"})
         print(f"rendered batch {start}..{start+len(chunk)-1}: {done} inputs", flush=True)
-    (ROOT / "dataset/icons/fontawesome/renders.json").write_text(json.dumps(records, indent=1))
+    (fam_root / "renders.json").write_text(json.dumps(records, indent=1))
     cdp.close()
-    print(f"DONE: {done} input.png renders for {len(index)} pairs")
+    print(f"DONE: {done} input.png renders for {len(index)} pairs ({family})")
 
 
 if __name__ == "__main__":
