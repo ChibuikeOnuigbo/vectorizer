@@ -1,0 +1,2802 @@
+[
+ {
+  "file": "test-assets/images/generated/gen-00-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "simple icon",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23-base.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "logo",
+  "note": "procedural generator (model/make_logos.py)",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-00-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-00-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-00-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-00-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-00-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-00rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-00-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-01-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-01-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-01-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-01-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-01-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-01rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-01-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-02-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-02-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-02-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-02-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-02-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-02rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-02-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-03-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-03-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-03-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-03-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-03-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-03rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-03-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-04-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-04-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-04-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-04-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-04-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-04rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-04-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-05-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-05-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-05-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-05-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-05-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-05rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-05-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-06-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-06-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-06-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-06-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-06-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-06rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-06-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-07-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-07-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-07-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-07-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-07-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-07rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-07-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-08-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-08-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-08-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-08-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-08-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-08rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-08-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-09-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-09-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-09-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-09-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-09-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-09rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-09-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-10-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-10-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-10-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-10-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-10-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-10rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-10-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-11-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-11-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-11-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-11-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-11-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-11rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-11-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-12-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-12-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-12-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-12-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-12-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-12rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-12-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-13-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-13-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-13-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-13-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-13-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-13rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-13-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-14-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-14-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-14-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-14-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-14-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-14rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-14-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-15-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-15-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-15-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-15-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-15-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-15rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-15-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-16-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-16-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-16-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-16-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-16-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-16rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-16-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-17-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-17-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-17-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-17-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-17-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-17rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-17-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-18-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-18-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-18-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-18-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-18-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-18rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-18-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-19-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-19-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-19-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-19-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-19-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-19rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-19-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-20-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-20-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-20-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-20-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-20-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-20rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-20-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-21-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-21-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-21-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-21-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-21-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-21rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-21-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-22-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-22-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-22-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-22-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-22-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-22rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-22-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23blur.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-23-base.png",
+  "category": "blurred image",
+  "note": "gaussian blur r2.2",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23noise.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-23-base.png",
+  "category": "noisy image",
+  "note": "uniform rgb noise 12.5% px",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23jpeg.jpg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-23-base.png",
+  "category": "compressed JPEG",
+  "note": "jpeg q22 round-trip",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23downscale32.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "very small image",
+  "note": "32x32 lanczos",
+  "dimensions": [
+   32,
+   32
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23darkbg.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-23-base.png",
+  "category": "dark-background image",
+  "note": "composited onto dark navy",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23gray.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-23-base.png",
+  "category": "monochrome image",
+  "note": "grayscale",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gen-23rot.png",
+  "provenance": "GENERATED",
+  "asset_kind": "DERIVED_TEST_VARIANT",
+  "variant_of": "gen-23-base.png",
+  "category": "rotated off-axis",
+  "note": "-11 degrees bicubic",
+  "dimensions": [
+   302,
+   302
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-1x1.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "extreme case",
+  "note": "1x1 pixel",
+  "dimensions": [
+   1,
+   1
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-flat-color.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "large flat area",
+  "note": "single exact color",
+  "dimensions": [
+   200,
+   200
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-transparent.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "transparent-background image",
+  "note": "fully empty alpha",
+  "dimensions": [
+   128,
+   128
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-aspect-wide.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "extreme aspect ratio",
+  "note": "16:1 text band",
+  "dimensions": [
+   1024,
+   64
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-thin-strokes.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "thin strokes",
+  "note": "1px vertical rules",
+  "dimensions": [
+   256,
+   256
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-big1024.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "large image",
+  "note": "1024x1024 upscale",
+  "dimensions": [
+   1024,
+   1024
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/edge-text.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "image with text",
+  "note": "text logo generator output",
+  "dimensions": [
+   300,
+   300
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ },
+ {
+  "file": "test-assets/images/generated/gauntlet-x1024.png",
+  "provenance": "GENERATED",
+  "asset_kind": "ORIGINAL_ASSET",
+  "variant_of": null,
+  "category": "difficult composite (section 5)",
+  "note": "gradients+nested+thin+thick+translucent overlap+holes+text+scatter, 1024px",
+  "dimensions": [
+   1024,
+   1024
+  ],
+  "file_type": "png",
+  "has_alpha": true
+ }
+]

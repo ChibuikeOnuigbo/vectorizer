@@ -23,3 +23,7 @@ image-search/
 __pycache__/
 *.pyc
 qa/qa-summary.json
+qa/node_modules/
+qa/__pycache__/
+model/data/
+model/out/

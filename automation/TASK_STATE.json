@@ -1,0 +1,10 @@
+{
+ "current_phase": "qa_runner_done",
+ "total_cases": 2064,
+ "remaining_cases": 0,
+ "current_mode": "convert-matrix",
+ "next_action": "regression browser tests + report",
+ "last_checkpoint": "2026-09-25 15:20:57",
+ "completed_cases": 2064,
+ "last_successful_case": "det-edge-aspect-wide-b"
+}

@@ -1,0 +1,63 @@
+{
+ "id": "det-gen-03-base-b",
+ "kind": "determinism",
+ "asset": "test-assets/images/generated/gen-03-base.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 15:10:44",
+ "http_status": 200,
+ "latency_ms": 372.1,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 4014,
+  "sha1": "e4b23cd7e801",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 3,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 4,
+   "paths": 3,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#31f15e",
+    "count": 3
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#31f15e",
+    "count": 3
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 78,
+  "max_path_commands": 29,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 4014,
+ "svg_sha1": "e4b23cd7e801",
+ "status": "PASS"
+}

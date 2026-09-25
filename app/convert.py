@@ -276,7 +276,8 @@ def analyze(img: Image.Image) -> dict:
     if mask is not None:
         m_small = np.asarray(mask.resize((small_w, small_h))) > 128
     else:
-        m_small = np.ones((small_w, small_h), dtype=bool)
+        # numpy arrays are (height, width): keep dimension order consistent with arr
+        m_small = np.ones((small_h, small_w), dtype=bool)
     probe_arr = arr[m_small]
     if probe_arr.size == 0:
         probe_arr = np.zeros((1, 3), dtype=np.uint8)
@@ -317,7 +318,12 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     ct = int(params.get("corner_threshold", BASELINE_FLAT["corner_threshold"] if flat else BASELINE_PHOTO["corner_threshold"]))
     lt = float(params.get("length_threshold", BASELINE_FLAT["length_threshold"] if flat else BASELINE_PHOTO["length_threshold"]))
     pp = int(params.get("path_precision", BASELINE_FLAT["path_precision"] if flat else BASELINE_PHOTO["path_precision"]))
-    cp = min(max(cp, 1), 8)
+    # cp=1 (slider "2 colors") collapses every flat ink bucket into the
+    # background bucket, so vtracer sees a uniform canvas and emits a single
+    # path that _strip_color then deletes -> empty SVG shell. QA sweep
+    # evidence: qa/results/sweep-gen-*-c2-*.json (8 empty shells). Floor at 2
+    # bits; palette size is still dominated by _flatten_colors max_inks.
+    cp = min(max(cp, 2), 8)
     ld = min(max(ld, 4), 48)
     sp = min(max(sp, 1), 16)
     mi = min(max(mi, 8), 48)

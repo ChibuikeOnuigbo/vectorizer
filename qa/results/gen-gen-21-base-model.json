@@ -1,0 +1,63 @@
+{
+ "id": "gen-gen-21-base-model",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-21-base.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 15:09:52",
+ "http_status": 200,
+ "latency_ms": 419.9,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 563,
+  "sha1": "35345349d876",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "svg": 1,
+   "path": 1
+  },
+  "counts": {
+   "total_elements": 2,
+   "paths": 1,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#8b881e",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#8b881e",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 9,
+  "max_path_commands": 9,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 563,
+ "svg_sha1": "35345349d876",
+ "status": "PASS"
+}

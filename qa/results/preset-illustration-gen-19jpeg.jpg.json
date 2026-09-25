@@ -1,0 +1,79 @@
+{
+ "id": "preset-illustration-gen-19jpeg.jpg",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-19jpeg.jpg.png",
+ "mode": "preset:illustration",
+ "params": {
+  "preset": "illustration"
+ },
+ "recorded_at": "2026-09-25 15:10:33",
+ "http_status": 200,
+ "latency_ms": 304.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 16507,
+  "sha1": "b345938f804b",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 6,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 7,
+   "paths": 6,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#030203",
+    "count": 3
+   },
+   {
+    "color": "#fcfbfc",
+    "count": 2
+   },
+   {
+    "color": "#d44ada",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#030203",
+    "count": 3
+   },
+   {
+    "color": "#fcfbfc",
+    "count": 2
+   },
+   {
+    "color": "#d44ada",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 353,
+  "max_path_commands": 123,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 16507,
+ "svg_sha1": "b345938f804b",
+ "status": "PASS"
+}

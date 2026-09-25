@@ -1,0 +1,91 @@
+{
+ "id": "gen-edge-big1024-classic",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/edge-big1024.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8",
+  "detail": "50",
+  "smoothness": "50"
+ },
+ "recorded_at": "2026-09-25 15:09:20",
+ "http_status": 200,
+ "latency_ms": 2170.4,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 153557,
+  "sha1": "c05d3e042874",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 14,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 15,
+   "paths": 14,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 1024 1024",
+  "width": "1024",
+  "height": "1024",
+  "fills": [
+   {
+    "color": "#fefdfe",
+    "count": 10
+   },
+   {
+    "color": "#fdfcfd",
+    "count": 2
+   },
+   {
+    "color": "#ba0d69",
+    "count": 1
+   },
+   {
+    "color": "#f7e6ef",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefdfe",
+    "count": 10
+   },
+   {
+    "color": "#fdfcfd",
+    "count": 2
+   },
+   {
+    "color": "#ba0d69",
+    "count": 1
+   },
+   {
+    "color": "#f7e6ef",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 3476,
+  "max_path_commands": 1542,
+  "empty_elements": 0,
+  "duplicate_path_d": 7,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "7 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 153557,
+ "svg_sha1": "c05d3e042874",
+ "status": "PASS"
+}

@@ -1,0 +1,119 @@
+{
+ "id": "gen-gauntlet-x1024-presetlogo",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gauntlet-x1024.png",
+ "mode": "preset:logo",
+ "params": {
+  "preset": "logo"
+ },
+ "recorded_at": "2026-09-25 15:09:23",
+ "http_status": 200,
+ "latency_ms": 1195.3,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 35903,
+  "sha1": "42a989a78fad",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 19,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 20,
+   "paths": 19,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 1024 1024",
+  "width": "1024",
+  "height": "1024",
+  "fills": [
+   {
+    "color": "#1a2332",
+    "count": 5
+   },
+   {
+    "color": "#f5f7f9",
+    "count": 4
+   },
+   {
+    "color": "#0284c7",
+    "count": 2
+   },
+   {
+    "color": "#f6546e",
+    "count": 2
+   },
+   {
+    "color": "#f2f4f6",
+    "count": 1
+   },
+   {
+    "color": "#f4f6f8",
+    "count": 1
+   },
+   {
+    "color": "#f3526c",
+    "count": 1
+   },
+   {
+    "color": "#f5536d",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#1a2332",
+    "count": 5
+   },
+   {
+    "color": "#f5f7f9",
+    "count": 4
+   },
+   {
+    "color": "#0284c7",
+    "count": 2
+   },
+   {
+    "color": "#f6546e",
+    "count": 2
+   },
+   {
+    "color": "#f2f4f6",
+    "count": 1
+   },
+   {
+    "color": "#f4f6f8",
+    "count": 1
+   },
+   {
+    "color": "#f3526c",
+    "count": 1
+   },
+   {
+    "color": "#f5536d",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 820,
+  "max_path_commands": 280,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 35903,
+ "svg_sha1": "42a989a78fad",
+ "status": "PASS"
+}

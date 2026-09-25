@@ -1,0 +1,71 @@
+{
+ "id": "preset-lqip-gen-23downscale32",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-23downscale32.png",
+ "mode": "preset:lqip",
+ "params": {
+  "preset": "lqip"
+ },
+ "recorded_at": "2026-09-25 15:10:34",
+ "http_status": 200,
+ "latency_ms": 200.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 683,
+  "sha1": "a9db6656c186",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 2,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 3,
+   "paths": 2,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 32 32",
+  "width": "32",
+  "height": "32",
+  "fills": [
+   {
+    "color": "#9d09b3",
+    "count": 1
+   },
+   {
+    "color": "#930da7",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#9d09b3",
+    "count": 1
+   },
+   {
+    "color": "#930da7",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 19,
+  "max_path_commands": 10,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 683,
+ "svg_sha1": "a9db6656c186",
+ "status": "PASS"
+}

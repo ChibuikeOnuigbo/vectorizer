@@ -1,0 +1,63 @@
+{
+ "id": "det-gen-13downscale32-a",
+ "kind": "determinism",
+ "asset": "test-assets/images/generated/gen-13downscale32.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 15:10:54",
+ "http_status": 200,
+ "latency_ms": 138.5,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 717,
+  "sha1": "ade11ce2d274",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "svg": 1,
+   "path": 1
+  },
+  "counts": {
+   "total_elements": 2,
+   "paths": 1,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 32 32",
+  "width": "32",
+  "height": "32",
+  "fills": [
+   {
+    "color": "#e0b715",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#e0b715",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 18,
+  "max_path_commands": 18,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 717,
+ "svg_sha1": "ade11ce2d274",
+ "status": "PASS"
+}

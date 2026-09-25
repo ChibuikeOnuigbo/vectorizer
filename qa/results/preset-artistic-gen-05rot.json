@@ -1,0 +1,119 @@
+{
+ "id": "preset-artistic-gen-05rot",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-05rot.png",
+ "mode": "preset:artistic",
+ "params": {
+  "preset": "artistic"
+ },
+ "recorded_at": "2026-09-25 15:10:27",
+ "http_status": 200,
+ "latency_ms": 371.2,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 29740,
+  "sha1": "321f31d0dc40",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 23,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 24,
+   "paths": 23,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 302 302",
+  "width": "302",
+  "height": "302",
+  "fills": [
+   {
+    "color": "#10cc64",
+    "count": 3
+   },
+   {
+    "color": "#0eb65a",
+    "count": 2
+   },
+   {
+    "color": "#2675b7",
+    "count": 1
+   },
+   {
+    "color": "#2776b7",
+    "count": 1
+   },
+   {
+    "color": "#10ca63",
+    "count": 1
+   },
+   {
+    "color": "#10cb64",
+    "count": 1
+   },
+   {
+    "color": "#10cd64",
+    "count": 1
+   },
+   {
+    "color": "#2b84d1",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#10cc64",
+    "count": 3
+   },
+   {
+    "color": "#0eb65a",
+    "count": 2
+   },
+   {
+    "color": "#2675b7",
+    "count": 1
+   },
+   {
+    "color": "#2776b7",
+    "count": 1
+   },
+   {
+    "color": "#10ca63",
+    "count": 1
+   },
+   {
+    "color": "#10cb64",
+    "count": 1
+   },
+   {
+    "color": "#10cd64",
+    "count": 1
+   },
+   {
+    "color": "#2b84d1",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 721,
+  "max_path_commands": 117,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 29740,
+ "svg_sha1": "321f31d0dc40",
+ "status": "PASS"
+}

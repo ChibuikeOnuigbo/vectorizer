@@ -1,0 +1,6002 @@
+[
+ {
+  "id": "fa-solid-ad",
+  "file": "dataset/icons/fontawesome/solid/ad/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-address-book",
+  "file": "dataset/icons/fontawesome/solid/address-book/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-address-card",
+  "file": "dataset/icons/fontawesome/solid/address-card/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-adjust",
+  "file": "dataset/icons/fontawesome/solid/adjust/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-air-freshener",
+  "file": "dataset/icons/fontawesome/solid/air-freshener/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-align-center",
+  "file": "dataset/icons/fontawesome/solid/align-center/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-align-justify",
+  "file": "dataset/icons/fontawesome/solid/align-justify/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-align-left",
+  "file": "dataset/icons/fontawesome/solid/align-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-align-right",
+  "file": "dataset/icons/fontawesome/solid/align-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-allergies",
+  "file": "dataset/icons/fontawesome/solid/allergies/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ambulance",
+  "file": "dataset/icons/fontawesome/solid/ambulance/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-american-sign-language-interpreting",
+  "file": "dataset/icons/fontawesome/solid/american-sign-language-interpreting/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-anchor",
+  "file": "dataset/icons/fontawesome/solid/anchor/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-double-down",
+  "file": "dataset/icons/fontawesome/solid/angle-double-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-double-left",
+  "file": "dataset/icons/fontawesome/solid/angle-double-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-double-right",
+  "file": "dataset/icons/fontawesome/solid/angle-double-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-double-up",
+  "file": "dataset/icons/fontawesome/solid/angle-double-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-down",
+  "file": "dataset/icons/fontawesome/solid/angle-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-left",
+  "file": "dataset/icons/fontawesome/solid/angle-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-right",
+  "file": "dataset/icons/fontawesome/solid/angle-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angle-up",
+  "file": "dataset/icons/fontawesome/solid/angle-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-angry",
+  "file": "dataset/icons/fontawesome/solid/angry/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ankh",
+  "file": "dataset/icons/fontawesome/solid/ankh/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-apple-alt",
+  "file": "dataset/icons/fontawesome/solid/apple-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-archive",
+  "file": "dataset/icons/fontawesome/solid/archive/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-archway",
+  "file": "dataset/icons/fontawesome/solid/archway/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrow-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrows-alt-h",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-h/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrows-alt-v",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-v/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-assistive-listening-systems",
+  "file": "dataset/icons/fontawesome/solid/assistive-listening-systems/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-asterisk",
+  "file": "dataset/icons/fontawesome/solid/asterisk/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-at",
+  "file": "dataset/icons/fontawesome/solid/at/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-atlas",
+  "file": "dataset/icons/fontawesome/solid/atlas/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-atom",
+  "file": "dataset/icons/fontawesome/solid/atom/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-audio-description",
+  "file": "dataset/icons/fontawesome/solid/audio-description/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-award",
+  "file": "dataset/icons/fontawesome/solid/award/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-baby-carriage",
+  "file": "dataset/icons/fontawesome/solid/baby-carriage/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-baby",
+  "file": "dataset/icons/fontawesome/solid/baby/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-backspace",
+  "file": "dataset/icons/fontawesome/solid/backspace/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-backward",
+  "file": "dataset/icons/fontawesome/solid/backward/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bacon",
+  "file": "dataset/icons/fontawesome/solid/bacon/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bacteria",
+  "file": "dataset/icons/fontawesome/solid/bacteria/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bacterium",
+  "file": "dataset/icons/fontawesome/solid/bacterium/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bahai",
+  "file": "dataset/icons/fontawesome/solid/bahai/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-balance-scale-left",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-balance-scale-right",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-balance-scale",
+  "file": "dataset/icons/fontawesome/solid/balance-scale/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ban",
+  "file": "dataset/icons/fontawesome/solid/ban/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-band-aid",
+  "file": "dataset/icons/fontawesome/solid/band-aid/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-barcode",
+  "file": "dataset/icons/fontawesome/solid/barcode/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bars",
+  "file": "dataset/icons/fontawesome/solid/bars/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-baseball-ball",
+  "file": "dataset/icons/fontawesome/solid/baseball-ball/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-basketball-ball",
+  "file": "dataset/icons/fontawesome/solid/basketball-ball/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bath",
+  "file": "dataset/icons/fontawesome/solid/bath/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-battery-empty",
+  "file": "dataset/icons/fontawesome/solid/battery-empty/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-battery-full",
+  "file": "dataset/icons/fontawesome/solid/battery-full/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-battery-half",
+  "file": "dataset/icons/fontawesome/solid/battery-half/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-battery-quarter",
+  "file": "dataset/icons/fontawesome/solid/battery-quarter/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-battery-three-quarters",
+  "file": "dataset/icons/fontawesome/solid/battery-three-quarters/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bed",
+  "file": "dataset/icons/fontawesome/solid/bed/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-beer",
+  "file": "dataset/icons/fontawesome/solid/beer/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bell-slash",
+  "file": "dataset/icons/fontawesome/solid/bell-slash/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bell",
+  "file": "dataset/icons/fontawesome/solid/bell/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bezier-curve",
+  "file": "dataset/icons/fontawesome/solid/bezier-curve/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bible",
+  "file": "dataset/icons/fontawesome/solid/bible/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bicycle",
+  "file": "dataset/icons/fontawesome/solid/bicycle/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-biking",
+  "file": "dataset/icons/fontawesome/solid/biking/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-binoculars",
+  "file": "dataset/icons/fontawesome/solid/binoculars/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-biohazard",
+  "file": "dataset/icons/fontawesome/solid/biohazard/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-birthday-cake",
+  "file": "dataset/icons/fontawesome/solid/birthday-cake/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-blender-phone",
+  "file": "dataset/icons/fontawesome/solid/blender-phone/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-blender",
+  "file": "dataset/icons/fontawesome/solid/blender/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-blind",
+  "file": "dataset/icons/fontawesome/solid/blind/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-blog",
+  "file": "dataset/icons/fontawesome/solid/blog/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bold",
+  "file": "dataset/icons/fontawesome/solid/bold/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bolt",
+  "file": "dataset/icons/fontawesome/solid/bolt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bomb",
+  "file": "dataset/icons/fontawesome/solid/bomb/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bone",
+  "file": "dataset/icons/fontawesome/solid/bone/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bong",
+  "file": "dataset/icons/fontawesome/solid/bong/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-book-dead",
+  "file": "dataset/icons/fontawesome/solid/book-dead/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-book-medical",
+  "file": "dataset/icons/fontawesome/solid/book-medical/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-book-open",
+  "file": "dataset/icons/fontawesome/solid/book-open/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-book-reader",
+  "file": "dataset/icons/fontawesome/solid/book-reader/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-book",
+  "file": "dataset/icons/fontawesome/solid/book/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bookmark",
+  "file": "dataset/icons/fontawesome/solid/bookmark/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-border-all",
+  "file": "dataset/icons/fontawesome/solid/border-all/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-border-none",
+  "file": "dataset/icons/fontawesome/solid/border-none/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-border-style",
+  "file": "dataset/icons/fontawesome/solid/border-style/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ad",
+  "file": "dataset/icons/fontawesome/solid/ad/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-address-book",
+  "file": "dataset/icons/fontawesome/solid/address-book/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-address-card",
+  "file": "dataset/icons/fontawesome/solid/address-card/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-adjust",
+  "file": "dataset/icons/fontawesome/solid/adjust/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-air-freshener",
+  "file": "dataset/icons/fontawesome/solid/air-freshener/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-align-center",
+  "file": "dataset/icons/fontawesome/solid/align-center/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-align-justify",
+  "file": "dataset/icons/fontawesome/solid/align-justify/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-align-left",
+  "file": "dataset/icons/fontawesome/solid/align-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-align-right",
+  "file": "dataset/icons/fontawesome/solid/align-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-allergies",
+  "file": "dataset/icons/fontawesome/solid/allergies/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ambulance",
+  "file": "dataset/icons/fontawesome/solid/ambulance/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-american-sign-language-interpreting",
+  "file": "dataset/icons/fontawesome/solid/american-sign-language-interpreting/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-anchor",
+  "file": "dataset/icons/fontawesome/solid/anchor/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-double-down",
+  "file": "dataset/icons/fontawesome/solid/angle-double-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-double-left",
+  "file": "dataset/icons/fontawesome/solid/angle-double-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-double-right",
+  "file": "dataset/icons/fontawesome/solid/angle-double-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-double-up",
+  "file": "dataset/icons/fontawesome/solid/angle-double-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-down",
+  "file": "dataset/icons/fontawesome/solid/angle-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-left",
+  "file": "dataset/icons/fontawesome/solid/angle-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-right",
+  "file": "dataset/icons/fontawesome/solid/angle-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angle-up",
+  "file": "dataset/icons/fontawesome/solid/angle-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-angry",
+  "file": "dataset/icons/fontawesome/solid/angry/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ankh",
+  "file": "dataset/icons/fontawesome/solid/ankh/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-apple-alt",
+  "file": "dataset/icons/fontawesome/solid/apple-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-archive",
+  "file": "dataset/icons/fontawesome/solid/archive/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-archway",
+  "file": "dataset/icons/fontawesome/solid/archway/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrow-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrows-alt-h",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-h/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrows-alt-v",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-v/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-assistive-listening-systems",
+  "file": "dataset/icons/fontawesome/solid/assistive-listening-systems/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-asterisk",
+  "file": "dataset/icons/fontawesome/solid/asterisk/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-at",
+  "file": "dataset/icons/fontawesome/solid/at/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-atlas",
+  "file": "dataset/icons/fontawesome/solid/atlas/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-atom",
+  "file": "dataset/icons/fontawesome/solid/atom/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-audio-description",
+  "file": "dataset/icons/fontawesome/solid/audio-description/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-award",
+  "file": "dataset/icons/fontawesome/solid/award/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-baby-carriage",
+  "file": "dataset/icons/fontawesome/solid/baby-carriage/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-baby",
+  "file": "dataset/icons/fontawesome/solid/baby/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-backspace",
+  "file": "dataset/icons/fontawesome/solid/backspace/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-backward",
+  "file": "dataset/icons/fontawesome/solid/backward/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bacon",
+  "file": "dataset/icons/fontawesome/solid/bacon/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bacteria",
+  "file": "dataset/icons/fontawesome/solid/bacteria/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bacterium",
+  "file": "dataset/icons/fontawesome/solid/bacterium/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bahai",
+  "file": "dataset/icons/fontawesome/solid/bahai/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-balance-scale-left",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-balance-scale-right",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-balance-scale",
+  "file": "dataset/icons/fontawesome/solid/balance-scale/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ban",
+  "file": "dataset/icons/fontawesome/solid/ban/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-band-aid",
+  "file": "dataset/icons/fontawesome/solid/band-aid/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-barcode",
+  "file": "dataset/icons/fontawesome/solid/barcode/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bars",
+  "file": "dataset/icons/fontawesome/solid/bars/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-baseball-ball",
+  "file": "dataset/icons/fontawesome/solid/baseball-ball/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-basketball-ball",
+  "file": "dataset/icons/fontawesome/solid/basketball-ball/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bath",
+  "file": "dataset/icons/fontawesome/solid/bath/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-battery-empty",
+  "file": "dataset/icons/fontawesome/solid/battery-empty/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-battery-full",
+  "file": "dataset/icons/fontawesome/solid/battery-full/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-battery-half",
+  "file": "dataset/icons/fontawesome/solid/battery-half/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-battery-quarter",
+  "file": "dataset/icons/fontawesome/solid/battery-quarter/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-battery-three-quarters",
+  "file": "dataset/icons/fontawesome/solid/battery-three-quarters/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bed",
+  "file": "dataset/icons/fontawesome/solid/bed/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-beer",
+  "file": "dataset/icons/fontawesome/solid/beer/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bell-slash",
+  "file": "dataset/icons/fontawesome/solid/bell-slash/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bell",
+  "file": "dataset/icons/fontawesome/solid/bell/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bezier-curve",
+  "file": "dataset/icons/fontawesome/solid/bezier-curve/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bible",
+  "file": "dataset/icons/fontawesome/solid/bible/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bicycle",
+  "file": "dataset/icons/fontawesome/solid/bicycle/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-biking",
+  "file": "dataset/icons/fontawesome/solid/biking/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-binoculars",
+  "file": "dataset/icons/fontawesome/solid/binoculars/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-biohazard",
+  "file": "dataset/icons/fontawesome/solid/biohazard/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-birthday-cake",
+  "file": "dataset/icons/fontawesome/solid/birthday-cake/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-blender-phone",
+  "file": "dataset/icons/fontawesome/solid/blender-phone/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-blender",
+  "file": "dataset/icons/fontawesome/solid/blender/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-blind",
+  "file": "dataset/icons/fontawesome/solid/blind/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-blog",
+  "file": "dataset/icons/fontawesome/solid/blog/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bold",
+  "file": "dataset/icons/fontawesome/solid/bold/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bolt",
+  "file": "dataset/icons/fontawesome/solid/bolt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bomb",
+  "file": "dataset/icons/fontawesome/solid/bomb/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bone",
+  "file": "dataset/icons/fontawesome/solid/bone/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bong",
+  "file": "dataset/icons/fontawesome/solid/bong/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-book-dead",
+  "file": "dataset/icons/fontawesome/solid/book-dead/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-book-medical",
+  "file": "dataset/icons/fontawesome/solid/book-medical/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-book-open",
+  "file": "dataset/icons/fontawesome/solid/book-open/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-book-reader",
+  "file": "dataset/icons/fontawesome/solid/book-reader/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-book",
+  "file": "dataset/icons/fontawesome/solid/book/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bookmark",
+  "file": "dataset/icons/fontawesome/solid/bookmark/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-border-all",
+  "file": "dataset/icons/fontawesome/solid/border-all/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-border-none",
+  "file": "dataset/icons/fontawesome/solid/border-none/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-border-style",
+  "file": "dataset/icons/fontawesome/solid/border-style/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ad",
+  "file": "dataset/icons/fontawesome/solid/ad/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-address-book",
+  "file": "dataset/icons/fontawesome/solid/address-book/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-address-card",
+  "file": "dataset/icons/fontawesome/solid/address-card/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-adjust",
+  "file": "dataset/icons/fontawesome/solid/adjust/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-air-freshener",
+  "file": "dataset/icons/fontawesome/solid/air-freshener/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-align-center",
+  "file": "dataset/icons/fontawesome/solid/align-center/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-align-justify",
+  "file": "dataset/icons/fontawesome/solid/align-justify/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-align-left",
+  "file": "dataset/icons/fontawesome/solid/align-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-align-right",
+  "file": "dataset/icons/fontawesome/solid/align-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-allergies",
+  "file": "dataset/icons/fontawesome/solid/allergies/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ambulance",
+  "file": "dataset/icons/fontawesome/solid/ambulance/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-american-sign-language-interpreting",
+  "file": "dataset/icons/fontawesome/solid/american-sign-language-interpreting/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-anchor",
+  "file": "dataset/icons/fontawesome/solid/anchor/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-double-down",
+  "file": "dataset/icons/fontawesome/solid/angle-double-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-double-left",
+  "file": "dataset/icons/fontawesome/solid/angle-double-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-double-right",
+  "file": "dataset/icons/fontawesome/solid/angle-double-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-double-up",
+  "file": "dataset/icons/fontawesome/solid/angle-double-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-down",
+  "file": "dataset/icons/fontawesome/solid/angle-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-left",
+  "file": "dataset/icons/fontawesome/solid/angle-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-right",
+  "file": "dataset/icons/fontawesome/solid/angle-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angle-up",
+  "file": "dataset/icons/fontawesome/solid/angle-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-angry",
+  "file": "dataset/icons/fontawesome/solid/angry/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ankh",
+  "file": "dataset/icons/fontawesome/solid/ankh/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-apple-alt",
+  "file": "dataset/icons/fontawesome/solid/apple-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-archive",
+  "file": "dataset/icons/fontawesome/solid/archive/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-archway",
+  "file": "dataset/icons/fontawesome/solid/archway/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrow-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrows-alt-h",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-h/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrows-alt-v",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-v/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-assistive-listening-systems",
+  "file": "dataset/icons/fontawesome/solid/assistive-listening-systems/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-asterisk",
+  "file": "dataset/icons/fontawesome/solid/asterisk/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-at",
+  "file": "dataset/icons/fontawesome/solid/at/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-atlas",
+  "file": "dataset/icons/fontawesome/solid/atlas/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-atom",
+  "file": "dataset/icons/fontawesome/solid/atom/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-audio-description",
+  "file": "dataset/icons/fontawesome/solid/audio-description/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-award",
+  "file": "dataset/icons/fontawesome/solid/award/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-baby-carriage",
+  "file": "dataset/icons/fontawesome/solid/baby-carriage/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-baby",
+  "file": "dataset/icons/fontawesome/solid/baby/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-backspace",
+  "file": "dataset/icons/fontawesome/solid/backspace/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-backward",
+  "file": "dataset/icons/fontawesome/solid/backward/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bacon",
+  "file": "dataset/icons/fontawesome/solid/bacon/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bacteria",
+  "file": "dataset/icons/fontawesome/solid/bacteria/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bacterium",
+  "file": "dataset/icons/fontawesome/solid/bacterium/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bahai",
+  "file": "dataset/icons/fontawesome/solid/bahai/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-balance-scale-left",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-balance-scale-right",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-balance-scale",
+  "file": "dataset/icons/fontawesome/solid/balance-scale/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ban",
+  "file": "dataset/icons/fontawesome/solid/ban/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-band-aid",
+  "file": "dataset/icons/fontawesome/solid/band-aid/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-barcode",
+  "file": "dataset/icons/fontawesome/solid/barcode/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bars",
+  "file": "dataset/icons/fontawesome/solid/bars/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-baseball-ball",
+  "file": "dataset/icons/fontawesome/solid/baseball-ball/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-basketball-ball",
+  "file": "dataset/icons/fontawesome/solid/basketball-ball/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bath",
+  "file": "dataset/icons/fontawesome/solid/bath/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-battery-empty",
+  "file": "dataset/icons/fontawesome/solid/battery-empty/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-battery-full",
+  "file": "dataset/icons/fontawesome/solid/battery-full/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-battery-half",
+  "file": "dataset/icons/fontawesome/solid/battery-half/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-battery-quarter",
+  "file": "dataset/icons/fontawesome/solid/battery-quarter/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-battery-three-quarters",
+  "file": "dataset/icons/fontawesome/solid/battery-three-quarters/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bed",
+  "file": "dataset/icons/fontawesome/solid/bed/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-beer",
+  "file": "dataset/icons/fontawesome/solid/beer/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bell-slash",
+  "file": "dataset/icons/fontawesome/solid/bell-slash/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bell",
+  "file": "dataset/icons/fontawesome/solid/bell/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bezier-curve",
+  "file": "dataset/icons/fontawesome/solid/bezier-curve/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bible",
+  "file": "dataset/icons/fontawesome/solid/bible/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bicycle",
+  "file": "dataset/icons/fontawesome/solid/bicycle/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-biking",
+  "file": "dataset/icons/fontawesome/solid/biking/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-binoculars",
+  "file": "dataset/icons/fontawesome/solid/binoculars/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-biohazard",
+  "file": "dataset/icons/fontawesome/solid/biohazard/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-birthday-cake",
+  "file": "dataset/icons/fontawesome/solid/birthday-cake/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-blender-phone",
+  "file": "dataset/icons/fontawesome/solid/blender-phone/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-blender",
+  "file": "dataset/icons/fontawesome/solid/blender/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-blind",
+  "file": "dataset/icons/fontawesome/solid/blind/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-blog",
+  "file": "dataset/icons/fontawesome/solid/blog/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bold",
+  "file": "dataset/icons/fontawesome/solid/bold/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bolt",
+  "file": "dataset/icons/fontawesome/solid/bolt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bomb",
+  "file": "dataset/icons/fontawesome/solid/bomb/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bone",
+  "file": "dataset/icons/fontawesome/solid/bone/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bong",
+  "file": "dataset/icons/fontawesome/solid/bong/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-book-dead",
+  "file": "dataset/icons/fontawesome/solid/book-dead/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-book-medical",
+  "file": "dataset/icons/fontawesome/solid/book-medical/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-book-open",
+  "file": "dataset/icons/fontawesome/solid/book-open/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-book-reader",
+  "file": "dataset/icons/fontawesome/solid/book-reader/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-book",
+  "file": "dataset/icons/fontawesome/solid/book/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bookmark",
+  "file": "dataset/icons/fontawesome/solid/bookmark/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-border-all",
+  "file": "dataset/icons/fontawesome/solid/border-all/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-border-none",
+  "file": "dataset/icons/fontawesome/solid/border-none/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-border-style",
+  "file": "dataset/icons/fontawesome/solid/border-style/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ad",
+  "file": "dataset/icons/fontawesome/solid/ad/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-address-book",
+  "file": "dataset/icons/fontawesome/solid/address-book/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-address-card",
+  "file": "dataset/icons/fontawesome/solid/address-card/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-adjust",
+  "file": "dataset/icons/fontawesome/solid/adjust/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-air-freshener",
+  "file": "dataset/icons/fontawesome/solid/air-freshener/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-align-center",
+  "file": "dataset/icons/fontawesome/solid/align-center/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-align-justify",
+  "file": "dataset/icons/fontawesome/solid/align-justify/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-align-left",
+  "file": "dataset/icons/fontawesome/solid/align-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-align-right",
+  "file": "dataset/icons/fontawesome/solid/align-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-allergies",
+  "file": "dataset/icons/fontawesome/solid/allergies/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-ambulance",
+  "file": "dataset/icons/fontawesome/solid/ambulance/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-american-sign-language-interpreting",
+  "file": "dataset/icons/fontawesome/solid/american-sign-language-interpreting/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-anchor",
+  "file": "dataset/icons/fontawesome/solid/anchor/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-double-down",
+  "file": "dataset/icons/fontawesome/solid/angle-double-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-double-left",
+  "file": "dataset/icons/fontawesome/solid/angle-double-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-double-right",
+  "file": "dataset/icons/fontawesome/solid/angle-double-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-double-up",
+  "file": "dataset/icons/fontawesome/solid/angle-double-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-down",
+  "file": "dataset/icons/fontawesome/solid/angle-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-left",
+  "file": "dataset/icons/fontawesome/solid/angle-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-right",
+  "file": "dataset/icons/fontawesome/solid/angle-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angle-up",
+  "file": "dataset/icons/fontawesome/solid/angle-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-angry",
+  "file": "dataset/icons/fontawesome/solid/angry/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-ankh",
+  "file": "dataset/icons/fontawesome/solid/ankh/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-apple-alt",
+  "file": "dataset/icons/fontawesome/solid/apple-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-archive",
+  "file": "dataset/icons/fontawesome/solid/archive/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-archway",
+  "file": "dataset/icons/fontawesome/solid/archway/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-alt-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-alt-circle-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-circle-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-circle-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/arrow-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-left",
+  "file": "dataset/icons/fontawesome/solid/arrow-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-right",
+  "file": "dataset/icons/fontawesome/solid/arrow-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrow-up",
+  "file": "dataset/icons/fontawesome/solid/arrow-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrows-alt-h",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-h/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrows-alt-v",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt-v/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/arrows-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-assistive-listening-systems",
+  "file": "dataset/icons/fontawesome/solid/assistive-listening-systems/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-asterisk",
+  "file": "dataset/icons/fontawesome/solid/asterisk/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-at",
+  "file": "dataset/icons/fontawesome/solid/at/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-atlas",
+  "file": "dataset/icons/fontawesome/solid/atlas/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-atom",
+  "file": "dataset/icons/fontawesome/solid/atom/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-audio-description",
+  "file": "dataset/icons/fontawesome/solid/audio-description/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-award",
+  "file": "dataset/icons/fontawesome/solid/award/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-baby-carriage",
+  "file": "dataset/icons/fontawesome/solid/baby-carriage/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-baby",
+  "file": "dataset/icons/fontawesome/solid/baby/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-backspace",
+  "file": "dataset/icons/fontawesome/solid/backspace/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-backward",
+  "file": "dataset/icons/fontawesome/solid/backward/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bacon",
+  "file": "dataset/icons/fontawesome/solid/bacon/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bacteria",
+  "file": "dataset/icons/fontawesome/solid/bacteria/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bacterium",
+  "file": "dataset/icons/fontawesome/solid/bacterium/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bahai",
+  "file": "dataset/icons/fontawesome/solid/bahai/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-balance-scale-left",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-balance-scale-right",
+  "file": "dataset/icons/fontawesome/solid/balance-scale-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-balance-scale",
+  "file": "dataset/icons/fontawesome/solid/balance-scale/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-ban",
+  "file": "dataset/icons/fontawesome/solid/ban/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-band-aid",
+  "file": "dataset/icons/fontawesome/solid/band-aid/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-barcode",
+  "file": "dataset/icons/fontawesome/solid/barcode/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bars",
+  "file": "dataset/icons/fontawesome/solid/bars/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-baseball-ball",
+  "file": "dataset/icons/fontawesome/solid/baseball-ball/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-basketball-ball",
+  "file": "dataset/icons/fontawesome/solid/basketball-ball/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bath",
+  "file": "dataset/icons/fontawesome/solid/bath/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-battery-empty",
+  "file": "dataset/icons/fontawesome/solid/battery-empty/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-battery-full",
+  "file": "dataset/icons/fontawesome/solid/battery-full/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-battery-half",
+  "file": "dataset/icons/fontawesome/solid/battery-half/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-battery-quarter",
+  "file": "dataset/icons/fontawesome/solid/battery-quarter/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-battery-three-quarters",
+  "file": "dataset/icons/fontawesome/solid/battery-three-quarters/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bed",
+  "file": "dataset/icons/fontawesome/solid/bed/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-beer",
+  "file": "dataset/icons/fontawesome/solid/beer/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bell-slash",
+  "file": "dataset/icons/fontawesome/solid/bell-slash/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bell",
+  "file": "dataset/icons/fontawesome/solid/bell/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bezier-curve",
+  "file": "dataset/icons/fontawesome/solid/bezier-curve/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bible",
+  "file": "dataset/icons/fontawesome/solid/bible/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bicycle",
+  "file": "dataset/icons/fontawesome/solid/bicycle/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-biking",
+  "file": "dataset/icons/fontawesome/solid/biking/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-binoculars",
+  "file": "dataset/icons/fontawesome/solid/binoculars/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-biohazard",
+  "file": "dataset/icons/fontawesome/solid/biohazard/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-birthday-cake",
+  "file": "dataset/icons/fontawesome/solid/birthday-cake/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-blender-phone",
+  "file": "dataset/icons/fontawesome/solid/blender-phone/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-blender",
+  "file": "dataset/icons/fontawesome/solid/blender/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-blind",
+  "file": "dataset/icons/fontawesome/solid/blind/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-blog",
+  "file": "dataset/icons/fontawesome/solid/blog/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bold",
+  "file": "dataset/icons/fontawesome/solid/bold/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bolt",
+  "file": "dataset/icons/fontawesome/solid/bolt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bomb",
+  "file": "dataset/icons/fontawesome/solid/bomb/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bone",
+  "file": "dataset/icons/fontawesome/solid/bone/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bong",
+  "file": "dataset/icons/fontawesome/solid/bong/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-book-dead",
+  "file": "dataset/icons/fontawesome/solid/book-dead/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-book-medical",
+  "file": "dataset/icons/fontawesome/solid/book-medical/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-book-open",
+  "file": "dataset/icons/fontawesome/solid/book-open/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-book-reader",
+  "file": "dataset/icons/fontawesome/solid/book-reader/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-book",
+  "file": "dataset/icons/fontawesome/solid/book/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bookmark",
+  "file": "dataset/icons/fontawesome/solid/bookmark/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-border-all",
+  "file": "dataset/icons/fontawesome/solid/border-all/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-border-none",
+  "file": "dataset/icons/fontawesome/solid/border-none/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-border-style",
+  "file": "dataset/icons/fontawesome/solid/border-style/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bowling-ball",
+  "file": "dataset/icons/fontawesome/solid/bowling-ball/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-box-open",
+  "file": "dataset/icons/fontawesome/solid/box-open/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-box-tissue",
+  "file": "dataset/icons/fontawesome/solid/box-tissue/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-box",
+  "file": "dataset/icons/fontawesome/solid/box/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-boxes",
+  "file": "dataset/icons/fontawesome/solid/boxes/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-braille",
+  "file": "dataset/icons/fontawesome/solid/braille/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-brain",
+  "file": "dataset/icons/fontawesome/solid/brain/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bread-slice",
+  "file": "dataset/icons/fontawesome/solid/bread-slice/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-briefcase-medical",
+  "file": "dataset/icons/fontawesome/solid/briefcase-medical/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-briefcase",
+  "file": "dataset/icons/fontawesome/solid/briefcase/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-broadcast-tower",
+  "file": "dataset/icons/fontawesome/solid/broadcast-tower/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-broom",
+  "file": "dataset/icons/fontawesome/solid/broom/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-brush",
+  "file": "dataset/icons/fontawesome/solid/brush/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bug",
+  "file": "dataset/icons/fontawesome/solid/bug/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-building",
+  "file": "dataset/icons/fontawesome/solid/building/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bullhorn",
+  "file": "dataset/icons/fontawesome/solid/bullhorn/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bullseye",
+  "file": "dataset/icons/fontawesome/solid/bullseye/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-burn",
+  "file": "dataset/icons/fontawesome/solid/burn/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bus-alt",
+  "file": "dataset/icons/fontawesome/solid/bus-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bus",
+  "file": "dataset/icons/fontawesome/solid/bus/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-business-time",
+  "file": "dataset/icons/fontawesome/solid/business-time/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calculator",
+  "file": "dataset/icons/fontawesome/solid/calculator/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-alt",
+  "file": "dataset/icons/fontawesome/solid/calendar-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-check",
+  "file": "dataset/icons/fontawesome/solid/calendar-check/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-day",
+  "file": "dataset/icons/fontawesome/solid/calendar-day/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-minus",
+  "file": "dataset/icons/fontawesome/solid/calendar-minus/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-plus",
+  "file": "dataset/icons/fontawesome/solid/calendar-plus/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-times",
+  "file": "dataset/icons/fontawesome/solid/calendar-times/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar-week",
+  "file": "dataset/icons/fontawesome/solid/calendar-week/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-calendar",
+  "file": "dataset/icons/fontawesome/solid/calendar/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-camera-retro",
+  "file": "dataset/icons/fontawesome/solid/camera-retro/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-camera",
+  "file": "dataset/icons/fontawesome/solid/camera/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-campground",
+  "file": "dataset/icons/fontawesome/solid/campground/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-candy-cane",
+  "file": "dataset/icons/fontawesome/solid/candy-cane/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cannabis",
+  "file": "dataset/icons/fontawesome/solid/cannabis/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-capsules",
+  "file": "dataset/icons/fontawesome/solid/capsules/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-car-alt",
+  "file": "dataset/icons/fontawesome/solid/car-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-car-battery",
+  "file": "dataset/icons/fontawesome/solid/car-battery/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-car-crash",
+  "file": "dataset/icons/fontawesome/solid/car-crash/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-car-side",
+  "file": "dataset/icons/fontawesome/solid/car-side/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-car",
+  "file": "dataset/icons/fontawesome/solid/car/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caravan",
+  "file": "dataset/icons/fontawesome/solid/caravan/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-down",
+  "file": "dataset/icons/fontawesome/solid/caret-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-left",
+  "file": "dataset/icons/fontawesome/solid/caret-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-right",
+  "file": "dataset/icons/fontawesome/solid/caret-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-square-down",
+  "file": "dataset/icons/fontawesome/solid/caret-square-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-square-left",
+  "file": "dataset/icons/fontawesome/solid/caret-square-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-square-right",
+  "file": "dataset/icons/fontawesome/solid/caret-square-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-square-up",
+  "file": "dataset/icons/fontawesome/solid/caret-square-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-caret-up",
+  "file": "dataset/icons/fontawesome/solid/caret-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-carrot",
+  "file": "dataset/icons/fontawesome/solid/carrot/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cart-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/cart-arrow-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cart-plus",
+  "file": "dataset/icons/fontawesome/solid/cart-plus/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cash-register",
+  "file": "dataset/icons/fontawesome/solid/cash-register/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cat",
+  "file": "dataset/icons/fontawesome/solid/cat/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-certificate",
+  "file": "dataset/icons/fontawesome/solid/certificate/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chair",
+  "file": "dataset/icons/fontawesome/solid/chair/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chalkboard-teacher",
+  "file": "dataset/icons/fontawesome/solid/chalkboard-teacher/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chalkboard",
+  "file": "dataset/icons/fontawesome/solid/chalkboard/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-charging-station",
+  "file": "dataset/icons/fontawesome/solid/charging-station/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chart-area",
+  "file": "dataset/icons/fontawesome/solid/chart-area/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chart-bar",
+  "file": "dataset/icons/fontawesome/solid/chart-bar/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chart-line",
+  "file": "dataset/icons/fontawesome/solid/chart-line/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chart-pie",
+  "file": "dataset/icons/fontawesome/solid/chart-pie/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-check-circle",
+  "file": "dataset/icons/fontawesome/solid/check-circle/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-check-double",
+  "file": "dataset/icons/fontawesome/solid/check-double/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-check-square",
+  "file": "dataset/icons/fontawesome/solid/check-square/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-check",
+  "file": "dataset/icons/fontawesome/solid/check/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cheese",
+  "file": "dataset/icons/fontawesome/solid/cheese/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-bishop",
+  "file": "dataset/icons/fontawesome/solid/chess-bishop/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-board",
+  "file": "dataset/icons/fontawesome/solid/chess-board/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-king",
+  "file": "dataset/icons/fontawesome/solid/chess-king/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-knight",
+  "file": "dataset/icons/fontawesome/solid/chess-knight/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-pawn",
+  "file": "dataset/icons/fontawesome/solid/chess-pawn/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-queen",
+  "file": "dataset/icons/fontawesome/solid/chess-queen/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess-rook",
+  "file": "dataset/icons/fontawesome/solid/chess-rook/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chess",
+  "file": "dataset/icons/fontawesome/solid/chess/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-circle-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-circle-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-circle-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-circle-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-down/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-left/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-right/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-chevron-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-up/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-child",
+  "file": "dataset/icons/fontawesome/solid/child/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-church",
+  "file": "dataset/icons/fontawesome/solid/church/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-circle-notch",
+  "file": "dataset/icons/fontawesome/solid/circle-notch/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-circle",
+  "file": "dataset/icons/fontawesome/solid/circle/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-city",
+  "file": "dataset/icons/fontawesome/solid/city/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-clinic-medical",
+  "file": "dataset/icons/fontawesome/solid/clinic-medical/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-clipboard-check",
+  "file": "dataset/icons/fontawesome/solid/clipboard-check/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-clipboard-list",
+  "file": "dataset/icons/fontawesome/solid/clipboard-list/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-clipboard",
+  "file": "dataset/icons/fontawesome/solid/clipboard/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-clock",
+  "file": "dataset/icons/fontawesome/solid/clock/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-clone",
+  "file": "dataset/icons/fontawesome/solid/clone/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-closed-captioning",
+  "file": "dataset/icons/fontawesome/solid/closed-captioning/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-download-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-download-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-meatball",
+  "file": "dataset/icons/fontawesome/solid/cloud-meatball/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-moon-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon-rain/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-bowling-ball",
+  "file": "dataset/icons/fontawesome/solid/bowling-ball/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-box-open",
+  "file": "dataset/icons/fontawesome/solid/box-open/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-box-tissue",
+  "file": "dataset/icons/fontawesome/solid/box-tissue/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-box",
+  "file": "dataset/icons/fontawesome/solid/box/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-boxes",
+  "file": "dataset/icons/fontawesome/solid/boxes/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-braille",
+  "file": "dataset/icons/fontawesome/solid/braille/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-brain",
+  "file": "dataset/icons/fontawesome/solid/brain/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bread-slice",
+  "file": "dataset/icons/fontawesome/solid/bread-slice/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-briefcase-medical",
+  "file": "dataset/icons/fontawesome/solid/briefcase-medical/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-briefcase",
+  "file": "dataset/icons/fontawesome/solid/briefcase/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-broadcast-tower",
+  "file": "dataset/icons/fontawesome/solid/broadcast-tower/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-broom",
+  "file": "dataset/icons/fontawesome/solid/broom/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-brush",
+  "file": "dataset/icons/fontawesome/solid/brush/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bug",
+  "file": "dataset/icons/fontawesome/solid/bug/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-building",
+  "file": "dataset/icons/fontawesome/solid/building/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bullhorn",
+  "file": "dataset/icons/fontawesome/solid/bullhorn/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bullseye",
+  "file": "dataset/icons/fontawesome/solid/bullseye/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-burn",
+  "file": "dataset/icons/fontawesome/solid/burn/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bus-alt",
+  "file": "dataset/icons/fontawesome/solid/bus-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bus",
+  "file": "dataset/icons/fontawesome/solid/bus/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-business-time",
+  "file": "dataset/icons/fontawesome/solid/business-time/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calculator",
+  "file": "dataset/icons/fontawesome/solid/calculator/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-alt",
+  "file": "dataset/icons/fontawesome/solid/calendar-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-check",
+  "file": "dataset/icons/fontawesome/solid/calendar-check/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-day",
+  "file": "dataset/icons/fontawesome/solid/calendar-day/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-minus",
+  "file": "dataset/icons/fontawesome/solid/calendar-minus/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-plus",
+  "file": "dataset/icons/fontawesome/solid/calendar-plus/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-times",
+  "file": "dataset/icons/fontawesome/solid/calendar-times/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar-week",
+  "file": "dataset/icons/fontawesome/solid/calendar-week/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-calendar",
+  "file": "dataset/icons/fontawesome/solid/calendar/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-camera-retro",
+  "file": "dataset/icons/fontawesome/solid/camera-retro/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-camera",
+  "file": "dataset/icons/fontawesome/solid/camera/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-campground",
+  "file": "dataset/icons/fontawesome/solid/campground/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-candy-cane",
+  "file": "dataset/icons/fontawesome/solid/candy-cane/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cannabis",
+  "file": "dataset/icons/fontawesome/solid/cannabis/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-capsules",
+  "file": "dataset/icons/fontawesome/solid/capsules/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-car-alt",
+  "file": "dataset/icons/fontawesome/solid/car-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-car-battery",
+  "file": "dataset/icons/fontawesome/solid/car-battery/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-car-crash",
+  "file": "dataset/icons/fontawesome/solid/car-crash/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-car-side",
+  "file": "dataset/icons/fontawesome/solid/car-side/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-car",
+  "file": "dataset/icons/fontawesome/solid/car/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caravan",
+  "file": "dataset/icons/fontawesome/solid/caravan/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-down",
+  "file": "dataset/icons/fontawesome/solid/caret-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-left",
+  "file": "dataset/icons/fontawesome/solid/caret-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-right",
+  "file": "dataset/icons/fontawesome/solid/caret-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-square-down",
+  "file": "dataset/icons/fontawesome/solid/caret-square-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-square-left",
+  "file": "dataset/icons/fontawesome/solid/caret-square-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-square-right",
+  "file": "dataset/icons/fontawesome/solid/caret-square-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-square-up",
+  "file": "dataset/icons/fontawesome/solid/caret-square-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-caret-up",
+  "file": "dataset/icons/fontawesome/solid/caret-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-carrot",
+  "file": "dataset/icons/fontawesome/solid/carrot/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cart-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/cart-arrow-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cart-plus",
+  "file": "dataset/icons/fontawesome/solid/cart-plus/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cash-register",
+  "file": "dataset/icons/fontawesome/solid/cash-register/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cat",
+  "file": "dataset/icons/fontawesome/solid/cat/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-certificate",
+  "file": "dataset/icons/fontawesome/solid/certificate/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chair",
+  "file": "dataset/icons/fontawesome/solid/chair/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chalkboard-teacher",
+  "file": "dataset/icons/fontawesome/solid/chalkboard-teacher/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chalkboard",
+  "file": "dataset/icons/fontawesome/solid/chalkboard/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-charging-station",
+  "file": "dataset/icons/fontawesome/solid/charging-station/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chart-area",
+  "file": "dataset/icons/fontawesome/solid/chart-area/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chart-bar",
+  "file": "dataset/icons/fontawesome/solid/chart-bar/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chart-line",
+  "file": "dataset/icons/fontawesome/solid/chart-line/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chart-pie",
+  "file": "dataset/icons/fontawesome/solid/chart-pie/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-check-circle",
+  "file": "dataset/icons/fontawesome/solid/check-circle/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-check-double",
+  "file": "dataset/icons/fontawesome/solid/check-double/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-check-square",
+  "file": "dataset/icons/fontawesome/solid/check-square/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-check",
+  "file": "dataset/icons/fontawesome/solid/check/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cheese",
+  "file": "dataset/icons/fontawesome/solid/cheese/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-bishop",
+  "file": "dataset/icons/fontawesome/solid/chess-bishop/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-board",
+  "file": "dataset/icons/fontawesome/solid/chess-board/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-king",
+  "file": "dataset/icons/fontawesome/solid/chess-king/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-knight",
+  "file": "dataset/icons/fontawesome/solid/chess-knight/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-pawn",
+  "file": "dataset/icons/fontawesome/solid/chess-pawn/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-queen",
+  "file": "dataset/icons/fontawesome/solid/chess-queen/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess-rook",
+  "file": "dataset/icons/fontawesome/solid/chess-rook/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chess",
+  "file": "dataset/icons/fontawesome/solid/chess/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-down/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-left/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-right/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-chevron-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-up/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-child",
+  "file": "dataset/icons/fontawesome/solid/child/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-church",
+  "file": "dataset/icons/fontawesome/solid/church/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-circle-notch",
+  "file": "dataset/icons/fontawesome/solid/circle-notch/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-circle",
+  "file": "dataset/icons/fontawesome/solid/circle/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-city",
+  "file": "dataset/icons/fontawesome/solid/city/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-clinic-medical",
+  "file": "dataset/icons/fontawesome/solid/clinic-medical/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-clipboard-check",
+  "file": "dataset/icons/fontawesome/solid/clipboard-check/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-clipboard-list",
+  "file": "dataset/icons/fontawesome/solid/clipboard-list/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-clipboard",
+  "file": "dataset/icons/fontawesome/solid/clipboard/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-clock",
+  "file": "dataset/icons/fontawesome/solid/clock/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-clone",
+  "file": "dataset/icons/fontawesome/solid/clone/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-closed-captioning",
+  "file": "dataset/icons/fontawesome/solid/closed-captioning/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-download-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-download-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-meatball",
+  "file": "dataset/icons/fontawesome/solid/cloud-meatball/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-moon-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon-rain/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-bowling-ball",
+  "file": "dataset/icons/fontawesome/solid/bowling-ball/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-box-open",
+  "file": "dataset/icons/fontawesome/solid/box-open/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-box-tissue",
+  "file": "dataset/icons/fontawesome/solid/box-tissue/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-box",
+  "file": "dataset/icons/fontawesome/solid/box/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-boxes",
+  "file": "dataset/icons/fontawesome/solid/boxes/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-braille",
+  "file": "dataset/icons/fontawesome/solid/braille/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-brain",
+  "file": "dataset/icons/fontawesome/solid/brain/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bread-slice",
+  "file": "dataset/icons/fontawesome/solid/bread-slice/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-briefcase-medical",
+  "file": "dataset/icons/fontawesome/solid/briefcase-medical/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-briefcase",
+  "file": "dataset/icons/fontawesome/solid/briefcase/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-broadcast-tower",
+  "file": "dataset/icons/fontawesome/solid/broadcast-tower/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-broom",
+  "file": "dataset/icons/fontawesome/solid/broom/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-brush",
+  "file": "dataset/icons/fontawesome/solid/brush/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bug",
+  "file": "dataset/icons/fontawesome/solid/bug/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-building",
+  "file": "dataset/icons/fontawesome/solid/building/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bullhorn",
+  "file": "dataset/icons/fontawesome/solid/bullhorn/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bullseye",
+  "file": "dataset/icons/fontawesome/solid/bullseye/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-burn",
+  "file": "dataset/icons/fontawesome/solid/burn/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bus-alt",
+  "file": "dataset/icons/fontawesome/solid/bus-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bus",
+  "file": "dataset/icons/fontawesome/solid/bus/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-business-time",
+  "file": "dataset/icons/fontawesome/solid/business-time/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calculator",
+  "file": "dataset/icons/fontawesome/solid/calculator/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-alt",
+  "file": "dataset/icons/fontawesome/solid/calendar-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-check",
+  "file": "dataset/icons/fontawesome/solid/calendar-check/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-day",
+  "file": "dataset/icons/fontawesome/solid/calendar-day/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-minus",
+  "file": "dataset/icons/fontawesome/solid/calendar-minus/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-plus",
+  "file": "dataset/icons/fontawesome/solid/calendar-plus/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-times",
+  "file": "dataset/icons/fontawesome/solid/calendar-times/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar-week",
+  "file": "dataset/icons/fontawesome/solid/calendar-week/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-calendar",
+  "file": "dataset/icons/fontawesome/solid/calendar/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-camera-retro",
+  "file": "dataset/icons/fontawesome/solid/camera-retro/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-camera",
+  "file": "dataset/icons/fontawesome/solid/camera/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-campground",
+  "file": "dataset/icons/fontawesome/solid/campground/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-candy-cane",
+  "file": "dataset/icons/fontawesome/solid/candy-cane/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cannabis",
+  "file": "dataset/icons/fontawesome/solid/cannabis/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-capsules",
+  "file": "dataset/icons/fontawesome/solid/capsules/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-car-alt",
+  "file": "dataset/icons/fontawesome/solid/car-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-car-battery",
+  "file": "dataset/icons/fontawesome/solid/car-battery/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-car-crash",
+  "file": "dataset/icons/fontawesome/solid/car-crash/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-car-side",
+  "file": "dataset/icons/fontawesome/solid/car-side/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-car",
+  "file": "dataset/icons/fontawesome/solid/car/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caravan",
+  "file": "dataset/icons/fontawesome/solid/caravan/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-down",
+  "file": "dataset/icons/fontawesome/solid/caret-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-left",
+  "file": "dataset/icons/fontawesome/solid/caret-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-right",
+  "file": "dataset/icons/fontawesome/solid/caret-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-square-down",
+  "file": "dataset/icons/fontawesome/solid/caret-square-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-square-left",
+  "file": "dataset/icons/fontawesome/solid/caret-square-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-square-right",
+  "file": "dataset/icons/fontawesome/solid/caret-square-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-square-up",
+  "file": "dataset/icons/fontawesome/solid/caret-square-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-caret-up",
+  "file": "dataset/icons/fontawesome/solid/caret-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-carrot",
+  "file": "dataset/icons/fontawesome/solid/carrot/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cart-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/cart-arrow-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cart-plus",
+  "file": "dataset/icons/fontawesome/solid/cart-plus/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cash-register",
+  "file": "dataset/icons/fontawesome/solid/cash-register/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cat",
+  "file": "dataset/icons/fontawesome/solid/cat/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-certificate",
+  "file": "dataset/icons/fontawesome/solid/certificate/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chair",
+  "file": "dataset/icons/fontawesome/solid/chair/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chalkboard-teacher",
+  "file": "dataset/icons/fontawesome/solid/chalkboard-teacher/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chalkboard",
+  "file": "dataset/icons/fontawesome/solid/chalkboard/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-charging-station",
+  "file": "dataset/icons/fontawesome/solid/charging-station/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chart-area",
+  "file": "dataset/icons/fontawesome/solid/chart-area/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chart-bar",
+  "file": "dataset/icons/fontawesome/solid/chart-bar/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chart-line",
+  "file": "dataset/icons/fontawesome/solid/chart-line/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chart-pie",
+  "file": "dataset/icons/fontawesome/solid/chart-pie/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-check-circle",
+  "file": "dataset/icons/fontawesome/solid/check-circle/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-check-double",
+  "file": "dataset/icons/fontawesome/solid/check-double/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-check-square",
+  "file": "dataset/icons/fontawesome/solid/check-square/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-check",
+  "file": "dataset/icons/fontawesome/solid/check/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cheese",
+  "file": "dataset/icons/fontawesome/solid/cheese/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-bishop",
+  "file": "dataset/icons/fontawesome/solid/chess-bishop/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-board",
+  "file": "dataset/icons/fontawesome/solid/chess-board/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-king",
+  "file": "dataset/icons/fontawesome/solid/chess-king/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-knight",
+  "file": "dataset/icons/fontawesome/solid/chess-knight/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-pawn",
+  "file": "dataset/icons/fontawesome/solid/chess-pawn/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-queen",
+  "file": "dataset/icons/fontawesome/solid/chess-queen/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess-rook",
+  "file": "dataset/icons/fontawesome/solid/chess-rook/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chess",
+  "file": "dataset/icons/fontawesome/solid/chess/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-circle-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-circle-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-circle-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-circle-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-down/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-left/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-right/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-chevron-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-up/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-child",
+  "file": "dataset/icons/fontawesome/solid/child/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-church",
+  "file": "dataset/icons/fontawesome/solid/church/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-circle-notch",
+  "file": "dataset/icons/fontawesome/solid/circle-notch/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-circle",
+  "file": "dataset/icons/fontawesome/solid/circle/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-city",
+  "file": "dataset/icons/fontawesome/solid/city/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-clinic-medical",
+  "file": "dataset/icons/fontawesome/solid/clinic-medical/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-clipboard-check",
+  "file": "dataset/icons/fontawesome/solid/clipboard-check/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-clipboard-list",
+  "file": "dataset/icons/fontawesome/solid/clipboard-list/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-clipboard",
+  "file": "dataset/icons/fontawesome/solid/clipboard/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-clock",
+  "file": "dataset/icons/fontawesome/solid/clock/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-clone",
+  "file": "dataset/icons/fontawesome/solid/clone/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-closed-captioning",
+  "file": "dataset/icons/fontawesome/solid/closed-captioning/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-download-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-download-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-meatball",
+  "file": "dataset/icons/fontawesome/solid/cloud-meatball/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-moon-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon-rain/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-bowling-ball",
+  "file": "dataset/icons/fontawesome/solid/bowling-ball/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-box-open",
+  "file": "dataset/icons/fontawesome/solid/box-open/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-box-tissue",
+  "file": "dataset/icons/fontawesome/solid/box-tissue/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-box",
+  "file": "dataset/icons/fontawesome/solid/box/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-boxes",
+  "file": "dataset/icons/fontawesome/solid/boxes/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-braille",
+  "file": "dataset/icons/fontawesome/solid/braille/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-brain",
+  "file": "dataset/icons/fontawesome/solid/brain/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bread-slice",
+  "file": "dataset/icons/fontawesome/solid/bread-slice/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-briefcase-medical",
+  "file": "dataset/icons/fontawesome/solid/briefcase-medical/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-briefcase",
+  "file": "dataset/icons/fontawesome/solid/briefcase/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-broadcast-tower",
+  "file": "dataset/icons/fontawesome/solid/broadcast-tower/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-broom",
+  "file": "dataset/icons/fontawesome/solid/broom/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-brush",
+  "file": "dataset/icons/fontawesome/solid/brush/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bug",
+  "file": "dataset/icons/fontawesome/solid/bug/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-building",
+  "file": "dataset/icons/fontawesome/solid/building/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bullhorn",
+  "file": "dataset/icons/fontawesome/solid/bullhorn/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bullseye",
+  "file": "dataset/icons/fontawesome/solid/bullseye/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-burn",
+  "file": "dataset/icons/fontawesome/solid/burn/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bus-alt",
+  "file": "dataset/icons/fontawesome/solid/bus-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-bus",
+  "file": "dataset/icons/fontawesome/solid/bus/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-business-time",
+  "file": "dataset/icons/fontawesome/solid/business-time/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calculator",
+  "file": "dataset/icons/fontawesome/solid/calculator/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-alt",
+  "file": "dataset/icons/fontawesome/solid/calendar-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-check",
+  "file": "dataset/icons/fontawesome/solid/calendar-check/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-day",
+  "file": "dataset/icons/fontawesome/solid/calendar-day/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-minus",
+  "file": "dataset/icons/fontawesome/solid/calendar-minus/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-plus",
+  "file": "dataset/icons/fontawesome/solid/calendar-plus/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-times",
+  "file": "dataset/icons/fontawesome/solid/calendar-times/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar-week",
+  "file": "dataset/icons/fontawesome/solid/calendar-week/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-calendar",
+  "file": "dataset/icons/fontawesome/solid/calendar/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-camera-retro",
+  "file": "dataset/icons/fontawesome/solid/camera-retro/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-camera",
+  "file": "dataset/icons/fontawesome/solid/camera/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-campground",
+  "file": "dataset/icons/fontawesome/solid/campground/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-candy-cane",
+  "file": "dataset/icons/fontawesome/solid/candy-cane/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cannabis",
+  "file": "dataset/icons/fontawesome/solid/cannabis/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-capsules",
+  "file": "dataset/icons/fontawesome/solid/capsules/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-car-alt",
+  "file": "dataset/icons/fontawesome/solid/car-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-car-battery",
+  "file": "dataset/icons/fontawesome/solid/car-battery/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-car-crash",
+  "file": "dataset/icons/fontawesome/solid/car-crash/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-car-side",
+  "file": "dataset/icons/fontawesome/solid/car-side/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-car",
+  "file": "dataset/icons/fontawesome/solid/car/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caravan",
+  "file": "dataset/icons/fontawesome/solid/caravan/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-down",
+  "file": "dataset/icons/fontawesome/solid/caret-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-left",
+  "file": "dataset/icons/fontawesome/solid/caret-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-right",
+  "file": "dataset/icons/fontawesome/solid/caret-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-square-down",
+  "file": "dataset/icons/fontawesome/solid/caret-square-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-square-left",
+  "file": "dataset/icons/fontawesome/solid/caret-square-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-square-right",
+  "file": "dataset/icons/fontawesome/solid/caret-square-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-square-up",
+  "file": "dataset/icons/fontawesome/solid/caret-square-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-caret-up",
+  "file": "dataset/icons/fontawesome/solid/caret-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-carrot",
+  "file": "dataset/icons/fontawesome/solid/carrot/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cart-arrow-down",
+  "file": "dataset/icons/fontawesome/solid/cart-arrow-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cart-plus",
+  "file": "dataset/icons/fontawesome/solid/cart-plus/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cash-register",
+  "file": "dataset/icons/fontawesome/solid/cash-register/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cat",
+  "file": "dataset/icons/fontawesome/solid/cat/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-certificate",
+  "file": "dataset/icons/fontawesome/solid/certificate/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chair",
+  "file": "dataset/icons/fontawesome/solid/chair/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chalkboard-teacher",
+  "file": "dataset/icons/fontawesome/solid/chalkboard-teacher/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chalkboard",
+  "file": "dataset/icons/fontawesome/solid/chalkboard/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-charging-station",
+  "file": "dataset/icons/fontawesome/solid/charging-station/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chart-area",
+  "file": "dataset/icons/fontawesome/solid/chart-area/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chart-bar",
+  "file": "dataset/icons/fontawesome/solid/chart-bar/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chart-line",
+  "file": "dataset/icons/fontawesome/solid/chart-line/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chart-pie",
+  "file": "dataset/icons/fontawesome/solid/chart-pie/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-check-circle",
+  "file": "dataset/icons/fontawesome/solid/check-circle/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-check-double",
+  "file": "dataset/icons/fontawesome/solid/check-double/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-check-square",
+  "file": "dataset/icons/fontawesome/solid/check-square/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-check",
+  "file": "dataset/icons/fontawesome/solid/check/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cheese",
+  "file": "dataset/icons/fontawesome/solid/cheese/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-bishop",
+  "file": "dataset/icons/fontawesome/solid/chess-bishop/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-board",
+  "file": "dataset/icons/fontawesome/solid/chess-board/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-king",
+  "file": "dataset/icons/fontawesome/solid/chess-king/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-knight",
+  "file": "dataset/icons/fontawesome/solid/chess-knight/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-pawn",
+  "file": "dataset/icons/fontawesome/solid/chess-pawn/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-queen",
+  "file": "dataset/icons/fontawesome/solid/chess-queen/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess-rook",
+  "file": "dataset/icons/fontawesome/solid/chess-rook/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chess",
+  "file": "dataset/icons/fontawesome/solid/chess/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-circle-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-circle-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-down",
+  "file": "dataset/icons/fontawesome/solid/chevron-down/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-left",
+  "file": "dataset/icons/fontawesome/solid/chevron-left/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-right",
+  "file": "dataset/icons/fontawesome/solid/chevron-right/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-chevron-up",
+  "file": "dataset/icons/fontawesome/solid/chevron-up/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-child",
+  "file": "dataset/icons/fontawesome/solid/child/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-church",
+  "file": "dataset/icons/fontawesome/solid/church/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-circle-notch",
+  "file": "dataset/icons/fontawesome/solid/circle-notch/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-circle",
+  "file": "dataset/icons/fontawesome/solid/circle/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-city",
+  "file": "dataset/icons/fontawesome/solid/city/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-clinic-medical",
+  "file": "dataset/icons/fontawesome/solid/clinic-medical/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-clipboard-check",
+  "file": "dataset/icons/fontawesome/solid/clipboard-check/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-clipboard-list",
+  "file": "dataset/icons/fontawesome/solid/clipboard-list/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-clipboard",
+  "file": "dataset/icons/fontawesome/solid/clipboard/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-clock",
+  "file": "dataset/icons/fontawesome/solid/clock/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-clone",
+  "file": "dataset/icons/fontawesome/solid/clone/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-closed-captioning",
+  "file": "dataset/icons/fontawesome/solid/closed-captioning/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-download-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-download-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-meatball",
+  "file": "dataset/icons/fontawesome/solid/cloud-meatball/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-moon-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon-rain/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-moon",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-rain/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-showers-heavy",
+  "file": "dataset/icons/fontawesome/solid/cloud-showers-heavy/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-sun-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun-rain/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-sun",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-upload-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-upload-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud",
+  "file": "dataset/icons/fontawesome/solid/cloud/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cocktail",
+  "file": "dataset/icons/fontawesome/solid/cocktail/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-code-branch",
+  "file": "dataset/icons/fontawesome/solid/code-branch/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-code",
+  "file": "dataset/icons/fontawesome/solid/code/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-coffee",
+  "file": "dataset/icons/fontawesome/solid/coffee/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cog",
+  "file": "dataset/icons/fontawesome/solid/cog/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cogs",
+  "file": "dataset/icons/fontawesome/solid/cogs/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-coins",
+  "file": "dataset/icons/fontawesome/solid/coins/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-columns",
+  "file": "dataset/icons/fontawesome/solid/columns/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comment-alt",
+  "file": "dataset/icons/fontawesome/solid/comment-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comment-dollar",
+  "file": "dataset/icons/fontawesome/solid/comment-dollar/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comment-dots",
+  "file": "dataset/icons/fontawesome/solid/comment-dots/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comment-medical",
+  "file": "dataset/icons/fontawesome/solid/comment-medical/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comment-slash",
+  "file": "dataset/icons/fontawesome/solid/comment-slash/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comment",
+  "file": "dataset/icons/fontawesome/solid/comment/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comments-dollar",
+  "file": "dataset/icons/fontawesome/solid/comments-dollar/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-comments",
+  "file": "dataset/icons/fontawesome/solid/comments/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-compact-disc",
+  "file": "dataset/icons/fontawesome/solid/compact-disc/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-compass",
+  "file": "dataset/icons/fontawesome/solid/compass/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-compress-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-compress-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-arrows-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-compress",
+  "file": "dataset/icons/fontawesome/solid/compress/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-concierge-bell",
+  "file": "dataset/icons/fontawesome/solid/concierge-bell/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cookie-bite",
+  "file": "dataset/icons/fontawesome/solid/cookie-bite/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cookie",
+  "file": "dataset/icons/fontawesome/solid/cookie/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-copy",
+  "file": "dataset/icons/fontawesome/solid/copy/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-copyright",
+  "file": "dataset/icons/fontawesome/solid/copyright/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-couch",
+  "file": "dataset/icons/fontawesome/solid/couch/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-credit-card",
+  "file": "dataset/icons/fontawesome/solid/credit-card/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-crop-alt",
+  "file": "dataset/icons/fontawesome/solid/crop-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-crop",
+  "file": "dataset/icons/fontawesome/solid/crop/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cross",
+  "file": "dataset/icons/fontawesome/solid/cross/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-crosshairs",
+  "file": "dataset/icons/fontawesome/solid/crosshairs/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-crow",
+  "file": "dataset/icons/fontawesome/solid/crow/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-crown",
+  "file": "dataset/icons/fontawesome/solid/crown/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-crutch",
+  "file": "dataset/icons/fontawesome/solid/crutch/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cube",
+  "file": "dataset/icons/fontawesome/solid/cube/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cubes",
+  "file": "dataset/icons/fontawesome/solid/cubes/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cut",
+  "file": "dataset/icons/fontawesome/solid/cut/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-database",
+  "file": "dataset/icons/fontawesome/solid/database/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-deaf",
+  "file": "dataset/icons/fontawesome/solid/deaf/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-democrat",
+  "file": "dataset/icons/fontawesome/solid/democrat/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-desktop",
+  "file": "dataset/icons/fontawesome/solid/desktop/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dharmachakra",
+  "file": "dataset/icons/fontawesome/solid/dharmachakra/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-diagnoses",
+  "file": "dataset/icons/fontawesome/solid/diagnoses/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-d20",
+  "file": "dataset/icons/fontawesome/solid/dice-d20/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-d6",
+  "file": "dataset/icons/fontawesome/solid/dice-d6/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-five",
+  "file": "dataset/icons/fontawesome/solid/dice-five/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-four",
+  "file": "dataset/icons/fontawesome/solid/dice-four/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-one",
+  "file": "dataset/icons/fontawesome/solid/dice-one/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-six",
+  "file": "dataset/icons/fontawesome/solid/dice-six/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-three",
+  "file": "dataset/icons/fontawesome/solid/dice-three/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice-two",
+  "file": "dataset/icons/fontawesome/solid/dice-two/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dice",
+  "file": "dataset/icons/fontawesome/solid/dice/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-digital-tachograph",
+  "file": "dataset/icons/fontawesome/solid/digital-tachograph/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-directions",
+  "file": "dataset/icons/fontawesome/solid/directions/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-disease",
+  "file": "dataset/icons/fontawesome/solid/disease/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-divide",
+  "file": "dataset/icons/fontawesome/solid/divide/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dizzy",
+  "file": "dataset/icons/fontawesome/solid/dizzy/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dna",
+  "file": "dataset/icons/fontawesome/solid/dna/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dog",
+  "file": "dataset/icons/fontawesome/solid/dog/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dollar-sign",
+  "file": "dataset/icons/fontawesome/solid/dollar-sign/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dolly-flatbed",
+  "file": "dataset/icons/fontawesome/solid/dolly-flatbed/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dolly",
+  "file": "dataset/icons/fontawesome/solid/dolly/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-donate",
+  "file": "dataset/icons/fontawesome/solid/donate/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-door-closed",
+  "file": "dataset/icons/fontawesome/solid/door-closed/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-door-open",
+  "file": "dataset/icons/fontawesome/solid/door-open/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dot-circle",
+  "file": "dataset/icons/fontawesome/solid/dot-circle/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dove",
+  "file": "dataset/icons/fontawesome/solid/dove/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-download",
+  "file": "dataset/icons/fontawesome/solid/download/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-drafting-compass",
+  "file": "dataset/icons/fontawesome/solid/drafting-compass/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dragon",
+  "file": "dataset/icons/fontawesome/solid/dragon/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-draw-polygon",
+  "file": "dataset/icons/fontawesome/solid/draw-polygon/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-drum-steelpan",
+  "file": "dataset/icons/fontawesome/solid/drum-steelpan/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-drum",
+  "file": "dataset/icons/fontawesome/solid/drum/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-drumstick-bite",
+  "file": "dataset/icons/fontawesome/solid/drumstick-bite/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dumbbell",
+  "file": "dataset/icons/fontawesome/solid/dumbbell/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dumpster-fire",
+  "file": "dataset/icons/fontawesome/solid/dumpster-fire/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dumpster",
+  "file": "dataset/icons/fontawesome/solid/dumpster/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-dungeon",
+  "file": "dataset/icons/fontawesome/solid/dungeon/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-edit",
+  "file": "dataset/icons/fontawesome/solid/edit/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-egg",
+  "file": "dataset/icons/fontawesome/solid/egg/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-eject",
+  "file": "dataset/icons/fontawesome/solid/eject/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ellipsis-h",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-h/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ellipsis-v",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-v/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-envelope-open-text",
+  "file": "dataset/icons/fontawesome/solid/envelope-open-text/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-envelope-open",
+  "file": "dataset/icons/fontawesome/solid/envelope-open/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-envelope-square",
+  "file": "dataset/icons/fontawesome/solid/envelope-square/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-envelope",
+  "file": "dataset/icons/fontawesome/solid/envelope/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-equals",
+  "file": "dataset/icons/fontawesome/solid/equals/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-eraser",
+  "file": "dataset/icons/fontawesome/solid/eraser/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-ethernet",
+  "file": "dataset/icons/fontawesome/solid/ethernet/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-euro-sign",
+  "file": "dataset/icons/fontawesome/solid/euro-sign/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-exchange-alt",
+  "file": "dataset/icons/fontawesome/solid/exchange-alt/input-w64.png",
+  "condition": "size=64,bg=w64"
+ },
+ {
+  "id": "fa-solid-cloud-moon",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-rain/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-showers-heavy",
+  "file": "dataset/icons/fontawesome/solid/cloud-showers-heavy/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-sun-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun-rain/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-sun",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-upload-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-upload-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud",
+  "file": "dataset/icons/fontawesome/solid/cloud/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cocktail",
+  "file": "dataset/icons/fontawesome/solid/cocktail/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-code-branch",
+  "file": "dataset/icons/fontawesome/solid/code-branch/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-code",
+  "file": "dataset/icons/fontawesome/solid/code/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-coffee",
+  "file": "dataset/icons/fontawesome/solid/coffee/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cog",
+  "file": "dataset/icons/fontawesome/solid/cog/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cogs",
+  "file": "dataset/icons/fontawesome/solid/cogs/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-coins",
+  "file": "dataset/icons/fontawesome/solid/coins/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-columns",
+  "file": "dataset/icons/fontawesome/solid/columns/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comment-alt",
+  "file": "dataset/icons/fontawesome/solid/comment-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comment-dollar",
+  "file": "dataset/icons/fontawesome/solid/comment-dollar/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comment-dots",
+  "file": "dataset/icons/fontawesome/solid/comment-dots/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comment-medical",
+  "file": "dataset/icons/fontawesome/solid/comment-medical/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comment-slash",
+  "file": "dataset/icons/fontawesome/solid/comment-slash/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comment",
+  "file": "dataset/icons/fontawesome/solid/comment/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comments-dollar",
+  "file": "dataset/icons/fontawesome/solid/comments-dollar/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-comments",
+  "file": "dataset/icons/fontawesome/solid/comments/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-compact-disc",
+  "file": "dataset/icons/fontawesome/solid/compact-disc/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-compass",
+  "file": "dataset/icons/fontawesome/solid/compass/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-compress-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-compress-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-arrows-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-compress",
+  "file": "dataset/icons/fontawesome/solid/compress/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-concierge-bell",
+  "file": "dataset/icons/fontawesome/solid/concierge-bell/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cookie-bite",
+  "file": "dataset/icons/fontawesome/solid/cookie-bite/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cookie",
+  "file": "dataset/icons/fontawesome/solid/cookie/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-copy",
+  "file": "dataset/icons/fontawesome/solid/copy/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-copyright",
+  "file": "dataset/icons/fontawesome/solid/copyright/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-couch",
+  "file": "dataset/icons/fontawesome/solid/couch/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-credit-card",
+  "file": "dataset/icons/fontawesome/solid/credit-card/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-crop-alt",
+  "file": "dataset/icons/fontawesome/solid/crop-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-crop",
+  "file": "dataset/icons/fontawesome/solid/crop/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cross",
+  "file": "dataset/icons/fontawesome/solid/cross/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-crosshairs",
+  "file": "dataset/icons/fontawesome/solid/crosshairs/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-crow",
+  "file": "dataset/icons/fontawesome/solid/crow/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-crown",
+  "file": "dataset/icons/fontawesome/solid/crown/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-crutch",
+  "file": "dataset/icons/fontawesome/solid/crutch/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cube",
+  "file": "dataset/icons/fontawesome/solid/cube/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cubes",
+  "file": "dataset/icons/fontawesome/solid/cubes/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cut",
+  "file": "dataset/icons/fontawesome/solid/cut/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-database",
+  "file": "dataset/icons/fontawesome/solid/database/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-deaf",
+  "file": "dataset/icons/fontawesome/solid/deaf/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-democrat",
+  "file": "dataset/icons/fontawesome/solid/democrat/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-desktop",
+  "file": "dataset/icons/fontawesome/solid/desktop/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dharmachakra",
+  "file": "dataset/icons/fontawesome/solid/dharmachakra/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-diagnoses",
+  "file": "dataset/icons/fontawesome/solid/diagnoses/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-d20",
+  "file": "dataset/icons/fontawesome/solid/dice-d20/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-d6",
+  "file": "dataset/icons/fontawesome/solid/dice-d6/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-five",
+  "file": "dataset/icons/fontawesome/solid/dice-five/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-four",
+  "file": "dataset/icons/fontawesome/solid/dice-four/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-one",
+  "file": "dataset/icons/fontawesome/solid/dice-one/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-six",
+  "file": "dataset/icons/fontawesome/solid/dice-six/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-three",
+  "file": "dataset/icons/fontawesome/solid/dice-three/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice-two",
+  "file": "dataset/icons/fontawesome/solid/dice-two/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dice",
+  "file": "dataset/icons/fontawesome/solid/dice/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-digital-tachograph",
+  "file": "dataset/icons/fontawesome/solid/digital-tachograph/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-directions",
+  "file": "dataset/icons/fontawesome/solid/directions/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-disease",
+  "file": "dataset/icons/fontawesome/solid/disease/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-divide",
+  "file": "dataset/icons/fontawesome/solid/divide/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dizzy",
+  "file": "dataset/icons/fontawesome/solid/dizzy/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dna",
+  "file": "dataset/icons/fontawesome/solid/dna/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dog",
+  "file": "dataset/icons/fontawesome/solid/dog/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dollar-sign",
+  "file": "dataset/icons/fontawesome/solid/dollar-sign/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dolly-flatbed",
+  "file": "dataset/icons/fontawesome/solid/dolly-flatbed/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dolly",
+  "file": "dataset/icons/fontawesome/solid/dolly/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-donate",
+  "file": "dataset/icons/fontawesome/solid/donate/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-door-closed",
+  "file": "dataset/icons/fontawesome/solid/door-closed/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-door-open",
+  "file": "dataset/icons/fontawesome/solid/door-open/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dot-circle",
+  "file": "dataset/icons/fontawesome/solid/dot-circle/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dove",
+  "file": "dataset/icons/fontawesome/solid/dove/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-download",
+  "file": "dataset/icons/fontawesome/solid/download/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-drafting-compass",
+  "file": "dataset/icons/fontawesome/solid/drafting-compass/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dragon",
+  "file": "dataset/icons/fontawesome/solid/dragon/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-draw-polygon",
+  "file": "dataset/icons/fontawesome/solid/draw-polygon/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-drum-steelpan",
+  "file": "dataset/icons/fontawesome/solid/drum-steelpan/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-drum",
+  "file": "dataset/icons/fontawesome/solid/drum/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-drumstick-bite",
+  "file": "dataset/icons/fontawesome/solid/drumstick-bite/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dumbbell",
+  "file": "dataset/icons/fontawesome/solid/dumbbell/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dumpster-fire",
+  "file": "dataset/icons/fontawesome/solid/dumpster-fire/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dumpster",
+  "file": "dataset/icons/fontawesome/solid/dumpster/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-dungeon",
+  "file": "dataset/icons/fontawesome/solid/dungeon/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-edit",
+  "file": "dataset/icons/fontawesome/solid/edit/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-egg",
+  "file": "dataset/icons/fontawesome/solid/egg/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-eject",
+  "file": "dataset/icons/fontawesome/solid/eject/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ellipsis-h",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-h/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ellipsis-v",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-v/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-envelope-open-text",
+  "file": "dataset/icons/fontawesome/solid/envelope-open-text/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-envelope-open",
+  "file": "dataset/icons/fontawesome/solid/envelope-open/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-envelope-square",
+  "file": "dataset/icons/fontawesome/solid/envelope-square/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-envelope",
+  "file": "dataset/icons/fontawesome/solid/envelope/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-equals",
+  "file": "dataset/icons/fontawesome/solid/equals/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-eraser",
+  "file": "dataset/icons/fontawesome/solid/eraser/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-ethernet",
+  "file": "dataset/icons/fontawesome/solid/ethernet/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-euro-sign",
+  "file": "dataset/icons/fontawesome/solid/euro-sign/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-exchange-alt",
+  "file": "dataset/icons/fontawesome/solid/exchange-alt/input-w128.png",
+  "condition": "size=128,bg=w128"
+ },
+ {
+  "id": "fa-solid-cloud-moon",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-rain/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-showers-heavy",
+  "file": "dataset/icons/fontawesome/solid/cloud-showers-heavy/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-sun-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun-rain/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-sun",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-upload-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-upload-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud",
+  "file": "dataset/icons/fontawesome/solid/cloud/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cocktail",
+  "file": "dataset/icons/fontawesome/solid/cocktail/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-code-branch",
+  "file": "dataset/icons/fontawesome/solid/code-branch/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-code",
+  "file": "dataset/icons/fontawesome/solid/code/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-coffee",
+  "file": "dataset/icons/fontawesome/solid/coffee/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cog",
+  "file": "dataset/icons/fontawesome/solid/cog/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cogs",
+  "file": "dataset/icons/fontawesome/solid/cogs/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-coins",
+  "file": "dataset/icons/fontawesome/solid/coins/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-columns",
+  "file": "dataset/icons/fontawesome/solid/columns/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comment-alt",
+  "file": "dataset/icons/fontawesome/solid/comment-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comment-dollar",
+  "file": "dataset/icons/fontawesome/solid/comment-dollar/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comment-dots",
+  "file": "dataset/icons/fontawesome/solid/comment-dots/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comment-medical",
+  "file": "dataset/icons/fontawesome/solid/comment-medical/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comment-slash",
+  "file": "dataset/icons/fontawesome/solid/comment-slash/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comment",
+  "file": "dataset/icons/fontawesome/solid/comment/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comments-dollar",
+  "file": "dataset/icons/fontawesome/solid/comments-dollar/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-comments",
+  "file": "dataset/icons/fontawesome/solid/comments/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-compact-disc",
+  "file": "dataset/icons/fontawesome/solid/compact-disc/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-compass",
+  "file": "dataset/icons/fontawesome/solid/compass/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-compress-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-compress-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-arrows-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-compress",
+  "file": "dataset/icons/fontawesome/solid/compress/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-concierge-bell",
+  "file": "dataset/icons/fontawesome/solid/concierge-bell/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cookie-bite",
+  "file": "dataset/icons/fontawesome/solid/cookie-bite/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cookie",
+  "file": "dataset/icons/fontawesome/solid/cookie/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-copy",
+  "file": "dataset/icons/fontawesome/solid/copy/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-copyright",
+  "file": "dataset/icons/fontawesome/solid/copyright/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-couch",
+  "file": "dataset/icons/fontawesome/solid/couch/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-credit-card",
+  "file": "dataset/icons/fontawesome/solid/credit-card/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-crop-alt",
+  "file": "dataset/icons/fontawesome/solid/crop-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-crop",
+  "file": "dataset/icons/fontawesome/solid/crop/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cross",
+  "file": "dataset/icons/fontawesome/solid/cross/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-crosshairs",
+  "file": "dataset/icons/fontawesome/solid/crosshairs/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-crow",
+  "file": "dataset/icons/fontawesome/solid/crow/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-crown",
+  "file": "dataset/icons/fontawesome/solid/crown/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-crutch",
+  "file": "dataset/icons/fontawesome/solid/crutch/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cube",
+  "file": "dataset/icons/fontawesome/solid/cube/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cubes",
+  "file": "dataset/icons/fontawesome/solid/cubes/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cut",
+  "file": "dataset/icons/fontawesome/solid/cut/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-database",
+  "file": "dataset/icons/fontawesome/solid/database/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-deaf",
+  "file": "dataset/icons/fontawesome/solid/deaf/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-democrat",
+  "file": "dataset/icons/fontawesome/solid/democrat/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-desktop",
+  "file": "dataset/icons/fontawesome/solid/desktop/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dharmachakra",
+  "file": "dataset/icons/fontawesome/solid/dharmachakra/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-diagnoses",
+  "file": "dataset/icons/fontawesome/solid/diagnoses/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-d20",
+  "file": "dataset/icons/fontawesome/solid/dice-d20/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-d6",
+  "file": "dataset/icons/fontawesome/solid/dice-d6/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-five",
+  "file": "dataset/icons/fontawesome/solid/dice-five/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-four",
+  "file": "dataset/icons/fontawesome/solid/dice-four/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-one",
+  "file": "dataset/icons/fontawesome/solid/dice-one/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-six",
+  "file": "dataset/icons/fontawesome/solid/dice-six/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-three",
+  "file": "dataset/icons/fontawesome/solid/dice-three/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice-two",
+  "file": "dataset/icons/fontawesome/solid/dice-two/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dice",
+  "file": "dataset/icons/fontawesome/solid/dice/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-digital-tachograph",
+  "file": "dataset/icons/fontawesome/solid/digital-tachograph/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-directions",
+  "file": "dataset/icons/fontawesome/solid/directions/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-disease",
+  "file": "dataset/icons/fontawesome/solid/disease/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-divide",
+  "file": "dataset/icons/fontawesome/solid/divide/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dizzy",
+  "file": "dataset/icons/fontawesome/solid/dizzy/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dna",
+  "file": "dataset/icons/fontawesome/solid/dna/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dog",
+  "file": "dataset/icons/fontawesome/solid/dog/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dollar-sign",
+  "file": "dataset/icons/fontawesome/solid/dollar-sign/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dolly-flatbed",
+  "file": "dataset/icons/fontawesome/solid/dolly-flatbed/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dolly",
+  "file": "dataset/icons/fontawesome/solid/dolly/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-donate",
+  "file": "dataset/icons/fontawesome/solid/donate/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-door-closed",
+  "file": "dataset/icons/fontawesome/solid/door-closed/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-door-open",
+  "file": "dataset/icons/fontawesome/solid/door-open/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dot-circle",
+  "file": "dataset/icons/fontawesome/solid/dot-circle/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dove",
+  "file": "dataset/icons/fontawesome/solid/dove/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-download",
+  "file": "dataset/icons/fontawesome/solid/download/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-drafting-compass",
+  "file": "dataset/icons/fontawesome/solid/drafting-compass/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dragon",
+  "file": "dataset/icons/fontawesome/solid/dragon/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-draw-polygon",
+  "file": "dataset/icons/fontawesome/solid/draw-polygon/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-drum-steelpan",
+  "file": "dataset/icons/fontawesome/solid/drum-steelpan/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-drum",
+  "file": "dataset/icons/fontawesome/solid/drum/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-drumstick-bite",
+  "file": "dataset/icons/fontawesome/solid/drumstick-bite/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dumbbell",
+  "file": "dataset/icons/fontawesome/solid/dumbbell/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dumpster-fire",
+  "file": "dataset/icons/fontawesome/solid/dumpster-fire/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dumpster",
+  "file": "dataset/icons/fontawesome/solid/dumpster/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-dungeon",
+  "file": "dataset/icons/fontawesome/solid/dungeon/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-edit",
+  "file": "dataset/icons/fontawesome/solid/edit/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-egg",
+  "file": "dataset/icons/fontawesome/solid/egg/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-eject",
+  "file": "dataset/icons/fontawesome/solid/eject/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ellipsis-h",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-h/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ellipsis-v",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-v/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-envelope-open-text",
+  "file": "dataset/icons/fontawesome/solid/envelope-open-text/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-envelope-open",
+  "file": "dataset/icons/fontawesome/solid/envelope-open/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-envelope-square",
+  "file": "dataset/icons/fontawesome/solid/envelope-square/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-envelope",
+  "file": "dataset/icons/fontawesome/solid/envelope/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-equals",
+  "file": "dataset/icons/fontawesome/solid/equals/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-eraser",
+  "file": "dataset/icons/fontawesome/solid/eraser/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-ethernet",
+  "file": "dataset/icons/fontawesome/solid/ethernet/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-euro-sign",
+  "file": "dataset/icons/fontawesome/solid/euro-sign/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-exchange-alt",
+  "file": "dataset/icons/fontawesome/solid/exchange-alt/input-w256.png",
+  "condition": "size=256,bg=w256"
+ },
+ {
+  "id": "fa-solid-cloud-moon",
+  "file": "dataset/icons/fontawesome/solid/cloud-moon/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-rain/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-showers-heavy",
+  "file": "dataset/icons/fontawesome/solid/cloud-showers-heavy/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-sun-rain",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun-rain/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-sun",
+  "file": "dataset/icons/fontawesome/solid/cloud-sun/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud-upload-alt",
+  "file": "dataset/icons/fontawesome/solid/cloud-upload-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cloud",
+  "file": "dataset/icons/fontawesome/solid/cloud/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cocktail",
+  "file": "dataset/icons/fontawesome/solid/cocktail/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-code-branch",
+  "file": "dataset/icons/fontawesome/solid/code-branch/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-code",
+  "file": "dataset/icons/fontawesome/solid/code/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-coffee",
+  "file": "dataset/icons/fontawesome/solid/coffee/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cog",
+  "file": "dataset/icons/fontawesome/solid/cog/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cogs",
+  "file": "dataset/icons/fontawesome/solid/cogs/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-coins",
+  "file": "dataset/icons/fontawesome/solid/coins/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-columns",
+  "file": "dataset/icons/fontawesome/solid/columns/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comment-alt",
+  "file": "dataset/icons/fontawesome/solid/comment-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comment-dollar",
+  "file": "dataset/icons/fontawesome/solid/comment-dollar/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comment-dots",
+  "file": "dataset/icons/fontawesome/solid/comment-dots/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comment-medical",
+  "file": "dataset/icons/fontawesome/solid/comment-medical/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comment-slash",
+  "file": "dataset/icons/fontawesome/solid/comment-slash/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comment",
+  "file": "dataset/icons/fontawesome/solid/comment/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comments-dollar",
+  "file": "dataset/icons/fontawesome/solid/comments-dollar/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-comments",
+  "file": "dataset/icons/fontawesome/solid/comments/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-compact-disc",
+  "file": "dataset/icons/fontawesome/solid/compact-disc/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-compass",
+  "file": "dataset/icons/fontawesome/solid/compass/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-compress-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-compress-arrows-alt",
+  "file": "dataset/icons/fontawesome/solid/compress-arrows-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-compress",
+  "file": "dataset/icons/fontawesome/solid/compress/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-concierge-bell",
+  "file": "dataset/icons/fontawesome/solid/concierge-bell/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cookie-bite",
+  "file": "dataset/icons/fontawesome/solid/cookie-bite/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cookie",
+  "file": "dataset/icons/fontawesome/solid/cookie/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-copy",
+  "file": "dataset/icons/fontawesome/solid/copy/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-copyright",
+  "file": "dataset/icons/fontawesome/solid/copyright/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-couch",
+  "file": "dataset/icons/fontawesome/solid/couch/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-credit-card",
+  "file": "dataset/icons/fontawesome/solid/credit-card/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-crop-alt",
+  "file": "dataset/icons/fontawesome/solid/crop-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-crop",
+  "file": "dataset/icons/fontawesome/solid/crop/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cross",
+  "file": "dataset/icons/fontawesome/solid/cross/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-crosshairs",
+  "file": "dataset/icons/fontawesome/solid/crosshairs/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-crow",
+  "file": "dataset/icons/fontawesome/solid/crow/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-crown",
+  "file": "dataset/icons/fontawesome/solid/crown/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-crutch",
+  "file": "dataset/icons/fontawesome/solid/crutch/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cube",
+  "file": "dataset/icons/fontawesome/solid/cube/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cubes",
+  "file": "dataset/icons/fontawesome/solid/cubes/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-cut",
+  "file": "dataset/icons/fontawesome/solid/cut/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-database",
+  "file": "dataset/icons/fontawesome/solid/database/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-deaf",
+  "file": "dataset/icons/fontawesome/solid/deaf/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-democrat",
+  "file": "dataset/icons/fontawesome/solid/democrat/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-desktop",
+  "file": "dataset/icons/fontawesome/solid/desktop/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dharmachakra",
+  "file": "dataset/icons/fontawesome/solid/dharmachakra/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-diagnoses",
+  "file": "dataset/icons/fontawesome/solid/diagnoses/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-d20",
+  "file": "dataset/icons/fontawesome/solid/dice-d20/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-d6",
+  "file": "dataset/icons/fontawesome/solid/dice-d6/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-five",
+  "file": "dataset/icons/fontawesome/solid/dice-five/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-four",
+  "file": "dataset/icons/fontawesome/solid/dice-four/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-one",
+  "file": "dataset/icons/fontawesome/solid/dice-one/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-six",
+  "file": "dataset/icons/fontawesome/solid/dice-six/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-three",
+  "file": "dataset/icons/fontawesome/solid/dice-three/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice-two",
+  "file": "dataset/icons/fontawesome/solid/dice-two/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dice",
+  "file": "dataset/icons/fontawesome/solid/dice/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-digital-tachograph",
+  "file": "dataset/icons/fontawesome/solid/digital-tachograph/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-directions",
+  "file": "dataset/icons/fontawesome/solid/directions/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-disease",
+  "file": "dataset/icons/fontawesome/solid/disease/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-divide",
+  "file": "dataset/icons/fontawesome/solid/divide/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dizzy",
+  "file": "dataset/icons/fontawesome/solid/dizzy/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dna",
+  "file": "dataset/icons/fontawesome/solid/dna/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dog",
+  "file": "dataset/icons/fontawesome/solid/dog/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dollar-sign",
+  "file": "dataset/icons/fontawesome/solid/dollar-sign/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dolly-flatbed",
+  "file": "dataset/icons/fontawesome/solid/dolly-flatbed/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dolly",
+  "file": "dataset/icons/fontawesome/solid/dolly/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-donate",
+  "file": "dataset/icons/fontawesome/solid/donate/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-door-closed",
+  "file": "dataset/icons/fontawesome/solid/door-closed/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-door-open",
+  "file": "dataset/icons/fontawesome/solid/door-open/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dot-circle",
+  "file": "dataset/icons/fontawesome/solid/dot-circle/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dove",
+  "file": "dataset/icons/fontawesome/solid/dove/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-download",
+  "file": "dataset/icons/fontawesome/solid/download/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-drafting-compass",
+  "file": "dataset/icons/fontawesome/solid/drafting-compass/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dragon",
+  "file": "dataset/icons/fontawesome/solid/dragon/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-draw-polygon",
+  "file": "dataset/icons/fontawesome/solid/draw-polygon/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-drum-steelpan",
+  "file": "dataset/icons/fontawesome/solid/drum-steelpan/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-drum",
+  "file": "dataset/icons/fontawesome/solid/drum/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-drumstick-bite",
+  "file": "dataset/icons/fontawesome/solid/drumstick-bite/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dumbbell",
+  "file": "dataset/icons/fontawesome/solid/dumbbell/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dumpster-fire",
+  "file": "dataset/icons/fontawesome/solid/dumpster-fire/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dumpster",
+  "file": "dataset/icons/fontawesome/solid/dumpster/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-dungeon",
+  "file": "dataset/icons/fontawesome/solid/dungeon/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-edit",
+  "file": "dataset/icons/fontawesome/solid/edit/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-egg",
+  "file": "dataset/icons/fontawesome/solid/egg/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-eject",
+  "file": "dataset/icons/fontawesome/solid/eject/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-ellipsis-h",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-h/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-ellipsis-v",
+  "file": "dataset/icons/fontawesome/solid/ellipsis-v/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-envelope-open-text",
+  "file": "dataset/icons/fontawesome/solid/envelope-open-text/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-envelope-open",
+  "file": "dataset/icons/fontawesome/solid/envelope-open/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-envelope-square",
+  "file": "dataset/icons/fontawesome/solid/envelope-square/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-envelope",
+  "file": "dataset/icons/fontawesome/solid/envelope/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-equals",
+  "file": "dataset/icons/fontawesome/solid/equals/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-eraser",
+  "file": "dataset/icons/fontawesome/solid/eraser/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-ethernet",
+  "file": "dataset/icons/fontawesome/solid/ethernet/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-euro-sign",
+  "file": "dataset/icons/fontawesome/solid/euro-sign/input-d128.png",
+  "condition": "size=128,bg=d128"
+ },
+ {
+  "id": "fa-solid-exchange-alt",
+  "file": "dataset/icons/fontawesome/solid/exchange-alt/input-d128.png",
+  "condition": "size=128,bg=d128"
+ }
+]

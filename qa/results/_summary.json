@@ -1,0 +1,45 @@
+{
+ "total_executions": 2064,
+ "by_status": {
+  "PASS": 2062,
+  "UNSUPPORTED_WITH_REASON": 2
+ },
+ "by_failure_class": {},
+ "by_mode": {
+  "model": {
+   "PASS": 522
+  },
+  "classic": {
+   "PASS": 934
+  },
+  "preset:logo": {
+   "PASS": 202
+  },
+  "preset:icon": {
+   "PASS": 242
+  },
+  "preset:illustration": {
+   "PASS": 42
+  },
+  "preset:lqip": {
+   "PASS": 40
+  },
+  "preset:artistic": {
+   "PASS": 40
+  },
+  "preset:custom": {
+   "PASS": 40
+  },
+  "ai": {
+   "UNSUPPORTED_WITH_REASON": 2
+  }
+ },
+ "determinism_pairs": 150,
+ "determinism_identical": 150,
+ "latency_ms": {
+  "avg": 192.6,
+  "p95": 401.6,
+  "max": 3186.8
+ },
+ "updated": "2026-09-25 15:20:57"
+}

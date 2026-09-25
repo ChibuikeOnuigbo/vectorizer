@@ -1,0 +1,16 @@
+{
+ "id": "malformed-txt-as-png",
+ "kind": "malformed",
+ "asset": null,
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 15:10:59",
+ "http_status": 422,
+ "latency_ms": 109.6,
+ "retries": 0,
+ "status": "PASS",
+ "note": "malformed/unprocessable input rejected gracefully (HTTP 422)",
+ "failure_class": "NONE"
+}

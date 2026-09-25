@@ -1,0 +1,19 @@
+{
+ "id": "aimode-blue-bird-appicon",
+ "kind": "ai_mode",
+ "asset": "test-assets/images/user-provided/blue-bird-appicon.png",
+ "mode": "ai",
+ "params": {
+  "provider": "openrouter",
+  "model": "",
+  "detail": "50",
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 15:17:42",
+ "http_status": 400,
+ "latency_ms": 81.1,
+ "retries": 0,
+ "status": "UNSUPPORTED_WITH_REASON",
+ "note": "no user API key configured in sandbox; server rejects gracefully (HTTP 400)",
+ "failure_class": "NONE"
+}

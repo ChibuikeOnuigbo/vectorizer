@@ -1,0 +1,81 @@
+{
+ "id": "gen-gen-22darkbg-presetlogo",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-22darkbg.png",
+ "mode": "preset:logo",
+ "params": {
+  "preset": "logo"
+ },
+ "recorded_at": "2026-09-25 15:09:54",
+ "http_status": 200,
+ "latency_ms": 217.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 4066,
+  "sha1": "13a2e921ea34",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 7,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 8,
+   "paths": 7,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#37adb6",
+    "count": 5
+   },
+   {
+    "color": "#0a0c18",
+    "count": 1
+   },
+   {
+    "color": "#e1ea66",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#37adb6",
+    "count": 5
+   },
+   {
+    "color": "#0a0c18",
+    "count": 1
+   },
+   {
+    "color": "#e1ea66",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 109,
+  "max_path_commands": 50,
+  "empty_elements": 0,
+  "duplicate_path_d": 1,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "1 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 4066,
+ "svg_sha1": "13a2e921ea34",
+ "status": "PASS"
+}
