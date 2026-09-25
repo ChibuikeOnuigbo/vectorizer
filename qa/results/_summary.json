@@ -1,16 +1,19 @@
 {
- "total_executions": 2064,
+ "total_executions": 4628,
  "by_status": {
-  "PASS": 2062,
-  "UNSUPPORTED_WITH_REASON": 2
+  "UNSUPPORTED_WITH_REASON": 13,
+  "PASS": 4615
  },
  "by_failure_class": {},
  "by_mode": {
-  "model": {
-   "PASS": 522
+  "ai": {
+   "UNSUPPORTED_WITH_REASON": 13
   },
   "classic": {
-   "PASS": 934
+   "PASS": 2736
+  },
+  "model": {
+   "PASS": 1273
   },
   "preset:logo": {
    "PASS": 202
@@ -18,28 +21,31 @@
   "preset:icon": {
    "PASS": 242
   },
-  "preset:illustration": {
-   "PASS": 42
-  },
-  "preset:lqip": {
-   "PASS": 40
-  },
   "preset:artistic": {
    "PASS": 40
   },
   "preset:custom": {
    "PASS": 40
   },
-  "ai": {
-   "UNSUPPORTED_WITH_REASON": 2
+  "preset:illustration": {
+   "PASS": 42
+  },
+  "preset:lqip": {
+   "PASS": 40
   }
  },
  "determinism_pairs": 150,
  "determinism_identical": 150,
+ "pixel_score_stats": {
+  "cases": 300,
+  "avg": 96.5,
+  "min": 70.7,
+  "p05": 94.1
+ },
  "latency_ms": {
-  "avg": 192.6,
-  "p95": 401.6,
+  "avg": 198.7,
+  "p95": 347.4,
   "max": 3186.8
  },
- "updated": "2026-09-25 15:20:57"
+ "updated": "2026-09-25 21:27:10"
 }

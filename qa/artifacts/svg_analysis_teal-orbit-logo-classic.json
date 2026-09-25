@@ -1,0 +1,75 @@
+{
+ "svg_file": "qa/artifacts/teal-orbit-logo-classic.svg",
+ "observed_from_svg": {
+  "bytes": 13697,
+  "sha1": "8f1437fa5b91",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 676 369",
+  "width": "676",
+  "height": "369",
+  "fills": [
+   {
+    "color": "#16b09c",
+    "count": 3
+   },
+   {
+    "color": "#16ae9c",
+    "count": 1
+   },
+   {
+    "color": "#17af9c",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#16b09c",
+    "count": 3
+   },
+   {
+    "color": "#16ae9c",
+    "count": 1
+   },
+   {
+    "color": "#17af9c",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 286,
+  "max_path_commands": 221,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "model_interpretation": {
+  "status": "UNSUPPORTED_WITH_REASON",
+  "reason": "no AI key configured (env AI_KEY or --key)"
+ },
+ "model_recommendation": null,
+ "provider": "openrouter",
+ "model": "",
+ "status": "UNSUPPORTED_WITH_REASON",
+ "notes": "observed_from_svg is verified by parsing; AI sections are clearly separated interpretations, not ground truth",
+ "recorded_at": "2026-09-25 21:28:57"
+}

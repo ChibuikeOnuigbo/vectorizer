@@ -1,0 +1,19 @@
+{
+ "id": "provider-xai",
+ "kind": "ai_mode",
+ "asset": "test-assets/images/user-provided/teal-orbit-logo.png",
+ "mode": "ai",
+ "params": {
+  "provider": "xai",
+  "model": "",
+  "detail": "50",
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:24:37",
+ "http_status": 400,
+ "latency_ms": 31.5,
+ "retries": 0,
+ "status": "UNSUPPORTED_WITH_REASON",
+ "note": "no user API key configured in sandbox; server rejects gracefully (HTTP 400)",
+ "failure_class": "NONE"
+}

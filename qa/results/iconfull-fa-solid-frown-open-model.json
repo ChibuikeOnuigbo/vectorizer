@@ -1,0 +1,73 @@
+{
+ "id": "iconfull-fa-solid-frown-open-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/solid/frown-open/input-w256.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 21:26:03",
+ "http_status": 200,
+ "latency_ms": 236.2,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 3579,
+  "sha1": "d5a497762cc7",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 4
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 4
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 81,
+  "max_path_commands": 37,
+  "empty_elements": 0,
+  "duplicate_path_d": 1,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "1 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 3579,
+ "svg_sha1": "d5a497762cc7",
+ "status": "PASS"
+}

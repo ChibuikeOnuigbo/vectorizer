@@ -1,0 +1,73 @@
+{
+ "id": "icon512-fa-brands-shirtsinbulk-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/brands/shirtsinbulk/input-w512.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:27:01",
+ "http_status": 200,
+ "latency_ms": 208.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 23686,
+  "sha1": "8f84ff0a83b7",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 40,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 41,
+   "paths": 40,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 512 512",
+  "width": "512",
+  "height": "512",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 36
+   },
+   {
+    "color": "#fefefe",
+    "count": 4
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 36
+   },
+   {
+    "color": "#fefefe",
+    "count": 4
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 703,
+  "max_path_commands": 240,
+  "empty_elements": 0,
+  "duplicate_path_d": 16,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "16 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 23686,
+ "svg_sha1": "8f84ff0a83b7",
+ "status": "PASS"
+}

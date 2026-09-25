@@ -1,6 +1,6 @@
 # QA Report — Vectorizer (master directive pass 1)
 
-Generated 2026-09-25 from artifacts on disk. Every number below is traceable
+Generated 2026-09-25 (pass 2, Stage B) from artifacts on disk. Every number below is traceable
 to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 `automation/TASK_STATE.json`. Nothing is estimated.
 
@@ -8,25 +8,28 @@ to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 
 | Metric | Value | Evidence |
 |---|---|---|
-| Total QA executions | **2,064** | `qa/results/_summary.json` |
-| PASS | **2,062** | same |
+| Total QA executions | **4,628** | `qa/results/_summary.json` |
+| PASS | **4,615** | same |
 | FAIL | **0** | same |
 | ERROR | 0 | same |
 | TIMEOUT | 0 | same |
-| UNSUPPORTED_WITH_REASON | **2** (AI mode, no user API key in sandbox; server rejects gracefully HTTP 400) | `aimode-*.json` |
+| UNSUPPORTED_WITH_REASON | **13** (11-provider validation matrix + 2 AI probes; no user key in sandbox, server rejects gracefully HTTP 400) | `aimode-*.json`, `provider-*.json` |
 | Determinism pairs | 150 run, **150 identical** (exact same input+params ⇒ byte-identical SVG) | `_summary.json` |
-| Latency | avg 192.6 ms, p95 402 ms, max 3.19 s | same |
-| Icon pairs compared to reference SVG | **880/880 PASS**; generated avg 3.9 paths vs authored 1.0 (path ratio 3.9 — expected for raster→vector tracing incl. AA regions) | `qa/results/_icon_compare.json` |
+| Latency | avg 198.7 ms, p95 347 ms, max 3.19 s | same |
+| Icon pairs compared to reference SVG | **3,133/3,133 PASS**; generated avg 4.7 paths vs authored 1.0 (path ratio 4.66 — expected for raster→vector tracing incl. AA regions) | `qa/results/_icon_compare.json` |
 | Visible repository test images | **203** (3 user + 200 generated) | `test-assets/manifest.json` |
-| Test-asset manifest entries | **2,354** (2,353 unique md5; 1 exact duplicate kept as dedup evidence) | same |
+| Test-asset manifest entries | **5,909** (5,908 unique md5; Stage B target 5,000 pairs/references EXCEEDED) | same |
 | Open-license SVG ground truth | **951 distinct SVGs** (Font Awesome Free 5.15.4: solid 400 / brands 395 / regular 156 after md5 dedup of 2) | `dataset/icons/fontawesome/index.json` |
-| Raster pair renders | **1,200** inputs (300 icons × w64/w128/w256/d128) + 600 blur/jpeg variants | `dataset/icons/fontawesome/renders.json` |
+| Raster pair renders | **4,755** inputs (951 icons × w64/w128/w256/w512/d128) + 600 blur/jpeg variants | `dataset/icons/fontawesome/renders.json` |
 
 ## Execution matrix (§13/§22)
 
 Per-image conversion through the REAL live server (`POST /api/convert`):
 
 - 200 generated assets × {model, classic, preset:logo} = 600
+- Stage B: every icon 200..950 at w256 classic+model (1,502) + w512 classic (751) = 2,253
+- pixel-score compare: 300 icon cases (model.svg_geom silhouette/edge scorer) avg 96.5, p05 94.1, min 70.7
+- provider validation matrix: all 11 AI providers = 11
 - 120 icon renders × 2 sizes × {classic, model, preset:icon} = 720 (+160 more icons × 2 modes)
 - 2 user images × 5 modes = 10
 - slider sweep colors∈{2,4,8,16,32} × detail∈{25,75} on 10 assets = 100
@@ -35,7 +38,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 - malformed inputs (empty file, truncated PNG/JPEG/GIF, exe-as-image, 1×1, 2×2000, fully transparent) = 12 — all rejected gracefully or handled without crashing the worker
 - AI mode probes = 2 (no key configured in this sandbox → UNSUPPORTED_WITH_REASON, not faked as tested)
 
-By mode (`by_mode` in `_summary.json`): model 522 PASS, classic 934,
+By mode (`by_mode` in `_summary.json`): model 1,273 PASS, classic 2,736,
 preset:logo 202, preset:icon 242, preset:illustration 42, preset:lqip 40,
 preset:artistic 40, preset:custom 40, ai 2 UNSUPPORTED.
 
@@ -108,6 +111,18 @@ with a rendered side-by-side proof at `qa/artifacts/user-proofs-grid.png`.
   scoring 0.60 s/img, best=97.9 avg20=96.2 toward 70K images / 2M steps.
 - Lucide bundle is minified only (no per-icon SVGs) → Font Awesome used as
   the open-license icon corpus; Lucide extraction deferred (not needed).
+
+## §20 reference workflow (mock) + AI analysis scaffold
+
+- Local reference mock (:8100) exercised via browser; comparison at
+  `qa/cloudinary_reference.md` + `qa/screenshots/reference/` (app 1,687 ms,
+  mock 2,682 ms incl. artificial 2.5 s sleep, 0 console errors). Real
+  Cloudinary service unreachable from sandbox - documented as blocker, not
+  claimed as tested.
+- `qa/ai_svg_analysis.py` produces `svg_analysis_<name>.json` with
+  observed_from_svg (deterministic, verified) strictly separated from
+  model_interpretation/model_recommendation (UNSUPPORTED without a key;
+  4 committed samples under `qa/artifacts/`).
 
 ## Restart / continue
 

@@ -131,9 +131,9 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
             res["failure_class"] = "PERFORMANCE_FAILURE"
             break
         if err:
-            # transient network hiccups: one retry with backoff, then record
+            # transient network hiccups: exponential backoff (2s, 4s...), then record
             if attempt <= allow_retries and ("urlopen error" in err or "Broken pipe" in err or "reset" in err.lower()):
-                time.sleep(1.5 * attempt)
+                time.sleep(2.0 ** attempt)
                 continue
             if case["kind"] == "ai_mode" and err and "API key missing" in err:
                 res["status"] = STATUS_UNSUPPORTED
@@ -157,6 +157,15 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
         res["svg_analysis"] = info
         res["svg_bytes"] = info["bytes"]
         res["svg_sha1"] = info["sha1"]
+        if case["kind"] == "pixcompare" and svg:
+            # pixel-level metric: trainer-scorer silhouette/edge agreement vs input raster
+            try:
+                from model.svg_geom import score as _pixscore
+                im = Image.open(ROOT / case["asset"]).convert("RGBA")
+                px_score = float(_pixscore(im, svg, step=6)["score"])
+                res["pixel_score"] = round(px_score, 1)
+            except Exception as exc:  # noqa: BLE001
+                res["pixel_score_error"] = f"{type(exc).__name__}: {exc}"
         if case["kind"] == "malformed":
             # a graceful 4xx counts as PASS for malformed handling; a 200 must be valid
             res["status"] = STATUS_PASS
@@ -197,7 +206,7 @@ def build_cases() -> list[dict]:
     r = random.Random(20260925)
     gen_assets = sorted(p.name for p in (ROOT / "test-assets/images/generated").glob("*.png"))
     user_assets = ["blue-bird-appicon.png", "teal-orbit-logo.png"]
-    icon_index = json.loads((ROOT / "dataset/icons/fontawesome/index.json").read_text())[:200]
+    icon_index = json.loads((ROOT / "dataset/icons/fontawesome/index.json").read_text())
 
     def conv(cid, kind, asset, mode, params, expect_reject=False):
         cases.append({"id": cid, "kind": kind, "asset": asset, "mode": mode,
@@ -261,6 +270,35 @@ def build_cases() -> list[dict]:
         conv(f"det-{a[:-4]}-a", "determinism", p, "classic", {"colors": "8"})
         conv(f"det-{a[:-4]}-b", "determinism", p, "classic", {"colors": "8"})
 
+    # J. Stage-B expansion: every remaining icon at w256 (classic+model) and w512 (classic)
+    for rec in icon_index[200:]:
+        p256 = str(Path(rec["source_svg"]).parent / "input-w256.png")
+        p512 = str(Path(rec["source_svg"]).parent / "input-w512.png")
+        if (ROOT / p256).exists():
+            conv(f"iconfull-{rec['id']}-classic", "iconpair", p256, "classic", {"colors": "8"})
+            conv(f"iconfull-{rec['id']}-model", "iconpair", p256, "model", {"use_model": "1"})
+        if (ROOT / p512).exists():
+            conv(f"icon512-{rec['id']}-classic", "iconpair", p512, "classic", {"colors": "8"})
+
+    # K. pixel-level reference comparison: generated SVG rescored against its input raster
+    #    (model.svg_geom score, same metric family as the trainer) on a 300-icon batch
+    for rec in icon_index[:300]:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if (ROOT / p).exists():
+            cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,
+                          "mode": "classic", "params": {"colors": "8"}})
+
+    # L. provider validation matrix: every AI provider must reject gracefully without a key
+    try:
+        from app.ai_providers import provider_catalog
+        provs = list(provider_catalog().keys())
+    except Exception:
+        provs = []
+    for prov in provs:
+        cases.append({"id": f"provider-{prov}", "kind": "ai_mode",
+                      "asset": "test-assets/images/user-provided/teal-orbit-logo.png",
+                      "mode": "ai", "params": {"provider": prov, "model": "", "detail": "50", "colors": "8"}})
+
     # H. malformed inputs (12) - must not crash worker
     bad = [
         ("empty-file", b"", "empty.png", False),
@@ -307,6 +345,8 @@ def save_state(patch: dict) -> None:
 
 
 def summarize(done_results: list[dict]) -> dict:
+    # only real execution records: files with an id+status from run_case
+    done_results = [r for r in done_results if r.get("id") and r.get("status")]
     by_status: dict[str, int] = {}
     by_class: dict[str, int] = {}
     by_mode: dict[str, dict[str, int]] = {}
@@ -332,6 +372,13 @@ def summarize(done_results: list[dict]) -> dict:
         if len(v) == 2:
             det_total += 1
             det_ident += 1 if v[0] == v[1] else 0
+    pixscores = [res["pixel_score"] for res in done_results if res.get("pixel_score") is not None]
+    pixel_stats = {
+        "cases": len(pixscores),
+        "avg": round(sum(pixscores) / len(pixscores), 1) if pixscores else None,
+        "min": min(pixscores) if pixscores else None,
+        "p05": sorted(pixscores)[int(len(pixscores) * 0.05)] if pixscores else None,
+    }
     return {
         "total_executions": len(done_results),
         "by_status": by_status,
@@ -339,6 +386,7 @@ def summarize(done_results: list[dict]) -> dict:
         "by_mode": by_mode,
         "determinism_pairs": det_total,
         "determinism_identical": det_ident,
+        "pixel_score_stats": pixel_stats,
         "latency_ms": {
             "avg": round(sum(lat) / len(lat), 1) if lat else 0,
             "p95": sorted(lat)[int(len(lat) * 0.95)] if lat else 0,
@@ -377,14 +425,14 @@ def main() -> None:
             results.append(res)
             done += 1
             if done % 100 == 0 or done == len(todo):
-                prior = [json.loads(p.read_text()) for p in RESULTS.glob("*.json") if p.name not in ("_summary.json",)]
+                prior = [json.loads(p.read_text()) for p in RESULTS.glob("*.json") if p.name not in ("_summary.json",) and not p.name.startswith("_")]
                 SUMMARY.write_text(json.dumps(summarize(prior), indent=1))
                 el = time.time() - t0
                 print(f"progress {done}/{len(todo)} elapsed={el:.0f}s pass={sum(1 for r in prior if r.get('status')=='PASS')}", flush=True)
                 save_state({"completed_cases": done, "remaining_cases": len(todo) - done,
                             "last_successful_case": res.get("id"),
                             "next_action": "continue qa matrix at " + str(done)})
-    prior = [json.loads(p.read_text()) for p in RESULTS.glob("*.json") if p.name not in ("_summary.json",)]
+    prior = [json.loads(p.read_text()) for p in RESULTS.glob("*.json") if p.name not in ("_summary.json",) and not p.name.startswith("_")]
     final = summarize(prior)
     SUMMARY.write_text(json.dumps(final, indent=1))
     save_state({"current_phase": "qa_runner_done", "completed_cases": len(prior),

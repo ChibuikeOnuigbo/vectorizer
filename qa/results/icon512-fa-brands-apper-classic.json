@@ -1,0 +1,71 @@
+{
+ "id": "icon512-fa-brands-apper-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/brands/apper/input-w512.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:26:25",
+ "http_status": 200,
+ "latency_ms": 195.3,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 10099,
+  "sha1": "4be37aface42",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 10,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 11,
+   "paths": 10,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 512 512",
+  "width": "512",
+  "height": "512",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 5
+   },
+   {
+    "color": "#000000",
+    "count": 5
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 5
+   },
+   {
+    "color": "#000000",
+    "count": 5
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 262,
+  "max_path_commands": 91,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 10099,
+ "svg_sha1": "4be37aface42",
+ "status": "PASS"
+}

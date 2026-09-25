@@ -1,10 +1,13 @@
 {
- "current_phase": "qa_runner_done",
- "total_cases": 2064,
+ "current_phase": "stage_b_done",
+ "total_cases": 4628,
  "remaining_cases": 0,
  "current_mode": "convert-matrix",
- "next_action": "regression browser tests + report",
- "last_checkpoint": "2026-09-25 15:20:57",
- "completed_cases": 2064,
- "last_successful_case": "det-edge-aspect-wide-b"
+ "next_action": "continue toward stage C corpus + keyed AI validation",
+ "last_checkpoint": "2026-09-25 21:27:10",
+ "completed_cases": 4628,
+ "last_successful_case": "provider-huggingface",
+ "qa_count": 4628,
+ "pair_count": 5706,
+ "dataset_count": 5909
 }

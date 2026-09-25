@@ -1,0 +1,71 @@
+{
+ "id": "icon512-fa-brands-less-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/brands/less/input-w512.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:26:50",
+ "http_status": 200,
+ "latency_ms": 213.1,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 15453,
+  "sha1": "65fa6d73c50f",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 7,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 8,
+   "paths": 7,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 512 512",
+  "width": "512",
+  "height": "512",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#fefefe",
+    "count": 2
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#fefefe",
+    "count": 2
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 351,
+  "max_path_commands": 174,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 15453,
+ "svg_sha1": "65fa6d73c50f",
+ "status": "PASS"
+}
