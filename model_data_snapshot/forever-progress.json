@@ -1,10 +1,10 @@
 {
-  "steps_total": 300,
+  "steps_total": 900,
   "best_val": 95.88219512195123,
-  "seed_clean": 2800,
+  "seed_clean": 4600,
   "last_push": 0,
   "last_snap": 0,
   "committed_val": 0.0,
   "started": "2026-09-26 10:48:02",
-  "best_val_time": "2026-09-26 10:53:52"
+  "best_val_time": "2026-09-26 14:09:28"
 }
