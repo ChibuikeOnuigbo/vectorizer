@@ -1,7 +1,7 @@
 {
- "files_hashed": 71183,
+ "files_hashed": 80157,
  "hash": "content-bbox aHash-8x8 exact bucket + 32x32 grayscale MAE<=3 confirm (numpy)",
- "near_dup_edges": 70781,
+ "near_dup_edges": 86696,
  "near_dup_groups": [
   [
    "dataset/icons/bootstrap/0-circle/input-jpeg128.png",
@@ -1106,6 +1106,10 @@
    "dataset/icons/tabler/arrow-up-square/input-w128.png",
    "dataset/icons/tabler/arrow-up-square/input-w256.png",
    "dataset/icons/tabler/arrow-up-square/input-w64.png"
+  ],
+  [
+   "dataset/icons/bootstrap/arrows-vertical/input-d128.png",
+   "dataset/icons/hero/arrow-long-up-24solid/input-d128.png"
   ],
   [
    "dataset/icons/bootstrap/aspect-ratio/input-jpeg128.png",
@@ -3158,17 +3162,9 @@
    "dataset/icons/bootstrap/camera-video/input-w256.png",
    "dataset/icons/bootstrap/camera-video/input-w512.png",
    "dataset/icons/bootstrap/camera-video/input-w64.png"
-  ],
-  [
-   "dataset/icons/bootstrap/camera-video-fill/input-blur128.png",
-   "dataset/icons/bootstrap/camera-video-fill/input-jpeg128.png",
-   "dataset/icons/bootstrap/camera-video-fill/input-w128.png",
-   "dataset/icons/bootstrap/camera-video-fill/input-w256.png",
-   "dataset/icons/bootstrap/camera-video-fill/input-w512.png",
-   "dataset/icons/bootstrap/camera-video-fill/input-w64.png"
   ]
  ],
- "near_dup_group_count": 10707,
+ "near_dup_group_count": 12228,
  "exact_md5_dupes": "see test-assets/manifest.json unique_md5 vs entries",
- "recorded": "2026-09-26 04:05:27"
+ "recorded": "2026-09-26 04:42:43"
 }

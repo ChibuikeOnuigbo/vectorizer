@@ -85,7 +85,7 @@ def build() -> dict:
         })
 
     families = ["fontawesome"]
-    for fam in ("lucide", "bootstrap", "tabler"):
+    for fam in ("lucide", "bootstrap", "tabler", "hero"):
         if (ROOT / f"dataset/icons/{fam}/index.json").exists():
             families.append(fam)
     fa = []

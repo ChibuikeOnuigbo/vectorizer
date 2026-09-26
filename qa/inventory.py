@@ -29,6 +29,20 @@ def scan() -> dict:
     model_modules = [p.name for p in (ROOT / "model").glob("*.py")]
     qa_scripts = [str(p.relative_to(ROOT)) for p in (ROOT / "qa").rglob("*") if p.is_file() and not p.name.endswith(".png")]
     pipeline = [p.name for p in (ROOT / "scripts/dataset").glob("*.py")]
+    families = []
+    for f_dir in sorted((ROOT / "dataset/icons").glob("*")):
+        idx = f_dir / "index.json"
+        if idx.exists():
+            try:
+                j = json.loads(idx.read_text())
+                items = j["items"] if isinstance(j, dict) else j
+                lic = j.get("license") if isinstance(j, dict) else None
+                if not lic and items:
+                    lic = items[0].get("license")
+                families.append({"family": f_dir.name, "license": lic,
+                                 "originals": len(items)})
+            except Exception:
+                pass
     env_vars = sorted(set(re.findall(r'os\.(?:getenv|environ\.get)\("([A-Z0-9_]+)"',
                           "\n".join(p.read_text(errors="ignore") for p in list(ROOT.glob("app/*.py")) + list(ROOT.glob("model/*.py"))))))[:64]
     inv = {
@@ -54,7 +68,7 @@ def scan() -> dict:
         },
         "model_modules": model_modules,
         "qa_infra": sorted(qa_scripts),
-        "dataset_pipeline": pipeline,
+        "dataset_pipeline": {"scripts": pipeline, "families": families},
         "env_vars_referenced": env_vars,
         "persistence": {
             "server": "localStorage-based workspace persistence in frontend (app/static/app.js)",

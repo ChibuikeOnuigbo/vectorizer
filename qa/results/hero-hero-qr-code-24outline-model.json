@@ -1,0 +1,81 @@
+{
+ "id": "hero-hero-qr-code-24outline-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/hero/qr-code-24outline/input-w128.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-26 04:35:19",
+ "http_status": 200,
+ "latency_ms": 63.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 7908,
+  "sha1": "3ef8d71c5775",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 7,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 8,
+   "paths": 7,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#cfcfcf",
+    "count": 3
+   },
+   {
+    "color": "#fbfbfb",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#cfcfcf",
+    "count": 3
+   },
+   {
+    "color": "#fbfbfb",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 174,
+  "max_path_commands": 48,
+  "empty_elements": 0,
+  "duplicate_path_d": 4,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "4 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 7908,
+ "svg_sha1": "3ef8d71c5775",
+ "status": "PASS"
+}

@@ -28,7 +28,8 @@ def main() -> None:
     results = sorted(list((ROOT / "qa/results").glob("icon*.json"))
                      + list((ROOT / "qa/results").glob("lucide-*.json"))
                      + list((ROOT / "qa/results").glob("boot*.json"))
-                     + list((ROOT / "qa/results").glob("tabler-*.json")))
+                     + list((ROOT / "qa/results").glob("tabler-*.json"))
+                     + list((ROOT / "qa/results").glob("hero-*.json")))
     for rp in results:
         res = json.loads(rp.read_text())
         asset = res.get("asset") or ""

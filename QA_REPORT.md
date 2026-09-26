@@ -1,6 +1,6 @@
 # QA Report — Vectorizer (master directive pass 1)
 
-Generated 2026-09-26 (pass 5, +Tabler family, FULL-corpus pixel audit) from artifacts on disk. Every number below is traceable
+Generated 2026-09-26 (pass 6, +Heroicons 5th family, verdicts->training loop) from artifacts on disk. Every number below is traceable
 to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 `automation/TASK_STATE.json`. Nothing is estimated.
 
@@ -8,21 +8,21 @@ to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 
 | Metric | Value | Evidence |
 |---|---|---|
-| Total QA executions | **35,899** | `qa/results/_summary.json` |
-| PASS | **35,886** | same |
+| Total QA executions | **39,745** | `qa/results/_summary.json` |
+| PASS | **39,732** | same |
 | FAIL | **0** | same |
 | ERROR | 0 | same |
 | TIMEOUT | 0 | same |
 | UNSUPPORTED_WITH_REASON | **13** (11-provider validation matrix + 2 AI probes; no user key in sandbox, server rejects gracefully HTTP 400) | `aimode-*.json`, `provider-*.json` |
 | Determinism pairs | 150 run, **150 identical** (exact same input+params ⇒ byte-identical SVG) | `_summary.json` |
 | Latency | avg 198.7 ms, p95 347 ms, max 3.19 s | same |
-| Icon pairs compared to reference SVG | **23,413/23,413 PASS** (FA/Lucide/Bootstrap/Tabler; avg path ratio 1.94 vs authored) | `qa/results/_icon_compare.json` |
+| Icon pairs compared to reference SVG | **25,977/25,977 PASS** (5 families; avg path ratio 2.06 vs authored) | `qa/results/_icon_compare.json` |
 | Perceptual near-dup scan | 13,097 rasters hashed (content-bbox aHash + 32×32 MAE confirm): 7,220 edges / 2,112 groups — largest group is the legitimately similar Lucide `book-*` family | `test-assets/near_dup.json` |
 | Visible repository test images | **203** (3 user + 200 generated) | `test-assets/manifest.json` |
 | Test-asset manifest entries | **88,931** (88,905 unique md5; 11,149 ORIGINAL + 77,781 DERIVED) | same |
 | Open-license SVG ground truth | **951 distinct SVGs** (Font Awesome Free 5.15.4: solid 400 / brands 395 / regular 156 after md5 dedup of 2) | `dataset/icons/fontawesome/index.json` |
-| Raster pair renders | FA 6,657 + Lucide 12,894 + Bootstrap 14,546 + Tabler 43,540 = **77,637**, records==files on disk for ALL families | `dataset/icons/*/renders.json` |
-| Open-license families | **4**: Font Awesome Free (CC BY 4.0/MIT, 951) + Lucide (ISC, 1,842, own bundle) + Bootstrap Icons (MIT, 2,078) + Tabler Icons (MIT, 6,220 = 5,166 outline stroke + 1,054 filled) | `dataset/icons/*/index.json` |
+| Raster pair renders | FA 6,657 + Lucide 12,894 + Bootstrap 14,546 + Tabler 43,540 + Hero 8,974 = **86,611**, records==files on disk for ALL families | `dataset/icons/*/renders.json` |
+| Open-license families | **5**: Font Awesome Free (CC BY 4.0/MIT, 951) + Lucide (ISC, 1,842, own bundle) + Bootstrap Icons (MIT, 2,078) + Tabler Icons (MIT, 6,220) + Heroicons (MIT, 1,282 = 4 styles, 6 md5 dupes skipped) | `dataset/icons/*/index.json` |
 
 ## Execution matrix (§13/§22)
 
@@ -30,7 +30,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 
 - 200 generated assets × {model, classic, preset:logo} = 600
 - Stage B: every icon 200..950 at w256 classic+model (1,502) + w512 classic (751) = 2,253
-- pixel-score compare: **FULL ICON CORPUS — 11,091/11,091 pairs scored** avg 95.0, p05 85.8, min 70.7 (model.svg_geom silhouette/edge scorer vs input raster)
+- pixel-score compare: **FULL ICON CORPUS — 12,373/12,373 pairs scored** avg 95.2, p05 86.1, min 70.7 (model.svg_geom silhouette/edge scorer vs input raster)
 - provider validation matrix: all 11 AI providers = 11
 - 120 icon renders × 2 sizes × {classic, model, preset:icon} = 720 (+160 more icons × 2 modes)
 - 2 user images × 5 modes = 10
@@ -40,7 +40,7 @@ Per-image conversion through the REAL live server (`POST /api/convert`):
 - malformed inputs (empty file, truncated PNG/JPEG/GIF, exe-as-image, 1×1, 2×2000, fully transparent) = 12 — all rejected gracefully or handled without crashing the worker
 - AI mode probes = 2 (no key configured in this sandbox → UNSUPPORTED_WITH_REASON, not faked as tested)
 
-By mode (`by_mode` in `_summary.json`): model 11,413 PASS, classic 23,867,
+By mode (`by_mode` in `_summary.json`): model 12,695 PASS, classic 26,431,
 preset:logo 202, preset:icon 242, preset:illustration 42, preset:lqip 40,
 preset:artistic 40, preset:custom 40, ai 2 UNSUPPORTED.
 
@@ -127,6 +127,13 @@ not prove the drop overlay (a11y DnD limitation — noted, not a defect).
 **Fixed this round:** Escape did not close the AI-assist modal while every
 other overlay closed on Esc — added to the central handler
 (`app/static/app.js`), re-verified PASS.
+
+**Round 6 additions:** Heroicons fifth family (1,282 icons after 6 md5 dupes, MIT);
+VERDICT FEEDBACK LOOP CLOSED: `model/verdicts.py` reads proof-page
+verdicts.jsonl and up-weights 'bad' records x2 / softens 'good' x0.7 inside
+`forever_train.train_chunk` (never blocks trainer on corrupt feedback;
+unit-verified with 2-test-verdict fixture). Previously the verdicts file was
+collected but never consumed - acceptance gap closed.
 
 **Round 5 additions:** Tabler fourth family (6,220 icons, MIT); runner batch
 Q = full-corpus pixel-similarity audit covering every icon pair at w128

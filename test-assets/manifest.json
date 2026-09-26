@@ -1,19 +1,19 @@
 {
- "generated": "2026-09-26 04:09:19",
+ "generated": "2026-09-26 04:37:53",
  "generator": "scripts/dataset/build_manifest.py (counts computed from files on disk)",
  "totals": {
-  "entries": 88931,
+  "entries": 99187,
   "by_provenance": {
    "USER_PROVIDED": 3,
    "GENERATED": 200,
-   "OPEN_LICENSE_SOURCE": 88728
+   "OPEN_LICENSE_SOURCE": 98984
   },
   "by_asset_kind": {
-   "ORIGINAL_ASSET": 11149,
+   "ORIGINAL_ASSET": 12431,
    "EXACT_DUPLICATE_KEPT_AS_EVIDENCE": 1,
-   "DERIVED_TEST_VARIANT": 77781
+   "DERIVED_TEST_VARIANT": 86755
   },
-  "unique_md5": 88705,
+  "unique_md5": 98870,
   "visible_test_image_files": 203
  },
  "dedup": {

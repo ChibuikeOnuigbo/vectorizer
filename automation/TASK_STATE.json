@@ -1,21 +1,20 @@
 {
-  "current_phase": "stage_b_plus_tabler_round5",
-  "total_cases": 35899,
+  "current_phase": "stage_b_plus_hero_round6",
+  "total_cases": 39745,
   "remaining_cases": 0,
   "current_mode": "convert-matrix",
-  "next_action": "commit push; round 6 candidates: Heroicons (MIT) + Material Symbols (Apache-2.0) npm extraction -> Stage C 100k; lucide/tabler stroke crops into raster training; proof-page growth; w256/w512 full-family runner expansion",
-  "last_checkpoint": "2026-09-26 04:04:00",
-  "completed_cases": 35899,
-  "last_successful_case": "pix2-tabler-zoom-filled",
-  "qa_count": 35899,
-  "pair_count": 77637,
-  "dataset_count": 88931,
+  "next_action": "commit push; round 7 candidates: Material Symbols (verify npm licence before use) to cross Stage C 100k; stroke crops into gen_clean training images; w256/w512 full-family runner expansion; verify live verdict-upweight log line in trainer",
+  "last_checkpoint": "2026-09-26 04:44:00",
+  "completed_cases": 39745,
+  "last_successful_case": "pix2-hero-wrench-screwdriver-16solid",
+  "qa_count": 39745,
+  "pair_count": 86611,
+  "dataset_count": 99187,
   "near_dup": {
-    "hashed": 71183,
-    "groups": 10707,
-    "edges": 70781,
-    "file": "test-assets/near_dup.json",
-    "note": "current as of round-5 corpus; use groups for split hygiene"
+    "hashed": 80157,
+    "groups": 12228,
+    "edges": 86696,
+    "file": "test-assets/near_dup.json"
   },
   "finalpass": "7/7 PASS incl Esc-closes-AI-modal fix verified live",
   "guard": "ALWAYS git add scripts/ qa/ dataset/ test-assets/ automation/ model/ app/ (wipe ate un-staged scripts/ once); on wipe: cp-away model_data_snapshot backups then git clean -fd + fetch+reset",
@@ -23,13 +22,14 @@
     "fontawesome": 951,
     "lucide": 1842,
     "bootstrap": 2078,
-    "tabler": 6220
+    "tabler": 6220,
+    "hero": 1282
   },
   "pixel_audit": {
-    "cases": 11091,
-    "avg": 95.0,
-    "p05": 85.8,
-    "min": 70.7,
-    "note": "FULL icon corpus w128 classic; runner batch Q ids pix2-*"
-  }
+    "cases": 12373,
+    "avg": 95.2,
+    "p05": 86.1,
+    "min": 70.7
+  },
+  "verdicts_loop": "model/verdicts.py consumed by forever_train.train_chunk (bad x2, good x0.7); live log line appears on next chunk after trainer restart"
 }

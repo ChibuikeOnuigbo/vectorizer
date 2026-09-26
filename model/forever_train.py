@@ -268,6 +268,15 @@ def train_chunk(prog: dict) -> tuple[int, float]:
     n_val = max(30, int(len(records) * val_frac))
     val_idx = set(order[:n_val].tolist())
     X, T, val_X, val_T, val_imgs = [], [], [], [], []
+    # human-verdict feedback (user acceptance criterion): bad model verdicts
+    # up-weight the record's sampling, good ones soften it; never removes data
+    from model.verdicts import load_verdict_feedback
+    names_all = [r.get("name", "") for r in records]
+    vw, vstats = load_verdict_feedback(names_all, method="model")
+    if vstats["verdict_records"]:
+        log(f"verdicts feedback: {vstats['verdict_records']} verdicts, "
+            f"{vstats['matched']} matched -> {vstats['bad_up']} bad up-weighted x2, "
+            f"{vstats['good_down']} good softened x0.7")
     for i, r in enumerate(records):
         rpath = r.get("path")
         if not rpath or not Path(rpath).exists():
@@ -281,7 +290,10 @@ def train_chunk(prog: dict) -> tuple[int, float]:
             val_X.append(f); val_T.append(t)
             val_imgs.append((r["name"], Image.open(rpath).convert("RGBA")))
         else:
-            X.append(f); T.append(t)
+            # repeat-count controls sampling weight (2 = twice per epoch)
+            reps = 2 if vw[i] > 1.5 else (0 if vw[i] < 0.9 and rng.random() > vw[i] else 1)
+            for _ in range(reps):
+                X.append(f); T.append(t)
     X = np.stack(X); T = np.stack(T)
     val_X = np.stack(val_X); val_T = np.stack(val_T)
 

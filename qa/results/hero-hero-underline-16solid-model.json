@@ -1,0 +1,71 @@
+{
+ "id": "hero-hero-underline-16solid-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/hero/underline-16solid/input-w128.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-26 04:35:55",
+ "http_status": 200,
+ "latency_ms": 66.4,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 2531,
+  "sha1": "99a606045848",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 3,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 4,
+   "paths": 3,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 2
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 2
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 64,
+  "max_path_commands": 35,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 2531,
+ "svg_sha1": "99a606045848",
+ "status": "PASS"
+}

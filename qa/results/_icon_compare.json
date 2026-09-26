@@ -1,11 +1,11 @@
 {
  "aggregate": {
-  "pairs_compared": 23413,
-  "pass": 23413,
-  "avg_gen_paths": 4.1,
-  "avg_ref_paths": 3.4,
-  "avg_path_ratio": 1.94,
-  "updated": "2026-09-26 04:01:37"
+  "pairs_compared": 25977,
+  "pass": 25977,
+  "avg_gen_paths": 4.0,
+  "avg_ref_paths": 3.2,
+  "avg_path_ratio": 2.06,
+  "updated": "2026-09-26 04:37:50"
  },
  "pairs": [
   {

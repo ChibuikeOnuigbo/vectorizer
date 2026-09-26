@@ -220,6 +220,11 @@ def build_cases() -> list[dict]:
     if boot_path.exists():
         raw_boot = json.loads(boot_path.read_text())
         boot_index = raw_boot["items"] if isinstance(raw_boot, dict) else raw_boot
+    hero_path = ROOT / "dataset/icons/hero/index.json"
+    hero_index = []
+    if hero_path.exists():
+        raw_h = json.loads(hero_path.read_text())
+        hero_index = raw_h["items"] if isinstance(raw_h, dict) else raw_h
     tabler_path = ROOT / "dataset/icons/tabler/index.json"
     tabler_index = []
     if tabler_path.exists():
@@ -345,10 +350,23 @@ def build_cases() -> list[dict]:
             cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,
                           "mode": "classic", "params": {"colors": "8"}})
 
+    # P2. fifth open-license family: every hero icon at w128 (classic+model) + pixel batch
+    for rec in hero_index:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if not (ROOT / p).exists():
+            continue
+        conv(f"hero-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
+        conv(f"hero-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+    for rec in hero_index[:300]:
+        p = str(Path(rec["source_svg"]).parent / "input-w128.png")
+        if (ROOT / p).exists():
+            cases.append({"id": f"pix-{rec['id']}", "kind": "pixcompare", "asset": p,
+                          "mode": "classic", "params": {"colors": "8"}})
+
     # Q. full-corpus pixel-similarity audit (§17): every icon pair beyond the
     #    first-300 batches already covered, classic w128 (fresh ids so existing
     #    pix-* results are not re-run)
-    for rec in icon_index[300:] + lucide_index[300:] + boot_index[300:] + tabler_index[300:]:
+    for rec in icon_index[300:] + lucide_index[300:] + boot_index[300:] + tabler_index[300:] + hero_index[300:]:
         p = str(Path(rec["source_svg"]).parent / "input-w128.png")
         if (ROOT / p).exists():
             cases.append({"id": f"pix2-{rec['id']}", "kind": "pixcompare", "asset": p,

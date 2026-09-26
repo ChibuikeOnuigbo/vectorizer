@@ -1,0 +1,72 @@
+{
+ "id": "pix-hero-magnifying-glass-plus-24outline",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/hero/magnifying-glass-plus-24outline/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 04:36:00",
+ "http_status": 200,
+ "latency_ms": 60.4,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 3497,
+  "sha1": "af9fb4484896",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 4,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 5,
+   "paths": 4,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 2
+   },
+   {
+    "color": "#000000",
+    "count": 2
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 2
+   },
+   {
+    "color": "#000000",
+    "count": 2
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 85,
+  "max_path_commands": 25,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 3497,
+ "svg_sha1": "af9fb4484896",
+ "pixel_score": 89.7,
+ "status": "PASS"
+}
