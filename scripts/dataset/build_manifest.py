@@ -158,9 +158,18 @@ def build() -> dict:
             "perceptual_file": "test-assets/near_dup.json",
         },
         "qa": "qa/results/_summary.json (updated by qa/runner.py); verdicts: model_data_snapshot/verdicts.jsonl",
-        "entries": entries,
+        "entries_file": "test-assets/manifest.entries.json.gz",
+        "entries_note": "full entry list lives gzipped beside this file (67MB+ "
+                        "plaintext would exceed GitHub's 50MB page limit; unzip to read)",
     }
-    (ROOT / "test-assets/manifest.json").write_text(json.dumps(manifest, indent=1))
+    # heavy entries -> gzip artifact so manifest.json stays GitHub-visible (directive 30)
+    import gzip
+    with gzip.open(ROOT / "test-assets/manifest.entries.json.gz", "wt", encoding="utf8") as gz:
+        json.dump(entries, gz, separators=(",", ":"))
+    slim = dict(manifest)
+    slim["entries"] = entries[:50]  # head sample for immediate inspection
+    slim["entries_sample_only"] = 50
+    (ROOT / "test-assets/manifest.json").write_text(json.dumps(slim, indent=1))
     print(json.dumps(manifest["totals"], indent=1))
     return manifest
 
