@@ -30,10 +30,10 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
 <body>
 <div class="head">
   <h1>Proof report: 100 test images — input / model / classic</h1>
-  <span class="pill">model avg <b>96.2</b> pts</span>
-  <span class="pill">classic avg <b>95.1</b> pts</span>
+  <span class="pill">model avg <b>96.0</b> pts</span>
+  <span class="pill">classic avg <b>94.9</b> pts</span>
   <span class="pill">best/worst model 100.0 / 70.0</span>
-  <span class="pill">built in 11.5s</span>
+  <span class="pill">built in 11.7s</span>
   <span class="pill">verdicts saved <b id="count">0</b></span>
   <span class="pill">buttons clicked <b id="done">—</b></span>
   <span class="stat">Click Good/Rubbish per row. Every click is APPENDED to
@@ -41,19 +41,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   also reply in chat with your notes and they get merged the same way.</span>
 </div>
 <div class="grid">
-<div class="row" data-extra="{&quot;m_score&quot;: 95.0, &quot;c_score&quot;: 95.0}">
+<div class="row" data-extra="{&quot;m_score&quot;: 94.0, &quot;c_score&quot;: 94.2}">
   <div class="row-head"><span>#00 · test_000.png</span>
-    <span>model <b style="color:#e8ecf4">95.0</b> · classic <b style="color:#e8ecf4">95.0</b></span></div>
+    <span>model <b style="color:#e8ecf4">94.0</b> · classic <b style="color:#e8ecf4">94.2</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_000.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_000.svg"></div>
-      <div class="meta">95.0 pts · 1 paths · 3.0 KB</div>
+      <div class="meta">94.0 pts · 1 paths · 2.3 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,0,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,0,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_000.svg"></div>
-      <div class="meta">95.0 pts · 1 paths · 3.0 KB</div>
+      <div class="meta">94.2 pts · 1 paths · 3.3 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,0,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,0,'classic','bad')">Rubbish</button>
@@ -85,13 +85,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_002.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_002.svg"></div>
-      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,2,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,2,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_002.svg"></div>
-      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,2,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,2,'classic','bad')">Rubbish</button>
@@ -136,19 +136,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 100.0, &quot;c_score&quot;: 100.0}">
+<div class="row" data-extra="{&quot;m_score&quot;: 97.8, &quot;c_score&quot;: 97.8}">
   <div class="row-head"><span>#05 · test_005.png</span>
-    <span>model <b style="color:#e8ecf4">100.0</b> · classic <b style="color:#e8ecf4">100.0</b></span></div>
+    <span>model <b style="color:#e8ecf4">97.8</b> · classic <b style="color:#e8ecf4">97.8</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_005.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_005.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 2.8 KB</div>
+      <div class="meta">97.8 pts · 1 paths · 2.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,5,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,5,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_005.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 2.8 KB</div>
+      <div class="meta">97.8 pts · 1 paths · 3.1 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,5,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,5,'classic','bad')">Rubbish</button>
@@ -180,13 +180,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_007.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_007.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 2.1 KB</div>
+      <div class="meta">100.0 pts · 16 paths · 4.4 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,7,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,7,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_007.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 2.1 KB</div>
+      <div class="meta">100.0 pts · 16 paths · 4.1 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,7,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,7,'classic','bad')">Rubbish</button>
@@ -250,19 +250,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 98.6, &quot;c_score&quot;: 98.6}">
+<div class="row" data-extra="{&quot;m_score&quot;: 96.7, &quot;c_score&quot;: 96.7}">
   <div class="row-head"><span>#11 · test_011.png</span>
-    <span>model <b style="color:#e8ecf4">98.6</b> · classic <b style="color:#e8ecf4">98.6</b></span></div>
+    <span>model <b style="color:#e8ecf4">96.7</b> · classic <b style="color:#e8ecf4">96.7</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_011.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_011.svg"></div>
-      <div class="meta">98.6 pts · 1 paths · 1.0 KB</div>
+      <div class="meta">96.7 pts · 1 paths · 2.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,11,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,11,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_011.svg"></div>
-      <div class="meta">98.6 pts · 1 paths · 1.0 KB</div>
+      <div class="meta">96.7 pts · 1 paths · 1.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,11,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,11,'classic','bad')">Rubbish</button>
@@ -275,13 +275,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_012.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_012.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 4.0 KB</div>
+      <div class="meta">100.0 pts · 7 paths · 4.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,12,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,12,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_012.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 4.0 KB</div>
+      <div class="meta">100.0 pts · 7 paths · 4.2 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,12,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,12,'classic','bad')">Rubbish</button>
@@ -370,13 +370,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_017.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_017.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 2.3 KB</div>
+      <div class="meta">100.0 pts · 4 paths · 1.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,17,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,17,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_017.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 2.3 KB</div>
+      <div class="meta">100.0 pts · 4 paths · 2.2 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,17,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,17,'classic','bad')">Rubbish</button>
@@ -465,13 +465,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_022.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_022.svg"></div>
-      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="meta">100.0 pts · 2 paths · 0.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,22,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,22,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_022.svg"></div>
-      <div class="meta">100.0 pts · 0 paths · 0.1 KB</div>
+      <div class="meta">100.0 pts · 2 paths · 0.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,22,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,22,'classic','bad')">Rubbish</button>
@@ -560,7 +560,7 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_027.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_027.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.3 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 0.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,27,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,27,'model','bad')">Rubbish</button>
@@ -655,13 +655,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_032.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_032.svg"></div>
-      <div class="meta">100.0 pts · 6 paths · 2.3 KB</div>
+      <div class="meta">100.0 pts · 7 paths · 1.8 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,32,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,32,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_032.svg"></div>
-      <div class="meta">100.0 pts · 6 paths · 2.3 KB</div>
+      <div class="meta">100.0 pts · 7 paths · 1.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,32,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,32,'classic','bad')">Rubbish</button>
@@ -706,38 +706,38 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.3, &quot;c_score&quot;: 99.3}">
+<div class="row" data-extra="{&quot;m_score&quot;: 98.2, &quot;c_score&quot;: 98.2}">
   <div class="row-head"><span>#35 · test_035.png</span>
-    <span>model <b style="color:#e8ecf4">99.3</b> · classic <b style="color:#e8ecf4">99.3</b></span></div>
+    <span>model <b style="color:#e8ecf4">98.2</b> · classic <b style="color:#e8ecf4">98.2</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_035.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_035.svg"></div>
-      <div class="meta">99.3 pts · 1 paths · 0.7 KB</div>
+      <div class="meta">98.2 pts · 1 paths · 1.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,35,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,35,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_035.svg"></div>
-      <div class="meta">99.3 pts · 1 paths · 0.7 KB</div>
+      <div class="meta">98.2 pts · 1 paths · 0.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,35,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,35,'classic','bad')">Rubbish</button>
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.5, &quot;c_score&quot;: 99.5}">
+<div class="row" data-extra="{&quot;m_score&quot;: 96.5, &quot;c_score&quot;: 96.5}">
   <div class="row-head"><span>#36 · test_036.png</span>
-    <span>model <b style="color:#e8ecf4">99.5</b> · classic <b style="color:#e8ecf4">99.5</b></span></div>
+    <span>model <b style="color:#e8ecf4">96.5</b> · classic <b style="color:#e8ecf4">96.5</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_036.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_036.svg"></div>
-      <div class="meta">99.5 pts · 1 paths · 1.7 KB</div>
+      <div class="meta">96.5 pts · 1 paths · 1.4 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,36,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,36,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_036.svg"></div>
-      <div class="meta">99.5 pts · 1 paths · 1.7 KB</div>
+      <div class="meta">96.5 pts · 1 paths · 1.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,36,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,36,'classic','bad')">Rubbish</button>
@@ -750,13 +750,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_037.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_037.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="meta">100.0 pts · 3 paths · 0.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,37,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,37,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_037.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="meta">100.0 pts · 3 paths · 0.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,37,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,37,'classic','bad')">Rubbish</button>
@@ -801,38 +801,38 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 98.9, &quot;c_score&quot;: 98.9}">
+<div class="row" data-extra="{&quot;m_score&quot;: 99.0, &quot;c_score&quot;: 99.0}">
   <div class="row-head"><span>#40 · test_040.png</span>
-    <span>model <b style="color:#e8ecf4">98.9</b> · classic <b style="color:#e8ecf4">98.9</b></span></div>
+    <span>model <b style="color:#e8ecf4">99.0</b> · classic <b style="color:#e8ecf4">99.0</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_040.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_040.svg"></div>
-      <div class="meta">98.9 pts · 1 paths · 1.9 KB</div>
+      <div class="meta">99.0 pts · 1 paths · 1.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,40,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,40,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_040.svg"></div>
-      <div class="meta">98.9 pts · 1 paths · 1.9 KB</div>
+      <div class="meta">99.0 pts · 1 paths · 2.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,40,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,40,'classic','bad')">Rubbish</button>
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.3, &quot;c_score&quot;: 99.3}">
+<div class="row" data-extra="{&quot;m_score&quot;: 97.5, &quot;c_score&quot;: 97.5}">
   <div class="row-head"><span>#41 · test_041.png</span>
-    <span>model <b style="color:#e8ecf4">99.3</b> · classic <b style="color:#e8ecf4">99.3</b></span></div>
+    <span>model <b style="color:#e8ecf4">97.5</b> · classic <b style="color:#e8ecf4">97.5</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_041.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_041.svg"></div>
-      <div class="meta">99.3 pts · 1 paths · 1.0 KB</div>
+      <div class="meta">97.5 pts · 1 paths · 1.8 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,41,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,41,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_041.svg"></div>
-      <div class="meta">99.3 pts · 1 paths · 1.0 KB</div>
+      <div class="meta">97.5 pts · 1 paths · 1.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,41,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,41,'classic','bad')">Rubbish</button>
@@ -858,19 +858,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.1, &quot;c_score&quot;: 99.1}">
+<div class="row" data-extra="{&quot;m_score&quot;: 96.8, &quot;c_score&quot;: 96.8}">
   <div class="row-head"><span>#43 · test_043.png</span>
-    <span>model <b style="color:#e8ecf4">99.1</b> · classic <b style="color:#e8ecf4">99.1</b></span></div>
+    <span>model <b style="color:#e8ecf4">96.8</b> · classic <b style="color:#e8ecf4">96.8</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_043.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_043.svg"></div>
-      <div class="meta">99.1 pts · 3 paths · 3.8 KB</div>
+      <div class="meta">96.8 pts · 3 paths · 1.4 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,43,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,43,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_043.svg"></div>
-      <div class="meta">99.1 pts · 3 paths · 3.8 KB</div>
+      <div class="meta">96.8 pts · 3 paths · 3.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,43,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,43,'classic','bad')">Rubbish</button>
@@ -915,19 +915,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 91.5, &quot;c_score&quot;: 91.5}">
+<div class="row" data-extra="{&quot;m_score&quot;: 93.2, &quot;c_score&quot;: 93.2}">
   <div class="row-head"><span>#46 · test_046.png</span>
-    <span>model <b style="color:#e8ecf4">91.5</b> · classic <b style="color:#e8ecf4">91.5</b></span></div>
+    <span>model <b style="color:#e8ecf4">93.2</b> · classic <b style="color:#e8ecf4">93.2</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_046.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_046.svg"></div>
-      <div class="meta">91.5 pts · 1 paths · 3.3 KB</div>
+      <div class="meta">93.2 pts · 1 paths · 4.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,46,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,46,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_046.svg"></div>
-      <div class="meta">91.5 pts · 1 paths · 3.3 KB</div>
+      <div class="meta">93.2 pts · 1 paths · 3.8 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,46,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,46,'classic','bad')">Rubbish</button>
@@ -940,13 +940,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_047.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_047.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 3.3 KB</div>
+      <div class="meta">100.0 pts · 10 paths · 4.2 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,47,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,47,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_047.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 3.3 KB</div>
+      <div class="meta">100.0 pts · 10 paths · 3.7 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,47,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,47,'classic','bad')">Rubbish</button>
@@ -1035,13 +1035,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_052.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_052.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 1.1 KB</div>
+      <div class="meta">100.0 pts · 10 paths · 2.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,52,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,52,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_052.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 1.1 KB</div>
+      <div class="meta">100.0 pts · 10 paths · 2.3 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,52,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,52,'classic','bad')">Rubbish</button>
@@ -1130,13 +1130,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_057.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_057.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="meta">100.0 pts · 6 paths · 1.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,57,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,57,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_057.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="meta">100.0 pts · 6 paths · 1.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,57,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,57,'classic','bad')">Rubbish</button>
@@ -1276,19 +1276,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.5, &quot;c_score&quot;: 99.5}">
+<div class="row" data-extra="{&quot;m_score&quot;: 98.4, &quot;c_score&quot;: 98.4}">
   <div class="row-head"><span>#65 · test_065.png</span>
-    <span>model <b style="color:#e8ecf4">99.5</b> · classic <b style="color:#e8ecf4">99.5</b></span></div>
+    <span>model <b style="color:#e8ecf4">98.4</b> · classic <b style="color:#e8ecf4">98.4</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_065.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_065.svg"></div>
-      <div class="meta">99.5 pts · 1 paths · 2.7 KB</div>
+      <div class="meta">98.4 pts · 1 paths · 1.7 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,65,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,65,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_065.svg"></div>
-      <div class="meta">99.5 pts · 1 paths · 2.7 KB</div>
+      <div class="meta">98.4 pts · 1 paths · 3.1 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,65,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,65,'classic','bad')">Rubbish</button>
@@ -1320,13 +1320,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_067.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_067.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="meta">100.0 pts · 2 paths · 1.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,67,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,67,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_067.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,67,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,67,'classic','bad')">Rubbish</button>
@@ -1358,13 +1358,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_069.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_069.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="meta">100.0 pts · 5 paths · 1.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,69,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,69,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_069.svg"></div>
-      <div class="meta">100.0 pts · 3 paths · 1.4 KB</div>
+      <div class="meta">100.0 pts · 5 paths · 1.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,69,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,69,'classic','bad')">Rubbish</button>
@@ -1415,7 +1415,7 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_072.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_072.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.5 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 0.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,72,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,72,'model','bad')">Rubbish</button>
@@ -1510,13 +1510,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_077.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_077.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 0.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,77,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,77,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_077.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.8 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 1.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,77,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,77,'classic','bad')">Rubbish</button>
@@ -1605,32 +1605,32 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_082.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_082.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="meta">100.0 pts · 3 paths · 0.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,82,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,82,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_082.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 1.0 KB</div>
+      <div class="meta">100.0 pts · 3 paths · 0.8 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,82,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,82,'classic','bad')">Rubbish</button>
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 98.9, &quot;c_score&quot;: 98.9}">
+<div class="row" data-extra="{&quot;m_score&quot;: 95.5, &quot;c_score&quot;: 95.5}">
   <div class="row-head"><span>#83 · test_083.png</span>
-    <span>model <b style="color:#e8ecf4">98.9</b> · classic <b style="color:#e8ecf4">98.9</b></span></div>
+    <span>model <b style="color:#e8ecf4">95.5</b> · classic <b style="color:#e8ecf4">95.5</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_083.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_083.svg"></div>
-      <div class="meta">98.9 pts · 11 paths · 7.4 KB</div>
+      <div class="meta">95.5 pts · 11 paths · 2.7 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,83,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,83,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_083.svg"></div>
-      <div class="meta">98.9 pts · 11 paths · 7.4 KB</div>
+      <div class="meta">95.5 pts · 11 paths · 7.4 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,83,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,83,'classic','bad')">Rubbish</button>
@@ -1643,7 +1643,7 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_084.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_084.svg"></div>
-      <div class="meta">100.0 pts · 1 paths · 0.6 KB</div>
+      <div class="meta">100.0 pts · 1 paths · 0.4 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,84,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,84,'model','bad')">Rubbish</button>
@@ -1751,19 +1751,19 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 94.0, &quot;c_score&quot;: 94.0}">
+<div class="row" data-extra="{&quot;m_score&quot;: 91.3, &quot;c_score&quot;: 91.7}">
   <div class="row-head"><span>#90 · test_090.png</span>
-    <span>model <b style="color:#e8ecf4">94.0</b> · classic <b style="color:#e8ecf4">94.0</b></span></div>
+    <span>model <b style="color:#e8ecf4">91.3</b> · classic <b style="color:#e8ecf4">91.7</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_090.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_090.svg"></div>
-      <div class="meta">94.0 pts · 1 paths · 1.1 KB</div>
+      <div class="meta">91.3 pts · 1 paths · 2.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,90,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,90,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_090.svg"></div>
-      <div class="meta">94.0 pts · 1 paths · 1.1 KB</div>
+      <div class="meta">91.7 pts · 1 paths · 1.1 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,90,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,90,'classic','bad')">Rubbish</button>
@@ -1795,13 +1795,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_092.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_092.svg"></div>
-      <div class="meta">100.0 pts · 4 paths · 2.1 KB</div>
+      <div class="meta">100.0 pts · 11 paths · 2.3 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,92,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,92,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_092.svg"></div>
-      <div class="meta">100.0 pts · 4 paths · 2.1 KB</div>
+      <div class="meta">100.0 pts · 11 paths · 2.2 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,92,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,92,'classic','bad')">Rubbish</button>
@@ -1846,38 +1846,38 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.8, &quot;c_score&quot;: 99.8}">
+<div class="row" data-extra="{&quot;m_score&quot;: 98.8, &quot;c_score&quot;: 98.8}">
   <div class="row-head"><span>#95 · test_095.png</span>
-    <span>model <b style="color:#e8ecf4">99.8</b> · classic <b style="color:#e8ecf4">99.8</b></span></div>
+    <span>model <b style="color:#e8ecf4">98.8</b> · classic <b style="color:#e8ecf4">98.8</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_095.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_095.svg"></div>
-      <div class="meta">99.8 pts · 1 paths · 1.5 KB</div>
+      <div class="meta">98.8 pts · 1 paths · 2.6 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,95,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,95,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_095.svg"></div>
-      <div class="meta">99.8 pts · 1 paths · 1.5 KB</div>
+      <div class="meta">98.8 pts · 1 paths · 1.7 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,95,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,95,'classic','bad')">Rubbish</button>
       </div></div>
   </div>
 </div>
-<div class="row" data-extra="{&quot;m_score&quot;: 99.0, &quot;c_score&quot;: 99.0}">
+<div class="row" data-extra="{&quot;m_score&quot;: 96.3, &quot;c_score&quot;: 96.3}">
   <div class="row-head"><span>#96 · test_096.png</span>
-    <span>model <b style="color:#e8ecf4">99.0</b> · classic <b style="color:#e8ecf4">99.0</b></span></div>
+    <span>model <b style="color:#e8ecf4">96.3</b> · classic <b style="color:#e8ecf4">96.3</b></span></div>
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_096.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_096.svg"></div>
-      <div class="meta">99.0 pts · 1 paths · 3.2 KB</div>
+      <div class="meta">96.3 pts · 1 paths · 4.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,96,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,96,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_096.svg"></div>
-      <div class="meta">99.0 pts · 1 paths · 3.2 KB</div>
+      <div class="meta">96.3 pts · 1 paths · 3.5 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,96,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,96,'classic','bad')">Rubbish</button>
@@ -1890,13 +1890,13 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   <div class="cols">
     <div class="col"><label>input raster</label><div class="imgbox"><img src="/static/testreport/in_097.png"></div></div>
     <div class="col"><label>model output (Smart Model)</label><div class="imgbox"><img src="/static/testreport/m_097.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 1.6 KB</div>
+      <div class="meta">100.0 pts · 3 paths · 1.9 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,97,'model','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,97,'model','bad')">Rubbish</button>
       </div></div>
     <div class="col"><label>classic output (No model)</label><div class="imgbox"><img src="/static/testreport/c_097.svg"></div>
-      <div class="meta">100.0 pts · 2 paths · 1.6 KB</div>
+      <div class="meta">100.0 pts · 3 paths · 2.0 KB</div>
       <div class="verdicts">
         <button class="vbtn good" onclick="vote(this,97,'classic','good')">Good</button>
         <button class="vbtn bad" onclick="vote(this,97,'classic','bad')">Rubbish</button>

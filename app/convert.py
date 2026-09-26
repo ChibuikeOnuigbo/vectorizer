@@ -296,6 +296,69 @@ def analyze(img: Image.Image) -> dict:
     }
 
 
+def _dominant_content_color(a: dict) -> tuple[int, int, int] | None:
+    """Mean RGB over strictly-content pixels of the original RGBA input."""
+    rgb = np.asarray(a["img"].convert("RGB"), dtype=np.float32)
+    alpha = np.asarray(a["img"].getchannel("A"))
+    m = alpha > ALPHA_CUTOFF
+    if not m.any():
+        return None
+    mean = rgb[m].mean(axis=0)
+    return (int(mean[0]), int(mean[1]), int(mean[2]))
+
+
+def _mono_alpha_candidate(a: dict) -> bool:
+    """Detect 'monochrome transparent content': flat artwork whose meaningful
+    content is a single ink family on an alpha canvas (e.g. the teal-orbit
+    logo). In this regime the color-cutout path saturates (~5 paths / 72% sim)
+    while binary-alpha tracing reproduces the true geometry (93.5% sim on the
+    user-provided teal logo — evidence: qa/audits/teal-orbit/)."""
+    if not (a.get("has_alpha") and not a.get("keep_bg", True) and a.get("is_flat")):
+        return False
+    dom = _dominant_content_color(a)
+    if dom is None:
+        return False
+    rgb = np.asarray(a["img"].convert("RGB"), dtype=np.int16)
+    alpha = np.asarray(a["img"].getchannel("A"))
+    m = alpha > ALPHA_CUTOFF
+    px = rgb[m].astype(np.int16)
+    d = np.sqrt(((px - np.array(dom, dtype=np.int16)) ** 2).sum(axis=1))
+    mono_share = float((d <= 60).mean()) if len(px) else 0.0
+    return mono_share >= 0.92  # 92% of content within 60 RGB of dominant
+
+
+def _trace_binary_alpha(a: dict, params: dict) -> str:
+    """Trace the alpha silhouette with vtracer colormode=binary, then recolor
+    the black fills to the dominant content color. Preserves inner cutouts +
+    thin ring strokes that the color-cutout buckets merge away."""
+    dom = _dominant_content_color(a) or (0, 0, 0)
+    # Trace the TRUE alpha, not the ring-grown mask: the +2px sacrificial ring
+    # was engineered for color-cutout smoothing; on a binary silhouette it is
+    # pure inflation (~72% sim ceiling instead of 93.5% on the teal-orbit
+    # user logo — evidence: qa/audits/teal-orbit/).
+    alpha = a["img"].getchannel("A")
+    binary = alpha.point(lambda v: 0 if v > ALPHA_CUTOFF else 255)  # content black
+    lt = min(max(float(params.get("length_threshold", 0.5)), 0.5), 4.0)
+    pp = min(max(int(params.get("path_precision", 5)), 3), 12)
+    sp = min(max(int(params.get("filter_speckle", 1)), 1), 16)
+    ct = min(max(int(params.get("corner_threshold", 30)), 10), 110)
+    with tempfile.TemporaryDirectory() as td:
+        src = f"{td}/bin.png"
+        out = f"{td}/bin.svg"
+        binary.save(src)
+        vtracer.convert_image_to_svg_py(
+            src, out, colormode="binary", hierarchical="stacked",
+            filter_speckle=sp, corner_threshold=ct,
+            length_threshold=lt, path_precision=pp,
+        )
+        svg = open(out, encoding="utf-8").read()
+    hexcol = f"#{dom[0]:02X}{dom[1]:02X}{dom[2]:02X}"
+    svg = re.sub(r'fill="(?:#000000|#000|black|rgb\(0,0,0\)|rgb\(0%,0%,0%\))"',
+                 f'fill="{hexcol}"', svg, flags=re.I)
+    svg = _tidy(svg, a["w"], a["h"], True)
+    return re.sub(r'(<svg\b)', r'\1 data-engine="binary-alpha-mono"', svg, count=1)
+
+
 def trace_with(a: dict, params: dict | None = None) -> str:
     """Run one vectorization pass with the given params (or the heuristic
     baseline when params is None). params keys: profile, color_precision,
@@ -330,6 +393,12 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     ct = min(max(ct, 10), 110)
     lt = min(max(lt, 2.0), 10.0)
     pp = min(max(pp, 3), 12)
+
+    # Engine route: monochrome transparent content is binary-alpha territory
+    # (user complaint evidence in qa/audits/teal-orbit/: color-cutout saturates
+    # at ~72% visual similarity; binary-alpha reaches 93.5%)
+    if params.get("engine") != "color-cutout" and _mono_alpha_candidate(a):
+        return _trace_binary_alpha(a, params)
 
     w, h = a["w"], a["h"]
     with tempfile.TemporaryDirectory() as td:

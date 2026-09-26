@@ -1,19 +1,24 @@
 {
- "total_executions": 39745,
+ "total_executions": 39797,
  "by_status": {
   "UNSUPPORTED_WITH_REASON": 13,
-  "PASS": 39732
+  "PASS": 39778,
+  "FAIL": 6
  },
- "by_failure_class": {},
+ "by_failure_class": {
+  "SVG_QUALITY_FAILURE": 6
+ },
  "by_mode": {
   "ai": {
    "UNSUPPORTED_WITH_REASON": 13
   },
   "classic": {
-   "PASS": 26431
+   "PASS": 26454,
+   "FAIL": 3
   },
   "model": {
-   "PASS": 12695
+   "PASS": 12718,
+   "FAIL": 3
   },
   "preset:logo": {
    "PASS": 202
@@ -47,5 +52,5 @@
   "p95": 224.2,
   "max": 3186.8
  },
- "updated": "2026-09-26 04:37:18"
+ "updated": "2026-09-26 08:37:27"
 }

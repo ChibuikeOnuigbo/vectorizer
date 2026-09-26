@@ -1,6 +1,47 @@
+## Strict visual-similarity gate (user-driven, round 7)
+
+User evidence: 'score is always 100... it was horrible... similarity not up
+to 85%'. The fine-grained strict audit (`qa/similarity_audit.py`: full-res
+CDP render w/ transparent compositor, per-pixel MAE, block-SSIM12,
+alpha-silhouette IoU, tolerant edge-F1; similarity = min(f_mae, SSIM, IoU),
+no padding) is wired into the runner as `strictaudit` kind (52 cases:
+user-provided + generated bases, model+classic). Results:
+**18 PASS / 28 WEAK / 6 FAIL** — failures are ON THE RECORD.
+
+### Defect chain fixed for the user-provided teal-orbit logo
+1. *Scorer blind spot confirmed:* trained scorer reported ~100 while the
+   strict audit measured 71-72% -> DECEPTIVE. Strict gate is now the
+   quality authority for QA; trainer metric untouched (training stability).
+2. *Metric-harness bug (qa-side, fixed):* CDP screenshots were captured on
+   an opaque browser canvas -> alpha metrics collapsed to 7.7%. Fixed with
+   `Emulation.setDefaultBackgroundColorOverride(transparent)` +
+   `omitBackground=True`.
+3. *Real engine defect (app-side, FIXED):* transparent monochrome logos
+   (teal-orbit) saturated the color-cutout path at 71-72% for EVERY
+   slider/preset value (5 paths/3 colors regardless of parameters -
+   sliders were effectively no-ops there). Root cause exploration with raw
+   vtracer: `colormode=binary` on the true alpha silhouette = 93.5%.
+   Implemented `_mono_alpha_candidate` gated engine route
+   `_trace_binary_alpha` in app/convert.py (auto-engages only for
+   flat+transparent+mono content; color-cutout remains for everything
+   else - verified unaffected on white-bg icons + multicolor bird logo).
+   Result on the live API: **model 87.0% PASS / classic 86.9% PASS**
+   (was 71.7/71.9 WEAK), evidence: qa/audits/teal-orbit/.
+
+### OPEN known defect (documented, NOT fudged)
+`strict-user-bird-*`: blue-bird appicon FAILs at 50.6-50.7% with strong
+silhouette IoU (0.931) but broken interior composition: the pale-blue bird
+body bucket-merges into white during color flattening (visual:
+tonally-inverted bird interior on the composite
+qa/audits/blue-bird/blue-bird-appicon_similarity.png). Root-cause:
+ink-merge budget in _flatten_colors is too aggressive for near-white
+palettes. Fix deferred (needs palette-merge policy redesign; candidate: cap
+merge distance by SSIM-aware reconstruction error rather than flat ink
+count). Tracked in TASK_STATE.next_steps.
+
 # QA Report — Vectorizer (master directive pass 1)
 
-Generated 2026-09-26 (pass 6, +Heroicons 5th family, verdicts->training loop) from artifacts on disk. Every number below is traceable
+Generated 2026-09-26 (pass 7, STRICT similarity gate + binary-alpha engine fix) from artifacts on disk. Every number below is traceable
 to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 `automation/TASK_STATE.json`. Nothing is estimated.
 
@@ -8,8 +49,9 @@ to `qa/results/`, `qa/screenshots/`, `test-assets/manifest.json`, or
 
 | Metric | Value | Evidence |
 |---|---|---|
-| Total QA executions | **39,745** | `qa/results/_summary.json` |
-| PASS | **39,732** | same |
+| Total QA executions | **39,797** | `qa/results/_summary.json` |
+| PASS | **39,778** | same |
+| FAIL | **6** (strict similarity gate, class SVG_QUALITY_FAILURE) | same |
 | FAIL | **0** | same |
 | ERROR | 0 | same |
 | TIMEOUT | 0 | same |

@@ -166,6 +166,24 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
                 res["pixel_score"] = round(px_score, 1)
             except Exception as exc:  # noqa: BLE001
                 res["pixel_score_error"] = f"{type(exc).__name__}: {exc}"
+        if case["kind"] == "strictaudit" and svg:
+            # strict fine-grained visual-similarity gate (user-evidence driven):
+            # full-res render + MAE + block-SSIM + alpha-IoU; <85 = REAL finding
+            try:
+                sys.path.insert(0, str(ROOT / "qa"))
+                from similarity_audit import audit as _strict
+                ar = _strict(case["asset"], {"engine": svg}, save_composite=False)
+                eng = ar["engines"]["engine"]
+                sim, verdict = eng["visual_similarity_pct"], eng["verdict"]
+                res["strict_similarity"] = sim
+                res["strict_channels"] = {k: eng[k] for k in ("mae", "ssim12", "silhouette_iou", "edge_f1")}
+                res["strict_verdict"] = verdict
+                res.setdefault("notes", [])
+                if verdict != "PASS":
+                    res["note"] = (res.get("note", "") + " | strict similarity "
+                                   f"{sim}% ({verdict})").strip(" |")
+            except Exception as exc:  # noqa: BLE001
+                res["strict_error"] = f"{type(exc).__name__}: {exc}"
         if case["kind"] == "malformed":
             # a graceful 4xx counts as PASS for malformed handling; a 200 must be valid
             res["status"] = STATUS_PASS
@@ -202,6 +220,15 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
         else:
             res["status"] = STATUS_FAIL
             res["failure_class"] = "SVG_PARSE_FAILURE" if not info["xml_valid"] else "SVG_QUALITY_FAILURE"
+        if case["kind"] == "strictaudit" and res.get("strict_verdict") and res["status"] == STATUS_PASS:
+            # strict gate verdicts stay truthful: a structurally-valid but
+            # visually-weak vector (<85% strict similarity) is never hidden
+            # behind the XML-level PASS (user demand: real failures visible)
+            if res["strict_verdict"] == "FAIL":
+                res["status"] = STATUS_FAIL
+                res["failure_class"] = "SVG_QUALITY_FAILURE"
+            elif res["strict_verdict"] == "WEAK":  # stays PASS-with-note (sees quality gap)
+                res["note"] = (res.get("note", "") + " [WEAK]").strip(" |")
         break
     out_file.write_text(json.dumps(res, indent=1))
     return res
@@ -371,6 +398,22 @@ def build_cases() -> list[dict]:
         if (ROOT / p).exists():
             cases.append({"id": f"pix2-{rec['id']}", "kind": "pixcompare", "asset": p,
                           "mode": "classic", "params": {"colors": "8"}})
+
+    # S. strict visual-similarity gate (sq. quality): user-provided images +
+    #    representative generated assets; fail underneath the 85% bar is a
+    #    CLASSIFIED case, never silent (user demand: proper tests w/ failures)
+    strict_assets = (
+        [("user-teal", "test-assets/images/user-provided/teal-orbit-logo.png")]
+        + [("user-bird", "test-assets/images/user-provided/blue-bird-appicon.png")]
+        + [(f"{a[:-4]}", f"test-assets/images/generated/{a}")
+           for a in gen_assets if a.endswith("-base.png")]
+    )
+    for tag, p in strict_assets:
+        if (ROOT / p).exists():
+            cases.append({"id": f"strict-{tag}-model", "kind": "strictaudit", "asset": p,
+                          "mode": "model", "params": {"use_model": "1"}})
+            cases.append({"id": f"strict-{tag}-classic", "kind": "strictaudit", "asset": p,
+                          "mode": "classic", "params": {"colors": "8", "detail": "50", "smoothness": "50"}})
 
     # N. corresponding visible SVGs for every generated asset (§30 test-assets/svg/)
     for a in gen_assets:

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-<path d="M0 0 C3.125 -0.1875 3.125 -0.1875 6 0 C6 3.63 6 7.26 6 11 C3.125 11.125 3.125 11.125 0 11 C-2 9 -2 9 -2.25 6.0625 C-2 3 -2 3 0 0 Z " fill="#2AB364" transform="translate(86,126)" stroke="#2AB364" stroke-width="2"/>
+<svg data-engine="binary-alpha-mono" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<path d="M0 0 C0.66 0 1.32 0 2 0 C2 2.31 2 4.62 2 7 C0.68 6.34 -0.64 5.68 -2 5 C-1.34 3.35 -0.68 1.7 0 0 Z " fill="#2AB263" transform="translate(88,128)" stroke="#2AB263" stroke-width="2"/>
 </svg>

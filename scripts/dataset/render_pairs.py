@@ -29,8 +29,15 @@ from PIL import Image, ImageFilter  # noqa: E402
 
 import urllib.request  # noqa: E402
 
-OUT_LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 300
-BLUR_CAP = int(sys.argv[3]) if len(sys.argv) > 3 else 0  # 0 = all pairs get blur/jpeg §8 variants
+def _argv_int(i: int, default: int) -> int:
+    try:
+        return int(sys.argv[i]) if len(sys.argv) > i else default
+    except (ValueError, IndexError):
+        return default  # importing scripts may carry foreign args (e.g. --workers)
+
+
+OUT_LIMIT = _argv_int(1, 300)
+BLUR_CAP = _argv_int(3, 0)  # 0 = all pairs get blur/jpeg §8 variants
 CELL_CSS = lambda cell: f"display:flex;align-items:center;justify-content:center;width:{cell}px;height:{cell}px"  # noqa: E731
 
 
