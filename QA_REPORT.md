@@ -128,6 +128,20 @@ not prove the drop overlay (a11y DnD limitation — noted, not a defect).
 other overlay closed on Esc — added to the central handler
 (`app/static/app.js`), re-verified PASS.
 
+**Top-10 gallery finding (round 6b):** `qa/top_gallery.py` renders the 10"
+best rows from the live 100-image proof report (INPUT | MODEL | CLASSIC
+tiles, `qa/screenshots/top10/top10_gallery*.png`). Visual inspection exposes
+**score-metric blind spots**, not vectorizer regressions: (a) near-empty
+canvases (opaque < 1%) can score 100 with 0-path outputs — empty-vs-empty is
+padded by the silhouette score (rows test_002/test_022/test_027, flagged
+`empty_canvas_risk` in the gallery index); (b) on very small simple inputs
+(e.g. test_037 CLOUD text, test_042) the coarse scorer (sample step 6)
+tolerates visible simplification while reporting 100. Scores remain stable
+as a relative metric, but an absolute 100 does not mean pixel-perfect
+reproduction on low-content inputs. *Follow-up:* complement silhouette/edge
+score with a content-weighted metric (opaque-penalty) — deliberately NOT
+done to avoid destabilizing the active forever-training scorer mid-run.
+
 **Round 6 additions:** Heroicons fifth family (1,282 icons after 6 md5 dupes, MIT);
 VERDICT FEEDBACK LOOP CLOSED: `model/verdicts.py` reads proof-page
 verdicts.jsonl and up-weights 'bad' records x2 / softens 'good' x0.7 inside
