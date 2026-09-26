@@ -219,18 +219,31 @@ def gen_degraded(counts: dict):
 # ------------------------------------------------------- dataset scoring
 def extend_dataset(counts: dict):
     """Score up to SCORE_CHUNK new images and append to dataset.json."""
+    import os
     from model.dataset import build_dataset
     dj = DATA / "dataset.json"
     try:
         recs = json.loads(dj.read_text()) if dj.exists() else []
     except Exception:
         recs = []
+    # never train on phantom records: drop entries whose pixels are gone
+    # (sandbox resets wipe gitignored corpus dirs; only real pixels may back
+    # a record). Seed-namespaced names can be resurrected with
+    # scripts/regen_pixels.py.
+    recs = [r for r in recs if r.get("path") and
+            (Path(r["path"]).exists() or (ROOT / r["path"]).exists())]
+    # user-approved reference records are precious and tiny: they must never
+    # be evicted by the rolling window below (window guard keeps them).
+    ref = [r for r in recs if r.get("scored_against") == "absolute_test_svg_render"]
+    recs = ref + [r for r in recs
+                  if r.get("scored_against") != "absolute_test_svg_render"]
     known = {r["name"] for r in recs}
     all_imgs = []
     for d in DIRS_ALL:
         all_imgs += sorted((DATA / d).glob("*.png"))
     todo = [p for p in all_imgs if p.name not in known]  # r["name"] carries the extension
     if not todo:
+        dj.write_text(json.dumps(recs))  # still persist the phantom-filter pass
         return len(recs)
     chunk = todo[:SCORE_CHUNK]
     before = len(chunk)
@@ -239,7 +252,7 @@ def extend_dataset(counts: dict):
     # build_dataset rewrites dataset.json including only the chunk; merge
     recs += new_recs
     if len(recs) > DATASET_CAP:
-        recs = recs[:482] + recs[-(DATASET_CAP - 482):]
+        recs = ref + recs[len(ref):482] + recs[-(DATASET_CAP - 482):]
     dj.write_text(json.dumps(recs))
     # persist this chunk as a committed part (wipe insurance)
     PARTS.mkdir(parents=True, exist_ok=True)
