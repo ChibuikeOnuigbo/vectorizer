@@ -104,7 +104,7 @@ def main() -> None:
         engine = e.get("engine", "")
         left = (f'<div class="box check"><img loading="lazy" src="{input_rel}"></div>' if input_rel
                 else '<div class="box check"><img loading="lazy" src="' + svg_f + '" alt=""></div>')
-        cards.append(f'''<div class="card" id="{e["id"]}">
+        cards.append(f'''<div class="card" id="{e["id"]}" data-verdict="{verdict}">
 <div class="pair">{left}<div class="box check"><img loading="lazy" src="{svg_f}"></div></div>
 <div class="meta"><span class="badge {verdict}">{verdict} {pct}%</span>
 <span class="name" title="{html.escape(title)}">{e["id"]} · {html.escape(title)}</span></div>
@@ -114,18 +114,43 @@ def main() -> None:
     ladder_html, ladder_meta = ladder_cards()
     idx["ladder"] = ladder_meta
     (OUT / "index.json").write_text(json.dumps(idx, indent=1))
+    # teal convergence history strip (append-only, honest trend)
+    hist_html = ""
+    hist_path = OUT / "teal_history.jsonl"
+    if hist_path.exists():
+        rows = [json.loads(l) for l in hist_path.read_text().splitlines() if l.strip()]
+        pts = " → ".join(f'{r["vs_reference"]}% <sub>({r.get("steps_total","?")} steps)</sub>'
+                         for r in rows[-8:])
+        hist_html = (f'<div class="sub" style="font-size:14px;color:#ffd98a">'
+                     f'teal vs-reference trend → target 100%: {pts}</div>')
     page = f"""<!doctype html><meta charset="utf-8">
 <title>model_result — fresh model outputs (strict-audited)</title>
 <style>{CSS}
-.fit{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:28px}}</style>
+.fit{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:28px}}
+.filters{{margin:10px 0 16px}} .filters button{{background:#1d2290;border:1px solid #2a2f3a;color:#e8eaed;
+border-radius:16px;padding:4px 14px;margin-right:6px;cursor:pointer;font-size:12px}}
+.filters button.on{{background:#8ab4f8;color:#0f1115;font-weight:700}}</style>
 <h1>model_result/ — {n_pass} PASS · {n_weak} WEAK · {n_fail} FAIL over {len(cards)} rows</h1>
 <div class="sub">Generated {idx.get("generated_utc","?")} · refreshed against live code ·
 strict audit authority qa/similarity_audit.py ·
 <a href="index.json">index.json</a> · <a href="README.md">README</a></div>
+{hist_html}
 <h2 style="font-size:15px;color:#c9cdd4">Teal-orbit ladder — engines vs your approved reference</h2>
 <div class="fit">{ladder_html}</div>
-<h2 style="font-size:15px;color:#c9cdd4">Full sweep (every test asset, model mode)</h2>
+<h2 style="font-size:15px;color:#c9cdd4">Full sweep (test assets + fresh trainer corpus, model mode)</h2>
+<div class="filters">
+<button class="on" onclick="f('all',this)">all {len(cards)}</button>
+<button onclick="f('PASS',this)">PASS {n_pass}</button>
+<button onclick="f('WEAK',this)">WEAK {n_weak}</button>
+<button onclick="f('FAIL',this)">FAIL {n_fail}</button></div>
 <div class="grid">{''.join(cards)}</div>
+<script>
+function f(v,btn){{
+document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));
+btn.classList.add('on');
+document.querySelectorAll('.card[data-verdict]').forEach(c=>{{
+c.style.display=(v==='all'||c.dataset.verdict===v)?'':'none';}});}}
+</script>
 """
     (OUT / "index.html").write_text(page)
     print(f"index.html written: {len(cards)} cards -> {OUT}/index.html")

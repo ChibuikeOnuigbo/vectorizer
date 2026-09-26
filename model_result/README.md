@@ -35,7 +35,8 @@ Re-run after every engine or model-weights change to see the current truth.
 
 ## Current state (2026-09-26)
 
-- 199 outputs + reference. Honest split: **24 PASS / 9 WEAK / 16 FAIL**.
+- 399 outputs + reference. Honest split: **143 PASS / 137 WEAK / 120 FAIL** (400 rows incl.
+  reference; test-assets 75/66/61 + fresh trainer corpus 67/71/59)
 - Teal-orbit logo: 87.0% vs input, **86.0% vs reference** (binary-alpha-mono
   route). The remaining gap to the 97% reference is engine capability
   (multi-tone halo reproduction), which the visual-training loop is targeting.

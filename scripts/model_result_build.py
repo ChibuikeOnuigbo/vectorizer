@@ -42,12 +42,26 @@ def ref_similarity(svg: str, ref_svg: str, w: int, h: int) -> float:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=50)
+    ap.add_argument("--corpus", type=int, default=0,
+                    help="also convert N fresh logos from the trainer corpus")
     args = ap.parse_args()
 
     user_pool = [ROOT / "test-assets/images/user-provided/teal-orbit-logo.png",
                  ROOT / "test-assets/images/user-provided/blue-bird-appicon.png"]
     gen_pool = sorted((ROOT / "test-assets/images/generated").glob("*.png"))
     pool = [p for p in user_pool if p.exists()] + gen_pool
+    if args.corpus:
+        import numpy as np
+        rng = np.random.default_rng(7)
+        data_dirs = [ROOT / "model/data/logos_notext", ROOT / "model/data/logos",
+                     ROOT / "model/data/logos_text", ROOT / "model/data/degraded"]
+        imgs = []
+        for d in data_dirs:
+            if d.exists():
+                imgs += sorted(d.glob("*.png"))
+        if imgs:
+            take = rng.choice(len(imgs), size=min(args.corpus, len(imgs)), replace=False)
+            pool += [imgs[i] for i in sorted(take)]
     pool = pool[: max(1, args.n - 1)]  # slot 0 reserved for absolute_test_svg
 
     OUT.mkdir(exist_ok=True)
@@ -91,6 +105,20 @@ def main() -> None:
               f"eng={entry['engine']} {name}", flush=True)
 
     (OUT / "index.json").write_text(json.dumps(index, indent=1))
+    # teal convergence history (visible training trend; honest numbers only)
+    teal = next((e for e in index["entries"] if e.get("id") == "mr-001"), None)
+    if teal:
+        hist_row = {"ts": index["generated_utc"],
+                    "vs_input": teal["strict_similarity_pct"],
+                    "vs_reference": teal.get("similarity_to_reference_pct")}
+        try:
+            prog = json.load(open("model_data_snapshot/forever-progress.json"))
+            hist_row["steps_total"] = prog.get("steps_total")
+            hist_row["best_val"] = round(prog.get("best_val", 0.0), 2)
+        except Exception:
+            pass
+        with open(OUT / "teal_history.jsonl", "a") as f:
+            f.write(json.dumps(hist_row) + "\n")
     n_ok = sum(1 for e in index["entries"] if e.get("status") == "OK")
     n_fail = sum(1 for e in index["entries"] if e.get("strict_verdict") == "FAIL")
     print(f"\nmodel_result/: {n_ok} outputs + reference; {n_fail} strict-FAIL "
