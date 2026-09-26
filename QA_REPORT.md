@@ -38,6 +38,43 @@ ink-merge budget in _flatten_colors is too aggressive for near-white
 palettes. Fix deferred (needs palette-merge policy redesign; candidate: cap
 merge distance by SSIM-aware reconstruction error rather than flat ink
 count). Tracked in TASK_STATE.next_steps.
+Round-8 probe: raising the ink budget (max_inks 3->8, now a real engine
+parameter) lifts the bird only to 58.9% (ssim 0.506->0.589, still FAIL) —
+merge distance, not budget, is the true constraint. Defect stays OPEN.
+
+## Round 8: user-approved reference + visual training loop (2026-09-26)
+
+- The user pasted the SVG of the uploaded teal-orbit logo made by an
+  external tool and approved it: "85% almost like the uploaded". Decoded and
+  stored as `model_result/absolute_test_svg.svg`. Strict audit measures it
+  at **97.0%** (mae 0.66, ssim12 0.986, silhouette IoU 0.970, edge F1 0.93)
+  — evidence: `qa/audits/absolute_test_svg/`.
+- **`model_result/` folder (visible deliverable):** up to 50 fresh
+  model-mode conversions with per-file strict scores, refreshed by
+  `scripts/model_result_build.py`. First profile: 24 PASS / 9 WEAK /
+  16 FAIL across 49 outputs; teal 87.0% vs input, **86.0% vs reference**
+  (the target metric the training loop must lift).
+- **Visual training toward the reference (no hard-coded params):**
+  `scripts/ref_train_records.py` scores candidate conversions of the
+  uploaded image (plus 7 degraded variants) pixel-for-pixel against the
+  reference render and inserts them into `model/data/dataset.json` (24
+  records, `scored_against: absolute_test_svg_render`). The forever-trainer
+  learns candidate choice from the visuals the user blessed; no filename-
+  or geometry-based special-casing anywhere.
+- **Engine probes (strict-measured, teal-orbit):** color-cutout (any
+  ink budget) 71.9%; NEW `_trace_alpha_tone_stack` engine (k-means tonal
+  bands incl. AA halo) 79.1%; binary-alpha 87.2% remains the auto route.
+  Tone-stack stays available as `engine=alpha-tone-stack`; its inner/outer
+  halo symmetric split is the next capability experiment.
+- `app/convert.py`: `max_inks` is now a clamped engine parameter (2..8)
+  plumbed into `_flatten_colors`; cutout route refactored into
+  `_trace_cutout` (no behavior change for default routes).
+- **Sandbox-reset durability fixes:** gitignored corpus pixels were wiped;
+  stale dataset records pointing at dead files were dropped (only the 24
+  ref records remained, which is honest data). make_logos filenames are
+  now seed-namespaced (regenerable), extend_dataset dedup bug
+  (stem-vs-name) fixed, forever_train now fills `img_feats_cache` itself
+  and creates `model/out` before checkpointing.
 
 # QA Report — Vectorizer (master directive pass 1)
 

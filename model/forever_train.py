@@ -229,7 +229,7 @@ def extend_dataset(counts: dict):
     all_imgs = []
     for d in DIRS_ALL:
         all_imgs += sorted((DATA / d).glob("*.png"))
-    todo = [p for p in all_imgs if p.stem not in known]
+    todo = [p for p in all_imgs if p.name not in known]  # r["name"] carries the extension
     if not todo:
         return len(recs)
     chunk = todo[:SCORE_CHUNK]
@@ -255,7 +255,8 @@ def train_chunk(prog: dict) -> tuple[int, float]:
     import numpy as np
     from PIL import Image
     from model.train import (init_net, train_round, soft_target, cheap_val,
-                             eval_model, forward, targets_to_params, FEATURE_DIM)
+                             eval_model, forward, targets_to_params, FEATURE_DIM,
+                             img_feats_cache)
     rng = np.random.default_rng(int(time.time()))
     records = json.loads((DATA / "dataset.json").read_text())
     if len(records) > 2500:
@@ -286,6 +287,7 @@ def train_chunk(prog: dict) -> tuple[int, float]:
         except Exception:
             continue
         t = soft_target(r["candidates"])
+        img_feats_cache[r.get("name", "")] = f
         if i in val_idx:
             val_X.append(f); val_T.append(t)
             val_imgs.append((r["name"], Image.open(rpath).convert("RGBA")))
@@ -319,6 +321,7 @@ def train_chunk(prog: dict) -> tuple[int, float]:
     prev_best = float(prog.get("best_val", 0.0))
     if val_score >= prev_best - 0.1:  # save near-best always for continuity
         W1, b1, W2, b2, W3, b3, W4, b4 = net
+        OUT.mkdir(parents=True, exist_ok=True)
         np.savez(npz, W1=W1, b1=b1, W2=W2, b2=b2, W3=W3, b3=b3, W4=W4, b4=b4,
                  feature_dim=np.array(FEATURE_DIM),
                  val_score=np.array(val_score), best_tag=np.array("forever"))

@@ -291,7 +291,7 @@ def main():
     os.makedirs(args.out, exist_ok=True)
     rng = random.Random(args.seed)
     for i in range(args.count):
-        make_logo(rng, i, no_text=args.no_text).save(f"{args.out}/logo_{i:04d}.png")
+        make_logo(rng, i, no_text=args.no_text).save(f"{args.out}/logo_e{args.seed}_{i:04d}.png")
     print(f"wrote {args.count} logos (no_text={args.no_text}) to {args.out}")
 
 if __name__ == "__main__":

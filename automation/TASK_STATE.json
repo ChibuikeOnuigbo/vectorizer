@@ -1,48 +1,59 @@
 {
-  "current_phase": "strict_gate_and_engine_route_round7",
-  "total_cases": 39797,
-  "remaining_cases": 0,
-  "current_mode": "convert-matrix",
-  "next_action": "commit push; round 8: bird palette-merge redesign (strict-user-bird 50.6% FAIL - near-white inks collapse into white in _flatten_colors); then Material Symbols family to cross 100k",
-  "last_checkpoint": "2026-09-26 08:44:00",
-  "completed_cases": 39797,
-  "last_successful_case": "strict-gen-23-base-classic",
-  "qa_count": 39797,
-  "pair_count": 86611,
-  "dataset_count": 99187,
-  "near_dup": {
-    "hashed": 80157,
-    "groups": 12228,
-    "edges": 86696,
-    "file": "test-assets/near_dup.json"
+ "current_phase": "visual_reference_training_round8",
+ "total_cases": 39797,
+ "remaining_cases": 0,
+ "current_mode": "convert-matrix",
+ "next_action": "round 9: bird palette-merge redesign (58.9% after ink budget, still FAIL); tone-stack inner/outer halo split to close teal 87 -> 97 gap toward absolute_test_svg; let forever-trainer rebuild corpus + params.npz (sandbox wiped pixels), then refresh model_result/",
+ "last_checkpoint": "2026-09-26 08:44:00",
+ "completed_cases": 39797,
+ "last_successful_case": "strict-gen-23-base-classic",
+ "qa_count": 39797,
+ "pair_count": 86611,
+ "dataset_count": 99187,
+ "near_dup": {
+  "hashed": 80157,
+  "groups": 12228,
+  "edges": 86696,
+  "file": "test-assets/near_dup.json"
+ },
+ "finalpass": "7/7 PASS incl Esc-closes-AI-modal fix verified live",
+ "guard": "render_pairs argv now hardened; always install websocket-client after wipe",
+ "families": {
+  "fontawesome": 951,
+  "lucide": 1842,
+  "bootstrap": 2078,
+  "tabler": 6220,
+  "hero": 1282
+ },
+ "pixel_audit": {
+  "cases": 12373,
+  "avg": 95.2,
+  "p05": 86.1,
+  "min": 70.7
+ },
+ "verdicts_loop": "model/verdicts.py consumed by forever_train.train_chunk (bad x2, good x0.7); live log line appears on next chunk after trainer restart",
+ "strict_gate": {
+  "cases": 52,
+  "PASS": 18,
+  "WEAK": 28,
+  "FAIL": 6,
+  "fails": [
+   "strict-user-bird-model 50.6",
+   "strict-user-bird-classic 50.7",
+   "strict-gen-02-base 68.3 x2",
+   "strict-gen-04-base 64.0/64.9 x2"
+  ]
+ },
+ "engine_fix": "binary-alpha mono route in app/convert.py (teal-orbit 71.7->87.0 PASS on live API)",
+ "round8": {
+  "reference": "model_result/absolute_test_svg.svg (strict 97.0%, user-approved)",
+  "model_result": "49 fresh outputs + index.json; teal 87.0 vs input / 86.0 vs reference; 24P/9W/16F honest",
+  "visual_training": "scripts/ref_train_records.py: 24 ref-scored records in dataset.json (absolute_test_svg_render)",
+  "engine_probes": {
+   "binary": "87.2 PASS (auto route)",
+   "tone_stack": "79.1 (avail as engine=alpha-tone-stack)",
+   "cutout": "71.9"
   },
-  "finalpass": "7/7 PASS incl Esc-closes-AI-modal fix verified live",
-  "guard": "render_pairs argv now hardened; always install websocket-client after wipe",
-  "families": {
-    "fontawesome": 951,
-    "lucide": 1842,
-    "bootstrap": 2078,
-    "tabler": 6220,
-    "hero": 1282
-  },
-  "pixel_audit": {
-    "cases": 12373,
-    "avg": 95.2,
-    "p05": 86.1,
-    "min": 70.7
-  },
-  "verdicts_loop": "model/verdicts.py consumed by forever_train.train_chunk (bad x2, good x0.7); live log line appears on next chunk after trainer restart",
-  "strict_gate": {
-    "cases": 52,
-    "PASS": 18,
-    "WEAK": 28,
-    "FAIL": 6,
-    "fails": [
-      "strict-user-bird-model 50.6",
-      "strict-user-bird-classic 50.7",
-      "strict-gen-02-base 68.3 x2",
-      "strict-gen-04-base 64.0/64.9 x2"
-    ]
-  },
-  "engine_fix": "binary-alpha mono route in app/convert.py (teal-orbit 71.7->87.0 PASS on live API)"
+  "recovery": "sandbox wiped gitignored corpus pixels; stale records dropped; seed-namespaced naming + dedup + checkpoint fixes"
+ }
 }

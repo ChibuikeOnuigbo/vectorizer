@@ -1,0 +1,23 @@
+{
+ "input": "test-assets/images/user-provided/teal-orbit-logo.png",
+ "size": [
+  676,
+  369
+ ],
+ "engines": {
+  "absolute_test_svg": {
+   "visual_similarity_pct": 97.0,
+   "verdict": "PASS",
+   "mae": 0.66,
+   "ssim12": 0.9861,
+   "silhouette_iou": 0.9703,
+   "edge_f1": 0.9309,
+   "channel_notes": {
+    "f_mae": 0.9974,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou) * 100; edge_f1 diagnostic only"
+   },
+   "svg_bytes": 17810
+  }
+ },
+ "composite": "qa/audits/absolute_test_svg/teal-orbit-logo_similarity.png"
+}
