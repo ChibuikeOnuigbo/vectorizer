@@ -4,6 +4,12 @@ Up to 50 **fresh** model-mode ("Use model") conversion results, regenerated
 against live code, each with an honest strict-similarity score (no inflated
 100s — the QA authority is `qa/similarity_audit.py`).
 
+## View it
+
+Open in your browser (app preview host):
+**`/model_result/index.html`** — side-by-side input vs model SVG with verdict
+badges for all 50 rows (regenerate with `scripts/model_result_gallery.py`).
+
 ## Files
 
 - `absolute_test_svg.svg` — the reference SVG the user approved as "85% almost

@@ -1,0 +1,274 @@
+<!doctype html><meta charset="utf-8">
+<title>model_result — fresh model outputs (strict-audited)</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;margin:24px;background:#0f1115;color:#e8eaed}
+h1{font-size:20px} .sub{color:#9aa0a6;font-size:13px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+.card{background:#171a21;border:1px solid #2a2f3a;border-radius:10px;padding:12px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.box{background:#fff;border-radius:8px;min-height:140px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.box img{max-width:100%;max-height:180px}
+.box.check{background-image:linear-gradient(45deg,#ddd 25%,transparent 25%,transparent 75%,#ddd 75%),linear-gradient(45deg,#ddd 25%,transparent 25%,transparent 75%,#ddd 75%);background-size:16px 16px;background-position:0 0,8px 8px}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px}
+.badge{font-weight:700;padding:3px 10px;border-radius:12px;font-size:12px}
+.PASS{background:#134e2e;color:#9ff5c0}.WEAK{background:#5c4408;color:#ffd98a}.FAIL{background:#5c1616;color:#ffb4b4}
+small{color:#9aa0a6;display:block;margin-top:4px;font-size:11px}
+a{color:#8ab4f8;text-decoration:none}
+.name{font-size:12px;color:#c9cdd4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px}
+</style>
+<h1>model_result/ — 25 PASS · 9 WEAK · 16 FAIL</h1>
+<div class="sub">Generated 2026-09-26T14:14:50Z · refreshed against live code ·
+strict audit authority qa/similarity_audit.py ·
+<a href="index.json">index.json</a> · <a href="README.md">README</a> ·
+row 01 = <b>absolute_test_svg.svg</b> (your approved reference, 97.0% strict) </div>
+<div class="grid"><div class="card" id="mr-000">
+<div class="pair"><div class="box check"><img src="absolute_test_svg.svg" alt=""></div><div class="box check"><img src="absolute_test_svg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 97.0%</span>
+<span class="name" title="REFERENCE (approved by you)">mr-000 · REFERENCE (approved by you)</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: reference<br></small>
+</div><div class="card" id="mr-001">
+<div class="pair"><div class="box check"><img src="inputs/teal-orbit-logo.png"></div><div class="box check"><img src="mr-001-teal-orbit-logo.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 87.0%</span>
+<span class="name" title="teal-orbit-logo.png">mr-001 · teal-orbit-logo.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono · vs reference <b>86.0%</b><br>mae 2.51, ssim 0.9441, iou 0.8704</small>
+</div><div class="card" id="mr-002">
+<div class="pair"><div class="box check"><img src="inputs/blue-bird-appicon.png"></div><div class="box check"><img src="mr-002-blue-bird-appicon.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 50.6%</span>
+<span class="name" title="blue-bird-appicon.png">mr-002 · blue-bird-appicon.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 4.77, ssim 0.506, iou 0.9311</small>
+</div><div class="card" id="mr-003">
+<div class="pair"><div class="box check"><img src="inputs/edge-1x1.png"></div><div class="box check"><img src="mr-003-edge-1x1.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 0.0%</span>
+<span class="name" title="edge-1x1.png">mr-003 · edge-1x1.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 255.0, ssim 0.0, iou 0.0</small>
+</div><div class="card" id="mr-004">
+<div class="pair"><div class="box check"><img src="inputs/edge-aspect-wide.png"></div><div class="box check"><img src="mr-004-edge-aspect-wide.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 94.8%</span>
+<span class="name" title="edge-aspect-wide.png">mr-004 · edge-aspect-wide.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 2.99, ssim 0.9482, iou 1.0</small>
+</div><div class="card" id="mr-005">
+<div class="pair"><div class="box check"><img src="inputs/edge-big1024.png"></div><div class="box check"><img src="mr-005-edge-big1024.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 86.6%</span>
+<span class="name" title="edge-big1024.png">mr-005 · edge-big1024.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 16.0, ssim 0.8659, iou 0.9984</small>
+</div><div class="card" id="mr-006">
+<div class="pair"><div class="box check"><img src="inputs/edge-flat-color.png"></div><div class="box check"><img src="mr-006-edge-flat-color.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 100.0%</span>
+<span class="name" title="edge-flat-color.png">mr-006 · edge-flat-color.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 0.0, ssim 1.0, iou 1.0</small>
+</div><div class="card" id="mr-007">
+<div class="pair"><div class="box check"><img src="inputs/edge-text.png"></div><div class="box check"><img src="mr-007-edge-text.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 79.8%</span>
+<span class="name" title="edge-text.png">mr-007 · edge-text.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 0.2, ssim 0.9929, iou 0.7982</small>
+</div><div class="card" id="mr-008">
+<div class="pair"><div class="box check"><img src="inputs/edge-thin-strokes.png"></div><div class="box check"><img src="mr-008-edge-thin-strokes.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 47.6%</span>
+<span class="name" title="edge-thin-strokes.png">mr-008 · edge-thin-strokes.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 16.84, ssim 0.4759, iou 1.0</small>
+</div><div class="card" id="mr-009">
+<div class="pair"><div class="box check"><img src="inputs/edge-transparent.png"></div><div class="box check"><img src="mr-009-edge-transparent.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 100.0%</span>
+<span class="name" title="edge-transparent.png">mr-009 · edge-transparent.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 0.0, ssim 1.0, iou 1.0</small>
+</div><div class="card" id="mr-010">
+<div class="pair"><div class="box check"><img src="inputs/gauntlet-x1024.png"></div><div class="box check"><img src="mr-010-gauntlet-x1024.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 79.2%</span>
+<span class="name" title="gauntlet-x1024.png">mr-010 · gauntlet-x1024.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 18.3, ssim 0.7922, iou 1.0</small>
+</div><div class="card" id="mr-011">
+<div class="pair"><div class="box check"><img src="inputs/gen-00-base.png"></div><div class="box check"><img src="mr-011-gen-00-base.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 91.2%</span>
+<span class="name" title="gen-00-base.png">mr-011 · gen-00-base.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 0.64, ssim 0.9739, iou 0.9124</small>
+</div><div class="card" id="mr-012">
+<div class="pair"><div class="box check"><img src="inputs/gen-00blur.png"></div><div class="box check"><img src="mr-012-gen-00blur.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 90.7%</span>
+<span class="name" title="gen-00blur.png">mr-012 · gen-00blur.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 1.2, ssim 0.9475, iou 0.9071</small>
+</div><div class="card" id="mr-013">
+<div class="pair"><div class="box check"><img src="inputs/gen-00darkbg.png"></div><div class="box check"><img src="mr-013-gen-00darkbg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 97.3%</span>
+<span class="name" title="gen-00darkbg.png">mr-013 · gen-00darkbg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 0.42, ssim 0.973, iou 1.0</small>
+</div><div class="card" id="mr-014">
+<div class="pair"><div class="box check"><img src="inputs/gen-00downscale32.png"></div><div class="box check"><img src="mr-014-gen-00downscale32.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 59.0%</span>
+<span class="name" title="gen-00downscale32.png">mr-014 · gen-00downscale32.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 4.79, ssim 0.5904, iou 0.7364</small>
+</div><div class="card" id="mr-015">
+<div class="pair"><div class="box check"><img src="inputs/gen-00gray.png"></div><div class="box check"><img src="mr-015-gen-00gray.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 97.2%</span>
+<span class="name" title="gen-00gray.png">mr-015 · gen-00gray.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 0.59, ssim 0.9719, iou 1.0</small>
+</div><div class="card" id="mr-016">
+<div class="pair"><div class="box check"><img src="inputs/gen-00jpeg.jpg.png"></div><div class="box check"><img src="mr-016-gen-00jpeg.jpg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 93.2%</span>
+<span class="name" title="gen-00jpeg.jpg.png">mr-016 · gen-00jpeg.jpg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 1.2, ssim 0.9323, iou 1.0</small>
+</div><div class="card" id="mr-017">
+<div class="pair"><div class="box check"><img src="inputs/gen-00noise.png"></div><div class="box check"><img src="mr-017-gen-00noise.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 91.2%</span>
+<span class="name" title="gen-00noise.png">mr-017 · gen-00noise.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 0.89, ssim 0.9362, iou 0.9124</small>
+</div><div class="card" id="mr-018">
+<div class="pair"><div class="box check"><img src="inputs/gen-00rot.png"></div><div class="box check"><img src="mr-018-gen-00rot.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 93.4%</span>
+<span class="name" title="gen-00rot.png">mr-018 · gen-00rot.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 0.5, ssim 0.9809, iou 0.9336</small>
+</div><div class="card" id="mr-019">
+<div class="pair"><div class="box check"><img src="inputs/gen-01-base.png"></div><div class="box check"><img src="mr-019-gen-01-base.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 85.3%</span>
+<span class="name" title="gen-01-base.png">mr-019 · gen-01-base.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 2.48, ssim 0.8936, iou 0.8531</small>
+</div><div class="card" id="mr-020">
+<div class="pair"><div class="box check"><img src="inputs/gen-01blur.png"></div><div class="box check"><img src="mr-020-gen-01blur.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 86.3%</span>
+<span class="name" title="gen-01blur.png">mr-020 · gen-01blur.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 3.66, ssim 0.8768, iou 0.8634</small>
+</div><div class="card" id="mr-021">
+<div class="pair"><div class="box check"><img src="inputs/gen-01darkbg.png"></div><div class="box check"><img src="mr-021-gen-01darkbg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 87.6%</span>
+<span class="name" title="gen-01darkbg.png">mr-021 · gen-01darkbg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 1.14, ssim 0.8765, iou 1.0</small>
+</div><div class="card" id="mr-022">
+<div class="pair"><div class="box check"><img src="inputs/gen-01downscale32.png"></div><div class="box check"><img src="mr-022-gen-01downscale32.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 54.1%</span>
+<span class="name" title="gen-01downscale32.png">mr-022 · gen-01downscale32.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 20.41, ssim 0.5929, iou 0.5409</small>
+</div><div class="card" id="mr-023">
+<div class="pair"><div class="box check"><img src="inputs/gen-01gray.png"></div><div class="box check"><img src="mr-023-gen-01gray.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 0.3%</span>
+<span class="name" title="gen-01gray.png">mr-023 · gen-01gray.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 17.18, ssim 0.0033, iou 1.0</small>
+</div><div class="card" id="mr-024">
+<div class="pair"><div class="box check"><img src="inputs/gen-01jpeg.jpg.png"></div><div class="box check"><img src="mr-024-gen-01jpeg.jpg.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 83.9%</span>
+<span class="name" title="gen-01jpeg.jpg.png">mr-024 · gen-01jpeg.jpg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 2.45, ssim 0.8387, iou 1.0</small>
+</div><div class="card" id="mr-025">
+<div class="pair"><div class="box check"><img src="inputs/gen-01noise.png"></div><div class="box check"><img src="mr-025-gen-01noise.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 85.3%</span>
+<span class="name" title="gen-01noise.png">mr-025 · gen-01noise.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 2.83, ssim 0.8858, iou 0.8531</small>
+</div><div class="card" id="mr-026">
+<div class="pair"><div class="box check"><img src="inputs/gen-01rot.png"></div><div class="box check"><img src="mr-026-gen-01rot.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 90.6%</span>
+<span class="name" title="gen-01rot.png">mr-026 · gen-01rot.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 1.47, ssim 0.9526, iou 0.9055</small>
+</div><div class="card" id="mr-027">
+<div class="pair"><div class="box check"><img src="inputs/gen-02-base.png"></div><div class="box check"><img src="mr-027-gen-02-base.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 68.3%</span>
+<span class="name" title="gen-02-base.png">mr-027 · gen-02-base.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.99, ssim 0.8107, iou 0.6835</small>
+</div><div class="card" id="mr-028">
+<div class="pair"><div class="box check"><img src="inputs/gen-02blur.png"></div><div class="box check"><img src="mr-028-gen-02blur.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 85.6%</span>
+<span class="name" title="gen-02blur.png">mr-028 · gen-02blur.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 7.38, ssim 0.8558, iou 0.9402</small>
+</div><div class="card" id="mr-029">
+<div class="pair"><div class="box check"><img src="inputs/gen-02darkbg.png"></div><div class="box check"><img src="mr-029-gen-02darkbg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 87.8%</span>
+<span class="name" title="gen-02darkbg.png">mr-029 · gen-02darkbg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 4.39, ssim 0.8784, iou 1.0</small>
+</div><div class="card" id="mr-030">
+<div class="pair"><div class="box check"><img src="inputs/gen-02downscale32.png"></div><div class="box check"><img src="mr-030-gen-02downscale32.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 32.0%</span>
+<span class="name" title="gen-02downscale32.png">mr-030 · gen-02downscale32.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 29.74, ssim 0.3198, iou 0.3927</small>
+</div><div class="card" id="mr-031">
+<div class="pair"><div class="box check"><img src="inputs/gen-02gray.png"></div><div class="box check"><img src="mr-031-gen-02gray.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 8.4%</span>
+<span class="name" title="gen-02gray.png">mr-031 · gen-02gray.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.5, ssim 0.0837, iou 1.0</small>
+</div><div class="card" id="mr-032">
+<div class="pair"><div class="box check"><img src="inputs/gen-02jpeg.jpg.png"></div><div class="box check"><img src="mr-032-gen-02jpeg.jpg.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 84.8%</span>
+<span class="name" title="gen-02jpeg.jpg.png">mr-032 · gen-02jpeg.jpg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.52, ssim 0.8476, iou 1.0</small>
+</div><div class="card" id="mr-033">
+<div class="pair"><div class="box check"><img src="inputs/gen-02noise.png"></div><div class="box check"><img src="mr-033-gen-02noise.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 69.0%</span>
+<span class="name" title="gen-02noise.png">mr-033 · gen-02noise.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 6.41, ssim 0.7775, iou 0.69</small>
+</div><div class="card" id="mr-034">
+<div class="pair"><div class="box check"><img src="inputs/gen-02rot.png"></div><div class="box check"><img src="mr-034-gen-02rot.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 70.9%</span>
+<span class="name" title="gen-02rot.png">mr-034 · gen-02rot.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.45, ssim 0.8656, iou 0.7086</small>
+</div><div class="card" id="mr-035">
+<div class="pair"><div class="box check"><img src="inputs/gen-03-base.png"></div><div class="box check"><img src="mr-035-gen-03-base.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 75.2%</span>
+<span class="name" title="gen-03-base.png">mr-035 · gen-03-base.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 6.62, ssim 0.8622, iou 0.7518</small>
+</div><div class="card" id="mr-036">
+<div class="pair"><div class="box check"><img src="inputs/gen-03blur.png"></div><div class="box check"><img src="mr-036-gen-03blur.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 87.9%</span>
+<span class="name" title="gen-03blur.png">mr-036 · gen-03blur.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.94, ssim 0.8789, iou 0.9513</small>
+</div><div class="card" id="mr-037">
+<div class="pair"><div class="box check"><img src="inputs/gen-03darkbg.png"></div><div class="box check"><img src="mr-037-gen-03darkbg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 90.5%</span>
+<span class="name" title="gen-03darkbg.png">mr-037 · gen-03darkbg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 3.12, ssim 0.905, iou 1.0</small>
+</div><div class="card" id="mr-038">
+<div class="pair"><div class="box check"><img src="inputs/gen-03downscale32.png"></div><div class="box check"><img src="mr-038-gen-03downscale32.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 61.9%</span>
+<span class="name" title="gen-03downscale32.png">mr-038 · gen-03downscale32.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: binary-alpha-mono<br>mae 11.93, ssim 0.6194, iou 0.7621</small>
+</div><div class="card" id="mr-039">
+<div class="pair"><div class="box check"><img src="inputs/gen-03gray.png"></div><div class="box check"><img src="mr-039-gen-03gray.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 90.5%</span>
+<span class="name" title="gen-03gray.png">mr-039 · gen-03gray.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 3.45, ssim 0.9049, iou 1.0</small>
+</div><div class="card" id="mr-040">
+<div class="pair"><div class="box check"><img src="inputs/gen-03jpeg.jpg.png"></div><div class="box check"><img src="mr-040-gen-03jpeg.jpg.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 81.4%</span>
+<span class="name" title="gen-03jpeg.jpg.png">mr-040 · gen-03jpeg.jpg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 4.39, ssim 0.8135, iou 1.0</small>
+</div><div class="card" id="mr-041">
+<div class="pair"><div class="box check"><img src="inputs/gen-03noise.png"></div><div class="box check"><img src="mr-041-gen-03noise.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 75.2%</span>
+<span class="name" title="gen-03noise.png">mr-041 · gen-03noise.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 7.27, ssim 0.7621, iou 0.7518</small>
+</div><div class="card" id="mr-042">
+<div class="pair"><div class="box check"><img src="inputs/gen-03rot.png"></div><div class="box check"><img src="mr-042-gen-03rot.svg"></div></div>
+<div class="meta"><span class="badge WEAK">WEAK 76.5%</span>
+<span class="name" title="gen-03rot.png">mr-042 · gen-03rot.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.08, ssim 0.8848, iou 0.7652</small>
+</div><div class="card" id="mr-043">
+<div class="pair"><div class="box check"><img src="inputs/gen-04-base.png"></div><div class="box check"><img src="mr-043-gen-04-base.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 64.9%</span>
+<span class="name" title="gen-04-base.png">mr-043 · gen-04-base.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 6.39, ssim 0.8362, iou 0.6491</small>
+</div><div class="card" id="mr-044">
+<div class="pair"><div class="box check"><img src="inputs/gen-04blur.png"></div><div class="box check"><img src="mr-044-gen-04blur.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 86.0%</span>
+<span class="name" title="gen-04blur.png">mr-044 · gen-04blur.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 6.48, ssim 0.8596, iou 0.9336</small>
+</div><div class="card" id="mr-045">
+<div class="pair"><div class="box check"><img src="inputs/gen-04darkbg.png"></div><div class="box check"><img src="mr-045-gen-04darkbg.svg"></div></div>
+<div class="meta"><span class="badge PASS">PASS 86.0%</span>
+<span class="name" title="gen-04darkbg.png">mr-045 · gen-04darkbg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 4.9, ssim 0.8601, iou 1.0</small>
+</div><div class="card" id="mr-046">
+<div class="pair"><div class="box check"><img src="inputs/gen-04downscale32.png"></div><div class="box check"><img src="mr-046-gen-04downscale32.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 34.4%</span>
+<span class="name" title="gen-04downscale32.png">mr-046 · gen-04downscale32.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 34.4, ssim 0.3517, iou 0.3435</small>
+</div><div class="card" id="mr-047">
+<div class="pair"><div class="box check"><img src="inputs/gen-04gray.png"></div><div class="box check"><img src="mr-047-gen-04gray.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 0.1%</span>
+<span class="name" title="gen-04gray.png">mr-047 · gen-04gray.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 15.18, ssim 0.0012, iou 1.0</small>
+</div><div class="card" id="mr-048">
+<div class="pair"><div class="box check"><img src="inputs/gen-04jpeg.jpg.png"></div><div class="box check"><img src="mr-048-gen-04jpeg.jpg.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 58.2%</span>
+<span class="name" title="gen-04jpeg.jpg.png">mr-048 · gen-04jpeg.jpg.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 5.74, ssim 0.5823, iou 1.0</small>
+</div><div class="card" id="mr-049">
+<div class="pair"><div class="box check"><img src="inputs/gen-04noise.png"></div><div class="box check"><img src="mr-049-gen-04noise.svg"></div></div>
+<div class="meta"><span class="badge FAIL">FAIL 64.7%</span>
+<span class="name" title="gen-04noise.png">mr-049 · gen-04noise.png</span></div>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: ?<br>mae 6.8, ssim 0.8247, iou 0.6472</small>
+</div></div>

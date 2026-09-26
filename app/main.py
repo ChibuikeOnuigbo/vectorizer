@@ -166,6 +166,13 @@ async def ai_vectorize_endpoint(
 
 
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
+# Browsable fresh model outputs (user-requested visibility): reference
+# absolute_test_svg + up to 50 current model-mode results with strict scores,
+# regenerable via scripts/model_result_build.py + model_result_gallery.py
+_MODEL_RESULT_DIR = BASE.parent / "model_result"
+_MODEL_RESULT_DIR.mkdir(exist_ok=True)
+app.mount("/model_result", StaticFiles(directory=_MODEL_RESULT_DIR, html=True),
+          name="model_result")
 
 
 # ============ MANUAL TRAINING & DEBUG VETTING (very strict) ============

@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-09-26T10:21:43Z",
+ "generated_utc": "2026-09-26T14:14:50Z",
  "reference": "absolute_test_svg.svg",
  "entries": [
   {
@@ -24,7 +24,7 @@
     "edge_f1": 0.6207
    },
    "svg_bytes": 12951,
-   "convert_ms": 137,
+   "convert_ms": 151,
    "similarity_to_reference_pct": 86.0
   },
   {
@@ -42,7 +42,7 @@
     "edge_f1": 0.556
    },
    "svg_bytes": 10477,
-   "convert_ms": 67
+   "convert_ms": 53
   },
   {
    "id": "mr-003",
@@ -59,7 +59,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 215,
-   "convert_ms": 4
+   "convert_ms": 3
   },
   {
    "id": "mr-004",
@@ -76,7 +76,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 334,
-   "convert_ms": 25
+   "convert_ms": 22
   },
   {
    "id": "mr-005",
@@ -93,7 +93,7 @@
     "edge_f1": 0.5247
    },
    "svg_bytes": 23340,
-   "convert_ms": 587
+   "convert_ms": 529
   },
   {
    "id": "mr-006",
@@ -110,7 +110,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 310,
-   "convert_ms": 19
+   "convert_ms": 11
   },
   {
    "id": "mr-007",
@@ -127,7 +127,7 @@
     "edge_f1": 0.7808
    },
    "svg_bytes": 853,
-   "convert_ms": 62
+   "convert_ms": 60
   },
   {
    "id": "mr-008",
@@ -144,7 +144,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 334,
-   "convert_ms": 31
+   "convert_ms": 36
   },
   {
    "id": "mr-009",
@@ -161,7 +161,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 134,
-   "convert_ms": 14
+   "convert_ms": 11
   },
   {
    "id": "mr-010",
@@ -178,7 +178,7 @@
     "edge_f1": 0.5635
    },
    "svg_bytes": 33419,
-   "convert_ms": 335
+   "convert_ms": 285
   },
   {
    "id": "mr-011",
@@ -195,7 +195,7 @@
     "edge_f1": 0.6079
    },
    "svg_bytes": 995,
-   "convert_ms": 34
+   "convert_ms": 28
   },
   {
    "id": "mr-012",
@@ -212,7 +212,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 997,
-   "convert_ms": 33
+   "convert_ms": 29
   },
   {
    "id": "mr-013",
@@ -229,7 +229,7 @@
     "edge_f1": 0.6094
    },
    "svg_bytes": 1920,
-   "convert_ms": 27
+   "convert_ms": 17
   },
   {
    "id": "mr-014",
@@ -246,7 +246,7 @@
     "edge_f1": 0.7123
    },
    "svg_bytes": 435,
-   "convert_ms": 5
+   "convert_ms": 6
   },
   {
    "id": "mr-015",
@@ -263,7 +263,7 @@
     "edge_f1": 0.6108
    },
    "svg_bytes": 1920,
-   "convert_ms": 22
+   "convert_ms": 24
   },
   {
    "id": "mr-016",
@@ -280,7 +280,7 @@
     "edge_f1": 0.3921
    },
    "svg_bytes": 3169,
-   "convert_ms": 37
+   "convert_ms": 26
   },
   {
    "id": "mr-017",
@@ -297,7 +297,7 @@
     "edge_f1": 0.2748
    },
    "svg_bytes": 995,
-   "convert_ms": 33
+   "convert_ms": 34
   },
   {
    "id": "mr-018",
@@ -314,7 +314,7 @@
     "edge_f1": 0.6365
    },
    "svg_bytes": 1273,
-   "convert_ms": 47
+   "convert_ms": 41
   },
   {
    "id": "mr-019",
@@ -331,7 +331,7 @@
     "edge_f1": 0.58
    },
    "svg_bytes": 3892,
-   "convert_ms": 46
+   "convert_ms": 32
   },
   {
    "id": "mr-020",
@@ -365,7 +365,7 @@
     "edge_f1": 0.3891
    },
    "svg_bytes": 7608,
-   "convert_ms": 31
+   "convert_ms": 20
   },
   {
    "id": "mr-022",
@@ -382,7 +382,7 @@
     "edge_f1": 0.6419
    },
    "svg_bytes": 889,
-   "convert_ms": 6
+   "convert_ms": 5
   },
   {
    "id": "mr-023",
@@ -399,7 +399,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 334,
-   "convert_ms": 20
+   "convert_ms": 21
   },
   {
    "id": "mr-024",
@@ -450,7 +450,7 @@
     "edge_f1": 0.6946
    },
    "svg_bytes": 5264,
-   "convert_ms": 44
+   "convert_ms": 43
   },
   {
    "id": "mr-027",
@@ -467,7 +467,7 @@
     "edge_f1": 0.0127
    },
    "svg_bytes": 3629,
-   "convert_ms": 44
+   "convert_ms": 38
   },
   {
    "id": "mr-028",
@@ -484,7 +484,7 @@
     "edge_f1": 0.0155
    },
    "svg_bytes": 4400,
-   "convert_ms": 42
+   "convert_ms": 36
   },
   {
    "id": "mr-029",
@@ -501,7 +501,7 @@
     "edge_f1": 0.5169
    },
    "svg_bytes": 4839,
-   "convert_ms": 28
+   "convert_ms": 19
   },
   {
    "id": "mr-030",
@@ -535,7 +535,7 @@
     "edge_f1": 0.5176
    },
    "svg_bytes": 4839,
-   "convert_ms": 21
+   "convert_ms": 27
   },
   {
    "id": "mr-032",
@@ -569,7 +569,7 @@
     "edge_f1": 0.02
    },
    "svg_bytes": 5088,
-   "convert_ms": 50
+   "convert_ms": 44
   },
   {
    "id": "mr-034",
@@ -586,7 +586,7 @@
     "edge_f1": 0.0171
    },
    "svg_bytes": 4911,
-   "convert_ms": 109
+   "convert_ms": 63
   },
   {
    "id": "mr-035",
@@ -603,7 +603,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4014,
-   "convert_ms": 59
+   "convert_ms": 78
   },
   {
    "id": "mr-036",
@@ -620,7 +620,7 @@
     "edge_f1": 0.0009
    },
    "svg_bytes": 5220,
-   "convert_ms": 80
+   "convert_ms": 63
   },
   {
    "id": "mr-037",
@@ -637,7 +637,7 @@
     "edge_f1": 0.5295
    },
    "svg_bytes": 7097,
-   "convert_ms": 24
+   "convert_ms": 27
   },
   {
    "id": "mr-038",
@@ -654,7 +654,7 @@
     "edge_f1": 0.7293
    },
    "svg_bytes": 895,
-   "convert_ms": 10
+   "convert_ms": 5
   },
   {
    "id": "mr-039",
@@ -671,7 +671,7 @@
     "edge_f1": 0.5293
    },
    "svg_bytes": 7097,
-   "convert_ms": 20
+   "convert_ms": 30
   },
   {
    "id": "mr-040",
@@ -688,7 +688,7 @@
     "edge_f1": 0.528
    },
    "svg_bytes": 9510,
-   "convert_ms": 21
+   "convert_ms": 34
   },
   {
    "id": "mr-041",
@@ -705,7 +705,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4014,
-   "convert_ms": 48
+   "convert_ms": 97
   },
   {
    "id": "mr-042",
@@ -722,7 +722,7 @@
     "edge_f1": 0.0027
    },
    "svg_bytes": 4574,
-   "convert_ms": 58
+   "convert_ms": 99
   },
   {
    "id": "mr-043",
@@ -739,7 +739,7 @@
     "edge_f1": 0.088
    },
    "svg_bytes": 5540,
-   "convert_ms": 39
+   "convert_ms": 72
   },
   {
    "id": "mr-044",
@@ -756,7 +756,7 @@
     "edge_f1": 0.0652
    },
    "svg_bytes": 5597,
-   "convert_ms": 42
+   "convert_ms": 96
   },
   {
    "id": "mr-045",
@@ -773,7 +773,7 @@
     "edge_f1": 0.3898
    },
    "svg_bytes": 3097,
-   "convert_ms": 40
+   "convert_ms": 31
   },
   {
    "id": "mr-046",
@@ -790,7 +790,7 @@
     "edge_f1": 0.233
    },
    "svg_bytes": 1318,
-   "convert_ms": 8
+   "convert_ms": 5
   },
   {
    "id": "mr-047",
@@ -807,7 +807,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 334,
-   "convert_ms": 33
+   "convert_ms": 30
   },
   {
    "id": "mr-048",
@@ -824,7 +824,7 @@
     "edge_f1": 0.4335
    },
    "svg_bytes": 3839,
-   "convert_ms": 35
+   "convert_ms": 51
   },
   {
    "id": "mr-049",
@@ -841,7 +841,7 @@
     "edge_f1": 0.074
    },
    "svg_bytes": 5554,
-   "convert_ms": 69
+   "convert_ms": 88
   }
  ]
 }
