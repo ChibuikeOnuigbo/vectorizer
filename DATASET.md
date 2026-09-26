@@ -34,6 +34,7 @@ qa/artifacts/                       committed SVG outputs incl. user-image proof
 | Font Awesome Free 5.15.4 | OPEN_LICENSE_SOURCE | `fontawesome-free` pip package (svg files) | CC BY 4.0 icons / MIT code | 951 SVG + 6,657 raster renders |
 | Lucide 1.47.0 | OPEN_LICENSE_SOURCE | app's own bundled `app/static/lucide/lucide.min.js` UMD (stroke icons) | ISC | 1,842 SVG + 12,894 raster renders |
 | Bootstrap Icons 1.13.1 | OPEN_LICENSE_SOURCE | official npm package `bootstrap-icons` (fill icons) | MIT | 2,078 SVG + 14,546 raster renders |
+| Tabler Icons 3.48.0 | OPEN_LICENSE_SOURCE | official npm package `@tabler/icons` (5,166 stroke-outline + 1,054 filled; filled slug-suffixed `-filled`, drawn geometry differs → distinct real assets, not dupes) | MIT | 6,220 SVG + 43,540 raster renders |
 
 Acquisition method: package-installed files copied locally
 (`scripts/dataset/extract_pairs.py`, `extract_lucide.py`,
@@ -78,6 +79,10 @@ never mutated.
 ## Duplicate handling (§11)
 
 md5 exact-hash on every record (see `unique_md5` in the live manifest);
+perceptual groups (aHash+MAE) in `test-assets/near_dup.json` are REPORTED but
+do not subtract from ORIGINAL counts — group members stay distinct-by-source;
+use them for train/validation split hygiene (§34): same-group assets must not
+straddle the split.
 same-source derivatives tracked via `variant_of`, not counted as
 independent assets. Perceptual near-duplicates (content-bbox aHash + 32×32
 MAE≤3 confirm, `scripts/dataset/near_dup.py`) are reported in

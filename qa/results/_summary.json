@@ -1,8 +1,8 @@
 {
- "total_executions": 13268,
+ "total_executions": 35899,
  "by_status": {
   "UNSUPPORTED_WITH_REASON": 13,
-  "PASS": 13255
+  "PASS": 35886
  },
  "by_failure_class": {},
  "by_mode": {
@@ -10,10 +10,10 @@
    "UNSUPPORTED_WITH_REASON": 13
   },
   "classic": {
-   "PASS": 7456
+   "PASS": 23867
   },
   "model": {
-   "PASS": 5193
+   "PASS": 11413
   },
   "preset:logo": {
    "PASS": 202
@@ -37,15 +37,15 @@
  "determinism_pairs": 150,
  "determinism_identical": 150,
  "pixel_score_stats": {
-  "cases": 900,
-  "avg": 94.5,
+  "cases": 11091,
+  "avg": 95.0,
   "min": 70.7,
-  "p05": 81.8
+  "p05": 85.8
  },
  "latency_ms": {
-  "avg": 101.6,
-  "p95": 267.7,
+  "avg": 86.9,
+  "p95": 224.2,
   "max": 3186.8
  },
- "updated": "2026-09-25 23:51:12"
+ "updated": "2026-09-26 04:00:48"
 }

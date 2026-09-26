@@ -1,0 +1,120 @@
+{
+ "id": "pix2-fa-brands-connectdevelop",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/fontawesome/brands/connectdevelop/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:54:53",
+ "http_status": 200,
+ "latency_ms": 193.4,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 10593,
+  "sha1": "618eea98e6b1",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 16,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 17,
+   "paths": 16,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fafafa",
+    "count": 2
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   },
+   {
+    "color": "#f1f1f1",
+    "count": 1
+   },
+   {
+    "color": "#1e1e1e",
+    "count": 1
+   },
+   {
+    "color": "#2b2b2b",
+    "count": 1
+   },
+   {
+    "color": "#8d8d8d",
+    "count": 1
+   },
+   {
+    "color": "#d4d4d4",
+    "count": 1
+   },
+   {
+    "color": "#f0f0f0",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fafafa",
+    "count": 2
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   },
+   {
+    "color": "#f1f1f1",
+    "count": 1
+   },
+   {
+    "color": "#1e1e1e",
+    "count": 1
+   },
+   {
+    "color": "#2b2b2b",
+    "count": 1
+   },
+   {
+    "color": "#8d8d8d",
+    "count": 1
+   },
+   {
+    "color": "#d4d4d4",
+    "count": 1
+   },
+   {
+    "color": "#f0f0f0",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 252,
+  "max_path_commands": 32,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 10593,
+ "svg_sha1": "618eea98e6b1",
+ "pixel_score": 92.7,
+ "status": "PASS"
+}

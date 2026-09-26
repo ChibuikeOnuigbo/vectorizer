@@ -27,7 +27,8 @@ def main() -> None:
     out: list[dict] = []
     results = sorted(list((ROOT / "qa/results").glob("icon*.json"))
                      + list((ROOT / "qa/results").glob("lucide-*.json"))
-                     + list((ROOT / "qa/results").glob("boot*.json")))
+                     + list((ROOT / "qa/results").glob("boot*.json"))
+                     + list((ROOT / "qa/results").glob("tabler-*.json")))
     for rp in results:
         res = json.loads(rp.read_text())
         asset = res.get("asset") or ""

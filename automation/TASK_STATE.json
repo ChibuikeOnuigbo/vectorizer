@@ -1,27 +1,35 @@
 {
-  "current_phase": "stage_b_plus_bootstrap_round4",
-  "total_cases": 13268,
+  "current_phase": "stage_b_plus_tabler_round5",
+  "total_cases": 35899,
   "remaining_cases": 0,
   "current_mode": "convert-matrix",
-  "next_action": "commit push; round 5 candidates: Tabler Icons (MIT) as 4th family, lucide stroke crops into training, proof-page growth, full icon-corpus w256/w512 runner expansion",
-  "last_checkpoint": "2026-09-25 23:58:00",
-  "completed_cases": 13268,
-  "last_successful_case": "pix-bootstrap-box2-fill",
-  "qa_count": 13268,
-  "pair_count": 34097,
-  "dataset_count": 39171,
+  "next_action": "commit push; round 6 candidates: Heroicons (MIT) + Material Symbols (Apache-2.0) npm extraction -> Stage C 100k; lucide/tabler stroke crops into raster training; proof-page growth; w256/w512 full-family runner expansion",
+  "last_checkpoint": "2026-09-26 04:04:00",
+  "completed_cases": 35899,
+  "last_successful_case": "pix2-tabler-zoom-filled",
+  "qa_count": 35899,
+  "pair_count": 77637,
+  "dataset_count": 88931,
   "near_dup": {
-    "hashed": 27643,
-    "groups": 4434,
-    "edges": 26808,
+    "hashed": 71183,
+    "groups": 10707,
+    "edges": 70781,
     "file": "test-assets/near_dup.json",
-    "note": "current as of round-4 full corpus"
+    "note": "current as of round-5 corpus; use groups for split hygiene"
   },
   "finalpass": "7/7 PASS incl Esc-closes-AI-modal fix verified live",
-  "guard": "ALWAYS git add scripts/ qa/ dataset/ test-assets/ automation/ model/ app/ (wipe ate un-staged scripts/ once)",
+  "guard": "ALWAYS git add scripts/ qa/ dataset/ test-assets/ automation/ model/ app/ (wipe ate un-staged scripts/ once); on wipe: cp-away model_data_snapshot backups then git clean -fd + fetch+reset",
   "families": {
     "fontawesome": 951,
     "lucide": 1842,
-    "bootstrap": 2078
+    "bootstrap": 2078,
+    "tabler": 6220
+  },
+  "pixel_audit": {
+    "cases": 11091,
+    "avg": 95.0,
+    "p05": 85.8,
+    "min": 70.7,
+    "note": "FULL icon corpus w128 classic; runner batch Q ids pix2-*"
   }
 }

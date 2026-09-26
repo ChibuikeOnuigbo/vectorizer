@@ -1,0 +1,120 @@
+{
+ "id": "pix2-fa-brands-reacteurope",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/fontawesome/brands/reacteurope/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:54:57",
+ "http_status": 200,
+ "latency_ms": 102.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 10722,
+  "sha1": "23b2c8e058b8",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 16,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 17,
+   "paths": 16,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 1
+   },
+   {
+    "color": "#e2e2e2",
+    "count": 1
+   },
+   {
+    "color": "#dbdbdb",
+    "count": 1
+   },
+   {
+    "color": "#f3f3f3",
+    "count": 1
+   },
+   {
+    "color": "#f6f6f6",
+    "count": 1
+   },
+   {
+    "color": "#f7f7f7",
+    "count": 1
+   },
+   {
+    "color": "#f8f8f8",
+    "count": 1
+   },
+   {
+    "color": "#eaeaea",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 1
+   },
+   {
+    "color": "#e2e2e2",
+    "count": 1
+   },
+   {
+    "color": "#dbdbdb",
+    "count": 1
+   },
+   {
+    "color": "#f3f3f3",
+    "count": 1
+   },
+   {
+    "color": "#f6f6f6",
+    "count": 1
+   },
+   {
+    "color": "#f7f7f7",
+    "count": 1
+   },
+   {
+    "color": "#f8f8f8",
+    "count": 1
+   },
+   {
+    "color": "#eaeaea",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 298,
+  "max_path_commands": 41,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 10722,
+ "svg_sha1": "23b2c8e058b8",
+ "pixel_score": 95.0,
+ "status": "PASS"
+}

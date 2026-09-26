@@ -1,0 +1,71 @@
+{
+ "id": "tabler-tabler-direction-arrows-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/tabler/direction-arrows/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:52:46",
+ "http_status": 200,
+ "latency_ms": 81.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 3624,
+  "sha1": "e45760f18e5d",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 7,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 8,
+   "paths": 7,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#fefefe",
+    "count": 2
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#fefefe",
+    "count": 2
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 94,
+  "max_path_commands": 36,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 3624,
+ "svg_sha1": "e45760f18e5d",
+ "status": "PASS"
+}
