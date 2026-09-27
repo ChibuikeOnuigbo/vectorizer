@@ -45,6 +45,7 @@ def ladder_cards() -> tuple[str, list[dict]]:
     ref_txt = (OUT / "absolute_test_svg.svg").read_text()
     variants = [
         ("reference (target)", "absolute_test_svg.svg", None),
+        ("alpha-halo-stack (NEW radial engine)", None, {"engine": "alpha-halo-stack"}),
         ("binary-alpha-mono (auto route)", None, {}),
         ("alpha-tone-stack (multi-tone engine)", None, {"engine": "alpha-tone-stack"}),
         ("color-cutout (classic engine)", None, {"engine": "color-cutout"}),

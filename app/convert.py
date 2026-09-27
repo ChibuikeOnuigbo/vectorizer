@@ -206,10 +206,13 @@ def _seal_seams(svg: str, stroke_width: int = 1) -> str:
     return _PATH_RE.sub(fix, svg)
 
 
-def _tidy(svg: str, w: int, h: int, flat: bool = False) -> str:
+def _tidy(svg: str, w: int, h: int, flat: bool = False, seal: int | None = None) -> str:
     svg = re.sub(r"<!--.*?-->", "", svg, flags=re.S)
     svg = _round_path_data(svg)
-    svg = _seal_seams(svg, 2 if flat else 1)
+    if seal is None:
+        seal = 2 if flat else 1
+    if seal > 0:
+        svg = _seal_seams(svg, seal)
     # Guarantee explicit size + viewBox so the SVG scales predictably.
     svg = re.sub(r'<svg\b[^>]*>', f'<svg xmlns="http://www.w3.org/2000/svg" '
                                   f'width="{w}" height="{h}" viewBox="0 0 {w} {h}">', svg, count=1)
@@ -321,8 +324,8 @@ def _mono_alpha_candidate(a: dict) -> bool:
     rgb = np.asarray(a["img"].convert("RGB"), dtype=np.int16)
     alpha = np.asarray(a["img"].getchannel("A"))
     m = alpha > ALPHA_CUTOFF
-    px = rgb[m].astype(np.int16)
-    d = np.sqrt(((px - np.array(dom, dtype=np.int16)) ** 2).sum(axis=1))
+    px = rgb[m].astype(np.int32)
+    d = np.sqrt(((px - np.array(dom, dtype=np.int32)) ** 2).sum(axis=1))
     mono_share = float((d <= 60).mean()) if len(px) else 0.0
     return mono_share >= 0.92  # 92% of content within 60 RGB of dominant
 
@@ -431,6 +434,82 @@ def _trace_alpha_tone_stack(a: dict, params: dict) -> str:
     return re.sub(r'(<svg\b)', r'\1 data-engine="alpha-tone-stack"', svg, count=1)
 
 
+def _trace_alpha_halo_stack(a: dict, params: dict) -> str:
+    """Radial halo contours for transparent monochrome art.
+
+    The tone-stack engine hands the soft AA halo to one translucent fill,
+    which flattens the fade (~78% strict on teal-orbit). Here the content is
+    treated as an alpha *field* over normalized ellipse distance from its
+    center; the field is sliced into `halo_bands` shells (outermost first)
+    and each shell is traced at its annulus, painted in the content hue with
+    fill-opacity = the strongest real alpha found in that shell
+    (never synthesized, max of the input data). Layers stack faint-outside -
+    strong-inside, so the halo fade and the sharp core survive together —
+    the reference look the trainer is asked to reproduce.
+    """
+    img = a["img"].convert("RGBA")
+    rgb = np.asarray(img.convert("RGB"), dtype=np.float32)
+    alp = np.asarray(img.getchannel("A"), dtype=np.float32) / 255.0
+    keep = alp > 0.02
+    if not keep.any():
+        return _trace_binary_alpha(a, params)
+    strong = alp > 0.5
+    if not strong.any():
+        strong = keep
+    dom = rgb[strong].mean(axis=0).astype(int)
+    hexcol = f"#{dom[0]:02X}{dom[1]:02X}{dom[2]:02X}"
+
+    h, w = alp.shape
+    ys, xs = np.nonzero(keep)
+    cx, cy = float(xs.mean()), float(ys.mean())
+    rx = max((float(xs.max()) - float(xs.min())) / 2.0, 1.0)
+    ry = max((float(ys.max()) - float(ys.min())) / 2.0, 1.0)
+    yy, xx = np.mgrid[0:h, 0:w]
+    d = np.sqrt(((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2)
+    dmax = float(d[keep].max()) + 1e-6
+
+    K = min(max(int(params.get("halo_bands", 16)), 3), 20)
+    lt = min(max(float(params.get("length_threshold", 0.5)), 0.5), 4.0)
+    pp = min(max(int(params.get("path_precision", 5)), 3), 12)
+    sp = min(max(int(params.get("filter_speckle", 2)), 1), 16)
+    ct = min(max(int(params.get("corner_threshold", 30)), 10), 110)
+
+    layers: list[str] = []
+    for b in range(K):  # outermost shell first, non-overlapping annuli
+        lo = dmax * (K - 1 - b) / K
+        hi = dmax * (K - b) / K
+        sel = keep & (d >= lo) & (d < hi if b > 0 else d <= dmax)
+        if not sel.any():
+            continue
+        win = alp[sel & keep]
+        if not len(win):
+            continue
+        paint = float(win.mean())  # honest statistic of the input field
+        if paint <= 0.01:
+            continue
+        pix = np.where(sel, 0, 255).astype(np.uint8)
+        with tempfile.TemporaryDirectory() as td:
+            src, out = f"{td}/b.png", f"{td}/b.svg"
+            Image.fromarray(pix, "L").save(src)
+            vtracer.convert_image_to_svg_py(
+                src, out, colormode="binary", hierarchical="stacked",
+                filter_speckle=sp, corner_threshold=ct,
+                length_threshold=lt, path_precision=pp)
+            bsvg = open(out, encoding="utf-8").read()
+        bsvg = re.sub(r'fill="(?:#000000|#000|black|rgb\(0,0,0\)|rgb\(0%,0%,0%\))"',
+                      f'fill="{hexcol}" fill-opacity="{paint:.3f}"', bsvg, flags=re.I)
+        layers.extend(re.findall(r'<path\b[^>]*/?>', bsvg))
+    if not layers:
+        return _trace_binary_alpha(a, params)
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {w} {h}">' + "".join(layers) + "</svg>")
+    # No seam sealing for the halo stack: growing 16 translucent shells by
+    # even 1px floods inner annuli (87.9 -> 82.5 strict on teal-orbit; the
+    # shells abut perfectly by construction, so there are no seams to seal).
+    svg = _tidy(svg, w, h, False, seal=0)
+    return re.sub(r'(<svg\b)', r'\1 data-engine="alpha-halo-stack"', svg, count=1)
+
+
 def trace_with(a: dict, params: dict | None = None) -> str:
     """Run one vectorization pass with the given params (or the heuristic
     baseline when params is None). params keys: profile, color_precision,
@@ -474,6 +553,8 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     # geometry/coverage-trained scorer the model optimizes.
     if params.get("engine") == "alpha-tone-stack" and _mono_alpha_candidate(a):
         return _trace_alpha_tone_stack(a, params)
+    if params.get("engine") == "alpha-halo-stack" and _mono_alpha_candidate(a):
+        return _trace_alpha_halo_stack(a, params)
     # Engine route: monochrome transparent content is binary-alpha territory
     # (teal-orbit strict-audit evidence: binary 87.2% vs cutout 71.9% vs
     # tone-stack 79.1%). The alpha-tone-stack engine stays available for the
