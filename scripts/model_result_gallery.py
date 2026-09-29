@@ -13,6 +13,7 @@ OUT = ROOT / "model_result"
 
 CSS = """
 body{font-family:system-ui,Arial,sans-serif;margin:24px;background:#0f1115;color:#e8eaed}
+img{-webkit-user-drag:none;user-drag:none;user-select:none;pointer-events:none}
 h1{font-size:20px} .sub{color:#9aa0a6;font-size:13px;margin-bottom:16px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
 .card{background:#171a21;border:1px solid #2a2f3a;border-radius:10px;padding:12px}
@@ -93,8 +94,9 @@ def main() -> None:
             n_pass += verdict == "PASS"; n_weak += verdict == "WEAK"; n_fail += verdict == "FAIL"
             src = OUT.parent / e["source"]
             th = "inputs/" + src.name
-            shutil.copy2(src, OUT / th)
-            input_rel = th
+            if src.exists():
+                shutil.copy2(src, OUT / th)
+            input_rel = th if (OUT / th).exists() else None
             title = Path(e["source"]).name
         extra = ""
         if "similarity_to_reference_pct" in e:
@@ -146,6 +148,7 @@ strict audit authority qa/similarity_audit.py ·
 <button onclick="f('FAIL',this)">FAIL {n_fail}</button></div>
 <div class="grid">{''.join(cards)}</div>
 <script>
+document.addEventListener('dragstart',e=>{{if(e.target&&e.target.tagName==='IMG')e.preventDefault();}},true);
 function f(v,btn){{
 document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));
 btn.classList.add('on');

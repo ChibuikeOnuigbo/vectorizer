@@ -1018,11 +1018,41 @@
     if (els.compareHandle) els.compareHandle.style.left = v + "%";
     const cs = els.compareSlider;
     if (cs) {
+      if (Math.abs(parseFloat(cs.value) - v) > 0.01) cs.value = String(v);
       const min = parseFloat(cs.min) || 0;
       const max = parseFloat(cs.max) || 100;
       const pct = ((v - min) / (max - min)) * 100;
       cs.style.setProperty("--fill", pct + "%");
     }
+  }
+
+  // No native image dragging anywhere: users kept pulling imgs out of their
+  // containers (dropzone, viewer, compare). Block it globally, including
+  // images added later (this fires for every drag attempt on any <img>).
+  document.addEventListener("dragstart", (e) => {
+    if (e.target && e.target.tagName === "IMG") e.preventDefault();
+  }, true);
+
+  // Compare: the dotted line + handle are directly draggable (pointer drag
+  // on the stage snaps the divider to the pointer and keeps it following).
+  function compareDragStart(e) {
+    if (!state.compareOpen) return;
+    e.preventDefault();
+    state._cmpDragging = true;
+    try { els.compareStage.setPointerCapture(e.pointerId); } catch (err) { /* noop */ }
+    compareDragMove(e);
+  }
+  function compareDragMove(e) {
+    if (!state._cmpDragging || !els.compareStage) return;
+    const r = els.compareStage.getBoundingClientRect();
+    if (!r.width) return;
+    const v = ((e.clientX - r.left) / r.width) * 100;
+    updateCompare(v);
+  }
+  function compareDragEnd(e) {
+    if (!state._cmpDragging) return;
+    state._cmpDragging = false;
+    try { els.compareStage.releasePointerCapture(e.pointerId); } catch (err) { /* noop */ }
   }
 
   function showChoice() {
@@ -1197,8 +1227,14 @@
   if (els.advCompareBtn) els.advCompareBtn.addEventListener("click", openCompare);
   if (els.compareCloseBtn) els.compareCloseBtn.addEventListener("click", closeCompare);
   if (els.compareOverlay) {
-    els.compareOverlay.addEventListener("click", (e) => {
-      if (e.target === els.compareStage || e.target === els.compareOverlay) closeCompare();
+    if (els.compareStage) {
+      els.compareStage.addEventListener("pointerdown", compareDragStart);
+      els.compareStage.addEventListener("pointermove", compareDragMove);
+      els.compareStage.addEventListener("pointerup", compareDragEnd);
+      els.compareStage.addEventListener("pointercancel", compareDragEnd);
+    }
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && state.compareOpen) closeCompare();
     });
   }
   if (els.compareSlider) {
