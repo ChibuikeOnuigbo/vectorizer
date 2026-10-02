@@ -4,6 +4,20 @@ Up to 50 **fresh** model-mode ("Use model") conversion results, regenerated
 against live code, each with an honest strict-similarity score (no inflated
 100s — the QA authority is `qa/similarity_audit.py`).
 
+
+## 2026-10-02 routing + detail upgrades (measured)
+- mono-alpha route gate: strong-pixel share <= 0.17 -> alpha-halo-stack
+  (calibrated 41-image sweep: halo wins 21/21 in that regime by +8.5 avg);
+  dense fills stay binary (-12..-54 otherwise). Teal now converts at 87.9 /
+  86.6 vs-reference through model mode
+- detail retry: flat cutout with <= 6 paths retraces in detail mode
+  (beak/eye micro-cutouts): bird 50.6 -> 57.7; 26-image corpus: worst -2.1
+- sweep after upgrades: 154 PASS / 143 WEAK / 103 FAIL (FAIL 147 -> 103)
+- collages/ one side-by-side input|output PNG per row, verdict stamped
+- watches: 32px downscale inputs cap ~1-17% every engine (raster floor,
+  no route gate applies); thin strokes sharpened 47.6 -> 63.9 but stroke
+  weight still +2px (hairline-width emitting planned)
+
 ## View it
 
 Open in your browser (app preview host):

@@ -111,7 +111,8 @@ def main() -> None:
 <div class="pair">{left}<div class="box check"><img loading="lazy" src="{svg_f}"></div></div>
 <div class="meta"><span class="badge {verdict}">{verdict} {pct}%</span>
 <span class="name" title="{html.escape(title)}">{e["id"]} · {html.escape(title)}</span></div>
-<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: {engine or "reference"}{extra}<br>{chan}</small>
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: {engine or "reference"}{extra}<br>{chan}
+&nbsp;|&nbsp; <a href="collages/{e["id"]}-{Path(title).stem}.png">collage</a></small>
 </div>''')
 
     ladder_html, ladder_meta = ladder_cards()

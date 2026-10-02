@@ -555,12 +555,17 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         return _trace_alpha_tone_stack(a, params)
     if params.get("engine") == "alpha-halo-stack" and _mono_alpha_candidate(a):
         return _trace_alpha_halo_stack(a, params)
-    # Engine route: monochrome transparent content is binary-alpha territory
-    # (teal-orbit strict-audit evidence: binary 87.2% vs cutout 71.9% vs
-    # tone-stack 79.1%). The alpha-tone-stack engine stays available for the
-    # visual-training candidate space; it needs the inner/outer halo split
-    # before it can beat binary on such art.
+    # Engine route: monochrome transparent content. Calibrated on a 41-image
+    # sweep (teal + 40 corpus logos, 2026-09-27): share of alpha>0.5 pixels
+    # splits the engines cleanly. Sparse thin-line art (share <= 0.17): the
+    # radial halo engine wins 21/21 by +8.5 points avg (teal-orbit share=0.067,
+    # halo 87.9 vs binary 87.2). Dense filled glyphs (share > 0.17): halo's
+    # annulus statistics shred the fills (-12 to -54), binary is solid.
     if params.get("engine") != "color-cutout" and _mono_alpha_candidate(a):
+        alpha_arr = np.asarray(a["img"].getchannel("A"), dtype=np.float32) / 255.0
+        strong_share = float((alpha_arr > 0.5).mean())
+        if strong_share <= 0.17:
+            return _trace_alpha_halo_stack(a, params)
         return _trace_binary_alpha(a, params)
 
     return _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
@@ -572,21 +577,35 @@ def _trace_cutout(a: dict, params: dict, flat: bool, cp: int, ld: int, sp: int,
     mono-alpha best-of-two visual pick."""
 
     w, h = a["w"], a["h"]
-    with tempfile.TemporaryDirectory() as td:
-        src = f"{td}/in.png"
-        out = f"{td}/out.svg"
-        if flat:
-            _flatten_colors(a["working"], a["bg_color"] or (0, 0, 0), max_inks=inks).save(src)
-        else:
-            a["working"].save(src)
-        vtracer.convert_image_to_svg_py(
-            src, out,
-            colormode="color", hierarchical="cutout",
-            max_iterations=mi, color_precision=cp, layer_difference=ld,
-            filter_speckle=sp, corner_threshold=ct,
-            length_threshold=lt, path_precision=pp,
-        )
-        svg = open(out, encoding="utf-8").read()
+
+    def _run(mi_, cp_, ld_, sp_, ct_, lt_, pp_, inks_, detail: bool) -> str:
+        with tempfile.TemporaryDirectory() as td:
+            src = f"{td}/in.png"
+            out = f"{td}/out.svg"
+            flat_work = a["working"]
+            if flat:
+                maxinks = images_inks(inks_, detail)
+                flat_work = _flatten_colors(flat_work, a["bg_color"] or (0, 0, 0), max_inks=maxinks)
+            flat_work.save(src)
+            vtracer.convert_image_to_svg_py(
+                src, out,
+                colormode="color", hierarchical="cutout",
+                max_iterations=mi_, color_precision=cp_, layer_difference=ld_,
+                filter_speckle=sp_, corner_threshold=ct_,
+                length_threshold=lt_, path_precision=pp_,
+            )
+            return open(out, encoding="utf-8").read()
+
+    def images_inks(base: int, detail: bool) -> int:
+        return max(base, 5) if detail else base
+
+    svg = _run(mi, cp, ld, sp, ct, lt, pp, inks, detail=False)
+    # Detail retry (measured 2026-09-27): flat art traced into so few paths
+    # means micro cutouts (beak slits, eye gaps) got merged by the coarse
+    # preset (lt 4.5 / cp 2-3 / speckle). Retry with detail settings; gains
+    # up to +7.7 (bird icon) with worst case -2.1 noise on 26 corpus images.
+    if flat and len(re.findall(r"<path\b", svg)) <= 6 and params.get("detail_retry", True):
+        svg = _run(20, 5, 12, 0, 40, 0.5, pp, inks, detail=True)
 
     if a["has_alpha"] and not a["keep_bg"]:
         svg = _strip_color(svg, a["bg_color"], a["content_palette"])
