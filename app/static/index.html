@@ -35,9 +35,7 @@ window.initLucide = initLucide;
       <span class="brand-mark"><i data-lucide="pen-tool"></i></span>
       <span class="brand-name">Vectorizer</span>
     </a>
-    <nav class="top-nav-actions" aria-label="Primary">
-      <button class="nav-btn nav-btn-ghost" id="navManual" type="button" title="Manual Training"><i data-lucide="database"></i></button>
-    </nav>
+    <nav class="top-nav-actions" aria-label="Primary"></nav>
   </div>
 </header>
 
@@ -171,10 +169,10 @@ window.initLucide = initLucide;
         <div class="panel-meta" id="resultMeta"></div>
         <div class="panel-actions">
           <button class="btn btn-primary" id="downloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
-          <button class="btn btn-secondary" id="aiStudioBtn" type="button" title="Ask a vision model to redraw using your own API key"><i data-lucide="wand-2"></i><span>Redo with AI</span></button>
-          <button class="btn btn-secondary" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
           <button class="btn btn-ghost" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+          <button class="btn btn-secondary" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
           <button class="btn btn-ghost" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
+          <button class="btn btn-secondary" id="aiStudioBtn" type="button" title="Ask a vision model to redraw using your own API key"><i data-lucide="wand-2"></i><span>Redo with AI</span></button>
         </div>
       </div>
     </div>
@@ -270,35 +268,6 @@ window.initLucide = initLucide;
     </div>
   </section>
 
-  <!-- MANUAL TRAINING -->
-  <section class="view view-manual" id="manual" hidden>
-    <div class="manual-header">
-      <button class="btn btn-secondary btn-sm" id="manualBackBtn" type="button" title="Back" aria-label="Back"><i data-lucide="arrow-left"></i></button>
-      <div class="manual-title"><h2>Manual Training</h2><p>Collect images and results to help train and improve the model</p></div>
-    </div>
-    <div class="manual-status" id="manualStatus">Loading status</div>
-    <div class="manual-grid">
-      <div class="manual-card">
-        <h3><i data-lucide="image"></i> Section 1 Upload Images</h3>
-        <p>Upload as many images as possible pure geometric no text general images plus blurred increasing hardness</p>
-        <div class="dropzone dropzone-sm" id="manualDropzone1" role="button" tabindex="0"><div class="dropzone-icon"><i data-lucide="cloud-upload"></i></div><p class="dz-main">Drop images here or click to browse</p><p class="dz-hint">Multiple files collected for training</p></div>
-        <input type="file" id="manualFileInput1" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" multiple hidden>
-        <div class="manual-list" id="manualList1"></div>
-      </div>
-      <div class="manual-card">
-        <h3><i data-lucide="file-code"></i> Section 2 Upload Results</h3>
-        <p>Upload SVG results or JSON params for images in Section 1</p>
-        <div class="dropzone dropzone-sm" id="manualDropzone2" role="button" tabindex="0"><div class="dropzone-icon"><i data-lucide="file-up"></i></div><p class="dz-main">Drop results here or click to browse</p><p class="dz-hint">SVG or JSON collected as ground truth</p></div>
-        <input type="file" id="manualFileInput2" accept=".svg,.json,.png,.jpg" multiple hidden>
-        <div class="manual-list" id="manualList2"></div>
-      </div>
-    </div>
-    <div class="manual-actions">
-      <button class="btn btn-primary" id="manualTrainBtn" type="button"><i data-lucide="brain"></i><span>Train Now</span></button>
-      <button class="btn btn-secondary" id="manualRefreshBtn" type="button"><i data-lucide="rotate-ccw"></i><span>Refresh Status</span></button>
-    </div>
-    <div class="manual-log" id="manualLog"></div>
-  </section>
 </main>
 
 <div class="drop-overlay" id="dropOverlay" hidden>
@@ -426,7 +395,7 @@ window.initLucide = initLucide;
 
 <div class="compare-overlay" id="compareOverlay" hidden>
   <div class="compare-toolbar">
-    <span>Drag the dotted line (or the slider below) to compare source and vector</span>
+    <span>Compare drag slider to see source and vector difference</span>
     <button class="icon-btn" id="compareCloseBtn" type="button" title="Close"><i data-lucide="x"></i></button>
   </div>
   <div class="compare-stage" id="compareStage">
