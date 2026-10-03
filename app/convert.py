@@ -434,6 +434,160 @@ def _trace_alpha_tone_stack(a: dict, params: dict) -> str:
     return re.sub(r'(<svg\b)', r'\1 data-engine="alpha-tone-stack"', svg, count=1)
 
 
+def _zhang_suen(m: np.ndarray) -> np.ndarray:
+    """Binary skeletonization (Zhang-Suen), vectorized numpy."""
+    m = m.copy().astype(np.uint8)
+    changed = True
+    while changed:
+        changed = False
+        for step in (0, 1):
+            P = np.pad(m, 1)
+            p2 = P[:-2, 1:-1]; p3 = P[:-2, 2:]; p4 = P[1:-1, 2:]; p5 = P[2:, 2:]
+            p6 = P[2:, 1:-1]; p7 = P[2:, :-2]; p8 = P[1:-1, :-2]; p9 = P[:-2, :-2]
+            ns = [p2, p3, p4, p5, p6, p7, p8, p9]
+            B = sum(ns)
+            seq = ns + [p2]
+            A = sum((seq[i] == 0) & (seq[i + 1] == 1) for i in range(8))
+            if step == 0:
+                cond = (p2 * p4 * p6 == 0) & (p4 * p6 * p8 == 0)
+            else:
+                cond = (p2 * p4 * p8 == 0) & (p2 * p6 * p8 == 0)
+            kill = (m == 1) & (B >= 2) & (B <= 6) & (A == 1) & cond
+            if kill.any():
+                m[kill] = 0
+                changed = True
+    return m
+
+
+def _trace_hairline(a: dict, params: dict) -> str:
+    """Skeleton engine for thin-stroke art (hairlines, wireframes): the SVG
+    fill-contour family can't reproduce 1px strokes — the filled contour
+    plus seam growth renders them 3px wide (strict 63.9% on the thin-strokes
+    gauntlet asset). Here the binary ink is skeletonized (Zhang-Suen), the
+    skeleton chains become centreline polyline paths with the row-sampled
+    ink color and honest stroke-width (~1.5 >render< width wins the strict
+    comparison: 75.9%, since the original hairlines are anti-aliased)."""
+    img = a["img"].convert("RGB")
+    arr = np.asarray(img).astype(np.float32).mean(axis=2)
+    ink = arr < 128
+    w, h = a["w"], a["h"]
+    width = min(max(float(params.get("stroke_width", 1.5)), 0.5), 3.0)
+    if not ink.any():
+        return _trace_cutout(a, params, a.get("is_flat", False), 2, 16, 1, 12, 60, 4.5, 10, 3)
+    sk = _zhang_suen(ink)
+    P = np.pad(sk, 1)
+    deg = sum([P[:-2, 1:-1], P[:-2, 2:], P[1:-1, 2:], P[2:, 2:],
+               P[2:, 1:-1], P[2:, :-2], P[1:-1, :-2], P[:-2, :-2]])
+    visited = np.zeros_like(sk)
+    N = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
+    rgb_full = np.asarray(img)
+
+    def chain_color(chain):
+        ys = [p[0] for p in chain]; xs = [p[1] for p in chain]
+        c = rgb_full[ys, xs].mean(axis=0).astype(int)
+        return f"#{int(c[0]):02X}{int(c[1]):02X}{int(c[2]):02X}"
+
+    paths: list[str] = []
+    starts = [tuple(p) for p in np.argwhere(sk & (deg == 1))]
+    starts += [tuple(p) for p in np.argwhere(sk & (deg == 2) & (visited == 0))]
+    for sy, sx in starts:
+        if visited[sy, sx] or not sk[sy, sx]:
+            continue
+        chain = [(int(sy), int(sx))]
+        visited[sy, sx] = 1
+        cy, cx = int(sy), int(sx)
+        while True:
+            nxt = None
+            for dy, dx in N:
+                ny, nx = cy + dy, cx + dx
+                if 0 <= ny < ink.shape[0] and 0 <= nx < ink.shape[1] and sk[ny, nx] and not visited[ny, nx]:
+                    nxt = (ny, nx)
+                    break
+            if nxt is None:
+                break
+            visited[nxt] = 1
+            chain.append(nxt)
+            cy, cx = nxt
+        if len(chain) < 3:
+            continue
+        pts = [(x, y) for y, x in chain]
+        simp = [pts[0]]
+        for i in range(1, len(pts) - 1):
+            (x0, y0), (x1, y1), (x2, y2) = simp[-1], pts[i], pts[i + 1]
+            if (x2 - x0) * (y1 - y0) != (y2 - y0) * (x1 - x0):
+                simp.append((x1, y1))
+        simp.append(pts[-1])
+        d = "M" + " L".join(f"{p[0]},{p[1]}" for p in simp)
+        paths.append(f'<path d="{d}" stroke="{chain_color(chain)}" stroke-width="{width}" '
+                     f'fill="none" stroke-linecap="square" stroke-linejoin="miter"/>')
+    if not paths:
+        return _trace_cutout(a, params, a.get("is_flat", False), 2, 16, 1, 12, 60, 4.5, 10, 3)
+    bg = "#FFFFFF"
+    if a.get("has_alpha"):
+        bg = None
+    rect = f'<rect width="{w}" height="{h}" fill="{bg}"/>' if bg and not a.get("has_alpha") else ""
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {w} {h}">{rect}{"".join(paths)}</svg>')
+    return re.sub(r'(<svg\b)', r'\1 data-engine="hairline"', svg, count=1)
+
+
+def _hairline_candidate(a: dict) -> bool:
+    """Thin-stroke detector: ink erodes to nothing in <=2 rounds (max stroke
+    half-width ~2px => ~3-4px strokes or thinner) and is sparse (<12% of area),
+    on opaque flat art only (alpha art has its own engine family)."""
+    if a.get("has_alpha") or not a.get("is_flat"):
+        return False
+    arr = np.asarray(a["img"].convert("RGB")).astype(np.float32).mean(axis=2)
+    ink = (arr < 128).astype(np.uint8)
+    share = ink.mean()
+    if not (0.001 < share < 0.12):
+        return False
+    m = ink
+    for rounds in range(3):
+        P = np.pad(m, 1)
+        er = (P[:-2, 1:-1] & P[:-2, 2:] & P[1:-1, 2:] & P[2:, 2:] &
+              P[2:, 1:-1] & P[2:, :-2] & P[1:-1, :-2] & P[:-2, :-2])
+        m = er
+        if not m.any():
+            return True
+    return False
+
+
+def _trace_pixel_art(a: dict, params: dict) -> str:
+    """Pixel-faithful engine for tiny pixelated inputs (<=64px): downscaled
+    rasters are grid-quantized, and any smooth tracer AA-dithers the result
+    vs the original (strict 1-17% floor). Here we keep the ORIGINAL alpha
+    per pixel, quantize RGB to a tight 16-color palette, and run-length
+    encode rows into integer-rect paths with shape-rendering=crispEdges —
+    a 1:1 lossless-ish raster->vector map (strict 99.9-100% on all 32px
+    gauntlet assets vs 1-17% before). True vector out: rect runs only."""
+    img = a["img"].convert("RGBA")
+    w, h = a["w"], a["h"]
+    arr = np.asarray(img)
+    rgb, alpha = arr[..., :3], arr[..., 3]
+    op = alpha > 0
+    colors = min(max(int(params.get("pixel_colors", 16)), 4), 32)
+    q = Image.fromarray(np.where(op[..., None], rgb, 0).astype(np.uint8)).quantize(
+        colors=colors, method=Image.Quantize.FASTOCTREE)
+    table = q.getpalette()
+    idxs = np.asarray(q, dtype=np.uint8)
+    segs: list[str] = []
+    for y in range(h):
+        x = 0
+        while x < w:
+            c = int(idxs[y, x]); aa = int(alpha[y, x]); x2 = x + 1
+            while x2 < w and idxs[y, x2] == c and int(alpha[y, x2]) == aa:
+                x2 += 1
+            if aa > 0:
+                hexcol = f"#{table[c*3]:02X}{table[c*3+1]:02X}{table[c*3+2]:02X}"
+                op_attr = "" if aa == 255 else f' fill-opacity="{aa/255.0:.3f}"'
+                segs.append(f'<rect x="{x}" y="{y}" width="{x2-x}" height="1" fill="{hexcol}"{op_attr}/>')
+            x = x2
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {w} {h}" shape-rendering="crispEdges">{"".join(segs)}</svg>')
+    return re.sub(r'(<svg\b)', r'\1 data-engine="pixel-art"', svg, count=1)
+
+
 def _trace_alpha_halo_stack(a: dict, params: dict) -> str:
     """Radial halo contours for transparent monochrome art.
 
@@ -550,6 +704,14 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     # transparent monochrome art prefers binary-alpha (teal-orbit QA evidence),
     # but some members render closer as multi-tone cutout. For that family we
     # render BOTH engines and keep the visually better one by the same
+    # Tiny pixelated inputs (<=64px): grid-pure pixel-art engine, 1:1 mapping
+    if params.get("engine") != "color-cutout" and max(a["w"], a["h"]) <= 64:
+        return _trace_pixel_art(a, params)
+    # Thin-stroke skeleton engine (wireframes/hairlines): contour fills
+    # inflate 1px lines to ~3px (strict 63.9 vs skeleton 75.9)
+    if params.get("engine") == "hairline" or (params.get("engine") not in
+            ("color-cutout",) and _hairline_candidate(a)):
+        return _trace_hairline(a, params)
     # geometry/coverage-trained scorer the model optimizes.
     if params.get("engine") == "alpha-tone-stack" and _mono_alpha_candidate(a):
         return _trace_alpha_tone_stack(a, params)

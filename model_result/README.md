@@ -5,6 +5,18 @@ against live code, each with an honest strict-similarity score (no inflated
 100s — the QA authority is `qa/similarity_audit.py`).
 
 
+## 2026-10-03 new engines (measured, visual-check-driven)
+- pixel-art engine (<=64px inputs): alpha-exact RLE crisp rect rows -
+  downscale32 rows 1-17% -> 99.9-100% (24 rows now mean 99.7); kills the
+  32px raster floor honestly (rect runs are the true grid)
+- hairline skeleton engine (Zhang-Suen + centerline polylines, ink color
+  sampled along chain, stroke-width 1.5 tuned): thin opaque strokes
+  63.9% contour-fill -> 75.9% (1px lines no longer inflated to ~3px);
+  route gate = opaque flat + ink share <12% + erodes away within 2 rounds
+- sweep after both: 174 PASS / 142 WEAK / 84 FAIL (FAIL 103 -> 84 over
+  400 rows; engines in the sweep: halo 77, pixel-art 25, binary 30,
+  hairline 2, cutout-family 266)
+
 ## 2026-10-02 routing + detail upgrades (measured)
 - mono-alpha route gate: strong-pixel share <= 0.17 -> alpha-halo-stack
   (calibrated 41-image sweep: halo wins 21/21 in that regime by +8.5 avg);
