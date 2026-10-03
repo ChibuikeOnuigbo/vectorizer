@@ -664,6 +664,38 @@ def _trace_alpha_halo_stack(a: dict, params: dict) -> str:
     return re.sub(r'(<svg\b)', r'\1 data-engine="alpha-halo-stack"', svg, count=1)
 
 
+def _mono_route(a: dict) -> str:
+    """Calibrated mono-alpha routing via radial statistics (2026-10-03,
+    72-image calibration set): strong_share splits sparse from dense;
+    radial center-of-mass (mean ellipse-normalized distance of strong
+    pixels) splits ring/halo art from scattered glyphs.
+      share <=0.02                        -> binary (ultra-sparse text/lines:
+                                             halo's window means starve the
+                                             few pixels; binary +13 avg, halo
+                                             losses to -78 on text corpus)
+      0.02<share<=0.17 & mean_d>=0.68     -> halo (ring-halo art: 6/6 wins
+                                             +5.6 avg, teal 87.9 vs 87.2)
+      0.02<share<=0.17 & mean_d<=0.56     -> halo (compact halo glyphs: 3/3)
+      0.02<share<=0.17 & 0.56<mean_d<0.68 -> binary (mixed zone: 3/3)
+      share > 0.17                        -> binary (dense fills: +12..+54)
+    """
+    alpha = np.asarray(a["img"].getchannel("A"), dtype=np.float32) / 255.0
+    strong = alpha > 0.5
+    share = float(strong.mean())
+    if share <= 0.02 or share > 0.17:
+        return "binary"
+    ys, xs = np.nonzero(alpha > 0.02)
+    cx, cy = float(xs.mean()), float(ys.mean())
+    rx = max((float(xs.max()) - float(xs.min())) / 2.0, 1.0)
+    ry = max((float(ys.max()) - float(ys.min())) / 2.0, 1.0)
+    yy, xx = np.mgrid[0:alpha.shape[0], 0:alpha.shape[1]]
+    d = np.sqrt(((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2)
+    mean_d = float(d[strong].mean())
+    if mean_d >= 0.68 or mean_d <= 0.56:
+        return "halo"
+    return "binary"
+
+
 def trace_with(a: dict, params: dict | None = None) -> str:
     """Run one vectorization pass with the given params (or the heuristic
     baseline when params is None). params keys: profile, color_precision,
@@ -717,16 +749,15 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         return _trace_alpha_tone_stack(a, params)
     if params.get("engine") == "alpha-halo-stack" and _mono_alpha_candidate(a):
         return _trace_alpha_halo_stack(a, params)
-    # Engine route: monochrome transparent content. Calibrated on a 41-image
-    # sweep (teal + 40 corpus logos, 2026-09-27): share of alpha>0.5 pixels
-    # splits the engines cleanly. Sparse thin-line art (share <= 0.17): the
-    # radial halo engine wins 21/21 by +8.5 points avg (teal-orbit share=0.067,
-    # halo 87.9 vs binary 87.2). Dense filled glyphs (share > 0.17): halo's
-    # annulus statistics shred the fills (-12 to -54), binary is solid.
+    if params.get("engine") == "binary-alpha-mono" and _mono_alpha_candidate(a):
+        return _trace_binary_alpha(a, params)
+    if params.get("engine") == "pixel-art":
+        return _trace_pixel_art(a, params)
+    # Engine route: monochrome transparent content via the calibrated
+    # radial gate (see _mono_route). Applies to every caller that did not
+    # explicitly force color-cutout (incl. model mode).
     if params.get("engine") != "color-cutout" and _mono_alpha_candidate(a):
-        alpha_arr = np.asarray(a["img"].getchannel("A"), dtype=np.float32) / 255.0
-        strong_share = float((alpha_arr > 0.5).mean())
-        if strong_share <= 0.17:
+        if _mono_route(a) == "halo":
             return _trace_alpha_halo_stack(a, params)
         return _trace_binary_alpha(a, params)
 

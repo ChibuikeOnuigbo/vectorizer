@@ -26,6 +26,11 @@ against live code, each with an honest strict-similarity score (no inflated
   (beak/eye micro-cutouts): bird 50.6 -> 57.7; 26-image corpus: worst -2.1
 - sweep after upgrades: 154 PASS / 143 WEAK / 103 FAIL (FAIL 147 -> 103)
 - collages/ one side-by-side input|output PNG per row, verdict stamped
+- mono routing v2 (2026-10-03, 72-image calibration): radial 3-zone gate.
+  ultra-sparse share<=0.02 -> binary (text/lines: was misrouted to halo,
+  text rows 63.9 -> 80.9 mean, 0 FAIL in draw); ring-halo mean_d>=0.68 or
+  compact <=0.56 with share in (0.02,0.17] -> halo; rest binary.
+  13.6-FAIL text row -> 71.6 WEAK, 49.1 -> 86.4 PASS
 - watches: 32px downscale inputs cap ~1-17% every engine (raster floor,
   no route gate applies); thin strokes sharpened 47.6 -> 63.9 but stroke
   weight still +2px (hairline-width emitting planned)
