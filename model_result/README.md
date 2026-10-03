@@ -72,12 +72,17 @@ PYTHONPATH=vendor:app/deps:. python3 scripts/model_result_build.py --n 50
 
 Re-run after every engine or model-weights change to see the current truth.
 
-## Current state (2026-09-26)
+## Current state (2026-10-03, ~5,100 trainer steps)
 
-- 399 outputs + reference. Honest split: **143 PASS / 137 WEAK / 120 FAIL** (400 rows incl.
-  reference; test-assets 75/66/61 + fresh trainer corpus 67/71/59)
-- Teal-orbit logo: 87.0% vs input, **86.0% vs reference** (binary-alpha-mono
-  route). The remaining gap to the 97% reference is engine capability
-  (multi-tone halo reproduction), which the visual-training loop is targeting.
-- Blue-bird logo remains the known open FAIL case (50.6%; deepened inks raise
-  it only to 58.9% — palette-merge policy redesign is the planned fix).
+- 399 outputs + reference, fresh corpus draw. Honest split: **159 PASS / 138 WEAK / 103 FAIL**
+  (≈ flat vs the 158/139/103 post-routing-v2 build — sweep variance is ±10 per
+  fresh draw; FAIL mass remains the measured blur family + gradient-base art).
+- Teal-orbit logo: 87.6% vs input, **86.6% vs reference** (alpha-halo via
+  `_mono_route` radial gate; binary-alpha-mono route also 86.8%). The remaining
+  gap to the 97% reference is multi-tone halo reproduction, assigned to the
+  visual-training loop.
+- Blue-bird logo remains the known open FAIL case (57.7% with detail-retry —
+  vtracer-family ceiling; assigned to the training loop).
+- Model-vs-previous comparisons across builds are relative-time only because
+  the trainer rotates corpus seeds each iteration; `inputs/` preserves the
+  exact PNGs each build was scored against.
