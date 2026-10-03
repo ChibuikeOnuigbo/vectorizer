@@ -724,6 +724,42 @@ def _trace_alpha_halo_stack(a: dict, params: dict) -> str:
     return re.sub(r'(<svg\b)', r'\1 data-engine="alpha-halo-stack"', svg, count=1)
 
 
+def _soft_alpha_boost(a: dict) -> dict | None:
+    """Last-chance salvage for all-soft-alpha inputs (alpha amax < 0.5).
+
+    Every engine collapses on this regime: the strict-audit sweep population
+    scored 0.0 on 15/15 such rows (cutout finds no ink; the mono gate needs a
+    strong-alpha core). Normalizing alpha to the full range recovers the mono
+    ink shape: blur2/3 text probe 0.0-6.0 -> 66.7-85.1 (8/8 wins, mean +78,
+    halo on the boosted image); blur5/6 sample 0.0 -> 38.6/67.0.
+
+    Fires ONLY when the boosted image passes _mono_alpha_candidate, so soft
+    photographs/gradients/feathered art never enter this path. Returns a
+    freshly analyzed dict of the boosted image (or None when inapplicable).
+    """
+    cached = a.get("_soft_boost", "unset")
+    if cached != "unset":
+        return cached
+    out = None
+    alpha = np.asarray(a["img"].getchannel("A"), dtype=np.float32) / 255.0
+    if alpha.size:
+        amax = float(alpha.max())
+        if 0.05 < amax < 0.5 and bool((alpha > 0.05).any()):
+            arr = np.array(a["img"]).astype(np.float32)
+            arr[..., 3] = np.clip(arr[..., 3] * (255.0 / max(arr[..., 3].max(), 1.0)), 0, 255)
+            b = analyze(Image.fromarray(arr.astype(np.uint8), "RGBA"))
+            if _mono_alpha_candidate(b):
+                out = b
+    a["_soft_boost"] = out
+    return out
+
+
+def _trace_boost_halo(b: dict, params: dict) -> str:
+    svg = _trace_alpha_halo_stack(b, params)
+    return svg.replace('data-engine="alpha-halo-stack"',
+                       'data-engine="soft-alpha-boost-halo"', 1)
+
+
 def _mono_route(a: dict) -> str:
     """Calibrated mono-alpha routing via radial statistics (2026-10-03,
     72-image calibration set): strong_share splits sparse from dense;
@@ -742,7 +778,17 @@ def _mono_route(a: dict) -> str:
     alpha = np.asarray(a["img"].getchannel("A"), dtype=np.float32) / 255.0
     strong = alpha > 0.5
     share = float(strong.mean())
-    if share <= 0.02 or share > 0.17:
+    if share <= 0.02:
+        # sparse ink: a pixel-hard skirt (alpha>0.05 spread / alpha>0.5 core
+        # ~1-3) keeps binary ahead (Round-9 no-re-gate on jit/scale rows), but
+        # a melted skirt ratio >= 10 (blur2-3, jpeghard, heavy-posterize)
+        # scores 1.7-24.5 under binary while halo recovers 78-90. Measured on
+        # 12 corpus rows in this build: 11 wins / 1 loss (+65 mean) -> halo.
+        skirt = float((alpha > 0.05).mean())
+        if skirt / max(share, 1e-6) >= 10.0:
+            return "halo"
+        return "binary"
+    if share > 0.17:
         return "binary"
     ys, xs = np.nonzero(alpha > 0.02)
     cx, cy = float(xs.mean()), float(ys.mean())
@@ -809,6 +855,10 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         return _trace_alpha_tone_stack(a, params)
     if params.get("engine") == "alpha-halo-stack" and _mono_alpha_candidate(a):
         return _trace_alpha_halo_stack(a, params)
+    if params.get("engine") == "alpha-halo-stack":
+        b = _soft_alpha_boost(a)
+        if b is not None:
+            return _trace_boost_halo(b, params)
     if params.get("engine") == "binary-alpha-mono" and _mono_alpha_candidate(a):
         return _trace_binary_alpha(a, params)
     if params.get("engine") == "color-tone-stack":
@@ -822,6 +872,13 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         if _mono_route(a) == "halo":
             return _trace_alpha_halo_stack(a, params)
         return _trace_binary_alpha(a, params)
+    # all-soft-alpha salvage (measured regime: 15/15 sweep rows score 0.0
+    # here; boost+halo recovers 38-85%). Mono-candidate-checked on the boosted
+    # image only, so photos/gradients cannot enter.
+    if params.get("engine") != "color-cutout":
+        b = _soft_alpha_boost(a)
+        if b is not None:
+            return _trace_boost_halo(b, params)
 
     return _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
 

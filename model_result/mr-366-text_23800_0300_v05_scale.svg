@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-engine="binary-alpha-mono" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<path d="M0 0 C0.66 0 1.32 0 2 0 C2.33 3.96 2.66 7.92 3 12 C2.34 12 1.68 12 1 12 C0.67 8.04 0.34 4.08 0 0 Z " fill="#38ABB0" transform="translate(107,102)" stroke="#38ABB0" stroke-width="2"/>
+<path d="M0 0 C4 1 4 1 4 1 Z " fill="#38ABB0" transform="translate(125,102)" stroke="#38ABB0" stroke-width="2"/>
+<path d="M0 0 C1 4 1 4 1 4 Z " fill="#38ABB0" transform="translate(120,103)" stroke="#38ABB0" stroke-width="2"/>
+<path d="M0 0 C0.66 0 1.32 0 2 0 C2 0.66 2 1.32 2 2 C1.01 1.67 0.02 1.34 -1 1 C-0.67 0.67 -0.34 0.34 0 0 Z " fill="#38ABB0" transform="translate(128,106)" stroke="#38ABB0" stroke-width="2"/>
+</svg>

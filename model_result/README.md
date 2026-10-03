@@ -39,6 +39,41 @@ against live code, each with an honest strict-similarity score (no inflated
   text rows 63.9 -> 80.9 mean, 0 FAIL in draw); ring-halo mean_d>=0.68 or
   compact <=0.56 with share in (0.02,0.17] -> halo; rest binary.
   13.6-FAIL text row -> 71.6 WEAK, 49.1 -> 86.4 PASS
+- mono routing v3 (2026-10-03, Round 10, measured across the whole sweep):
+  - melted-sparse-mono detour: when the strong core is ultra-sparse
+    (share<=0.02) but the alpha>0.05 skirt is >=10x the core (melted ink:
+    blur2-3, jpeghard, heavy-posterize signatures), route halo instead of
+    binary. Calibration: 12 rows, 11 wins / 1 loss (blur1 row -11, accepted
+    against +66 mean; jit/scale/pixel-hard rows keep ratio 1-8 and stay
+    binary -> Round-9 no-re-gate finding preserved). jpeghard 3.7-9.0 ->
+    78.3-80.4, heavy-posterize 10.9-18.1 -> 87.8-89.6, blur2-3 sparse-core
+    1.7-6.0 -> 83.9-88.6.
+  - soft-alpha-boost-halo engine: inputs whose ENTIRE alpha sits below 0.5
+    (ghost text/art) scored 0.0 on every engine (15/15 sweep rows - cutout
+    finds no ink, mono gate needs a strong core). Now: normalize alpha to
+    full range, re-analyze, require mono-candidate on the boosted image,
+    trace halo, stamp data-engine="soft-alpha-boost-halo". Measured:
+    blur2/3 text 0.0-6.0 -> 67-85 (8/8 wins, mean +78); blur5/6 sample
+    0.0 -> 38.6/67.0. Sweep now carries 15 boosted rows at mean 61.6 -
+    all rescued from 0.0 FAIL.
+  - bloat/fidelity tradeoff (logged per rules): both routes deliberately
+    render a DENSER reading of a faint ghost (alpha forced to its support),
+    so output reads as solid ink over a soft original; the strict audit
+    scores shape vs the ghost input, which caps scores near 82-89 even when
+    the recovery is visually faithful. Halo ring stacks also carry more
+    paths than a single binary layer (~2-3x path count vs binary-alpha).
+    Accepted because the alternative is an empty/collapsed SVG (score 0).
+  - controls held: teal 87.9 halo, text_0139/0140 binary 71.6/86.4,
+    jit2 61.6->67.6 binary, scale 35.3->48.4 binary, soft 75.2->71.5
+    binary, blur1-hard 66.5->63.3 binary (all same engines, small audit
+    jitter only)
+  - sweep after router v3 + boost salvage (fresh draw, 400 rows):
+    167 PASS / 146 WEAK / 86 FAIL (FAIL 103 -> 86; mean 73.7 -> 78.2;
+    corpus text family mean 42.2 -> 64.7, its FAILs 46 -> 30)
+- ops note: model_result_build.py converts through the RUNNING :8000 app;
+  after any app/convert.py edit, restart the server before rebuilding or
+  the sweep silently measures stale code (caught once in this round: an
+  "unchanged" sweep was the old module, confirmed by data-engine attrs).
 - watches: 32px downscale inputs cap ~1-17% every engine (raster floor,
   no route gate applies); thin strokes sharpened 47.6 -> 63.9 but stroke
   weight still +2px (hairline-width emitting planned)
@@ -72,13 +107,17 @@ PYTHONPATH=vendor:app/deps:. python3 scripts/model_result_build.py --n 50
 
 Re-run after every engine or model-weights change to see the current truth.
 
-## Current state (2026-10-03, ~5,100 trainer steps)
+## Current state (2026-10-03, ~8,400 trainer steps, routing v3 + boost salvage)
 
-- 399 outputs + reference, fresh corpus draw. Honest split: **159 PASS / 138 WEAK / 103 FAIL**
-  (≈ flat vs the 158/139/103 post-routing-v2 build — sweep variance is ±10 per
-  fresh draw; FAIL mass remains the measured blur family + gradient-base art).
-- Teal-orbit logo: 87.6% vs input, **86.6% vs reference** (alpha-halo via
-  `_mono_route` radial gate; binary-alpha-mono route also 86.8%). The remaining
+- 399 outputs + reference, fresh corpus draw. Honest split: **167 PASS / 146
+  WEAK / 86 FAIL** (mean 78.2; FAIL 103 -> 86 via the melted-mono halo detour
+  and the soft-alpha-boost-halo engine — calibration above).
+- Remaining FAIL mass: test assets (27, incl. bird), deep blur4-6 (~30 —
+  boost-halo recovers only to ~38-67), pixel variants (8), assorted
+  jpeghard/soft stragglers. Deep-blur shape recovery stays assigned to the
+  training loop (restoration-truth scoring), not further engine ladders.
+- Teal-orbit logo: 87.6% vs input, **86.6% vs reference** (unchanged across
+  routing v3 — the gate keeps halo routing on the teal family). The remaining
   gap to the 97% reference is multi-tone halo reproduction, assigned to the
   visual-training loop.
 - Blue-bird logo remains the known open FAIL case (57.7% with detail-retry —

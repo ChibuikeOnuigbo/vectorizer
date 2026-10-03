@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-engine="binary-alpha-mono" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<path d="M0 0 C0.99 0 1.98 0 3 0 C3 1.98 3 3.96 3 6 C2.67 6.165 2.67 6.165 1 7 C0.67 4.69 0.34 2.38 0 0 Z " fill="#A1B086" transform="translate(83,167)" stroke="#A1B086" stroke-width="2"/>
+<path d="M0 0 C0.66 0 1.32 0 2 0 C2.625 2.375 2.625 2.375 3 5 C2.34 5.66 1.68 6.32 1 7 C-1 4 -1 4 -0.625 1.8125 C-0.41875 1.21437 -0.2125 0.61625 0 0 Z " fill="#A1B086" transform="translate(95,167)" stroke="#A1B086" stroke-width="2"/>
+<path d="M0 0 C0.99 0 1.98 0 3 0 C3 1.32 3 2.64 3 4 C2.01 4 1.02 4 0 4 C0 2.68 0 1.36 0 0 Z " fill="#A1B086" transform="translate(133,167)" stroke="#A1B086" stroke-width="2"/>
+<path d="M0 0 C0.99 0.33 1.98 0.66 3 1 C3 2.65 3 4.3 3 6 C1.68 6 0.36 6 -1 6 C-1.04272 4.33388 -1.04064 2.66617 -1 1 C-0.67 0.67 -0.34 0.34 0 0 Z " fill="#A1B086" transform="translate(114,170)" stroke="#A1B086" stroke-width="2"/>
+<path d="M0 0 C0.66 0 1.32 0 2 0 C2.33 0.99 2.66 1.98 3 3 C2.01 3.33 1.02 3.66 0 4 C-0.33 3.01 -0.66 2.02 -1 1 C-0.67 0.67 -0.34 0.34 0 0 Z " fill="#A1B086" transform="translate(142,176)" stroke="#A1B086" stroke-width="2"/>
+</svg>
