@@ -362,6 +362,66 @@ def _trace_binary_alpha(a: dict, params: dict) -> str:
     return re.sub(r'(<svg\b)', r'\1 data-engine="binary-alpha-mono"', svg, count=1)
 
 
+def _trace_color_tone_stack(a: dict, params: dict) -> str:
+    """EXPERIMENTAL gradient engine (opt-in only, NOT auto-routed — 2026-10-03
+    blur calibration: huge wins on some gradient-degraded art (+55 strict)
+    but catastrophic misses on others; kept selectable for the training
+    candidate space, never silently applied). k-means RGB into `tone_bands`
+    tones, trace cumulative darker masks bottom-up, stack as opaque tone
+    layers — gradients become smooth bands instead of cutout fragmentation."""
+    img = a["img"].convert("RGBA")
+    w, h = a["w"], a["h"]
+    arr = np.asarray(img)
+    rgb = arr[..., :3].astype(np.float32)
+    alpha = arr[..., 3].astype(np.float32) / 255.0
+    comp = rgb * alpha[..., None] + 255.0 * (1 - alpha[..., None])
+    tones = comp.reshape(-1, 3)
+    K = min(max(int(params.get("tone_bands", 7)), 3), 10)
+    rng = np.random.default_rng(4)
+    C = tones[rng.choice(len(tones), K, replace=False)].copy()
+    lab = None
+    for _ in range(28):
+        d = ((tones[:, None, :] - C[None, :, :]) ** 2).sum(axis=2)
+        lab = d.argmin(axis=1)
+        NC = np.array([tones[lab == i].mean(axis=0) if (lab == i).any() else C[i]
+                       for i in range(K)])
+        if np.abs(NC - C).max() < 0.6:
+            C = NC
+            break
+        C = NC
+    lab_map = lab.reshape(h, w)
+    lum = C.mean(axis=1)
+    order = np.argsort(-lum)
+    lt = min(max(float(params.get("length_threshold", 0.5)), 0.5), 4.0)
+    pp = min(max(int(params.get("path_precision", 10)), 3), 12)
+    sp = min(max(int(params.get("filter_speckle", 2)), 0), 16)
+    ct = min(max(int(params.get("corner_threshold", 40)), 10), 110)
+    paths: list[str] = []
+    for rank, ci in enumerate(order):
+        m_rgb = C[ci].astype(int)
+        hexcol = f"#{int(m_rgb[0]):02X}{int(m_rgb[1]):02X}{int(m_rgb[2]):02X}"
+        if rank == 0 and m_rgb.mean() >= 249:
+            paths.append(f'<rect width="{w}" height="{h}" fill="{hexcol}"/>')
+            continue
+        darker = np.isin(lab_map, order[rank:])
+        pix = np.where(darker, 0, 255).astype(np.uint8)
+        with tempfile.TemporaryDirectory() as td:
+            src, out = f"{td}/b.png", f"{td}/b.svg"
+            Image.fromarray(pix, "L").save(src)
+            vtracer.convert_image_to_svg_py(
+                src, out, colormode="binary", hierarchical="stacked",
+                filter_speckle=sp, corner_threshold=ct,
+                length_threshold=lt, path_precision=pp)
+            bsvg = open(out, encoding="utf-8").read()
+        bsvg = re.sub(r'fill="(?:#000000|#000|black|rgb\(0,0,0\)|rgb\(0%,0%,0%\))"',
+                      f'fill="{hexcol}"', bsvg, flags=re.I)
+        paths.extend(re.findall(r'<path\b[^>]*/?>', bsvg))
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {w} {h}">' + "".join(paths) + "</svg>")
+    svg = _tidy(svg, w, h, False)
+    return re.sub(r'(<svg\b)', r'\1 data-engine="color-tone-stack"', svg, count=1)
+
+
 def _trace_alpha_tone_stack(a: dict, params: dict) -> str:
     """For transparent monochrome art: decompose the TRUE alpha content into a
     few tonal bands (the body + the soft AA halo that binary engines drop),
@@ -751,6 +811,8 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         return _trace_alpha_halo_stack(a, params)
     if params.get("engine") == "binary-alpha-mono" and _mono_alpha_candidate(a):
         return _trace_binary_alpha(a, params)
+    if params.get("engine") == "color-tone-stack":
+        return _trace_color_tone_stack(a, params)
     if params.get("engine") == "pixel-art":
         return _trace_pixel_art(a, params)
     # Engine route: monochrome transparent content via the calibrated

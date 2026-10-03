@@ -26,6 +26,14 @@ against live code, each with an honest strict-similarity score (no inflated
   (beak/eye micro-cutouts): bird 50.6 -> 57.7; 26-image corpus: worst -2.1
 - sweep after upgrades: 154 PASS / 143 WEAK / 103 FAIL (FAIL 147 -> 103)
 - collages/ one side-by-side input|output PNG per row, verdict stamped
+- blur-family wall measured (2026-10-03): blur2-6 variants mean 31-50 vs
+  57+ for all other degradations - heavily blurred COLOR art defies
+  flat-tone vectorization; color-tone-stack engine added as opt-in
+  (engine:"color-tone-stack", 7 tones): +55 on blur6 rows where cutout
+  collapses to 7.4, but catastrophic misses on 4/8 probe rows -> NOT
+  auto-routed (calibration discipline), kept for the candidate space;
+  blur recovery is assigned to the training loop (its own scoring uses
+  restoration truth, not input fidelity)
 - mono routing v2 (2026-10-03, 72-image calibration): radial 3-zone gate.
   ultra-sparse share<=0.02 -> binary (text/lines: was misrouted to halo,
   text rows 63.9 -> 80.9 mean, 0 FAIL in draw); ring-halo mean_d>=0.68 or
