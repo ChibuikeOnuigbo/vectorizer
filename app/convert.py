@@ -912,17 +912,22 @@ def _trace_cutout(a: dict, params: dict, flat: bool, cp: int, ld: int, sp: int,
         return max(base, 5) if detail else base
 
     svg = _run(mi, cp, ld, sp, ct, lt, pp, inks, detail=False)
+    stamp = "color-cutout"
     # Detail retry (measured 2026-09-27): flat art traced into so few paths
     # means micro cutouts (beak slits, eye gaps) got merged by the coarse
     # preset (lt 4.5 / cp 2-3 / speckle). Retry with detail settings; gains
     # up to +7.7 (bird icon) with worst case -2.1 noise on 26 corpus images.
     if flat and len(re.findall(r"<path\b", svg)) <= 6 and params.get("detail_retry", True):
         svg = _run(20, 5, 12, 0, 40, 0.5, pp, inks, detail=True)
+        stamp = "color-cutout-detail"
 
     if a["has_alpha"] and not a["keep_bg"]:
         svg = _strip_color(svg, a["bg_color"], a["content_palette"])
 
-    return _tidy(svg, w, h, flat)
+    # attribution (after _tidy, which rewrites the opening tag): engine :=
+    # actual route (was '?' in gallery/index mixes)
+    svg = _tidy(svg, w, h, flat)
+    return re.sub(r'(<svg\b)', rf'\1 data-engine="{stamp}"', svg, count=1)
 
 
 def _pick_best_preset(a: dict) -> dict:

@@ -107,13 +107,29 @@ PYTHONPATH=vendor:app/deps:. python3 scripts/model_result_build.py --n 50
 
 Re-run after every engine or model-weights change to see the current truth.
 
-## Current state (2026-10-03, ~8,400 trainer steps, routing v3 + boost salvage)
+## Current state (2026-10-03, ~10,200 trainer steps, routing v3 + boost salvage)
 
-- 399 outputs + reference, fresh corpus draw. Honest split: **167 PASS / 146
-  WEAK / 86 FAIL** (mean 78.2; FAIL 103 -> 86 via the melted-mono halo detour
-  and the soft-alpha-boost-halo engine — calibration above).
-- Remaining FAIL mass: test assets (27, incl. bird), deep blur4-6 (~30 —
-  boost-halo recovers only to ~38-67), pixel variants (8), assorted
+- 399 outputs + reference. Honest split: **167 PASS / 146 WEAK / 86 FAIL**
+  (mean 78.2), bit-identical to the previous build at ~8,400 steps — see
+  the frozen-checkpoint finding below.
+- Engine attribution landed in this build: every SVG now stamps
+  `data-engine`, so mixes are legible — color-cutout-detail 221,
+  binary-alpha-mono 81, alpha-halo-stack 28, color-cutout 27, pixel-art 25,
+  soft-alpha-boost-halo 15, hairline 2 (no more '?' rows).
+- **Frozen-checkpoint finding (honest)**: the trainer only exports new
+  weights when an iteration's val beats best_val−0.1 (currently 97.54);
+  best_val pegged at 97.64 since 2026-09-27. Iterations since (95.79,
+  94.74, …) are all skipped, so the SHIPPED model params are unchanged and
+  every model-mode sweep measures that same checkpoint — teal vs-reference
+  "trend" 86.6 is therefore a constant, not progress. The engine-level
+  gains (routing v3, boost salvage) are what moved the sweep; making the
+  trainer beat its own best likely needs a wider action space (engine/heuristic
+  choices beyond the 5 vtracer knobs) or a val set focused on the remaining
+  walls, not more of the same data.
+
+- Remaining FAIL mass: test assets (19, incl. bird; gen-noise rows are
+  structurally capped — the strict audit scores vs the noisy input, so any
+  cleanup is penalized by definition), deep blur4-6 (~30), assorted
   jpeghard/soft stragglers. Deep-blur shape recovery stays assigned to the
   training loop (restoration-truth scoring), not further engine ladders.
 - Teal-orbit logo: 87.6% vs input, **86.6% vs reference** (unchanged across

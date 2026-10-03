@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-03T22:46:10Z",
+ "generated_utc": "2026-10-03T23:23:45Z",
  "reference": "absolute_test_svg.svg",
  "entries": [
   {
@@ -32,7 +32,7 @@
    "svg": "mr-002-blue-bird-appicon.svg",
    "source": "test-assets/images/user-provided/blue-bird-appicon.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 57.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -41,8 +41,8 @@
     "silhouette_iou": 0.9335,
     "edge_f1": 0.5448
    },
-   "svg_bytes": 29814,
-   "convert_ms": 70
+   "svg_bytes": 29848,
+   "convert_ms": 71
   },
   {
    "id": "mr-003",
@@ -76,14 +76,14 @@
     "edge_f1": 0.904
    },
    "svg_bytes": 4254,
-   "convert_ms": 20
+   "convert_ms": 22
   },
   {
    "id": "mr-005",
    "svg": "mr-005-edge-big1024.svg",
    "source": "test-assets/images/generated/edge-big1024.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 87.5,
    "strict_verdict": "PASS",
    "channels": {
@@ -92,15 +92,15 @@
     "silhouette_iou": 0.989,
     "edge_f1": 0.0887
    },
-   "svg_bytes": 104935,
-   "convert_ms": 684
+   "svg_bytes": 104962,
+   "convert_ms": 734
   },
   {
    "id": "mr-006",
    "svg": "mr-006-edge-flat-color.svg",
    "source": "test-assets/images/generated/edge-flat-color.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 100.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -109,8 +109,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 1.0
    },
-   "svg_bytes": 310,
-   "convert_ms": 20
+   "svg_bytes": 344,
+   "convert_ms": 23
   },
   {
    "id": "mr-007",
@@ -127,7 +127,7 @@
     "edge_f1": 0.7808
    },
    "svg_bytes": 853,
-   "convert_ms": 40
+   "convert_ms": 52
   },
   {
    "id": "mr-008",
@@ -144,14 +144,14 @@
     "edge_f1": 0.8862
    },
    "svg_bytes": 1519,
-   "convert_ms": 23
+   "convert_ms": 24
   },
   {
    "id": "mr-009",
    "svg": "mr-009-edge-transparent.svg",
    "source": "test-assets/images/generated/edge-transparent.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 100.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -160,15 +160,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 1.0
    },
-   "svg_bytes": 134,
-   "convert_ms": 14
+   "svg_bytes": 168,
+   "convert_ms": 27
   },
   {
    "id": "mr-010",
    "svg": "mr-010-gauntlet-x1024.svg",
    "source": "test-assets/images/generated/gauntlet-x1024.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 79.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -177,8 +177,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5635
    },
-   "svg_bytes": 33419,
-   "convert_ms": 307
+   "svg_bytes": 33446,
+   "convert_ms": 340
   },
   {
    "id": "mr-011",
@@ -195,7 +195,7 @@
     "edge_f1": 0.6079
    },
    "svg_bytes": 995,
-   "convert_ms": 31
+   "convert_ms": 33
   },
   {
    "id": "mr-012",
@@ -219,7 +219,7 @@
    "svg": "mr-013-gen-00darkbg.svg",
    "source": "test-assets/images/generated/gen-00darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 97.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -228,8 +228,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5797
    },
-   "svg_bytes": 3260,
-   "convert_ms": 30
+   "svg_bytes": 3294,
+   "convert_ms": 31
   },
   {
    "id": "mr-014",
@@ -253,7 +253,7 @@
    "svg": "mr-015-gen-00gray.svg",
    "source": "test-assets/images/generated/gen-00gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 97.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -262,15 +262,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5785
    },
-   "svg_bytes": 3260,
-   "convert_ms": 41
+   "svg_bytes": 3294,
+   "convert_ms": 43
   },
   {
    "id": "mr-016",
    "svg": "mr-016-gen-00jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-00jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 93.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -279,8 +279,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.366
    },
-   "svg_bytes": 4115,
-   "convert_ms": 42
+   "svg_bytes": 4149,
+   "convert_ms": 32
   },
   {
    "id": "mr-017",
@@ -297,7 +297,7 @@
     "edge_f1": 0.2748
    },
    "svg_bytes": 995,
-   "convert_ms": 34
+   "convert_ms": 35
   },
   {
    "id": "mr-018",
@@ -314,7 +314,7 @@
     "edge_f1": 0.6365
    },
    "svg_bytes": 1273,
-   "convert_ms": 43
+   "convert_ms": 44
   },
   {
    "id": "mr-019",
@@ -348,14 +348,14 @@
     "edge_f1": 0.1601
    },
    "svg_bytes": 13284,
-   "convert_ms": 58
+   "convert_ms": 59
   },
   {
    "id": "mr-021",
    "svg": "mr-021-gen-01darkbg.svg",
    "source": "test-assets/images/generated/gen-01darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 91.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -364,8 +364,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5697
    },
-   "svg_bytes": 6717,
-   "convert_ms": 35
+   "svg_bytes": 6751,
+   "convert_ms": 33
   },
   {
    "id": "mr-022",
@@ -382,14 +382,14 @@
     "edge_f1": 0.9979
    },
    "svg_bytes": 15190,
-   "convert_ms": 5
+   "convert_ms": 8
   },
   {
    "id": "mr-023",
    "svg": "mr-023-gen-01gray.svg",
    "source": "test-assets/images/generated/gen-01gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 91.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -398,15 +398,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5742
    },
-   "svg_bytes": 6717,
-   "convert_ms": 38
+   "svg_bytes": 6751,
+   "convert_ms": 39
   },
   {
    "id": "mr-024",
    "svg": "mr-024-gen-01jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-01jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -415,8 +415,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4941
    },
-   "svg_bytes": 16446,
-   "convert_ms": 38
+   "svg_bytes": 16480,
+   "convert_ms": 36
   },
   {
    "id": "mr-025",
@@ -433,7 +433,7 @@
     "edge_f1": 0.6329
    },
    "svg_bytes": 10744,
-   "convert_ms": 72
+   "convert_ms": 56
   },
   {
    "id": "mr-026",
@@ -450,14 +450,14 @@
     "edge_f1": 0.5701
    },
    "svg_bytes": 11550,
-   "convert_ms": 71
+   "convert_ms": 70
   },
   {
    "id": "mr-027",
    "svg": "mr-027-gen-02-base.svg",
    "source": "test-assets/images/generated/gen-02-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 68.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -466,15 +466,15 @@
     "silhouette_iou": 0.6824,
     "edge_f1": 0.0174
    },
-   "svg_bytes": 7235,
-   "convert_ms": 50
+   "svg_bytes": 7269,
+   "convert_ms": 51
   },
   {
    "id": "mr-028",
    "svg": "mr-028-gen-02blur.svg",
    "source": "test-assets/images/generated/gen-02blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -483,15 +483,15 @@
     "silhouette_iou": 0.9286,
     "edge_f1": 0.0101
    },
-   "svg_bytes": 6078,
-   "convert_ms": 49
+   "svg_bytes": 6112,
+   "convert_ms": 51
   },
   {
    "id": "mr-029",
    "svg": "mr-029-gen-02darkbg.svg",
    "source": "test-assets/images/generated/gen-02darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 89.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -500,7 +500,7 @@
     "silhouette_iou": 0.9992,
     "edge_f1": 0.5917
    },
-   "svg_bytes": 11896,
+   "svg_bytes": 11930,
    "convert_ms": 33
   },
   {
@@ -525,7 +525,7 @@
    "svg": "mr-031-gen-02gray.svg",
    "source": "test-assets/images/generated/gen-02gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 89.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -534,15 +534,15 @@
     "silhouette_iou": 0.9992,
     "edge_f1": 0.5931
    },
-   "svg_bytes": 11896,
-   "convert_ms": 67
+   "svg_bytes": 11930,
+   "convert_ms": 39
   },
   {
    "id": "mr-032",
    "svg": "mr-032-gen-02jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-02jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -551,7 +551,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5816
    },
-   "svg_bytes": 16952,
+   "svg_bytes": 16986,
    "convert_ms": 36
   },
   {
@@ -559,7 +559,7 @@
    "svg": "mr-033-gen-02noise.svg",
    "source": "test-assets/images/generated/gen-02noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 68.9,
    "strict_verdict": "FAIL",
    "channels": {
@@ -568,15 +568,15 @@
     "silhouette_iou": 0.6888,
     "edge_f1": 0.0196
    },
-   "svg_bytes": 7781,
-   "convert_ms": 53
+   "svg_bytes": 7815,
+   "convert_ms": 58
   },
   {
    "id": "mr-034",
    "svg": "mr-034-gen-02rot.svg",
    "source": "test-assets/images/generated/gen-02rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 70.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -585,15 +585,15 @@
     "silhouette_iou": 0.7095,
     "edge_f1": 0.0148
    },
-   "svg_bytes": 7775,
-   "convert_ms": 75
+   "svg_bytes": 7809,
+   "convert_ms": 72
   },
   {
    "id": "mr-035",
    "svg": "mr-035-gen-03-base.svg",
    "source": "test-assets/images/generated/gen-03-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -602,15 +602,15 @@
     "silhouette_iou": 0.7879,
     "edge_f1": 0.0
    },
-   "svg_bytes": 1450,
-   "convert_ms": 56
+   "svg_bytes": 1484,
+   "convert_ms": 48
   },
   {
    "id": "mr-036",
    "svg": "mr-036-gen-03blur.svg",
    "source": "test-assets/images/generated/gen-03blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.5,
    "strict_verdict": "PASS",
    "channels": {
@@ -619,15 +619,15 @@
     "silhouette_iou": 0.9479,
     "edge_f1": 0.0
    },
-   "svg_bytes": 7202,
-   "convert_ms": 68
+   "svg_bytes": 7236,
+   "convert_ms": 50
   },
   {
    "id": "mr-037",
    "svg": "mr-037-gen-03darkbg.svg",
    "source": "test-assets/images/generated/gen-03darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 93.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -636,8 +636,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6366
    },
-   "svg_bytes": 2792,
-   "convert_ms": 35
+   "svg_bytes": 2826,
+   "convert_ms": 40
   },
   {
    "id": "mr-038",
@@ -661,7 +661,7 @@
    "svg": "mr-039-gen-03gray.svg",
    "source": "test-assets/images/generated/gen-03gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -670,15 +670,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6368
    },
-   "svg_bytes": 2792,
-   "convert_ms": 39
+   "svg_bytes": 2826,
+   "convert_ms": 35
   },
   {
    "id": "mr-040",
    "svg": "mr-040-gen-03jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-03jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 81.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -687,15 +687,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5407
    },
-   "svg_bytes": 10525,
-   "convert_ms": 37
+   "svg_bytes": 10559,
+   "convert_ms": 33
   },
   {
    "id": "mr-041",
    "svg": "mr-041-gen-03noise.svg",
    "source": "test-assets/images/generated/gen-03noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.3,
    "strict_verdict": "WEAK",
    "channels": {
@@ -704,15 +704,15 @@
     "silhouette_iou": 0.7879,
     "edge_f1": 0.0
    },
-   "svg_bytes": 1450,
-   "convert_ms": 51
+   "svg_bytes": 1484,
+   "convert_ms": 50
   },
   {
    "id": "mr-042",
    "svg": "mr-042-gen-03rot.svg",
    "source": "test-assets/images/generated/gen-03rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -721,15 +721,15 @@
     "silhouette_iou": 0.7683,
     "edge_f1": 0.0036
    },
-   "svg_bytes": 7835,
-   "convert_ms": 76
+   "svg_bytes": 7869,
+   "convert_ms": 86
   },
   {
    "id": "mr-043",
    "svg": "mr-043-gen-04-base.svg",
    "source": "test-assets/images/generated/gen-04-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 64.9,
    "strict_verdict": "FAIL",
    "channels": {
@@ -738,15 +738,15 @@
     "silhouette_iou": 0.6491,
     "edge_f1": 0.088
    },
-   "svg_bytes": 5540,
-   "convert_ms": 40
+   "svg_bytes": 5567,
+   "convert_ms": 46
   },
   {
    "id": "mr-044",
    "svg": "mr-044-gen-04blur.svg",
    "source": "test-assets/images/generated/gen-04blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -755,15 +755,15 @@
     "silhouette_iou": 0.9396,
     "edge_f1": 0.0701
    },
-   "svg_bytes": 9792,
-   "convert_ms": 52
+   "svg_bytes": 9826,
+   "convert_ms": 66
   },
   {
    "id": "mr-045",
    "svg": "mr-045-gen-04darkbg.svg",
    "source": "test-assets/images/generated/gen-04darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 91.5,
    "strict_verdict": "PASS",
    "channels": {
@@ -772,8 +772,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.563
    },
-   "svg_bytes": 9351,
-   "convert_ms": 34
+   "svg_bytes": 9385,
+   "convert_ms": 36
   },
   {
    "id": "mr-046",
@@ -797,7 +797,7 @@
    "svg": "mr-047-gen-04gray.svg",
    "source": "test-assets/images/generated/gen-04gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 91.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -806,7 +806,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5689
    },
-   "svg_bytes": 9351,
+   "svg_bytes": 9385,
    "convert_ms": 40
   },
   {
@@ -814,7 +814,7 @@
    "svg": "mr-048-gen-04jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-04jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -823,15 +823,15 @@
     "silhouette_iou": 0.9991,
     "edge_f1": 0.5488
    },
-   "svg_bytes": 14860,
-   "convert_ms": 48
+   "svg_bytes": 14894,
+   "convert_ms": 35
   },
   {
    "id": "mr-049",
    "svg": "mr-049-gen-04noise.svg",
    "source": "test-assets/images/generated/gen-04noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 64.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -840,15 +840,15 @@
     "silhouette_iou": 0.6472,
     "edge_f1": 0.074
    },
-   "svg_bytes": 5554,
-   "convert_ms": 84
+   "svg_bytes": 5581,
+   "convert_ms": 42
   },
   {
    "id": "mr-050",
    "svg": "mr-050-gen-04rot.svg",
    "source": "test-assets/images/generated/gen-04rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 68.0,
    "strict_verdict": "FAIL",
    "channels": {
@@ -857,15 +857,15 @@
     "silhouette_iou": 0.6797,
     "edge_f1": 0.1113
    },
-   "svg_bytes": 7389,
-   "convert_ms": 63
+   "svg_bytes": 7416,
+   "convert_ms": 55
   },
   {
    "id": "mr-051",
    "svg": "mr-051-gen-05-base.svg",
    "source": "test-assets/images/generated/gen-05-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -874,15 +874,15 @@
     "silhouette_iou": 0.7503,
     "edge_f1": 0.0
    },
-   "svg_bytes": 11573,
-   "convert_ms": 136
+   "svg_bytes": 11607,
+   "convert_ms": 52
   },
   {
    "id": "mr-052",
    "svg": "mr-052-gen-05blur.svg",
    "source": "test-assets/images/generated/gen-05blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 66.0,
    "strict_verdict": "FAIL",
    "channels": {
@@ -891,15 +891,15 @@
     "silhouette_iou": 0.9593,
     "edge_f1": 0.0008
    },
-   "svg_bytes": 56427,
-   "convert_ms": 80
+   "svg_bytes": 56461,
+   "convert_ms": 88
   },
   {
    "id": "mr-053",
    "svg": "mr-053-gen-05darkbg.svg",
    "source": "test-assets/images/generated/gen-05darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -908,8 +908,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6047
    },
-   "svg_bytes": 23268,
-   "convert_ms": 37
+   "svg_bytes": 23302,
+   "convert_ms": 35
   },
   {
    "id": "mr-054",
@@ -926,14 +926,14 @@
     "edge_f1": 0.9947
    },
    "svg_bytes": 22705,
-   "convert_ms": 6
+   "convert_ms": 5
   },
   {
    "id": "mr-055",
    "svg": "mr-055-gen-05gray.svg",
    "source": "test-assets/images/generated/gen-05gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -942,15 +942,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5985
    },
-   "svg_bytes": 23268,
-   "convert_ms": 42
+   "svg_bytes": 23302,
+   "convert_ms": 41
   },
   {
    "id": "mr-056",
    "svg": "mr-056-gen-05jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-05jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 71.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -959,15 +959,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5697
    },
-   "svg_bytes": 26123,
-   "convert_ms": 38
+   "svg_bytes": 26157,
+   "convert_ms": 37
   },
   {
    "id": "mr-057",
    "svg": "mr-057-gen-05noise.svg",
    "source": "test-assets/images/generated/gen-05noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 63.0,
    "strict_verdict": "FAIL",
    "channels": {
@@ -976,15 +976,15 @@
     "silhouette_iou": 0.7526,
     "edge_f1": 0.0036
    },
-   "svg_bytes": 11258,
-   "convert_ms": 78
+   "svg_bytes": 11292,
+   "convert_ms": 56
   },
   {
    "id": "mr-058",
    "svg": "mr-058-gen-05rot.svg",
    "source": "test-assets/images/generated/gen-05rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -993,8 +993,8 @@
     "silhouette_iou": 0.7641,
     "edge_f1": 0.0246
    },
-   "svg_bytes": 12857,
-   "convert_ms": 94
+   "svg_bytes": 12891,
+   "convert_ms": 73
   },
   {
    "id": "mr-059",
@@ -1011,7 +1011,7 @@
     "edge_f1": 0.5762
    },
    "svg_bytes": 1676,
-   "convert_ms": 33
+   "convert_ms": 32
   },
   {
    "id": "mr-060",
@@ -1028,14 +1028,14 @@
     "edge_f1": 0.7365
    },
    "svg_bytes": 1574,
-   "convert_ms": 67
+   "convert_ms": 33
   },
   {
    "id": "mr-061",
    "svg": "mr-061-gen-06darkbg.svg",
    "source": "test-assets/images/generated/gen-06darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 94.8,
    "strict_verdict": "PASS",
    "channels": {
@@ -1044,8 +1044,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.457
    },
-   "svg_bytes": 4789,
-   "convert_ms": 33
+   "svg_bytes": 4823,
+   "convert_ms": 32
   },
   {
    "id": "mr-062",
@@ -1062,14 +1062,14 @@
     "edge_f1": 0.9971
    },
    "svg_bytes": 13731,
-   "convert_ms": 5
+   "convert_ms": 6
   },
   {
    "id": "mr-063",
    "svg": "mr-063-gen-06gray.svg",
    "source": "test-assets/images/generated/gen-06gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 94.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -1078,15 +1078,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4829
    },
-   "svg_bytes": 4789,
-   "convert_ms": 44
+   "svg_bytes": 4823,
+   "convert_ms": 37
   },
   {
    "id": "mr-064",
    "svg": "mr-064-gen-06jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-06jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 89.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -1095,8 +1095,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.0263
    },
-   "svg_bytes": 10348,
-   "convert_ms": 34
+   "svg_bytes": 10382,
+   "convert_ms": 37
   },
   {
    "id": "mr-065",
@@ -1130,14 +1130,14 @@
     "edge_f1": 0.6092
    },
    "svg_bytes": 2213,
-   "convert_ms": 47
+   "convert_ms": 43
   },
   {
    "id": "mr-067",
    "svg": "mr-067-gen-07-base.svg",
    "source": "test-assets/images/generated/gen-07-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 75.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1146,15 +1146,15 @@
     "silhouette_iou": 0.9434,
     "edge_f1": 0.3332
    },
-   "svg_bytes": 13002,
-   "convert_ms": 64
+   "svg_bytes": 13036,
+   "convert_ms": 63
   },
   {
    "id": "mr-068",
    "svg": "mr-068-gen-07blur.svg",
    "source": "test-assets/images/generated/gen-07blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1163,15 +1163,15 @@
     "silhouette_iou": 0.9835,
     "edge_f1": 0.0519
    },
-   "svg_bytes": 36784,
-   "convert_ms": 75
+   "svg_bytes": 36818,
+   "convert_ms": 73
   },
   {
    "id": "mr-069",
    "svg": "mr-069-gen-07darkbg.svg",
    "source": "test-assets/images/generated/gen-07darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1180,8 +1180,8 @@
     "silhouette_iou": 0.9979,
     "edge_f1": 0.5442
    },
-   "svg_bytes": 13021,
-   "convert_ms": 43
+   "svg_bytes": 13055,
+   "convert_ms": 42
   },
   {
    "id": "mr-070",
@@ -1198,14 +1198,14 @@
     "edge_f1": 0.9445
    },
    "svg_bytes": 26078,
-   "convert_ms": 7
+   "convert_ms": 5
   },
   {
    "id": "mr-071",
    "svg": "mr-071-gen-07gray.svg",
    "source": "test-assets/images/generated/gen-07gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1214,15 +1214,15 @@
     "silhouette_iou": 0.9979,
     "edge_f1": 0.5488
    },
-   "svg_bytes": 13021,
-   "convert_ms": 52
+   "svg_bytes": 13055,
+   "convert_ms": 44
   },
   {
    "id": "mr-072",
    "svg": "mr-072-gen-07jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-07jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 69.8,
    "strict_verdict": "FAIL",
    "channels": {
@@ -1231,15 +1231,15 @@
     "silhouette_iou": 0.9988,
     "edge_f1": 0.6441
    },
-   "svg_bytes": 60440,
-   "convert_ms": 56
+   "svg_bytes": 60474,
+   "convert_ms": 77
   },
   {
    "id": "mr-073",
    "svg": "mr-073-gen-07noise.svg",
    "source": "test-assets/images/generated/gen-07noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 33.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -1248,15 +1248,15 @@
     "silhouette_iou": 0.9468,
     "edge_f1": 0.2098
    },
-   "svg_bytes": 15455,
-   "convert_ms": 82
+   "svg_bytes": 15489,
+   "convert_ms": 75
   },
   {
    "id": "mr-074",
    "svg": "mr-074-gen-07rot.svg",
    "source": "test-assets/images/generated/gen-07rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 82.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1265,15 +1265,15 @@
     "silhouette_iou": 0.9434,
     "edge_f1": 0.3941
    },
-   "svg_bytes": 22484,
-   "convert_ms": 100
+   "svg_bytes": 22518,
+   "convert_ms": 108
   },
   {
    "id": "mr-075",
    "svg": "mr-075-gen-08-base.svg",
    "source": "test-assets/images/generated/gen-08-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1282,15 +1282,15 @@
     "silhouette_iou": 0.7596,
     "edge_f1": 0.0862
    },
-   "svg_bytes": 7110,
-   "convert_ms": 49
+   "svg_bytes": 7144,
+   "convert_ms": 50
   },
   {
    "id": "mr-076",
    "svg": "mr-076-gen-08blur.svg",
    "source": "test-assets/images/generated/gen-08blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1299,7 +1299,7 @@
     "silhouette_iou": 0.9488,
     "edge_f1": 0.0478
    },
-   "svg_bytes": 14272,
+   "svg_bytes": 14306,
    "convert_ms": 52
   },
   {
@@ -1307,7 +1307,7 @@
    "svg": "mr-077-gen-08darkbg.svg",
    "source": "test-assets/images/generated/gen-08darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -1316,8 +1316,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.2705
    },
-   "svg_bytes": 8768,
-   "convert_ms": 36
+   "svg_bytes": 8802,
+   "convert_ms": 55
   },
   {
    "id": "mr-078",
@@ -1341,7 +1341,7 @@
    "svg": "mr-079-gen-08gray.svg",
    "source": "test-assets/images/generated/gen-08gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -1350,15 +1350,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.3757
    },
-   "svg_bytes": 8768,
-   "convert_ms": 52
+   "svg_bytes": 8802,
+   "convert_ms": 37
   },
   {
    "id": "mr-080",
    "svg": "mr-080-gen-08jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-08jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -1367,15 +1367,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.3202
    },
-   "svg_bytes": 10547,
-   "convert_ms": 34
+   "svg_bytes": 10581,
+   "convert_ms": 33
   },
   {
    "id": "mr-081",
    "svg": "mr-081-gen-08noise.svg",
    "source": "test-assets/images/generated/gen-08noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1384,15 +1384,15 @@
     "silhouette_iou": 0.7625,
     "edge_f1": 0.0713
    },
-   "svg_bytes": 7429,
-   "convert_ms": 62
+   "svg_bytes": 7463,
+   "convert_ms": 53
   },
   {
    "id": "mr-082",
    "svg": "mr-082-gen-08rot.svg",
    "source": "test-assets/images/generated/gen-08rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 77.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1401,15 +1401,15 @@
     "silhouette_iou": 0.7779,
     "edge_f1": 0.0199
    },
-   "svg_bytes": 5732,
-   "convert_ms": 70
+   "svg_bytes": 5766,
+   "convert_ms": 66
   },
   {
    "id": "mr-083",
    "svg": "mr-083-gen-09-base.svg",
    "source": "test-assets/images/generated/gen-09-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 75.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1418,15 +1418,15 @@
     "silhouette_iou": 0.8683,
     "edge_f1": 0.319
    },
-   "svg_bytes": 13035,
-   "convert_ms": 57
+   "svg_bytes": 13069,
+   "convert_ms": 54
   },
   {
    "id": "mr-084",
    "svg": "mr-084-gen-09blur.svg",
    "source": "test-assets/images/generated/gen-09blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1435,7 +1435,7 @@
     "silhouette_iou": 0.9612,
     "edge_f1": 0.0
    },
-   "svg_bytes": 20003,
+   "svg_bytes": 20037,
    "convert_ms": 58
   },
   {
@@ -1443,7 +1443,7 @@
    "svg": "mr-085-gen-09darkbg.svg",
    "source": "test-assets/images/generated/gen-09darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -1452,7 +1452,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5483
    },
-   "svg_bytes": 21253,
+   "svg_bytes": 21287,
    "convert_ms": 38
   },
   {
@@ -1477,7 +1477,7 @@
    "svg": "mr-087-gen-09gray.svg",
    "source": "test-assets/images/generated/gen-09gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -1486,15 +1486,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5505
    },
-   "svg_bytes": 21253,
-   "convert_ms": 44
+   "svg_bytes": 21287,
+   "convert_ms": 45
   },
   {
    "id": "mr-088",
    "svg": "mr-088-gen-09jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-09jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1503,15 +1503,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5774
    },
-   "svg_bytes": 23165,
-   "convert_ms": 40
+   "svg_bytes": 23199,
+   "convert_ms": 41
   },
   {
    "id": "mr-089",
    "svg": "mr-089-gen-09noise.svg",
    "source": "test-assets/images/generated/gen-09noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 61.1,
    "strict_verdict": "FAIL",
    "channels": {
@@ -1520,15 +1520,15 @@
     "silhouette_iou": 0.8683,
     "edge_f1": 0.1937
    },
-   "svg_bytes": 13035,
-   "convert_ms": 65
+   "svg_bytes": 13069,
+   "convert_ms": 59
   },
   {
    "id": "mr-090",
    "svg": "mr-090-gen-09rot.svg",
    "source": "test-assets/images/generated/gen-09rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1537,8 +1537,8 @@
     "silhouette_iou": 0.8911,
     "edge_f1": 0.283
    },
-   "svg_bytes": 15931,
-   "convert_ms": 76
+   "svg_bytes": 15965,
+   "convert_ms": 75
   },
   {
    "id": "mr-091",
@@ -1555,7 +1555,7 @@
     "edge_f1": 0.5465
    },
    "svg_bytes": 1431,
-   "convert_ms": 31
+   "convert_ms": 34
   },
   {
    "id": "mr-092",
@@ -1572,14 +1572,14 @@
     "edge_f1": 0.264
    },
    "svg_bytes": 3233,
-   "convert_ms": 32
+   "convert_ms": 33
   },
   {
    "id": "mr-093",
    "svg": "mr-093-gen-10darkbg.svg",
    "source": "test-assets/images/generated/gen-10darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 96.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -1588,8 +1588,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5868
    },
-   "svg_bytes": 4518,
-   "convert_ms": 31
+   "svg_bytes": 4552,
+   "convert_ms": 30
   },
   {
    "id": "mr-094",
@@ -1613,7 +1613,7 @@
    "svg": "mr-095-gen-10gray.svg",
    "source": "test-assets/images/generated/gen-10gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 96.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -1622,15 +1622,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5857
    },
-   "svg_bytes": 4518,
-   "convert_ms": 39
+   "svg_bytes": 4552,
+   "convert_ms": 37
   },
   {
    "id": "mr-096",
    "svg": "mr-096-gen-10jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-10jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 90.5,
    "strict_verdict": "PASS",
    "channels": {
@@ -1639,8 +1639,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.2605
    },
-   "svg_bytes": 11417,
-   "convert_ms": 32
+   "svg_bytes": 11451,
+   "convert_ms": 37
   },
   {
    "id": "mr-097",
@@ -1674,14 +1674,14 @@
     "edge_f1": 0.5453
    },
    "svg_bytes": 1984,
-   "convert_ms": 45
+   "convert_ms": 44
   },
   {
    "id": "mr-099",
    "svg": "mr-099-gen-11-base.svg",
    "source": "test-assets/images/generated/gen-11-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1690,15 +1690,15 @@
     "silhouette_iou": 0.8442,
     "edge_f1": 0.0243
    },
-   "svg_bytes": 4044,
-   "convert_ms": 53
+   "svg_bytes": 4078,
+   "convert_ms": 50
   },
   {
    "id": "mr-100",
    "svg": "mr-100-gen-11blur.svg",
    "source": "test-assets/images/generated/gen-11blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -1707,15 +1707,15 @@
     "silhouette_iou": 0.9696,
     "edge_f1": 0.0123
    },
-   "svg_bytes": 2013,
-   "convert_ms": 48
+   "svg_bytes": 2047,
+   "convert_ms": 52
   },
   {
    "id": "mr-101",
    "svg": "mr-101-gen-11darkbg.svg",
    "source": "test-assets/images/generated/gen-11darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 93.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -1724,8 +1724,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.502
    },
-   "svg_bytes": 6787,
-   "convert_ms": 58
+   "svg_bytes": 6821,
+   "convert_ms": 31
   },
   {
    "id": "mr-102",
@@ -1749,7 +1749,7 @@
    "svg": "mr-103-gen-11gray.svg",
    "source": "test-assets/images/generated/gen-11gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 93.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -1758,15 +1758,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5106
    },
-   "svg_bytes": 6787,
-   "convert_ms": 37
+   "svg_bytes": 6821,
+   "convert_ms": 40
   },
   {
    "id": "mr-104",
    "svg": "mr-104-gen-11jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-11jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1775,15 +1775,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.0896
    },
-   "svg_bytes": 23358,
-   "convert_ms": 36
+   "svg_bytes": 23392,
+   "convert_ms": 37
   },
   {
    "id": "mr-105",
    "svg": "mr-105-gen-11noise.svg",
    "source": "test-assets/images/generated/gen-11noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 81.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1792,7 +1792,7 @@
     "silhouette_iou": 0.8442,
     "edge_f1": 0.0104
    },
-   "svg_bytes": 4044,
+   "svg_bytes": 4078,
    "convert_ms": 51
   },
   {
@@ -1800,7 +1800,7 @@
    "svg": "mr-106-gen-11rot.svg",
    "source": "test-assets/images/generated/gen-11rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -1809,7 +1809,7 @@
     "silhouette_iou": 0.8541,
     "edge_f1": 0.0395
    },
-   "svg_bytes": 6757,
+   "svg_bytes": 6791,
    "convert_ms": 69
   },
   {
@@ -1851,7 +1851,7 @@
    "svg": "mr-109-gen-12darkbg.svg",
    "source": "test-assets/images/generated/gen-12darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -1860,7 +1860,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6071
    },
-   "svg_bytes": 11590,
+   "svg_bytes": 11624,
    "convert_ms": 33
   },
   {
@@ -1878,14 +1878,14 @@
     "edge_f1": 0.9964
    },
    "svg_bytes": 17858,
-   "convert_ms": 6
+   "convert_ms": 5
   },
   {
    "id": "mr-111",
    "svg": "mr-111-gen-12gray.svg",
    "source": "test-assets/images/generated/gen-12gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -1894,15 +1894,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6195
    },
-   "svg_bytes": 11590,
-   "convert_ms": 37
+   "svg_bytes": 11624,
+   "convert_ms": 39
   },
   {
    "id": "mr-112",
    "svg": "mr-112-gen-12jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-12jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1911,7 +1911,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.1834
    },
-   "svg_bytes": 9928,
+   "svg_bytes": 9962,
    "convert_ms": 35
   },
   {
@@ -1929,7 +1929,7 @@
     "edge_f1": 0.2734
    },
    "svg_bytes": 3708,
-   "convert_ms": 62
+   "convert_ms": 35
   },
   {
    "id": "mr-114",
@@ -1953,7 +1953,7 @@
    "svg": "mr-115-gen-13-base.svg",
    "source": "test-assets/images/generated/gen-13-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1962,15 +1962,15 @@
     "silhouette_iou": 0.7997,
     "edge_f1": 0.0
    },
-   "svg_bytes": 2780,
-   "convert_ms": 77
+   "svg_bytes": 2814,
+   "convert_ms": 54
   },
   {
    "id": "mr-116",
    "svg": "mr-116-gen-13blur.svg",
    "source": "test-assets/images/generated/gen-13blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -1979,15 +1979,15 @@
     "silhouette_iou": 0.9661,
     "edge_f1": 0.0
    },
-   "svg_bytes": 8992,
-   "convert_ms": 52
+   "svg_bytes": 9026,
+   "convert_ms": 60
   },
   {
    "id": "mr-117",
    "svg": "mr-117-gen-13darkbg.svg",
    "source": "test-assets/images/generated/gen-13darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -1996,8 +1996,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6248
    },
-   "svg_bytes": 5231,
-   "convert_ms": 47
+   "svg_bytes": 5265,
+   "convert_ms": 34
   },
   {
    "id": "mr-118",
@@ -2014,14 +2014,14 @@
     "edge_f1": 0.9925
    },
    "svg_bytes": 19110,
-   "convert_ms": 6
+   "convert_ms": 9
   },
   {
    "id": "mr-119",
    "svg": "mr-119-gen-13gray.svg",
    "source": "test-assets/images/generated/gen-13gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.1,
    "strict_verdict": "PASS",
    "channels": {
@@ -2030,15 +2030,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6258
    },
-   "svg_bytes": 5231,
-   "convert_ms": 77
+   "svg_bytes": 5265,
+   "convert_ms": 55
   },
   {
    "id": "mr-120",
    "svg": "mr-120-gen-13jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-13jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2047,15 +2047,15 @@
     "silhouette_iou": 0.9997,
     "edge_f1": 0.5757
    },
-   "svg_bytes": 14415,
-   "convert_ms": 35
+   "svg_bytes": 14449,
+   "convert_ms": 63
   },
   {
    "id": "mr-121",
    "svg": "mr-121-gen-13noise.svg",
    "source": "test-assets/images/generated/gen-13noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 71.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2064,15 +2064,15 @@
     "silhouette_iou": 0.7997,
     "edge_f1": 0.0
    },
-   "svg_bytes": 2780,
-   "convert_ms": 53
+   "svg_bytes": 2814,
+   "convert_ms": 73
   },
   {
    "id": "mr-122",
    "svg": "mr-122-gen-13rot.svg",
    "source": "test-assets/images/generated/gen-13rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 79.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2081,15 +2081,15 @@
     "silhouette_iou": 0.7974,
     "edge_f1": 0.0067
    },
-   "svg_bytes": 8577,
-   "convert_ms": 71
+   "svg_bytes": 8611,
+   "convert_ms": 72
   },
   {
    "id": "mr-123",
    "svg": "mr-123-gen-14-base.svg",
    "source": "test-assets/images/generated/gen-14-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2098,15 +2098,15 @@
     "silhouette_iou": 0.7397,
     "edge_f1": 0.012
    },
-   "svg_bytes": 7328,
-   "convert_ms": 51
+   "svg_bytes": 7362,
+   "convert_ms": 54
   },
   {
    "id": "mr-124",
    "svg": "mr-124-gen-14blur.svg",
    "source": "test-assets/images/generated/gen-14blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2115,15 +2115,15 @@
     "silhouette_iou": 0.9459,
     "edge_f1": 0.0
    },
-   "svg_bytes": 22353,
-   "convert_ms": 73
+   "svg_bytes": 22387,
+   "convert_ms": 57
   },
   {
    "id": "mr-125",
    "svg": "mr-125-gen-14darkbg.svg",
    "source": "test-assets/images/generated/gen-14darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 90.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -2132,8 +2132,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5655
    },
-   "svg_bytes": 12377,
-   "convert_ms": 34
+   "svg_bytes": 12411,
+   "convert_ms": 36
   },
   {
    "id": "mr-126",
@@ -2150,14 +2150,14 @@
     "edge_f1": 0.9846
    },
    "svg_bytes": 20271,
-   "convert_ms": 9
+   "convert_ms": 6
   },
   {
    "id": "mr-127",
    "svg": "mr-127-gen-14gray.svg",
    "source": "test-assets/images/generated/gen-14gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 89.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -2166,7 +2166,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5662
    },
-   "svg_bytes": 12377,
+   "svg_bytes": 12411,
    "convert_ms": 42
   },
   {
@@ -2174,7 +2174,7 @@
    "svg": "mr-128-gen-14jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-14jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 79.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2183,15 +2183,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5354
    },
-   "svg_bytes": 16310,
-   "convert_ms": 39
+   "svg_bytes": 16344,
+   "convert_ms": 36
   },
   {
    "id": "mr-129",
    "svg": "mr-129-gen-14noise.svg",
    "source": "test-assets/images/generated/gen-14noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 72.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2200,15 +2200,15 @@
     "silhouette_iou": 0.7415,
     "edge_f1": 0.0117
    },
-   "svg_bytes": 7890,
-   "convert_ms": 101
+   "svg_bytes": 7924,
+   "convert_ms": 93
   },
   {
    "id": "mr-130",
    "svg": "mr-130-gen-14rot.svg",
    "source": "test-assets/images/generated/gen-14rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2217,8 +2217,8 @@
     "silhouette_iou": 0.7599,
     "edge_f1": 0.0102
    },
-   "svg_bytes": 8134,
-   "convert_ms": 71
+   "svg_bytes": 8168,
+   "convert_ms": 102
   },
   {
    "id": "mr-131",
@@ -2235,7 +2235,7 @@
     "edge_f1": 0.6208
    },
    "svg_bytes": 8115,
-   "convert_ms": 55
+   "convert_ms": 34
   },
   {
    "id": "mr-132",
@@ -2252,14 +2252,14 @@
     "edge_f1": 0.068
    },
    "svg_bytes": 8535,
-   "convert_ms": 40
+   "convert_ms": 37
   },
   {
    "id": "mr-133",
    "svg": "mr-133-gen-15darkbg.svg",
    "source": "test-assets/images/generated/gen-15darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2268,8 +2268,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.6176
    },
-   "svg_bytes": 23022,
-   "convert_ms": 49
+   "svg_bytes": 23056,
+   "convert_ms": 38
   },
   {
    "id": "mr-134",
@@ -2293,7 +2293,7 @@
    "svg": "mr-135-gen-15gray.svg",
    "source": "test-assets/images/generated/gen-15gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2302,15 +2302,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.612
    },
-   "svg_bytes": 23022,
-   "convert_ms": 42
+   "svg_bytes": 23056,
+   "convert_ms": 52
   },
   {
    "id": "mr-136",
    "svg": "mr-136-gen-15jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-15jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 72.6,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2319,8 +2319,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5979
    },
-   "svg_bytes": 23979,
-   "convert_ms": 37
+   "svg_bytes": 24013,
+   "convert_ms": 41
   },
   {
    "id": "mr-137",
@@ -2337,7 +2337,7 @@
     "edge_f1": 0.3326
    },
    "svg_bytes": 8115,
-   "convert_ms": 36
+   "convert_ms": 39
   },
   {
    "id": "mr-138",
@@ -2354,14 +2354,14 @@
     "edge_f1": 0.5926
    },
    "svg_bytes": 9209,
-   "convert_ms": 90
+   "convert_ms": 49
   },
   {
    "id": "mr-139",
    "svg": "mr-139-gen-16-base.svg",
    "source": "test-assets/images/generated/gen-16-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2370,15 +2370,15 @@
     "silhouette_iou": 0.7868,
     "edge_f1": 0.0596
    },
-   "svg_bytes": 3850,
-   "convert_ms": 78
+   "svg_bytes": 3884,
+   "convert_ms": 51
   },
   {
    "id": "mr-140",
    "svg": "mr-140-gen-16blur.svg",
    "source": "test-assets/images/generated/gen-16blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -2387,15 +2387,15 @@
     "silhouette_iou": 0.9513,
     "edge_f1": 0.0109
    },
-   "svg_bytes": 3204,
-   "convert_ms": 93
+   "svg_bytes": 3238,
+   "convert_ms": 49
   },
   {
    "id": "mr-141",
    "svg": "mr-141-gen-16darkbg.svg",
    "source": "test-assets/images/generated/gen-16darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 93.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -2404,8 +2404,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4908
    },
-   "svg_bytes": 6976,
-   "convert_ms": 34
+   "svg_bytes": 7010,
+   "convert_ms": 37
   },
   {
    "id": "mr-142",
@@ -2422,14 +2422,14 @@
     "edge_f1": 0.9941
    },
    "svg_bytes": 14212,
-   "convert_ms": 5
+   "convert_ms": 6
   },
   {
    "id": "mr-143",
    "svg": "mr-143-gen-16gray.svg",
    "source": "test-assets/images/generated/gen-16gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -2438,15 +2438,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4966
    },
-   "svg_bytes": 6976,
-   "convert_ms": 39
+   "svg_bytes": 7010,
+   "convert_ms": 36
   },
   {
    "id": "mr-144",
    "svg": "mr-144-gen-16jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-16jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -2455,7 +2455,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5064
    },
-   "svg_bytes": 12288,
+   "svg_bytes": 12322,
    "convert_ms": 34
   },
   {
@@ -2463,7 +2463,7 @@
    "svg": "mr-145-gen-16noise.svg",
    "source": "test-assets/images/generated/gen-16noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2472,15 +2472,15 @@
     "silhouette_iou": 0.7872,
     "edge_f1": 0.033
    },
-   "svg_bytes": 2952,
-   "convert_ms": 67
+   "svg_bytes": 2986,
+   "convert_ms": 60
   },
   {
    "id": "mr-146",
    "svg": "mr-146-gen-16rot.svg",
    "source": "test-assets/images/generated/gen-16rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 81.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2489,15 +2489,15 @@
     "silhouette_iou": 0.818,
     "edge_f1": 0.0543
    },
-   "svg_bytes": 5299,
-   "convert_ms": 68
+   "svg_bytes": 5333,
+   "convert_ms": 70
   },
   {
    "id": "mr-147",
    "svg": "mr-147-gen-17-base.svg",
    "source": "test-assets/images/generated/gen-17-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2506,15 +2506,15 @@
     "silhouette_iou": 0.9113,
     "edge_f1": 0.0006
    },
-   "svg_bytes": 9520,
-   "convert_ms": 58
+   "svg_bytes": 9554,
+   "convert_ms": 60
   },
   {
    "id": "mr-148",
    "svg": "mr-148-gen-17blur.svg",
    "source": "test-assets/images/generated/gen-17blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 70.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2523,15 +2523,15 @@
     "silhouette_iou": 0.9839,
     "edge_f1": 0.0
    },
-   "svg_bytes": 12641,
-   "convert_ms": 95
+   "svg_bytes": 12675,
+   "convert_ms": 59
   },
   {
    "id": "mr-149",
    "svg": "mr-149-gen-17darkbg.svg",
    "source": "test-assets/images/generated/gen-17darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -2540,8 +2540,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.7017
    },
-   "svg_bytes": 10879,
-   "convert_ms": 40
+   "svg_bytes": 10913,
+   "convert_ms": 38
   },
   {
    "id": "mr-150",
@@ -2558,14 +2558,14 @@
     "edge_f1": 0.9892
    },
    "svg_bytes": 25536,
-   "convert_ms": 5
+   "convert_ms": 6
   },
   {
    "id": "mr-151",
    "svg": "mr-151-gen-17gray.svg",
    "source": "test-assets/images/generated/gen-17gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -2574,15 +2574,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.7027
    },
-   "svg_bytes": 10879,
-   "convert_ms": 59
+   "svg_bytes": 10913,
+   "convert_ms": 65
   },
   {
    "id": "mr-152",
    "svg": "mr-152-gen-17jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-17jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 77.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2591,15 +2591,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5494
    },
-   "svg_bytes": 25162,
-   "convert_ms": 42
+   "svg_bytes": 25189,
+   "convert_ms": 28
   },
   {
    "id": "mr-153",
    "svg": "mr-153-gen-17noise.svg",
    "source": "test-assets/images/generated/gen-17noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 55.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -2608,15 +2608,15 @@
     "silhouette_iou": 0.9113,
     "edge_f1": 0.0001
    },
-   "svg_bytes": 9316,
-   "convert_ms": 60
+   "svg_bytes": 9350,
+   "convert_ms": 65
   },
   {
    "id": "mr-154",
    "svg": "mr-154-gen-17rot.svg",
    "source": "test-assets/images/generated/gen-17rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -2625,8 +2625,8 @@
     "silhouette_iou": 0.9255,
     "edge_f1": 0.0889
    },
-   "svg_bytes": 15369,
-   "convert_ms": 77
+   "svg_bytes": 15403,
+   "convert_ms": 79
   },
   {
    "id": "mr-155",
@@ -2650,7 +2650,7 @@
    "svg": "mr-156-gen-18blur.svg",
    "source": "test-assets/images/generated/gen-18blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -2659,15 +2659,15 @@
     "silhouette_iou": 0.9485,
     "edge_f1": 0.1195
    },
-   "svg_bytes": 6905,
-   "convert_ms": 51
+   "svg_bytes": 6939,
+   "convert_ms": 78
   },
   {
    "id": "mr-157",
    "svg": "mr-157-gen-18darkbg.svg",
    "source": "test-assets/images/generated/gen-18darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.8,
    "strict_verdict": "PASS",
    "channels": {
@@ -2676,8 +2676,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5497
    },
-   "svg_bytes": 6065,
-   "convert_ms": 32
+   "svg_bytes": 6099,
+   "convert_ms": 35
   },
   {
    "id": "mr-158",
@@ -2701,7 +2701,7 @@
    "svg": "mr-159-gen-18gray.svg",
    "source": "test-assets/images/generated/gen-18gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -2710,7 +2710,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5588
    },
-   "svg_bytes": 6065,
+   "svg_bytes": 6099,
    "convert_ms": 38
   },
   {
@@ -2718,7 +2718,7 @@
    "svg": "mr-160-gen-18jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-18jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 81.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2727,8 +2727,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.1013
    },
-   "svg_bytes": 26567,
-   "convert_ms": 42
+   "svg_bytes": 26601,
+   "convert_ms": 40
   },
   {
    "id": "mr-161",
@@ -2745,7 +2745,7 @@
     "edge_f1": 0.6771
    },
    "svg_bytes": 10642,
-   "convert_ms": 57
+   "convert_ms": 55
   },
   {
    "id": "mr-162",
@@ -2762,14 +2762,14 @@
     "edge_f1": 0.5738
    },
    "svg_bytes": 10607,
-   "convert_ms": 70
+   "convert_ms": 72
   },
   {
    "id": "mr-163",
    "svg": "mr-163-gen-19-base.svg",
    "source": "test-assets/images/generated/gen-19-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 79.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2778,15 +2778,15 @@
     "silhouette_iou": 0.7988,
     "edge_f1": 0.1702
    },
-   "svg_bytes": 13232,
-   "convert_ms": 108
+   "svg_bytes": 13266,
+   "convert_ms": 84
   },
   {
    "id": "mr-164",
    "svg": "mr-164-gen-19blur.svg",
    "source": "test-assets/images/generated/gen-19blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 70.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2795,15 +2795,15 @@
     "silhouette_iou": 0.9545,
     "edge_f1": 0.0
    },
-   "svg_bytes": 25280,
-   "convert_ms": 57
+   "svg_bytes": 25307,
+   "convert_ms": 61
   },
   {
    "id": "mr-165",
    "svg": "mr-165-gen-19darkbg.svg",
    "source": "test-assets/images/generated/gen-19darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.8,
    "strict_verdict": "PASS",
    "channels": {
@@ -2812,8 +2812,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5987
    },
-   "svg_bytes": 16640,
-   "convert_ms": 38
+   "svg_bytes": 16674,
+   "convert_ms": 37
   },
   {
    "id": "mr-166",
@@ -2830,14 +2830,14 @@
     "edge_f1": 0.99
    },
    "svg_bytes": 25000,
-   "convert_ms": 6
+   "convert_ms": 9
   },
   {
    "id": "mr-167",
    "svg": "mr-167-gen-19gray.svg",
    "source": "test-assets/images/generated/gen-19gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -2846,15 +2846,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5985
    },
-   "svg_bytes": 16640,
-   "convert_ms": 44
+   "svg_bytes": 16674,
+   "convert_ms": 48
   },
   {
    "id": "mr-168",
    "svg": "mr-168-gen-19jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-19jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 71.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2863,15 +2863,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5581
    },
-   "svg_bytes": 24863,
-   "convert_ms": 39
+   "svg_bytes": 24897,
+   "convert_ms": 40
   },
   {
    "id": "mr-169",
    "svg": "mr-169-gen-19noise.svg",
    "source": "test-assets/images/generated/gen-19noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 64.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -2880,15 +2880,15 @@
     "silhouette_iou": 0.7988,
     "edge_f1": 0.1051
    },
-   "svg_bytes": 13232,
-   "convert_ms": 59
+   "svg_bytes": 13266,
+   "convert_ms": 92
   },
   {
    "id": "mr-170",
    "svg": "mr-170-gen-19rot.svg",
    "source": "test-assets/images/generated/gen-19rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2897,15 +2897,15 @@
     "silhouette_iou": 0.809,
     "edge_f1": 0.1963
    },
-   "svg_bytes": 16537,
-   "convert_ms": 91
+   "svg_bytes": 16571,
+   "convert_ms": 77
   },
   {
    "id": "mr-171",
    "svg": "mr-171-gen-20-base.svg",
    "source": "test-assets/images/generated/gen-20-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 82.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2914,7 +2914,7 @@
     "silhouette_iou": 0.8282,
     "edge_f1": 0.0081
    },
-   "svg_bytes": 4811,
+   "svg_bytes": 4845,
    "convert_ms": 51
   },
   {
@@ -2922,7 +2922,7 @@
    "svg": "mr-172-gen-20blur.svg",
    "source": "test-assets/images/generated/gen-20blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 77.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2931,15 +2931,15 @@
     "silhouette_iou": 0.9683,
     "edge_f1": 0.0734
    },
-   "svg_bytes": 12040,
-   "convert_ms": 54
+   "svg_bytes": 12074,
+   "convert_ms": 58
   },
   {
    "id": "mr-173",
    "svg": "mr-173-gen-20darkbg.svg",
    "source": "test-assets/images/generated/gen-20darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 89.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -2948,8 +2948,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4988
    },
-   "svg_bytes": 7037,
-   "convert_ms": 38
+   "svg_bytes": 7071,
+   "convert_ms": 35
   },
   {
    "id": "mr-174",
@@ -2973,7 +2973,7 @@
    "svg": "mr-175-gen-20gray.svg",
    "source": "test-assets/images/generated/gen-20gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -2982,15 +2982,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5795
    },
-   "svg_bytes": 7037,
-   "convert_ms": 41
+   "svg_bytes": 7071,
+   "convert_ms": 38
   },
   {
    "id": "mr-176",
    "svg": "mr-176-gen-20jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-20jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 79.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -2999,15 +2999,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4495
    },
-   "svg_bytes": 36291,
-   "convert_ms": 40
+   "svg_bytes": 36325,
+   "convert_ms": 68
   },
   {
    "id": "mr-177",
    "svg": "mr-177-gen-20noise.svg",
    "source": "test-assets/images/generated/gen-20noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 67.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3016,15 +3016,15 @@
     "silhouette_iou": 0.8287,
     "edge_f1": 0.0052
    },
-   "svg_bytes": 2858,
-   "convert_ms": 114
+   "svg_bytes": 2892,
+   "convert_ms": 56
   },
   {
    "id": "mr-178",
    "svg": "mr-178-gen-20rot.svg",
    "source": "test-assets/images/generated/gen-20rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3033,15 +3033,15 @@
     "silhouette_iou": 0.8318,
     "edge_f1": 0.0286
    },
-   "svg_bytes": 8521,
-   "convert_ms": 74
+   "svg_bytes": 8555,
+   "convert_ms": 75
   },
   {
    "id": "mr-179",
    "svg": "mr-179-gen-21-base.svg",
    "source": "test-assets/images/generated/gen-21-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.5,
    "strict_verdict": "PASS",
    "channels": {
@@ -3050,15 +3050,15 @@
     "silhouette_iou": 0.8645,
     "edge_f1": 0.0017
    },
-   "svg_bytes": 1643,
-   "convert_ms": 48
+   "svg_bytes": 1677,
+   "convert_ms": 51
   },
   {
    "id": "mr-180",
    "svg": "mr-180-gen-21blur.svg",
    "source": "test-assets/images/generated/gen-21blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -3067,15 +3067,15 @@
     "silhouette_iou": 0.9741,
     "edge_f1": 0.0
    },
-   "svg_bytes": 1643,
-   "convert_ms": 49
+   "svg_bytes": 1677,
+   "convert_ms": 51
   },
   {
    "id": "mr-181",
    "svg": "mr-181-gen-21darkbg.svg",
    "source": "test-assets/images/generated/gen-21darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -3084,8 +3084,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5554
    },
-   "svg_bytes": 2338,
-   "convert_ms": 38
+   "svg_bytes": 2372,
+   "convert_ms": 34
   },
   {
    "id": "mr-182",
@@ -3109,7 +3109,7 @@
    "svg": "mr-183-gen-21gray.svg",
    "source": "test-assets/images/generated/gen-21gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.9,
    "strict_verdict": "PASS",
    "channels": {
@@ -3118,15 +3118,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5591
    },
-   "svg_bytes": 2338,
-   "convert_ms": 39
+   "svg_bytes": 2372,
+   "convert_ms": 38
   },
   {
    "id": "mr-184",
    "svg": "mr-184-gen-21jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-21jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -3135,7 +3135,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.56
    },
-   "svg_bytes": 3125,
+   "svg_bytes": 3159,
    "convert_ms": 31
   },
   {
@@ -3143,7 +3143,7 @@
    "svg": "mr-185-gen-21noise.svg",
    "source": "test-assets/images/generated/gen-21noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 79.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3152,15 +3152,15 @@
     "silhouette_iou": 0.8649,
     "edge_f1": 0.0006
    },
-   "svg_bytes": 1741,
-   "convert_ms": 51
+   "svg_bytes": 1775,
+   "convert_ms": 52
   },
   {
    "id": "mr-186",
    "svg": "mr-186-gen-21rot.svg",
    "source": "test-assets/images/generated/gen-21rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.8,
    "strict_verdict": "PASS",
    "channels": {
@@ -3169,15 +3169,15 @@
     "silhouette_iou": 0.8883,
     "edge_f1": 0.1203
    },
-   "svg_bytes": 2036,
-   "convert_ms": 66
+   "svg_bytes": 2070,
+   "convert_ms": 109
   },
   {
    "id": "mr-187",
    "svg": "mr-187-gen-22-base.svg",
    "source": "test-assets/images/generated/gen-22-base.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 71.3,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3186,15 +3186,15 @@
     "silhouette_iou": 0.7126,
     "edge_f1": 0.0834
    },
-   "svg_bytes": 4739,
-   "convert_ms": 42
+   "svg_bytes": 4766,
+   "convert_ms": 59
   },
   {
    "id": "mr-188",
    "svg": "mr-188-gen-22blur.svg",
    "source": "test-assets/images/generated/gen-22blur.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 87.8,
    "strict_verdict": "PASS",
    "channels": {
@@ -3203,15 +3203,15 @@
     "silhouette_iou": 0.9536,
     "edge_f1": 0.0
    },
-   "svg_bytes": 5047,
-   "convert_ms": 40
+   "svg_bytes": 5074,
+   "convert_ms": 45
   },
   {
    "id": "mr-189",
    "svg": "mr-189-gen-22darkbg.svg",
    "source": "test-assets/images/generated/gen-22darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 92.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -3220,8 +3220,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5875
    },
-   "svg_bytes": 4066,
-   "convert_ms": 21
+   "svg_bytes": 4093,
+   "convert_ms": 23
   },
   {
    "id": "mr-190",
@@ -3245,7 +3245,7 @@
    "svg": "mr-191-gen-22gray.svg",
    "source": "test-assets/images/generated/gen-22gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 91.5,
    "strict_verdict": "PASS",
    "channels": {
@@ -3254,15 +3254,15 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5509
    },
-   "svg_bytes": 6523,
-   "convert_ms": 37
+   "svg_bytes": 6557,
+   "convert_ms": 38
   },
   {
    "id": "mr-192",
    "svg": "mr-192-gen-22jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-22jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 86.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -3271,7 +3271,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5296
    },
-   "svg_bytes": 6002,
+   "svg_bytes": 6029,
    "convert_ms": 23
   },
   {
@@ -3279,7 +3279,7 @@
    "svg": "mr-193-gen-22noise.svg",
    "source": "test-assets/images/generated/gen-22noise.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 71.3,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3288,15 +3288,15 @@
     "silhouette_iou": 0.7126,
     "edge_f1": 0.0693
    },
-   "svg_bytes": 4739,
-   "convert_ms": 46
+   "svg_bytes": 4766,
+   "convert_ms": 42
   },
   {
    "id": "mr-194",
    "svg": "mr-194-gen-22rot.svg",
    "source": "test-assets/images/generated/gen-22rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 73.6,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3305,8 +3305,8 @@
     "silhouette_iou": 0.7356,
     "edge_f1": 0.0713
    },
-   "svg_bytes": 5174,
-   "convert_ms": 54
+   "svg_bytes": 5201,
+   "convert_ms": 55
   },
   {
    "id": "mr-195",
@@ -3323,7 +3323,7 @@
     "edge_f1": 0.589
    },
    "svg_bytes": 4575,
-   "convert_ms": 32
+   "convert_ms": 50
   },
   {
    "id": "mr-196",
@@ -3340,14 +3340,14 @@
     "edge_f1": 0.4787
    },
    "svg_bytes": 4332,
-   "convert_ms": 33
+   "convert_ms": 34
   },
   {
    "id": "mr-197",
    "svg": "mr-197-gen-23darkbg.svg",
    "source": "test-assets/images/generated/gen-23darkbg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.8,
    "strict_verdict": "PASS",
    "channels": {
@@ -3356,8 +3356,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.4563
    },
-   "svg_bytes": 5444,
-   "convert_ms": 33
+   "svg_bytes": 5478,
+   "convert_ms": 34
   },
   {
    "id": "mr-198",
@@ -3374,14 +3374,14 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 15726,
-   "convert_ms": 5
+   "convert_ms": 8
   },
   {
    "id": "mr-199",
    "svg": "mr-199-gen-23gray.svg",
    "source": "test-assets/images/generated/gen-23gray.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 92.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -3390,7 +3390,7 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.5826
    },
-   "svg_bytes": 5444,
+   "svg_bytes": 5478,
    "convert_ms": 42
   },
   {
@@ -3398,7 +3398,7 @@
    "svg": "mr-200-gen-23jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-23jpeg.jpg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 77.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3407,8 +3407,8 @@
     "silhouette_iou": 1.0,
     "edge_f1": 0.0028
    },
-   "svg_bytes": 28264,
-   "convert_ms": 81
+   "svg_bytes": 28298,
+   "convert_ms": 37
   },
   {
    "id": "mr-201",
@@ -3425,7 +3425,7 @@
     "edge_f1": 0.3464
    },
    "svg_bytes": 4575,
-   "convert_ms": 54
+   "convert_ms": 35
   },
   {
    "id": "mr-202",
@@ -3442,14 +3442,14 @@
     "edge_f1": 0.5911
    },
    "svg_bytes": 4373,
-   "convert_ms": 48
+   "convert_ms": 49
   },
   {
    "id": "mr-203",
    "svg": "mr-203-logo_e22600_0260.svg",
    "source": "model/data/logos_notext/logo_e22600_0260.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 61.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3458,8 +3458,8 @@
     "silhouette_iou": 0.6165,
     "edge_f1": 0.0048
    },
-   "svg_bytes": 3569,
-   "convert_ms": 64
+   "svg_bytes": 3603,
+   "convert_ms": 67
   },
   {
    "id": "mr-204",
@@ -3476,14 +3476,14 @@
     "edge_f1": 0.6385
    },
    "svg_bytes": 2080,
-   "convert_ms": 53
+   "convert_ms": 33
   },
   {
    "id": "mr-205",
    "svg": "mr-205-logo_e22600_0530.svg",
    "source": "model/data/logos_notext/logo_e22600_0530.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 68.4,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3492,15 +3492,15 @@
     "silhouette_iou": 0.6841,
     "edge_f1": 0.0029
    },
-   "svg_bytes": 9742,
-   "convert_ms": 138
+   "svg_bytes": 9776,
+   "convert_ms": 52
   },
   {
    "id": "mr-206",
    "svg": "mr-206-logo_e24400_0224.svg",
    "source": "model/data/logos_notext/logo_e24400_0224.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3509,15 +3509,15 @@
     "silhouette_iou": 0.7422,
     "edge_f1": 0.0024
    },
-   "svg_bytes": 4845,
-   "convert_ms": 50
+   "svg_bytes": 4879,
+   "convert_ms": 51
   },
   {
    "id": "mr-207",
    "svg": "mr-207-logo_e24400_0397.svg",
    "source": "model/data/logos_notext/logo_e24400_0397.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 72.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3526,7 +3526,7 @@
     "silhouette_iou": 0.7546,
     "edge_f1": 0.0153
    },
-   "svg_bytes": 4393,
+   "svg_bytes": 4427,
    "convert_ms": 55
   },
   {
@@ -3534,7 +3534,7 @@
    "svg": "mr-208-logo_e26200_0563.svg",
    "source": "model/data/logos_notext/logo_e26200_0563.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -3543,8 +3543,8 @@
     "silhouette_iou": 0.9017,
     "edge_f1": 0.118
    },
-   "svg_bytes": 4104,
-   "convert_ms": 51
+   "svg_bytes": 4138,
+   "convert_ms": 54
   },
   {
    "id": "mr-209",
@@ -3561,7 +3561,7 @@
     "edge_f1": 0.6179
    },
    "svg_bytes": 5511,
-   "convert_ms": 33
+   "convert_ms": 35
   },
   {
    "id": "mr-210",
@@ -3578,14 +3578,14 @@
     "edge_f1": 0.6269
    },
    "svg_bytes": 2893,
-   "convert_ms": 35
+   "convert_ms": 62
   },
   {
    "id": "mr-211",
    "svg": "mr-211-logo_e25000_0263.svg",
    "source": "model/data/logos/logo_e25000_0263.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 69.4,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3594,15 +3594,15 @@
     "silhouette_iou": 0.694,
     "edge_f1": 0.0549
    },
-   "svg_bytes": 2198,
-   "convert_ms": 53
+   "svg_bytes": 2232,
+   "convert_ms": 61
   },
   {
    "id": "mr-212",
    "svg": "mr-212-logo_e25000_0543.svg",
    "source": "model/data/logos/logo_e25000_0543.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3611,15 +3611,15 @@
     "silhouette_iou": 0.7654,
     "edge_f1": 0.0
    },
-   "svg_bytes": 2161,
-   "convert_ms": 49
+   "svg_bytes": 2195,
+   "convert_ms": 51
   },
   {
    "id": "mr-213",
    "svg": "mr-213-logo_e26800_0069.svg",
    "source": "model/data/logos/logo_e26800_0069.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -3628,7 +3628,7 @@
     "silhouette_iou": 0.9074,
     "edge_f1": 0.342
    },
-   "svg_bytes": 12522,
+   "svg_bytes": 12556,
    "convert_ms": 67
   },
   {
@@ -3646,7 +3646,7 @@
     "edge_f1": 0.6449
    },
    "svg_bytes": 4823,
-   "convert_ms": 33
+   "convert_ms": 59
   },
   {
    "id": "mr-215",
@@ -3680,7 +3680,7 @@
     "edge_f1": 0.7376
    },
    "svg_bytes": 2145,
-   "convert_ms": 29
+   "convert_ms": 30
   },
   {
    "id": "mr-217",
@@ -3697,7 +3697,7 @@
     "edge_f1": 0.6296
    },
    "svg_bytes": 1344,
-   "convert_ms": 30
+   "convert_ms": 33
   },
   {
    "id": "mr-218",
@@ -3714,7 +3714,7 @@
     "edge_f1": 0.7803
    },
    "svg_bytes": 2396,
-   "convert_ms": 29
+   "convert_ms": 30
   },
   {
    "id": "mr-219",
@@ -3731,7 +3731,7 @@
     "edge_f1": 0.673
    },
    "svg_bytes": 885,
-   "convert_ms": 31
+   "convert_ms": 30
   },
   {
    "id": "mr-220",
@@ -3748,14 +3748,14 @@
     "edge_f1": 0.6695
    },
    "svg_bytes": 1118,
-   "convert_ms": 32
+   "convert_ms": 31
   },
   {
    "id": "mr-221",
    "svg": "mr-221-logo_e22600_0073_v01_soft.svg",
    "source": "model/data/degraded/logo_e22600_0073_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 66.1,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3764,15 +3764,15 @@
     "silhouette_iou": 0.845,
     "edge_f1": 0.0881
    },
-   "svg_bytes": 8481,
-   "convert_ms": 71
+   "svg_bytes": 8508,
+   "convert_ms": 54
   },
   {
    "id": "mr-222",
    "svg": "mr-222-logo_e22600_0090_v14_blur5.svg",
    "source": "model/data/degraded/logo_e22600_0090_v14_blur5.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 37.3,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3781,15 +3781,15 @@
     "silhouette_iou": 0.8248,
     "edge_f1": 0.0
    },
-   "svg_bytes": 17743,
-   "convert_ms": 92
+   "svg_bytes": 17777,
+   "convert_ms": 59
   },
   {
    "id": "mr-223",
    "svg": "mr-223-logo_e22600_0092_v12_heavy.svg",
    "source": "model/data/degraded/logo_e22600_0092_v12_heavy.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 93.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -3798,8 +3798,8 @@
     "silhouette_iou": 0.9367,
     "edge_f1": 0.3815
    },
-   "svg_bytes": 12784,
-   "convert_ms": 41
+   "svg_bytes": 12811,
+   "convert_ms": 42
   },
   {
    "id": "mr-224",
@@ -3816,7 +3816,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 12775,
-   "convert_ms": 57
+   "convert_ms": 63
   },
   {
    "id": "mr-225",
@@ -3833,14 +3833,14 @@
     "edge_f1": 0.7732
    },
    "svg_bytes": 1985,
-   "convert_ms": 33
+   "convert_ms": 60
   },
   {
    "id": "mr-226",
    "svg": "mr-226-logo_e22600_0194_v06_jit1.svg",
    "source": "model/data/degraded/logo_e22600_0194_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3849,8 +3849,8 @@
     "silhouette_iou": 0.7797,
     "edge_f1": 0.0612
    },
-   "svg_bytes": 7649,
-   "convert_ms": 52
+   "svg_bytes": 7683,
+   "convert_ms": 54
   },
   {
    "id": "mr-227",
@@ -3867,14 +3867,14 @@
     "edge_f1": 0.6255
    },
    "svg_bytes": 3211,
-   "convert_ms": 36
+   "convert_ms": 53
   },
   {
    "id": "mr-228",
    "svg": "mr-228-logo_e22600_0253_v13_pixel.svg",
    "source": "model/data/degraded/logo_e22600_0253_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 72.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3883,8 +3883,8 @@
     "silhouette_iou": 0.8227,
     "edge_f1": 0.0965
    },
-   "svg_bytes": 3866,
-   "convert_ms": 69
+   "svg_bytes": 3900,
+   "convert_ms": 56
   },
   {
    "id": "mr-229",
@@ -3901,14 +3901,14 @@
     "edge_f1": 0.4781
    },
    "svg_bytes": 21109,
-   "convert_ms": 160
+   "convert_ms": 76
   },
   {
    "id": "mr-230",
    "svg": "mr-230-logo_e22600_0318_v08_blur3.svg",
    "source": "model/data/degraded/logo_e22600_0318_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.0,
    "strict_verdict": "PASS",
    "channels": {
@@ -3917,15 +3917,15 @@
     "silhouette_iou": 0.9243,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3659,
-   "convert_ms": 117
+   "svg_bytes": 3693,
+   "convert_ms": 54
   },
   {
    "id": "mr-231",
    "svg": "mr-231-logo_e22600_0340_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e22600_0340_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3934,15 +3934,15 @@
     "silhouette_iou": 0.7855,
     "edge_f1": 0.7121
    },
-   "svg_bytes": 13950,
-   "convert_ms": 67
+   "svg_bytes": 13984,
+   "convert_ms": 62
   },
   {
    "id": "mr-232",
    "svg": "mr-232-logo_e22600_0343_v01_soft.svg",
    "source": "model/data/degraded/logo_e22600_0343_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 62.0,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3951,15 +3951,15 @@
     "silhouette_iou": 0.8843,
     "edge_f1": 0.0522
    },
-   "svg_bytes": 5429,
-   "convert_ms": 96
+   "svg_bytes": 5463,
+   "convert_ms": 65
   },
   {
    "id": "mr-233",
    "svg": "mr-233-logo_e22600_0359_v10_blur4.svg",
    "source": "model/data/degraded/logo_e22600_0359_v10_blur4.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 68.5,
    "strict_verdict": "FAIL",
    "channels": {
@@ -3968,15 +3968,15 @@
     "silhouette_iou": 0.7826,
     "edge_f1": 0.0
    },
-   "svg_bytes": 5042,
-   "convert_ms": 52
+   "svg_bytes": 5076,
+   "convert_ms": 78
   },
   {
    "id": "mr-234",
    "svg": "mr-234-logo_e22600_0386_v01_soft.svg",
    "source": "model/data/degraded/logo_e22600_0386_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 76.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -3985,15 +3985,15 @@
     "silhouette_iou": 0.7618,
     "edge_f1": 0.111
    },
-   "svg_bytes": 6230,
-   "convert_ms": 65
+   "svg_bytes": 6257,
+   "convert_ms": 41
   },
   {
    "id": "mr-235",
    "svg": "mr-235-logo_e22600_0482_v05_scale.svg",
    "source": "model/data/degraded/logo_e22600_0482_v05_scale.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 52.4,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4002,15 +4002,15 @@
     "silhouette_iou": 0.5236,
     "edge_f1": 0.0323
    },
-   "svg_bytes": 4713,
-   "convert_ms": 50
+   "svg_bytes": 4747,
+   "convert_ms": 52
   },
   {
    "id": "mr-236",
    "svg": "mr-236-logo_e22600_0507_v12_heavy.svg",
    "source": "model/data/degraded/logo_e22600_0507_v12_heavy.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 78.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4019,7 +4019,7 @@
     "silhouette_iou": 0.9799,
     "edge_f1": 0.3173
    },
-   "svg_bytes": 20143,
+   "svg_bytes": 20170,
    "convert_ms": 54
   },
   {
@@ -4027,7 +4027,7 @@
    "svg": "mr-237-logo_e22600_0536_v05_scale.svg",
    "source": "model/data/degraded/logo_e22600_0536_v05_scale.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 69.1,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4036,15 +4036,15 @@
     "silhouette_iou": 0.6908,
     "edge_f1": 0.0358
    },
-   "svg_bytes": 4401,
-   "convert_ms": 98
+   "svg_bytes": 4435,
+   "convert_ms": 53
   },
   {
    "id": "mr-238",
    "svg": "mr-238-logo_e22600_0537_v12_heavy.svg",
    "source": "model/data/degraded/logo_e22600_0537_v12_heavy.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.6,
    "strict_verdict": "PASS",
    "channels": {
@@ -4053,8 +4053,8 @@
     "silhouette_iou": 0.9882,
     "edge_f1": 0.547
    },
-   "svg_bytes": 22216,
-   "convert_ms": 93
+   "svg_bytes": 22250,
+   "convert_ms": 102
   },
   {
    "id": "mr-239",
@@ -4071,14 +4071,14 @@
     "edge_f1": 0.5846
    },
    "svg_bytes": 3017,
-   "convert_ms": 46
+   "convert_ms": 33
   },
   {
    "id": "mr-240",
    "svg": "mr-240-logo_e23200_0035_v04_blur1.svg",
    "source": "model/data/degraded/logo_e23200_0035_v04_blur1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 70.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4087,15 +4087,15 @@
     "silhouette_iou": 0.8558,
     "edge_f1": 0.1827
    },
-   "svg_bytes": 12362,
-   "convert_ms": 68
+   "svg_bytes": 12396,
+   "convert_ms": 67
   },
   {
    "id": "mr-241",
    "svg": "mr-241-logo_e23200_0042_v09_jit2.svg",
    "source": "model/data/degraded/logo_e23200_0042_v09_jit2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 73.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4104,15 +4104,15 @@
     "silhouette_iou": 0.7309,
     "edge_f1": 0.018
    },
-   "svg_bytes": 4458,
-   "convert_ms": 52
+   "svg_bytes": 4492,
+   "convert_ms": 61
   },
   {
    "id": "mr-242",
    "svg": "mr-242-logo_e23200_0042_v10_blur4.svg",
    "source": "model/data/degraded/logo_e23200_0042_v10_blur4.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 58.6,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4121,15 +4121,15 @@
     "silhouette_iou": 0.7529,
     "edge_f1": 0.0
    },
-   "svg_bytes": 30038,
-   "convert_ms": 65
+   "svg_bytes": 30072,
+   "convert_ms": 67
   },
   {
    "id": "mr-243",
    "svg": "mr-243-logo_e23200_0088_v03_rot.svg",
    "source": "model/data/degraded/logo_e23200_0088_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 68.8,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4138,7 +4138,7 @@
     "silhouette_iou": 0.6879,
     "edge_f1": 0.0053
    },
-   "svg_bytes": 7131,
+   "svg_bytes": 7165,
    "convert_ms": 50
   },
   {
@@ -4156,14 +4156,14 @@
     "edge_f1": 0.794
    },
    "svg_bytes": 21451,
-   "convert_ms": 73
+   "convert_ms": 82
   },
   {
    "id": "mr-245",
    "svg": "mr-245-logo_e23200_0156_v15_blur6.svg",
    "source": "model/data/degraded/logo_e23200_0156_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 46.1,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4172,15 +4172,15 @@
     "silhouette_iou": 0.4607,
     "edge_f1": 0.0
    },
-   "svg_bytes": 2916,
-   "convert_ms": 52
+   "svg_bytes": 2950,
+   "convert_ms": 59
   },
   {
    "id": "mr-246",
    "svg": "mr-246-logo_e23200_0157_v07_blur2.svg",
    "source": "model/data/degraded/logo_e23200_0157_v07_blur2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -4189,15 +4189,15 @@
     "silhouette_iou": 0.987,
     "edge_f1": 0.0
    },
-   "svg_bytes": 10272,
-   "convert_ms": 55
+   "svg_bytes": 10306,
+   "convert_ms": 69
   },
   {
    "id": "mr-247",
    "svg": "mr-247-logo_e23200_0179_v05_scale.svg",
    "source": "model/data/degraded/logo_e23200_0179_v05_scale.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -4206,15 +4206,15 @@
     "silhouette_iou": 0.8667,
     "edge_f1": 0.0334
    },
-   "svg_bytes": 1447,
-   "convert_ms": 48
+   "svg_bytes": 1481,
+   "convert_ms": 63
   },
   {
    "id": "mr-248",
    "svg": "mr-248-logo_e23200_0184_v15_blur6.svg",
    "source": "model/data/degraded/logo_e23200_0184_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 33.9,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4223,15 +4223,15 @@
     "silhouette_iou": 0.6172,
     "edge_f1": 0.0
    },
-   "svg_bytes": 49524,
-   "convert_ms": 62
+   "svg_bytes": 49558,
+   "convert_ms": 80
   },
   {
    "id": "mr-249",
    "svg": "mr-249-logo_e23200_0192_v15_blur6.svg",
    "source": "model/data/degraded/logo_e23200_0192_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 24.5,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4240,8 +4240,8 @@
     "silhouette_iou": 0.6355,
     "edge_f1": 0.0
    },
-   "svg_bytes": 7982,
-   "convert_ms": 49
+   "svg_bytes": 8009,
+   "convert_ms": 57
   },
   {
    "id": "mr-250",
@@ -4258,7 +4258,7 @@
     "edge_f1": 0.634
    },
    "svg_bytes": 20830,
-   "convert_ms": 71
+   "convert_ms": 73
   },
   {
    "id": "mr-251",
@@ -4275,14 +4275,14 @@
     "edge_f1": 0.7749
    },
    "svg_bytes": 4057,
-   "convert_ms": 32
+   "convert_ms": 33
   },
   {
    "id": "mr-252",
    "svg": "mr-252-logo_e23200_0286_v13_pixel.svg",
    "source": "model/data/degraded/logo_e23200_0286_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 82.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4291,15 +4291,15 @@
     "silhouette_iou": 0.8198,
     "edge_f1": 0.0654
    },
-   "svg_bytes": 2824,
-   "convert_ms": 49
+   "svg_bytes": 2858,
+   "convert_ms": 51
   },
   {
    "id": "mr-253",
    "svg": "mr-253-logo_e23200_0336_v03_rot.svg",
    "source": "model/data/degraded/logo_e23200_0336_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4308,7 +4308,7 @@
     "silhouette_iou": 0.7877,
     "edge_f1": 0.0612
    },
-   "svg_bytes": 7009,
+   "svg_bytes": 7043,
    "convert_ms": 58
   },
   {
@@ -4326,14 +4326,14 @@
     "edge_f1": 0.3773
    },
    "svg_bytes": 11899,
-   "convert_ms": 69
+   "convert_ms": 106
   },
   {
    "id": "mr-255",
    "svg": "mr-255-logo_e23200_0366_v13_pixel.svg",
    "source": "model/data/degraded/logo_e23200_0366_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4342,15 +4342,15 @@
     "silhouette_iou": 0.7422,
     "edge_f1": 0.1069
    },
-   "svg_bytes": 2128,
-   "convert_ms": 47
+   "svg_bytes": 2162,
+   "convert_ms": 74
   },
   {
    "id": "mr-256",
    "svg": "mr-256-logo_e23200_0437_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e23200_0437_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 84.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4359,8 +4359,8 @@
     "silhouette_iou": 0.9224,
     "edge_f1": 0.4583
    },
-   "svg_bytes": 15493,
-   "convert_ms": 52
+   "svg_bytes": 15520,
+   "convert_ms": 55
   },
   {
    "id": "mr-257",
@@ -4377,7 +4377,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 14981,
-   "convert_ms": 114
+   "convert_ms": 112
   },
   {
    "id": "mr-258",
@@ -4394,7 +4394,7 @@
     "edge_f1": 0.2904
    },
    "svg_bytes": 6240,
-   "convert_ms": 43
+   "convert_ms": 50
   },
   {
    "id": "mr-259",
@@ -4411,14 +4411,14 @@
     "edge_f1": 0.5445
    },
    "svg_bytes": 4760,
-   "convert_ms": 40
+   "convert_ms": 66
   },
   {
    "id": "mr-260",
    "svg": "mr-260-logo_e23200_0545_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e23200_0545_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 84.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4427,15 +4427,15 @@
     "silhouette_iou": 0.8891,
     "edge_f1": 0.6673
    },
-   "svg_bytes": 15150,
-   "convert_ms": 45
+   "svg_bytes": 15177,
+   "convert_ms": 62
   },
   {
    "id": "mr-261",
    "svg": "mr-261-logo_e24400_0027_v15_blur6.svg",
    "source": "model/data/degraded/logo_e24400_0027_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 24.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4444,8 +4444,8 @@
     "silhouette_iou": 0.8,
     "edge_f1": 0.0
    },
-   "svg_bytes": 20785,
-   "convert_ms": 69
+   "svg_bytes": 20819,
+   "convert_ms": 76
   },
   {
    "id": "mr-262",
@@ -4462,14 +4462,14 @@
     "edge_f1": 0.7612
    },
    "svg_bytes": 15256,
-   "convert_ms": 141
+   "convert_ms": 79
   },
   {
    "id": "mr-263",
    "svg": "mr-263-logo_e24400_0109_v03_rot.svg",
    "source": "model/data/degraded/logo_e24400_0109_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 70.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4478,7 +4478,7 @@
     "silhouette_iou": 0.8059,
     "edge_f1": 0.0825
    },
-   "svg_bytes": 7698,
+   "svg_bytes": 7732,
    "convert_ms": 58
   },
   {
@@ -4486,7 +4486,7 @@
    "svg": "mr-264-logo_e24400_0123_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e24400_0123_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4495,8 +4495,8 @@
     "silhouette_iou": 0.972,
     "edge_f1": 0.6724
    },
-   "svg_bytes": 28307,
-   "convert_ms": 67
+   "svg_bytes": 28341,
+   "convert_ms": 70
   },
   {
    "id": "mr-265",
@@ -4513,14 +4513,14 @@
     "edge_f1": 0.539
    },
    "svg_bytes": 15905,
-   "convert_ms": 102
+   "convert_ms": 76
   },
   {
    "id": "mr-266",
    "svg": "mr-266-logo_e24400_0176_v15_blur6.svg",
    "source": "model/data/degraded/logo_e24400_0176_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 39.5,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4529,15 +4529,15 @@
     "silhouette_iou": 0.3955,
     "edge_f1": 0.0
    },
-   "svg_bytes": 4498,
-   "convert_ms": 70
+   "svg_bytes": 4532,
+   "convert_ms": 50
   },
   {
    "id": "mr-267",
    "svg": "mr-267-logo_e24400_0195_v09_jit2.svg",
    "source": "model/data/degraded/logo_e24400_0195_v09_jit2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.6,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4546,15 +4546,15 @@
     "silhouette_iou": 0.9422,
     "edge_f1": 0.5108
    },
-   "svg_bytes": 6157,
-   "convert_ms": 91
+   "svg_bytes": 6191,
+   "convert_ms": 59
   },
   {
    "id": "mr-268",
    "svg": "mr-268-logo_e24400_0199_v08_blur3.svg",
    "source": "model/data/degraded/logo_e24400_0199_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 31.4,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4563,15 +4563,15 @@
     "silhouette_iou": 0.8129,
     "edge_f1": 0.0
    },
-   "svg_bytes": 36739,
-   "convert_ms": 73
+   "svg_bytes": 36773,
+   "convert_ms": 84
   },
   {
    "id": "mr-269",
    "svg": "mr-269-logo_e24400_0207_v03_rot.svg",
    "source": "model/data/degraded/logo_e24400_0207_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 75.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4580,15 +4580,15 @@
     "silhouette_iou": 0.9474,
     "edge_f1": 0.2253
    },
-   "svg_bytes": 22618,
-   "convert_ms": 80
+   "svg_bytes": 22652,
+   "convert_ms": 70
   },
   {
    "id": "mr-270",
    "svg": "mr-270-logo_e24400_0208_v13_pixel.svg",
    "source": "model/data/degraded/logo_e24400_0208_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 75.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4597,15 +4597,15 @@
     "silhouette_iou": 0.7551,
     "edge_f1": 0.1366
    },
-   "svg_bytes": 3152,
-   "convert_ms": 72
+   "svg_bytes": 3186,
+   "convert_ms": 54
   },
   {
    "id": "mr-271",
    "svg": "mr-271-logo_e24400_0218_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e24400_0218_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 86.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -4614,8 +4614,8 @@
     "silhouette_iou": 0.8641,
     "edge_f1": 0.7656
    },
-   "svg_bytes": 15005,
-   "convert_ms": 122
+   "svg_bytes": 15039,
+   "convert_ms": 80
   },
   {
    "id": "mr-272",
@@ -4632,7 +4632,7 @@
     "edge_f1": 0.2547
    },
    "svg_bytes": 723,
-   "convert_ms": 51
+   "convert_ms": 34
   },
   {
    "id": "mr-273",
@@ -4649,14 +4649,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 12020,
-   "convert_ms": 99
+   "convert_ms": 70
   },
   {
    "id": "mr-274",
    "svg": "mr-274-logo_e24400_0309_v04_blur1.svg",
    "source": "model/data/degraded/logo_e24400_0309_v04_blur1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.6,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4665,15 +4665,15 @@
     "silhouette_iou": 0.9562,
     "edge_f1": 0.1309
    },
-   "svg_bytes": 9356,
-   "convert_ms": 57
+   "svg_bytes": 9390,
+   "convert_ms": 67
   },
   {
    "id": "mr-275",
    "svg": "mr-275-logo_e24400_0316_v12_heavy.svg",
    "source": "model/data/degraded/logo_e24400_0316_v12_heavy.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 79.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4682,8 +4682,8 @@
     "silhouette_iou": 0.9628,
     "edge_f1": 0.0182
    },
-   "svg_bytes": 12041,
-   "convert_ms": 55
+   "svg_bytes": 12075,
+   "convert_ms": 52
   },
   {
    "id": "mr-276",
@@ -4700,14 +4700,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 920,
-   "convert_ms": 67
+   "convert_ms": 35
   },
   {
    "id": "mr-277",
    "svg": "mr-277-logo_e24400_0357_v06_jit1.svg",
    "source": "model/data/degraded/logo_e24400_0357_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 71.3,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4716,15 +4716,15 @@
     "silhouette_iou": 0.9553,
     "edge_f1": 0.1376
    },
-   "svg_bytes": 10113,
-   "convert_ms": 106
+   "svg_bytes": 10147,
+   "convert_ms": 64
   },
   {
    "id": "mr-278",
    "svg": "mr-278-logo_e24400_0488_v13_pixel.svg",
    "source": "model/data/degraded/logo_e24400_0488_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 62.9,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4733,8 +4733,8 @@
     "silhouette_iou": 0.6288,
     "edge_f1": 0.0996
    },
-   "svg_bytes": 4641,
-   "convert_ms": 51
+   "svg_bytes": 4675,
+   "convert_ms": 49
   },
   {
    "id": "mr-279",
@@ -4758,7 +4758,7 @@
    "svg": "mr-280-logo_e24400_0495_v14_blur5.svg",
    "source": "model/data/degraded/logo_e24400_0495_v14_blur5.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 48.8,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4767,7 +4767,7 @@
     "silhouette_iou": 0.8108,
     "edge_f1": 0.0
    },
-   "svg_bytes": 8899,
+   "svg_bytes": 8933,
    "convert_ms": 58
   },
   {
@@ -4775,7 +4775,7 @@
    "svg": "mr-281-logo_e24400_0511_v05_scale.svg",
    "source": "model/data/degraded/logo_e24400_0511_v05_scale.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 71.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4784,15 +4784,15 @@
     "silhouette_iou": 0.7947,
     "edge_f1": 0.0868
    },
-   "svg_bytes": 5440,
-   "convert_ms": 56
+   "svg_bytes": 5474,
+   "convert_ms": 57
   },
   {
    "id": "mr-282",
    "svg": "mr-282-logo_e24400_0512_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e24400_0512_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 75.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4801,15 +4801,15 @@
     "silhouette_iou": 0.7515,
     "edge_f1": 0.7513
    },
-   "svg_bytes": 14165,
-   "convert_ms": 46
+   "svg_bytes": 14192,
+   "convert_ms": 47
   },
   {
    "id": "mr-283",
    "svg": "mr-283-logo_e24400_0517_v14_blur5.svg",
    "source": "model/data/degraded/logo_e24400_0517_v14_blur5.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 49.6,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4818,7 +4818,7 @@
     "silhouette_iou": 0.6463,
     "edge_f1": 0.0
    },
-   "svg_bytes": 10669,
+   "svg_bytes": 10696,
    "convert_ms": 49
   },
   {
@@ -4826,7 +4826,7 @@
    "svg": "mr-284-logo_e24400_0524_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e24400_0524_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4835,8 +4835,8 @@
     "silhouette_iou": 0.8354,
     "edge_f1": 0.0023
    },
-   "svg_bytes": 4595,
-   "convert_ms": 48
+   "svg_bytes": 4629,
+   "convert_ms": 73
   },
   {
    "id": "mr-285",
@@ -4853,7 +4853,7 @@
     "edge_f1": 0.6496
    },
    "svg_bytes": 1426,
-   "convert_ms": 34
+   "convert_ms": 33
   },
   {
    "id": "mr-286",
@@ -4870,14 +4870,14 @@
     "edge_f1": 0.623
    },
    "svg_bytes": 1205,
-   "convert_ms": 35
+   "convert_ms": 32
   },
   {
    "id": "mr-287",
    "svg": "mr-287-logo_e25000_0018_v05_scale.svg",
    "source": "model/data/degraded/logo_e25000_0018_v05_scale.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4886,7 +4886,7 @@
     "silhouette_iou": 0.7407,
     "edge_f1": 0.0798
    },
-   "svg_bytes": 9504,
+   "svg_bytes": 9538,
    "convert_ms": 51
   },
   {
@@ -4894,7 +4894,7 @@
    "svg": "mr-288-logo_e25000_0022_v08_blur3.svg",
    "source": "model/data/degraded/logo_e25000_0022_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 39.4,
    "strict_verdict": "FAIL",
    "channels": {
@@ -4903,15 +4903,15 @@
     "silhouette_iou": 0.8986,
     "edge_f1": 0.0
    },
-   "svg_bytes": 53717,
-   "convert_ms": 86
+   "svg_bytes": 53751,
+   "convert_ms": 96
   },
   {
    "id": "mr-289",
    "svg": "mr-289-logo_e25000_0046_v09_jit2.svg",
    "source": "model/data/degraded/logo_e25000_0046_v09_jit2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4920,15 +4920,15 @@
     "silhouette_iou": 0.8395,
     "edge_f1": 0.0618
    },
-   "svg_bytes": 7204,
-   "convert_ms": 52
+   "svg_bytes": 7238,
+   "convert_ms": 51
   },
   {
    "id": "mr-290",
    "svg": "mr-290-logo_e25000_0066_v03_rot.svg",
    "source": "model/data/degraded/logo_e25000_0066_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 71.8,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4937,15 +4937,15 @@
     "silhouette_iou": 0.7182,
     "edge_f1": 0.007
    },
-   "svg_bytes": 6548,
-   "convert_ms": 90
+   "svg_bytes": 6582,
+   "convert_ms": 51
   },
   {
    "id": "mr-291",
    "svg": "mr-291-logo_e25000_0066_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e25000_0066_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4954,8 +4954,8 @@
     "silhouette_iou": 0.835,
     "edge_f1": 0.079
    },
-   "svg_bytes": 8777,
-   "convert_ms": 52
+   "svg_bytes": 8811,
+   "convert_ms": 92
   },
   {
    "id": "mr-292",
@@ -4972,14 +4972,14 @@
     "edge_f1": 0.8058
    },
    "svg_bytes": 11867,
-   "convert_ms": 75
+   "convert_ms": 68
   },
   {
    "id": "mr-293",
    "svg": "mr-293-logo_e25000_0118_v04_blur1.svg",
    "source": "model/data/degraded/logo_e25000_0118_v04_blur1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 81.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -4988,15 +4988,15 @@
     "silhouette_iou": 0.8486,
     "edge_f1": 0.1915
    },
-   "svg_bytes": 8662,
-   "convert_ms": 57
+   "svg_bytes": 8696,
+   "convert_ms": 52
   },
   {
    "id": "mr-294",
    "svg": "mr-294-logo_e25000_0154_v07_blur2.svg",
    "source": "model/data/degraded/logo_e25000_0154_v07_blur2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5005,7 +5005,7 @@
     "silhouette_iou": 0.9946,
     "edge_f1": 0.0035
    },
-   "svg_bytes": 9008,
+   "svg_bytes": 9042,
    "convert_ms": 52
   },
   {
@@ -5013,7 +5013,7 @@
    "svg": "mr-295-logo_e25000_0158_v01_soft.svg",
    "source": "model/data/degraded/logo_e25000_0158_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5022,15 +5022,15 @@
     "silhouette_iou": 0.8439,
     "edge_f1": 0.0878
    },
-   "svg_bytes": 11630,
-   "convert_ms": 56
+   "svg_bytes": 11664,
+   "convert_ms": 53
   },
   {
    "id": "mr-296",
    "svg": "mr-296-logo_e25000_0166_v07_blur2.svg",
    "source": "model/data/degraded/logo_e25000_0166_v07_blur2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 87.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -5039,15 +5039,15 @@
     "silhouette_iou": 0.9458,
     "edge_f1": 0.003
    },
-   "svg_bytes": 5081,
-   "convert_ms": 40
+   "svg_bytes": 5108,
+   "convert_ms": 42
   },
   {
    "id": "mr-297",
    "svg": "mr-297-logo_e25000_0189_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e25000_0189_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -5056,15 +5056,15 @@
     "silhouette_iou": 0.9177,
     "edge_f1": 0.7545
    },
-   "svg_bytes": 25378,
-   "convert_ms": 69
+   "svg_bytes": 25412,
+   "convert_ms": 64
   },
   {
    "id": "mr-298",
    "svg": "mr-298-logo_e25000_0206_v06_jit1.svg",
    "source": "model/data/degraded/logo_e25000_0206_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5073,8 +5073,8 @@
     "silhouette_iou": 0.8001,
     "edge_f1": 0.0725
    },
-   "svg_bytes": 6514,
-   "convert_ms": 83
+   "svg_bytes": 6548,
+   "convert_ms": 52
   },
   {
    "id": "mr-299",
@@ -5091,14 +5091,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 13625,
-   "convert_ms": 81
+   "convert_ms": 115
   },
   {
    "id": "mr-300",
    "svg": "mr-300-logo_e25000_0215_v06_jit1.svg",
    "source": "model/data/degraded/logo_e25000_0215_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5107,15 +5107,15 @@
     "silhouette_iou": 0.776,
     "edge_f1": 0.0829
    },
-   "svg_bytes": 10533,
-   "convert_ms": 58
+   "svg_bytes": 10567,
+   "convert_ms": 70
   },
   {
    "id": "mr-301",
    "svg": "mr-301-logo_e25000_0234_v10_blur4.svg",
    "source": "model/data/degraded/logo_e25000_0234_v10_blur4.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 62.6,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5124,15 +5124,15 @@
     "silhouette_iou": 0.765,
     "edge_f1": 0.0
    },
-   "svg_bytes": 14966,
-   "convert_ms": 46
+   "svg_bytes": 14993,
+   "convert_ms": 43
   },
   {
    "id": "mr-302",
    "svg": "mr-302-logo_e25000_0237_v15_blur6.svg",
    "source": "model/data/degraded/logo_e25000_0237_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 16.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5141,15 +5141,15 @@
     "silhouette_iou": 0.8122,
     "edge_f1": 0.0
    },
-   "svg_bytes": 16517,
-   "convert_ms": 69
+   "svg_bytes": 16551,
+   "convert_ms": 68
   },
   {
    "id": "mr-303",
    "svg": "mr-303-logo_e25000_0325_v14_blur5.svg",
    "source": "model/data/degraded/logo_e25000_0325_v14_blur5.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 20.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5158,15 +5158,15 @@
     "silhouette_iou": 0.6891,
     "edge_f1": 0.0
    },
-   "svg_bytes": 36124,
-   "convert_ms": 61
+   "svg_bytes": 36158,
+   "convert_ms": 65
   },
   {
    "id": "mr-304",
    "svg": "mr-304-logo_e25000_0327_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e25000_0327_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -5175,8 +5175,8 @@
     "silhouette_iou": 0.936,
     "edge_f1": 0.669
    },
-   "svg_bytes": 18166,
-   "convert_ms": 89
+   "svg_bytes": 18200,
+   "convert_ms": 88
   },
   {
    "id": "mr-305",
@@ -5193,7 +5193,7 @@
     "edge_f1": 0.7009
    },
    "svg_bytes": 16557,
-   "convert_ms": 83
+   "convert_ms": 95
   },
   {
    "id": "mr-306",
@@ -5210,14 +5210,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 2706,
-   "convert_ms": 35
+   "convert_ms": 34
   },
   {
    "id": "mr-307",
    "svg": "mr-307-logo_e25000_0395_v07_blur2.svg",
    "source": "model/data/degraded/logo_e25000_0395_v07_blur2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 73.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5226,15 +5226,15 @@
     "silhouette_iou": 0.9901,
     "edge_f1": 0.0
    },
-   "svg_bytes": 72449,
-   "convert_ms": 166
+   "svg_bytes": 72483,
+   "convert_ms": 110
   },
   {
    "id": "mr-308",
    "svg": "mr-308-logo_e25000_0416_v08_blur3.svg",
    "source": "model/data/degraded/logo_e25000_0416_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 77.5,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5243,15 +5243,15 @@
     "silhouette_iou": 0.8629,
     "edge_f1": 0.0
    },
-   "svg_bytes": 5738,
-   "convert_ms": 104
+   "svg_bytes": 5772,
+   "convert_ms": 81
   },
   {
    "id": "mr-309",
    "svg": "mr-309-logo_e25000_0417_v01_soft.svg",
    "source": "model/data/degraded/logo_e25000_0417_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5260,15 +5260,15 @@
     "silhouette_iou": 0.9597,
     "edge_f1": 0.0882
    },
-   "svg_bytes": 45410,
-   "convert_ms": 144
+   "svg_bytes": 45444,
+   "convert_ms": 72
   },
   {
    "id": "mr-310",
    "svg": "mr-310-logo_e25000_0458_v09_jit2.svg",
    "source": "model/data/degraded/logo_e25000_0458_v09_jit2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5277,15 +5277,15 @@
     "silhouette_iou": 0.7618,
     "edge_f1": 0.1271
    },
-   "svg_bytes": 8020,
-   "convert_ms": 96
+   "svg_bytes": 8054,
+   "convert_ms": 50
   },
   {
    "id": "mr-311",
    "svg": "mr-311-logo_e25000_0465_v07_blur2.svg",
    "source": "model/data/degraded/logo_e25000_0465_v07_blur2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 74.6,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5294,15 +5294,15 @@
     "silhouette_iou": 0.9905,
     "edge_f1": 0.0
    },
-   "svg_bytes": 12707,
-   "convert_ms": 82
+   "svg_bytes": 12734,
+   "convert_ms": 47
   },
   {
    "id": "mr-312",
    "svg": "mr-312-logo_e25000_0488_v03_rot.svg",
    "source": "model/data/degraded/logo_e25000_0488_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 70.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5311,15 +5311,15 @@
     "silhouette_iou": 0.7019,
     "edge_f1": 0.0526
    },
-   "svg_bytes": 9422,
-   "convert_ms": 104
+   "svg_bytes": 9456,
+   "convert_ms": 61
   },
   {
    "id": "mr-313",
    "svg": "mr-313-logo_e25000_0497_v06_jit1.svg",
    "source": "model/data/degraded/logo_e25000_0497_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 87.2,
    "strict_verdict": "PASS",
    "channels": {
@@ -5328,15 +5328,15 @@
     "silhouette_iou": 0.9447,
     "edge_f1": 0.1113
    },
-   "svg_bytes": 12379,
-   "convert_ms": 89
+   "svg_bytes": 12413,
+   "convert_ms": 59
   },
   {
    "id": "mr-314",
    "svg": "mr-314-logo_e25000_0497_v13_pixel.svg",
    "source": "model/data/degraded/logo_e25000_0497_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5345,15 +5345,15 @@
     "silhouette_iou": 0.9267,
     "edge_f1": 0.1204
    },
-   "svg_bytes": 9780,
-   "convert_ms": 88
+   "svg_bytes": 9814,
+   "convert_ms": 54
   },
   {
    "id": "mr-315",
    "svg": "mr-315-logo_e25000_0522_v04_blur1.svg",
    "source": "model/data/degraded/logo_e25000_0522_v04_blur1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 57.5,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5362,8 +5362,8 @@
     "silhouette_iou": 0.89,
     "edge_f1": 0.1923
    },
-   "svg_bytes": 22233,
-   "convert_ms": 138
+   "svg_bytes": 22267,
+   "convert_ms": 145
   },
   {
    "id": "mr-316",
@@ -5380,14 +5380,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 597,
-   "convert_ms": 65
+   "convert_ms": 48
   },
   {
    "id": "mr-317",
    "svg": "mr-317-logo_e25000_0552_v04_blur1.svg",
    "source": "model/data/degraded/logo_e25000_0552_v04_blur1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5396,15 +5396,15 @@
     "silhouette_iou": 0.8666,
     "edge_f1": 0.1949
    },
-   "svg_bytes": 2447,
-   "convert_ms": 87
+   "svg_bytes": 2481,
+   "convert_ms": 110
   },
   {
    "id": "mr-318",
    "svg": "mr-318-logo_e25000_0562_v01_soft.svg",
    "source": "model/data/degraded/logo_e25000_0562_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 56.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5413,15 +5413,15 @@
     "silhouette_iou": 0.8861,
     "edge_f1": 0.1024
    },
-   "svg_bytes": 7605,
-   "convert_ms": 128
+   "svg_bytes": 7639,
+   "convert_ms": 67
   },
   {
    "id": "mr-319",
    "svg": "mr-319-logo_e25000_0590_v07_blur2.svg",
    "source": "model/data/degraded/logo_e25000_0590_v07_blur2.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 88.4,
    "strict_verdict": "PASS",
    "channels": {
@@ -5430,15 +5430,15 @@
     "silhouette_iou": 0.9927,
     "edge_f1": 0.0
    },
-   "svg_bytes": 4983,
-   "convert_ms": 90
+   "svg_bytes": 5017,
+   "convert_ms": 63
   },
   {
    "id": "mr-320",
    "svg": "mr-320-logo_e26200_0027_v15_blur6.svg",
    "source": "model/data/degraded/logo_e26200_0027_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 16.9,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5447,15 +5447,15 @@
     "silhouette_iou": 0.818,
     "edge_f1": 0.0
    },
-   "svg_bytes": 21842,
-   "convert_ms": 160
+   "svg_bytes": 21876,
+   "convert_ms": 83
   },
   {
    "id": "mr-321",
    "svg": "mr-321-logo_e26200_0028_v13_pixel.svg",
    "source": "model/data/degraded/logo_e26200_0028_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.0,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5464,8 +5464,8 @@
     "silhouette_iou": 0.8396,
     "edge_f1": 0.1974
    },
-   "svg_bytes": 2008,
-   "convert_ms": 138
+   "svg_bytes": 2042,
+   "convert_ms": 51
   },
   {
    "id": "mr-322",
@@ -5482,14 +5482,14 @@
     "edge_f1": 0.51
    },
    "svg_bytes": 1134,
-   "convert_ms": 58
+   "convert_ms": 53
   },
   {
    "id": "mr-323",
    "svg": "mr-323-logo_e26200_0070_v08_blur3.svg",
    "source": "model/data/degraded/logo_e26200_0070_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 73.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5498,15 +5498,15 @@
     "silhouette_iou": 0.9466,
     "edge_f1": 0.0
    },
-   "svg_bytes": 23053,
-   "convert_ms": 115
+   "svg_bytes": 23087,
+   "convert_ms": 66
   },
   {
    "id": "mr-324",
    "svg": "mr-324-logo_e26200_0092_v08_blur3.svg",
    "source": "model/data/degraded/logo_e26200_0092_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 69.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5515,8 +5515,8 @@
     "silhouette_iou": 0.7226,
     "edge_f1": 0.0
    },
-   "svg_bytes": 9784,
-   "convert_ms": 68
+   "svg_bytes": 9811,
+   "convert_ms": 48
   },
   {
    "id": "mr-325",
@@ -5533,14 +5533,14 @@
     "edge_f1": 0.837
    },
    "svg_bytes": 14542,
-   "convert_ms": 147
+   "convert_ms": 88
   },
   {
    "id": "mr-326",
    "svg": "mr-326-logo_e26200_0117_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e26200_0117_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5549,8 +5549,8 @@
     "silhouette_iou": 0.94,
     "edge_f1": 0.6323
    },
-   "svg_bytes": 12292,
-   "convert_ms": 155
+   "svg_bytes": 12326,
+   "convert_ms": 63
   },
   {
    "id": "mr-327",
@@ -5567,7 +5567,7 @@
     "edge_f1": 0.6088
    },
    "svg_bytes": 17218,
-   "convert_ms": 153
+   "convert_ms": 83
   },
   {
    "id": "mr-328",
@@ -5584,14 +5584,14 @@
     "edge_f1": 0.5002
    },
    "svg_bytes": 13970,
-   "convert_ms": 194
+   "convert_ms": 75
   },
   {
    "id": "mr-329",
    "svg": "mr-329-logo_e26200_0170_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e26200_0170_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout",
    "strict_similarity_pct": 84.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5600,15 +5600,15 @@
     "silhouette_iou": 0.8419,
     "edge_f1": 0.2426
    },
-   "svg_bytes": 10657,
-   "convert_ms": 94
+   "svg_bytes": 10684,
+   "convert_ms": 68
   },
   {
    "id": "mr-330",
    "svg": "mr-330-logo_e26200_0214_v06_jit1.svg",
    "source": "model/data/degraded/logo_e26200_0214_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 84.3,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5617,8 +5617,8 @@
     "silhouette_iou": 0.8433,
     "edge_f1": 0.1012
    },
-   "svg_bytes": 2844,
-   "convert_ms": 105
+   "svg_bytes": 2878,
+   "convert_ms": 77
   },
   {
    "id": "mr-331",
@@ -5635,7 +5635,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1439,
-   "convert_ms": 72
+   "convert_ms": 48
   },
   {
    "id": "mr-332",
@@ -5652,7 +5652,7 @@
     "edge_f1": 0.45
    },
    "svg_bytes": 1451,
-   "convert_ms": 86
+   "convert_ms": 34
   },
   {
    "id": "mr-333",
@@ -5669,14 +5669,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 821,
-   "convert_ms": 72
+   "convert_ms": 40
   },
   {
    "id": "mr-334",
    "svg": "mr-334-logo_e26200_0316_v15_blur6.svg",
    "source": "model/data/degraded/logo_e26200_0316_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 60.8,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5685,15 +5685,15 @@
     "silhouette_iou": 0.6084,
     "edge_f1": 0.0
    },
-   "svg_bytes": 6073,
-   "convert_ms": 99
+   "svg_bytes": 6107,
+   "convert_ms": 50
   },
   {
    "id": "mr-335",
    "svg": "mr-335-logo_e26200_0328_v06_jit1.svg",
    "source": "model/data/degraded/logo_e26200_0328_v06_jit1.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 78.6,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5702,15 +5702,15 @@
     "silhouette_iou": 0.7865,
     "edge_f1": 0.0909
    },
-   "svg_bytes": 2916,
-   "convert_ms": 89
+   "svg_bytes": 2950,
+   "convert_ms": 48
   },
   {
    "id": "mr-336",
    "svg": "mr-336-logo_e26200_0332_v03_rot.svg",
    "source": "model/data/degraded/logo_e26200_0332_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.4,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5719,15 +5719,15 @@
     "silhouette_iou": 0.7443,
     "edge_f1": 0.0209
    },
-   "svg_bytes": 6867,
-   "convert_ms": 102
+   "svg_bytes": 6901,
+   "convert_ms": 55
   },
   {
    "id": "mr-337",
    "svg": "mr-337-logo_e26200_0372_v10_blur4.svg",
    "source": "model/data/degraded/logo_e26200_0372_v10_blur4.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 76.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5736,15 +5736,15 @@
     "silhouette_iou": 0.8516,
     "edge_f1": 0.0
    },
-   "svg_bytes": 4275,
-   "convert_ms": 90
+   "svg_bytes": 4309,
+   "convert_ms": 52
   },
   {
    "id": "mr-338",
    "svg": "mr-338-logo_e26200_0393_v12_heavy.svg",
    "source": "model/data/degraded/logo_e26200_0393_v12_heavy.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 74.1,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5753,15 +5753,15 @@
     "silhouette_iou": 0.9827,
     "edge_f1": 0.0
    },
-   "svg_bytes": 23226,
-   "convert_ms": 93
+   "svg_bytes": 23260,
+   "convert_ms": 99
   },
   {
    "id": "mr-339",
    "svg": "mr-339-logo_e26200_0424_v03_rot.svg",
    "source": "model/data/degraded/logo_e26200_0424_v03_rot.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 80.9,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5770,7 +5770,7 @@
     "silhouette_iou": 0.8086,
     "edge_f1": 0.0152
    },
-   "svg_bytes": 5833,
+   "svg_bytes": 5867,
    "convert_ms": 62
   },
   {
@@ -5788,14 +5788,14 @@
     "edge_f1": 0.8275
    },
    "svg_bytes": 6242,
-   "convert_ms": 65
+   "convert_ms": 34
   },
   {
    "id": "mr-341",
    "svg": "mr-341-logo_e26200_0463_v13_pixel.svg",
    "source": "model/data/degraded/logo_e26200_0463_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 64.4,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5804,15 +5804,15 @@
     "silhouette_iou": 0.8431,
     "edge_f1": 0.0876
    },
-   "svg_bytes": 4670,
-   "convert_ms": 115
+   "svg_bytes": 4704,
+   "convert_ms": 62
   },
   {
    "id": "mr-342",
    "svg": "mr-342-logo_e26200_0500_v10_blur4.svg",
    "source": "model/data/degraded/logo_e26200_0500_v10_blur4.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 47.5,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5821,15 +5821,15 @@
     "silhouette_iou": 0.4754,
     "edge_f1": 0.0
    },
-   "svg_bytes": 6406,
-   "convert_ms": 115
+   "svg_bytes": 6440,
+   "convert_ms": 56
   },
   {
    "id": "mr-343",
    "svg": "mr-343-logo_e26200_0538_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e26200_0538_v11_jpeghard.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 90.7,
    "strict_verdict": "PASS",
    "channels": {
@@ -5838,15 +5838,15 @@
     "silhouette_iou": 0.9424,
     "edge_f1": 0.8172
    },
-   "svg_bytes": 12991,
-   "convert_ms": 147
+   "svg_bytes": 13025,
+   "convert_ms": 84
   },
   {
    "id": "mr-344",
    "svg": "mr-344-logo_e26200_0568_v08_blur3.svg",
    "source": "model/data/degraded/logo_e26200_0568_v08_blur3.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 83.7,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5855,8 +5855,8 @@
     "silhouette_iou": 0.8896,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3236,
-   "convert_ms": 122
+   "svg_bytes": 3270,
+   "convert_ms": 48
   },
   {
    "id": "mr-345",
@@ -5873,14 +5873,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 3082,
-   "convert_ms": 94
+   "convert_ms": 37
   },
   {
    "id": "mr-346",
    "svg": "mr-346-logo_e26200_0598_v12_heavy.svg",
    "source": "model/data/degraded/logo_e26200_0598_v12_heavy.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 85.3,
    "strict_verdict": "PASS",
    "channels": {
@@ -5889,15 +5889,15 @@
     "silhouette_iou": 0.9246,
     "edge_f1": 0.0195
    },
-   "svg_bytes": 8682,
-   "convert_ms": 138
+   "svg_bytes": 8716,
+   "convert_ms": 53
   },
   {
    "id": "mr-347",
    "svg": "mr-347-logo_e26800_0001_v15_blur6.svg",
    "source": "model/data/degraded/logo_e26800_0001_v15_blur6.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 60.1,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5906,15 +5906,15 @@
     "silhouette_iou": 0.6011,
     "edge_f1": 0.0
    },
-   "svg_bytes": 2939,
-   "convert_ms": 89
+   "svg_bytes": 2973,
+   "convert_ms": 47
   },
   {
    "id": "mr-348",
    "svg": "mr-348-logo_e26800_0027_v01_soft.svg",
    "source": "model/data/degraded/logo_e26800_0027_v01_soft.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 72.2,
    "strict_verdict": "WEAK",
    "channels": {
@@ -5923,15 +5923,15 @@
     "silhouette_iou": 0.9688,
     "edge_f1": 0.3876
    },
-   "svg_bytes": 32144,
-   "convert_ms": 161
+   "svg_bytes": 32178,
+   "convert_ms": 80
   },
   {
    "id": "mr-349",
    "svg": "mr-349-logo_e26800_0096_v10_blur4.svg",
    "source": "model/data/degraded/logo_e26800_0096_v10_blur4.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 61.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5940,8 +5940,8 @@
     "silhouette_iou": 0.6169,
     "edge_f1": 0.0
    },
-   "svg_bytes": 5210,
-   "convert_ms": 56
+   "svg_bytes": 5244,
+   "convert_ms": 50
   },
   {
    "id": "mr-350",
@@ -5958,7 +5958,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 14629,
-   "convert_ms": 187
+   "convert_ms": 92
   },
   {
    "id": "mr-351",
@@ -5975,14 +5975,14 @@
     "edge_f1": 0.4567
    },
    "svg_bytes": 5063,
-   "convert_ms": 62
+   "convert_ms": 35
   },
   {
    "id": "mr-352",
    "svg": "mr-352-text_23800_0086_v02_jpeg.svg",
    "source": "model/data/degraded/text_23800_0086_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 63.7,
    "strict_verdict": "FAIL",
    "channels": {
@@ -5991,8 +5991,8 @@
     "silhouette_iou": 0.6368,
     "edge_f1": 0.5389
    },
-   "svg_bytes": 11590,
-   "convert_ms": 95
+   "svg_bytes": 11624,
+   "convert_ms": 54
   },
   {
    "id": "mr-353",
@@ -6009,7 +6009,7 @@
     "edge_f1": 0.2906
    },
    "svg_bytes": 2455,
-   "convert_ms": 64
+   "convert_ms": 30
   },
   {
    "id": "mr-354",
@@ -6026,7 +6026,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 12858,
-   "convert_ms": 143
+   "convert_ms": 68
   },
   {
    "id": "mr-355",
@@ -6043,7 +6043,7 @@
     "edge_f1": 0.7947
    },
    "svg_bytes": 4201,
-   "convert_ms": 56
+   "convert_ms": 31
   },
   {
    "id": "mr-356",
@@ -6060,7 +6060,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 12693,
-   "convert_ms": 191
+   "convert_ms": 105
   },
   {
    "id": "mr-357",
@@ -6077,7 +6077,7 @@
     "edge_f1": 0.6993
    },
    "svg_bytes": 3049,
-   "convert_ms": 55
+   "convert_ms": 31
   },
   {
    "id": "mr-358",
@@ -6094,7 +6094,7 @@
     "edge_f1": 0.5718
    },
    "svg_bytes": 865,
-   "convert_ms": 46
+   "convert_ms": 29
   },
   {
    "id": "mr-359",
@@ -6111,7 +6111,7 @@
     "edge_f1": 0.0181
    },
    "svg_bytes": 5785,
-   "convert_ms": 146
+   "convert_ms": 206
   },
   {
    "id": "mr-360",
@@ -6128,7 +6128,7 @@
     "edge_f1": 0.828
    },
    "svg_bytes": 3839,
-   "convert_ms": 66
+   "convert_ms": 30
   },
   {
    "id": "mr-361",
@@ -6145,7 +6145,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 6875,
-   "convert_ms": 129
+   "convert_ms": 90
   },
   {
    "id": "mr-362",
@@ -6162,7 +6162,7 @@
     "edge_f1": 0.7985
    },
    "svg_bytes": 1941,
-   "convert_ms": 55
+   "convert_ms": 47
   },
   {
    "id": "mr-363",
@@ -6179,7 +6179,7 @@
     "edge_f1": 0.1762
    },
    "svg_bytes": 1367,
-   "convert_ms": 55
+   "convert_ms": 30
   },
   {
    "id": "mr-364",
@@ -6196,7 +6196,7 @@
     "edge_f1": 0.7514
    },
    "svg_bytes": 1654,
-   "convert_ms": 56
+   "convert_ms": 31
   },
   {
    "id": "mr-365",
@@ -6213,7 +6213,7 @@
     "edge_f1": 0.0131
    },
    "svg_bytes": 1701,
-   "convert_ms": 54
+   "convert_ms": 30
   },
   {
    "id": "mr-366",
@@ -6230,7 +6230,7 @@
     "edge_f1": 0.7418
    },
    "svg_bytes": 1069,
-   "convert_ms": 54
+   "convert_ms": 29
   },
   {
    "id": "mr-367",
@@ -6247,7 +6247,7 @@
     "edge_f1": 0.8447
    },
    "svg_bytes": 1891,
-   "convert_ms": 54
+   "convert_ms": 30
   },
   {
    "id": "mr-368",
@@ -6264,7 +6264,7 @@
     "edge_f1": 0.6244
    },
    "svg_bytes": 1404,
-   "convert_ms": 55
+   "convert_ms": 30
   },
   {
    "id": "mr-369",
@@ -6281,7 +6281,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 14155,
-   "convert_ms": 188
+   "convert_ms": 162
   },
   {
    "id": "mr-370",
@@ -6298,14 +6298,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11812,
-   "convert_ms": 151
+   "convert_ms": 101
   },
   {
    "id": "mr-371",
    "svg": "mr-371-text_23800_0593_v13_pixel.svg",
    "source": "model/data/degraded/text_23800_0593_v13_pixel.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 0.0,
    "strict_verdict": "FAIL",
    "channels": {
@@ -6314,8 +6314,8 @@
     "silhouette_iou": 0.0,
     "edge_f1": 0.0
    },
-   "svg_bytes": 134,
-   "convert_ms": 86
+   "svg_bytes": 168,
+   "convert_ms": 45
   },
   {
    "id": "mr-372",
@@ -6332,7 +6332,7 @@
     "edge_f1": 0.4955
    },
    "svg_bytes": 5071,
-   "convert_ms": 72
+   "convert_ms": 31
   },
   {
    "id": "mr-373",
@@ -6349,7 +6349,7 @@
     "edge_f1": 0.6474
    },
    "svg_bytes": 518,
-   "convert_ms": 45
+   "convert_ms": 30
   },
   {
    "id": "mr-374",
@@ -6366,7 +6366,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11521,
-   "convert_ms": 134
+   "convert_ms": 68
   },
   {
    "id": "mr-375",
@@ -6383,7 +6383,7 @@
     "edge_f1": 0.5639
    },
    "svg_bytes": 1374,
-   "convert_ms": 51
+   "convert_ms": 30
   },
   {
    "id": "mr-376",
@@ -6400,7 +6400,7 @@
     "edge_f1": 0.541
    },
    "svg_bytes": 885,
-   "convert_ms": 47
+   "convert_ms": 29
   },
   {
    "id": "mr-377",
@@ -6417,7 +6417,7 @@
     "edge_f1": 0.025
    },
    "svg_bytes": 14872,
-   "convert_ms": 152
+   "convert_ms": 70
   },
   {
    "id": "mr-378",
@@ -6434,7 +6434,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4748,
-   "convert_ms": 136
+   "convert_ms": 66
   },
   {
    "id": "mr-379",
@@ -6451,7 +6451,7 @@
     "edge_f1": 0.7977
    },
    "svg_bytes": 5642,
-   "convert_ms": 48
+   "convert_ms": 32
   },
   {
    "id": "mr-380",
@@ -6468,7 +6468,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11395,
-   "convert_ms": 135
+   "convert_ms": 121
   },
   {
    "id": "mr-381",
@@ -6485,7 +6485,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 13854,
-   "convert_ms": 138
+   "convert_ms": 71
   },
   {
    "id": "mr-382",
@@ -6502,7 +6502,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 14671,
-   "convert_ms": 191
+   "convert_ms": 90
   },
   {
    "id": "mr-383",
@@ -6519,7 +6519,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11814,
-   "convert_ms": 150
+   "convert_ms": 91
   },
   {
    "id": "mr-384",
@@ -6536,7 +6536,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 8630,
-   "convert_ms": 196
+   "convert_ms": 91
   },
   {
    "id": "mr-385",
@@ -6553,7 +6553,7 @@
     "edge_f1": 0.8609
    },
    "svg_bytes": 2548,
-   "convert_ms": 56
+   "convert_ms": 30
   },
   {
    "id": "mr-386",
@@ -6570,7 +6570,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 13022,
-   "convert_ms": 174
+   "convert_ms": 96
   },
   {
    "id": "mr-387",
@@ -6587,7 +6587,7 @@
     "edge_f1": 0.0119
    },
    "svg_bytes": 1759,
-   "convert_ms": 55
+   "convert_ms": 30
   },
   {
    "id": "mr-388",
@@ -6604,7 +6604,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 16174,
-   "convert_ms": 211
+   "convert_ms": 97
   },
   {
    "id": "mr-389",
@@ -6621,7 +6621,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 8775,
-   "convert_ms": 90
+   "convert_ms": 98
   },
   {
    "id": "mr-390",
@@ -6638,14 +6638,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 13244,
-   "convert_ms": 176
+   "convert_ms": 110
   },
   {
    "id": "mr-391",
    "svg": "mr-391-text_25600_0447_v02_jpeg.svg",
    "source": "model/data/degraded/text_25600_0447_v02_jpeg.png",
    "status": "OK",
-   "engine": "?",
+   "engine": "color-cutout-detail",
    "strict_similarity_pct": 42.2,
    "strict_verdict": "FAIL",
    "channels": {
@@ -6654,8 +6654,8 @@
     "silhouette_iou": 0.4215,
     "edge_f1": 0.3415
    },
-   "svg_bytes": 1313,
-   "convert_ms": 72
+   "svg_bytes": 1347,
+   "convert_ms": 57
   },
   {
    "id": "mr-392",
@@ -6672,7 +6672,7 @@
     "edge_f1": 0.592
    },
    "svg_bytes": 438,
-   "convert_ms": 56
+   "convert_ms": 32
   },
   {
    "id": "mr-393",
@@ -6689,7 +6689,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11286,
-   "convert_ms": 195
+   "convert_ms": 94
   },
   {
    "id": "mr-394",
@@ -6706,7 +6706,7 @@
     "edge_f1": 0.8357
    },
    "svg_bytes": 838,
-   "convert_ms": 30
+   "convert_ms": 39
   },
   {
    "id": "mr-395",
@@ -6723,7 +6723,7 @@
     "edge_f1": 0.1426
    },
    "svg_bytes": 2324,
-   "convert_ms": 53
+   "convert_ms": 32
   },
   {
    "id": "mr-396",
@@ -6740,7 +6740,7 @@
     "edge_f1": 0.5667
    },
    "svg_bytes": 520,
-   "convert_ms": 53
+   "convert_ms": 29
   },
   {
    "id": "mr-397",
@@ -6757,7 +6757,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1292,
-   "convert_ms": 30
+   "convert_ms": 31
   },
   {
    "id": "mr-398",
@@ -6774,7 +6774,7 @@
     "edge_f1": 0.7303
    },
    "svg_bytes": 857,
-   "convert_ms": 32
+   "convert_ms": 30
   },
   {
    "id": "mr-399",
@@ -6791,7 +6791,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1087,
-   "convert_ms": 54
+   "convert_ms": 30
   }
  ],
  "ladder": [
