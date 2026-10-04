@@ -293,8 +293,13 @@ def debug_vet(limit: int = 20):
 
     try:
         npz = np.load(npz_path)
-        W1, b1, W2, b2, W3, b3 = npz["W1"], npz["b1"], npz["W2"], npz["b2"], npz["W3"], npz["b3"]
-        net = [W1, b1, W2, b2, W3, b3]
+        # shape-agnostic net load: any depth (W1,b1,...,Wn,bn) — the shipped
+        # arch changed 3-layer -> 4-layer (forever-train), do not hard-unpack 6.
+        ks = npz.files
+        n_layers = max((int(k[1:]) for k in ks if k.startswith("W") and k[1:].isdigit()), default=0)
+        net = []
+        for i in range(1, n_layers + 1):
+            net.extend((npz[f"W{i}"], npz[f"b{i}"]))
     except Exception as e:
         raise HTTPException(500, f"Failed to load model: {e}")
 
@@ -378,7 +383,7 @@ def debug_vet(limit: int = 20):
         },
         "results": results,
         "model": {
-            "arch": f"1047->{W1.shape[1]}->{W2.shape[1]}->5",
+            "arch": "W-shapes " + ",".join(str(tuple(s.shape)) for s in net[::2]),
             "onnx_size": (STATIC / "model" / "params.onnx").stat().st_size if (STATIC / "model" / "params.onnx").exists() else 0
         }
     }

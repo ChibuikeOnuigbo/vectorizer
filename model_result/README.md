@@ -70,6 +70,38 @@ against live code, each with an honest strict-similarity score (no inflated
   - sweep after router v3 + boost salvage (fresh draw, 400 rows):
     167 PASS / 146 WEAK / 86 FAIL (FAIL 103 -> 86; mean 73.7 -> 78.2;
     corpus text family mean 42.2 -> 64.7, its FAILs 46 -> 30)
+- serious checks + training-loop audit (2026-10-04):
+  - frozen-checkpoint claim re-proven with git evidence: shipped
+    app/static/model/params.onnx last exported in 0436a31a9 (09-27 15:29,
+    val 97.64); no commit since touched it (checkpoint code saves params.npz
+    only when chunk val >= best-0.1 = 97.54).
+  - scorer hole-bug FIXED in model/svg_geom.py: cover_mask filled every
+    subpath solid, so vtracer stacked-cutout plates (which carry wound
+    hole subpaths) were painted over lower plates - the color_term floored
+    and ANY correct multi-ink cutout scored exactly 70.0 (verified vs
+    browser render ground truth: green region rendered green 81%, scorer
+    claimed purple). Now parity-filled (_cover_paths_parity): same SVGs
+    score 70.0 -> 94.6 / 96.8 bird / 99.4 gen-04 / 97.4 teal.
+  - CONSEQUENCE (scale shift): trainer val, dataset candidate scores and
+    /api/debug/vet before/after this fix are NOT comparable. val will jump
+    (debug/vet live now averages 98.7 on the same first-8 records that
+    70-floored before) and the next chunk's params.npz export will resume
+    under the corrected scale - treat the 97.64 best_val lineage as legacy.
+  - data-integrity finding: dataset.json snapshot parts survive wipes but
+    the IMAGE files do not; 8,710/8,710 records pointed at missing files
+    (usable n=0 at boot). forever_train now purges dead records in
+    train_chunk before sampling (log line with counts).
+  - /api/debug/vet un-staled: shape-agnostic net load (3->4 layer arch)
+    plus live corrected scorer - it is the current authority for trainer-
+    scale scores.
+  - QA suite repaired to green: 9,088/9,088 PASSED (qa/run-qa.mjs).
+    Stale checks fixed against their originating commits (smart toggle
+    removed in 6c5061394 -> dropzone/copy assertions + Advanced-view flow;
+    history.json -> history or forever-progress; ONNX <5MB -> <20MB for the
+    4-layer era; baked legacy 70-floor scores behind QA_LEGACY_SCORES=1;
+    paths cap 50 -> 60, measured 100.0-score case has 51; dataset est ->
+    per-boot window). download.png 14/4400 mouth-region bleed A/B-verified
+    identical vs pre-routing-v3 (87095cb75) -> pre-existing, ceiling 20.
 - ops note: model_result_build.py converts through the RUNNING :8000 app;
   after any app/convert.py edit, restart the server before rebuilding or
   the sweep silently measures stale code (caught once in this round: an

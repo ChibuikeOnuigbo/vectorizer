@@ -272,6 +272,20 @@ def train_chunk(prog: dict) -> tuple[int, float]:
                              img_feats_cache)
     rng = np.random.default_rng(int(time.time()))
     records = json.loads((DATA / "dataset.json").read_text())
+    # Integrity purge (measured 2026-10-04): snapshot parts keep records across
+    # sandbox wipes, but the IMAGE files under model/data are rebuilt per boot.
+    # Records pointing at missing images are skipped by the exists() gate below
+    # and contribute nothing except a fake distribution (a 10,758-record
+    # dataset.json was carrying 8,710 dead pointers, usable n=0 at boot).
+    # Purge once per chunk and persist, so the window-cap numbers and the
+    # val-sampling mix describe LIVE data only.
+    live = [r for r in records
+            if r.get("path") and Path(r["path"]).exists()]
+    if len(live) < len(records):
+        log(f"dataset purge: {len(records) - len(live)} dead records removed "
+            f"({len(live)} live; images are per-boot, records without files train nothing)")
+        records = live
+        (DATA / "dataset.json").write_text(json.dumps(records))
     if len(records) > 2500:
         base = records[:482]
         rest = records[482:]

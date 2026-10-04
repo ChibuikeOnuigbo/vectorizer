@@ -206,6 +206,48 @@ def cover_mask(paths: list, w: int, h: int, step: int = 4):
     return cover.reshape(gh, gw), color.reshape(gh, gw)
 
 
+def _cover_paths_parity(paths: list, w: int, h: int, step: int):
+    """cover_mask with hole-correct rasterization.
+
+    vtracer's stacked "cutout" plates are compound paths: an outer contour
+    plus OPPOSITE-WOUND subpaths that are holes letting lower plates show
+    through (measured 2026-10-04: a two-ink logo's lower plate claimed 1,167
+    green-region grid px as purple under the old solid-per-subpath fill,
+    pinning svg_geom.score to the color_term floor -> 70.0 while the browser
+    render was actually correct). A browser honors the subpaths as holes;
+    per-path parity (even-odd) fill reproduces that for vtracer's emission.
+    Document order still decides the topmost color."""
+    gh, gw = h // step, w // step
+    ys, xs = np.mgrid[0:gh, 0:gw]
+    pts = np.stack([xs.ravel() * step + step / 2, ys.ravel() * step + step / 2],
+                   axis=1).astype(np.float32)
+    color = np.full(pts.shape[0], -1, dtype=np.int32)
+    for idx, vp in enumerate(paths):
+        if not vp.subpaths:
+            continue
+        allp = np.concatenate(vp.subpaths, axis=0)
+        bx0 = max(0, int(allp[:, 0].min()) // step - 1)
+        by0 = max(0, int(allp[:, 1].min()) // step - 1)
+        bx1 = min(gw, int(allp[:, 0].max()) // step + 2)
+        by1 = min(gh, int(allp[:, 1].max()) // step + 2)
+        if bx0 >= bx1 or by0 >= by1:
+            continue
+        sel = (xs >= bx0) & (xs < bx1) & (ys >= by0) & (ys < by1)
+        sub = pts[sel.ravel()]
+        if sub.shape[0] == 0:
+            continue
+        hits = np.zeros(sub.shape[0], dtype=np.int32)
+        for poly in vp.subpaths:
+            hits += _inside_poly(sub, poly).astype(np.int32)
+        inside = (hits % 2) == 1  # parity: subpath holes cancel their interior
+        if not inside.any():
+            continue
+        where = sel.ravel().nonzero()[0][inside]
+        color[where] = idx  # later paths overwrite -> topmost
+    cover = color >= 0
+    return cover.reshape(gh, gw), color.reshape(gh, gw)
+
+
 def score(original: Image.Image, svg: str, step: int = 4) -> dict:
     """Composite 0-100 perfection score of svg vs original raster."""
     original = original.convert("RGBA")
@@ -224,7 +266,7 @@ def score(original: Image.Image, svg: str, step: int = 4) -> dict:
     outside = (a_small <= 20) & ~near
 
     paths = parse_svg_paths(svg)
-    cover, cidx = cover_mask(paths, w, h, step=step)
+    cover, cidx = _cover_paths_parity(paths, w, h, step=step)
     fill_cols = np.array([vp.fill for vp in paths], dtype=np.float32)
 
     n_int = int(interior.sum())
