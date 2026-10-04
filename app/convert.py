@@ -808,22 +808,26 @@ def _melt_share(a: dict, probe: int = 256) -> float:
 
 
 def _melt_candidate(a: dict) -> bool:
-    """Melted/deep-blur content (partial gradients, wide tonal range):
-    0.012 < strong-grad share < 0.12 AND working luma range >= 0.5.
-    Calibrated 2026-10-04 (19 archetypes + 19 blur4-6 sweep FAILs):
-      winners blur4-6 melt 0.024-0.076 range 0.70-0.77 (ss avg 81.4 vs
-      current-route 47.1); excluded: crisp 0.000-0.001, near-empty canvas
-      (range 0.22), gen-noise/jit 0.21-0.23, teal-crisp 0.38.
+    """Melted/deep-blur content (partial gradients, rich ink population):
+    0.012 < strong-grad share < 0.12 AND quantized-ink bins >= 18.
+    Calibrated 2026-10-04 (19 archetypes + 24 blur4-6 sweep rows):
+      winners blur4-6 melt 0.019-0.074 inks 21-77 (soft-stack direct avg
+      81.4 vs old-route 47.1); excluded: crisp 0.000-0.0067, gen-noise/jit
+      0.21-0.23, teal-crisp 0.38, near-empty 2-ink canvases (edge-big1024:
+      melt 0.06 but inks 13 -> soft-stack 35 vs cutout 87.5).
     is_flat intentionally NOT required: heavy blur inflates flat_err to
     38-50 exactly where the salvage matters most."""
     share = _melt_share(a)
-    gl = np.asarray(a["working"].resize(
-        (min(256, a["w"]), min(256, a["h"]))).convert("L"),
-        dtype=np.float32) / 255.0
-    rng = float(np.percentile(gl, 99) - np.percentile(gl, 1))
-    if rng < 0.5:
+    if not (0.012 < share < 0.12):
         return False
-    return 0.012 < share < 0.12
+    im = a["working"].resize((min(256, a["w"]), min(256, a["h"])))
+    rgb = np.asarray(im, np.uint8).reshape(-1, 3)
+    q = (rgb // 8)
+    keys = (q[:, 0].astype(np.int32) * 65536 + q[:, 1].astype(np.int32) * 256
+            + q[:, 2])
+    _, cnt = np.unique(keys, return_counts=True)
+    inks = int((cnt > rgb.shape[0] * 0.001).sum())
+    return inks >= 18
 
 
 def _color_soft_candidate(a: dict) -> bool:
@@ -969,11 +973,13 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
             glow_layers.append(pth)
 
     body = "".join(glow_layers + kept)
-    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{ws}" height="{hs}" '
            f'viewBox="0 0 {ws} {hs}">' + body + "</svg>")
-    svg = _tidy(svg, w, h, False, seal=0)
-    if (ws, hs) != (w, h):
-        svg = re.sub(r'viewBox="[^"]*"', f'viewBox="0 0 {ws} {hs}"', svg, count=1)
+    # _tidy normalizes the <svg> tag to the (ws, hs) frame: passing original
+    # (w, h) here mismatches width/height vs viewBox for >640px inputs and
+    # the rendered surface zoom-clips 1.6x (edge-big1024 scored 56.1 FAIL on
+    # a faithful geometry until this was fixed).
+    svg = _tidy(svg, ws, hs, False, seal=0)
     return re.sub(r'(<svg\b)', r'\1 data-engine="color-soft-stack"', svg, count=1)
 
 def _mono_route(a: dict) -> str:
