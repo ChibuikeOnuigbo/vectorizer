@@ -760,6 +760,158 @@ def _trace_boost_halo(b: dict, params: dict) -> str:
                        'data-engine="soft-alpha-boost-halo"', 1)
 
 
+def _aa_blend_share(a: dict, probe_edge: int = 192) -> float:
+    """Share of ALL pixels that are both palette-ambiguous (nearest color >= 8
+    away) and near-tied (top-2 margin < 40): the mass of soft boundary/blend
+    content. Calibrated 2026-10-04 over 11 archetypes:
+      soft app icon 0.302, blur6 melt 0.443, blur4/6 rows 0.19,
+      gen-07noise 0.123, clean logos 0.009-0.056, ghost blur2 text 0.000.
+    (Normalizing by only-ambiguous pixels inflated clean logos: their few AA
+    pixels ARE blended by definition -- 0.32 on crisp art; whole-image share
+    keeps them at ~0.02.)"""
+    work = np.asarray(a["working"].resize((min(probe_edge, a["w"]),
+                                           min(probe_edge, a["h"]))), dtype=np.float32)
+    q = Image.fromarray(work.astype(np.uint8)).quantize(colors=6, method=Image.Quantize.MEDIANCUT)
+    raw = q.getpalette() or [0, 0, 0]
+    k = len(raw) // 3
+    if k < 2:
+        return 0.0
+    pal = np.asarray(raw[: k * 3]).reshape(k, 3).astype(np.float32)
+    d = np.sqrt(((work[..., None, :] - pal[None, None, :, :]) ** 2).sum(-1)).reshape(-1, k)
+    ds = np.partition(d, 1, axis=-1)
+    cand = ds[:, 0] >= 8.0
+    tie = (ds[:, 1] - ds[:, 0]) < 40.0
+    return float((cand & tie).mean())
+
+
+def _color_soft_candidate(a: dict) -> bool:
+    """Soft-blend color art (glow/AA-gradient icons): multi-color (mono gate
+    already diverted), small palette error, large boundary-blend share.
+    Photos (flat_err) and pure noise (small share) stay out; all-soft alpha
+    is owned by the boost salvage."""
+    if not a.get("is_flat"):
+        return False
+    if a["has_alpha"]:
+        alp = np.asarray(a["img"].getchannel("A"), dtype=np.float32) / 255.0
+        if not float((alp > 0.5).mean()) >= 0.002:
+            return False
+    return _aa_blend_share(a) >= 0.15
+
+
+
+def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engine body
+    """Soft-art full-fidelity stack: vtracer full-color STACKED cutout over
+    the bg-flattened canvas (photo-grade plates, cp8 by default), with the
+    flattened bg plate removed (geometry-detected, not color-matched) and
+    the input's original alpha glow re-attached as honest-mean band plates.
+
+    Evidence chain on download.png (strict/verdict):
+      cutout                      58.8 FAIL  (hard aliases destroy banding)
+      level-set soft plates       ~56 FAIL   (flat plates have zero interior
+                                   variance; block-SSIM reads input banding)
+      stacked cp4                 63.5 FAIL  (bg plate floods canvas: IoU .63)
+      stacked cp8 ld4             63.5 FAIL  (ssim .804 / mae 1.97 / IoU .63)
+      + geometry bg-strip         68.9 FAIL  (faint outer glow died with bg)
+      + honest glow bands x2      74.5 WEAK  (IoU .98 / ssim .75 / mae 1.46)
+    Remaining gap is intra-block banding texture around micro figures;
+    logged in model_result/README.md, to be pushed by training data.
+    """
+    img = a["img"].convert("RGBA")
+    alp = np.asarray(img.getchannel("A"), dtype=np.float32) / 255.0
+    h, w = alp.shape
+
+    if max(w, h) > 640:
+        max_down = 640.0 / max(w, h)
+        work_img = img.resize((max(1, round(w * max_down)), max(1, round(h * max_down))),
+                              Image.LANCZOS)
+        alp_s = np.asarray(work_img.getchannel("A"), dtype=np.float32) / 255.0
+        hs, ws = work_img.size[1], work_img.size[0]
+    else:
+        work_img, alp_s, hs, ws = img, alp, h, w
+
+    canvas = Image.new("RGBA", (ws, hs), (255, 255, 255, 255))
+    canvas.paste(work_img, (0, 0), work_img)
+
+    # cp is load-bearing, not a taste knob: this family dies at cp<=6
+    # (measured: blur6 ring 85.2 PASS @cp8 -> 9.2 FAIL @cp6 with 359 junk
+    # plates; bird 74.5 -> 60.8). The engine owns 8-bit color fidelity;
+    # user/model color_precision applies to the cutout engines only.
+    cp = 8
+    sp = min(max(int(params.get("filter_speckle", 1)), 1), 16)
+    ct = min(max(int(params.get("corner_threshold", 30)), 10), 110)
+    lt = min(max(float(params.get("length_threshold", 1.0)), 0.5), 10.0)
+    pp = min(max(int(params.get("path_precision", 4)), 3), 12)
+    mi = min(max(int(params.get("max_iterations", 48)), 8), 48)
+
+    with tempfile.TemporaryDirectory() as td:
+        src, out = f"{td}/in.png", f"{td}/out.svg"
+        canvas.convert("RGB").save(src)
+        vtracer.convert_image_to_svg_py(
+            src, out, colormode="color", hierarchical="stacked",
+            max_iterations=mi, color_precision=cp, layer_difference=4,
+            filter_speckle=sp, corner_threshold=ct,
+            length_threshold=lt, path_precision=pp)
+        svg = open(out, encoding="utf-8").read()
+
+    # Pop the flattened canvas' bg mass: plates whose bbox spans ~ the whole
+    # viewBox AND whose fill is near-white (the synthetic flatten color).
+    kept = []
+    for pth in re.findall(r'<path\b[^>]*>', svg):
+        f = re.search(r'fill="(#[0-9A-Fa-f]{6})"', pth)
+        d = re.search(r'd="([^"]+)"', pth)
+        t = re.search(r'translate\(([-0-9.]+)[, ]+([-0-9.]+)\)', pth)
+        if f and d:
+            r, g, b = (int(f.group(1)[i:i + 2], 16) for i in (1, 3, 5))
+            nums = [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?', d.group(1))]
+            if len(nums) >= 4:
+                xs, ys = nums[0::2], nums[1::2]
+                tx = float(t.group(1)) if t else 0.0
+                ty = float(t.group(2)) if t else 0.0
+                bw = (max(xs) + tx) - (min(xs) + tx)
+                bh = (max(ys) + ty) - (min(ys) + ty)
+                near_bg = abs(r - 255) + abs(g - 255) + abs(b - 255) <= 30
+                if near_bg and bw / max(ws, 1) >= 0.94 and bh / max(hs, 1) >= 0.94:
+                    continue
+        kept.append(pth)
+
+    # Re-attach the original alpha glow as honest-mean band plates UNDER the
+    # stack: recovers the input silhouette extent the bg-pop removes, with
+    # tint strength matched to the real alpha field (opacity = band mean;
+    # fixed stronger values visibly tint edge blocks, measured on bird).
+    glow_layers: list[str] = []
+    for lo, hi in ((0.055, 0.25), (0.25, 0.60)):
+        m = alp_s >= lo
+        inner = (alp_s >= lo) & (alp_s < hi)
+        if int(m.sum()) < 16 or not inner.any():
+            continue
+        rgb_s = np.asarray(work_img.convert("RGB"), dtype=np.float32)
+        gc = rgb_s[inner & (alp_s > 0.0)].mean(0)
+        hexg = "#%02X%02X%02X" % tuple(gc.astype(int))
+        op = float(alp_s[inner].mean())
+        pix = np.where(m, 0, 255).astype(np.uint8)
+        with tempfile.TemporaryDirectory() as td:
+            src, out = f"{td}/m.png", f"{td}/m.svg"
+            Image.fromarray(pix, "L").save(src)
+            vtracer.convert_image_to_svg_py(
+                src, out, colormode="binary", hierarchical="stacked",
+                filter_speckle=sp, corner_threshold=ct,
+                length_threshold=lt, path_precision=pp)
+            bsvg = open(out, encoding="utf-8").read()
+        for pth in re.findall(r'<path\b[^>]*/?>', bsvg):
+            pth = re.sub(r'fill="(?:#000000|#000|black)"', f'fill="{hexg}"',
+                         pth, flags=re.I)
+            if "fill-opacity" not in pth:
+                pth = pth.replace("/>", f' fill-opacity="{op:.3f}"/>')
+            glow_layers.append(pth)
+
+    body = "".join(glow_layers + kept)
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {ws} {hs}">' + body + "</svg>")
+    svg = _tidy(svg, w, h, False, seal=0)
+    if (ws, hs) != (w, h):
+        svg = re.sub(r'viewBox="[^"]*"', f'viewBox="0 0 {ws} {hs}"', svg, count=1)
+    return re.sub(r'(<svg\b)', r'\1 data-engine="color-soft-stack"', svg, count=1)
+
 def _mono_route(a: dict) -> str:
     """Calibrated mono-alpha routing via radial statistics (2026-10-03,
     72-image calibration set): strong_share splits sparse from dense;
@@ -879,6 +1031,15 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         b = _soft_alpha_boost(a)
         if b is not None:
             return _trace_boost_halo(b, params)
+
+    # soft-blend color art (glow/AA icons): multi-color, small palette error,
+    # boundary-blend share >= 0.15 (measured: clean logos 0.00, noise 0.02-
+    # 0.07, soft app icon 0.44). Cutout hard edges cap this family at ~58;
+    # the full-fidelity stack reaches 74.5 WEAK (all channels logged).
+    if params.get("engine") == "color-soft-stack" or (
+            params.get("engine") not in ("color-cutout",)
+            and _color_soft_candidate(a)):
+        return _trace_color_soft_stack(a, params)
 
     return _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
 
@@ -1064,6 +1225,9 @@ def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | No
                 continue
         svg = best_svg or trace_with(a, params)
     else:
+        if engine:
+            params = dict(params or {})
+            params["engine"] = engine
         svg = trace_with(a, params)
 
     fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)

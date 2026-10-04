@@ -115,7 +115,10 @@ async def convert(
         "detail": _clamped_int(detail, 0, 100),
         "smoothness": _clamped_int(smoothness, 0, 100),
         "enhance": enhance == "1",
-        "engine": engine if engine == "best" else None,
+        "engine": engine if engine in ("best", "color-cutout", "color-tone-stack",
+                                       "color-soft-stack", "binary-alpha-mono",
+                                       "alpha-tone-stack", "alpha-halo-stack",
+                                       "pixel-art", "hairline") else None,
     }
     try:
         return JSONResponse(vectorize(data, params, mode_opts))
