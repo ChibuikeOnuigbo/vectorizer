@@ -830,6 +830,52 @@ def _melt_candidate(a: dict) -> bool:
     return inks >= 18
 
 
+def _ab_svg_score(inp: Image.Image, svg: str, size: int = 128) -> float:
+    """Cheap in-process A/B score for engine adjudication when the heuristic
+    gate can't separate (melt family, 2026-10-04): rasterize ALL paths with
+    PIL polygons at ~128px (vtracer output: absolute d + one translate each;
+    curves approximated by anchor+control points), compare silhouette IoU
+    (alpha>0.1) and white-flattened MAE against the input; composite
+    0.4*IoU + 0.6*(1-mae). Calibrated: LOSE melts (rot/jpeg/pixel/blur2) sit
+    -28..-59 vs cutout, WIN melts (blur4-6) +8.4..+23; swap margin +5."""
+    from PIL import ImageDraw
+    m = re.search(r'viewBox="([^"]+)"', svg)
+    if not m:
+        return 0.0
+    vb = [float(x) for x in m.group(1).split()]
+    vw, vh = vb[2] or 1.0, vb[3] or 1.0
+    scale = size / max(vw, vh)
+    W, H = max(2, int(vw * scale)), max(2, int(vh * scale))
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    dr = ImageDraw.Draw(out)
+    for pth in re.findall(r'<path\b[^>]*>', svg):
+        f = re.search(r'fill="(#[0-9A-Fa-f]{6})"', pth)
+        d = re.search(r'd="([^"]+)"', pth)
+        if not f or not d:
+            continue
+        t = re.search(r'translate\(([-0-9.]+)[, ]+([-0-9.]+)\)', pth)
+        tx = float(t.group(1)) if t else 0.0
+        ty = float(t.group(2)) if t else 0.0
+        nums = [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?', d.group(1))]
+        fo = re.search(r'fill-opacity="([\d.]+)"', pth)
+        op = int(255 * float(fo.group(1))) if fo else 255
+        pts = [((nums[i] + tx) * scale, (nums[i + 1] + ty) * scale)
+               for i in range(0, len(nums) - 1, 2)]
+        if len(pts) >= 3:
+            r_, g_, b_ = (int(f.group(1)[j:j + 2], 16) for j in (1, 3, 5))
+            dr.polygon(pts, fill=(r_, g_, b_, op), outline=(r_, g_, b_, op))
+    o = np.asarray(out, np.float32)
+    arr = np.asarray(inp.resize((W, H), Image.LANCZOS).convert("RGBA"), np.float32)
+    ai, ao = arr[..., 3] / 255.0, o[..., 3] / 255.0
+    mi, mo = ai > 0.1, ao > 0.1
+    uni = float((mi | mo).sum())
+    iou = float((mi & mo).sum()) / uni if uni else 1.0
+    fa = arr[..., :3] * ai[..., None] + 255.0 * (1 - ai[..., None])
+    fb = o[..., :3] * ao[..., None] + 255.0 * (1 - ao[..., None])
+    mae = float(np.abs(fa - fb).mean()) / 255.0
+    return iou * 40.0 + (1.0 - min(mae * 2.0, 1.0)) * 60.0
+
+
 def _color_soft_candidate(a: dict) -> bool:
     """Soft-blend color art (glow/AA-gradient icons): multi-color (mono gate
     already diverted), small palette error, large boundary-blend share.
@@ -877,23 +923,48 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
 
     canvas = Image.new("RGBA", (ws, hs), (255, 255, 255, 255))
     canvas.paste(work_img, (0, 0), work_img)
-    sent = (255, 0, 255)
+    sent = None
     if a["has_alpha"]:
-        # Sentinel-flood the truly transparent interior+exterior: vtracer
-        # fills enclosed transparent regions with near-white plates that
-        # inflate the silhouette (teal ring interior = +9.8k px, IoU 0.66).
-        # Magenta survives quantization as its own bucket and is dropped
-        # post-trace by color distance.
-        rgb_arr = np.asarray(canvas, dtype=np.uint8).copy()
-        sent_hit = (np.abs(rgb_arr[..., :3].astype(np.int16)
-                           - np.array(sent, dtype=np.int16)).sum(-1) < 96)
-        inp_hit = np.asarray(work_img.convert("RGB"), dtype=np.int16)
-        if sent_hit.any() and (np.abs(inp_hit - np.array(sent, dtype=np.int16)).sum(-1) < 96).any():
-            sent = (57, 255, 20)  # magenta collides with real content: fall back
-        mask_sent = alp_s < 0.03
-        rgb_arr[mask_sent, :3] = sent
-        rgb_arr[mask_sent, 3] = 255
-        canvas = Image.fromarray(rgb_arr, "RGBA")
+        # Sentinel-flood ONLY the border-disconnected transparent cavities
+        # (interior holes): vtracer fills them with near-white plates that
+        # inflate the silhouette (teal ring interior = +9.8k px, IoU 0.66;
+        # direct soft-stack 66.1 FAIL -> 85.8 PASS). Flooding border-
+        # connected outer regions is skipped: a saturated 33%-mass blob
+        # adjacent to content distorts vtracer's cp8 bucket allocation
+        # (0171 regressed 85.3 PASS -> 57.7 FAIL with full-canvas flood).
+        zero = alp_s < 0.008
+        if zero.any():
+            from collections import deque
+            border = np.zeros_like(zero)
+            q = deque()
+            H_, W_ = zero.shape
+            for x in range(W_):
+                for y in (0, H_ - 1):
+                    if zero[y, x] and not border[y, x]:
+                        border[y, x] = True
+                        q.append((y, x))
+            for y in range(H_):
+                for x in (0, W_ - 1):
+                    if zero[y, x] and not border[y, x]:
+                        border[y, x] = True
+                        q.append((y, x))
+            while q:
+                y, x = q.popleft()
+                for dy, dx_ in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    ny, nx_ = y + dy, x + dx_
+                    if 0 <= ny < H_ and 0 <= nx_ < W_ and zero[ny, nx_] and not border[ny, nx_]:
+                        border[ny, nx_] = True
+                        q.append((ny, nx_))
+            inner = zero & ~border
+            if inner.any():
+                sent = (255, 0, 255)
+                rgb_arr = np.asarray(canvas, dtype=np.uint8).copy()
+                inp_hit = np.asarray(work_img.convert("RGB"), dtype=np.int16)
+                if (np.abs(inp_hit - np.array(sent, dtype=np.int16)).sum(-1) < 96).any():
+                    sent = (57, 255, 20)  # avoid colliding with real content
+                rgb_arr[inner, :3] = sent
+                rgb_arr[inner, 3] = 255
+                canvas = Image.fromarray(rgb_arr, "RGBA")
 
     # cp is load-bearing, not a taste knob: this family dies at cp<=6
     # (measured: blur6 ring 85.2 PASS @cp8 -> 9.2 FAIL @cp6 with 359 junk
@@ -926,9 +997,9 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
         if f and d:
             r, g, b = (int(f.group(1)[i:i + 2], 16) for i in (1, 3, 5))
             nums = [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?', d.group(1))]
-            if a["has_alpha"]:
-                # sentinel-flooded transparency: drop any vtracer bucket that
-                # landed near the sentinel color (hole floods + outer canvas)
+            if sent is not None:
+                # sentinel-flooded inner cavities: drop vtracer buckets that
+                # landed near the sentinel color (the hole floods)
                 if abs(r - sent[0]) + abs(g - sent[1]) + abs(b - sent[2]) <= 96:
                     continue
             near_bg = abs(r - 255) + abs(g - 255) + abs(b - 255) <= 40
@@ -1087,15 +1158,27 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         return _trace_color_tone_stack(a, params)
     if params.get("engine") == "pixel-art":
         return _trace_pixel_art(a, params)
+    # soft-blend color art (glow/AA icons) FIRST: bird-class rows melt-band
+    # falsely too, and their A/B judge at 128px favors aliased cutouts
+    # (measured: ss 74.6 lost to cutout 57.4); they own this route.
+    if params.get("engine") == "color-soft-stack" or (
+            params.get("engine") not in ("color-cutout",)
+            and _color_soft_candidate(a)):
+        return _trace_color_soft_stack(a, params)
     # Melted-content route (deep-blur salvage): BEFORE the mono gate, because
     # blurred mono melts score 15-58 under binary-alpha but 59-87 under the
     # full-fidelity stack (measured on 19 blur4-6 sweep FAILs: family avg
-    # 47.1 -> 81.4). _melt_candidate carries the calibration; the all-soft
-    # alpha boost family is excluded (ghost text owns it, melts at 0.000).
+    # 47.1 -> 81.4). The gate alone over-fires on rot/jpeg/pixel partial
+    # melts (sweep regressions -10..-35), so the final call is a raster A/B
+    # vs the cutout default with +5 margin (see _ab_svg_score calibration).
     if (params.get("engine") not in ("color-cutout",)
             and _melt_candidate(a)
             and _soft_alpha_boost(a) is None):
-        return _trace_color_soft_stack(a, params)
+        ss_svg = _trace_color_soft_stack(a, params)
+        base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
+        if _ab_svg_score(a["img"], ss_svg) > _ab_svg_score(a["img"], base_svg) + 5.0:
+            return ss_svg
+        return base_svg
     # Engine route: monochrome transparent content via the calibrated
     # radial gate (see _mono_route). Applies to every caller that did not
     # explicitly force color-cutout (incl. model mode).
@@ -1110,15 +1193,6 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         b = _soft_alpha_boost(a)
         if b is not None:
             return _trace_boost_halo(b, params)
-
-    # soft-blend color art (glow/AA icons): multi-color, small palette error,
-    # boundary-blend share >= 0.15 (measured: clean logos 0.00, noise 0.02-
-    # 0.07, soft app icon 0.44). Cutout hard edges cap this family at ~58;
-    # the full-fidelity stack reaches 74.5 WEAK (all channels logged).
-    if params.get("engine") == "color-soft-stack" or (
-            params.get("engine") not in ("color-cutout",)
-            and _color_soft_candidate(a)):
-        return _trace_color_soft_stack(a, params)
 
     return _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
 
