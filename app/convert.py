@@ -784,6 +784,48 @@ def _aa_blend_share(a: dict, probe_edge: int = 192) -> float:
     return float((cand & tie).mean())
 
 
+def _melt_share(a: dict, probe: int = 256) -> float:
+    """Share of content pixels with a strong color-max gradient (>0.098):
+    measure of edge sharpness. Guard: luma-only gradients miss 2-tone
+    canvases whose bg and ink share one luminance (measured: max grad
+    0.008 on a crisp corpus logo)."""
+    im = a["working"].resize((min(probe, a["w"]), min(probe, a["h"])))
+    g = np.asarray(im, dtype=np.float32) / 255.0
+    grad = np.zeros(g.shape[:2], dtype=np.float32)
+    for c in range(3):
+        gx = np.abs(np.diff(g[..., c], axis=1))
+        gy = np.abs(np.diff(g[..., c], axis=0))
+        grad[:, 1:] = np.maximum(grad[:, 1:], gx)
+        grad[1:, :] = np.maximum(grad[1:, :], gy)
+    if a["has_alpha"]:
+        am = np.asarray(a["img"].getchannel("A").resize(im.size)) > 25
+        sub = grad[am]
+    else:
+        sub = grad
+    if not sub.size:
+        return 1.0
+    return float((sub > 25 / 255.0).mean())
+
+
+def _melt_candidate(a: dict) -> bool:
+    """Melted/deep-blur content (partial gradients, wide tonal range):
+    0.012 < strong-grad share < 0.12 AND working luma range >= 0.5.
+    Calibrated 2026-10-04 (19 archetypes + 19 blur4-6 sweep FAILs):
+      winners blur4-6 melt 0.024-0.076 range 0.70-0.77 (ss avg 81.4 vs
+      current-route 47.1); excluded: crisp 0.000-0.001, near-empty canvas
+      (range 0.22), gen-noise/jit 0.21-0.23, teal-crisp 0.38.
+    is_flat intentionally NOT required: heavy blur inflates flat_err to
+    38-50 exactly where the salvage matters most."""
+    share = _melt_share(a)
+    gl = np.asarray(a["working"].resize(
+        (min(256, a["w"]), min(256, a["h"]))).convert("L"),
+        dtype=np.float32) / 255.0
+    rng = float(np.percentile(gl, 99) - np.percentile(gl, 1))
+    if rng < 0.5:
+        return False
+    return 0.012 < share < 0.12
+
+
 def _color_soft_candidate(a: dict) -> bool:
     """Soft-blend color art (glow/AA-gradient icons): multi-color (mono gate
     already diverted), small palette error, large boundary-blend share.
@@ -831,6 +873,23 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
 
     canvas = Image.new("RGBA", (ws, hs), (255, 255, 255, 255))
     canvas.paste(work_img, (0, 0), work_img)
+    sent = (255, 0, 255)
+    if a["has_alpha"]:
+        # Sentinel-flood the truly transparent interior+exterior: vtracer
+        # fills enclosed transparent regions with near-white plates that
+        # inflate the silhouette (teal ring interior = +9.8k px, IoU 0.66).
+        # Magenta survives quantization as its own bucket and is dropped
+        # post-trace by color distance.
+        rgb_arr = np.asarray(canvas, dtype=np.uint8).copy()
+        sent_hit = (np.abs(rgb_arr[..., :3].astype(np.int16)
+                           - np.array(sent, dtype=np.int16)).sum(-1) < 96)
+        inp_hit = np.asarray(work_img.convert("RGB"), dtype=np.int16)
+        if sent_hit.any() and (np.abs(inp_hit - np.array(sent, dtype=np.int16)).sum(-1) < 96).any():
+            sent = (57, 255, 20)  # magenta collides with real content: fall back
+        mask_sent = alp_s < 0.03
+        rgb_arr[mask_sent, :3] = sent
+        rgb_arr[mask_sent, 3] = 255
+        canvas = Image.fromarray(rgb_arr, "RGBA")
 
     # cp is load-bearing, not a taste knob: this family dies at cp<=6
     # (measured: blur6 ring 85.2 PASS @cp8 -> 9.2 FAIL @cp6 with 359 junk
@@ -863,14 +922,19 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
         if f and d:
             r, g, b = (int(f.group(1)[i:i + 2], 16) for i in (1, 3, 5))
             nums = [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?', d.group(1))]
-            if len(nums) >= 4:
+            if a["has_alpha"]:
+                # sentinel-flooded transparency: drop any vtracer bucket that
+                # landed near the sentinel color (hole floods + outer canvas)
+                if abs(r - sent[0]) + abs(g - sent[1]) + abs(b - sent[2]) <= 96:
+                    continue
+            near_bg = abs(r - 255) + abs(g - 255) + abs(b - 255) <= 40
+            if near_bg and len(nums) >= 4:
                 xs, ys = nums[0::2], nums[1::2]
                 tx = float(t.group(1)) if t else 0.0
                 ty = float(t.group(2)) if t else 0.0
                 bw = (max(xs) + tx) - (min(xs) + tx)
                 bh = (max(ys) + ty) - (min(ys) + ty)
-                near_bg = abs(r - 255) + abs(g - 255) + abs(b - 255) <= 30
-                if near_bg and bw / max(ws, 1) >= 0.94 and bh / max(hs, 1) >= 0.94:
+                if bw / max(ws, 1) >= 0.94 and bh / max(hs, 1) >= 0.94:
                     continue
         kept.append(pth)
 
@@ -1017,6 +1081,15 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         return _trace_color_tone_stack(a, params)
     if params.get("engine") == "pixel-art":
         return _trace_pixel_art(a, params)
+    # Melted-content route (deep-blur salvage): BEFORE the mono gate, because
+    # blurred mono melts score 15-58 under binary-alpha but 59-87 under the
+    # full-fidelity stack (measured on 19 blur4-6 sweep FAILs: family avg
+    # 47.1 -> 81.4). _melt_candidate carries the calibration; the all-soft
+    # alpha boost family is excluded (ghost text owns it, melts at 0.000).
+    if (params.get("engine") not in ("color-cutout",)
+            and _melt_candidate(a)
+            and _soft_alpha_boost(a) is None):
+        return _trace_color_soft_stack(a, params)
     # Engine route: monochrome transparent content via the calibrated
     # radial gate (see _mono_route). Applies to every caller that did not
     # explicitly force color-cutout (incl. model mode).
