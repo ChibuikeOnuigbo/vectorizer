@@ -2,7 +2,11 @@ import { chromium } from 'playwright-core';
 const browser = await chromium.connectOverCDP('http://127.0.0.1:9222');
 const ctx = browser.contexts()[0] || await browser.newContext();
 const page = await ctx.newPage();
-await page.goto('http://127.0.0.1:8000/model_result/index.html', {waitUntil:'load', timeout: 30000});
+await ctx.clearPermissions?.();
+try { await ctx.clearCookies(); } catch {}
+try { await page.route('**/*', r => r.continue({headers: {...r.request().headers(), 'Cache-Control':'no-cache'}})); } catch {}
+await page.setCacheEnabled?.(false).catch?.(()=>{});
+await page.goto('http://127.0.0.1:8000/model_result/index.html?v=' + Date.now(), {waitUntil:'load', timeout: 30000});
 await page.waitForTimeout(1500);
 await page.screenshot({path:'/tmp/gallery_top.png', fullPage:false});
 // scroll to find the teal trend strip + stats header
