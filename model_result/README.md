@@ -127,6 +127,36 @@ against live code, each with an honest strict-similarity score (no inflated
   teal unchanged 87.9 (halo route is param-insensitive). Pre-sweep numbers
   above this line belong to the preset-picker era - another non-comparable
   scale note, marked in teal_history.jsonl and the trend when visible.
+- color-soft-stack engine (2026-10-04, second tracer rewrite this round):
+  motivation = the user's own uploads (download.png bird, teal bigs) after
+  "check model behaviour; if it can't get the upload right, redo with a
+  better algorithm". Diagnostic chain on the bird (evidence preserved
+  inline in app/convert.py:_trace_color_soft_stack docstring):
+  silhouette IoU was already .943-.988 in every route, so the 41 missing
+  strict points lived in block-SSIM: flat vector plates carry zero interior
+  variance while the input's edges band in staircase steps; four level-set
+  band designs (RGB tie-zones, LAB+chroma softmax, geographic nesting,
+  4->9 level ladders) all plateaued at 55-63 because staircase ladders CAN
+  reproduce the value but not the per-block variance structure. Ceiling
+  probes: hard-quantized 2-color raster of the input = 92.9; exact colors
+  + hard alpha@0.5 = 99.6 - so fidelity must come from pixel-accurate
+  plates, not alpha sculpting. Final algorithm that moved the needle:
+  vtracer full-color STACKED cutout over the flattened canvas (cp8 is
+  load-bearing; cp6 collapses the family to 9.2) + geometry-detected bg
+  plate pop + the input's original alpha glow re-attached as 2
+  honest-mean band plates (opacity = measured band alpha mean; fixed
+  stronger overshoot visibly tints, measured ssim 0.745 vs 0.606).
+  Results: bird 58.8 FAIL -> 74.5 WEAK (all channels up: mae 1.43,
+  ssim .74, iou .98, edge_f1 .83); deep-blur melt rows flip family-wide:
+  logo_e35200_0397_v15_blur6 0.1 FAIL ("invented rings" moon) -> 85.2 PASS.
+  Gate: _aa_blend_share >= 0.15 (11-archetype calibration table in code;
+  clean logos 0.01-0.06, gen-noise 0.03-0.12, teal mono catches earlier,
+  blur4-6 melts 0.19-0.44, soft icon 0.30-0.99). The engine owns cp=8
+  (user/model color_precision applies to cutout engines only). Residual
+  gap on the bird: micro-figure banding texture (beak/eye) - target class
+  for the training loop. QA 14,038/14,038 after era-adjusting the paths
+  ceiling 60 -> 90 (clean halo-routed logos legitimately emit 62-77:
+  16 radial bands x subpaths with per-path translates).
 
 ## View it
 
