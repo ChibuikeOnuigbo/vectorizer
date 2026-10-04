@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-04T12:06:35Z",
+ "generated_utc": "2026-10-04T14:00:50Z",
  "reference": "absolute_test_svg.svg",
  "smart_mode": "trained-net params from image features (browser-identical, 2026-10-04 fix)",
  "entries": [
@@ -32,7 +32,7 @@
     "edge_f1": 0.6302
    },
    "svg_bytes": 57190,
-   "convert_ms": 426,
+   "convert_ms": 491,
    "similarity_to_reference_pct": 86.8
   },
   {
@@ -57,7 +57,7 @@
     "edge_f1": 0.8237
    },
    "svg_bytes": 91919,
-   "convert_ms": 264
+   "convert_ms": 255
   },
   {
    "id": "mr-003",
@@ -81,7 +81,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 193,
-   "convert_ms": 4
+   "convert_ms": 8
   },
   {
    "id": "mr-004",
@@ -105,7 +105,7 @@
     "edge_f1": 0.904
    },
    "svg_bytes": 4254,
-   "convert_ms": 44
+   "convert_ms": 35
   },
   {
    "id": "mr-005",
@@ -129,7 +129,7 @@
     "edge_f1": 0.4431
    },
    "svg_bytes": 72317,
-   "convert_ms": 1124
+   "convert_ms": 1168
   },
   {
    "id": "mr-006",
@@ -153,7 +153,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 337,
-   "convert_ms": 83
+   "convert_ms": 16
   },
   {
    "id": "mr-007",
@@ -177,7 +177,7 @@
     "edge_f1": 0.7916
    },
    "svg_bytes": 772,
-   "convert_ms": 88
+   "convert_ms": 82
   },
   {
    "id": "mr-008",
@@ -201,7 +201,7 @@
     "edge_f1": 0.8862
    },
    "svg_bytes": 1519,
-   "convert_ms": 66
+   "convert_ms": 41
   },
   {
    "id": "mr-009",
@@ -225,7 +225,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 168,
-   "convert_ms": 23
+   "convert_ms": 38
   },
   {
    "id": "mr-010",
@@ -249,7 +249,7 @@
     "edge_f1": 0.7276
    },
    "svg_bytes": 34685,
-   "convert_ms": 953
+   "convert_ms": 463
   },
   {
    "id": "mr-011",
@@ -273,7 +273,7 @@
     "edge_f1": 0.5712
    },
    "svg_bytes": 1422,
-   "convert_ms": 68
+   "convert_ms": 106
   },
   {
    "id": "mr-012",
@@ -297,7 +297,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1835,
-   "convert_ms": 96
+   "convert_ms": 111
   },
   {
    "id": "mr-013",
@@ -321,7 +321,7 @@
     "edge_f1": 0.5797
    },
    "svg_bytes": 3294,
-   "convert_ms": 109
+   "convert_ms": 95
   },
   {
    "id": "mr-014",
@@ -369,7 +369,7 @@
     "edge_f1": 0.5785
    },
    "svg_bytes": 3294,
-   "convert_ms": 100
+   "convert_ms": 112
   },
   {
    "id": "mr-016",
@@ -393,7 +393,7 @@
     "edge_f1": 0.366
    },
    "svg_bytes": 4149,
-   "convert_ms": 95
+   "convert_ms": 105
   },
   {
    "id": "mr-017",
@@ -417,7 +417,7 @@
     "edge_f1": 0.2594
    },
    "svg_bytes": 1422,
-   "convert_ms": 94
+   "convert_ms": 112
   },
   {
    "id": "mr-018",
@@ -441,7 +441,7 @@
     "edge_f1": 0.6291
    },
    "svg_bytes": 1821,
-   "convert_ms": 56
+   "convert_ms": 120
   },
   {
    "id": "mr-019",
@@ -465,7 +465,7 @@
     "edge_f1": 0.624
    },
    "svg_bytes": 17296,
-   "convert_ms": 103
+   "convert_ms": 153
   },
   {
    "id": "mr-020",
@@ -489,7 +489,7 @@
     "edge_f1": 0.1567
    },
    "svg_bytes": 21768,
-   "convert_ms": 163
+   "convert_ms": 119
   },
   {
    "id": "mr-021",
@@ -513,7 +513,7 @@
     "edge_f1": 0.5697
    },
    "svg_bytes": 6751,
-   "convert_ms": 106
+   "convert_ms": 93
   },
   {
    "id": "mr-022",
@@ -561,7 +561,7 @@
     "edge_f1": 0.5742
    },
    "svg_bytes": 6751,
-   "convert_ms": 110
+   "convert_ms": 103
   },
   {
    "id": "mr-024",
@@ -585,7 +585,7 @@
     "edge_f1": 0.4941
    },
    "svg_bytes": 16480,
-   "convert_ms": 113
+   "convert_ms": 275
   },
   {
    "id": "mr-025",
@@ -609,7 +609,7 @@
     "edge_f1": 0.6366
    },
    "svg_bytes": 17296,
-   "convert_ms": 124
+   "convert_ms": 122
   },
   {
    "id": "mr-026",
@@ -633,7 +633,7 @@
     "edge_f1": 0.5919
    },
    "svg_bytes": 18122,
-   "convert_ms": 154
+   "convert_ms": 185
   },
   {
    "id": "mr-027",
@@ -657,7 +657,7 @@
     "edge_f1": 0.0174
    },
    "svg_bytes": 7269,
-   "convert_ms": 95
+   "convert_ms": 136
   },
   {
    "id": "mr-028",
@@ -681,7 +681,7 @@
     "edge_f1": 0.0101
    },
    "svg_bytes": 6112,
-   "convert_ms": 123
+   "convert_ms": 132
   },
   {
    "id": "mr-029",
@@ -705,7 +705,7 @@
     "edge_f1": 0.5917
    },
    "svg_bytes": 11930,
-   "convert_ms": 99
+   "convert_ms": 65
   },
   {
    "id": "mr-030",
@@ -729,7 +729,7 @@
     "edge_f1": 0.9916
    },
    "svg_bytes": 15760,
-   "convert_ms": 5
+   "convert_ms": 15
   },
   {
    "id": "mr-031",
@@ -753,7 +753,7 @@
     "edge_f1": 0.5931
    },
    "svg_bytes": 11930,
-   "convert_ms": 94
+   "convert_ms": 97
   },
   {
    "id": "mr-032",
@@ -777,7 +777,7 @@
     "edge_f1": 0.5816
    },
    "svg_bytes": 16986,
-   "convert_ms": 104
+   "convert_ms": 251
   },
   {
    "id": "mr-033",
@@ -801,7 +801,7 @@
     "edge_f1": 0.0196
    },
    "svg_bytes": 7815,
-   "convert_ms": 146
+   "convert_ms": 147
   },
   {
    "id": "mr-034",
@@ -825,7 +825,7 @@
     "edge_f1": 0.0148
    },
    "svg_bytes": 7809,
-   "convert_ms": 187
+   "convert_ms": 276
   },
   {
    "id": "mr-035",
@@ -849,7 +849,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1484,
-   "convert_ms": 141
+   "convert_ms": 126
   },
   {
    "id": "mr-036",
@@ -873,7 +873,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 7236,
-   "convert_ms": 156
+   "convert_ms": 146
   },
   {
    "id": "mr-037",
@@ -897,7 +897,7 @@
     "edge_f1": 0.6366
    },
    "svg_bytes": 2826,
-   "convert_ms": 88
+   "convert_ms": 97
   },
   {
    "id": "mr-038",
@@ -921,7 +921,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 14057,
-   "convert_ms": 10
+   "convert_ms": 6
   },
   {
    "id": "mr-039",
@@ -945,14 +945,14 @@
     "edge_f1": 0.6368
    },
    "svg_bytes": 2826,
-   "convert_ms": 160
+   "convert_ms": 118
   },
   {
    "id": "mr-040",
    "svg": "mr-040-gen-03jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-03jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -960,16 +960,16 @@
     "filter_speckle": "4",
     "max_iterations": "18"
    },
-   "strict_similarity_pct": 81.4,
-   "strict_verdict": "WEAK",
+   "strict_similarity_pct": 86.7,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 4.32,
-    "ssim12": 0.814,
+    "mae": 1.21,
+    "ssim12": 0.8671,
     "silhouette_iou": 1.0,
-    "edge_f1": 0.5407
+    "edge_f1": 0.8495
    },
-   "svg_bytes": 10559,
-   "convert_ms": 94
+   "svg_bytes": 61355,
+   "convert_ms": 220
   },
   {
    "id": "mr-041",
@@ -993,7 +993,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1484,
-   "convert_ms": 133
+   "convert_ms": 157
   },
   {
    "id": "mr-042",
@@ -1017,7 +1017,7 @@
     "edge_f1": 0.0036
    },
    "svg_bytes": 7869,
-   "convert_ms": 140
+   "convert_ms": 290
   },
   {
    "id": "mr-043",
@@ -1041,7 +1041,7 @@
     "edge_f1": 0.088
    },
    "svg_bytes": 5567,
-   "convert_ms": 121
+   "convert_ms": 134
   },
   {
    "id": "mr-044",
@@ -1065,7 +1065,7 @@
     "edge_f1": 0.0701
    },
    "svg_bytes": 9826,
-   "convert_ms": 151
+   "convert_ms": 166
   },
   {
    "id": "mr-045",
@@ -1089,7 +1089,7 @@
     "edge_f1": 0.563
    },
    "svg_bytes": 9385,
-   "convert_ms": 126
+   "convert_ms": 112
   },
   {
    "id": "mr-046",
@@ -1113,7 +1113,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 15209,
-   "convert_ms": 10
+   "convert_ms": 5
   },
   {
    "id": "mr-047",
@@ -1137,7 +1137,7 @@
     "edge_f1": 0.5689
    },
    "svg_bytes": 9385,
-   "convert_ms": 105
+   "convert_ms": 102
   },
   {
    "id": "mr-048",
@@ -1161,7 +1161,7 @@
     "edge_f1": 0.5488
    },
    "svg_bytes": 14894,
-   "convert_ms": 132
+   "convert_ms": 292
   },
   {
    "id": "mr-049",
@@ -1185,7 +1185,7 @@
     "edge_f1": 0.074
    },
    "svg_bytes": 5581,
-   "convert_ms": 115
+   "convert_ms": 100
   },
   {
    "id": "mr-050",
@@ -1209,7 +1209,7 @@
     "edge_f1": 0.1113
    },
    "svg_bytes": 7416,
-   "convert_ms": 125
+   "convert_ms": 170
   },
   {
    "id": "mr-051",
@@ -1233,7 +1233,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11607,
-   "convert_ms": 124
+   "convert_ms": 179
   },
   {
    "id": "mr-052",
@@ -1257,7 +1257,7 @@
     "edge_f1": 0.0008
    },
    "svg_bytes": 56461,
-   "convert_ms": 171
+   "convert_ms": 190
   },
   {
    "id": "mr-053",
@@ -1281,7 +1281,7 @@
     "edge_f1": 0.6047
    },
    "svg_bytes": 23302,
-   "convert_ms": 111
+   "convert_ms": 103
   },
   {
    "id": "mr-054",
@@ -1305,7 +1305,7 @@
     "edge_f1": 0.9947
    },
    "svg_bytes": 22705,
-   "convert_ms": 11
+   "convert_ms": 9
   },
   {
    "id": "mr-055",
@@ -1329,14 +1329,14 @@
     "edge_f1": 0.5985
    },
    "svg_bytes": 23302,
-   "convert_ms": 138
+   "convert_ms": 155
   },
   {
    "id": "mr-056",
    "svg": "mr-056-gen-05jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-05jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -1344,16 +1344,16 @@
     "filter_speckle": "2",
     "max_iterations": "24"
    },
-   "strict_similarity_pct": 71.5,
+   "strict_similarity_pct": 81.1,
    "strict_verdict": "WEAK",
    "channels": {
-    "mae": 4.83,
-    "ssim12": 0.7153,
+    "mae": 2.1,
+    "ssim12": 0.8112,
     "silhouette_iou": 1.0,
-    "edge_f1": 0.5697
+    "edge_f1": 0.8635
    },
-   "svg_bytes": 26157,
-   "convert_ms": 111
+   "svg_bytes": 105822,
+   "convert_ms": 282
   },
   {
    "id": "mr-057",
@@ -1377,7 +1377,7 @@
     "edge_f1": 0.0036
    },
    "svg_bytes": 11292,
-   "convert_ms": 150
+   "convert_ms": 75
   },
   {
    "id": "mr-058",
@@ -1401,7 +1401,7 @@
     "edge_f1": 0.0246
    },
    "svg_bytes": 12891,
-   "convert_ms": 171
+   "convert_ms": 375
   },
   {
    "id": "mr-059",
@@ -1425,7 +1425,7 @@
     "edge_f1": 0.5466
    },
    "svg_bytes": 2472,
-   "convert_ms": 86
+   "convert_ms": 105
   },
   {
    "id": "mr-060",
@@ -1449,7 +1449,7 @@
     "edge_f1": 0.7155
    },
    "svg_bytes": 2324,
-   "convert_ms": 66
+   "convert_ms": 120
   },
   {
    "id": "mr-061",
@@ -1473,7 +1473,7 @@
     "edge_f1": 0.457
    },
    "svg_bytes": 4823,
-   "convert_ms": 89
+   "convert_ms": 100
   },
   {
    "id": "mr-062",
@@ -1497,7 +1497,7 @@
     "edge_f1": 0.9971
    },
    "svg_bytes": 13731,
-   "convert_ms": 8
+   "convert_ms": 9
   },
   {
    "id": "mr-063",
@@ -1521,7 +1521,7 @@
     "edge_f1": 0.4829
    },
    "svg_bytes": 4823,
-   "convert_ms": 86
+   "convert_ms": 103
   },
   {
    "id": "mr-064",
@@ -1545,7 +1545,7 @@
     "edge_f1": 0.0263
    },
    "svg_bytes": 10382,
-   "convert_ms": 70
+   "convert_ms": 233
   },
   {
    "id": "mr-065",
@@ -1569,7 +1569,7 @@
     "edge_f1": 0.2306
    },
    "svg_bytes": 2472,
-   "convert_ms": 70
+   "convert_ms": 104
   },
   {
    "id": "mr-066",
@@ -1593,7 +1593,7 @@
     "edge_f1": 0.6064
    },
    "svg_bytes": 3182,
-   "convert_ms": 149
+   "convert_ms": 115
   },
   {
    "id": "mr-067",
@@ -1617,7 +1617,7 @@
     "edge_f1": 0.5265
    },
    "svg_bytes": 7349,
-   "convert_ms": 156
+   "convert_ms": 125
   },
   {
    "id": "mr-068",
@@ -1641,7 +1641,7 @@
     "edge_f1": 0.0206
    },
    "svg_bytes": 41333,
-   "convert_ms": 164
+   "convert_ms": 534
   },
   {
    "id": "mr-069",
@@ -1665,7 +1665,7 @@
     "edge_f1": 0.7977
    },
    "svg_bytes": 7784,
-   "convert_ms": 61
+   "convert_ms": 110
   },
   {
    "id": "mr-070",
@@ -1689,7 +1689,7 @@
     "edge_f1": 0.9445
    },
    "svg_bytes": 26078,
-   "convert_ms": 17
+   "convert_ms": 7
   },
   {
    "id": "mr-071",
@@ -1713,7 +1713,7 @@
     "edge_f1": 0.7982
    },
    "svg_bytes": 7784,
-   "convert_ms": 99
+   "convert_ms": 130
   },
   {
    "id": "mr-072",
@@ -1737,7 +1737,7 @@
     "edge_f1": 0.8497
    },
    "svg_bytes": 239291,
-   "convert_ms": 277
+   "convert_ms": 212
   },
   {
    "id": "mr-073",
@@ -1761,7 +1761,7 @@
     "edge_f1": 0.191
    },
    "svg_bytes": 10770,
-   "convert_ms": 174
+   "convert_ms": 162
   },
   {
    "id": "mr-074",
@@ -1785,7 +1785,7 @@
     "edge_f1": 0.4489
    },
    "svg_bytes": 30049,
-   "convert_ms": 194
+   "convert_ms": 377
   },
   {
    "id": "mr-075",
@@ -1809,7 +1809,7 @@
     "edge_f1": 0.1662
    },
    "svg_bytes": 4647,
-   "convert_ms": 119
+   "convert_ms": 108
   },
   {
    "id": "mr-076",
@@ -1833,7 +1833,7 @@
     "edge_f1": 0.1158
    },
    "svg_bytes": 18090,
-   "convert_ms": 124
+   "convert_ms": 111
   },
   {
    "id": "mr-077",
@@ -1857,7 +1857,7 @@
     "edge_f1": 0.2705
    },
    "svg_bytes": 8802,
-   "convert_ms": 112
+   "convert_ms": 89
   },
   {
    "id": "mr-078",
@@ -1881,7 +1881,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 13753,
-   "convert_ms": 11
+   "convert_ms": 13
   },
   {
    "id": "mr-079",
@@ -1905,14 +1905,14 @@
     "edge_f1": 0.3757
    },
    "svg_bytes": 8802,
-   "convert_ms": 109
+   "convert_ms": 80
   },
   {
    "id": "mr-080",
    "svg": "mr-080-gen-08jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-08jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -1920,16 +1920,16 @@
     "filter_speckle": "4",
     "max_iterations": "19"
    },
-   "strict_similarity_pct": 87.7,
-   "strict_verdict": "PASS",
+   "strict_similarity_pct": 74.9,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 3.0,
-    "ssim12": 0.8766,
+    "mae": 1.1,
+    "ssim12": 0.7489,
     "silhouette_iou": 1.0,
-    "edge_f1": 0.3202
+    "edge_f1": 0.6954
    },
-   "svg_bytes": 10581,
-   "convert_ms": 100
+   "svg_bytes": 59719,
+   "convert_ms": 233
   },
   {
    "id": "mr-081",
@@ -1953,7 +1953,7 @@
     "edge_f1": 0.1131
    },
    "svg_bytes": 4646,
-   "convert_ms": 115
+   "convert_ms": 126
   },
   {
    "id": "mr-082",
@@ -1977,7 +1977,7 @@
     "edge_f1": 0.1731
    },
    "svg_bytes": 8621,
-   "convert_ms": 124
+   "convert_ms": 171
   },
   {
    "id": "mr-083",
@@ -2001,7 +2001,7 @@
     "edge_f1": 0.319
    },
    "svg_bytes": 13069,
-   "convert_ms": 170
+   "convert_ms": 116
   },
   {
    "id": "mr-084",
@@ -2025,7 +2025,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 17394,
-   "convert_ms": 127
+   "convert_ms": 151
   },
   {
    "id": "mr-085",
@@ -2049,7 +2049,7 @@
     "edge_f1": 0.5483
    },
    "svg_bytes": 21287,
-   "convert_ms": 116
+   "convert_ms": 117
   },
   {
    "id": "mr-086",
@@ -2073,7 +2073,7 @@
     "edge_f1": 0.9914
    },
    "svg_bytes": 24029,
-   "convert_ms": 11
+   "convert_ms": 7
   },
   {
    "id": "mr-087",
@@ -2097,7 +2097,7 @@
     "edge_f1": 0.5505
    },
    "svg_bytes": 21287,
-   "convert_ms": 139
+   "convert_ms": 114
   },
   {
    "id": "mr-088",
@@ -2121,7 +2121,7 @@
     "edge_f1": 0.5774
    },
    "svg_bytes": 23199,
-   "convert_ms": 129
+   "convert_ms": 282
   },
   {
    "id": "mr-089",
@@ -2145,7 +2145,7 @@
     "edge_f1": 0.1937
    },
    "svg_bytes": 13069,
-   "convert_ms": 153
+   "convert_ms": 169
   },
   {
    "id": "mr-090",
@@ -2169,7 +2169,7 @@
     "edge_f1": 0.283
    },
    "svg_bytes": 15965,
-   "convert_ms": 168
+   "convert_ms": 226
   },
   {
    "id": "mr-091",
@@ -2193,7 +2193,7 @@
     "edge_f1": 0.5673
    },
    "svg_bytes": 2323,
-   "convert_ms": 61
+   "convert_ms": 111
   },
   {
    "id": "mr-092",
@@ -2217,7 +2217,7 @@
     "edge_f1": 0.2678
    },
    "svg_bytes": 3637,
-   "convert_ms": 65
+   "convert_ms": 114
   },
   {
    "id": "mr-093",
@@ -2241,7 +2241,7 @@
     "edge_f1": 0.5868
    },
    "svg_bytes": 4552,
-   "convert_ms": 116
+   "convert_ms": 94
   },
   {
    "id": "mr-094",
@@ -2289,7 +2289,7 @@
     "edge_f1": 0.5857
    },
    "svg_bytes": 4552,
-   "convert_ms": 99
+   "convert_ms": 98
   },
   {
    "id": "mr-096",
@@ -2313,7 +2313,7 @@
     "edge_f1": 0.2605
    },
    "svg_bytes": 11451,
-   "convert_ms": 104
+   "convert_ms": 137
   },
   {
    "id": "mr-097",
@@ -2337,7 +2337,7 @@
     "edge_f1": 0.2643
    },
    "svg_bytes": 2323,
-   "convert_ms": 69
+   "convert_ms": 134
   },
   {
    "id": "mr-098",
@@ -2361,7 +2361,7 @@
     "edge_f1": 0.5668
    },
    "svg_bytes": 3546,
-   "convert_ms": 88
+   "convert_ms": 135
   },
   {
    "id": "mr-099",
@@ -2385,7 +2385,7 @@
     "edge_f1": 0.0243
    },
    "svg_bytes": 4078,
-   "convert_ms": 116
+   "convert_ms": 119
   },
   {
    "id": "mr-100",
@@ -2409,7 +2409,7 @@
     "edge_f1": 0.0123
    },
    "svg_bytes": 2047,
-   "convert_ms": 113
+   "convert_ms": 288
   },
   {
    "id": "mr-101",
@@ -2433,7 +2433,7 @@
     "edge_f1": 0.502
    },
    "svg_bytes": 6821,
-   "convert_ms": 123
+   "convert_ms": 96
   },
   {
    "id": "mr-102",
@@ -2457,7 +2457,7 @@
     "edge_f1": 0.9789
    },
    "svg_bytes": 14262,
-   "convert_ms": 5
+   "convert_ms": 7
   },
   {
    "id": "mr-103",
@@ -2481,7 +2481,7 @@
     "edge_f1": 0.5106
    },
    "svg_bytes": 6821,
-   "convert_ms": 108
+   "convert_ms": 99
   },
   {
    "id": "mr-104",
@@ -2505,7 +2505,7 @@
     "edge_f1": 0.0896
    },
    "svg_bytes": 23392,
-   "convert_ms": 144
+   "convert_ms": 242
   },
   {
    "id": "mr-105",
@@ -2529,7 +2529,7 @@
     "edge_f1": 0.0104
    },
    "svg_bytes": 4078,
-   "convert_ms": 167
+   "convert_ms": 151
   },
   {
    "id": "mr-106",
@@ -2553,7 +2553,7 @@
     "edge_f1": 0.0395
    },
    "svg_bytes": 6791,
-   "convert_ms": 224
+   "convert_ms": 189
   },
   {
    "id": "mr-107",
@@ -2577,7 +2577,7 @@
     "edge_f1": 0.6274
    },
    "svg_bytes": 5231,
-   "convert_ms": 62
+   "convert_ms": 57
   },
   {
    "id": "mr-108",
@@ -2601,7 +2601,7 @@
     "edge_f1": 0.2606
    },
    "svg_bytes": 5650,
-   "convert_ms": 111
+   "convert_ms": 110
   },
   {
    "id": "mr-109",
@@ -2625,7 +2625,7 @@
     "edge_f1": 0.6071
    },
    "svg_bytes": 11624,
-   "convert_ms": 98
+   "convert_ms": 144
   },
   {
    "id": "mr-110",
@@ -2649,7 +2649,7 @@
     "edge_f1": 0.9964
    },
    "svg_bytes": 17858,
-   "convert_ms": 5
+   "convert_ms": 14
   },
   {
    "id": "mr-111",
@@ -2673,7 +2673,7 @@
     "edge_f1": 0.6195
    },
    "svg_bytes": 11624,
-   "convert_ms": 164
+   "convert_ms": 178
   },
   {
    "id": "mr-112",
@@ -2697,7 +2697,7 @@
     "edge_f1": 0.1834
    },
    "svg_bytes": 9962,
-   "convert_ms": 108
+   "convert_ms": 150
   },
   {
    "id": "mr-113",
@@ -2721,7 +2721,7 @@
     "edge_f1": 0.2684
    },
    "svg_bytes": 5231,
-   "convert_ms": 71
+   "convert_ms": 116
   },
   {
    "id": "mr-114",
@@ -2745,7 +2745,7 @@
     "edge_f1": 0.6103
    },
    "svg_bytes": 5559,
-   "convert_ms": 96
+   "convert_ms": 129
   },
   {
    "id": "mr-115",
@@ -2769,7 +2769,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 2814,
-   "convert_ms": 122
+   "convert_ms": 134
   },
   {
    "id": "mr-116",
@@ -2793,7 +2793,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 9026,
-   "convert_ms": 153
+   "convert_ms": 84
   },
   {
    "id": "mr-117",
@@ -2817,7 +2817,7 @@
     "edge_f1": 0.6248
    },
    "svg_bytes": 5265,
-   "convert_ms": 88
+   "convert_ms": 96
   },
   {
    "id": "mr-118",
@@ -2865,14 +2865,14 @@
     "edge_f1": 0.6258
    },
    "svg_bytes": 5265,
-   "convert_ms": 90
+   "convert_ms": 71
   },
   {
    "id": "mr-120",
    "svg": "mr-120-gen-13jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-13jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -2880,16 +2880,16 @@
     "filter_speckle": "4",
     "max_iterations": "17"
    },
-   "strict_similarity_pct": 83.9,
-   "strict_verdict": "WEAK",
+   "strict_similarity_pct": 86.0,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 4.25,
-    "ssim12": 0.8394,
-    "silhouette_iou": 0.9997,
-    "edge_f1": 0.5757
+    "mae": 1.56,
+    "ssim12": 0.8602,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8555
    },
-   "svg_bytes": 14449,
-   "convert_ms": 115
+   "svg_bytes": 87536,
+   "convert_ms": 256
   },
   {
    "id": "mr-121",
@@ -2913,7 +2913,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 2814,
-   "convert_ms": 191
+   "convert_ms": 138
   },
   {
    "id": "mr-122",
@@ -2937,7 +2937,7 @@
     "edge_f1": 0.0067
    },
    "svg_bytes": 8611,
-   "convert_ms": 235
+   "convert_ms": 169
   },
   {
    "id": "mr-123",
@@ -2961,7 +2961,7 @@
     "edge_f1": 0.012
    },
    "svg_bytes": 7362,
-   "convert_ms": 146
+   "convert_ms": 103
   },
   {
    "id": "mr-124",
@@ -2985,7 +2985,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 22387,
-   "convert_ms": 175
+   "convert_ms": 133
   },
   {
    "id": "mr-125",
@@ -3009,7 +3009,7 @@
     "edge_f1": 0.5655
    },
    "svg_bytes": 12411,
-   "convert_ms": 152
+   "convert_ms": 105
   },
   {
    "id": "mr-126",
@@ -3033,7 +3033,7 @@
     "edge_f1": 0.9846
    },
    "svg_bytes": 20271,
-   "convert_ms": 13
+   "convert_ms": 5
   },
   {
    "id": "mr-127",
@@ -3057,14 +3057,14 @@
     "edge_f1": 0.5662
    },
    "svg_bytes": 12411,
-   "convert_ms": 132
+   "convert_ms": 95
   },
   {
    "id": "mr-128",
    "svg": "mr-128-gen-14jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-14jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -3072,16 +3072,16 @@
     "filter_speckle": "4",
     "max_iterations": "17"
    },
-   "strict_similarity_pct": 79.1,
-   "strict_verdict": "WEAK",
+   "strict_similarity_pct": 86.0,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 3.65,
-    "ssim12": 0.7908,
+    "mae": 1.51,
+    "ssim12": 0.8604,
     "silhouette_iou": 1.0,
-    "edge_f1": 0.5354
+    "edge_f1": 0.7841
    },
-   "svg_bytes": 16344,
-   "convert_ms": 112
+   "svg_bytes": 104332,
+   "convert_ms": 316
   },
   {
    "id": "mr-129",
@@ -3105,7 +3105,7 @@
     "edge_f1": 0.0117
    },
    "svg_bytes": 7924,
-   "convert_ms": 211
+   "convert_ms": 98
   },
   {
    "id": "mr-130",
@@ -3129,7 +3129,7 @@
     "edge_f1": 0.0102
    },
    "svg_bytes": 8168,
-   "convert_ms": 188
+   "convert_ms": 194
   },
   {
    "id": "mr-131",
@@ -3153,14 +3153,14 @@
     "edge_f1": 0.5294
    },
    "svg_bytes": 7262,
-   "convert_ms": 74
+   "convert_ms": 118
   },
   {
    "id": "mr-132",
    "svg": "mr-132-gen-15blur.svg",
    "source": "test-assets/images/generated/gen-15blur.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "2",
@@ -3168,16 +3168,16 @@
     "filter_speckle": "2",
     "max_iterations": "12"
    },
-   "strict_similarity_pct": 75.6,
+   "strict_similarity_pct": 81.1,
    "strict_verdict": "WEAK",
    "channels": {
-    "mae": 9.61,
-    "ssim12": 0.7556,
-    "silhouette_iou": 0.9116,
-    "edge_f1": 0.0699
+    "mae": 5.27,
+    "ssim12": 0.811,
+    "silhouette_iou": 0.8417,
+    "edge_f1": 0.0543
    },
-   "svg_bytes": 10853,
-   "convert_ms": 70
+   "svg_bytes": 86238,
+   "convert_ms": 245
   },
   {
    "id": "mr-133",
@@ -3201,7 +3201,7 @@
     "edge_f1": 0.6176
    },
    "svg_bytes": 23056,
-   "convert_ms": 153
+   "convert_ms": 103
   },
   {
    "id": "mr-134",
@@ -3225,7 +3225,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 22333,
-   "convert_ms": 11
+   "convert_ms": 18
   },
   {
    "id": "mr-135",
@@ -3249,7 +3249,7 @@
     "edge_f1": 0.612
    },
    "svg_bytes": 23056,
-   "convert_ms": 109
+   "convert_ms": 176
   },
   {
    "id": "mr-136",
@@ -3273,14 +3273,14 @@
     "edge_f1": 0.5979
    },
    "svg_bytes": 24013,
-   "convert_ms": 150
+   "convert_ms": 295
   },
   {
    "id": "mr-137",
    "svg": "mr-137-gen-15noise.svg",
    "source": "test-assets/images/generated/gen-15noise.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "2",
@@ -3288,16 +3288,16 @@
     "filter_speckle": "2",
     "max_iterations": "12"
    },
-   "strict_similarity_pct": 64.3,
+   "strict_similarity_pct": 68.0,
    "strict_verdict": "FAIL",
    "channels": {
-    "mae": 11.91,
-    "ssim12": 0.6427,
-    "silhouette_iou": 0.8498,
-    "edge_f1": 0.2802
+    "mae": 8.77,
+    "ssim12": 0.6802,
+    "silhouette_iou": 0.8241,
+    "edge_f1": 0.3609
    },
-   "svg_bytes": 7262,
-   "convert_ms": 83
+   "svg_bytes": 5450,
+   "convert_ms": 252
   },
   {
    "id": "mr-138",
@@ -3321,7 +3321,7 @@
     "edge_f1": 0.5147
    },
    "svg_bytes": 11857,
-   "convert_ms": 96
+   "convert_ms": 159
   },
   {
    "id": "mr-139",
@@ -3345,7 +3345,7 @@
     "edge_f1": 0.0596
    },
    "svg_bytes": 3884,
-   "convert_ms": 132
+   "convert_ms": 150
   },
   {
    "id": "mr-140",
@@ -3369,7 +3369,7 @@
     "edge_f1": 0.0109
    },
    "svg_bytes": 3238,
-   "convert_ms": 167
+   "convert_ms": 141
   },
   {
    "id": "mr-141",
@@ -3393,7 +3393,7 @@
     "edge_f1": 0.4908
    },
    "svg_bytes": 7010,
-   "convert_ms": 116
+   "convert_ms": 97
   },
   {
    "id": "mr-142",
@@ -3441,7 +3441,7 @@
     "edge_f1": 0.4966
    },
    "svg_bytes": 7010,
-   "convert_ms": 97
+   "convert_ms": 129
   },
   {
    "id": "mr-144",
@@ -3465,7 +3465,7 @@
     "edge_f1": 0.5064
    },
    "svg_bytes": 12322,
-   "convert_ms": 113
+   "convert_ms": 248
   },
   {
    "id": "mr-145",
@@ -3489,7 +3489,7 @@
     "edge_f1": 0.033
    },
    "svg_bytes": 2986,
-   "convert_ms": 202
+   "convert_ms": 163
   },
   {
    "id": "mr-146",
@@ -3513,7 +3513,7 @@
     "edge_f1": 0.0543
    },
    "svg_bytes": 5333,
-   "convert_ms": 176
+   "convert_ms": 146
   },
   {
    "id": "mr-147",
@@ -3561,7 +3561,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 9980,
-   "convert_ms": 191
+   "convert_ms": 317
   },
   {
    "id": "mr-149",
@@ -3585,7 +3585,7 @@
     "edge_f1": 0.7017
    },
    "svg_bytes": 10913,
-   "convert_ms": 147
+   "convert_ms": 108
   },
   {
    "id": "mr-150",
@@ -3609,7 +3609,7 @@
     "edge_f1": 0.9892
    },
    "svg_bytes": 25536,
-   "convert_ms": 9
+   "convert_ms": 7
   },
   {
    "id": "mr-151",
@@ -3633,7 +3633,7 @@
     "edge_f1": 0.7027
    },
    "svg_bytes": 10913,
-   "convert_ms": 107
+   "convert_ms": 158
   },
   {
    "id": "mr-152",
@@ -3657,7 +3657,7 @@
     "edge_f1": 0.5487
    },
    "svg_bytes": 23044,
-   "convert_ms": 124
+   "convert_ms": 418
   },
   {
    "id": "mr-153",
@@ -3681,7 +3681,7 @@
     "edge_f1": 0.0001
    },
    "svg_bytes": 9350,
-   "convert_ms": 224
+   "convert_ms": 145
   },
   {
    "id": "mr-154",
@@ -3705,7 +3705,7 @@
     "edge_f1": 0.1067
    },
    "svg_bytes": 25291,
-   "convert_ms": 232
+   "convert_ms": 193
   },
   {
    "id": "mr-155",
@@ -3729,7 +3729,7 @@
     "edge_f1": 0.5867
    },
    "svg_bytes": 16778,
-   "convert_ms": 141
+   "convert_ms": 164
   },
   {
    "id": "mr-156",
@@ -3753,7 +3753,7 @@
     "edge_f1": 0.1793
    },
    "svg_bytes": 20778,
-   "convert_ms": 144
+   "convert_ms": 179
   },
   {
    "id": "mr-157",
@@ -3777,7 +3777,7 @@
     "edge_f1": 0.5497
    },
    "svg_bytes": 6099,
-   "convert_ms": 126
+   "convert_ms": 80
   },
   {
    "id": "mr-158",
@@ -3801,7 +3801,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 14661,
-   "convert_ms": 14
+   "convert_ms": 6
   },
   {
    "id": "mr-159",
@@ -3825,14 +3825,14 @@
     "edge_f1": 0.5588
    },
    "svg_bytes": 6099,
-   "convert_ms": 109
+   "convert_ms": 98
   },
   {
    "id": "mr-160",
    "svg": "mr-160-gen-18jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-18jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -3840,16 +3840,16 @@
     "filter_speckle": "2",
     "max_iterations": "19"
    },
-   "strict_similarity_pct": 81.8,
-   "strict_verdict": "WEAK",
+   "strict_similarity_pct": 89.5,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 4.44,
-    "ssim12": 0.8175,
+    "mae": 1.15,
+    "ssim12": 0.8946,
     "silhouette_iou": 1.0,
-    "edge_f1": 0.1013
+    "edge_f1": 0.7035
    },
-   "svg_bytes": 26601,
-   "convert_ms": 105
+   "svg_bytes": 99540,
+   "convert_ms": 326
   },
   {
    "id": "mr-161",
@@ -3873,7 +3873,7 @@
     "edge_f1": 0.6774
    },
    "svg_bytes": 16778,
-   "convert_ms": 122
+   "convert_ms": 176
   },
   {
    "id": "mr-162",
@@ -3897,7 +3897,7 @@
     "edge_f1": 0.5542
    },
    "svg_bytes": 17545,
-   "convert_ms": 119
+   "convert_ms": 138
   },
   {
    "id": "mr-163",
@@ -3921,7 +3921,7 @@
     "edge_f1": 0.1702
    },
    "svg_bytes": 13266,
-   "convert_ms": 181
+   "convert_ms": 139
   },
   {
    "id": "mr-164",
@@ -3945,7 +3945,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 23904,
-   "convert_ms": 113
+   "convert_ms": 134
   },
   {
    "id": "mr-165",
@@ -3969,7 +3969,7 @@
     "edge_f1": 0.5987
    },
    "svg_bytes": 16674,
-   "convert_ms": 105
+   "convert_ms": 102
   },
   {
    "id": "mr-166",
@@ -3993,7 +3993,7 @@
     "edge_f1": 0.99
    },
    "svg_bytes": 25000,
-   "convert_ms": 6
+   "convert_ms": 7
   },
   {
    "id": "mr-167",
@@ -4017,7 +4017,7 @@
     "edge_f1": 0.5985
    },
    "svg_bytes": 16674,
-   "convert_ms": 100
+   "convert_ms": 106
   },
   {
    "id": "mr-168",
@@ -4041,7 +4041,7 @@
     "edge_f1": 0.5581
    },
    "svg_bytes": 24897,
-   "convert_ms": 123
+   "convert_ms": 409
   },
   {
    "id": "mr-169",
@@ -4065,7 +4065,7 @@
     "edge_f1": 0.1051
    },
    "svg_bytes": 13266,
-   "convert_ms": 164
+   "convert_ms": 234
   },
   {
    "id": "mr-170",
@@ -4089,7 +4089,7 @@
     "edge_f1": 0.1963
    },
    "svg_bytes": 16571,
-   "convert_ms": 180
+   "convert_ms": 174
   },
   {
    "id": "mr-171",
@@ -4113,7 +4113,7 @@
     "edge_f1": 0.0081
    },
    "svg_bytes": 4845,
-   "convert_ms": 131
+   "convert_ms": 173
   },
   {
    "id": "mr-172",
@@ -4137,7 +4137,7 @@
     "edge_f1": 0.0669
    },
    "svg_bytes": 8181,
-   "convert_ms": 108
+   "convert_ms": 264
   },
   {
    "id": "mr-173",
@@ -4161,7 +4161,7 @@
     "edge_f1": 0.4988
    },
    "svg_bytes": 7071,
-   "convert_ms": 104
+   "convert_ms": 53
   },
   {
    "id": "mr-174",
@@ -4185,7 +4185,7 @@
     "edge_f1": 0.9848
    },
    "svg_bytes": 22079,
-   "convert_ms": 5
+   "convert_ms": 12
   },
   {
    "id": "mr-175",
@@ -4209,7 +4209,7 @@
     "edge_f1": 0.5795
    },
    "svg_bytes": 7071,
-   "convert_ms": 94
+   "convert_ms": 89
   },
   {
    "id": "mr-176",
@@ -4233,7 +4233,7 @@
     "edge_f1": 0.1282
    },
    "svg_bytes": 17919,
-   "convert_ms": 95
+   "convert_ms": 220
   },
   {
    "id": "mr-177",
@@ -4257,7 +4257,7 @@
     "edge_f1": 0.4037
    },
    "svg_bytes": 3894,
-   "convert_ms": 116
+   "convert_ms": 237
   },
   {
    "id": "mr-178",
@@ -4281,7 +4281,7 @@
     "edge_f1": 0.0286
    },
    "svg_bytes": 8555,
-   "convert_ms": 224
+   "convert_ms": 190
   },
   {
    "id": "mr-179",
@@ -4305,7 +4305,7 @@
     "edge_f1": 0.0017
    },
    "svg_bytes": 1677,
-   "convert_ms": 139
+   "convert_ms": 135
   },
   {
    "id": "mr-180",
@@ -4329,7 +4329,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1677,
-   "convert_ms": 127
+   "convert_ms": 295
   },
   {
    "id": "mr-181",
@@ -4353,7 +4353,7 @@
     "edge_f1": 0.5554
    },
    "svg_bytes": 2372,
-   "convert_ms": 92
+   "convert_ms": 91
   },
   {
    "id": "mr-182",
@@ -4377,7 +4377,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 14086,
-   "convert_ms": 16
+   "convert_ms": 7
   },
   {
    "id": "mr-183",
@@ -4401,7 +4401,7 @@
     "edge_f1": 0.5591
    },
    "svg_bytes": 2372,
-   "convert_ms": 157
+   "convert_ms": 98
   },
   {
    "id": "mr-184",
@@ -4425,7 +4425,7 @@
     "edge_f1": 0.56
    },
    "svg_bytes": 3159,
-   "convert_ms": 99
+   "convert_ms": 101
   },
   {
    "id": "mr-185",
@@ -4449,7 +4449,7 @@
     "edge_f1": 0.0006
    },
    "svg_bytes": 1775,
-   "convert_ms": 148
+   "convert_ms": 145
   },
   {
    "id": "mr-186",
@@ -4473,7 +4473,7 @@
     "edge_f1": 0.1203
    },
    "svg_bytes": 2070,
-   "convert_ms": 195
+   "convert_ms": 187
   },
   {
    "id": "mr-187",
@@ -4497,7 +4497,7 @@
     "edge_f1": 0.0834
    },
    "svg_bytes": 4766,
-   "convert_ms": 109
+   "convert_ms": 134
   },
   {
    "id": "mr-188",
@@ -4521,7 +4521,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 5074,
-   "convert_ms": 132
+   "convert_ms": 112
   },
   {
    "id": "mr-189",
@@ -4545,7 +4545,7 @@
     "edge_f1": 0.5875
    },
    "svg_bytes": 4093,
-   "convert_ms": 58
+   "convert_ms": 75
   },
   {
    "id": "mr-190",
@@ -4569,7 +4569,7 @@
     "edge_f1": 0.9556
    },
    "svg_bytes": 12429,
-   "convert_ms": 6
+   "convert_ms": 5
   },
   {
    "id": "mr-191",
@@ -4593,7 +4593,7 @@
     "edge_f1": 0.5868
    },
    "svg_bytes": 4093,
-   "convert_ms": 100
+   "convert_ms": 67
   },
   {
    "id": "mr-192",
@@ -4617,7 +4617,7 @@
     "edge_f1": 0.5296
    },
    "svg_bytes": 6029,
-   "convert_ms": 92
+   "convert_ms": 91
   },
   {
    "id": "mr-193",
@@ -4641,7 +4641,7 @@
     "edge_f1": 0.0693
    },
    "svg_bytes": 4766,
-   "convert_ms": 151
+   "convert_ms": 117
   },
   {
    "id": "mr-194",
@@ -4665,7 +4665,7 @@
     "edge_f1": 0.0713
    },
    "svg_bytes": 5201,
-   "convert_ms": 160
+   "convert_ms": 171
   },
   {
    "id": "mr-195",
@@ -4689,7 +4689,7 @@
     "edge_f1": 0.6118
    },
    "svg_bytes": 2436,
-   "convert_ms": 76
+   "convert_ms": 134
   },
   {
    "id": "mr-196",
@@ -4713,7 +4713,7 @@
     "edge_f1": 0.4969
    },
    "svg_bytes": 6192,
-   "convert_ms": 60
+   "convert_ms": 287
   },
   {
    "id": "mr-197",
@@ -4737,7 +4737,7 @@
     "edge_f1": 0.4563
    },
    "svg_bytes": 5478,
-   "convert_ms": 104
+   "convert_ms": 97
   },
   {
    "id": "mr-198",
@@ -4761,7 +4761,7 @@
     "edge_f1": 1.0
    },
    "svg_bytes": 15726,
-   "convert_ms": 5
+   "convert_ms": 16
   },
   {
    "id": "mr-199",
@@ -4785,14 +4785,14 @@
     "edge_f1": 0.5826
    },
    "svg_bytes": 5478,
-   "convert_ms": 57
+   "convert_ms": 89
   },
   {
    "id": "mr-200",
    "svg": "mr-200-gen-23jpeg.jpg.svg",
    "source": "test-assets/images/generated/gen-23jpeg.jpg.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -4800,16 +4800,16 @@
     "filter_speckle": "2",
     "max_iterations": "24"
    },
-   "strict_similarity_pct": 77.5,
+   "strict_similarity_pct": 74.9,
    "strict_verdict": "WEAK",
    "channels": {
-    "mae": 3.51,
-    "ssim12": 0.7747,
+    "mae": 1.06,
+    "ssim12": 0.7492,
     "silhouette_iou": 1.0,
-    "edge_f1": 0.0028
+    "edge_f1": 0.4547
    },
-   "svg_bytes": 28298,
-   "convert_ms": 124
+   "svg_bytes": 89122,
+   "convert_ms": 233
   },
   {
    "id": "mr-201",
@@ -4833,7 +4833,7 @@
     "edge_f1": 0.3487
    },
    "svg_bytes": 2436,
-   "convert_ms": 80
+   "convert_ms": 113
   },
   {
    "id": "mr-202",
@@ -4857,7 +4857,7 @@
     "edge_f1": 0.6139
    },
    "svg_bytes": 5475,
-   "convert_ms": 95
+   "convert_ms": 130
   },
   {
    "id": "mr-203",
@@ -4881,7 +4881,7 @@
     "edge_f1": 0.0008
    },
    "svg_bytes": 5759,
-   "convert_ms": 155
+   "convert_ms": 158
   },
   {
    "id": "mr-204",
@@ -4905,7 +4905,7 @@
     "edge_f1": 0.002
    },
    "svg_bytes": 7309,
-   "convert_ms": 113
+   "convert_ms": 184
   },
   {
    "id": "mr-205",
@@ -4929,7 +4929,7 @@
     "edge_f1": 0.0071
    },
    "svg_bytes": 3793,
-   "convert_ms": 167
+   "convert_ms": 169
   },
   {
    "id": "mr-206",
@@ -4953,7 +4953,7 @@
     "edge_f1": 0.5299
    },
    "svg_bytes": 1774,
-   "convert_ms": 63
+   "convert_ms": 123
   },
   {
    "id": "mr-207",
@@ -4977,7 +4977,7 @@
     "edge_f1": 0.0073
    },
    "svg_bytes": 4772,
-   "convert_ms": 124
+   "convert_ms": 172
   },
   {
    "id": "mr-208",
@@ -5001,7 +5001,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4982,
-   "convert_ms": 198
+   "convert_ms": 143
   },
   {
    "id": "mr-209",
@@ -5025,7 +5025,7 @@
     "edge_f1": 0.0065
    },
    "svg_bytes": 7977,
-   "convert_ms": 188
+   "convert_ms": 132
   },
   {
    "id": "mr-210",
@@ -5049,7 +5049,7 @@
     "edge_f1": 0.6121
    },
    "svg_bytes": 4469,
-   "convert_ms": 109
+   "convert_ms": 96
   },
   {
    "id": "mr-211",
@@ -5073,7 +5073,7 @@
     "edge_f1": 0.0416
    },
    "svg_bytes": 4875,
-   "convert_ms": 163
+   "convert_ms": 86
   },
   {
    "id": "mr-212",
@@ -5097,7 +5097,7 @@
     "edge_f1": 0.7352
    },
    "svg_bytes": 22665,
-   "convert_ms": 161
+   "convert_ms": 199
   },
   {
    "id": "mr-213",
@@ -5121,7 +5121,7 @@
     "edge_f1": 0.7036
    },
    "svg_bytes": 19133,
-   "convert_ms": 100
+   "convert_ms": 118
   },
   {
    "id": "mr-214",
@@ -5145,7 +5145,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 7926,
-   "convert_ms": 131
+   "convert_ms": 143
   },
   {
    "id": "mr-215",
@@ -5169,7 +5169,7 @@
     "edge_f1": 0.3065
    },
    "svg_bytes": 13774,
-   "convert_ms": 187
+   "convert_ms": 149
   },
   {
    "id": "mr-216",
@@ -5193,7 +5193,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 9414,
-   "convert_ms": 202
+   "convert_ms": 136
   },
   {
    "id": "mr-217",
@@ -5217,7 +5217,7 @@
     "edge_f1": 0.0002
    },
    "svg_bytes": 11698,
-   "convert_ms": 202
+   "convert_ms": 179
   },
   {
    "id": "mr-218",
@@ -5241,7 +5241,7 @@
     "edge_f1": 0.0015
    },
    "svg_bytes": 8737,
-   "convert_ms": 170
+   "convert_ms": 129
   },
   {
    "id": "mr-219",
@@ -5265,7 +5265,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 8241,
-   "convert_ms": 144
+   "convert_ms": 181
   },
   {
    "id": "mr-220",
@@ -5289,7 +5289,7 @@
     "edge_f1": 0.601
    },
    "svg_bytes": 7772,
-   "convert_ms": 118
+   "convert_ms": 105
   },
   {
    "id": "mr-221",
@@ -5313,7 +5313,7 @@
     "edge_f1": 0.1055
    },
    "svg_bytes": 5323,
-   "convert_ms": 121
+   "convert_ms": 148
   },
   {
    "id": "mr-222",
@@ -5337,7 +5337,7 @@
     "edge_f1": 0.8659
    },
    "svg_bytes": 26877,
-   "convert_ms": 217
+   "convert_ms": 202
   },
   {
    "id": "mr-223",
@@ -5361,7 +5361,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 11168,
-   "convert_ms": 167
+   "convert_ms": 193
   },
   {
    "id": "mr-224",
@@ -5385,7 +5385,7 @@
     "edge_f1": 0.7323
    },
    "svg_bytes": 1823,
-   "convert_ms": 65
+   "convert_ms": 83
   },
   {
    "id": "mr-225",
@@ -5409,7 +5409,7 @@
     "edge_f1": 0.7568
    },
    "svg_bytes": 1027,
-   "convert_ms": 88
+   "convert_ms": 92
   },
   {
    "id": "mr-226",
@@ -5433,7 +5433,7 @@
     "edge_f1": 0.8121
    },
    "svg_bytes": 2144,
-   "convert_ms": 92
+   "convert_ms": 95
   },
   {
    "id": "mr-227",
@@ -5457,7 +5457,7 @@
     "edge_f1": 0.6785
    },
    "svg_bytes": 1718,
-   "convert_ms": 72
+   "convert_ms": 130
   },
   {
    "id": "mr-228",
@@ -5505,7 +5505,7 @@
     "edge_f1": 0.7906
    },
    "svg_bytes": 684,
-   "convert_ms": 126
+   "convert_ms": 107
   },
   {
    "id": "mr-230",
@@ -5529,7 +5529,7 @@
     "edge_f1": 0.7782
    },
    "svg_bytes": 1106,
-   "convert_ms": 89
+   "convert_ms": 128
   },
   {
    "id": "mr-231",
@@ -5553,7 +5553,7 @@
     "edge_f1": 0.8281
    },
    "svg_bytes": 720,
-   "convert_ms": 66
+   "convert_ms": 72
   },
   {
    "id": "mr-232",
@@ -5577,7 +5577,7 @@
     "edge_f1": 0.725
    },
    "svg_bytes": 9449,
-   "convert_ms": 166
+   "convert_ms": 175
   },
   {
    "id": "mr-233",
@@ -5601,7 +5601,7 @@
     "edge_f1": 0.1438
    },
    "svg_bytes": 5093,
-   "convert_ms": 174
+   "convert_ms": 124
   },
   {
    "id": "mr-234",
@@ -5625,7 +5625,7 @@
     "edge_f1": 0.2367
    },
    "svg_bytes": 27140,
-   "convert_ms": 116
+   "convert_ms": 587
   },
   {
    "id": "mr-235",
@@ -5649,7 +5649,7 @@
     "edge_f1": 0.7064
    },
    "svg_bytes": 6076,
-   "convert_ms": 112
+   "convert_ms": 98
   },
   {
    "id": "mr-236",
@@ -5673,7 +5673,7 @@
     "edge_f1": 0.7471
    },
    "svg_bytes": 13329,
-   "convert_ms": 111
+   "convert_ms": 166
   },
   {
    "id": "mr-237",
@@ -5697,7 +5697,7 @@
     "edge_f1": 0.5852
    },
    "svg_bytes": 27544,
-   "convert_ms": 235
+   "convert_ms": 208
   },
   {
    "id": "mr-238",
@@ -5721,7 +5721,7 @@
     "edge_f1": 0.1643
    },
    "svg_bytes": 6008,
-   "convert_ms": 82
+   "convert_ms": 399
   },
   {
    "id": "mr-239",
@@ -5745,7 +5745,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 25603,
-   "convert_ms": 182
+   "convert_ms": 231
   },
   {
    "id": "mr-240",
@@ -5769,7 +5769,7 @@
     "edge_f1": 0.0688
    },
    "svg_bytes": 21917,
-   "convert_ms": 179
+   "convert_ms": 133
   },
   {
    "id": "mr-241",
@@ -5793,7 +5793,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 22541,
-   "convert_ms": 175
+   "convert_ms": 162
   },
   {
    "id": "mr-242",
@@ -5817,14 +5817,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 21518,
-   "convert_ms": 126
+   "convert_ms": 147
   },
   {
    "id": "mr-243",
    "svg": "mr-243-logo_e37000_0142_v15_blur6.svg",
    "source": "model/data/degraded/logo_e37000_0142_v15_blur6.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -5832,16 +5832,16 @@
     "filter_speckle": "2",
     "max_iterations": "19"
    },
-   "strict_similarity_pct": 58.1,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 88.2,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 9.37,
-    "ssim12": 0.692,
-    "silhouette_iou": 0.5815,
+    "mae": 0.69,
+    "ssim12": 0.91,
+    "silhouette_iou": 0.8816,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3790,
-   "convert_ms": 121
+   "svg_bytes": 165993,
+   "convert_ms": 335
   },
   {
    "id": "mr-244",
@@ -5865,7 +5865,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 26734,
-   "convert_ms": 146
+   "convert_ms": 144
   },
   {
    "id": "mr-245",
@@ -5889,7 +5889,7 @@
     "edge_f1": 0.6806
    },
    "svg_bytes": 26745,
-   "convert_ms": 189
+   "convert_ms": 175
   },
   {
    "id": "mr-246",
@@ -5913,7 +5913,7 @@
     "edge_f1": 0.027
    },
    "svg_bytes": 8489,
-   "convert_ms": 150
+   "convert_ms": 318
   },
   {
    "id": "mr-247",
@@ -5937,7 +5937,7 @@
     "edge_f1": 0.6297
    },
    "svg_bytes": 2900,
-   "convert_ms": 78
+   "convert_ms": 117
   },
   {
    "id": "mr-248",
@@ -5961,7 +5961,7 @@
     "edge_f1": 0.0011
    },
    "svg_bytes": 4873,
-   "convert_ms": 208
+   "convert_ms": 339
   },
   {
    "id": "mr-249",
@@ -5985,7 +5985,7 @@
     "edge_f1": 0.1122
    },
    "svg_bytes": 9562,
-   "convert_ms": 178
+   "convert_ms": 274
   },
   {
    "id": "mr-250",
@@ -6009,7 +6009,7 @@
     "edge_f1": 0.0901
    },
    "svg_bytes": 1970,
-   "convert_ms": 138
+   "convert_ms": 108
   },
   {
    "id": "mr-251",
@@ -6033,7 +6033,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 582593,
-   "convert_ms": 650
+   "convert_ms": 595
   },
   {
    "id": "mr-252",
@@ -6057,7 +6057,7 @@
     "edge_f1": 0.664
    },
    "svg_bytes": 15333,
-   "convert_ms": 186
+   "convert_ms": 346
   },
   {
    "id": "mr-253",
@@ -6081,7 +6081,7 @@
     "edge_f1": 0.0067
    },
    "svg_bytes": 3006,
-   "convert_ms": 176
+   "convert_ms": 88
   },
   {
    "id": "mr-254",
@@ -6105,7 +6105,7 @@
     "edge_f1": 0.3024
    },
    "svg_bytes": 22771,
-   "convert_ms": 220
+   "convert_ms": 214
   },
   {
    "id": "mr-255",
@@ -6129,7 +6129,7 @@
     "edge_f1": 0.0788
    },
    "svg_bytes": 7056,
-   "convert_ms": 125
+   "convert_ms": 175
   },
   {
    "id": "mr-256",
@@ -6153,7 +6153,7 @@
     "edge_f1": 0.2772
    },
    "svg_bytes": 4990,
-   "convert_ms": 180
+   "convert_ms": 417
   },
   {
    "id": "mr-257",
@@ -6177,7 +6177,7 @@
     "edge_f1": 0.1116
    },
    "svg_bytes": 1887,
-   "convert_ms": 166
+   "convert_ms": 204
   },
   {
    "id": "mr-258",
@@ -6201,7 +6201,7 @@
     "edge_f1": 0.0075
    },
    "svg_bytes": 8565,
-   "convert_ms": 206
+   "convert_ms": 166
   },
   {
    "id": "mr-259",
@@ -6225,7 +6225,7 @@
     "edge_f1": 0.5316
    },
    "svg_bytes": 4105,
-   "convert_ms": 72
+   "convert_ms": 116
   },
   {
    "id": "mr-260",
@@ -6249,14 +6249,14 @@
     "edge_f1": 0.6482
    },
    "svg_bytes": 10755,
-   "convert_ms": 178
+   "convert_ms": 128
   },
   {
    "id": "mr-261",
    "svg": "mr-261-logo_e37000_0340_v15_blur6.svg",
    "source": "model/data/degraded/logo_e37000_0340_v15_blur6.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -6264,16 +6264,16 @@
     "filter_speckle": "2",
     "max_iterations": "14"
    },
-   "strict_similarity_pct": 49.2,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 87.1,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 10.46,
-    "ssim12": 0.7021,
-    "silhouette_iou": 0.4917,
+    "mae": 0.68,
+    "ssim12": 0.9191,
+    "silhouette_iou": 0.8713,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3475,
-   "convert_ms": 109
+   "svg_bytes": 170816,
+   "convert_ms": 358
   },
   {
    "id": "mr-262",
@@ -6297,7 +6297,7 @@
     "edge_f1": 0.1883
    },
    "svg_bytes": 3152,
-   "convert_ms": 140
+   "convert_ms": 146
   },
   {
    "id": "mr-263",
@@ -6321,7 +6321,7 @@
     "edge_f1": 0.4865
    },
    "svg_bytes": 828,
-   "convert_ms": 80
+   "convert_ms": 124
   },
   {
    "id": "mr-264",
@@ -6345,14 +6345,14 @@
     "edge_f1": 0.1342
    },
    "svg_bytes": 7141,
-   "convert_ms": 187
+   "convert_ms": 121
   },
   {
    "id": "mr-265",
    "svg": "mr-265-logo_e37000_0383_v14_blur5.svg",
    "source": "model/data/degraded/logo_e37000_0383_v14_blur5.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -6360,16 +6360,16 @@
     "filter_speckle": "2",
     "max_iterations": "22"
    },
-   "strict_similarity_pct": 58.2,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 84.6,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 10.11,
-    "ssim12": 0.5819,
-    "silhouette_iou": 0.7219,
+    "mae": 1.32,
+    "ssim12": 0.8456,
+    "silhouette_iou": 0.9017,
     "edge_f1": 0.0
    },
-   "svg_bytes": 2468,
-   "convert_ms": 84
+   "svg_bytes": 239062,
+   "convert_ms": 578
   },
   {
    "id": "mr-266",
@@ -6393,7 +6393,7 @@
     "edge_f1": 0.0281
    },
    "svg_bytes": 5073,
-   "convert_ms": 248
+   "convert_ms": 112
   },
   {
    "id": "mr-267",
@@ -6417,7 +6417,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 21453,
-   "convert_ms": 203
+   "convert_ms": 237
   },
   {
    "id": "mr-268",
@@ -6441,7 +6441,7 @@
     "edge_f1": 0.8305
    },
    "svg_bytes": 12450,
-   "convert_ms": 172
+   "convert_ms": 136
   },
   {
    "id": "mr-269",
@@ -6465,7 +6465,7 @@
     "edge_f1": 0.1069
    },
    "svg_bytes": 7880,
-   "convert_ms": 130
+   "convert_ms": 161
   },
   {
    "id": "mr-270",
@@ -6489,7 +6489,7 @@
     "edge_f1": 0.4859
    },
    "svg_bytes": 10240,
-   "convert_ms": 143
+   "convert_ms": 146
   },
   {
    "id": "mr-271",
@@ -6513,7 +6513,7 @@
     "edge_f1": 0.1194
    },
    "svg_bytes": 3453,
-   "convert_ms": 135
+   "convert_ms": 157
   },
   {
    "id": "mr-272",
@@ -6537,7 +6537,7 @@
     "edge_f1": 0.5796
    },
    "svg_bytes": 3123,
-   "convert_ms": 75
+   "convert_ms": 109
   },
   {
    "id": "mr-273",
@@ -6561,7 +6561,7 @@
     "edge_f1": 0.5124
    },
    "svg_bytes": 1528,
-   "convert_ms": 116
+   "convert_ms": 83
   },
   {
    "id": "mr-274",
@@ -6585,7 +6585,7 @@
     "edge_f1": 0.2347
    },
    "svg_bytes": 15244,
-   "convert_ms": 231
+   "convert_ms": 118
   },
   {
    "id": "mr-275",
@@ -6609,7 +6609,7 @@
     "edge_f1": 0.0715
    },
    "svg_bytes": 1161,
-   "convert_ms": 131
+   "convert_ms": 120
   },
   {
    "id": "mr-276",
@@ -6633,7 +6633,7 @@
     "edge_f1": 0.658
    },
    "svg_bytes": 10396,
-   "convert_ms": 140
+   "convert_ms": 103
   },
   {
    "id": "mr-277",
@@ -6657,7 +6657,7 @@
     "edge_f1": 0.0107
    },
    "svg_bytes": 30997,
-   "convert_ms": 163
+   "convert_ms": 164
   },
   {
    "id": "mr-278",
@@ -6681,7 +6681,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 6286,
-   "convert_ms": 167
+   "convert_ms": 181
   },
   {
    "id": "mr-279",
@@ -6705,7 +6705,7 @@
     "edge_f1": 0.7267
    },
    "svg_bytes": 20194,
-   "convert_ms": 264
+   "convert_ms": 232
   },
   {
    "id": "mr-280",
@@ -6729,7 +6729,7 @@
     "edge_f1": 0.1356
    },
    "svg_bytes": 4340,
-   "convert_ms": 144
+   "convert_ms": 243
   },
   {
    "id": "mr-281",
@@ -6753,14 +6753,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 27516,
-   "convert_ms": 170
+   "convert_ms": 204
   },
   {
    "id": "mr-282",
    "svg": "mr-282-logo_e37000_0585_v14_blur5.svg",
    "source": "model/data/degraded/logo_e37000_0585_v14_blur5.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -6768,16 +6768,16 @@
     "filter_speckle": "2",
     "max_iterations": "23"
    },
-   "strict_similarity_pct": 35.8,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 82.0,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 16.18,
-    "ssim12": 0.3577,
-    "silhouette_iou": 0.7862,
+    "mae": 1.49,
+    "ssim12": 0.8204,
+    "silhouette_iou": 0.9289,
     "edge_f1": 0.0
    },
-   "svg_bytes": 1363,
-   "convert_ms": 97
+   "svg_bytes": 330076,
+   "convert_ms": 502
   },
   {
    "id": "mr-283",
@@ -6801,7 +6801,7 @@
     "edge_f1": 0.709
    },
    "svg_bytes": 2504,
-   "convert_ms": 71
+   "convert_ms": 96
   },
   {
    "id": "mr-284",
@@ -6825,7 +6825,7 @@
     "edge_f1": 0.718
    },
    "svg_bytes": 2494,
-   "convert_ms": 84
+   "convert_ms": 226
   },
   {
    "id": "mr-285",
@@ -6849,7 +6849,7 @@
     "edge_f1": 0.7891
    },
    "svg_bytes": 25632,
-   "convert_ms": 171
+   "convert_ms": 170
   },
   {
    "id": "mr-286",
@@ -6873,7 +6873,7 @@
     "edge_f1": 0.6302
    },
    "svg_bytes": 8745,
-   "convert_ms": 75
+   "convert_ms": 319
   },
   {
    "id": "mr-287",
@@ -6897,7 +6897,7 @@
     "edge_f1": 0.5701
    },
    "svg_bytes": 16620,
-   "convert_ms": 79
+   "convert_ms": 108
   },
   {
    "id": "mr-288",
@@ -6921,7 +6921,7 @@
     "edge_f1": 0.4399
    },
    "svg_bytes": 16257,
-   "convert_ms": 90
+   "convert_ms": 105
   },
   {
    "id": "mr-289",
@@ -6945,7 +6945,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 5654,
-   "convert_ms": 127
+   "convert_ms": 178
   },
   {
    "id": "mr-290",
@@ -6969,7 +6969,7 @@
     "edge_f1": 0.8322
    },
    "svg_bytes": 15255,
-   "convert_ms": 162
+   "convert_ms": 169
   },
   {
    "id": "mr-291",
@@ -6993,7 +6993,7 @@
     "edge_f1": 0.0052
    },
    "svg_bytes": 9763,
-   "convert_ms": 125
+   "convert_ms": 224
   },
   {
    "id": "mr-292",
@@ -7017,7 +7017,7 @@
     "edge_f1": 0.0273
    },
    "svg_bytes": 29600,
-   "convert_ms": 158
+   "convert_ms": 159
   },
   {
    "id": "mr-293",
@@ -7041,7 +7041,7 @@
     "edge_f1": 0.0073
    },
    "svg_bytes": 7813,
-   "convert_ms": 122
+   "convert_ms": 168
   },
   {
    "id": "mr-294",
@@ -7065,7 +7065,7 @@
     "edge_f1": 0.1035
    },
    "svg_bytes": 6511,
-   "convert_ms": 137
+   "convert_ms": 141
   },
   {
    "id": "mr-295",
@@ -7089,7 +7089,7 @@
     "edge_f1": 0.0288
    },
    "svg_bytes": 14296,
-   "convert_ms": 103
+   "convert_ms": 63
   },
   {
    "id": "mr-296",
@@ -7113,7 +7113,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 6657,
-   "convert_ms": 166
+   "convert_ms": 436
   },
   {
    "id": "mr-297",
@@ -7137,7 +7137,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 21226,
-   "convert_ms": 117
+   "convert_ms": 448
   },
   {
    "id": "mr-298",
@@ -7161,7 +7161,7 @@
     "edge_f1": 0.1213
    },
    "svg_bytes": 7243,
-   "convert_ms": 107
+   "convert_ms": 97
   },
   {
    "id": "mr-299",
@@ -7185,7 +7185,7 @@
     "edge_f1": 0.7214
    },
    "svg_bytes": 14415,
-   "convert_ms": 215
+   "convert_ms": 184
   },
   {
    "id": "mr-300",
@@ -7209,7 +7209,7 @@
     "edge_f1": 0.6346
    },
    "svg_bytes": 13918,
-   "convert_ms": 160
+   "convert_ms": 168
   },
   {
    "id": "mr-301",
@@ -7233,7 +7233,7 @@
     "edge_f1": 0.3421
    },
    "svg_bytes": 8431,
-   "convert_ms": 186
+   "convert_ms": 146
   },
   {
    "id": "mr-302",
@@ -7257,7 +7257,7 @@
     "edge_f1": 0.8002
    },
    "svg_bytes": 13138,
-   "convert_ms": 132
+   "convert_ms": 355
   },
   {
    "id": "mr-303",
@@ -7281,14 +7281,14 @@
     "edge_f1": 0.0499
    },
    "svg_bytes": 9834,
-   "convert_ms": 87
+   "convert_ms": 156
   },
   {
    "id": "mr-304",
    "svg": "mr-304-logo_e37600_0276_v10_blur4.svg",
    "source": "model/data/degraded/logo_e37600_0276_v10_blur4.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -7296,16 +7296,16 @@
     "filter_speckle": "2",
     "max_iterations": "14"
    },
-   "strict_similarity_pct": 53.1,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 80.2,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 10.3,
-    "ssim12": 0.7493,
-    "silhouette_iou": 0.5314,
+    "mae": 0.76,
+    "ssim12": 0.9488,
+    "silhouette_iou": 0.8018,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3857,
-   "convert_ms": 146
+   "svg_bytes": 153680,
+   "convert_ms": 342
   },
   {
    "id": "mr-305",
@@ -7329,7 +7329,7 @@
     "edge_f1": 0.1657
    },
    "svg_bytes": 19031,
-   "convert_ms": 213
+   "convert_ms": 167
   },
   {
    "id": "mr-306",
@@ -7353,7 +7353,7 @@
     "edge_f1": 0.0388
    },
    "svg_bytes": 1293,
-   "convert_ms": 170
+   "convert_ms": 127
   },
   {
    "id": "mr-307",
@@ -7377,7 +7377,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 50009,
-   "convert_ms": 283
+   "convert_ms": 547
   },
   {
    "id": "mr-308",
@@ -7401,7 +7401,7 @@
     "edge_f1": 0.1749
    },
    "svg_bytes": 12428,
-   "convert_ms": 160
+   "convert_ms": 156
   },
   {
    "id": "mr-309",
@@ -7425,7 +7425,7 @@
     "edge_f1": 0.1302
    },
    "svg_bytes": 3906,
-   "convert_ms": 99
+   "convert_ms": 113
   },
   {
    "id": "mr-310",
@@ -7449,7 +7449,7 @@
     "edge_f1": 0.0441
    },
    "svg_bytes": 3298,
-   "convert_ms": 164
+   "convert_ms": 159
   },
   {
    "id": "mr-311",
@@ -7473,14 +7473,14 @@
     "edge_f1": 0.1106
    },
    "svg_bytes": 4520,
-   "convert_ms": 159
+   "convert_ms": 144
   },
   {
    "id": "mr-312",
    "svg": "mr-312-logo_e37600_0429_v15_blur6.svg",
    "source": "model/data/degraded/logo_e37600_0429_v15_blur6.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -7488,23 +7488,23 @@
     "filter_speckle": "2",
     "max_iterations": "13"
    },
-   "strict_similarity_pct": 46.2,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 89.0,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 15.43,
-    "ssim12": 0.4622,
-    "silhouette_iou": 0.7657,
+    "mae": 1.33,
+    "ssim12": 0.8899,
+    "silhouette_iou": 0.9137,
     "edge_f1": 0.0
    },
-   "svg_bytes": 33005,
-   "convert_ms": 111
+   "svg_bytes": 371370,
+   "convert_ms": 559
   },
   {
    "id": "mr-313",
    "svg": "mr-313-logo_e37600_0433_v02_jpeg.svg",
    "source": "model/data/degraded/logo_e37600_0433_v02_jpeg.png",
    "status": "OK",
-   "engine": "color-cutout",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -7512,16 +7512,16 @@
     "filter_speckle": "2",
     "max_iterations": "16"
    },
-   "strict_similarity_pct": 74.1,
-   "strict_verdict": "WEAK",
+   "strict_similarity_pct": 94.7,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 2.84,
-    "ssim12": 0.9291,
-    "silhouette_iou": 0.7406,
-    "edge_f1": 0.7715
+    "mae": 0.91,
+    "ssim12": 0.9471,
+    "silhouette_iou": 0.9691,
+    "edge_f1": 0.9
    },
-   "svg_bytes": 17360,
-   "convert_ms": 134
+   "svg_bytes": 31713,
+   "convert_ms": 319
   },
   {
    "id": "mr-314",
@@ -7545,14 +7545,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 5895,
-   "convert_ms": 141
+   "convert_ms": 96
   },
   {
    "id": "mr-315",
    "svg": "mr-315-logo_e37600_0436_v15_blur6.svg",
    "source": "model/data/degraded/logo_e37600_0436_v15_blur6.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -7560,16 +7560,16 @@
     "filter_speckle": "2",
     "max_iterations": "14"
    },
-   "strict_similarity_pct": 46.4,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 86.7,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 15.33,
-    "ssim12": 0.5792,
-    "silhouette_iou": 0.4638,
+    "mae": 0.93,
+    "ssim12": 0.8669,
+    "silhouette_iou": 0.8884,
     "edge_f1": 0.0
    },
-   "svg_bytes": 4216,
-   "convert_ms": 122
+   "svg_bytes": 226017,
+   "convert_ms": 544
   },
   {
    "id": "mr-316",
@@ -7593,7 +7593,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4714,
-   "convert_ms": 117
+   "convert_ms": 151
   },
   {
    "id": "mr-317",
@@ -7617,7 +7617,7 @@
     "edge_f1": 0.1385
    },
    "svg_bytes": 26414,
-   "convert_ms": 163
+   "convert_ms": 254
   },
   {
    "id": "mr-318",
@@ -7641,7 +7641,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 29854,
-   "convert_ms": 191
+   "convert_ms": 404
   },
   {
    "id": "mr-319",
@@ -7665,7 +7665,7 @@
     "edge_f1": 0.6732
    },
    "svg_bytes": 4518,
-   "convert_ms": 78
+   "convert_ms": 119
   },
   {
    "id": "mr-320",
@@ -7689,14 +7689,14 @@
     "edge_f1": 0.0015
    },
    "svg_bytes": 8030,
-   "convert_ms": 190
+   "convert_ms": 177
   },
   {
    "id": "mr-321",
    "svg": "mr-321-logo_e37600_0484_v14_blur5.svg",
    "source": "model/data/degraded/logo_e37600_0484_v14_blur5.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -7704,16 +7704,16 @@
     "filter_speckle": "2",
     "max_iterations": "14"
    },
-   "strict_similarity_pct": 56.8,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 89.2,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 17.41,
-    "ssim12": 0.5684,
-    "silhouette_iou": 0.6504,
+    "mae": 1.13,
+    "ssim12": 0.9302,
+    "silhouette_iou": 0.8925,
     "edge_f1": 0.0
    },
-   "svg_bytes": 35783,
-   "convert_ms": 156
+   "svg_bytes": 311858,
+   "convert_ms": 395
   },
   {
    "id": "mr-322",
@@ -7737,7 +7737,7 @@
     "edge_f1": 0.3785
    },
    "svg_bytes": 8721,
-   "convert_ms": 117
+   "convert_ms": 105
   },
   {
    "id": "mr-323",
@@ -7761,7 +7761,7 @@
     "edge_f1": 0.1478
    },
    "svg_bytes": 17521,
-   "convert_ms": 139
+   "convert_ms": 361
   },
   {
    "id": "mr-324",
@@ -7785,7 +7785,7 @@
     "edge_f1": 0.5832
    },
    "svg_bytes": 1432,
-   "convert_ms": 91
+   "convert_ms": 88
   },
   {
    "id": "mr-325",
@@ -7809,7 +7809,7 @@
     "edge_f1": 0.4047
    },
    "svg_bytes": 7206,
-   "convert_ms": 85
+   "convert_ms": 148
   },
   {
    "id": "mr-326",
@@ -7833,7 +7833,7 @@
     "edge_f1": 0.6636
    },
    "svg_bytes": 1609,
-   "convert_ms": 74
+   "convert_ms": 102
   },
   {
    "id": "mr-327",
@@ -7857,14 +7857,14 @@
     "edge_f1": 0.7166
    },
    "svg_bytes": 1449,
-   "convert_ms": 98
+   "convert_ms": 90
   },
   {
    "id": "mr-328",
    "svg": "mr-328-logo_e38800_0025_v11_jpeghard.svg",
    "source": "model/data/degraded/logo_e38800_0025_v11_jpeghard.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -7872,16 +7872,16 @@
     "filter_speckle": "2",
     "max_iterations": "13"
    },
-   "strict_similarity_pct": 78.3,
+   "strict_similarity_pct": 73.5,
    "strict_verdict": "WEAK",
    "channels": {
-    "mae": 9.76,
-    "ssim12": 0.7826,
-    "silhouette_iou": 0.9322,
-    "edge_f1": 0.5336
+    "mae": 18.36,
+    "ssim12": 0.7506,
+    "silhouette_iou": 0.7348,
+    "edge_f1": 0.6336
    },
-   "svg_bytes": 3095,
-   "convert_ms": 137
+   "svg_bytes": 174622,
+   "convert_ms": 317
   },
   {
    "id": "mr-329",
@@ -7905,7 +7905,7 @@
     "edge_f1": 0.434
    },
    "svg_bytes": 2690,
-   "convert_ms": 93
+   "convert_ms": 105
   },
   {
    "id": "mr-330",
@@ -7929,7 +7929,7 @@
     "edge_f1": 0.313
    },
    "svg_bytes": 11029,
-   "convert_ms": 119
+   "convert_ms": 305
   },
   {
    "id": "mr-331",
@@ -7953,7 +7953,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 7517,
-   "convert_ms": 138
+   "convert_ms": 125
   },
   {
    "id": "mr-332",
@@ -7977,7 +7977,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4307,
-   "convert_ms": 145
+   "convert_ms": 162
   },
   {
    "id": "mr-333",
@@ -8001,7 +8001,7 @@
     "edge_f1": 0.5481
    },
    "svg_bytes": 1332,
-   "convert_ms": 133
+   "convert_ms": 89
   },
   {
    "id": "mr-334",
@@ -8025,7 +8025,7 @@
     "edge_f1": 0.4764
    },
    "svg_bytes": 28192,
-   "convert_ms": 127
+   "convert_ms": 191
   },
   {
    "id": "mr-335",
@@ -8049,7 +8049,7 @@
     "edge_f1": 0.4478
    },
    "svg_bytes": 2517,
-   "convert_ms": 116
+   "convert_ms": 112
   },
   {
    "id": "mr-336",
@@ -8073,7 +8073,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 398092,
-   "convert_ms": 595
+   "convert_ms": 421
   },
   {
    "id": "mr-337",
@@ -8097,7 +8097,7 @@
     "edge_f1": 0.5694
    },
    "svg_bytes": 3542,
-   "convert_ms": 83
+   "convert_ms": 94
   },
   {
    "id": "mr-338",
@@ -8121,7 +8121,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4055,
-   "convert_ms": 132
+   "convert_ms": 343
   },
   {
    "id": "mr-339",
@@ -8145,7 +8145,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 26270,
-   "convert_ms": 161
+   "convert_ms": 224
   },
   {
    "id": "mr-340",
@@ -8169,7 +8169,7 @@
     "edge_f1": 0.0597
    },
    "svg_bytes": 14681,
-   "convert_ms": 127
+   "convert_ms": 117
   },
   {
    "id": "mr-341",
@@ -8193,7 +8193,7 @@
     "edge_f1": 0.1676
    },
    "svg_bytes": 6166,
-   "convert_ms": 135
+   "convert_ms": 115
   },
   {
    "id": "mr-342",
@@ -8217,7 +8217,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 1782,
-   "convert_ms": 146
+   "convert_ms": 170
   },
   {
    "id": "mr-343",
@@ -8241,7 +8241,7 @@
     "edge_f1": 0.5124
    },
    "svg_bytes": 7235,
-   "convert_ms": 132
+   "convert_ms": 108
   },
   {
    "id": "mr-344",
@@ -8265,7 +8265,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 34449,
-   "convert_ms": 206
+   "convert_ms": 631
   },
   {
    "id": "mr-345",
@@ -8289,7 +8289,7 @@
     "edge_f1": 0.7749
    },
    "svg_bytes": 4052,
-   "convert_ms": 80
+   "convert_ms": 135
   },
   {
    "id": "mr-346",
@@ -8313,7 +8313,7 @@
     "edge_f1": 0.8257
    },
    "svg_bytes": 19401,
-   "convert_ms": 96
+   "convert_ms": 92
   },
   {
    "id": "mr-347",
@@ -8337,7 +8337,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 9067,
-   "convert_ms": 108
+   "convert_ms": 387
   },
   {
    "id": "mr-348",
@@ -8361,7 +8361,7 @@
     "edge_f1": 0.3339
    },
    "svg_bytes": 17579,
-   "convert_ms": 166
+   "convert_ms": 254
   },
   {
    "id": "mr-349",
@@ -8385,7 +8385,7 @@
     "edge_f1": 0.6382
    },
    "svg_bytes": 23454,
-   "convert_ms": 187
+   "convert_ms": 178
   },
   {
    "id": "mr-350",
@@ -8409,7 +8409,7 @@
     "edge_f1": 0.0085
    },
    "svg_bytes": 5832,
-   "convert_ms": 226
+   "convert_ms": 127
   },
   {
    "id": "mr-351",
@@ -8433,7 +8433,7 @@
     "edge_f1": 0.3021
    },
    "svg_bytes": 16681,
-   "convert_ms": 144
+   "convert_ms": 179
   },
   {
    "id": "mr-352",
@@ -8457,7 +8457,7 @@
     "edge_f1": 0.165
    },
    "svg_bytes": 10128,
-   "convert_ms": 151
+   "convert_ms": 158
   },
   {
    "id": "mr-353",
@@ -8481,7 +8481,7 @@
     "edge_f1": 0.685
    },
    "svg_bytes": 1438,
-   "convert_ms": 161
+   "convert_ms": 91
   },
   {
    "id": "mr-354",
@@ -8505,14 +8505,14 @@
     "edge_f1": 0.0622
    },
    "svg_bytes": 3491,
-   "convert_ms": 221
+   "convert_ms": 133
   },
   {
    "id": "mr-355",
    "svg": "mr-355-logo_e38800_0361_v15_blur6.svg",
    "source": "model/data/degraded/logo_e38800_0361_v15_blur6.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -8520,16 +8520,16 @@
     "filter_speckle": "2",
     "max_iterations": "15"
    },
-   "strict_similarity_pct": 34.8,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 87.8,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 30.29,
-    "ssim12": 0.3476,
-    "silhouette_iou": 0.5159,
+    "mae": 1.69,
+    "ssim12": 0.8778,
+    "silhouette_iou": 0.9289,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3670,
-   "convert_ms": 114
+   "svg_bytes": 458647,
+   "convert_ms": 421
   },
   {
    "id": "mr-356",
@@ -8553,7 +8553,7 @@
     "edge_f1": 0.1062
    },
    "svg_bytes": 15717,
-   "convert_ms": 181
+   "convert_ms": 135
   },
   {
    "id": "mr-357",
@@ -8577,7 +8577,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4622,
-   "convert_ms": 93
+   "convert_ms": 105
   },
   {
    "id": "mr-358",
@@ -8601,7 +8601,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 14664,
-   "convert_ms": 170
+   "convert_ms": 535
   },
   {
    "id": "mr-359",
@@ -8625,7 +8625,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 29154,
-   "convert_ms": 228
+   "convert_ms": 166
   },
   {
    "id": "mr-360",
@@ -8649,14 +8649,14 @@
     "edge_f1": 0.6329
    },
    "svg_bytes": 3163,
-   "convert_ms": 65
+   "convert_ms": 91
   },
   {
    "id": "mr-361",
    "svg": "mr-361-logo_e38800_0456_v14_blur5.svg",
    "source": "model/data/degraded/logo_e38800_0456_v14_blur5.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -8664,16 +8664,16 @@
     "filter_speckle": "2",
     "max_iterations": "14"
    },
-   "strict_similarity_pct": 38.4,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 85.7,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 7.16,
-    "ssim12": 0.6882,
-    "silhouette_iou": 0.3837,
-    "edge_f1": 0.0
+    "mae": 0.62,
+    "ssim12": 0.9152,
+    "silhouette_iou": 0.8571,
+    "edge_f1": 1.0
    },
-   "svg_bytes": 1218,
-   "convert_ms": 83
+   "svg_bytes": 181175,
+   "convert_ms": 301
   },
   {
    "id": "mr-362",
@@ -8697,14 +8697,14 @@
     "edge_f1": 0.6289
    },
    "svg_bytes": 1923,
-   "convert_ms": 123
+   "convert_ms": 47
   },
   {
    "id": "mr-363",
    "svg": "mr-363-logo_e38800_0482_v14_blur5.svg",
    "source": "model/data/degraded/logo_e38800_0482_v14_blur5.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -8712,16 +8712,16 @@
     "filter_speckle": "2",
     "max_iterations": "20"
    },
-   "strict_similarity_pct": 53.5,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 84.7,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 9.35,
-    "ssim12": 0.6943,
-    "silhouette_iou": 0.5346,
+    "mae": 0.7,
+    "ssim12": 0.9222,
+    "silhouette_iou": 0.847,
     "edge_f1": 0.0
    },
-   "svg_bytes": 5020,
-   "convert_ms": 186
+   "svg_bytes": 183813,
+   "convert_ms": 374
   },
   {
    "id": "mr-364",
@@ -8745,14 +8745,14 @@
     "edge_f1": 0.2855
    },
    "svg_bytes": 4817,
-   "convert_ms": 159
+   "convert_ms": 415
   },
   {
    "id": "mr-365",
    "svg": "mr-365-logo_e38800_0489_v15_blur6.svg",
    "source": "model/data/degraded/logo_e38800_0489_v15_blur6.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -8760,16 +8760,16 @@
     "filter_speckle": "4",
     "max_iterations": "20"
    },
-   "strict_similarity_pct": 43.0,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 79.0,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 14.51,
-    "ssim12": 0.4304,
-    "silhouette_iou": 0.7462,
+    "mae": 1.15,
+    "ssim12": 0.7896,
+    "silhouette_iou": 0.9201,
     "edge_f1": 0.0
    },
-   "svg_bytes": 7412,
-   "convert_ms": 205
+   "svg_bytes": 298472,
+   "convert_ms": 739
   },
   {
    "id": "mr-366",
@@ -8793,7 +8793,7 @@
     "edge_f1": 0.0761
    },
    "svg_bytes": 4122,
-   "convert_ms": 225
+   "convert_ms": 214
   },
   {
    "id": "mr-367",
@@ -8817,7 +8817,7 @@
     "edge_f1": 0.7953
    },
    "svg_bytes": 12484,
-   "convert_ms": 82
+   "convert_ms": 87
   },
   {
    "id": "mr-368",
@@ -8841,14 +8841,14 @@
     "edge_f1": 0.5451
    },
    "svg_bytes": 18500,
-   "convert_ms": 206
+   "convert_ms": 172
   },
   {
    "id": "mr-369",
    "svg": "mr-369-logo_e38800_0511_v14_blur5.svg",
    "source": "model/data/degraded/logo_e38800_0511_v14_blur5.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -8856,16 +8856,16 @@
     "filter_speckle": "2",
     "max_iterations": "17"
    },
-   "strict_similarity_pct": 28.5,
+   "strict_similarity_pct": 59.5,
    "strict_verdict": "FAIL",
    "channels": {
-    "mae": 31.82,
-    "ssim12": 0.2852,
-    "silhouette_iou": 0.5027,
+    "mae": 57.18,
+    "ssim12": 0.6917,
+    "silhouette_iou": 0.5948,
     "edge_f1": 0.0
    },
-   "svg_bytes": 3973,
-   "convert_ms": 87
+   "svg_bytes": 551986,
+   "convert_ms": 697
   },
   {
    "id": "mr-370",
@@ -8889,7 +8889,7 @@
     "edge_f1": 0.3196
    },
    "svg_bytes": 13286,
-   "convert_ms": 131
+   "convert_ms": 396
   },
   {
    "id": "mr-371",
@@ -8913,14 +8913,14 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 5898,
-   "convert_ms": 110
+   "convert_ms": 229
   },
   {
    "id": "mr-372",
    "svg": "mr-372-logo_e38800_0566_v13_pixel.svg",
    "source": "model/data/degraded/logo_e38800_0566_v13_pixel.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "4",
@@ -8928,16 +8928,16 @@
     "filter_speckle": "2",
     "max_iterations": "13"
    },
-   "strict_similarity_pct": 65.0,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 84.4,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 9.02,
-    "ssim12": 0.8668,
-    "silhouette_iou": 0.6499,
-    "edge_f1": 0.0281
+    "mae": 1.0,
+    "ssim12": 0.9787,
+    "silhouette_iou": 0.8436,
+    "edge_f1": 0.937
    },
-   "svg_bytes": 2806,
-   "convert_ms": 207
+   "svg_bytes": 20421,
+   "convert_ms": 274
   },
   {
    "id": "mr-373",
@@ -8961,7 +8961,7 @@
     "edge_f1": 0.1349
    },
    "svg_bytes": 14242,
-   "convert_ms": 169
+   "convert_ms": 124
   },
   {
    "id": "mr-374",
@@ -8985,14 +8985,14 @@
     "edge_f1": 0.0929
    },
    "svg_bytes": 10469,
-   "convert_ms": 171
+   "convert_ms": 147
   },
   {
    "id": "mr-375",
    "svg": "mr-375-logo_e39400_0011_v15_blur6.svg",
    "source": "model/data/degraded/logo_e39400_0011_v15_blur6.png",
    "status": "OK",
-   "engine": "binary-alpha-mono",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -9000,16 +9000,16 @@
     "filter_speckle": "2",
     "max_iterations": "14"
    },
-   "strict_similarity_pct": 52.8,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 82.8,
+   "strict_verdict": "WEAK",
    "channels": {
-    "mae": 12.28,
-    "ssim12": 0.528,
-    "silhouette_iou": 0.648,
+    "mae": 1.13,
+    "ssim12": 0.8277,
+    "silhouette_iou": 0.8935,
     "edge_f1": 0.0
    },
-   "svg_bytes": 4767,
-   "convert_ms": 99
+   "svg_bytes": 185342,
+   "convert_ms": 422
   },
   {
    "id": "mr-376",
@@ -9033,7 +9033,7 @@
     "edge_f1": 0.1115
    },
    "svg_bytes": 2419,
-   "convert_ms": 189
+   "convert_ms": 134
   },
   {
    "id": "mr-377",
@@ -9057,7 +9057,7 @@
     "edge_f1": 0.1181
    },
    "svg_bytes": 4026,
-   "convert_ms": 115
+   "convert_ms": 137
   },
   {
    "id": "mr-378",
@@ -9081,7 +9081,7 @@
     "edge_f1": 0.0663
    },
    "svg_bytes": 7572,
-   "convert_ms": 174
+   "convert_ms": 89
   },
   {
    "id": "mr-379",
@@ -9105,7 +9105,7 @@
     "edge_f1": 0.7644
    },
    "svg_bytes": 19353,
-   "convert_ms": 119
+   "convert_ms": 218
   },
   {
    "id": "mr-380",
@@ -9129,7 +9129,7 @@
     "edge_f1": 0.6239
    },
    "svg_bytes": 71269,
-   "convert_ms": 173
+   "convert_ms": 253
   },
   {
    "id": "mr-381",
@@ -9153,7 +9153,7 @@
     "edge_f1": 0.7598
    },
    "svg_bytes": 27187,
-   "convert_ms": 183
+   "convert_ms": 176
   },
   {
    "id": "mr-382",
@@ -9177,7 +9177,7 @@
     "edge_f1": 0.2581
    },
    "svg_bytes": 20186,
-   "convert_ms": 158
+   "convert_ms": 151
   },
   {
    "id": "mr-383",
@@ -9201,7 +9201,7 @@
     "edge_f1": 0.0281
    },
    "svg_bytes": 975,
-   "convert_ms": 180
+   "convert_ms": 226
   },
   {
    "id": "mr-384",
@@ -9225,7 +9225,7 @@
     "edge_f1": 0.9392
    },
    "svg_bytes": 18589,
-   "convert_ms": 120
+   "convert_ms": 417
   },
   {
    "id": "mr-385",
@@ -9249,7 +9249,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 2401,
-   "convert_ms": 120
+   "convert_ms": 441
   },
   {
    "id": "mr-386",
@@ -9273,7 +9273,7 @@
     "edge_f1": 0.5835
    },
    "svg_bytes": 41710,
-   "convert_ms": 169
+   "convert_ms": 389
   },
   {
    "id": "mr-387",
@@ -9297,7 +9297,7 @@
     "edge_f1": 0.6036
    },
    "svg_bytes": 1192,
-   "convert_ms": 129
+   "convert_ms": 88
   },
   {
    "id": "mr-388",
@@ -9321,7 +9321,7 @@
     "edge_f1": 0.1758
    },
    "svg_bytes": 15968,
-   "convert_ms": 202
+   "convert_ms": 318
   },
   {
    "id": "mr-389",
@@ -9345,7 +9345,7 @@
     "edge_f1": 0.1057
    },
    "svg_bytes": 4375,
-   "convert_ms": 127
+   "convert_ms": 125
   },
   {
    "id": "mr-390",
@@ -9369,7 +9369,7 @@
     "edge_f1": 0.2243
    },
    "svg_bytes": 11603,
-   "convert_ms": 203
+   "convert_ms": 154
   },
   {
    "id": "mr-391",
@@ -9393,7 +9393,7 @@
     "edge_f1": 0.7456
    },
    "svg_bytes": 19796,
-   "convert_ms": 115
+   "convert_ms": 87
   },
   {
    "id": "mr-392",
@@ -9417,7 +9417,7 @@
     "edge_f1": 0.0
    },
    "svg_bytes": 4436,
-   "convert_ms": 82
+   "convert_ms": 228
   },
   {
    "id": "mr-393",
@@ -9441,14 +9441,14 @@
     "edge_f1": 0.0758
    },
    "svg_bytes": 39344,
-   "convert_ms": 220
+   "convert_ms": 464
   },
   {
    "id": "mr-394",
    "svg": "mr-394-logo_e39400_0228_v15_blur6.svg",
    "source": "model/data/degraded/logo_e39400_0228_v15_blur6.png",
    "status": "OK",
-   "engine": "color-cutout-detail",
+   "engine": "color-soft-stack",
    "model_params": {
     "profile": "flat",
     "color_precision": "3",
@@ -9456,16 +9456,16 @@
     "filter_speckle": "2",
     "max_iterations": "13"
    },
-   "strict_similarity_pct": 42.0,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 87.2,
+   "strict_verdict": "PASS",
    "channels": {
-    "mae": 26.62,
-    "ssim12": 0.4201,
-    "silhouette_iou": 0.5177,
+    "mae": 1.53,
+    "ssim12": 0.872,
+    "silhouette_iou": 0.9109,
     "edge_f1": 0.0
    },
-   "svg_bytes": 8086,
-   "convert_ms": 128
+   "svg_bytes": 303649,
+   "convert_ms": 439
   },
   {
    "id": "mr-395",
@@ -9489,7 +9489,7 @@
     "edge_f1": 0.3238
    },
    "svg_bytes": 21041,
-   "convert_ms": 160
+   "convert_ms": 172
   },
   {
    "id": "mr-396",
@@ -9513,7 +9513,7 @@
     "edge_f1": 0.0839
    },
    "svg_bytes": 22332,
-   "convert_ms": 194
+   "convert_ms": 233
   },
   {
    "id": "mr-397",
@@ -9537,7 +9537,7 @@
     "edge_f1": 0.0032
    },
    "svg_bytes": 8704,
-   "convert_ms": 160
+   "convert_ms": 332
   },
   {
    "id": "mr-398",
@@ -9561,7 +9561,7 @@
     "edge_f1": 0.5435
    },
    "svg_bytes": 2034,
-   "convert_ms": 122
+   "convert_ms": 100
   },
   {
    "id": "mr-399",
@@ -9585,39 +9585,7 @@
     "edge_f1": 0.1659
    },
    "svg_bytes": 10482,
-   "convert_ms": 221
-  }
- ],
- "ladder": [
-  {
-   "label": "reference (target)",
-   "vs_input": 97.0,
-   "vs_reference": 100.0,
-   "file": "absolute_test_svg.svg"
-  },
-  {
-   "label": "alpha-halo-stack (NEW radial engine)",
-   "vs_input": 87.9,
-   "vs_reference": 86.8,
-   "file": "ladder-alpha-halo-stack.svg"
-  },
-  {
-   "label": "binary-alpha-mono (auto route)",
-   "vs_input": 87.9,
-   "vs_reference": 86.8,
-   "file": "ladder-binary-alpha-mono.svg"
-  },
-  {
-   "label": "alpha-tone-stack (multi-tone engine)",
-   "vs_input": 79.1,
-   "vs_reference": 78.3,
-   "file": "ladder-alpha-tone-stack.svg"
-  },
-  {
-   "label": "color-cutout (classic engine)",
-   "vs_input": 71.9,
-   "vs_reference": 71.3,
-   "file": "ladder-color-cutout.svg"
+   "convert_ms": 149
   }
  ]
 }

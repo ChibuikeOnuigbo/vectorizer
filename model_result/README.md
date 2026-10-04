@@ -5,7 +5,50 @@ against live code, each with an honest strict-similarity score (no inflated
 100s — the QA authority is `qa/similarity_audit.py`).
 
 
+## 2026-10-04 melt route + cavity sentinel (measured)
+
+Deep-blur melts (blur4-6 sweep FAILs) sat at **47.1 avg** under cutout/binary
+engines: vtracer cutout hard-aliases melted gradients. The routing probes:
+
+- `aa_share >= 0.15` missed them (0.02-0.07 — blur kills the pair-tie signal)
+- `_melt_candidate`: strong-grad share ∈ (0.012, 0.12) AND quantized-ink bins
+  ≥ 18. Calibrated: winners blur4-6 0.019-0.074/inks 21-77; excluded crisp
+  0.000-0.007, gen-noise/jit 0.21-0.23, teal 0.377, near-empty 2-ink canvases
+  (edge-big1024 melt 0.06 inks 13 → stays cutout 87.5; soft-stack would be 35).
+  `is_flat` NOT required (blur blows flat_err to 38-50 exactly where needed).
+
+The gate alone over-fires on partial melts where the old engines are
+*competent* (rot/jpeg/pixel/blur2 subclasses, -10..-35 regressions), and
+binary/jit heavy mono rows sit in-band too. Final call is a raster A/B:
+`_ab_svg_score` PIL-polygon rasterization at 128px, composite 0.4*IoU +
+0.6*(1-MAE), swap only with **+5 margin** (calibrated LOSE -28..-59, WIN
++8.4..+23). BASE candidate = recursive fall-through (`_melt_route_seen`
+guard), so mono melts compare against binary, not plain cutout.
+
+Measured outcomes (sweep rows, v1 → final):
+  blur6 0361 34.8 → 87.8 PASS · blur5 0456 38.4 → 85.7 PASS ·
+  blur5 0585 35.8 → 82.0 PASS · blur6 0228 42.0 → 87.2 PASS ·
+  blur6 0429 46.2 → 89.0 PASS · blur4 0181 56.8 → 89.2 (was cutout) etc.
+  jit2/jpeg/heavy mono restored: 88.4/91.6/91.8 PASS.
+
+**Cavity sentinel (v3)**: vtracer floods enclosed transparent regions with
+near-white plates (teal ring interior +9.8k px, IoU 0.66 → soft-stack
+strict 66.1 FAIL though ssim .976). Interior cavities = alpha≈0 regions NOT
+border-connected (BFS from border), painted sentinel-magenta pre-trace and
+dropped by fill-distance ≤96 post-trace. Full-canvas flood (v2) regressed
+0171 85.3 → 57.7 (a saturated 33%-mass blob distorts vtracer cp8 bucket
+allocation) — cavity-only flood keeps 0171 85.3 PASS. Known limit: holes
+border-connected to the outer transparent canvas stay white-flattened and
+their plates survive (teal direct-ss reads 44.4; teal itself routes halo
+87.9 unaffected).
+
+**Known A/B judge residuals**: over-accepts ss on gen-08jpeg (74.9 WEAK vs
+cutout-detail 87.7); under-accepts on blur5 0427 (stays cutout 6.0 vs ss
+66.7) — 128px raster judge boundary cases, documented for the next round.
+
 ## 2026-10-03 new engines (measured, visual-check-driven)
+
+
 - pixel-art engine (<=64px inputs): alpha-exact RLE crisp rect rows -
   downscale32 rows 1-17% -> 99.9-100% (24 rows now mean 99.7); kills the
   32px raster floor honestly (rect runs are the true grid)
