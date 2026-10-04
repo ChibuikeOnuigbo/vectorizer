@@ -1172,10 +1172,17 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     # melts (sweep regressions -10..-35), so the final call is a raster A/B
     # vs the cutout default with +5 margin (see _ab_svg_score calibration).
     if (params.get("engine") not in ("color-cutout",)
+            and not a.get("_melt_route_seen")
             and _melt_candidate(a)
             and _soft_alpha_boost(a) is None):
         ss_svg = _trace_color_soft_stack(a, params)
-        base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
+        # the honest BASE candidate is the whole fall-through chain (mono
+        # gate included): heavy/jit mono-elems sit in the melt band too and
+        # binary-alpha owns them (v3 sweep: 8 rows won -4..-15 when judging
+        # vs plain cutout only; recursing once with a re-entry guard fixes).
+        a["_melt_route_seen"] = True
+        base_svg = trace_with(a, params)
+        del a["_melt_route_seen"]
         if _ab_svg_score(a["img"], ss_svg) > _ab_svg_score(a["img"], base_svg) + 5.0:
             return ss_svg
         return base_svg
