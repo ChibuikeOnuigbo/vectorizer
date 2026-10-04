@@ -47,6 +47,13 @@ def main() -> None:
     args = ap.parse_args()
     idx = json.loads((OUT / "index.json").read_text())
     COL.mkdir(exist_ok=True)
+    # prune stale collages from older sweeps (ids are reused across builds;
+    # without this the folder accumulates obsolete copies forever)
+    current = {f"{e['id']}-{Path(e['source']).stem}.png"
+               for e in idx["entries"] if e.get("status") == "OK"}
+    for stale in COL.glob("mr-*.png"):
+        if stale.name not in current:
+            stale.unlink()
     try:
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 22)
         bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 26)

@@ -109,6 +109,24 @@ against live code, each with an honest strict-similarity score (no inflated
 - watches: 32px downscale inputs cap ~1-17% every engine (raster floor,
   no route gate applies); thin strokes sharpened 47.6 -> 63.9 but stroke
   weight still +2px (hairline-width emitting planned)
+- smart-mode sweeps NOT measuring the model (2026-10-04, found + fixed):
+  the build used to POST use_model=1 with no params; /api/convert then took
+  the `params=None -> _pick_best_preset` branch, so every past row measured
+  the preset picker + gates, never the trained net. Three independent frozen
+  lines corroborate: teal_history vs_input pinned at 87.6 across 7,350 ->
+  13,050 steps with best_val pinned at 97.64, and the direct A/B below.
+  A/B proof (same image, same server):
+    blue-bird-appicon: best-tier posts -> color-cutout-detail 29,848 B;
+    trained-param posts (photo cp7 ld24 sp2 mi29) -> plain color-cutout
+    22,283 B. Different engine chain, different bytes.
+  Fix: scripts/model_result_build.py now predicts the 5 vtracer params from
+  image features with model/out/params.npz (same math as the browser's
+  onnx path) and POSTs them; each entry records the params used. First
+  measured deltas: bird 14.8 -> 58.8 strict (the model's params avoid the
+  noisy detail-retry route; still a FAIL, gap is now fidelity not chaos),
+  teal unchanged 87.9 (halo route is param-insensitive). Pre-sweep numbers
+  above this line belong to the preset-picker era - another non-comparable
+  scale note, marked in teal_history.jsonl and the trend when visible.
 
 ## View it
 
