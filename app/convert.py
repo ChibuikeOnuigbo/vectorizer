@@ -1271,8 +1271,17 @@ def _trace_cutout(a: dict, params: dict, flat: bool, cp: int, ld: int, sp: int,
     # preset (lt 4.5 / cp 2-3 / speckle). Retry with detail settings; gains
     # up to +7.7 (bird icon) with worst case -2.1 noise on 26 corpus images.
     if flat and len(re.findall(r"<path\b", svg)) <= 6 and params.get("detail_retry", True):
-        svg = _run(20, 5, 12, 0, 40, 0.5, pp, inks, detail=True)
-        stamp = "color-cutout-detail"
+        svg_detail = _run(20, 5, 12, 0, 40, 0.5, pp, inks, detail=True)
+        # Scorer-judged A/B (2026-10-05): retry rescued thin-detail classes in
+        # the classic-preset era (bird 57.7 fix), but gen-07/08 families lose
+        # 3-8 strict points (LOCK era fires the trigger more often). Compare
+        # both candidates with the trained geometry scorer; detail needs a
+        # +0.4 margin (its precision bias), else keep the primary cutout.
+        img = a["img"]
+        p_score = _score_svg(img, svg)
+        d_score = _score_svg(img, svg_detail)
+        if d_score > p_score + 0.4:
+            svg, stamp = svg_detail, "color-cutout-detail"
 
     if a["has_alpha"] and not a["keep_bg"]:
         svg = _strip_color(svg, a["bg_color"], a["content_palette"])
