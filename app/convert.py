@@ -924,6 +924,21 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
     else:
         work_img, alp_s, hs, ws = img, alp, h, w
 
+    # User palette knob: fewer/more inks than the full-fidelity default.
+    # Quantize inks in the opacity region before flattening (REquantize is
+    # only applied at explicit high-low request; default path untouched).
+    pal_inks = int(params.get("max_inks") or 0)
+    if pal_inks:
+        pal_inks = min(max(pal_inks, 2), 12)
+        rgb = work_img.convert("RGB")
+        mask = (np.asarray(work_img.getchannel("A"), dtype=np.float32) / 255.0) > 0.004
+        q = rgb.quantize(colors=pal_inks, method=Image.Quantize.MEDIANCUT)
+        qa = np.asarray(q.convert("RGB"), dtype=np.uint8).copy()
+        src_rgb = np.asarray(rgb, dtype=np.uint8)
+        qa[~mask] = src_rgb[~mask]
+        work_img = Image.fromarray(qa, "RGB").convert("RGBA")
+        work_img.putalpha(Image.fromarray((alp_s * 255).astype(np.uint8), "L"))
+
     canvas = Image.new("RGBA", (ws, hs), (255, 255, 255, 255))
     canvas.paste(work_img, (0, 0), work_img)
     sent = None
@@ -1297,7 +1312,7 @@ def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | No
         c = min(128, max(2, int(opts["colors"])))
         bits = int(round(np.log2(c)))
         params["_palette"] = {"cp": max(2, min(8, bits)),
-                              "max_inks": max(2, min(8, bits - 1)),
+                              "max_inks": min(12, max(2, c)),
                               "tone_bands": max(3, min(10, bits))}
 
     engine = opts.get("engine")

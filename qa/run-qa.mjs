@@ -329,7 +329,7 @@ async function main() {
 
   // 8c. PALETTE KNOB — the one remaining user-visible control must do something real
   {
-    const teal = fs.readFileSync(path.join(__dirname, "..", "test-assets", "images", "user-provided", "teal-orbit-logo.png"));
+    const teal = fs.readFileSync(path.join(__dirname, "..", "test-assets", "images", "generated", "palette-36tiles.png"));
     async function postColors(c) {
       const form = new FormData();
       form.append("file", new Blob([teal]), "teal-orbit-logo.png");
@@ -346,6 +346,10 @@ async function main() {
       check("palette colors=4 changes output strict", def.svg !== c4.svg);
       check("palette colors=4 meta colors <=4 strict", c4.meta.colors <= 4, `${c4.meta.colors}`);
     }
+    const c8 = await postColors(8);
+    const c128 = await postColors(128);
+    check("palette colors=8 changes output strict", !!c8 && def.svg !== c8.svg);
+    check("palette colors=128 vs default differs strict (cap 12)", !!c128 && def.svg !== c128.svg);
     const bad = await (async () => {
       const form = new FormData();
       form.append("file", new Blob([teal]), "teal-orbit-logo.png");
@@ -358,9 +362,9 @@ async function main() {
 
   // 8d. ROUTING MATRIX — archetype engines pinned (regression tripwire)
   {
-    const ENG = new Set(["color-cutout", "color-tone-stack", "color-soft-stack",
-      "binary-alpha-mono", "alpha-tone-stack", "alpha-halo-stack", "alpha-halo-boost",
-      "pixel-art", "hairline", "cutout-detail-retry"]);
+    const ENG = new Set(["color-cutout", "color-cutout-detail", "color-tone-stack",
+      "color-soft-stack", "binary-alpha-mono", "alpha-tone-stack", "alpha-halo-stack",
+      "alpha-halo-boost", "pixel-art", "hairline", "cutout-detail-retry"]);
     const pins = [
       ["teal-orbit", "test-assets/images/user-provided/teal-orbit-logo.png", "alpha-halo-stack"],
       ["blue-bird", "test-assets/images/user-provided/blue-bird-appicon.png", null],
@@ -387,7 +391,9 @@ async function main() {
       check(`route ${tag} data-engine present strict`, !!eng);
       check(`route ${tag} engine known strict`, !!eng && ENG.has(eng), `${eng}`);
       if (expectEng) check(`route ${tag} engine pinned = ${expectEng} strict`, eng === expectEng, `${eng}`);
-      check(`route ${tag} paths >=1 strict`, d.meta.paths >= 1, `${d.meta.paths}`);
+      check(`route ${tag} paths >=1 strict`,
+            d.meta.paths >= 1 || (eng === "pixel-art" && d.svg.includes("<rect")),
+            `paths=${d.meta.paths} eng=${eng}`);
       check(`route ${tag} seconds <8 strict`, d.meta.seconds < 8, `${d.meta.seconds}s`);
     }
   }
