@@ -1,8 +1,47 @@
 # model_result/
 
-Up to 50 **fresh** model-mode ("Use model") conversion results, regenerated
-against live code, each with an honest strict-similarity score (no inflated
-100s — the QA authority is `qa/similarity_audit.py`).
+399 **fresh** Smart-mode conversion results + 1 user-approved reference,
+regenerated against live code, each with an honest strict-similarity score
+(no inflated 100s — the QA authority is `qa/similarity_audit.py`).
+
+## 2026-10-05 hardlock era: UI == sweep 1:1 (measured)
+
+Simplification mandate end-state: the UI exposes exactly **one** control
+(Colors) and every vtracer numeric is server-hardlocked (`LOCK_FLAT` /
+`LOCK_PHOTO`). This build proves the locks and re-validates their constants:
+
+- **Sweep posts nothing.** `scripts/model_result_build.py` sends each image
+  with zero parameter fields — byte-identical input to what the browser UI
+  produces (QA §8 proves a dirty-knob POST returns the identical SVG).
+- **Detail-retry is now scorer-judged** (`c3ae9007b`): the flat ≤6-path
+  rescue retry must beat the primary cutout by **+0.4** on the trained
+  geometry scorer before it may replace it. Fixed params had been fired
+  blindly wherever the trigger flipped: gen-07gray 78.0→86.0, gen-07darkbg
+  78.4→86.5, gen-07-base 75.4→78.7, gen-17rot 87.2→87.6; the known-good
+  detail class (logo_e48400_0208) still keeps detail.
+- **LOCK constants re-validated empirically** (`scripts/lock_calib_probe.py`,
+  strict-audit scorer on all 133 generated/user color-cutout rows):
+  current cp3/ld19/sp2 = **82.94** mean vs cp4 82.98, cp2 82.78, sp4 82.94,
+  ld12 82.78 — locks sit on the optimum; no change shipped. Note: the
+  internal `_score_svg` runs on the MAX_EDGE-downscaled analysis image and
+  overestimates absolute similarity by ~10 pts on some classes — only
+  per-image A/B rankings from it are valid; absolute claims must come from
+  the shipped audit scorer.
+- **Sweep v5**: 399 rows + reference — **194 PASS / 149 WEAK / 56 FAIL,
+  avg 82.2**. Overlap-vs-v4-era on the 202 stable generated/user rows:
+  85.54 → 85.38 (−0.15; verdicts 119P/69W/14F → 121P/68W/13F). The 13
+  LOCK-trigger flip regressions from the previous build are recovered;
+  residual per-row deltas vs the retired network-tuned posts cluster in
+  gen-01/03/07/08 families (largest: gen-08jpeg −12.8) and stay assigned
+  to the training-loop wall list.
+- **56 FAIL rows, honestly counted**: gen-noise family is structurally
+  capped (strict audit scores against the noisy input; cleanup is
+  penalized by definition); corpus blur4-6/pixel/scale/jit subclasses and
+  assorted soft/rot stragglers make up the rest — same wall list as below.
+- Palette knob semantics pinned live and in QA: palette-36tiles c4→4 inks,
+  c8→8, c128→12 (capped); teal-orbit → alpha-halo-stack, 102 paths.
+
+## 2026-10-04 melt route + cavity sentinel (measured)
 
 
 ## 2026-10-04 melt route + cavity sentinel (measured)
