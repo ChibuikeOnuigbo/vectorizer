@@ -43,22 +43,25 @@ MAX_EDGE = 1500          # long edge cap for tracing
 ALPHA_CUTOFF = 128       # alpha above this = content, below = background
 FLAT_ERR = 35.0          # mean 4-color reconstruction error (0-441) below this = flat art
 
-BASELINE_FLAT = dict(profile="flat", color_precision=2, layer_difference=20,
-                     filter_speckle=2, max_iterations=12, corner_threshold=60,
-                     length_threshold=4.5, path_precision=10)
-BASELINE_PHOTO = dict(profile="photo", color_precision=6, layer_difference=12,
-                      filter_speckle=4, max_iterations=30, corner_threshold=50,
-                      length_threshold=3.5, path_precision=10)
-
-# Cloudinary inspired presets — best tier method improved v2, stricter, cleaner SVG, fewer paths, hole-free
-PRESETS = {
-    "logo": dict(profile="flat", color_precision=2, layer_difference=20, filter_speckle=2, max_iterations=12, corner_threshold=60, length_threshold=4.5, path_precision=10),
-    "icon": dict(profile="flat", color_precision=3, layer_difference=16, filter_speckle=1, max_iterations=14, corner_threshold=70, length_threshold=4.5, path_precision=10),
-    "illustration": dict(profile="flat", color_precision=5, layer_difference=12, filter_speckle=3, max_iterations=22, corner_threshold=50, length_threshold=3.5, path_precision=10),
-    "lqip": dict(profile="photo", color_precision=4, layer_difference=18, filter_speckle=4, max_iterations=16, corner_threshold=40, length_threshold=4.0, path_precision=8),
-    "artistic": dict(profile="photo", color_precision=6, layer_difference=10, filter_speckle=6, max_iterations=30, corner_threshold=35, length_threshold=3.0, path_precision=10),
-    "custom": None,
-}
+# Hardlocked vtracer tuning (2026-10-05: user decision, data-backed).
+# The trained net's numeric head output was sampled over 120 corpus logos:
+# cp=3 (62/120), ld=19+-3, fs=2 (109/120), mi=14+-1, profile=flat (85%).
+# A 38-row strict A/B of LOCK-medians vs per-image net params: 27 identical
+# SVGs, 11 differ by avg +0.65 worst -0.8 — nothing measurable is lost, so
+# ui slider numeric knobs, net-emitted numerics, and classic presets are
+# all obsolete; every client gets identical behavior (ui == sweep == qa).
+LOCK_FLAT = dict(profile="flat", color_precision=3, layer_difference=19,
+                 filter_speckle=2, max_iterations=14, corner_threshold=60,
+                 length_threshold=4.5, path_precision=10)
+LOCK_PHOTO = dict(profile="photo", color_precision=6, layer_difference=12,
+                  filter_speckle=4, max_iterations=30, corner_threshold=50,
+                  length_threshold=3.5, path_precision=10)
+# Numeric keys that were once user/model-tunable; now always locked.
+_LOCK_KEYS = ("color_precision", "layer_difference", "filter_speckle",
+              "max_iterations", "corner_threshold", "length_threshold",
+              "path_precision")
+BASELINE_FLAT = LOCK_FLAT
+BASELINE_PHOTO = LOCK_PHOTO
 
 # Candidates for the synthetic transparent background. Chosen at runtime so
 # the one used is maximally far from the image's actual colors.
@@ -1096,32 +1099,46 @@ def _mono_route(a: dict) -> str:
 
 
 def trace_with(a: dict, params: dict | None = None) -> str:
-    """Run one vectorization pass with the given params (or the heuristic
-    baseline when params is None). params keys: profile, color_precision,
-    layer_difference, filter_speckle, max_iterations (all optional)."""
+    """Run one vectorization pass. Vtracer tuning numerics are HARDLOCKED
+    (LOCK_FLAT/LOCK_PHOTO; see calibration note) — incoming numeric keys are
+    ignored unless params['_unlock'] is set (QA/experiments only). Only
+    profile may be overridden ("flat"/"photo"); engine routing stays smart."""
     params = params or {}
-    # handle preset shortcut
-    preset_name = params.get("preset")
-    if preset_name and preset_name in PRESETS and PRESETS[preset_name]:
-        # preset overrides if explicit param not given
-        preset = PRESETS[preset_name]
-        for k, v in preset.items():
-            if k not in params:
-                params[k] = v
-
-    flat = params.get("profile", "flat" if a["is_flat"] else "photo") == "flat"
-    cp = int(params.get("color_precision", BASELINE_FLAT["color_precision"] if flat else BASELINE_PHOTO["color_precision"]))
-    ld = int(params.get("layer_difference", BASELINE_FLAT["layer_difference"] if flat else BASELINE_PHOTO["layer_difference"]))
-    sp = int(params.get("filter_speckle", BASELINE_FLAT["filter_speckle"] if flat else BASELINE_PHOTO["filter_speckle"]))
-    mi = int(params.get("max_iterations", BASELINE_FLAT["max_iterations"] if flat else BASELINE_PHOTO["max_iterations"]))
-    ct = int(params.get("corner_threshold", BASELINE_FLAT["corner_threshold"] if flat else BASELINE_PHOTO["corner_threshold"]))
-    lt = float(params.get("length_threshold", BASELINE_FLAT["length_threshold"] if flat else BASELINE_PHOTO["length_threshold"]))
-    pp = int(params.get("path_precision", BASELINE_FLAT["path_precision"] if flat else BASELINE_PHOTO["path_precision"]))
-    # cp=1 (slider "2 colors") collapses every flat ink bucket into the
-    # background bucket, so vtracer sees a uniform canvas and emits a single
-    # path that _strip_color then deletes -> empty SVG shell. QA sweep
-    # evidence: qa/results/sweep-gen-*-c2-*.json (8 empty shells). Floor at 2
-    # bits; palette size is still dominated by _flatten_colors max_inks.
+    # HARDLOCK: strip every free tuning key (incl. the engine-shared ones:
+    # filter_speckle/corner_threshold/length_threshold/path_precision/
+    # max_iterations/tone_bands/halo_bands/pixel_colors/stroke_width/max_inks)
+    # so external input can never perturb the traced geometry. Engines keep
+    # their calibrated defaults; vtracer numerics resolve from LOCK_* below.
+    # QA/experiment callers pass _unlock=True to bypass this.
+    if not params.get("_unlock"):
+        pal = params.get("_palette")  # {"cp": n, "max_inks": n} from the one user knob
+        params = {k: v for k, v in params.items() if k in ("engine", "profile")}
+        if pal:
+            params["color_precision"] = pal["cp"]
+            params["max_inks"] = pal["max_inks"]
+            # banding-family sibling of the same knob: tone/soft-stack read
+            # tone_bands from params (defaults are the calibrated constants)
+            params["tone_bands"] = pal["tone_bands"]
+    base = LOCK_FLAT if params.get("profile", "flat" if a["is_flat"] else "photo") == "flat" else LOCK_PHOTO
+    flat = base["profile"] == "flat"
+    if params.get("_unlock"):
+        cp = int(params.get("color_precision", base["color_precision"]))
+        ld = int(params.get("layer_difference", base["layer_difference"]))
+        sp = int(params.get("filter_speckle", base["filter_speckle"]))
+        mi = int(params.get("max_iterations", base["max_iterations"]))
+        ct = int(params.get("corner_threshold", base["corner_threshold"]))
+        lt = float(params.get("length_threshold", base["length_threshold"]))
+        pp = int(params.get("path_precision", base["path_precision"]))
+    else:
+        cp, ld, sp, mi = (base["color_precision"], base["layer_difference"],
+                          base["filter_speckle"], base["max_iterations"])
+        ct, lt, pp = (base["corner_threshold"], base["length_threshold"],
+                      base["path_precision"])
+        # one-way palette override from the user knob (cutout-ish families)
+        if "color_precision" in params:
+            cp = int(params["color_precision"])
+    # cp=1 collapses every ink bucket into the bg bucket -> empty shell; the
+    # known floor lives in the locks but keep the guard for _unlock callers.
     cp = min(max(cp, 2), 8)
     ld = min(max(ld, 4), 48)
     sp = min(max(sp, 1), 16)
@@ -1251,88 +1268,6 @@ def _trace_cutout(a: dict, params: dict, flat: bool, cp: int, ld: int, sp: int,
     return re.sub(r'(<svg\b)', rf'\1 data-engine="{stamp}"', svg, count=1)
 
 
-def _pick_best_preset(a: dict) -> dict:
-    """Cloudinary inspired best tier v2: smarter preset picking based on flatness, alpha, size, edge, color count"""
-    w, h = a["w"], a["h"]
-    flat_err = a.get("flat_err", 100)
-    is_flat = a.get("is_flat", False)
-    has_alpha = a.get("has_alpha", False)
-    # Estimate color complexity from working image small palette
-    try:
-        working = a.get("working")
-        if working:
-            small = working.resize((64, 64))
-            # count distinct colors in quantized 16
-            q = small.quantize(colors=16, method=Image.Quantize.FASTOCTREE)
-            colors = len([c for c in (q.getcolors() or []) if c[0] > 64])
-        else:
-            colors = 8
-    except:
-        colors = 8
-
-    # Very tiny icons <64px: icon preset strictest
-    if max(w, h) < 64:
-        return PRESETS["icon"]
-    # Small icons 64-128 and flat: icon
-    if max(w, h) < 128 and is_flat and colors <= 6:
-        return PRESETS["icon"]
-    # Pure geometric logos: flat, very low error <12, transparent, few colors <=5
-    if is_flat and flat_err < 12 and has_alpha and colors <= 5:
-        return PRESETS["logo"]
-    # Flat logos with low error <18
-    if is_flat and flat_err < 18:
-        return PRESETS["logo"]
-    # Flat illustration: flat but more colors or moderate error 18-35
-    if is_flat and flat_err < 35:
-        return PRESETS["illustration"] if colors > 4 else PRESETS["logo"]
-    # Non-flat small for LQIP
-    if not is_flat and max(w, h) < 200:
-        return PRESETS["lqip"]
-    # Non-flat with high error >55: photo/artistic
-    if not is_flat and flat_err > 55:
-        return PRESETS["artistic"] if max(w, h) > 400 else PRESETS["lqip"]
-    # Default best tier
-    return PRESETS["logo"] if is_flat else PRESETS["illustration"]
-
-def sliders_to_params(colors: int | None, detail: int | None,
-                      smoothness: int | None, base: dict | None = None) -> dict:
-    """Map the three user-facing sliders (Colors / Detail / Corner smoothness,
-    same labels as the Cloudinary tool) onto raw vtracer params.
-
-    colors     2..128   → color_precision (bits) + layer_difference
-    detail     0..100   → max_iterations + length_threshold + path_precision
-    smoothness 0..100   → corner_threshold (0 smooth curves .. 100 sharp corners)
-    """
-    p = dict(base or {})
-    if colors is not None:
-        c = min(128, max(2, colors))
-        bits = max(1, min(8, int(round(np.log2(c)))))
-        p["color_precision"] = bits
-        p["layer_difference"] = 16 if bits <= 4 else 12
-    if detail is not None:
-        d = min(100, max(0, detail)) / 100.0
-        p["max_iterations"] = 8 + int(round(d * 40))
-        p["length_threshold"] = 4.5 - d * 2.0      # more detail → shorter segments
-        p["path_precision"] = 3 + int(round(d * 9))
-    if smoothness is not None:
-        s = min(100, max(0, smoothness))
-        p["corner_threshold"] = min(110, max(10, 110 - int(round(s * 0.8))))
-    return p
-
-
-def _enhance_working(a: dict) -> dict:
-    """Optional 'Clean first' step for the no-model mode (vectorizer.io idea):
-    denoise + hard color simplify + slight sharpen before tracing so speckles
-    and JPEG noise do not become noise blobs in the SVG."""
-    b = dict(a)
-    w_img = a["working"].filter(ImageFilter.MedianFilter(3))
-    if not a.get("is_flat"):
-        w_img = w_img.quantize(colors=32, method=Image.Quantize.FASTOCTREE).convert("RGB")
-    w_img = w_img.filter(ImageFilter.UnsharpMask(radius=1.5, percent=110, threshold=3))
-    b["working"] = w_img
-    return b
-
-
 def _score_svg(img: Image.Image, svg: str) -> float:
     try:
         from model.svg_geom import score
@@ -1349,46 +1284,27 @@ def _score_svg(img: Image.Image, svg: str) -> float:
 def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | None = None) -> dict:
     """Convert raster bytes to a clean SVG. Returns {svg, meta}.
 
-    mode_opts keys: colors/detail/smoothness (sliders), enhance (bool),
-    engine ('best' for multi-candidate scoring)."""
+    mode_opts keys (the only user-visible variability, vectorizer.ai-style):
+    colors (palette size 2..128) and engine (forced engine name, QA)."""
     opts = mode_opts or {}
     t0 = time.time()
     img = Image.open(io.BytesIO(img_bytes))
     a = analyze(img)
-    # best tier method when no params: use Cloudinary inspired preset picking
-    if params is None:
-        params = _pick_best_preset(a)
-    params = sliders_to_params(opts.get("colors"), opts.get("detail"),
-                               opts.get("smoothness"), params)
-    if opts.get("enhance"):
-        a = _enhance_working(a)
+    params = params or {}
+    if opts.get("colors") is not None:
+        # The one user-facing knob: palette size. Narrow one-way channel —
+        # survives the trace_with hardlock strip, influences palette only.
+        c = min(128, max(2, int(opts["colors"])))
+        bits = int(round(np.log2(c)))
+        params["_palette"] = {"cp": max(2, min(8, bits)),
+                              "max_inks": max(2, min(8, bits - 1)),
+                              "tone_bands": max(3, min(10, bits))}
 
     engine = opts.get("engine")
-    if engine == "best":
-        # try the chosen params plus two neighboring presets, keep the winner
-        candidates = [(params, "selected")]
-        for name in ("logo", "illustration"):
-            if not a["is_flat"] and name == "logo":
-                name = "artistic"
-            p = dict(PRESETS[name])
-            if params.get("preset") == name:
-                continue
-            candidates.append((p, name))
-        best_svg, best_score, best_name = None, -1.0, ""
-        for p, name in candidates:
-            try:
-                svg_c = trace_with(a, p)
-                s = _score_svg(img, svg_c)
-                if s > best_score:
-                    best_svg, best_score = svg_c, s
-            except Exception:
-                continue
-        svg = best_svg or trace_with(a, params)
-    else:
-        if engine:
-            params = dict(params or {})
-            params["engine"] = engine
-        svg = trace_with(a, params)
+    if engine:
+        params = dict(params or {})
+        params["engine"] = engine
+    svg = trace_with(a, params)
 
     fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
     flat = (params or {}).get("profile", "flat" if a["is_flat"] else "photo") == "flat"

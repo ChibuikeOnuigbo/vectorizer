@@ -32,29 +32,22 @@ await shot("00-landing");
 // --- upload + convert
 await page.click("#startBtn");
 await page.setInputFiles("#fileInput", PNG);
-await page.waitForSelector("#choiceOverlay:not([hidden])", { timeout: 60000 });
-await shot("01-choice");
-await page.click("#choiceAdvanced", { force: true });
+await page.waitForFunction(() => window.__vz?.view === "result", null, { timeout: 60000 });
+await shot("01-simple");
+await page.click("#openAdvancedBtn", { force: true });
 await page.waitForFunction(() => window.__vz?.view === "advanced", null, { timeout: 30000 });
-note("switched to ADVANCED studio directly from choice modal");
+note("switched to ADVANCED studio from Simple header button");
 await shot("02-advanced");
 
-// --- advanced sliders + reconvert with new settings
-await page.evaluate(() => { const el = document.querySelector("#advCp"); el.value = "3"; el.dispatchEvent(new Event("input", { bubbles: true })); });
-await page.evaluate(() => { const el = document.querySelector("#advMi"); el.value = "30"; el.dispatchEvent(new Event("input", { bubbles: true })); });
-const convWatch = page.waitForResponse((r) => r.url().includes("/api/convert") && r.status() === 200, { timeout: 60000 });
-await page.click("#advReconvertBtn");
-await convWatch.catch(() => null);
-await page.waitForTimeout(800);
-const advMeta = await page.textContent("#advResultMeta").catch(() => "");
-note("adv reconvert done; meta: " + advMeta.trim().slice(0, 90));
-await shot("03-advanced-reconvert");
-// app truth: the workspace-choice modal reappears after EVERY successful
-// conversion (including an in-place reconvert from Advanced Studio)
-const reChoice = await page.evaluate(() => !document.querySelector("#choiceOverlay")?.hidden);
-note("choice modal reappears after reconvert: " + reChoice + " (documented UX behavior)");
-if (reChoice) await page.click("#choiceAdvanced", { force: true });
-await page.waitForFunction(() => document.querySelector("#choiceOverlay")?.hidden, null, { timeout: 15000 });
+// --- 2026-10-05: tuning sliders + reconvert deleted (hardlocked); verify advanced surface = inspection only
+const advGone = await page.evaluate(() => ({
+  paramsBody: !!document.getElementById("paramsBody"),
+  advReconvert: !!document.getElementById("advReconvertBtn"),
+  inspect: !!document.getElementById("inspectBody"),
+}));
+note("advanced surface: paramsBody=" + advGone.paramsBody + " reconvert=" + advGone.advReconvert + " inspect=" + advGone.inspect);
+out.verdict.advanced_surface = (!advGone.paramsBody && !advGone.advReconvert && advGone.inspect) ? "PASS" : "FAIL";
+await shot("03-advanced-inspection");
 
 // --- back to simple
 await page.click("#advBackSimpleBtn");
@@ -101,9 +94,7 @@ await shot("05-error-toast");
 
 // --- replace image (fresh convert)
 await page.setInputFiles("#fileInput", "/home/user/vectorizer/test-assets/images/user-provided/teal-orbit-logo.png");
-await page.waitForSelector("#choiceOverlay:not([hidden])", { timeout: 60000 });
-await page.click("#choiceSimple", { force: true });
-await page.waitForFunction(() => window.__vz?.view === "result", null, { timeout: 30000 });
+await page.waitForFunction(() => window.__vz?.view === "result", null, { timeout: 60000 });
 const metaNow = await page.textContent("#resultMeta");
 note("replace-image converted; meta: " + metaNow.trim().slice(0, 90));
 out.verdict.replace_image = metaNow.includes("paths") ? "PASS" : "CHECK";
@@ -143,16 +134,11 @@ const mobOk = await page.evaluate(() => {
 });
 note("mobile 390px layout: " + JSON.stringify(mobOk));
 
-// --- modal: AI overlay open + close
+// --- modal: AI overlay DELETED 2026-10-05; verify absence
 await page.setViewportSize({ width: 1440, height: 900 });
-await page.click("#aiStudioBtn").catch(() => null);
-await page.waitForTimeout(400);
-const aiShown = await page.evaluate(() => !document.querySelector("#aiOverlay")?.hidden);
-await page.keyboard.press("Escape").catch(() => null);
-await page.waitForTimeout(300);
-const aiClosed = await page.evaluate(() => document.querySelector("#aiOverlay")?.hidden !== false);
-note(`modal behavior: aiOverlay open=${aiShown} closed=${aiClosed}`);
-out.verdict.modal_behavior = aiShown && aiClosed ? "PASS" : "CHECK";
+const aiGone = await page.evaluate(() => !document.getElementById("aiOverlay") && !document.getElementById("aiStudioBtn"));
+note("aiOverlay + aiStudioBtn deleted: " + aiGone);
+out.verdict.modal_behavior = aiGone ? "PASS" : "FAIL";
 
 out.verdict.workspace_switch = "PASS (simple<->advanced verified above)";
 out.verdict.viewer_tools = (zBefore !== zAfter) ? "PASS" : "FAIL";

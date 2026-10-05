@@ -57,13 +57,9 @@ await shot(page, "01-after-upload.png");
 
 // ---- convert happens on file select (input change -> convert()); #convertBtn is the file picker
 const conv0 = convertCalls;
-// the workspace-choice modal is intentional UX after a successful convert (§38)
-await page.waitForSelector("#choiceOverlay:not([hidden])", { timeout: 90000 }).catch(() => {});
-const choiceShown = await page.evaluate(() => !document.querySelector("#choiceOverlay")?.hidden);
-note("workspace choice overlay shown after convert: " + choiceShown);
-await shot(page, "02a-workspace-choice.png");
-if (choiceShown) await page.click("#choiceSimple", { force: true });
+// 2026-10-05 simplification: no choice modal; convert lands in Simple Studio
 await page.waitForFunction(() => window.__vz?.view === "result" && !document.querySelector("#result")?.hidden, null, { timeout: 90000 });
+note("choice modal removed; direct to Simple Studio confirmed");
 await page.waitForSelector("#resultSvg", { timeout: 30000 });
 // svg preview is a blob: URL created from the converted SVG text
 const svgOk = await page.evaluate(() => {

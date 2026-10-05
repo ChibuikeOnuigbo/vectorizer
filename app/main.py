@@ -47,20 +47,14 @@ def _clamped_int(value: str | None, lo: int, hi: int) -> int | None:
 @app.post("/api/convert")
 async def convert(
     file: UploadFile = File(...),
-    use_model: str | None = Form(None),
     profile: str | None = Form(None),
-    color_precision: str | None = Form(None),
-    layer_difference: str | None = Form(None),
-    filter_speckle: str | None = Form(None),
-    max_iterations: str | None = Form(None),
-    corner_threshold: str | None = Form(None),
-    preset: str | None = Form(None),
     colors: str | None = Form(None),
-    detail: str | None = Form(None),
-    smoothness: str | None = Form(None),
-    enhance: str | None = Form(None),
     engine: str | None = Form(None),
 ):
+    """Product surface (2026-10-05, vectorizer.ai-aligned): image + optional
+    palette size (colors 2..128) + optional profile/engine for QA. Vtracer
+    tuning numerics are hardlocked in app/convert.py (LOCK_*), so the legacy
+    knob fields were deleted from this endpoint; sending them is ignored."""
     data = await file.read()
     if not data:
         raise HTTPException(400, "Empty file")
@@ -70,55 +64,15 @@ async def convert(
     if not any(name.endswith(e) for e in ALLOWED_EXT):
         raise HTTPException(415, "Unsupported file type Use PNG JPG WebP GIF BMP")
 
-    params = None
-    # best tier method: if preset given use it, else if use_model 1 use model params, else classic
-    if preset and preset in ("logo", "icon", "illustration", "lqip", "artistic", "custom"):
-        params = {"preset": preset}
-        # allow override with explicit params
-        if profile in ("flat", "photo"):
-            params["profile"] = profile
-        for key, raw, lo, hi in (
-            ("color_precision", color_precision, 1, 8),
-            ("layer_difference", layer_difference, 6, 40),
-            ("filter_speckle", filter_speckle, 1, 8),
-            ("max_iterations", max_iterations, 8, 48),
-            ("corner_threshold", corner_threshold, 10, 110),
-        ):
-            v = _clamped_int(raw, lo, hi)
-            if v is not None:
-                params[key] = v
-    elif use_model == "1":
-        params = {}
-        if profile in ("flat", "photo"):
-            params["profile"] = profile
-        for key, raw, lo, hi in (
-            ("color_precision", color_precision, 1, 8),
-            ("layer_difference", layer_difference, 6, 40),
-            ("filter_speckle", filter_speckle, 1, 8),
-            ("max_iterations", max_iterations, 8, 48),
-            ("corner_threshold", corner_threshold, 10, 110),
-        ):
-            v = _clamped_int(raw, lo, hi)
-            if v is not None:
-                params[key] = v
-        if not params:
-            params = None
-    else:
-        # classic best tier without model: pick preset if given else let vectorize pick best tier
-        if preset:
-            params = {"preset": preset}
-        else:
-            params = None
-
+    params = {}
+    if profile in ("flat", "photo"):
+        params["profile"] = profile
     mode_opts = {
         "colors": _clamped_int(colors, 2, 128),
-        "detail": _clamped_int(detail, 0, 100),
-        "smoothness": _clamped_int(smoothness, 0, 100),
-        "enhance": enhance == "1",
         "engine": engine if engine in ("best", "color-cutout", "color-tone-stack",
                                        "color-soft-stack", "binary-alpha-mono",
                                        "alpha-tone-stack", "alpha-halo-stack",
-                                       "pixel-art", "hairline") else None,
+                                       "alpha-halo-boost", "pixel-art", "hairline") else None,
     }
     try:
         return JSONResponse(vectorize(data, params, mode_opts))
@@ -126,64 +80,6 @@ async def convert(
         log.exception("conversion failed")
         raise HTTPException(422, f"Could not vectorize this image {exc}") from exc
 
-
-# ============ AI ASSIST (user's own API key, see research notes) ============
-from .ai_providers import ai_vectorize, provider_catalog  # noqa: E402
-
-
-@app.get("/api/ai/providers")
-def ai_providers():
-    return {"providers": provider_catalog()}
-
-
-@app.post("/api/ai/vectorize")
-async def ai_vectorize_endpoint(
-    request: Request,
-    file: UploadFile = File(...),
-    provider: str = Form("openrouter"),
-    model: str | None = Form(None),
-    detail: str | None = Form(None),
-    colors: str | None = Form(None),
-):
-    data = await file.read()
-    if not data:
-        raise HTTPException(400, "Empty file")
-    if len(data) > MAX_UPLOAD_BYTES:
-        raise HTTPException(413, "File too large max 20 MB")
-    name = (file.filename or "image").lower()
-    if not any(name.endswith(e) for e in ALLOWED_EXT):
-        raise HTTPException(415, "Unsupported file type Use PNG JPG WebP GIF BMP")
-    key = request.headers.get("x-ai-key", "")
-    try:
-        return JSONResponse(ai_vectorize(
-            data, provider=provider, model=model or "",
-            key=key, detail=detail or "auto",
-            colors=_clamped_int(colors, 2, 128)))
-    except ValueError as exc:
-        raise HTTPException(400, str(exc)) from exc
-    except RuntimeError as exc:
-        raise HTTPException(502, str(exc)) from exc
-    except Exception as exc:  # noqa: BLE001
-        log.exception("ai vectorize failed")
-        raise HTTPException(500, f"AI vectorize failed {exc}") from exc
-
-
-app.mount("/static", StaticFiles(directory=STATIC), name="static")
-# Browsable fresh model outputs (user-requested visibility): reference
-# absolute_test_svg + up to 50 current model-mode results with strict scores,
-# regenerable via scripts/model_result_build.py + model_result_gallery.py
-_MODEL_RESULT_DIR = BASE.parent / "model_result"
-_MODEL_RESULT_DIR.mkdir(exist_ok=True)
-app.mount("/model_result", StaticFiles(directory=_MODEL_RESULT_DIR, html=True),
-          name="model_result")
-
-
-# ============ MANUAL TRAINING & DEBUG VETTING (very strict) ============
-MANUAL_BASE = Path(__file__).parent.parent / "model" / "data" / "manual"
-MANUAL_IMAGES = MANUAL_BASE / "images"
-MANUAL_RESULTS = MANUAL_BASE / "results"
-MANUAL_IMAGES.mkdir(parents=True, exist_ok=True)
-MANUAL_RESULTS.mkdir(parents=True, exist_ok=True)
 
 @app.post("/api/manual/images")
 async def manual_upload_images(files: list[UploadFile] = File(...)):

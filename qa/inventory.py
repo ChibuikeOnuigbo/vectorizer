@@ -61,10 +61,8 @@ def scan() -> dict:
         "frontend_files": frontend,
         "backend_endpoints": [{"method": m.upper(), "path": p} for m, p in endpoints],
         "vectorize_modes": {
-            "classic_engine": "POST /api/convert with sliders (colors/detail/smoothness), optional preset best-tier",
-            "model": "POST /api/convert use_model=1 (trained params)",
-            "presets": ["logo", "icon", "illustration", "lqip", "artistic", "custom"],
-            "ai_assist": "POST /api/ai/vectorize (user's own API key, 11 providers)",
+            "smart": "POST /api/convert (image + optional colors palette knob; vtracer numerics hardlocked LOCK_* since 2026-10-05)",
+            "retired_2026-10-05": "model/classic presets/AI-assist (use_model, PRESETS, /api/ai/*) deleted",
         },
         "model_modules": model_modules,
         "qa_infra": sorted(qa_scripts),

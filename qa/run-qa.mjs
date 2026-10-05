@@ -140,8 +140,25 @@ async function main() {
   const dzHint = await page.textContent(".dz-main");
   check("upload dropzone hint strict", /drop an image/i.test(dzHint || ""), (dzHint || "").trim().slice(0, 60));
   const landingMeta = await page.textContent(".landing-meta");
-  check("smart-model flow copy strict (toggle intentionally removed 6c5061394)",
-        /smart model picks best settings/i.test(landingMeta || ""), (landingMeta || "").trim().slice(0, 80));
+  check("smart-default flow copy strict (2026-10-05 simplification: one smart mode, knobs hardlocked server-side)",
+        /smart default/i.test(landingMeta || ""), (landingMeta || "").trim().slice(0, 80));
+  // simplified surface kill-checks: exactly one method card, one slider, no dead controls (2026-10-05)
+  const surface = await page.evaluate(() => ({
+    methodCards: document.querySelectorAll(".upload-methods .method-card").length,
+    sliders: document.querySelectorAll("#modelOptions input[type=range]").length,
+    classicOptions: !!document.getElementById("classicOptions"),
+    aiOptions: !!document.getElementById("aiOptions"),
+    mDetail: !!document.getElementById("mDetail"),
+    mSmooth: !!document.getElementById("mSmooth"),
+    aiStudioBtn: !!document.getElementById("aiStudioBtn"),
+  }));
+  check("upload exactly one method card strict (Smart only)", surface.methodCards === 1, `${surface.methodCards}`);
+  check("upload exactly one slider strict (Colors only)", surface.sliders === 1, `${surface.sliders}`);
+  check("classic preset grid deleted strict", !surface.classicOptions);
+  check("AI options panel deleted strict", !surface.aiOptions);
+  check("Detail slider deleted strict", !surface.mDetail);
+  check("Corner-smoothness slider deleted strict", !surface.mSmooth);
+  check("AI redo button deleted strict", !surface.aiStudioBtn);
   check("upload back button strict", await page.isVisible("#backBtn"));
   await page.screenshot({ path: SHOTS + "/02-upload.png" });
   await page.click("#backBtn");
@@ -154,32 +171,9 @@ async function main() {
   const [fc] = await Promise.all([page.waitForEvent("filechooser"), page.click("#convertBtn")]);
   await fc.setFiles(path.join(__dirname, "..", "download.png"));
   // wait for either choice modal or result (new UI shows choice after vector ready)
-  await page.waitForFunction(() => {
-    const choice = document.getElementById("choiceOverlay");
-    const result = document.getElementById("result");
-    return (choice && !choice.hidden) || (result && !result.hidden);
-  }, { timeout: 30000 });
-  // if choice modal shows, pick Simple Studio
-  const choiceVisible = await page.evaluate(() => {
-    const c = document.getElementById("choiceOverlay");
-    return c && !c.hidden;
-  });
-  if (choiceVisible) {
-    await page.click("#choiceSimple");
-    await page.waitForSelector("#result:not([hidden])", { timeout: 10000 });
-  }
-  await page.waitForFunction(() => {
-    const m = window.__vz && window.__vz.model;
-    return m && (m.status === "ready" || m.status === "error");
-  }, null, { timeout: 20000 });
-  const modelState = await page.evaluate(() => window.__vz.model);
-  check("smart model ONNX ready strict", modelState.status === "ready", modelState.lastError || JSON.stringify(modelState.lastParams));
-  const p = modelState.lastParams || {};
-  check("model profile flat/photo strict", p.profile === "flat" || p.profile === "photo");
-  check("model cp 1-8 strict", p.color_precision >= 1 && p.color_precision <= 8);
-  check("model ld 6-40 strict", p.layer_difference >= 6 && p.layer_difference <= 40);
-  check("model sp valid strict", [1, 2, 4, 8].includes(p.filter_speckle));
-  check("model mi 8-48 strict", p.max_iterations >= 8 && p.max_iterations <= 48);
+  await page.waitForSelector("#result:not([hidden])", { timeout: 30000 });
+  check("choice modal deleted strict (goes straight to Simple Studio)",
+        await page.evaluate(() => !document.getElementById("choiceOverlay")));
   const svgLoaded = await page.evaluate(() => {
     const im = document.getElementById("resultSvg");
     return im.complete && im.naturalWidth > 0;
@@ -213,20 +207,21 @@ async function main() {
   await page.waitForSelector("#upload:not([hidden])");
   const [fc2] = await Promise.all([page.waitForEvent("filechooser"), page.click("#convertBtn")]);
   await fc2.setFiles(path.join(__dirname, "..", "image-removebg-preview.png"));
-  await page.waitForFunction(() => {
-    const choice = document.getElementById("choiceOverlay");
-    const result = document.getElementById("result");
-    return (choice && !choice.hidden) || (result && !result.hidden);
-  }, { timeout: 30000 });
-  const choiceVisible2 = await page.evaluate(() => {
-    const c = document.getElementById("choiceOverlay");
-    return c && !c.hidden;
-  });
-  if (choiceVisible2) {
-    await page.click("#choiceAdvanced");
-    await page.waitForSelector("#advanced:not([hidden])", { timeout: 10000 });
-  }
+  await page.waitForSelector("#result:not([hidden])", { timeout: 30000 });
+  await page.click("#openAdvancedBtn");
+  await page.waitForSelector("#advanced:not([hidden])", { timeout: 10000 });
   check("Advanced view opens strict", await page.isVisible("#advanced"));
+  // vtracer tuning sliders must be gone; inspection panel stays (read-only)
+  const advSurface = await page.evaluate(() => ({
+    paramsBody: !!document.getElementById("paramsBody"),
+    advCp: !!document.getElementById("advCp"),
+    advReconvertBtn: !!document.getElementById("advReconvertBtn"),
+    inspectBody: !!document.getElementById("inspectBody"),
+  }));
+  check("Advanced Vectorization-settings sliders deleted strict (hardlocked)", !advSurface.paramsBody);
+  check("Advanced advCp sliders deleted strict", !advSurface.advCp);
+  check("Advanced Reconvert button deleted strict", !advSurface.advReconvertBtn);
+  check("Advanced Inspection panel kept strict", advSurface.inspectBody);
   const advSvgLoaded = await page.waitForFunction(() => {
     const cands = ["advSvg", "resultSvg", "advancedSvg"].map((id) => document.getElementById(id)).find((el) => el && el.tagName === "IMG");
     return (window.__vz && window.__vz.svgText) || (cands && cands.complete && cands.naturalWidth > 0);
@@ -262,38 +257,140 @@ async function main() {
   await page.waitForTimeout(100);
   const [fc4] = await Promise.all([page.waitForEvent("filechooser"), page.click("#convertBtn")]);
   await fc4.setFiles(path.join(__dirname, "..", "download.png"));
-  await page.waitForFunction(() => {
-    const choice = document.getElementById("choiceOverlay");
-    const result = document.getElementById("result");
-    return (choice && !choice.hidden) || (result && !result.hidden);
-  }, { timeout: 30000 });
-  const choiceVisible4 = await page.evaluate(() => {
-    const c = document.getElementById("choiceOverlay");
-    return c && !c.hidden;
-  });
-  if (choiceVisible4) {
-    await page.click("#choiceSimple");
-    await page.waitForSelector("#result:not([hidden])", { timeout: 10000 });
-  }
+  await page.waitForSelector("#result:not([hidden])", { timeout: 30000 });
   const overM = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   check("no overflow @390 strict", !overM);
   await page.screenshot({ path: SHOTS + "/05-result-mobile.png", fullPage: true });
   await page.setViewportSize({ width: 1440, height: 900 });
 
-  // 8. Artifacts strict
-  const onnxPath = path.join(__dirname, "..", "app", "static", "model", "params.onnx");
-  const onnxExists = fs.existsSync(onnxPath);
-  check("ONNX present strict", onnxExists);
-  if (onnxExists) {
-    const stat = fs.statSync(onnxPath);
-    check("ONNX >=500KB strict", stat.size > 500 * 1024, `${stat.size}`);
-    // threshold era-adjusted 2026-10-04: the shipped model has been the
-    // 4-layer 1536x1024x512 arch (~14.5MB) since 402531d9f; the historical
-    // <5MB bound described the 3-layer v2 net. Guard against real bloat.
-    check("ONNX <20MB strict (4-layer arch era)", stat.size < 20 * 1024 * 1024, `${stat.size}`);
+  // 8. Artifacts + hardlock semantics strict (2026-10-05 simplification era:
+  // in-browser ONNX param-net retired; vtracer numerics hardlocked in
+  // app/convert.py LOCK_FLAT/LOCK_PHOTO, measured 27/38 byte-identical vs the
+  // net's own picks with avg +0.65 on the rest)
+  const onxGone = !fs.existsSync(path.join(__dirname, "..", "app", "static", "model", "params.onnx"));
+  check("in-browser param-net retired strict (no params.onnx)", onxGone);
+  check("ort runtime removed strict", !fs.existsSync(path.join(__dirname, "..", "app", "static", "model")));
+  {
+    const cvt = fs.readFileSync(path.join(__dirname, "..", "app", "convert.py"), "utf8");
+    check("convert.py LOCK_FLAT present strict", cvt.includes("LOCK_FLAT"));
+    check("convert.py LOCK_PHOTO present strict", cvt.includes("LOCK_PHOTO"));
+    check("convert.py _LOCK_KEYS present strict", cvt.includes("_LOCK_KEYS"));
+    check("convert.py PRESETS dict deleted strict", !cvt.includes("PRESETS = {") && !cvt.includes('PRESETS["'));
+    check("convert.py _pick_best_preset deleted strict", !cvt.includes("_pick_best_preset"));
+    check("convert.py sliders_to_params deleted strict", !cvt.includes("sliders_to_params"));
+    check("convert.py _enhance_working deleted strict", !cvt.includes("_enhance_working"));
   }
-  check("ort.js present strict", fs.existsSync(path.join(__dirname, "..", "app", "static", "model", "ort.js")));
-  check("wasm present strict", fs.existsSync(path.join(__dirname, "..", "app", "static", "model", "ort-wasm-simd.wasm")));
+  {
+    const mn = fs.readFileSync(path.join(__dirname, "..", "app", "main.py"), "utf8");
+    check("main.py /api/ai/vectorize deleted strict", !mn.includes("/api/ai/vectorize"));
+    check("main.py /api/ai/providers deleted strict", !mn.includes("/api/ai/providers"));
+    check("ai_providers module deleted strict", !fs.existsSync(path.join(__dirname, "..", "app", "ai_providers.py")));
+    check("main.py use_model field deleted strict", !mn.includes('use_model: str'));
+    check("main.py preset field deleted strict", !mn.includes('preset: str'));
+    check("main.py detail field deleted strict", !mn.includes('detail: str'));
+    check("main.py enhance field deleted strict", !mn.includes('enhance: str'));
+  }
+  {
+    const appjs = fs.readFileSync(path.join(__dirname, "..", "app", "static", "app.js"), "utf8");
+    check("app.js use_model deleted strict", !appjs.includes("use_model"));
+    check("app.js CLASSIC_PRESETS deleted strict", !appjs.includes("CLASSIC_PRESETS"));
+    check("app.js in-browser model deleted strict", !appjs.includes("modelParamsFor") && !appjs.includes("loadOrt"));
+    check("app.js AI subsystem deleted strict", !appjs.includes("/api/ai/"));
+    const htm = fs.readFileSync(path.join(__dirname, "..", "app", "static", "index.html"), "utf8");
+    check("index.html classicOptions deleted strict", !htm.includes("classicOptions"));
+    check("index.html choiceOverlay deleted strict", !htm.includes("choiceOverlay"));
+    check("index.html adv sliders deleted strict", !htm.includes("advCp"), "");
+  }
+
+  // 8b. HARDLOCK IGNORANCE — posting retired knob fields must not change output (byte-identical)
+  {
+    const teal = fs.readFileSync(path.join(__dirname, "..", "test-assets", "images", "user-provided", "teal-orbit-logo.png"));
+    async function post(fields) {
+      const form = new FormData();
+      form.append("file", new Blob([teal]), "teal-orbit-logo.png");
+      for (const [k, v] of Object.entries(fields)) form.append(k, v);
+      const res = await fetch(BASE + "/api/convert", { method: "POST", body: form });
+      const d = await res.json();
+      return res.ok ? d : null;
+    }
+    const plain = await post({});
+    const dirty = await post({
+      use_model: "1", preset: "logo", color_precision: "1", layer_difference: "40",
+      filter_speckle: "8", max_iterations: "48", corner_threshold: "10",
+      detail: "99", smoothness: "0", enhance: "1",
+    });
+    check("hardlock plain convert 200 strict", !!plain && typeof plain.svg === "string", plain ? "" : "plain failed");
+    check("hardlock dirty convert 200 strict (legacy fields accepted-ignored)", !!dirty && typeof dirty.svg === "string");
+    if (plain && dirty) {
+      check("hardlock byte-identical svg strict (knobs ignored server-side)", plain.svg === dirty.svg);
+      check("hardlock identical paths strict", plain.meta.paths === dirty.meta.paths, `${plain.meta.paths} vs ${dirty.meta.paths}`);
+    }
+  }
+
+  // 8c. PALETTE KNOB — the one remaining user-visible control must do something real
+  {
+    const teal = fs.readFileSync(path.join(__dirname, "..", "test-assets", "images", "user-provided", "teal-orbit-logo.png"));
+    async function postColors(c) {
+      const form = new FormData();
+      form.append("file", new Blob([teal]), "teal-orbit-logo.png");
+      if (c) form.append("colors", String(c));
+      const res = await fetch(BASE + "/api/convert", { method: "POST", body: form });
+      const d = await res.json();
+      return res.ok ? d : null;
+    }
+    const def = await postColors(null);
+    const c4 = await postColors(4);
+    check("palette default 200 strict", !!def && !!def.svg);
+    check("palette colors=4 200 strict", !!c4 && !!c4.svg);
+    if (def && c4) {
+      check("palette colors=4 changes output strict", def.svg !== c4.svg);
+      check("palette colors=4 meta colors <=4 strict", c4.meta.colors <= 4, `${c4.meta.colors}`);
+    }
+    const bad = await (async () => {
+      const form = new FormData();
+      form.append("file", new Blob([teal]), "teal-orbit-logo.png");
+      form.append("colors", "9999");
+      const res = await fetch(BASE + "/api/convert", { method: "POST", body: form });
+      return res.ok;
+    })();
+    check("palette colors clamped strict (9999 accepted, clamped)", bad === true);
+  }
+
+  // 8d. ROUTING MATRIX — archetype engines pinned (regression tripwire)
+  {
+    const ENG = new Set(["color-cutout", "color-tone-stack", "color-soft-stack",
+      "binary-alpha-mono", "alpha-tone-stack", "alpha-halo-stack", "alpha-halo-boost",
+      "pixel-art", "hairline", "cutout-detail-retry"]);
+    const pins = [
+      ["teal-orbit", "test-assets/images/user-provided/teal-orbit-logo.png", "alpha-halo-stack"],
+      ["blue-bird", "test-assets/images/user-provided/blue-bird-appicon.png", null],
+      ["gen-00-base", "test-assets/images/generated/gen-00-base.png", null],
+      ["gen-00downscale32", "test-assets/images/generated/gen-00downscale32.png", "pixel-art"],
+      ["gen-04-base", "test-assets/images/generated/gen-04-base.png", null],
+      ["gen-08-base", "test-assets/images/generated/gen-08-base.png", null],
+      ["gen-10-base", "test-assets/images/generated/gen-10-base.png", null],
+      ["gen-12-base", "test-assets/images/generated/gen-12-base.png", null],
+      ["gen-15blur", "test-assets/images/generated/gen-15blur.png", null],
+      ["gen-19-base", "test-assets/images/generated/gen-19-base.png", null],
+    ];
+    for (const [tag, p, expectEng] of pins) {
+      const full = path.join(__dirname, "..", p);
+      if (!fs.existsSync(full)) { check(`route ${tag} fixture exists strict`, false, "missing " + p); continue; }
+      const form = new FormData();
+      form.append("file", new Blob([fs.readFileSync(full)]), path.basename(p));
+      const res = await fetch(BASE + "/api/convert", { method: "POST", body: form });
+      const d = await res.json().catch(() => ({}));
+      check(`route ${tag} 200 strict`, res.ok, `${res.status}`);
+      if (!res.ok || !d.svg) continue;
+      const m = d.svg.match(/data-engine="([^"]+)"/);
+      const eng = m ? m[1] : null;
+      check(`route ${tag} data-engine present strict`, !!eng);
+      check(`route ${tag} engine known strict`, !!eng && ENG.has(eng), `${eng}`);
+      if (expectEng) check(`route ${tag} engine pinned = ${expectEng} strict`, eng === expectEng, `${eng}`);
+      check(`route ${tag} paths >=1 strict`, d.meta.paths >= 1, `${d.meta.paths}`);
+      check(`route ${tag} seconds <8 strict`, d.meta.seconds < 8, `${d.meta.seconds}s`);
+    }
+  }
   const datasetPath = path.join(__dirname, "..", "model", "data", "dataset.json");
   const datasetExists = fs.existsSync(datasetPath);
   check("dataset.json present strict", datasetExists);

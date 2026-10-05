@@ -118,9 +118,6 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
         if case["kind"] == "malformed":
             raw, fname = case["raw"], case["fname"]
             code, payload, ms, err = http_convert(case.get("params", {}), raw=raw, fname=fname)
-        elif case["kind"] == "ai_mode":
-            code, payload, ms, err = http_convert(case.get("params", {}), path=case["asset"],
-                                                  endpoint="/api/ai/vectorize")
         else:
             code, payload, ms, err = http_convert(case.get("params", {}), path=case["asset"])
         res["http_status"] = code
@@ -135,11 +132,6 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
             if attempt <= allow_retries and ("urlopen error" in err or "Broken pipe" in err or "reset" in err.lower()):
                 time.sleep(2.0 ** attempt)
                 continue
-            if case["kind"] == "ai_mode" and err and "API key missing" in err:
-                res["status"] = STATUS_UNSUPPORTED
-                res["note"] = "no user API key configured in sandbox; server rejects gracefully (HTTP 400)"
-                res["failure_class"] = "NONE"
-                break
             if case["kind"] == "malformed" and code in (400, 413, 415, 422, 405):
                 res["status"] = STATUS_PASS
                 res["note"] = f"malformed/unprocessable input rejected gracefully (HTTP {code})"
@@ -266,8 +258,8 @@ def build_cases() -> list[dict]:
     for a in gen_assets:
         p = f"test-assets/images/generated/{a}"
         stem = f"gen-{a[:-4]}"
-        conv(f"{stem}-model", "convert", p, "model", {"use_model": "1"})
-        conv(f"{stem}-classic", "convert", p, "classic", {"colors": "8", "detail": "50", "smoothness": "50"})
+        conv(f"{stem}-model", "convert", p, "model", {})
+        conv(f"{stem}-classic", "convert", p, "classic", {"colors": "8"})
         conv(f"{stem}-presetlogo", "convert", p, "preset:logo", {"preset": "logo"})
 
     # B. icon pairs x {classic, model, preset-icon} on two sizes (120 icons x 2 sizes x 3 = 720)
@@ -278,15 +270,15 @@ def build_cases() -> list[dict]:
                 continue
             stem = f"icon-{rec['id']}-{size[1]}"
             conv(f"{stem}-classic", "iconpair", p, "classic", {"colors": "8"})
-            conv(f"{stem}-model", "iconpair", p, "model", {"use_model": "1"})
+            conv(f"{stem}-model", "iconpair", p, "model", {})
             conv(f"{stem}-preseticon", "iconpair", p, "preset:icon", {"preset": "icon"})
 
     # C. user-provided images x 5 modes (10)
     for a in user_assets:
         p = f"test-assets/images/user-provided/{a}"
         stem = a[:-4]
-        conv(f"user-{stem}-model", "userprovided", p, "model", {"use_model": "1"})
-        conv(f"user-{stem}-classic", "userprovided", p, "classic", {"colors": "8", "detail": "50"})
+        conv(f"user-{stem}-model", "userprovided", p, "model", {})
+        conv(f"user-{stem}-classic", "userprovided", p, "classic", {"colors": "8"})
         conv(f"user-{stem}-presetlogo", "userprovided", p, "preset:logo", {"preset": "logo"})
         conv(f"user-{stem}-preseticon", "userprovided", p, "preset:icon", {"preset": "icon"})
         conv(f"user-{stem}-presetill", "userprovided", p, "preset:illustration", {"preset": "illustration"})
@@ -312,7 +304,7 @@ def build_cases() -> list[dict]:
         if not (ROOT / p).exists():
             continue
         conv(f"icon2-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
-        conv(f"icon2-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+        conv(f"icon2-{rec['id']}-model", "iconpair", p, "model", {})
 
     # G. determinism: same asset run twice, compare svg sha (150 pairs = 300)
     for a in gen_assets[:150]:
@@ -326,7 +318,7 @@ def build_cases() -> list[dict]:
         p512 = str(Path(rec["source_svg"]).parent / "input-w512.png")
         if (ROOT / p256).exists():
             conv(f"iconfull-{rec['id']}-classic", "iconpair", p256, "classic", {"colors": "8"})
-            conv(f"iconfull-{rec['id']}-model", "iconpair", p256, "model", {"use_model": "1"})
+            conv(f"iconfull-{rec['id']}-model", "iconpair", p256, "model", {})
         if (ROOT / p512).exists():
             conv(f"icon512-{rec['id']}-classic", "iconpair", p512, "classic", {"colors": "8"})
 
@@ -344,7 +336,7 @@ def build_cases() -> list[dict]:
         if not (ROOT / p).exists():
             continue
         conv(f"lucide-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
-        conv(f"lucide-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+        conv(f"lucide-{rec['id']}-model", "iconpair", p, "model", {})
     for rec in lucide_index[:300]:
         p = str(Path(rec["source_svg"]).parent / "input-w128.png")
         if (ROOT / p).exists():
@@ -357,7 +349,7 @@ def build_cases() -> list[dict]:
         if not (ROOT / p).exists():
             continue
         conv(f"boot-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
-        conv(f"boot-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+        conv(f"boot-{rec['id']}-model", "iconpair", p, "model", {})
     for rec in boot_index[:300]:
         p = str(Path(rec["source_svg"]).parent / "input-w128.png")
         if (ROOT / p).exists():
@@ -370,7 +362,7 @@ def build_cases() -> list[dict]:
         if not (ROOT / p).exists():
             continue
         conv(f"tabler-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
-        conv(f"tabler-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+        conv(f"tabler-{rec['id']}-model", "iconpair", p, "model", {})
     for rec in tabler_index[:300]:
         p = str(Path(rec["source_svg"]).parent / "input-w128.png")
         if (ROOT / p).exists():
@@ -383,7 +375,7 @@ def build_cases() -> list[dict]:
         if not (ROOT / p).exists():
             continue
         conv(f"hero-{rec['id']}-classic", "iconpair", p, "classic", {"colors": "8"})
-        conv(f"hero-{rec['id']}-model", "iconpair", p, "model", {"use_model": "1"})
+        conv(f"hero-{rec['id']}-model", "iconpair", p, "model", {})
     for rec in hero_index[:300]:
         p = str(Path(rec["source_svg"]).parent / "input-w128.png")
         if (ROOT / p).exists():
@@ -411,25 +403,16 @@ def build_cases() -> list[dict]:
     for tag, p in strict_assets:
         if (ROOT / p).exists():
             cases.append({"id": f"strict-{tag}-model", "kind": "strictaudit", "asset": p,
-                          "mode": "model", "params": {"use_model": "1"}})
+                          "mode": "model", "params": {}})
             cases.append({"id": f"strict-{tag}-classic", "kind": "strictaudit", "asset": p,
-                          "mode": "classic", "params": {"colors": "8", "detail": "50", "smoothness": "50"}})
+                          "mode": "classic", "params": {"colors": "8"}})
 
     # N. corresponding visible SVGs for every generated asset (§30 test-assets/svg/)
     for a in gen_assets:
         p = f"test-assets/images/generated/{a}"
         cases.append({"id": f"assetsvg-{a[:-4]}", "kind": "assetsvg", "asset": p,
-                      "mode": "classic", "params": {"colors": "8", "detail": "50", "smoothness": "50"},
+                      "mode": "classic", "params": {"colors": "8"},
                       "svg_out": f"test-assets/svg/{a[:-4]}.svg"})
-    try:
-        from app.ai_providers import provider_catalog
-        provs = list(provider_catalog().keys())
-    except Exception:
-        provs = []
-    for prov in provs:
-        cases.append({"id": f"provider-{prov}", "kind": "ai_mode",
-                      "asset": "test-assets/images/user-provided/teal-orbit-logo.png",
-                      "mode": "ai", "params": {"provider": prov, "model": "", "detail": "50", "colors": "8"}})
 
     # H. malformed inputs (12) - must not crash worker
     bad = [
@@ -453,13 +436,6 @@ def build_cases() -> list[dict]:
     for i, (nm, raw, fname, expect_reject) in enumerate(bad):
         cases.append({"id": f"malformed-{nm}", "kind": "malformed", "asset": None, "mode": "classic",
                       "params": {"colors": "8"}, "raw": raw, "fname": fname, "expect_reject": expect_reject})
-
-    # I. AI mode probes (3) - no user key in sandbox; expect classified failure, must not crash runner
-    for a in user_assets[:2]:
-        p = f"test-assets/images/user-provided/{a}"
-        cases.append({"id": f"aimode-{a[:-4]}", "kind": "ai_mode", "asset": p, "mode": "ai",
-                      "params": {"provider": "openrouter", "model": "", "detail": "50", "colors": "8"}})
-    return cases
 
 
 def load_state() -> dict:

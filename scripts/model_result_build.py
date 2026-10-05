@@ -25,34 +25,6 @@ REF_SVG = OUT / "absolute_test_svg.svg"
 # (2026-10-04 audit: this script previously posted use_model=1 with no
 # params, which makes /api/convert fall back to the preset picker -- the
 # sweep was measuring best-tier presets, NOT the trained model.)
-_NET_CACHE = None
-
-
-def _net():
-    global _NET_CACHE
-    if _NET_CACHE is None:
-        from model.train import forward  # noqa: F401
-        npz = np.load(str(ROOT / "model" / "out" / "params.npz"))
-        weights = sorted((k for k in npz.files if k.startswith("W")), key=lambda k: int(k[1:]))
-        pairs = []
-        for w in weights:
-            pairs += [npz[w], npz["b" + w[1:]]]
-        _NET_CACHE = pairs
-    return _NET_CACHE
-
-
-def _model_fields(p: Path) -> dict:
-    from model.features import image_features, targets_to_params
-    from model.train import forward
-
-    img = Image.open(p).convert("RGBA")
-    y, _ = forward(_net(), image_features(img)[None], training=False)
-    t = targets_to_params(y[0])
-    fields = {"mode": "model", "use_model": "1", "profile": t["profile"]}
-    for k in ("color_precision", "layer_difference", "filter_speckle", "max_iterations"):
-        fields[k] = str(t[k])
-    return fields
-
 
 def ref_similarity(svg: str, ref_svg: str, w: int, h: int) -> float:
     """Pixel-only closeness of two SVG renders (min of f_mae/ssim/iou * 100)."""
@@ -100,7 +72,7 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     index = {"generated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
              "reference": "absolute_test_svg.svg",
-             "smart_mode": "trained-net params from image features (browser-identical, 2026-10-04 fix)",
+             "smart_mode": "hardlocked params; images POST no fields (ui==sweep, 2026-10-05)",
              "entries": []}
     if REF_SVG.exists():
         index["entries"].append({
@@ -112,16 +84,8 @@ def main() -> None:
     ref_txt = REF_SVG.read_text() if REF_SVG.exists() else None
     for i, p in enumerate(pool, 1):
         eid = f"mr-{i:03d}"
-        try:
-            fields = _model_fields(p)
-        except Exception as exc:  # npz missing/broken: fail closed, don't silently drop to presets
-            index["entries"].append({"id": eid, "source": str(p.relative_to(ROOT)),
-                                     "status": "ERROR",
-                                     "error": f"model params failed: {exc}"})
-            print(f"[{eid}] ERROR model params: {exc}", flush=True)
-            continue
         code, payload, ms, err = http_convert(
-            fields, path=str(p.relative_to(ROOT)), fname=p.name)
+            {}, path=str(p.relative_to(ROOT)), fname=p.name)
         if err or not payload or not payload.get("svg"):
             index["entries"].append({"id": eid, "source": str(p.relative_to(ROOT)),
                                      "status": "ERROR", "error": err or "no svg"})
@@ -135,8 +99,6 @@ def main() -> None:
         e = res["engines"]["model"]
         entry = {"id": eid, "svg": name, "source": str(p.relative_to(ROOT)),
                  "status": "OK", "engine": eng.group(1) if eng else "?",
-                 "model_params": {k: fields[k] for k in ("profile", "color_precision",
-                                  "layer_difference", "filter_speckle", "max_iterations")},
                  "strict_similarity_pct": e["visual_similarity_pct"],
                  "strict_verdict": e["verdict"],
                  "channels": {k: e[k] for k in ("mae", "ssim12", "silhouette_iou", "edge_f1")},

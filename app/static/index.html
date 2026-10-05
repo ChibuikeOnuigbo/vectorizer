@@ -52,7 +52,7 @@ window.initLucide = initLucide;
         <div class="landing-meta">
           <span><i data-lucide="check"></i> PNG JPG WebP GIF BMP</span>
           <span><i data-lucide="check"></i> Up to 20 MB</span>
-          <span><i data-lucide="check"></i> Smart model picks best settings</span>
+          <span><i data-lucide="check"></i> Smart default tuned for your image</span>
         </div>
       </div>
     </div>
@@ -72,18 +72,10 @@ window.initLucide = initLucide;
         <p class="dz-hint">You can also paste from clipboard</p>
       </div>
       <div class="upload-controls">
-        <div class="upload-methods">
+        <div class="upload-methods upload-methods-single">
           <div class="method-card active" id="methodModel" data-method="model">
-            <h4><i data-lucide="brain"></i> Use model</h4>
-            <p>Local smart model picks the best settings free</p>
-          </div>
-          <div class="method-card" id="methodClassic" data-method="classic">
-            <h4><i data-lucide="layers"></i> No model</h4>
-            <p>Classic tracer with presets and sliders</p>
-          </div>
-          <div class="method-card" id="methodAI" data-method="ai">
-            <h4><i data-lucide="wand-2"></i> AI Assist</h4>
-            <p>A vision model redraws it using your own API key</p>
+            <h4><i data-lucide="brain"></i> Smart</h4>
+            <p>One smart default tuned for your image free</p>
           </div>
         </div>
         <div class="mode-settings" id="modelOptions">
@@ -92,38 +84,6 @@ window.initLucide = initLucide;
             <div class="slider-wrap"><input type="range" class="slider" id="mColors" min="0" max="6" value="0"></div>
             <div class="slider-meta"><span>Auto</span><span>More colors</span></div>
           </div>
-          <div class="field slider-field">
-            <div class="slider-header"><span class="slider-label"><i data-lucide="search"></i> Detail level</span><span class="slider-value" id="mDetailVal">50%</span></div>
-            <div class="slider-wrap"><input type="range" class="slider" id="mDetail" min="0" max="100" value="50"></div>
-            <div class="slider-meta"><span>Less</span><span>More</span></div>
-          </div>
-          <div class="field slider-field">
-            <div class="slider-header"><span class="slider-label"><i data-lucide="spline"></i> Corner smoothness</span><span class="slider-value" id="mSmoothVal">50</span></div>
-            <div class="slider-wrap"><input type="range" class="slider" id="mSmooth" min="0" max="100" value="50"></div>
-            <div class="slider-meta"><span>Smooth</span><span>Sharp</span></div>
-          </div>
-        </div>
-        <div class="classic-options" id="classicOptions" hidden>
-          <div class="field-select">
-            <label><i data-lucide="sparkles"></i> Classic preset</label>
-            <div class="preset-grid">
-              <button class="preset-btn active" data-preset="logo" type="button"><i data-lucide="award"></i><span>Logo</span></button>
-              <button class="preset-btn" data-preset="icon" type="button"><i data-lucide="shapes"></i><span>Icon</span></button>
-              <button class="preset-btn" data-preset="illustration" type="button"><i data-lucide="palette"></i><span>Illustration</span></button>
-              <button class="preset-btn" data-preset="lqip" type="button"><i data-lucide="image"></i><span>LQIP</span></button>
-              <button class="preset-btn" data-preset="artistic" type="button"><i data-lucide="sparkles"></i><span>Artistic</span></button>
-              <button class="preset-btn" data-preset="custom" type="button"><i data-lucide="sliders-horizontal"></i><span>Custom</span></button>
-            </div>
-          </div>
-          <label class="check-row"><input type="checkbox" id="cEnhance"><span>Clean first remove noise and simplify colors before tracing</span></label>
-          <label class="check-row"><input type="checkbox" id="cBest" checked><span>Try several presets and keep the best result</span></label>
-        </div>
-        <div class="mode-settings mode-ai-settings" id="aiOptions" hidden>
-          <div class="ai-status-row">
-            <span id="aiStatusText">No API key set</span>
-            <button class="btn btn-secondary btn-sm" id="aiOpenSettingsBtn" type="button"><i data-lucide="key-round"></i><span>AI settings</span></button>
-          </div>
-          <p class="ai-hint">Uses your own API key from OpenRouter OpenAI Anthropic Gemini xAI Mistral Groq Together DeepInfra or Fireworks. Key stays in your browser. Quality and cost depend on the model you pick.</p>
         </div>
         <button class="btn btn-primary" id="convertBtn" type="button"><i data-lucide="zap"></i><span class="btn-label">Convert</span></button>
       </div>
@@ -172,7 +132,6 @@ window.initLucide = initLucide;
           <button class="btn btn-ghost" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
           <button class="btn btn-secondary" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
           <button class="btn btn-ghost" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
-          <button class="btn btn-secondary" id="aiStudioBtn" type="button" title="Ask a vision model to redraw using your own API key"><i data-lucide="wand-2"></i><span>Redo with AI</span></button>
         </div>
       </div>
     </div>
@@ -225,36 +184,6 @@ window.initLucide = initLucide;
       </div>
       <aside class="advanced-sidebar">
         <div class="sidebar-card">
-          <button class="sidebar-head" type="button" data-toggle="params"><h3><i data-lucide="sliders-horizontal"></i> Vectorization settings</h3><i data-lucide="chevron-down"></i></button>
-          <div class="sidebar-body" id="paramsBody">
-            <div class="field field-select">
-              <label><i data-lucide="layers"></i> Profile</label>
-              <select id="advProfile"><option value="flat">Flat</option><option value="photo">Photo</option></select>
-            </div>
-            <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i data-lucide="palette"></i> Color precision</span><span class="slider-value" id="advCpVal">6</span></div>
-              <div class="slider-wrap"><input type="range" class="slider" id="advCp" min="1" max="8" value="6"></div>
-              <div class="slider-meta"><span>Simple</span><span>Detailed</span></div>
-            </div>
-            <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i data-lucide="group"></i> Layer difference</span><span class="slider-value" id="advLdVal">16</span></div>
-              <div class="slider-wrap"><input type="range" class="slider" id="advLd" min="6" max="40" value="16"></div>
-              <div class="slider-meta"><span>Tight</span><span>Loose</span></div>
-            </div>
-            <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i data-lucide="filter"></i> Filter speckle</span><span class="slider-value" id="advFsVal">4</span></div>
-              <div class="slider-wrap"><input type="range" class="slider" id="advFs" min="0" max="3" value="2" step="1"></div>
-              <div class="slider-meta"><span>Keep small</span><span>Remove small</span></div>
-            </div>
-            <div class="field slider-field">
-              <div class="slider-header"><span class="slider-label"><i data-lucide="repeat"></i> Max iterations</span><span class="slider-value" id="advMiVal">18</span></div>
-              <div class="slider-wrap"><input type="range" class="slider" id="advMi" min="8" max="48" value="18"></div>
-              <div class="slider-meta"><span>Fast</span><span>Precise</span></div>
-            </div>
-            <button class="btn btn-secondary btn-sm" id="advReconvertBtn" type="button"><i data-lucide="rotate-ccw"></i><span>Reconvert with these settings</span></button>
-          </div>
-        </div>
-        <div class="sidebar-card">
           <button class="sidebar-head" type="button" data-toggle="inspect"><h3><i data-lucide="search"></i> Inspection</h3><i data-lucide="chevron-down"></i></button>
           <div class="sidebar-body" id="inspectBody">
             <div class="inspect-row"><span>Colors</span><strong id="inspectColors">—</strong></div>
@@ -275,81 +204,6 @@ window.initLucide = initLucide;
     <i data-lucide="cloud-upload"></i>
     <p>Drop your image to convert</p>
     <small>Only when you want to upload a new image</small>
-  </div>
-</div>
-
-<!-- Choice modal after upload two options Simple Studio Advanced Studio -->
-<div class="choice-overlay" id="choiceOverlay" hidden>
-  <div class="choice-inner">
-    <h2>Vector ready choose workspace</h2>
-    <p>Pick where you want to work with your new vector</p>
-    <div class="choice-grid">
-      <div class="choice-card" id="choiceSimple" data-choice="simple">
-        <div class="choice-card-icon"><i data-lucide="sparkles"></i></div>
-        <h3>Simple Studio</h3>
-        <small>Clean focused view source and vector essential controls perfect for quick work</small>
-      </div>
-      <div class="choice-card" id="choiceAdvanced" data-choice="advanced">
-        <div class="choice-card-icon"><i data-lucide="sliders-horizontal"></i></div>
-        <h3>Advanced Studio</h3>
-        <small>Deeper control detailed inspection sliders compare and pro tools</small>
-      </div>
-    </div>
-    <div style="display:flex; gap:10px; justify-content:center; margin-top:8px;">
-      <button class="btn btn-ghost btn-sm" id="choiceCloseBtn" type="button"><i data-lucide="x"></i><span>Close</span></button>
-    </div>
-  </div>
-</div>
-
-<!-- AI settings modal: user's own key, stored only in this browser -->
-<div class="choice-overlay" id="aiOverlay" hidden>
-  <div class="ai-modal" role="dialog" aria-modal="true" aria-label="AI settings">
-    <div class="ai-modal-head">
-      <h2><i data-lucide="key-round"></i> AI Assist settings</h2>
-      <button class="icon-btn" id="aiCloseBtn" type="button" title="Close" aria-label="Close"><i data-lucide="x"></i></button>
-    </div>
-    <div class="ai-modal-body">
-      <div class="field field-select">
-        <label><i data-lucide="server"></i> Provider</label>
-        <select id="aiProvider"></select>
-      </div>
-      <div class="field field-select">
-        <label><i data-lucide="cpu"></i> Model</label>
-        <select id="aiModel"></select>
-      </div>
-      <div class="field">
-        <label for="aiKey"><i data-lucide="key"></i> API key from your provider</label>
-        <input type="password" id="aiKey" autocomplete="off" spellcheck="false" placeholder="Paste your key">
-      </div>
-      <div class="field field-select">
-        <label><i data-lucide="search"></i> Detail</label>
-        <select id="aiDetail">
-          <option value="auto" selected>Auto</option>
-          <option value="low">Low simple output</option>
-          <option value="high">High keep more detail</option>
-        </select>
-      </div>
-      <div class="field slider-field">
-        <div class="slider-header"><span class="slider-label"><i data-lucide="palette"></i> Max colors</span><span class="slider-value" id="aiColorsVal">16</span></div>
-        <div class="slider-wrap"><input type="range" class="slider" id="aiColors" min="2" max="64" value="16"></div>
-        <div class="slider-meta"><span>2</span><span>64</span></div>
-      </div>
-      <div class="ai-security" id="aiSecurity">
-        <p><strong><i data-lucide="shield-check"></i> Security and cost</strong></p>
-        <ul>
-          <li>Your key is stored only in this browser local storage on this site. It is never saved in cookies or sent anywhere else.</li>
-          <li>On convert your image and key travel together to the provider you picked through this app server which forwards them once without storing or logging either.</li>
-          <li>Billing rules and privacy terms of that provider apply to that call and they are your responsibility.</li>
-          <li>Recommended create a fresh key set a low monthly spend limit if the provider offers one and revoke the key when you finish.</li>
-          <li>OpenRouter gives one key for all models including free vision models. Google AI Studio gives a free Gemini key with a generous free tier.</li>
-        </ul>
-        <a id="aiKeysLink" href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">Get a key <i data-lucide="external-link"></i></a>
-      </div>
-    </div>
-    <div class="ai-modal-actions">
-      <button class="btn btn-secondary btn-sm" id="aiClearBtn" type="button"><i data-lucide="trash-2"></i><span>Remove key</span></button>
-      <button class="btn btn-primary btn-sm" id="aiSaveBtn" type="button"><i data-lucide="check"></i><span>Save settings</span></button>
-    </div>
   </div>
 </div>
 
