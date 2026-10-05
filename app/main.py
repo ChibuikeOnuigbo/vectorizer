@@ -381,3 +381,9 @@ def manual_verdicts(limit: int = 300):
     good = sum(1 for v in out if v.get("verdict") == "good")
     bad = sum(1 for v in out if v.get("verdict") == "bad")
     return {"total": len(out), "good": good, "bad": bad, "verdicts": out}
+
+
+app.mount("/static", StaticFiles(directory=STATIC), name="static")
+_MODEL_RESULT_DIR = BASE.parent / "model_result"
+app.mount("/model_result", StaticFiles(directory=_MODEL_RESULT_DIR, html=True),
+          name="model_result")
