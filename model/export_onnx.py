@@ -85,7 +85,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--npz", default="model/out/params.npz")
     ap.add_argument("--out", default="model/out/params.onnx")
-    ap.add_argument("--copy-to", default="app/static/model")
+    ap.add_argument("--copy-to", default="",
+                    help="optional extra copy target (experiments only; the "
+                         "app no longer ships an in-browser ONNX model)")
     args = ap.parse_args()
 
     z = np.load(args.npz, allow_pickle=True)

@@ -12,7 +12,9 @@ Design rules
   model/out) can never destroy progress again:
     - model_data_snapshot/params.npz.gz      -> network weights
     - model_data_snapshot/data_parts/*.part -> scored dataset chunks (gz)
-    - app/static/model/params.onnx          -> shipped web model
+    (pre-simplification this also shipped app/static/model/params.onnx as
+    the browser-side model; retired 2026-10-05 -- the server hardlocks the
+    vtracer numerics now, so the param-net is training-side only.)
   On start, if the live copies are missing they are restored from
   these committed artifacts.
 * Only commits/pushes on real improvement (val score >= last push + 0.3,
@@ -360,8 +362,11 @@ def train_chunk(prog: dict) -> tuple[int, float]:
 
 
 def export_onnx_live():
-    r = sh([sys.executable, "-m", "model.export_onnx",
-            "--copy-to", "app/static/model"])
+    # Simplification era (2026-10-05): the browser no longer ships an ONNX
+    # param-net (app/static/model deleted; server hardlocks vtracer numerics).
+    # Export to model/out/ ONLY -- never copy into app/static, or the trainer
+    # resurrects the retired in-browser model files on every val improvement.
+    r = sh([sys.executable, "-m", "model.export_onnx"])
     tail = (r.stdout or "").strip().splitlines()
     log("onnx export:", tail[-1] if tail else "done")
 
@@ -373,7 +378,7 @@ def git_commit_push(prog: dict, reason: str, force: bool = False):
                       and prog.get("committed_val", 0.0) + EPOCH_TOL > prog.get("best_val", 0.0)):
         return False
     snap_state()
-    r = sh(["git", "add", "-A", "model_data_snapshot/", "app/static/model/"])
+    r = sh(["git", "add", "-A", "model_data_snapshot/"])
     r = sh(["git", "commit", "--no-verify", "-m",
             f"forever-train: {reason} steps={prog['steps_total']} "
             f"best_val={prog.get('best_val', 0):.2f} "
