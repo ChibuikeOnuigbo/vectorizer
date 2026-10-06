@@ -1,7 +1,7 @@
 {
   "generated_by": "qa/inventory.py",
   "branch": "arena/01a0aab7-vectorizer",
-  "commit": "06af8e407",
+  "commit": "0a60f3e01",
   "source_dirs": {
     "app/": "FastAPI backend + static frontend",
     "model/": "training, dataset gen, scoring, onnx export",
@@ -25,14 +25,6 @@
     {
       "method": "POST",
       "path": "/api/convert"
-    },
-    {
-      "method": "GET",
-      "path": "/api/ai/providers"
-    },
-    {
-      "method": "POST",
-      "path": "/api/ai/vectorize"
     },
     {
       "method": "POST",
@@ -76,17 +68,8 @@
     }
   ],
   "vectorize_modes": {
-    "classic_engine": "POST /api/convert with sliders (colors/detail/smoothness), optional preset best-tier",
-    "model": "POST /api/convert use_model=1 (trained params)",
-    "presets": [
-      "logo",
-      "icon",
-      "illustration",
-      "lqip",
-      "artistic",
-      "custom"
-    ],
-    "ai_assist": "POST /api/ai/vectorize (user's own API key, 11 providers)"
+    "smart": "POST /api/convert (image + optional colors palette knob; vtracer numerics hardlocked LOCK_* since 2026-10-05)",
+    "retired_2026-10-05": "model/classic presets/AI-assist (use_model, PRESETS, /api/ai/*) deleted"
   },
   "model_modules": [
     "add_ai_logos.py",
@@ -106,8 +89,6 @@
     "verdicts.py"
   ],
   "qa_infra": [
-    "qa/__pycache__/runner.cpython-311.pyc",
-    "qa/__pycache__/svg_analysis.cpython-311.pyc",
     "qa/ai_svg_analysis.py",
     "qa/artifacts/blue-bird-appicon-classic.svg",
     "qa/artifacts/blue-bird-appicon-model.svg",
@@ -117,6 +98,10 @@
     "qa/artifacts/svg_analysis_teal-orbit-logo-model.json",
     "qa/artifacts/teal-orbit-logo-classic.svg",
     "qa/artifacts/teal-orbit-logo-model.svg",
+    "qa/audits/absolute_test_svg/teal-orbit-logo_similarity.json",
+    "qa/audits/blue-bird/blue-bird-appicon_similarity.json",
+    "qa/audits/teal-orbit/teal-orbit-logo_similarity.json",
+    "qa/bad.txt",
     "qa/cloudinary_reference.md",
     "qa/compare_pairs.py",
     "qa/holes.mjs",
@@ -496,10 +481,10 @@
     "qa/node_modules/wrappy/wrappy.js",
     "qa/package-lock.json",
     "qa/package.json",
+    "qa/qa-summary.json",
     "qa/qa_ai_flow.mjs",
     "qa/qa_final_pass.mjs",
     "qa/qa_proof_report.mjs",
-    "qa/qa_reference_workflow.mjs",
     "qa/qa_regressions.mjs",
     "qa/results/_icon_compare.json",
     "qa/results/_summary.json",
@@ -27698,6 +27683,58 @@
     "qa/results/provider-openrouter.json",
     "qa/results/provider-together.json",
     "qa/results/provider-xai.json",
+    "qa/results/strict-gen-00-base-classic.json",
+    "qa/results/strict-gen-00-base-model.json",
+    "qa/results/strict-gen-01-base-classic.json",
+    "qa/results/strict-gen-01-base-model.json",
+    "qa/results/strict-gen-02-base-classic.json",
+    "qa/results/strict-gen-02-base-model.json",
+    "qa/results/strict-gen-03-base-classic.json",
+    "qa/results/strict-gen-03-base-model.json",
+    "qa/results/strict-gen-04-base-classic.json",
+    "qa/results/strict-gen-04-base-model.json",
+    "qa/results/strict-gen-05-base-classic.json",
+    "qa/results/strict-gen-05-base-model.json",
+    "qa/results/strict-gen-06-base-classic.json",
+    "qa/results/strict-gen-06-base-model.json",
+    "qa/results/strict-gen-07-base-classic.json",
+    "qa/results/strict-gen-07-base-model.json",
+    "qa/results/strict-gen-08-base-classic.json",
+    "qa/results/strict-gen-08-base-model.json",
+    "qa/results/strict-gen-09-base-classic.json",
+    "qa/results/strict-gen-09-base-model.json",
+    "qa/results/strict-gen-10-base-classic.json",
+    "qa/results/strict-gen-10-base-model.json",
+    "qa/results/strict-gen-11-base-classic.json",
+    "qa/results/strict-gen-11-base-model.json",
+    "qa/results/strict-gen-12-base-classic.json",
+    "qa/results/strict-gen-12-base-model.json",
+    "qa/results/strict-gen-13-base-classic.json",
+    "qa/results/strict-gen-13-base-model.json",
+    "qa/results/strict-gen-14-base-classic.json",
+    "qa/results/strict-gen-14-base-model.json",
+    "qa/results/strict-gen-15-base-classic.json",
+    "qa/results/strict-gen-15-base-model.json",
+    "qa/results/strict-gen-16-base-classic.json",
+    "qa/results/strict-gen-16-base-model.json",
+    "qa/results/strict-gen-17-base-classic.json",
+    "qa/results/strict-gen-17-base-model.json",
+    "qa/results/strict-gen-18-base-classic.json",
+    "qa/results/strict-gen-18-base-model.json",
+    "qa/results/strict-gen-19-base-classic.json",
+    "qa/results/strict-gen-19-base-model.json",
+    "qa/results/strict-gen-20-base-classic.json",
+    "qa/results/strict-gen-20-base-model.json",
+    "qa/results/strict-gen-21-base-classic.json",
+    "qa/results/strict-gen-21-base-model.json",
+    "qa/results/strict-gen-22-base-classic.json",
+    "qa/results/strict-gen-22-base-model.json",
+    "qa/results/strict-gen-23-base-classic.json",
+    "qa/results/strict-gen-23-base-model.json",
+    "qa/results/strict-user-bird-classic.json",
+    "qa/results/strict-user-bird-model.json",
+    "qa/results/strict-user-teal-classic.json",
+    "qa/results/strict-user-teal-model.json",
     "qa/results/sweep-edge-1x1-c16-d25.json",
     "qa/results/sweep-edge-1x1-c16-d75.json",
     "qa/results/sweep-edge-1x1-c2-d25.json",
@@ -40253,19 +40290,26 @@
     "qa/screenshots/finalpass/finalpass.json",
     "qa/screenshots/reference/reference-comparison.json",
     "qa/screenshots/regressions/regressions.json",
-    "qa/svg_analysis.py"
+    "qa/screenshots/top10/index.json",
+    "qa/screenshots/top10/index_core.json",
+    "qa/shot_boost.mjs",
+    "qa/shot_gallery.mjs",
+    "qa/shot_simplified_flow.mjs",
+    "qa/similarity_audit.py",
+    "qa/svg_analysis.py",
+    "qa/top_gallery.py"
   ],
   "dataset_pipeline": {
     "scripts": [
       "build_manifest.py",
-      "extract_bootstrap.py",
-      "extract_lucide.py",
       "extract_pairs.py",
       "gen_corpus.py",
-      "near_dup.py",
       "render_pairs.py",
+      "extract_bootstrap.py",
+      "extract_hero.py",
+      "extract_lucide.py",
       "extract_tabler.py",
-      "extract_hero.py"
+      "near_dup.py"
     ],
     "families": [
       {
