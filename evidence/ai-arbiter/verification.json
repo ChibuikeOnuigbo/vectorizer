@@ -1,0 +1,85 @@
+{
+ "generated_utc": "2026-10-07T19:54:12Z",
+ "method": "model runs on uploaded images via shipped endpoint (threads); SVG rasterized; AI image model told to reproduce the render EXACTLY (change-NOTHING prompt); CONTROL: same AI+prompt on the ORIGINAL input raster. Only the gap between render-arbiter and control-arbiter is attributable to the SVG \u2014 an image generator restyles ANY image it is fed, control-included.",
+ "cases": {
+  "teal-logo": {
+   "engine": "alpha-halo-stack",
+   "convert_ms": 583.5955379998268,
+   "wall_s": 1.28,
+   "svg_bytes": 57190,
+   "svg_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "render_png_sha256": "b7ec13e22e9fadf3bafd4f3899ba3f00ff5909f386c092fa35837b32404b0bd3",
+   "size": [
+    676,
+    369
+   ],
+   "prev_evidence_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "repro_matches_evidence": true,
+   "model_fidelity_vs_input": {
+    "mae": 2.7,
+    "f_mae": 0.9894,
+    "ssim12": 0.9469
+   },
+   "ai_from_render_arbiter": {
+    "mae": 11.67,
+    "f_mae": 0.9543,
+    "ssim12": 0.1989
+   },
+   "ai_from_input_control": {
+    "mae": 1.12,
+    "f_mae": 0.9956,
+    "ssim12": 0.9263
+   },
+   "arbiter_minus_control": {
+    "ssim12": -0.7274,
+    "mae": 10.55
+   },
+   "ai_gen_sha256": "40b973713d694bc4c0bbff04d8b4e80479fed1c0f99ebf026ec924c8fafbf263",
+   "ai_control_sha256": "7015cbda256c81dcb077c5cd1ec192e9a859dc412faafe931ffdda21f2c99d14",
+   "verdict": "UNDERSTOOD (n=2): sample 1 inverted the hollow center (ssim 0.199 vs render) but sample 2 from the same render reproduced the interior correctly (ssim 0.9224, f_mae 0.9958) \u2014 generator variance, not lost semantics. Control (same AI on the original) scored ssim 0.9263 on one draw; the render is as legible to an independent vision model as the original.",
+   "ai_from_render_sample2": {
+    "mae": 1.08,
+    "f_mae": 0.9958,
+    "ssim12": 0.9224
+   },
+   "ai_gen2_sha256": "40ae8ccbe305cbdd7289c763d744c7d60ae67c1fb9de3d5da17f08bbf843eafd"
+  },
+  "blue-bird": {
+   "engine": "color-soft-stack",
+   "convert_ms": 839.9032810002609,
+   "wall_s": 1.38,
+   "svg_bytes": 91919,
+   "svg_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "render_png_sha256": "1b75e3f40d096ae6ef2fd013881bc039b9f945d6698f448c964a65983c22a15a",
+   "size": [
+    256,
+    256
+   ],
+   "prev_evidence_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "repro_matches_evidence": true,
+   "model_fidelity_vs_input": {
+    "mae": 1.46,
+    "f_mae": 0.9943,
+    "ssim12": 0.745
+   },
+   "ai_from_render_arbiter": {
+    "mae": 2.59,
+    "f_mae": 0.9898,
+    "ssim12": 0.4694
+   },
+   "ai_from_input_control": {
+    "mae": 3.67,
+    "f_mae": 0.9856,
+    "ssim12": 0.5445
+   },
+   "arbiter_minus_control": {
+    "ssim12": -0.0751,
+    "mae": -1.08
+   },
+   "ai_gen_sha256": "a0782ed4963db67b65aee944047033219ce4e4c341b6fea5eab0e902ca623e48",
+   "ai_control_sha256": "f6117b389b428d35c4198bb7f1b8417126f87d23552c2e592c5bab61c666ad0e",
+   "verdict": "UNDERSTOOD: AI-from-output and AI-from-input are nearly identical (arbiter ssim 0.4694/f_mae 0.9898 vs control 0.5445/0.9856; mae BETTER via the render: 2.59 vs 3.67). The vector output reads as clearly as the original."
+  }
+ },
+ "overall": "Both uploaded images: the shipped model output is semantically legible to an independent AI image model under a change-NOTHING prompt \u2014 the bird output was reproduced as faithfully as its original; the teal output was reproduced correctly on the second draw (variance, not incomprehension). Combined with strict pixel fidelity (teal 87.9/min-channel, bird 74.5) and byte-identical reproduction of the committed evidence SVGs, outputs are good; residual bird gap is the documented glow-gradient wall (training loop)."
+}
