@@ -1127,7 +1127,11 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     # QA/experiment callers pass _unlock=True to bypass this.
     if not params.get("_unlock"):
         pal = params.get("_palette")  # {"cp": n, "max_inks": n} from the one user knob
-        params = {k: v for k, v in params.items() if k in ("engine", "profile")}
+        # _palette must survive too: downstream routes (soft-stack pal_inks,
+        # the fallback A/B skip) read it — the strip used to drop it, which
+        # contradicted the "survives the hardlock strip" contract documented
+        # in vectorize() (latent until routes started reading it 2026-10-07).
+        params = {k: v for k, v in params.items() if k in ("engine", "profile", "_palette")}
         if pal:
             params["color_precision"] = pal["cp"]
             params["max_inks"] = pal["max_inks"]
@@ -1232,6 +1236,28 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         b = _soft_alpha_boost(a)
         if b is not None:
             return _trace_boost_halo(b, params)
+        if not params.get("_palette"):
+            # (_palette = explicit user palette-size request: the knob's color
+            # bound is a cutout-family contract the soft-stack's re-attached
+            # glow bands cannot honor — palette checks measured 35 colors at
+            # colors=4 when the A/B below swapped the route. Knobbed requests
+            # keep the historical path: engine gates above, then cutout.)
+            # Plain-fallback A/B (v6 wall evidence 2026-10-07): rows that reach
+            # this point were claimed by NO family gate, and the v6 sweep's 55
+            # strict-FAILs clustered exactly here — the default 3-ink cutout
+            # merged distinct brand colors (IoU 0.65-0.69) while forced
+            # color-soft-stack flipped 22/55 FAIL->PASS and 12/55 FAIL->WEAK
+            # (mean +15.2). The probe's only losses sat in the mono-alpha
+            # family, which the gates ABOVE divert before this point, so they
+            # cannot be reached here. Render both candidates and keep the
+            # soft-stack only when the calibrated judge (_ab_svg_score,
+            # IoU*40+color*60) prefers it by the melt route's +5 margin;
+            # measured per image, never fixed.
+            ss_svg = _trace_color_soft_stack(a, params)
+            base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
+            if _ab_svg_score(a["img"], ss_svg) > _ab_svg_score(a["img"], base_svg) + 5.0:
+                return ss_svg
+            return base_svg
 
     return _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
 

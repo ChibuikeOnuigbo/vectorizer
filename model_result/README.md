@@ -6,6 +6,30 @@ regenerated against live code, each with an honest strict-similarity score
 
 ## 2026-10-07 improvement cycle (measured)
 
+- **Sweep v7 — plain-fallback A/B routing fix** (this folder, current):
+  399 rows + reference — **237 PASS / 116 WEAK / 46 FAIL, avg 84.74**
+  (v6: 199/145/55 avg 81.89). Honest same-row overlap v6→v7 (205 rows):
+  **85.84 → 88.31 (+2.47)**; flips 2 FAIL→PASS + 20 WEAK→PASS, **0 PASS
+  losses, 0 rows regressed**. Cause (v6 wall triage): 50/55 v6 FAIL rows
+  were strict-ssim-limited degradations, but the clean/flat sub-family
+  reached the last-resort cutout whose 3-ink default merged brand colors
+  (IoU 0.65) while color-soft-stack scored 93.7 on them. The router now
+  renders BOTH candidates at the plain fallback and keeps soft-stack only
+  when the calibrated judge (`_ab_svg_score`) prefers it by the melt
+  route's +5 margin — measured per image, never a fixed preference, and
+  skipped for explicit palette-knob requests (their ≤N-color contract is
+  cutout-family only). Verified through the shipped endpoint with no
+  fields: 85-row A/B (55 FAIL + 30 PASS controls) flipped 12 FAIL→PASS /
+  1 FAIL→WEAK with 0 control regressions; mono-alpha family untouched
+  (gates divert before the fallback); mean convert 0.76s. Two latent bugs
+  found en route: `_palette` was dropped by the trace_with hardlock strip
+  (contradicting its documented "survives" intent — latent until a route
+  read it) — one-line repair; gate run then confirmed palette knob
+  meta-honors ≤N again (35-colors-at-colors=4 regression caught by
+  checks 0078-0081 and fixed the same cycle). Remaining 46 FAILs are the
+  honest wall: blur5/6, heavy noise, rotation extremes (soft-stack forced
+  gains nothing there — training loop owns them). Bird 74.5 / teal 87.9
+  unchanged (different routes, verified stable).
 - **Sweep v6** (post scorer + DoS fixes, rotated corpus): 399 rows +
   reference — **199 PASS / 145 WEAK / 55 FAIL, avg 81.89**. On the 203
   stable generated/user rows: 85.46 → 85.95 (+0.49); one verdict flip:
