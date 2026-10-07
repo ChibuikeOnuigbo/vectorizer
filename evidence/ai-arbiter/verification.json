@@ -81,5 +81,49 @@
    "verdict": "UNDERSTOOD: AI-from-output and AI-from-input are nearly identical (arbiter ssim 0.4694/f_mae 0.9898 vs control 0.5445/0.9856; mae BETTER via the render: 2.59 vs 3.67). The vector output reads as clearly as the original."
   }
  },
- "overall": "Both uploaded images: the shipped model output is semantically legible to an independent AI image model under a change-NOTHING prompt \u2014 the bird output was reproduced as faithfully as its original; the teal output was reproduced correctly on the second draw (variance, not incomprehension). Combined with strict pixel fidelity (teal 87.9/min-channel, bird 74.5) and byte-identical reproduction of the committed evidence SVGs, outputs are good; residual bird gap is the documented glow-gradient wall (training loop)."
+ "overall": "Both uploaded images: the shipped model output is semantically legible to an independent AI image model under a change-NOTHING prompt \u2014 the bird output was reproduced as faithfully as its original; the teal output was reproduced correctly on the second draw (variance, not incomprehension). Combined with strict pixel fidelity (teal 87.9/min-channel, bird 74.5) and byte-identical reproduction of the committed evidence SVGs, outputs are good; residual bird gap is the documented glow-gradient wall (training loop).",
+ "round2_neutral_prompt": {
+  "ts": "2026-10-07T21:57:33Z",
+  "why": "User: never describe how the image looks \u2014 describing it steered the generator (round-1 teal draw#1 dark-center inversion was very likely prompt-induced). Round 2 uses one identical identity-copy prompt for renders AND controls: same image, same lighting, same everything, no content words.",
+  "prompt": "Copy task, not a creation task. Reproduce the attached image as-is. Output the SAME image: same composition, same colors, same lighting, same background, same shapes, every detail identical, pixel-faithful. Do not interpret, do not describe, do not restyle, do not add anything, do not remove anything, do not change the lighting or the background. It must be the same image, same everything.",
+  "teal-logo": {
+   "arbiter_render": {
+    "mae": 1.51,
+    "f_mae": 0.9941,
+    "ssim12": 0.9167
+   },
+   "control_input": {
+    "mae": 2.93,
+    "f_mae": 0.9885,
+    "ssim12": 0.9237
+   },
+   "gap_arbiter_vs_control": {
+    "ssim12": -0.007,
+    "mae": -1.42
+   },
+   "ai_n2_sha256": "939ae036e66107779fc4bc66aa1fcbb01eef6abaa297ff6ee215911d0ea57308",
+   "ctl_n2_sha256": "7eeb7502687de43ea2d00e760121218daaa938da4968fb7e58e091132c75cebb",
+   "verdict_n2": "UNDERSTOOD (neutral prompt): arbiter ssim 0.9167 / mae 1.51 ~= control 0.9237 / 2.93 (arbiter marginally BETTER on mae). Confirms round-1 draw#1 dark-center inversion was prompt-induced (the prompt described a \"dark center\"), NOT a rendering legibility defect."
+  },
+  "blue-bird": {
+   "arbiter_render": {
+    "mae": 57.37,
+    "f_mae": 0.775,
+    "ssim12": 0.1455
+   },
+   "control_input": {
+    "mae": 1.88,
+    "f_mae": 0.9926,
+    "ssim12": 0.5002
+   },
+   "gap_arbiter_vs_control": {
+    "ssim12": -0.3547,
+    "mae": 55.49
+   },
+   "ai_n2_sha256": "0496d66e02fb886eacd7c1c0bea6ab15c37c4a8c63ba4509e35cfea138a1a544",
+   "ctl_n2_sha256": "beba7f13d3980b15c640445b5a46ab927b2656aeb11b79e7297e3921bc9c32fe",
+   "verdict_n2": "BIRD SHAPE UNDERSTOOD, BACKGROUND GLOW FLAGGED: the AI preserved the bird/tile shapes from the render but replaced the white surround with a full-frame cyan wash (arbiter ssim 0.1455 / mae 57.37 vs control 0.5002 / 1.88). The control (AI on the ORIGINAL input) kept white, so the diff maps to a real, visible trait of the current output: its tile surround is a wide, diffuse glow halo (stronger than the input's). This is the documented glow-gradient wall behind the 74.5% fidelity \u2014 owned by the training loop (now completed: 70,005 images, best_val 99.54), code-side engines/knobs probed closed."
+  }
+ },
+ "overall_n2": "Teal output: semantically legible (passes the change-NOTHING arbiter at control level). Bird output: bird understood; the diffuse glow halo outside the tile is the one trait an independent AI changed \u2014 the honest remaining gap, already assigned to training."
 }
