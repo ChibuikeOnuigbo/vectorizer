@@ -128,8 +128,32 @@ def restore_from_snapshots():
                 ex = []
             known = {r["name"] for r in ex}
             ex += [r for r in recs if r["name"] not in known]
+            # phantom-filter AT RESTORE TIME (vet 2026-10-07): committed
+            # parts include records whose pixels were rotated away (e.g.
+            # initial-era data/small/*); without this filter the window
+            # carries known-missing rows for the WHOLE iteration (restore ->
+            # extend_dataset gap), and every QA dataset row sampled from
+            # them false-fails (the recurring text_300_* noise class).
+            ex = [r for r in ex if r.get("path") and
+                  (Path(r["path"]).exists() or (ROOT / r["path"]).exists())]
             dj.write_text(json.dumps(ex))
             restored.append(f"parts+{len(recs)}")
+    # phantom-filter EVERY restore (vet 2026-10-07): records whose pixels
+    # were rotated away (initial-era data/small/*, manual/*, old corpus
+    # epochs) must not sit in the rolling window -- every QA dataset row
+    # sampled from them false-fails (the recurring text_300_* noise class;
+    # gate also ghost-skips as belt-and-braces). Runs even when dataset.json
+    # already exists, i.e. at every iteration start, not only post-wipe.
+    if dj.exists():
+        try:
+            cur = json.loads(dj.read_text())
+        except Exception:
+            cur = []
+        keep = [r for r in cur if r.get("path") and
+                (Path(r["path"]).exists() or (ROOT / r["path"]).exists())]
+        if len(keep) != len(cur):
+            dj.write_text(json.dumps(keep))
+            restored.append(f"phantoms-{len(cur)-len(keep)}")
     if restored:
         log("restored from snapshots:", ", ".join(restored))
 

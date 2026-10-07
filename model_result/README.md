@@ -4,6 +4,30 @@
 regenerated against live code, each with an honest strict-similarity score
 (no inflated 100s — the QA authority is `qa/similarity_audit.py`).
 
+## 2026-10-07 improvement cycle (measured)
+
+- **Sweep v6** (post scorer + DoS fixes, rotated corpus): 399 rows +
+  reference — **199 PASS / 145 WEAK / 55 FAIL, avg 81.89**. On the 203
+  stable generated/user rows: 85.46 → 85.95 (+0.49); one verdict flip:
+  edge-1x1 FAIL 0.0 → PASS 100.0 (the ssim_block tiny-image fix working
+  exactly as designed; pixel-perfect all along).
+- **Bird ceiling probed, honestly closed**: full engine ladder on
+  blue-bird (strict audit): soft-stack 74.5 > pixel-art 68.5 > tone-stack
+  63.5 > cutout 50.6 > hairline 0.0; palette knob at 32/64/128 all give an
+  identical 11-ink 72.7 (the knob only REDUCES; the default is the
+  richest banding). No code-side lever remains that does not violate the
+  calibration — residual gap stays with the training loop.
+- **Phantom-window noise class eliminated at the root**: committed
+  data_parts re-merge on every trainer iteration and re-introduced
+  records pointing at rotated-away pixels (initial-era data/small/*,
+  manual/*), so QA sampled-ghost rows false-failed ~60 checks/run.
+  Trainer now phantom-filters dataset.json at EVERY restore (first run:
+  `phantoms-14960` purged); the gate additionally ghost-skips missing
+  pixels and hard-fails only above 20% ghost rate.
+- **Pixel-bomb guard**: /api/convert header-checks dimensions and 413s
+  >64MP total before any raster allocation (was: 100MB+ rasters loaded
+  with only a PIL warning).
+
 ## 2026-10-05 hardlock era: UI == sweep 1:1 (measured)
 
 Simplification mandate end-state: the UI exposes exactly **one** control
