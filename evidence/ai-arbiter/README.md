@@ -1,5 +1,25 @@
 # AI-arbiter verification (2026-10-07)
 
+**READ THIS FIRST — what to look at:** `teal-logo-FINAL.png` and
+`blue-bird-FINAL.png`. Each FINAL quad has the 4 verification stages as
+tiles: **1.** your uploaded input → **2.** the model's SVG output, rendered
+→ **3.** an independent AI told "output the SAME image, same lighting,
+change nothing" given stage 2 — if the output were incomprehensible/terrible
+the AI could not copy it → **4.** the identical AI+prompt given your
+*original* (control: the AI restyles ANY image it is fed, so stage-3 quality
+only means something relative to stage 4).
+
+**Why older AI tiles in this folder look worse (and why the first one looked
+"horrible"):** `*-aigen.png`, `teal-logo-aigen2.png`, `*-aictrol.png`,
+`*-triple.png`, `*-quad.png` are **round 1, superseded**. In round 1 the gen
+prompt *described* the scene ("teal orbital rings around a dark center",
+"small blue bird") — the description itself steered the generator (the
+horrible teal tile literally painted the prompt's words: a dark-filled
+center). Round 2 applies the user's fix — never describe, identity-copy
+only — and the teal output passes the arbiter at control level; the bird's
+bird is understood and the one flagged trait (wider diffuse glow surround)
+is the documented training-owned glow wall. Kept for audit history only.
+
 Protocol (user-specified): run the uploaded images through the shipped model
 (threads, default POST, no fields), rasterize each output SVG, then hand the
 render to an independent AI image model with a strict change-NOTHING prompt.

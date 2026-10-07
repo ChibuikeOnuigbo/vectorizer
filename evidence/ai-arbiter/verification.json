@@ -125,5 +125,18 @@
    "verdict_n2": "BIRD SHAPE UNDERSTOOD, BACKGROUND GLOW FLAGGED: the AI preserved the bird/tile shapes from the render but replaced the white surround with a full-frame cyan wash (arbiter ssim 0.1455 / mae 57.37 vs control 0.5002 / 1.88). The control (AI on the ORIGINAL input) kept white, so the diff maps to a real, visible trait of the current output: its tile surround is a wide, diffuse glow halo (stronger than the input's). This is the documented glow-gradient wall behind the 74.5% fidelity \u2014 owned by the training loop (now completed: 70,005 images, best_val 99.54), code-side engines/knobs probed closed."
   }
  },
- "overall_n2": "Teal output: semantically legible (passes the change-NOTHING arbiter at control level). Bird output: bird understood; the diffuse glow halo outside the tile is the one trait an independent AI changed \u2014 the honest remaining gap, already assigned to training."
+ "overall_n2": "Teal output: semantically legible (passes the change-NOTHING arbiter at control level). Bird output: bird understood; the diffuse glow halo outside the tile is the one trait an independent AI changed \u2014 the honest remaining gap, already assigned to training.",
+ "layout": {
+  "read_this_first": "Two FINAL quads, one per uploaded image. Tile 1 = your input. Tile 2 = the model SVG output rendered to pixels. Tile 3 = an independent AI told \"output the SAME image, same lighting, change nothing\" given tile 2 \u2014 if the output were incomprehensible the AI could not copy it. Tile 4 = identical AI+prompt given tile 1 \u2014 the control, because an image generator restyles ANY image it is fed; only tile3-vs-tile4 differences are attributable to the SVG.",
+  "why_old_ai_tiles_looked_worse": "Round-1 artifacts (*-aigen.png, teal-logo-aigen2.png, *-aictrol.png, *-triple.png, *-quad.png) used prompts that DESCRIBED the scene. The description itself steered the generator (teal draw-1 painted a dark center because the prompt said \"dark center\"). Round 2 (n2 files, FINAL quads) uses one description-free identity-copy prompt for renders and controls alike; round-1 tiles are kept for audit history, superseded.",
+  "file_roles": {
+   "*-FINAL.png": "START HERE: clean 4-tile verdict collage (round-2, neutral prompt)",
+   "*-input.png": "your uploaded image (copied next to the test for completeness)",
+   "*-output.svg": "the shipped-model SVG (byte-identical to committed upload-check evidence)",
+   "*-render.png": "tile-2 raster of that SVG (what the AI was shown)",
+   "*-n2-aigen.png": "AI copy of the render, neutral prompt (arbiter)",
+   "*-n2-aictrol.png": "AI copy of your original, neutral prompt (control)",
+   "*-aigen*.png / *-aictrol.png / *-triple.png / *-quad.png": "round 1, descriptive prompts \u2014 superseded, kept for audit"
+  }
+ }
 }
