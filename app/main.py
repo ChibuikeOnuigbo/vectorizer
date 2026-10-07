@@ -1,9 +1,12 @@
 """FastAPI server: serves the single-page app and the /api/convert endpoint + manual training & strict vetting."""
 from __future__ import annotations
 
+import io
 import logging
 import time
 from pathlib import Path
+
+from PIL import Image
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
@@ -17,6 +20,7 @@ log = logging.getLogger("vectorizer")
 BASE = Path(__file__).parent
 STATIC = BASE / "static"
 MAX_UPLOAD_BYTES = 20 * 1024 * 1024
+MAX_IMAGE_PIXELS_TOTAL = 8192 * 8192  # pixel-bomb cap (header-checked, vet 2026-10-07)
 ALLOWED_EXT = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp"}
 
 app = FastAPI(title="Vectorizer")
@@ -63,6 +67,20 @@ async def convert(
     name = (file.filename or "image").lower()
     if not any(name.endswith(e) for e in ALLOWED_EXT):
         raise HTTPException(415, "Unsupported file type Use PNG JPG WebP GIF BMP")
+
+    # Decompression guard (vet 2026-10-07): the 20 MB file cap does NOT stop
+    # pixel bombs (a 20000x20000 solid PNG is <1 MB on disk -> >1.6 GB in
+    # RAM once decoded). Read only the header here and reject anything over
+    # MAX_IMAGE_PIXELS_TOTAL before any raster is ever allocated. vectorize()
+    # would happily downscale big photos, so the cap is generous: 8192^2.
+    try:
+        probe = Image.open(io.BytesIO(data))
+        w0, h0 = probe.size
+        probe.close()
+    except Exception:
+        raise HTTPException(422, "Could not read image header Unrecognized or corrupt image file")
+    if w0 * h0 > MAX_IMAGE_PIXELS_TOTAL:
+        raise HTTPException(413, f"Image dimensions too large {w0}x{h0} max total 8192x8192 pixels")
 
     params = {}
     if profile in ("flat", "photo"):
