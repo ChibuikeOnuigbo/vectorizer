@@ -6,6 +6,12 @@ while true; do
   echo "Restoring branch..."
   git fetch origin arena/01a0aab7-vectorizer:refs/remotes/origin/arena/01a0aab7-vectorizer 2>&1 | tail -n 2 || true
   git reset --hard refs/remotes/origin/arena/01a0aab7-vectorizer 2>&1 | tail -n 2 || true
+  # Resurrection guard: wipes re-extract the initial clone, reviving retired
+  # feature-era files as untracked leftovers; deleted era files must stay absent.
+  rm -f app/ai_providers.py app/static/model/params.onnx \
+        app/static/model/ort.js app/static/model/ort-wasm-simd.wasm \
+        qa/qa_ai_flow.mjs 2>/dev/null || true
+  rmdir app/static/model 2>/dev/null || true
   echo "Installing deps (persistent app/deps + vendor fallback)..."
   mkdir -p app/deps
   python3 -m pip install -r requirements.txt --target app/deps --quiet || true

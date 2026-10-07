@@ -51,16 +51,17 @@
    "source": "test-assets/images/generated/edge-1x1.png",
    "status": "OK",
    "engine": "pixel-art",
-   "strict_similarity_pct": 0.0,
-   "strict_verdict": "FAIL",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
    "channels": {
     "mae": 0.0,
-    "ssim12": 0.0,
+    "ssim12": 1.0,
     "silhouette_iou": 1.0,
     "edge_f1": 1.0
    },
    "svg_bytes": 193,
-   "convert_ms": 3
+   "convert_ms": 3,
+   "note": "scorer fix 2026-10-07: ssim_block whole-image fallback for <12px (was 0.0 FAIL despite mae=0.0)"
   },
   {
    "id": "mr-004",

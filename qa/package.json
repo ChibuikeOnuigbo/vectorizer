@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@sparticuz/chromium": "^153.0.0",
+    "lucide": "^1.52.0",
     "playwright": "^1.63.0"
   }
 }

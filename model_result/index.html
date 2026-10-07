@@ -21,7 +21,7 @@ a{color:#8ab4f8;text-decoration:none}
 .filters{margin:10px 0 16px} .filters button{background:#1d2290;border:1px solid #2a2f3a;color:#e8eaed;
 border-radius:16px;padding:4px 14px;margin-right:6px;cursor:pointer;font-size:12px}
 .filters button.on{background:#8ab4f8;color:#0f1115;font-weight:700}</style>
-<h1>model_result/ — 195 PASS · 149 WEAK · 56 FAIL over 400 rows</h1>
+<h1>model_result/ — 196 PASS · 149 WEAK · 55 FAIL over 400 rows</h1>
 <div class="sub">Generated 2026-10-05T09:01:46Z · refreshed against live code ·
 strict audit authority qa/similarity_audit.py ·
 <a href="index.json">index.json</a> · <a href="README.md">README</a></div>
@@ -60,9 +60,9 @@ color-cutout vs-ref 71.3%</span></div>
 <h2 style="font-size:15px;color:#c9cdd4">Full sweep (test assets + fresh trainer corpus, model mode)</h2>
 <div class="filters">
 <button class="on" onclick="f('all',this)">all 400</button>
-<button onclick="f('PASS',this)">PASS 195</button>
+<button onclick="f('PASS',this)">PASS 196</button>
 <button onclick="f('WEAK',this)">WEAK 149</button>
-<button onclick="f('FAIL',this)">FAIL 56</button></div>
+<button onclick="f('FAIL',this)">FAIL 55</button></div>
 <div class="grid"><div class="card" id="mr-000" data-verdict="PASS">
 <div class="pair"><div class="box check"><img loading="lazy" src="absolute_test_svg.svg" alt=""></div><div class="box check"><img loading="lazy" src="absolute_test_svg.svg"></div></div>
 <div class="meta"><span class="badge PASS">PASS 97.0%</span>
@@ -81,11 +81,11 @@ color-cutout vs-ref 71.3%</span></div>
 <span class="name" title="blue-bird-appicon.png">mr-002 · blue-bird-appicon.png</span></div>
 <small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: color-soft-stack<br>mae 1.46, ssim 0.745, iou 0.984
 &nbsp;|&nbsp; <a href="collages/mr-002-blue-bird-appicon.png">collage</a></small>
-</div><div class="card" id="mr-003" data-verdict="FAIL">
+</div><div class="card" id="mr-003" data-verdict="PASS">
 <div class="pair"><div class="box check"><img loading="lazy" src="inputs/edge-1x1.png"></div><div class="box check"><img loading="lazy" src="mr-003-edge-1x1.svg"></div></div>
-<div class="meta"><span class="badge FAIL">FAIL 0.0%</span>
+<div class="meta"><span class="badge PASS">PASS 100.0%</span>
 <span class="name" title="edge-1x1.png">mr-003 · edge-1x1.png</span></div>
-<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: pixel-art<br>mae 0.0, ssim 0.0, iou 1.0
+<small>left: input&nbsp;·&nbsp;right: model SVG &nbsp;|&nbsp; engine: pixel-art<br>mae 0.0, ssim 1.0, iou 1.0
 &nbsp;|&nbsp; <a href="collages/mr-003-edge-1x1.png">collage</a></small>
 </div><div class="card" id="mr-004" data-verdict="PASS">
 <div class="pair"><div class="box check"><img loading="lazy" src="inputs/edge-aspect-wide.png"></div><div class="box check"><img loading="lazy" src="mr-004-edge-aspect-wide.svg"></div></div>

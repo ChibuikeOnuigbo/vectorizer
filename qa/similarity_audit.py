@@ -64,7 +64,13 @@ def bg_flat(im: Image.Image, rgb=(255, 255, 255)) -> Image.Image:
 
 
 def ssim_block(a: np.ndarray, b: np.ndarray, block: int = 12) -> float:
-    """Simplified windowed SSIM mean over non-overlapping blocks (luma)."""
+    """Simplified windowed SSIM mean over non-overlapping blocks (luma).
+
+    Images smaller than one block (1x1 pixel-art, 1-px-wide strips) used to
+    yield an empty window list -> 0.0, tanking strict scores for pixel-
+    perfect conversions (mr-003-edge-1x1: mae=0.0/iou=1.0 scored 0.0).
+    Fall back to a single whole-image window in that case.
+    """
     H, W = a.shape
     c1, c2 = 0.01 ** 2, 0.03 ** 2
     vals = []
@@ -78,7 +84,17 @@ def ssim_block(a: np.ndarray, b: np.ndarray, block: int = 12) -> float:
             n = (2 * mu_a * mu_b + c1) * (2 * cov + c2)
             d = (mu_a ** 2 + mu_b ** 2 + c1) * (va + vb + c2)
             vals.append(n / max(d, 1e-12))
-    return float(np.mean(vals)) if vals else 0.0
+    if vals:
+        return float(np.mean(vals))
+    if H > 0 and W > 0 and a.shape == b.shape:
+        pa, pb = a.astype(np.float64), b.astype(np.float64)
+        mu_a, mu_b = pa.mean(), pb.mean()
+        va, vb = pa.var(), pb.var()
+        cov = ((pa - mu_a) * (pb - mu_b)).mean()
+        n = (2 * mu_a * mu_b + c1) * (2 * cov + c2)
+        d = (mu_a ** 2 + mu_b ** 2 + c1) * (va + vb + c2)
+        return float(n / max(d, 1e-12))
+    return 0.0
 
 
 def edge_map(g: np.ndarray) -> np.ndarray:

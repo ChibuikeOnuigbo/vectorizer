@@ -13,3 +13,6 @@ onnxruntime>=1.17
 # site scraper
 playwright>=1.40
 beautifulsoup4>=4.12
+
+# qa audit/render pipeline (CDP svg rasterization)
+websocket-client>=1.7

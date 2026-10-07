@@ -8,15 +8,15 @@
     upload: $("upload"),
     result: $("result"),
     advanced: $("advanced"),
-    manual: $("manual"),
+
     startBtn: $("startBtn"),
     navHome: $("navHome"),
     navUpload: $("navUpload"),
     navSimple: $("navSimple"),
     navAdvanced: $("navAdvanced"),
-    navManual: $("navManual"),
+
     backBtn: $("backBtn"),
-    manualBackBtn: $("manualBackBtn"),
+
     dropzone: $("dropzone"),
     convertBtn: $("convertBtn"),
     modelToggle: $("modelToggle"),
@@ -93,16 +93,7 @@
     compareCloseBtn: $("compareCloseBtn"),
     toast: $("toast"),
     brandHome: $("brandHome"),
-    manualStatus: $("manualStatus"),
-    manualDropzone1: $("manualDropzone1"),
-    manualFileInput1: $("manualFileInput1"),
-    manualList1: $("manualList1"),
-    manualDropzone2: $("manualDropzone2"),
-    manualFileInput2: $("manualFileInput2"),
-    manualList2: $("manualList2"),
-    manualTrainBtn: $("manualTrainBtn"),
-    manualRefreshBtn: $("manualRefreshBtn"),
-    manualLog: $("manualLog"),
+    // (deleted) manual training panel elements — none exist in index.html
   };
 
   const ACCEPTED = [".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp"];
@@ -288,11 +279,11 @@
     if (els.upload) els.upload.hidden = name !== "upload";
     if (els.result) els.result.hidden = name !== "result";
     if (els.advanced) els.advanced.hidden = name !== "advanced";
-    if (els.manual) els.manual.hidden = name !== "manual";
+
     window.__vz.view = name;
     localStorage.setItem("vz_view", name);
     window.scrollTo({ top: 0 });
-    if (name === "manual") refreshManualStatus();
+
     saveProject();
     // Lucide + Tailwind + shadcn + Icon8 + FontAwesome all use SVG, refresh after view change
     setTimeout(refreshIcons, 50);
@@ -414,52 +405,10 @@
     }
   }
 
-  async function refreshManualStatus() {
-    if (!els.manualStatus) return;
-    try {
-      const res = await fetch("/api/manual/status");
-      const data = await res.json();
-      els.manualStatus.innerHTML = `
-        <strong>Collected</strong> ${data.total_images} images Section 1 and ${data.total_results} results Section 2 and ONNX ${(data.onnx_size/1024/1024).toFixed(2)} MB and Model ${data.model_exists ? "exists" : "missing"}<br>
-        <small>${data.note || ""}</small><br>
-        <small>Images sample ${(data.images_sample||[]).slice(0,5).join(", ")}</small><br>
-        <small>Results sample ${(data.results_sample||[]).slice(0,5).join(", ")}</small>
-      `;
-      if (els.manualLog && data.last_training) {
-        els.manualLog.innerHTML = "<h4>Last training continuous</h4><pre>" + JSON.stringify(data.last_training, null, 2) + "</pre>";
-      }
-    } catch (e) {
-      els.manualStatus.textContent = "Failed to load status " + e.message;
-    }
-  }
-  async function uploadManual(files, endpoint, listEl) {
-    if (!files || files.length === 0) return;
-    const fd = new FormData();
-    for (const f of files) fd.append("files", f);
-    try {
-      toast(`Uploading ${files.length} files`, "ok");
-      const res = await fetch(endpoint, { method: "POST", body: fd });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || res.status);
-      toast(`Saved ${data.saved} files total images ${data.total_images} results ${data.total_results}`, "ok");
-      if (listEl) listEl.innerHTML = data.files.map(n => `<div>${n}</div>`).join("");
-      refreshManualStatus();
-    } catch (e) {
-      toast("Upload failed " + e.message, "error");
-    }
-  }
-  async function triggerManualTrain() {
-    try {
-      toast("Starting training in background", "ok");
-      const res = await fetch("/api/manual/train", { method: "POST" });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || res.status);
-      toast(data.msg, "ok");
-      if (els.manualLog) els.manualLog.innerHTML += "<p>Training started check status in 30s ONNX will update</p>";
-    } catch (e) {
-      toast("Train failed " + e.message, "error");
-    }
-  }
+  // 2026-10-05 simplification: the manual training panel + its JS were
+  // deleted from the product UI (the verdict flywheel lives in the
+  // self-contained test-report.html; the /api/manual/* endpoints remain
+  // for that page only).
 
   function applyViewTransform() {
     if (!els.viewStageInner) return;
@@ -602,9 +551,9 @@
     if (state.svgText) setView("advanced");
     else setView("upload");
   });
-  if (els.navManual) els.navManual.addEventListener("click", () => setView("manual"));
+
   if (els.backBtn) els.backBtn.addEventListener("click", () => setView("landing"));
-  if (els.manualBackBtn) els.manualBackBtn.addEventListener("click", () => setView("landing"));
+
   if (els.newBtn) els.newBtn.addEventListener("click", () => setView("upload"));
   if (els.advNewBtn) els.advNewBtn.addEventListener("click", () => setView("upload"));
   if (els.openAdvancedBtn) els.openAdvancedBtn.addEventListener("click", () => setView("advanced"));
@@ -788,25 +737,6 @@
     });
   });
 
-  if (els.manualDropzone1 && els.manualFileInput1) {
-    els.manualDropzone1.addEventListener("click", () => els.manualFileInput1.click());
-    els.manualDropzone1.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); els.manualFileInput1.click(); } });
-    els.manualFileInput1.addEventListener("change", () => {
-      uploadManual(els.manualFileInput1.files, "/api/manual/images", els.manualList1);
-      els.manualFileInput1.value = "";
-    });
-  }
-  if (els.manualDropzone2 && els.manualFileInput2) {
-    els.manualDropzone2.addEventListener("click", () => els.manualFileInput2.click());
-    els.manualDropzone2.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); els.manualFileInput2.click(); } });
-    els.manualFileInput2.addEventListener("change", () => {
-      uploadManual(els.manualFileInput2.files, "/api/manual/results", els.manualList2);
-      els.manualFileInput2.value = "";
-    });
-  }
-  if (els.manualTrainBtn) els.manualTrainBtn.addEventListener("click", triggerManualTrain);
-  if (els.manualRefreshBtn) els.manualRefreshBtn.addEventListener("click", refreshManualStatus);
-
   // one smart mode; tuning numerics are server-locked
   function setMethod(method) {
     state.method = "model";
@@ -863,12 +793,7 @@
     document.body.classList.remove("dragging");
     const files = e.dataTransfer && e.dataTransfer.files;
     const f = files && files[0];
-    if (f) {
-      if (window.__vz.view === "result" || window.__vz.view === "advanced") convert(f);
-      else if (window.__vz.view === "upload" || window.__vz.view === "landing") convert(f);
-      else if (window.__vz.view === "manual") uploadManual(files, "/api/manual/images", els.manualList1);
-      else convert(f);
-    }
+    if (f) convert(f);
   });
   window.addEventListener("paste", (e) => {
     const items = e.clipboardData && e.clipboardData.items;
@@ -908,7 +833,7 @@
     const restored = await loadProject();
     if (!restored) {
       const v = localStorage.getItem("vz_view");
-      if (v && ["landing", "upload", "result", "advanced", "manual"].includes(v)) setView(v);
+      if (v && ["landing", "upload", "result", "advanced"].includes(v)) setView(v);
       else setView("landing");
     }
     applyZoom();

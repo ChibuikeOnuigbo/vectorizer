@@ -607,7 +607,9 @@ async function main() {
       if (!res.ok) continue;
       const data = await res.json();
       check(`API ${name} has svg strict`, typeof data.svg === "string" && data.svg.includes("<svg"));
-      check(`API ${name} has path strict`, data.svg.includes("<path"));
+      // pixel-art engine emits <rect> runs, not <path>: any vector
+      // primitive satisfies the "has paths" semantic.
+      check(`API ${name} has path strict`, /<(path|rect|circle|polygon|ellipse)\b/.test(data.svg));
       check(`API ${name} meta strict`, typeof data.meta === "object");
       if (data.meta) {
         check(`API ${name} width >0 strict`, data.meta.width > 0);

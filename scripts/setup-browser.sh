@@ -13,6 +13,14 @@
 set -e
 cd "$(dirname "$0")/.."
 QA_DIR=qa
+
+# Resurrection guard: sandbox wipes re-extract the initial clone, reviving
+# retired feature-era files as UNTRACKED leftovers (git reset --hard can't
+# drop what HEAD never tracked). Deleted 2026-10-05+; QA asserts absence.
+rm -f app/ai_providers.py app/static/model/params.onnx \
+      app/static/model/ort.js app/static/model/ort-wasm-simd.wasm \
+      qa/qa_ai_flow.mjs
+rmdir app/static/model 2>/dev/null || true
 mkdir -p "$QA_DIR"
 cd "$QA_DIR"
 
