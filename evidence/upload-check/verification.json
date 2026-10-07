@@ -1,0 +1,40 @@
+{
+ "generated_utc": "2026-10-07T15:47:03Z",
+ "method": "independent re-verification, no shared scoring code",
+ "cases": [
+  {
+   "tag": "blue-bird",
+   "file": "download.png",
+   "svg_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "engine": "color-soft-stack",
+   "primitives": 87,
+   "svg_bytes": 91919,
+   "hand_score": {
+    "mae": 1.455,
+    "f_mae": 0.9943,
+    "iou": 0.984,
+    "ssim": 0.7389,
+    "ssim_mean_luma": 0.7417,
+    "score": 73.9
+   },
+   "claimed_strict": 74.5
+  },
+  {
+   "tag": "teal-logo",
+   "file": "image-removebg-preview.png",
+   "svg_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "engine": "alpha-halo-stack",
+   "primitives": 102,
+   "svg_bytes": 57190,
+   "hand_score": {
+    "mae": 2.7,
+    "f_mae": 0.9894,
+    "iou": 0.8788,
+    "ssim": 0.9469,
+    "ssim_mean_luma": 0.9466,
+    "score": 87.9
+   },
+   "claimed_strict": 87.9
+  }
+ ]
+}
