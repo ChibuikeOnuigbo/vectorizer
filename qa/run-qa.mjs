@@ -501,7 +501,9 @@ async function main() {
       // false-fail ~60 checks on EVERY run for a whole iteration. Rows with
       // missing pixels are ghosts of past iterations — skip with a count;
       // mass ghosting (>20%) still fails below.
-      const recPix = rec.path && fs.existsSync(path.join(__dirname, "..", String(rec.path).replace(/^\//, "")));
+      const rp = String(rec.path || "");
+      const recPix = rp && (fs.existsSync(rp) ||
+                            fs.existsSync(path.join(__dirname, "..", rp.replace(/^\//, ""))));
       if (!recPix) { ghostRows++; continue; }
       const isBlurred = name.includes("blur") || name.includes("v04") || name.includes("v07") || name.includes("v08");
       const isNoText = rec.path && rec.path.includes("logos_notext");
