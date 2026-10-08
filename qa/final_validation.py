@@ -145,8 +145,9 @@ def main():
 
 _ENGINES = {'alpha-halo-stack', 'alpha-tone-stack', 'binary-alpha-mono', 'color-soft-stack',
             'color-tone-stack', 'hairline', 'pixel-art', 'pixel-art-upscaled',
-            'soft-alpha-boost-halo', 'color-cutout', 'color-cutout-detail', 'glow-orbit'}
-_FORBID = re.compile(r'<script|\bhref=|\bxlink:|url\(|<image|<foreignObject|onload=|javascript:', re.I)
+            'soft-alpha-boost-halo', 'color-cutout', 'color-cutout-detail', 'glow-orbit',
+            'glow-radial-alpha'}
+_FORBID = re.compile(r'<script|\bhref=|\bxlink:|url\((?![\'\"]?#)|<image|<foreignObject|onload=|javascript:', re.I)
 _NUM = re.compile(r'-?\d+(?:\.\d+)?(?:e[-+]?\d+)?', re.I)
 
 def strict(results):
@@ -212,7 +213,9 @@ def strict(results):
               ('evidence/bg-remove-set/inputs/icon-11-parrot-multicolor.png',
                'evidence/fix-t3-speckle/icon-11-parrot-multicolor.svg'),
               ('evidence/complex-set/inputs/cx-06-pixelart-sword.png',
-               'evidence/complex-set/redo-upscaled/cx-06-redo.svg')]
+               'evidence/complex-set/redo-upscaled/cx-06-redo.svg'),
+              ('evidence/complex-set/inputs/cx-07-soft-glow-orb.png',
+               'evidence/complex-set/redo-glow-orb/cx-07-redo.svg')]
     for ipath, spath in SEALED:
         st, d, t = post(open(ROOT/ipath, 'rb').read(), Path(ipath).name, timeout=240)
         sealed_svg = (ROOT/spath).read_text()

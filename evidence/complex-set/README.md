@@ -59,3 +59,11 @@ row that rendered as a 15x15 fuzz grid now emits the recovered native 32x32
 lattice as output-space integer rects (62 rects, 3.6KB), crisp on every
 renderer (proved: 1-pixel transitions at exact lattice coords, palette
 {white/silver/steel/gold/brown} hard). See redo-upscaled/.
+
+## redo: cx-07 soft glow orb FIXED (2026-10-08)
+New engine `glow-radial-alpha`: gate (alpha canvas, >=15% mid-alpha, mono-ink
+std<16/ch, binned alpha-vs-radius R^2>=0.85 monotone-decreasing to ~0) then
+one userSpaceOnUse radialGradient with 13 measured alpha stops: 1.15KB, no
+contour rings, composited-vs-input MAE 4.3/255 (was the documented HORRIBLE:
+alpha-fade collapsed into hard bands/dither by every contour route).
+Proof: redo-glow-orb/. This closes the last known HORRIBLE row.

@@ -1241,6 +1241,86 @@ def _mono_route(a: dict) -> str:
     return "binary"
 
 
+def _glow_radial_candidate(a: dict):
+    """Detect a mono-ink radial GLOW orb (cx-07 class): flat single color,
+    alpha field smoothly fading from a core to zero along radius. Tracing
+    the fade as ~50 contour rings is the documented HORRIBLE; the faithful
+    primitive is one radialGradient with alpha stops. Calibrated gates
+    (2026-10-08, orb-probe + guard-nulls): alpha canvas, >=15% mid-alpha
+    pixels, content 5..90% of frame, content ink std < 16/ch, binned mean
+    alpha vs content-quantile radii R^2 >= 0.85 with <=1 monotone violation
+    and terminal bin mean <= 0.12 (the fade must actually reach zero).
+    Guard-nulls verified: synthetic alpha rows (uniform-0.55 paste) fail on
+    the fade-out term; mandala/orbit probes fail on ink std. Returns fit
+    payload or False."""
+    if not a.get("has_alpha"):
+        return False
+    arr = np.asarray(a["img"].convert("RGBA"), dtype=np.float32)
+    al = arr[..., 3] / 255.0
+    if ((al > 0.1) & (al < 0.9)).mean() < 0.15:
+        return False
+    vis = al > 0.02   # tail-aware analysis cut: binning must include alpha<0.2
+    if not (0.05 < float(vis.mean()) < 0.95):
+        return False
+    content = al > 0.2
+    fc = float(content.mean())
+    if not (0.05 < fc < 0.9):
+        return False
+    rgb = arr[..., :3]
+    if float(rgb[content].std(0).max()) > 16.0:
+        return False
+    ys, xs = np.mgrid[0:arr.shape[0], 0:arr.shape[1]]
+    wsum = float(al.sum()) + 1e-9
+    cx, cy = float((xs * al).sum() / wsum), float((ys * al).sum() / wsum)
+    r = np.hypot(xs - cx, ys - cy)
+    rb, ab = r[vis], al[vis]
+    qs = np.quantile(rb, np.linspace(0, 1, 17))
+    means = np.array([float(ab[(rb >= qs[i]) & (rb <= qs[i + 1])].mean()) for i in range(16)])
+    mids = (qs[:-1] + qs[1:]) / 2
+    if sum(1 for i in range(15) if means[i] + 0.03 < means[i + 1]) > 1:
+        return False
+    b_, a_ = np.polyfit(mids, means, 1)
+    yh = a_ + b_ * mids
+    ss_res = float(((means - yh) ** 2).sum())
+    ss_tot = float(((means - means.mean()) ** 2).sum()) + 1e-9
+    if 1 - ss_res / ss_tot < 0.85:
+        return False
+    if means[-1] > 0.12:
+        return False
+    ink = tuple(int(v) for v in rgb[content].mean(0).astype(int))
+    edge = float(np.quantile(rb, 0.997))
+    return (cx, cy, edge, ink)
+
+
+def _trace_glow_radial_alpha(a: dict, params: dict) -> str:
+    """cx-07-class engine: one <radialGradient> (userSpaceOnUse) with the
+    measured alpha profile as stops, over one full-frame rect. True vector
+    primitive for a true gradient input: ~1KB, resolution-independent, and
+    ssim-beats every contour-based route on its class."""
+    img = a["img"].convert("RGBA")
+    w, h = a["w"], a["h"]
+    fit = a.get("glow_r") or _glow_radial_candidate(a)
+    if not fit:
+        return _trace_color_soft_stack(a, params)
+    cx, cy, edge, ink = fit
+    arr = np.asarray(img, dtype=np.float32)
+    al = arr[..., 3] / 255.0
+    ys, xs = np.mgrid[0:arr.shape[0], 0:arr.shape[1]]
+    r = np.hypot(xs - cx, ys - cy) / max(edge, 1e-6)
+    stops = []
+    for i in range(13):
+        t = i / 12.0
+        t1 = 1.0 if i == 12 else (i + 1) / 12.0
+        band = (r >= t) & (r < t1)
+        av = float(al[band].mean()) if band.any() else 0.0
+        stops.append(f'<stop offset="{t:g}" stop-color="#{ink[0]:02X}{ink[1]:02X}{ink[2]:02X}" stop-opacity="{av:.4f}"/>')
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {w} {h}"><defs><radialGradient id="g" cx="{cx:.1f}" cy="{cy:.1f}" '
+           f'r="{edge:.1f}" gradientUnits="userSpaceOnUse">{"".join(stops)}</radialGradient></defs>'
+           f'<rect width="{w}" height="{h}" fill="url(#g)"/></svg>')
+    return re.sub(r'(<svg\b)', r'\1 data-engine="glow-radial-alpha"', svg, count=1)
+
+
 def trace_with(a: dict, params: dict | None = None) -> str:
     """Run one vectorization pass. Vtracer tuning numerics are HARDLOCKED
     (LOCK_FLAT/LOCK_PHOTO; see calibration note) — incoming numeric keys are
@@ -1299,6 +1379,13 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     # transparent monochrome art prefers binary-alpha (teal-orbit QA evidence),
     # but some members render closer as multi-tone cutout. For that family we
     # render BOTH engines and keep the visually better one by the same
+    # Mono-ink radial glow (cx-07-class, the last documented HORRIBLE row):
+    # one measured radialGradient beats every contour engine on it.
+    if params.get("engine") != "color-cutout":
+        glow = _glow_radial_candidate(a)
+        if glow:
+            a["glow_r"] = glow
+            return _trace_glow_radial_alpha(a, params)
     # Tiny pixelated inputs (<=64px): grid-pure pixel-art engine, 1:1 mapping
     if params.get("engine") != "color-cutout" and max(a["w"], a["h"]) <= 64:
         return _trace_pixel_art(a, params)
