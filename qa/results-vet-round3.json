@@ -1,0 +1,129 @@
+{
+ "results": [
+  {
+   "name": "F1 EXIF-rotation honored (displayed 250x400 not stored 400x250)",
+   "ok": true,
+   "detail": "status=200 meta=250x400"
+  },
+  {
+   "name": "F2 palette PNG converts",
+   "ok": true,
+   "detail": "status=200 prolog=True"
+  },
+  {
+   "name": "F3 16-bit grayscale PNG converts",
+   "ok": true,
+   "detail": "status=200 "
+  },
+  {
+   "name": "F4 CMYK JPEG converts (or honest 4xx, never 500)",
+   "ok": true,
+   "detail": "status=200"
+  },
+  {
+   "name": "F5 interlaced PNG converts",
+   "ok": true,
+   "detail": "status=200"
+  },
+  {
+   "name": "F6 animated GIF handled (no hang/500)",
+   "ok": true,
+   "detail": "status=200 t=0.1s"
+  },
+  {
+   "name": "F7 BMP converts",
+   "ok": true,
+   "detail": "status=200"
+  },
+  {
+   "name": "F8 WebP+alpha converts",
+   "ok": true,
+   "detail": "status=200"
+  },
+  {
+   "name": "F9 1-bit PNG converts",
+   "ok": true,
+   "detail": "status=200"
+  },
+  {
+   "name": "F10 fully-transparent image -> honest response (no 500/hang)",
+   "ok": true,
+   "detail": "status=200 t=0.0s paths=0"
+  },
+  {
+   "name": "D1 1x1: 200 + isotropic scale kept",
+   "ok": true,
+   "detail": "1x1 -> 1x1 t=0.0s"
+  },
+  {
+   "name": "D2 3x256 sliver: 200 + isotropic scale kept",
+   "ok": true,
+   "detail": "3x256 -> 3x256 t=0.0s"
+  },
+  {
+   "name": "D3 64x64 pixel-art boundary: 200 + isotropic scale kept",
+   "ok": true,
+   "detail": "64x64 -> 64x64 t=0.0s"
+  },
+  {
+   "name": "D4 65x65 off-boundary: 200 + isotropic scale kept",
+   "ok": true,
+   "detail": "65x65 -> 65x65 t=0.0s"
+  },
+  {
+   "name": "D5 2000x30 panorama: 200 + isotropic scale kept",
+   "ok": true,
+   "detail": "2000x30 -> 1500x22 t=0.0s"
+  },
+  {
+   "name": "D6 4000x3000 12MP converts within 5min (no worker death)",
+   "ok": true,
+   "detail": "status=200 t=2.5s kb=17.4"
+  },
+  {
+   "name": "I1 determinism: same bytes in -> identical SVG (sha256)",
+   "ok": true,
+   "detail": "de53306a35ed vs de53306a35ed"
+  },
+  {
+   "name": "I2 all SVG outputs XML-well-formed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "I3 no script/handlers/external refs in outputs",
+   "ok": true,
+   "detail": "bad=[]"
+  },
+  {
+   "name": "I4 no NaN/Inf tokens in path data",
+   "ok": true,
+   "detail": "bad=[]"
+  },
+  {
+   "name": "I5 palette knob monotonic non-decreasing richness",
+   "ok": true,
+   "detail": "{2: 3, 4: 3, 8: 3, 16: 3, 32: 3}"
+  },
+  {
+   "name": "I5b meta colors honor requested bound",
+   "ok": true,
+   "detail": "{2: 3, 4: 3, 8: 3, 16: 3, 32: 3}"
+  },
+  {
+   "name": "C1 8 concurrent distinct uploads: all 200, no width cross-contamination",
+   "ok": true,
+   "detail": "widths=[200, 220, 240, 260, 280, 300, 320, 340]"
+  },
+  {
+   "name": "C2 latency p95<5s mean<2s on 256px logos",
+   "ok": true,
+   "detail": "mean=0.18s p95=0.21s"
+  },
+  {
+   "name": "C3 server RSS growth over 40 converts < 150MB (leak smoke)",
+   "ok": true,
+   "detail": "114MB -> 114MB"
+  }
+ ]
+}

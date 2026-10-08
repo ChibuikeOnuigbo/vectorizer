@@ -36,7 +36,7 @@ import tempfile
 import time
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageOps
 import vtracer
 
 MAX_EDGE = 1500          # long edge cap for tracing
@@ -1339,6 +1339,11 @@ def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | No
     opts = mode_opts or {}
     t0 = time.time()
     img = Image.open(io.BytesIO(img_bytes))
+    # EXIF orientation is display metadata, not pixels (vet round 3, F1):
+    # phones store sensor orientation and a rotate tag; tracing the stored
+    # tensor silently vectorizes the user's picture sideways. Transpose to
+    # the DISPLAYED orientation first (no-op when no tag is present).
+    img = ImageOps.exif_transpose(img)
     a = analyze(img)
     params = params or {}
     if opts.get("colors") is not None:
