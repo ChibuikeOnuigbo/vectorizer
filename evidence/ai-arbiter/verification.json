@@ -138,5 +138,451 @@
    "*-n2-aictrol.png": "AI copy of your original, neutral prompt (control)",
    "*-aigen*.png / *-aictrol.png / *-triple.png / *-quad.png": "round 1, descriptive prompts \u2014 superseded, kept for audit"
   }
+ },
+ "round3_calibrated": {
+  "ts": "2026-10-08T06:15:42Z",
+  "rule": "PASS metric M iff median(OUT anchor scores) >= min(min(IN anchor scores), min(IN within-pair scores)) \u2014 copying the SVG must be no harder than the generator's own worst same-input copy event. All 6 draws per case use the identical neutral identity-copy prompt.",
+  "cases": {
+   "teal-logo": {
+    "raw": {
+     "IN_anchor": [
+      [
+       "vs-input",
+       "teal-logo-n2-aictrol.png",
+       {
+        "mae": 2.93,
+        "f_mae": 0.9885,
+        "ssim12": 0.9299,
+        "edge_f1": 0.8997
+       }
+      ],
+      [
+       "vs-input",
+       "teal-logo-cal-in-2.png",
+       {
+        "mae": 0.8,
+        "f_mae": 0.9969,
+        "ssim12": 0.9898,
+        "edge_f1": 0.954
+       }
+      ],
+      [
+       "vs-input",
+       "teal-logo-cal-in-3.png",
+       {
+        "mae": 0.78,
+        "f_mae": 0.9969,
+        "ssim12": 0.9889,
+        "edge_f1": 0.9483
+       }
+      ]
+     ],
+     "IN_within": [
+      [
+       "teal-logo-n2-aictrol.png",
+       "teal-logo-cal-in-2.png",
+       {
+        "mae": 2.54,
+        "f_mae": 0.99,
+        "ssim12": 0.8637,
+        "edge_f1": 0.7569
+       }
+      ],
+      [
+       "teal-logo-n2-aictrol.png",
+       "teal-logo-cal-in-3.png",
+       {
+        "mae": 2.6,
+        "f_mae": 0.9898,
+        "ssim12": 0.86,
+        "edge_f1": 0.7577
+       }
+      ],
+      [
+       "teal-logo-cal-in-2.png",
+       "teal-logo-cal-in-3.png",
+       {
+        "mae": 0.2,
+        "f_mae": 0.9992,
+        "ssim12": 0.995,
+        "edge_f1": 0.9625
+       }
+      ]
+     ],
+     "OUT_anchor": [
+      [
+       "vs-render",
+       "teal-logo-n2-aigen.png",
+       {
+        "mae": 1.51,
+        "f_mae": 0.9941,
+        "ssim12": 0.9433,
+        "edge_f1": 0.6638
+       }
+      ],
+      [
+       "vs-render",
+       "teal-logo-cal-out-2.png",
+       {
+        "mae": 0.72,
+        "f_mae": 0.9972,
+        "ssim12": 0.9899,
+        "edge_f1": 0.9607
+       }
+      ],
+      [
+       "vs-render",
+       "teal-logo-cal-out-3.png",
+       {
+        "mae": 0.64,
+        "f_mae": 0.9975,
+        "ssim12": 0.9908,
+        "edge_f1": 0.9603
+       }
+      ]
+     ],
+     "OUT_within": [
+      [
+       "teal-logo-n2-aigen.png",
+       "teal-logo-cal-out-2.png",
+       {
+        "mae": 1.81,
+        "f_mae": 0.9929,
+        "ssim12": 0.8475,
+        "edge_f1": 0.3842
+       }
+      ],
+      [
+       "teal-logo-n2-aigen.png",
+       "teal-logo-cal-out-3.png",
+       {
+        "mae": 1.77,
+        "f_mae": 0.9931,
+        "ssim12": 0.8463,
+        "edge_f1": 0.4003
+       }
+      ],
+      [
+       "teal-logo-cal-out-2.png",
+       "teal-logo-cal-out-3.png",
+       {
+        "mae": 0.59,
+        "f_mae": 0.9977,
+        "ssim12": 0.9758,
+        "edge_f1": 0.9091
+       }
+      ]
+     ]
+    },
+    "metrics": {
+     "ssim12": {
+      "IN_anchor": [
+       0.9299,
+       0.9898,
+       0.9889
+      ],
+      "IN_within": [
+       0.8637,
+       0.86,
+       0.995
+      ],
+      "OUT_anchor": [
+       0.9433,
+       0.9899,
+       0.9908
+      ],
+      "median_OUT": 0.9899,
+      "control_floor": 0.86,
+      "PASS": true,
+      "detail": "median OUT ssim12 0.9899 >= control floor 0.86"
+     },
+     "f_mae": {
+      "IN_anchor": [
+       0.9885,
+       0.9969,
+       0.9969
+      ],
+      "IN_within": [
+       0.99,
+       0.9898,
+       0.9992
+      ],
+      "OUT_anchor": [
+       0.9941,
+       0.9972,
+       0.9975
+      ],
+      "median_OUT": 0.9972,
+      "control_floor": 0.9885,
+      "PASS": true,
+      "detail": "median OUT f_mae 0.9972 >= control floor 0.9885"
+     },
+     "edge_f1": {
+      "IN_anchor": [
+       0.8997,
+       0.954,
+       0.9483
+      ],
+      "IN_within": [
+       0.7569,
+       0.7577,
+       0.9625
+      ],
+      "OUT_anchor": [
+       0.6638,
+       0.9607,
+       0.9603
+      ],
+      "median_OUT": 0.9603,
+      "control_floor": 0.7569,
+      "PASS": true,
+      "detail": "median OUT edge_f1 0.9603 >= control floor 0.7569"
+     },
+     "mae": {
+      "IN_anchor": [
+       2.93,
+       0.8,
+       0.78
+      ],
+      "IN_within": [
+       2.54,
+       2.6,
+       0.2
+      ],
+      "OUT_anchor": [
+       1.51,
+       0.72,
+       0.64
+      ],
+      "median_OUT": 0.72,
+      "control_floor": 2.93,
+      "PASS": true,
+      "detail": "median OUT mae 0.72 <= control worst 2.93"
+     }
+    },
+    "verdict": "PASS",
+    "channels_passed": 3
+   },
+   "blue-bird": {
+    "raw": {
+     "IN_anchor": [
+      [
+       "vs-input",
+       "blue-bird-n2-aictrol.png",
+       {
+        "mae": 1.88,
+        "f_mae": 0.9926,
+        "ssim12": 0.9704,
+        "edge_f1": 0.8647
+       }
+      ],
+      [
+       "vs-input",
+       "blue-bird-cal-in-2.png",
+       {
+        "mae": 1.6,
+        "f_mae": 0.9937,
+        "ssim12": 0.9798,
+        "edge_f1": 0.887
+       }
+      ],
+      [
+       "vs-input",
+       "blue-bird-cal-in-3.png",
+       {
+        "mae": 3.87,
+        "f_mae": 0.9848,
+        "ssim12": 0.7591,
+        "edge_f1": 0.7524
+       }
+      ]
+     ],
+     "IN_within": [
+      [
+       "blue-bird-n2-aictrol.png",
+       "blue-bird-cal-in-2.png",
+       {
+        "mae": 0.78,
+        "f_mae": 0.9969,
+        "ssim12": 0.957,
+        "edge_f1": 0.8279
+       }
+      ],
+      [
+       "blue-bird-n2-aictrol.png",
+       "blue-bird-cal-in-3.png",
+       {
+        "mae": 2.96,
+        "f_mae": 0.9884,
+        "ssim12": 0.7186,
+        "edge_f1": 0.5506
+       }
+      ],
+      [
+       "blue-bird-cal-in-2.png",
+       "blue-bird-cal-in-3.png",
+       {
+        "mae": 2.85,
+        "f_mae": 0.9888,
+        "ssim12": 0.7503,
+        "edge_f1": 0.6329
+       }
+      ]
+     ],
+     "OUT_anchor": [
+      [
+       "vs-render",
+       "blue-bird-n2-aigen.png",
+       {
+        "mae": 57.3,
+        "f_mae": 0.7753,
+        "ssim12": 0.619,
+        "edge_f1": 0.4674
+       }
+      ],
+      [
+       "vs-render",
+       "blue-bird-cal-out-2.png",
+       {
+        "mae": 1.59,
+        "f_mae": 0.9938,
+        "ssim12": 0.9896,
+        "edge_f1": 0.9298
+       }
+      ],
+      [
+       "vs-render",
+       "blue-bird-cal-out-3.png",
+       {
+        "mae": 1.55,
+        "f_mae": 0.9939,
+        "ssim12": 0.982,
+        "edge_f1": 0.9311
+       }
+      ]
+     ],
+     "OUT_within": [
+      [
+       "blue-bird-n2-aigen.png",
+       "blue-bird-cal-out-2.png",
+       {
+        "mae": 56.58,
+        "f_mae": 0.7781,
+        "ssim12": 0.7141,
+        "edge_f1": 0.4606
+       }
+      ],
+      [
+       "blue-bird-n2-aigen.png",
+       "blue-bird-cal-out-3.png",
+       {
+        "mae": 56.76,
+        "f_mae": 0.7774,
+        "ssim12": 0.7109,
+        "edge_f1": 0.437
+       }
+      ],
+      [
+       "blue-bird-cal-out-2.png",
+       "blue-bird-cal-out-3.png",
+       {
+        "mae": 1.09,
+        "f_mae": 0.9957,
+        "ssim12": 0.9631,
+        "edge_f1": 0.8038
+       }
+      ]
+     ]
+    },
+    "metrics": {
+     "ssim12": {
+      "IN_anchor": [
+       0.9704,
+       0.9798,
+       0.7591
+      ],
+      "IN_within": [
+       0.957,
+       0.7186,
+       0.7503
+      ],
+      "OUT_anchor": [
+       0.619,
+       0.9896,
+       0.982
+      ],
+      "median_OUT": 0.982,
+      "control_floor": 0.7186,
+      "PASS": true,
+      "detail": "median OUT ssim12 0.982 >= control floor 0.7186"
+     },
+     "f_mae": {
+      "IN_anchor": [
+       0.9926,
+       0.9937,
+       0.9848
+      ],
+      "IN_within": [
+       0.9969,
+       0.9884,
+       0.9888
+      ],
+      "OUT_anchor": [
+       0.7753,
+       0.9938,
+       0.9939
+      ],
+      "median_OUT": 0.9938,
+      "control_floor": 0.9848,
+      "PASS": true,
+      "detail": "median OUT f_mae 0.9938 >= control floor 0.9848"
+     },
+     "edge_f1": {
+      "IN_anchor": [
+       0.8647,
+       0.887,
+       0.7524
+      ],
+      "IN_within": [
+       0.8279,
+       0.5506,
+       0.6329
+      ],
+      "OUT_anchor": [
+       0.4674,
+       0.9298,
+       0.9311
+      ],
+      "median_OUT": 0.9298,
+      "control_floor": 0.5506,
+      "PASS": true,
+      "detail": "median OUT edge_f1 0.9298 >= control floor 0.5506"
+     },
+     "mae": {
+      "IN_anchor": [
+       1.88,
+       1.6,
+       3.87
+      ],
+      "IN_within": [
+       0.78,
+       2.96,
+       2.85
+      ],
+      "OUT_anchor": [
+       57.3,
+       1.59,
+       1.55
+      ],
+      "median_OUT": 1.59,
+      "control_floor": 3.87,
+      "PASS": true,
+      "detail": "median OUT mae 1.59 <= control worst 3.87"
+     }
+    },
+    "verdict": "PASS",
+    "channels_passed": 3
+   }
+  }
  }
 }

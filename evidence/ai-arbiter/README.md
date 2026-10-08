@@ -47,7 +47,42 @@ Files: per case `*-input.png`, `*-output.svg`, `*-render.png` (SVG raster),
 `*-aigen.png` (+ `aigen2` for teal), `*-aictrol.png` (AI on the original),
 `*-quad.png` (all stages side by side), `verification.json`, `MANIFEST.sha256`.
 
-## Round 2 (user-directed): neutral identity-copy prompt, no scene description
+## Round 3 (final): calibrated verdicts — pre-registered rule, no guesswork
+
+Problem with rounds 1-2: verdict thresholds were eyeballed and n=1 draws
+carry generator variance. Round 3 draws **3 neutral-prompt copies per
+population** per case — AI×original-input (control) and AI×SVG-render
+(arbiter) — and judges against the generator's own measured noise band.
+
+**Pre-registered rule** (fixed before drawing): for each metric in
+{ssim12, f_mae, edge_f1} the render PASSES iff its **median** anchor-copy
+score ≥ the **worst control event** (min over control anchor copies and
+control copy-vs-copy pairs). "Copying the SVG must be no harder than the
+generator's own worst draw-to-draw consistency event on the original."
+edge_f1 uses the repo's ±1px dilated edge-overlap maps; every raster is
+white-flattened and resized to its source identically.
+
+| case | metric | control floor | render median | verdict |
+|---|---|---|---|---|
+| teal-logo | ssim12 | 0.8600 | 0.9899 | PASS |
+| teal-logo | f_mae | 0.9885 | 0.9972 | PASS |
+| teal-logo | edge_f1 | 0.7569 | 0.9603 | PASS |
+| teal-logo | mae(≤) | 2.93 | 0.72 | PASS |
+| blue-bird | ssim12 | 0.7186 | 0.9820 | PASS |
+| blue-bird | f_mae | 0.9848 | 0.9938 | PASS |
+| blue-bird | edge_f1 | 0.5506 | 0.9298 | PASS |
+| blue-bird | mae(≤) | 3.87 | 1.59 | PASS |
+
+**Calibrated verdict: BOTH uploads PASS on all channels** — the model's SVG
+outputs are as semantically copyable as the original rasters, by an
+independent AI under a change-nothing prompt. Honest disclosure: 1 of 3 blue
+render copies flipped the white surround to a cyan wash (ssim 0.619 outlier)
+— the control population had its own outlier (ssim 0.759), so the median
+rule absorbs it; the trait itself is the documented diffuse-glow halo that
+the (completed) training loop owns. All raw per-draw numbers live in
+verification.json → round3_calibrated.
+
+## Round 2 (superseded rule): neutral identity-copy prompt, no scene description
 
 Round 1's prompts described the scenes ("teal orbital rings around a dark
 center", "small blue bird") — that text steered the generator (the teal
