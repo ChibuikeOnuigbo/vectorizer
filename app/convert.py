@@ -189,6 +189,26 @@ def _flatten_colors(working: Image.Image, bg_color, max_inks: int = 3) -> Image.
     return out
 
 
+def _significant_inks(working: Image.Image) -> int:
+    """Count non-bg hue buckets with >= 2% coverage (same FASTOCTREE-12
+    quantize as _flatten_colors, so the count matches the flattener's own
+    vocabulary). Parrot fix (bg-remove-set icon-11, 2026-10-08): flat art
+    with 5+ meaningful hues hit the cutout's calibrated max_inks=3 and the
+    flattener merged them — black beak vanished into dark blue, white face
+    became red/green; structure traced fine, hues wrong. Adaptive inks keep
+    every significant hue as its own ink. Measured: parrot ssim 0.381 ->
+    0.713 with beak/face/linework back; leaf/anchor/stripes flat trio
+    byte-stable (their bucket counts are <= 3, adapt is a no-op).
+    Skipped when the user palette knob is explicit (_palette set)."""
+    q = working.quantize(colors=12, method=Image.Quantize.FASTOCTREE)
+    counts = q.getcolors() or []
+    if not counts:
+        return 3
+    total = sum(c for c, _ in counts) or 1
+    classes = sorted(counts, key=lambda t: -t[0])
+    return sum(1 for c, _ in classes[1:] if c >= total * 0.02)
+
+
 def _seal_seams(svg: str, stroke_width: int = 1) -> str:
     """Give every path a 0.5px same-color stroke.
 
@@ -1329,6 +1349,11 @@ def _trace_cutout(a: dict, params: dict, flat: bool, cp: int, ld: int, sp: int,
     def images_inks(base: int, detail: bool) -> int:
         return max(base, 5) if detail else base
 
+    # Parrot-hue fix (bg-remove-set icon-11): raise the ink budget to the
+    # image's own significant-hue count unless the user palette knob pinned
+    # it explicitly (_palette: knob is a contract; honor it verbatim).
+    if flat and not params.get("_palette"):
+        inks = min(12, max(inks, _significant_inks(a["working"])))
     svg = _run(mi, cp, ld, sp, ct, lt, pp, inks, detail=False)
     stamp = "color-cutout"
     # Detail retry (measured 2026-09-27): flat art traced into so few paths
