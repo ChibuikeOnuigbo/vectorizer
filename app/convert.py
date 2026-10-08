@@ -676,6 +676,56 @@ def _hairline_candidate(a: dict) -> bool:
     return False
 
 
+def _detect_upscaled_grid(a: dict):
+    """Detect a crisp pixel-art sprite that was UPSCALED (bilinear) to this
+    size, i.e., cx-06-class inputs (1024px image of a 32x32 sprite = 32px
+    block comb). Method: axis-averaged |d2| boundary-comb autocorrelation;
+    upscaled grids show a strong harmonic peak family {p, 2p, 3p}; the gcd
+    of the top peaks is the block period p, and round(w/p) is the native
+    cell count. Calibrated gate: both axes present, strongest peak >= 0.30,
+    >= 2 peaks inside 8% harmonic tolerance, native grid 8..96 cells, and the
+    implied period within 2% of an exact integer divisor multiple of the gcd.
+    Nulls (measured 2026-10-08): photo [] peaks, native 32px sprite weak
+    0.16 on non-harmonic lag, upscaled sprite (64,32,96,128)->gcd 32."""
+    img = a["img"].convert("L")
+    arr = np.asarray(img, dtype=np.float32)
+    w, h = a["w"], a["h"]
+    if min(w, h) < 128:
+        return None
+    periods = []
+    for g in (np.abs(np.diff(arr, n=2, axis=1)).mean(0),
+              np.abs(np.diff(arr, n=2, axis=0)).mean(1)):
+        g = g - g.mean()
+        n = len(g)
+        if n < 64:
+            return None
+        ac = np.correlate(g, g, mode="full")[n - 1:]
+        ac /= (ac[0] + 1e-12)
+        hi = min(200, ac.shape[0] // 2)
+        peaks = [(l, float(ac[l])) for l in range(2, hi)
+                 if ac[l] > ac[l - 1] and ac[l] >= ac[l + 1] and ac[l] >= 0.15]
+        strong = [l for l, v in peaks if v >= 0.40]
+        if len(peaks) < 2 or not strong:
+            return None
+        peaks.sort(key=lambda p: -p[1])
+        top = sorted(l for l, _ in peaks[:4])
+        g_ = 0
+        for l in top:
+            g_ = l if g_ == 0 else int(np.gcd(g_, l))
+        if g_ < 3:
+            return None
+        if any(min(l % g_, g_ - l % g_) / l > 0.08 for l in top):
+            return None
+        periods.append(g_)
+    px, py = periods
+    nx, ny = round(w / px), round(h / py)
+    if not (8 <= nx <= 96 and 8 <= ny <= 96):
+        return None
+    if abs(w / nx - px) / px > 0.02 or abs(h / ny - py) / py > 0.02:
+        return None
+    return (nx, ny)
+
+
 def _trace_pixel_art(a: dict, params: dict) -> str:
     """Pixel-faithful engine for tiny pixelated inputs (<=64px): downscaled
     rasters are grid-quantized, and any smooth tracer AA-dithers the result
@@ -1252,6 +1302,72 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     # Tiny pixelated inputs (<=64px): grid-pure pixel-art engine, 1:1 mapping
     if params.get("engine") != "color-cutout" and max(a["w"], a["h"]) <= 64:
         return _trace_pixel_art(a, params)
+    # Upscaled pixel-art (cx-06-class: bilinear-enlarged sprite, the "15x15
+    # fuzz grid" HORRIBLE): detect the block comb, rebuild the native grid,
+    # and emit the same crisp 1:1 rect map the native sprite gets. Root
+    # dims stay the ORIGINAL input dims; the crisp rect lattice does the
+    # upscale visually. Gate is the calibrated harmonic-gcd probe.
+    if params.get("engine") != "color-cutout" and max(a["w"], a["h"]) > 64:
+        grid = _detect_upscaled_grid(a)
+        if grid:
+            nx, ny = grid
+            # The comb gives the PERIOD, not the PHASE: blocks must align to
+            # the source grid or each block straddles two cells and even a
+            # majority-median snap stays grayscale-soft (cx-06 proof). Search
+            # the phase (step 2px) that minimizes within-block luminance std,
+            # then snap cells: majority-content block -> median content ink,
+            # else empty.
+            src = np.asarray(a["img"].convert("RGBA"), dtype=np.float32)
+            lu = src[..., :3].mean(2)
+            px, py = round(a["w"] / nx), round(a["h"] / ny)
+            best = None
+            for oy in range(0, py, 2):
+                for ox in range(0, px, 2):
+                    tile = lu[oy:oy + ny * py, ox:ox + nx * px]
+                    if tile.shape[0] < ny * py or tile.shape[1] < nx * px:
+                        continue
+                    b = tile.reshape(ny, py, nx, px).transpose(0, 2, 1, 3)
+                    sc = float(b.std(axis=(2, 3)).mean())
+                    if best is None or sc < best[0]:
+                        best = (sc, ox, oy)
+            if best is not None:
+                _, bx, by = best
+            else:
+                bx, by = 0, 0
+            cells = np.zeros((ny, nx, 4), dtype=np.uint8)
+            fx, fy = a["w"] / nx, a["h"] / ny
+            for j in range(ny):
+                y0 = min(max(int(by + j * fy), 0), a["h"])
+                y1 = min(max(int(by + (j + 1) * fy), y0 + 1), a["h"])
+                for i in range(nx):
+                    x0 = min(max(int(bx + i * fx), 0), a["w"])
+                    x1 = min(max(int(bx + (i + 1) * fx), x0 + 1), a["w"])
+                    blk = src[y0:y1, x0:x1]
+                    cov = (blk[..., 3] > 127).mean() if blk.size else 0.0
+                    if cov >= 0.5:
+                        sel = blk[blk[..., 3] > 127][..., :3]
+                        cells[j, i] = (*np.median(sel, axis=0).astype(np.uint8), 255)
+            proxy = Image.fromarray(cells, "RGBA")
+            a2 = dict(a)
+            a2["img"], a2["w"], a2["h"] = proxy, nx, ny
+            svg = _trace_pixel_art(a2, params)
+            # Emit rects IN OUTPUT SPACE (multiply every integer coord): a
+            # viewBox zoom keeps a fractional render path in Chromium/Skia
+            # and even crispEdges spins ~2px AA at cell borders (QA-render
+            # proof of same on cx-06). Integer-aligned rects in the native
+            # root rasterize hard on every renderer, crispEdges or not.
+            sx, sy = a["w"] / nx, a["h"] / ny
+            def _scale_rect(m: re.Match) -> str:
+                x, y, w_, h_ = (float(m.group(k)) for k in (1, 2, 3, 4))
+                tail = m.group(5)
+                return f'<rect x="{x * sx:g}" y="{y * sy:g}" width="{w_ * sx:g}" height="{h_ * sy:g}"{tail}/>'
+            svg = re.sub(r'<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"([^>]*)/>',
+                         _scale_rect, svg)
+            svg = re.sub(r'viewBox="0 0 [\d.]+ [\d.]+"', f'viewBox="0 0 {a["w"]} {a["h"]}"', svg, count=1)
+            svg = svg.replace(f'width="{nx}" height="{ny}"',
+                              f'width="{a["w"]}" height="{a["h"]}"', 1)
+            return re.sub(r'data-engine="pixel-art"', 'data-engine="pixel-art-upscaled"',
+                          svg, count=1)
     # Thin-stroke skeleton engine (wireframes/hairlines): contour fills
     # inflate 1px lines to ~3px (strict 63.9 vs skeleton 75.9)
     if params.get("engine") == "hairline" or (params.get("engine") not in
