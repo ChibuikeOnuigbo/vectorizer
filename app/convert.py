@@ -292,6 +292,25 @@ def analyze(img: Image.Image) -> dict:
         working = img.convert("RGB")
         mask = None
         keep_bg = True
+        # cx-08 salvage (2026-10-08): ultra-low-contrast opaque scans (2%
+        # luminance span) are invisible to the 4-bit quantizer AND the
+        # tracer's speckle floor — the subject collapses into the bg plate
+        # (heart probe: 1 path, 0.4KB, ssim 0.990 lies; heart gone anyway).
+        # Gate: opaque AND p1..p99 luminance span in [2,24] -> stretch the
+        # WORKING tensor's range to [48,224] (hue-preserving additive map).
+        # Calibrated on all 25 probes (15 ladder + 8 complex + 2 uploads):
+        # fires only on cx-08; a["img"] untouched so A/B judges score the
+        # original; uploads have alpha under 255 (different branch entirely).
+        if max(w, h) >= 64:
+            L = np.asarray(img.convert("L"), dtype=np.float32)
+            p1, p99 = np.percentile(L, (1, 99))
+            if 2.0 <= (p99 - p1) <= 24.0:
+                scale = (224.0 - 48.0) / max(p99 - p1, 1.0)
+                newL = np.clip((L - p1) * scale + 48.0, 0, 255)
+                delta = newL - L
+                rgb = np.asarray(working, dtype=np.float32)
+                working = Image.fromarray(
+                    np.clip(rgb + delta[..., None], 0, 255).astype(np.uint8), "RGB")
 
     # --- flat-art detection: how well does a 4-color palette reconstruct the
     #     content? Flat logos/icons (with AA edge shades) score ~5-15,

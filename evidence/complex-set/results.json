@@ -1,0 +1,90 @@
+{
+ "cx-01-photo-dog": {
+  "ms": 1303,
+  "paths": 5398,
+  "fills": 55,
+  "kb": 2087.6,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-soft-stack",
+  "ssim12": 0.8925,
+  "alpha_mean": 1.0
+ },
+ "cx-02-watercolor-fox": {
+  "ms": 7946,
+  "paths": 4363,
+  "fills": 76,
+  "kb": 3308.1,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-cutout",
+  "ssim12": 0.7632,
+  "alpha_mean": 1.0
+ },
+ "cx-03-comic-text-rocket": {
+  "ms": 9542,
+  "paths": 212,
+  "fills": 199,
+  "kb": 270.8,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-cutout",
+  "ssim12": 0.7922,
+  "alpha_mean": 1.0
+ },
+ "cx-04-mandala-microdetail": {
+  "ms": 16724,
+  "paths": 5220,
+  "fills": 26,
+  "kb": 5134.8,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-soft-stack",
+  "ssim12": 0.4292,
+  "alpha_mean": 1.0
+ },
+ "cx-05-ink-sketch-falcon": {
+  "ms": 7281,
+  "paths": 3194,
+  "fills": 20,
+  "kb": 3250.2,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-soft-stack",
+  "ssim12": 0.5883,
+  "alpha_mean": 1.0
+ },
+ "cx-06-pixelart-sword": {
+  "ms": 1576,
+  "paths": 2,
+  "fills": 1,
+  "kb": 0.8,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-cutout",
+  "ssim12": 0.4979,
+  "alpha_mean": 1.0
+ },
+ "cx-07-soft-glow-orb": {
+  "ms": 465,
+  "paths": 1,
+  "fills": 1,
+  "kb": 3.0,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "binary-alpha-mono",
+  "ssim12": 0.5244,
+  "alpha_mean": 1.0
+ },
+ "cx-08-lowcontrast-heart": {
+  "ms": 557,
+  "paths": 1,
+  "fills": 1,
+  "kb": 0.4,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-cutout",
+  "ssim12": 0.9899,
+  "alpha_mean": 1.0
+ }
+}
