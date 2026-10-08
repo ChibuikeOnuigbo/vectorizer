@@ -53,5 +53,26 @@ POST, no fields — the same bytes the UI sends.
   half-strips or speckle-traces. Noted as ladder wall T2/T3 for the next
   improvement cycle (alongside the remaining FAIL rows of sweep v7).
 
-Next turn (generator budget reset): T5 — three ~200-color maximalist pieces
-(skull graffiti, kaleidoscope owl, mosaic phoenix).
+## Part 2 — T4 extended + T5 (~200-color maximalist), 2026-10-08
+
+| tier | icons | fidelity (ssim/edge) | cost | verdict |
+|---|---|---|---|---|
+| T4 parrot (44 regions) | 11 | 0.381 / 0.213 | new 73 paths, 101KB, 0.9s | PARTIAL: shape fine, **hue mapping wrong** (yellow cheeks→red/blue/green, white eye-patch + black linework lost) |
+| T4 stripes moon+amber | 12 | 0.698 / 0.556 | 53 paths, 240KB, 1.9s | OK |
+| T5 graffiti skull ~200c | 13 | 0.759 / 0.694 | **7,939 paths / 7,908 distinct fills, 4.6MB, 13.5s** | faithful but icon-unusable |
+| T5 kaleidoscope owl | 14 | 0.761 / 0.784 | **6,234 paths / 6,190 fills, 3.5MB, 21.6s** | faithful but icon-unusable |
+| T5 mosaic phoenix | 15 | 0.662 / 0.677 | **8,327 paths / 8,285 fills, 4.8MB, 30.7s** | faithful but icon-unusable |
+
+New findings:
+7. **~200-color inputs: fidelity is *good* (0.66–0.76, visually strong)** — the
+   model does NOT choke on big palettes. It chokes on COST: 6k–8k paths with
+   6k–8k *distinct fills* (palette collapse ≈ zero), 13–31 seconds, multi-MB
+   SVGs. Correct output, wrong envelope.
+8. **T4b exposed a real color-mapping bug**: a 44-flat-color parrot kept its
+   structure but had hues reassigned (yellow cheeks → red/blue/green; the
+   white eye patch and black linework merged into dark blue). Small-path
+   output, big color error — worth a unit case.
+
+The ladder wall map stands: T1 inconsistent strip, T2 gradient half-strip,
+T3 texture speckle explosion, T5 heavy-but-faithful; T4's extended parrot
+adds the hue-mapping issue.
