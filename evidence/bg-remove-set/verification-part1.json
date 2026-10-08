@@ -1,0 +1,276 @@
+{
+ "generated_utc": "2026-10-08T11:55:39Z",
+ "protocol": "15-icon ladder part 1 (icons 01-10; generator rate limit 10/turn, 11-15 next turn). SHIPPED endpoint default POST, threads. Pre-registered metrics: fidelity (ssim12/f_mae/edge_f1 vs input, white-flattened); bg-strip signal = ink coverage (alpha>0.1) in outer 8% ring vs center 40% box; bg_leak = fraction of ring ink within delta-48 of the input ring top-2 colors; degeneration alarms = paths/fills/svg_bytes.",
+ "spec": {
+  "icon-01-rocket-flatbg": [
+   "T1 flat bg",
+   "red rocket, flat pale yellow bg"
+  ],
+  "icon-02-leaf-flatbg": [
+   "T1 flat bg",
+   "green leaf, flat navy bg"
+  ],
+  "icon-03-anchor-flatbg": [
+   "T1 flat bg",
+   "purple anchor, flat mint bg"
+  ],
+  "icon-04-fox-gradientbg": [
+   "T2 gradient bg",
+   "orange fox, blue-teal gradient bg"
+  ],
+  "icon-05-moon-gradientbg": [
+   "T2 gradient bg",
+   "white moon, purple-pink gradient bg"
+  ],
+  "icon-06-camera-gradientbg": [
+   "T2 gradient bg",
+   "black camera, sunset gradient bg"
+  ],
+  "icon-07-knight-texturebg": [
+   "T3 textured bg",
+   "black knight, kraft paper texture bg"
+  ],
+  "icon-08-star-texturebg": [
+   "T3 textured bg",
+   "yellow star, denim weave texture bg"
+  ],
+  "icon-09-apple-halftonebg": [
+   "T3 textured bg",
+   "red apple, halftone dots bg"
+  ],
+  "icon-10-chameleon-multicolor": [
+   "T4 multi-color",
+   "rainbow chameleon, lime bg"
+  ]
+ },
+ "results": {
+  "icon-01-rocket-flatbg": {
+   "engine": null,
+   "ms": 644.8,
+   "kb": 104.3,
+   "colors_meta": 377,
+   "paths_meta": 402,
+   "paths_svg": 402,
+   "fills_distinct": 377,
+   "svg_bytes": 106826,
+   "mae": 48.37,
+   "f_mae": 0.8103,
+   "ssim12": 0.3663,
+   "edge_f1": 0.0052,
+   "ring_ink": 0.32,
+   "center_ink": 0.659,
+   "bg_leak_frac_of_ring_ink": 0.0,
+   "svg_sha256": "d2d987e3d1ead0fc",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-02-leaf-flatbg": {
+   "engine": null,
+   "ms": 1898.3,
+   "kb": 21.4,
+   "colors_meta": 3,
+   "paths_meta": 6,
+   "paths_svg": 6,
+   "fills_distinct": 3,
+   "svg_bytes": 21881,
+   "mae": 1.46,
+   "f_mae": 0.9943,
+   "ssim12": 0.6953,
+   "edge_f1": 0.2319,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "bg_leak_frac_of_ring_ink": 0.925,
+   "svg_sha256": "568232c48a9f1bf4",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-03-anchor-flatbg": {
+   "engine": null,
+   "ms": 2522.4,
+   "kb": 34.6,
+   "colors_meta": 3,
+   "paths_meta": 7,
+   "paths_svg": 7,
+   "fills_distinct": 3,
+   "svg_bytes": 35401,
+   "mae": 4.65,
+   "f_mae": 0.9818,
+   "ssim12": 0.5267,
+   "edge_f1": 0.1696,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "bg_leak_frac_of_ring_ink": 0.927,
+   "svg_sha256": "b871fe482b75418f",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-04-fox-gradientbg": {
+   "engine": null,
+   "ms": 1420.4,
+   "kb": 451.7,
+   "colors_meta": 850,
+   "paths_meta": 1042,
+   "paths_svg": 1042,
+   "fills_distinct": 850,
+   "svg_bytes": 462564,
+   "mae": 113.25,
+   "f_mae": 0.5559,
+   "ssim12": 0.1652,
+   "edge_f1": 0.0166,
+   "ring_ink": 0.32,
+   "center_ink": 0.659,
+   "bg_leak_frac_of_ring_ink": 0.6,
+   "svg_sha256": "ce3effedc8fd35b3",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-05-moon-gradientbg": {
+   "engine": null,
+   "ms": 788.1,
+   "kb": 402.0,
+   "colors_meta": 622,
+   "paths_meta": 799,
+   "paths_svg": 799,
+   "fills_distinct": 622,
+   "svg_bytes": 411661,
+   "mae": 101.05,
+   "f_mae": 0.6037,
+   "ssim12": 0.0922,
+   "edge_f1": 0.0075,
+   "ring_ink": 0.32,
+   "center_ink": 0.659,
+   "bg_leak_frac_of_ring_ink": 0.763,
+   "svg_sha256": "08978f8fec1c7164",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-06-camera-gradientbg": {
+   "engine": null,
+   "ms": 831.9,
+   "kb": 593.6,
+   "colors_meta": 1333,
+   "paths_meta": 1652,
+   "paths_svg": 1652,
+   "fills_distinct": 1333,
+   "svg_bytes": 607830,
+   "mae": 104.79,
+   "f_mae": 0.589,
+   "ssim12": 0.1329,
+   "edge_f1": 0.0475,
+   "ring_ink": 0.32,
+   "center_ink": 0.659,
+   "bg_leak_frac_of_ring_ink": 0.81,
+   "svg_sha256": "4655a3cc6912cbe2",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-07-knight-texturebg": {
+   "engine": null,
+   "ms": 8759.6,
+   "kb": 6987.9,
+   "colors_meta": 2593,
+   "paths_meta": 16272,
+   "paths_svg": 16272,
+   "fills_distinct": 2593,
+   "svg_bytes": 7155589,
+   "mae": 80.77,
+   "f_mae": 0.6833,
+   "ssim12": 0.135,
+   "edge_f1": 0.0347,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "bg_leak_frac_of_ring_ink": 0.0,
+   "svg_sha256": "abe39abcbf7437f7",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-08-star-texturebg": {
+   "engine": null,
+   "ms": 11499.3,
+   "kb": 7664.2,
+   "colors_meta": 6991,
+   "paths_meta": 14704,
+   "paths_svg": 14704,
+   "fills_distinct": 6991,
+   "svg_bytes": 7848094,
+   "mae": 141.76,
+   "f_mae": 0.4441,
+   "ssim12": 0.0187,
+   "edge_f1": 0.3186,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "bg_leak_frac_of_ring_ink": 0.0,
+   "svg_sha256": "aec5a8489a75b485",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-09-apple-halftonebg": {
+   "engine": null,
+   "ms": 14980.7,
+   "kb": 4543.4,
+   "colors_meta": 1896,
+   "paths_meta": 14187,
+   "paths_svg": 14187,
+   "fills_distinct": 1896,
+   "svg_bytes": 4652424,
+   "mae": 113.97,
+   "f_mae": 0.553,
+   "ssim12": 0.0035,
+   "edge_f1": 0.2462,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "bg_leak_frac_of_ring_ink": 0.0,
+   "svg_sha256": "ffd720a30ce2c186",
+   "size": [
+    1024,
+    1024
+   ]
+  },
+  "icon-10-chameleon-multicolor": {
+   "engine": null,
+   "ms": 7845.4,
+   "kb": 153.0,
+   "colors_meta": 158,
+   "paths_meta": 159,
+   "paths_svg": 159,
+   "fills_distinct": 158,
+   "svg_bytes": 156719,
+   "mae": 3.04,
+   "f_mae": 0.9881,
+   "ssim12": 0.9059,
+   "edge_f1": 0.7194,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "bg_leak_frac_of_ring_ink": 0.549,
+   "svg_sha256": "dffd75af8cc78068",
+   "size": [
+    1024,
+    1024
+   ]
+  }
+ },
+ "note_t3_rerender": "T3 (07/08/09) renders were re-made via file:// transport: >2MB data-URL navigation silently failed in the audit renderer (blank RGBA) \u2014 measurement artifact, disclosed; fidelity numbers now computed on the true renders.",
+ "verdict_map": {
+  "T1 flat bg": "1/3 OK: rocket(01) bg partially stripped but fidelity wrecked (402 frag paths, ssim 0.366); leaf/anchor bg KEPT as full plate (no strip) \u2014 INCONSISTENT routes inside one tier.",
+  "T2 gradient bg": "0/3: soft-stack band-plates; partial strip; ssim 0.09-0.17, mae 90-111 \u2014 fidelity FAIL.",
+  "T3 textured bg": "0/3 catastrophically unusable: 14,187-16,272 paths, 4.5-7.7MB, 9-15s \u2014 texture traced as content, no strip; halftone ssim 0.004.",
+  "T4 multi-color 15+": "1/1 PASS: 159 paths, ssim 0.906, edge 0.719 \u2014 handled well.",
+  "measurement_artifact_disclosed": "T3 first renders were blank (data-URL transport cap in the CDP renderer), NOT SVG emptiness \u2014 re-rendered via file:// before any verdict."
+ }
+}
