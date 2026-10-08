@@ -135,12 +135,96 @@ def main():
         check(f'upload {up} paths >= 10', st == 200 and d['meta'].get('paths', 0) >= 10, d.get('meta', {}).get('paths'))
         check(f'upload {up} paths < 300', st == 200 and d['meta'].get('paths', 999) < 300, d.get('meta', {}).get('paths'))
         check(f'upload {up} latency < 5s', t < 5, f'{t:.2f}s')
+    strict(results)
     n = len(CHECKS); p = sum(1 for _, ok, _ in CHECKS if ok)
     print(f'FINAL VALIDATION: {p}/{n} structural checks PASS')
     for c in [c for c in CHECKS if not c[1]][:15]: print(' FAIL', c[0], c[2][:60])
     json.dump({'total': n, 'passed': p, 'checks': [{'name': a, 'ok': b, 'detail': c} for a, b, c in CHECKS]},
               open(ROOT/'qa/results/final_validation.json', 'w'))
     return 0 if p == n else 1
+
+_ENGINES = {'alpha-halo-stack', 'alpha-tone-stack', 'binary-alpha-mono', 'color-soft-stack',
+            'color-tone-stack', 'hairline', 'pixel-art', 'pixel-art-upscaled',
+            'soft-alpha-boost-halo', 'color-cutout', 'color-cutout-detail', 'glow-orbit'}
+_FORBID = re.compile(r'<script|\bhref=|\bxlink:|url\(|<image|<foreignObject|onload=|javascript:', re.I)
+_NUM = re.compile(r'-?\d+(?:\.\d+)?(?:e[-+]?\d+)?', re.I)
+
+def strict(results):
+    """STRICT tier (2026-10-08): safety/self-containment, geometry bounds,
+    root-consistency, engine stamp allowlist, evidence-manifest integrity,
+    and sealed drift guards on real evidence icons."""
+    for o in results:
+        if o['status'] != 200:
+            continue
+        name, svg = o['name'], o['svg']
+        check(f'{name} self-contained (no script/link/url)', not _FORBID.search(svg))
+        eng = re.search(r'data-engine="([a-z-]+)"', svg)
+        check(f'{name} engine stamp in allowlist', bool(eng) and eng.group(1) in _ENGINES,
+              eng.group(1) if eng else 'none')
+        root = re.search(r'<svg[^>]*>', svg).group(0)
+        mw, mh = o['meta'].get('width'), o['meta'].get('height')
+        wh = re.search(r'width="([\d.]+)" height="([\d.]+)"', root)
+        vb = re.search(r'viewBox="([\d. -]+)"', root)
+        check(f'{name} root dims == meta dims',
+              wh and f'{mw:g}' == wh.group(1) and f'{mh:g}' == wh.group(2),
+              root[:90])
+        check(f'{name} viewBox == 0 0 w h',
+              vb and vb.group(1) == f'0 0 {mw:g} {mh:g}', vb and vb.group(1))
+        lim = 2.0 * max(mw or 1, mh or 1)
+        overflow = 0
+        for d in re.findall(r'<path[^>]*\bd="([^"]+)"', svg):
+            vals = [abs(float(v)) for v in _NUM.findall(d)]
+            if vals and max(vals) > lim:
+                overflow += 1
+        check(f'{name} geometry bounded (<=2x input edge)', overflow == 0, overflow)
+        for rr in re.findall(r'<rect[^>]*>', svg):
+            for v in re.findall(r'(?:x|y|width|height)="(-?\d+(?:\.\d+)?)"', rr):
+                if abs(float(v)) > lim:
+                    overflow += 1
+                    break
+        check(f'{name} rect bounds ok', overflow == 0)
+        bad_op = [v for v in re.findall(r'fill-opacity="([\d.]+)"', svg)
+                  if not (0.0 < float(v) <= 1.0)]
+        check(f'{name} fill-opacity in (0,1]', not bad_op, bad_op[:3])
+        bad_hex = [c for c in re.findall(r'fill="([^"#][^"]*)"', svg)
+                   if c not in ('none',)]
+        check(f'{name} fill colors are #hex or none', not bad_hex, bad_hex[:3])
+    # evidence manifests byte-integrity (catches accidental regen anywhere)
+    for mdir in ['evidence/complex-set', 'evidence/icon-hard-set', 'evidence/fix-t3-speckle']:
+        man = ROOT/mdir/'MANIFEST.sha256'
+        if not man.exists():
+            check(f'manifest {mdir} exists', False); continue
+        bad = 0
+        for line in man.read_text().strip().split('\n'):
+            sha, rel = line.split('  ', 1)
+            f = ROOT/mdir/rel
+            if not f.exists() or hashlib.sha256(f.read_bytes()).hexdigest() != sha:
+                bad += 1
+        check(f'manifest {mdir} all files byte-match', bad == 0, bad)
+    # sealed drift guards on real evidence icons (pinned wheels: see
+    # requirements-qapin.txt; seal refreshed 2026-10-08 post-wipe reseal)
+    SEALED = [('evidence/bg-remove-set/inputs/icon-05-moon-gradientbg.png',
+               'evidence/fix-t3-speckle/icon-05-moon-gradientbg.svg'),
+              ('evidence/bg-remove-set/inputs/icon-08-star-texturebg.png',
+               'evidence/fix-t3-speckle/icon-08-star-texturebg.svg'),
+              ('evidence/bg-remove-set/inputs/icon-13-skull-200colors.png',
+               'evidence/fix-t3-speckle/icon-13-skull-200colors.svg'),
+              ('evidence/bg-remove-set/inputs/icon-11-parrot-multicolor.png',
+               'evidence/fix-t3-speckle/icon-11-parrot-multicolor.svg'),
+              ('evidence/complex-set/inputs/cx-06-pixelart-sword.png',
+               'evidence/complex-set/redo-upscaled/cx-06-redo.svg')]
+    for ipath, spath in SEALED:
+        st, d, t = post(open(ROOT/ipath, 'rb').read(), Path(ipath).name, timeout=240)
+        sealed_svg = (ROOT/spath).read_text()
+        e = re.search(r'data-engine="([^"]+)"', d.get('svg', '')) if st == 200 else None
+        check(f'seal drift: {Path(ipath).name} byte-matches {Path(spath).name}',
+              st == 200 and d.get('svg') == sealed_svg,
+              e.group(1) if e else f'status {st}')
+    # determinism on a real icon (battery rows already cover synthetic)
+    ipath = ROOT/'evidence/bg-remove-set/inputs/icon-01-rocket-flatbg.png'
+    st1, d1, _ = post(ipath.read_bytes(), 'icon-01.png')
+    st2, d2, _ = post(ipath.read_bytes(), 'icon-01.png')
+    check('icon-01 determinism byte-identical', d1.get('svg') == d2.get('svg') and st1 == 200 == st2)
 
 if __name__ == '__main__':
     sys.exit(main())
