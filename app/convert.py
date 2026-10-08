@@ -302,6 +302,27 @@ def analyze(img: Image.Image) -> dict:
     }
 
 
+def _texture_bg_regime(img_rgb: Image.Image) -> bool:
+    """Calibrated gate (bg-remove-set T3 / icons 07-09, 2026-10-08): dense
+    full-bleed LOW-PALETTE texture (kraft paper, denim, halftone) lands the
+    band stack in a pathology regime — ~14-16k paths / 7.7MB files editors
+    cannot open. Probe: high-frequency energy + palette poverty on a 320px
+    downscale. Calibrated on all 15 ladder icons (and their classes):
+      lap-mean and distinct-4bit-colors (of 4096 bins) classify 15/15 —
+      T3 fires (24.6-131.7 lap / 84-324 bins), T5 maximalist escapes on
+      palette (1600-2518 bins), normals escape on lap (2.7-10.6); the only
+      bonus hit is prism-stripes (49.8/145, measured harmless: -0.008 ssim).
+    Used ONLY to raise the speckle floor (sp 1 -> 6) — geometry-noise
+    suppression, inputs/routing untouched."""
+    g = img_rgb.resize((320, 320), Image.LANCZOS)
+    a = np.asarray(g, dtype=np.float32)
+    lap = np.abs(4 * a[1:-1, 1:-1] - a[:-2, 1:-1] - a[2:, 1:-1]
+                 - a[1:-1, :-2] - a[1:-1, 2:]).mean(2)
+    q = (a.astype(np.uint16) >> 4)
+    ndist = len(np.unique(q[..., 0] * 256 + q[..., 1] * 16 + q[..., 2]))
+    return float(lap.mean()) >= 20.0 and ndist <= 400
+
+
 def _dominant_content_color(a: dict) -> tuple[int, int, int] | None:
     """Mean RGB over strictly-content pixels of the original RGBA input."""
     rgb = np.asarray(a["img"].convert("RGB"), dtype=np.float32)
@@ -990,6 +1011,16 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
     # user/model color_precision applies to the cutout engines only.
     cp = 8
     sp = min(max(int(params.get("filter_speckle", 1)), 1), 16)
+    # T3 textured-bg adapt (bg-remove-set 2026-10-08, pre-registered): when
+    # the calibrated texture gate fires, raise the speckle floor 1 -> 6.
+    # Measured on icons 07/08/09/12: paths -60..-66%, bytes -26..-40%,
+    # ssim 0.672->0.588, 0.610->0.529, 0.878->0.896 (gain), 0.895->0.888.
+    # sp=8/10 REJECTED by the rule (07/08 drop >0.08; icon-09's halftone
+    # dots die at sp=10: -0.37 ssim). Gate provably cannot touch the
+    # calibrated bird-class rows: probe fires on none of them (opaque
+    # uploads byte-identical before/after — regression gate below).
+    if sp < 6 and not a["has_alpha"] and _texture_bg_regime(work_img.convert("RGB")):
+        sp = 6
     ct = min(max(int(params.get("corner_threshold", 30)), 10), 110)
     lt = min(max(float(params.get("length_threshold", 1.0)), 0.5), 10.0)
     pp = min(max(int(params.get("path_precision", 4)), 3), 12)

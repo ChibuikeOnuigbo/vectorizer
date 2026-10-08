@@ -1,0 +1,107 @@
+{
+ "icon-01-rocket-flatbg": {
+  "ms": 588,
+  "paths": 402,
+  "fills": 377,
+  "kb": 104.3,
+  "ssim12": 0.9361
+ },
+ "icon-02-leaf-flatbg": {
+  "ms": 1803,
+  "paths": 6,
+  "fills": 3,
+  "kb": 21.4,
+  "ssim12": 0.6953
+ },
+ "icon-03-anchor-flatbg": {
+  "ms": 2405,
+  "paths": 7,
+  "fills": 3,
+  "kb": 34.6,
+  "ssim12": 0.5267
+ },
+ "icon-04-fox-gradientbg": {
+  "ms": 10024,
+  "paths": 1042,
+  "fills": 31,
+  "kb": 451.7,
+  "ssim12": 0.8711
+ },
+ "icon-05-moon-gradientbg": {
+  "ms": 1235,
+  "paths": 799,
+  "fills": 18,
+  "kb": 402.0,
+  "ssim12": 0.8833
+ },
+ "icon-06-camera-gradientbg": {
+  "ms": 8880,
+  "paths": 1652,
+  "fills": 20,
+  "kb": 593.6,
+  "ssim12": 0.8031
+ },
+ "icon-07-knight-texturebg": {
+  "ms": 6916,
+  "paths": 4707,
+  "fills": 12,
+  "kb": 4752.3,
+  "ssim12": 0.5292
+ },
+ "icon-08-star-texturebg": {
+  "ms": 11110,
+  "paths": 4754,
+  "fills": 20,
+  "kb": 5673.9,
+  "ssim12": 0.5272
+ },
+ "icon-09-apple-halftonebg": {
+  "ms": 4312,
+  "paths": 5192,
+  "fills": 28,
+  "kb": 2905.6,
+  "ssim12": 0.8985
+ },
+ "icon-10-chameleon-multicolor": {
+  "ms": 6793,
+  "paths": 159,
+  "fills": 158,
+  "kb": 153.0,
+  "ssim12": 0.9059
+ },
+ "icon-11-parrot-multicolor": {
+  "ms": 777,
+  "paths": 73,
+  "fills": 44,
+  "kb": 100.8,
+  "ssim12": 0.3813
+ },
+ "icon-12-prism-stripes": {
+  "ms": 841,
+  "paths": 53,
+  "fills": 4,
+  "kb": 240.3,
+  "ssim12": 0.6977
+ },
+ "icon-13-skull-200colors": {
+  "ms": 24367,
+  "paths": 7939,
+  "fills": 636,
+  "kb": 4578.8,
+  "ssim12": 0.7575
+ },
+ "icon-14-owl-200colors": {
+  "ms": 11752,
+  "paths": 6234,
+  "fills": 550,
+  "kb": 3540.6,
+  "ssim12": 0.7637
+ },
+ "icon-15-mosaic-phoenix": {
+  "ms": 30379,
+  "paths": 8327,
+  "fills": 414,
+  "kb": 4790.1,
+  "ssim12": 0.6603
+ }
+}
