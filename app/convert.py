@@ -1069,6 +1069,14 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
     # the rendered surface zoom-clips 1.6x (edge-big1024 scored 56.1 FAIL on
     # a faithful geometry until this was fixed).
     svg = _tidy(svg, ws, hs, False, seal=0)
+    # User-facing dims stamp (bg-remove-set finding 2026-10-08): the working
+    # frame is capped at 640px for speed, but a 1024px upload then ships as a
+    # 640px SVG while meta.width/height report 1024 — UI previews and Figma
+    # imports land at the wrong size. Keep the 640-frame viewBox (SVG scales
+    # losslessly) and stamp the INPUT dims; geometry untouched.
+    if (ws, hs) != (a["w"], a["h"]):
+        svg = svg.replace(f'width="{ws}" height="{hs}" viewBox',
+                          f'width="{a["w"]}" height="{a["h"]}" viewBox', 1)
     return re.sub(r'(<svg\b)', r'\1 data-engine="color-soft-stack"', svg, count=1)
 
 def _mono_route(a: dict) -> str:
@@ -1318,6 +1326,40 @@ def _trace_cutout(a: dict, params: dict, flat: bool, cp: int, ld: int, sp: int,
     return re.sub(r'(<svg\b)', rf'\1 data-engine="{stamp}"', svg, count=1)
 
 
+def _collapse_palette(svg: str, tol: int = 14) -> str:
+    """Collapse near-duplicate output fills (bg-remove-set T5 finding
+    2026-10-08): full-bleed maximalist art traced at cp6 produces ~8k
+    distinct fills ≈ one per path — meta.colors is meaningless and editors
+    choke. Greedy frequency-ordered clustering rewrites paths to a few
+    hundred cluster centers. tol calibrated against renders of icons 13-15
+    (ssim of collapsed render vs uncollapsed, pre-registered floor 0.995):
+      tol=9  min-ssim 0.9982 (≈1.0-1.5k fills)
+      tol=14 min-ssim 0.9953 (414-636 fills)  <- shipped
+      tol=20 min-ssim 0.9900 (179-292 fills)  rejected: below floor
+    Applied only when the output exceeds 512 distinct fills, so normal
+    icons are untouched."""
+    fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
+    from collections import Counter
+    freq = Counter(fills)
+    centers: list[list[int]] = []   # [r, g, b] hex ints of cluster centers
+    cmap: dict[str, str] = {}
+    for col, _n in sorted(freq.items(), key=lambda kv: -kv[1]):
+        r, g, b = (int(col[i:i+2], 16) for i in (1, 3, 5))
+        hit = None
+        for c in centers:
+            if abs(c[0] - r) <= tol and abs(c[1] - g) <= tol and abs(c[2] - b) <= tol:
+                hit = c
+                break
+        if hit is None:
+            centers.append([r, g, b])
+            hit = centers[-1]
+        cmap[col] = f'#{hit[0]:02X}{hit[1]:02X}{hit[2]:02X}'
+    def _sub(m):
+        key = '#' + m.group(1)
+        return f'fill="{cmap.get(key, key)}"'
+    return re.sub(r'fill="#([0-9A-Fa-f]{6})"', _sub, svg)
+
+
 def _score_svg(img: Image.Image, svg: str) -> float:
     try:
         from model.svg_geom import score
@@ -1360,8 +1402,10 @@ def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | No
         params = dict(params or {})
         params["engine"] = engine
     svg = trace_with(a, params)
-
     fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
+    if len(set(fills)) > 512:
+        svg = _collapse_palette(svg)
+        fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
     flat = (params or {}).get("profile", "flat" if a["is_flat"] else "photo") == "flat"
     meta = {
         "width": a["w"],
