@@ -146,7 +146,7 @@ def main():
 _ENGINES = {'alpha-halo-stack', 'alpha-tone-stack', 'binary-alpha-mono', 'color-soft-stack',
             'color-tone-stack', 'hairline', 'pixel-art', 'pixel-art-upscaled',
             'soft-alpha-boost-halo', 'color-cutout', 'color-cutout-detail', 'glow-orbit',
-            'glow-radial-alpha'}
+            'glow-radial-alpha', 'soft-stack-bgm'}
 _FORBID = re.compile(r'<script|\bhref=|\bxlink:|url\((?![\'\"]?#)|<image|<foreignObject|onload=|javascript:', re.I)
 _NUM = re.compile(r'-?\d+(?:\.\d+)?(?:e[-+]?\d+)?', re.I)
 

@@ -1651,6 +1651,90 @@ def _score_svg(img: Image.Image, svg: str) -> float:
         return 0.0
 
 
+def _bg_mottle_probe(a: dict):
+    """Is this opaque icon on a BACKGROUND MOTTLE (hx-07 planet-pebble /
+    stone-wrap / crumpled-paper family)? vs STRUCTURED texture (star-field
+    speckle icon-08), photo blur (cx-01), smooth gradients, flat fills.
+    Gates calibrated 2026-10-09 on the 24-probe icon corpus: opaque frame,
+    bg frac >= 0.4, bg sigma >= 3.5, fine-texture blur residual >= 0.6,
+    hf/spread >= 0.4 (texture beats the block-mean field), and within-bg
+    >25-dist share <= 0.30 (the sparse-speckle rejector: speckle art keeps
+    orbit paths; x2-05=0.233 in, icon-08=0.434 out). Returns mask fields."""
+    if a.get("has_alpha"):
+        return None
+    small = a["img"].convert("RGB").resize((512, 512), Image.LANCZOS)
+    arr = np.asarray(small, dtype=np.float32)
+    ring = np.concatenate([arr[:8].reshape(-1, 3), arr[-8:].reshape(-1, 3),
+                           arr[:, :8].reshape(-1, 3), arr[:, -8:].reshape(-1, 3)])
+    med = np.median(ring, axis=0)
+    d = np.linalg.norm(arr - med[None, None, :], axis=2)
+    bg = d < 45
+    if float(bg.mean()) < 0.4:
+        return None
+    sig = float(arr[bg].std(0).mean())
+    if sig < 3.5:
+        return None
+    lum = arr.mean(2)
+    from numpy.lib.stride_tricks import sliding_window_view as sw
+    full = sw(bg, (3, 3)).all((-2, -1))
+    res = np.abs(sw(lum, (3, 3)).mean((-2, -1)) - lum[1:-1, 1:-1])
+    resid = float(res[full].mean()) if full.any() else 0.0
+    if resid < 0.6:
+        return None
+    gx = np.abs(np.diff(lum, axis=1)); gy = np.abs(np.diff(lum, axis=0))
+    hf = float((gx[1:, :] + gy[:, 1:])[bg[1:, 1:]].mean()) if bg[1:, 1:].any() else 0.0
+    spreads = []
+    for j in range(8):
+        for i in range(8):
+            bm = bg[j * 64:(j + 1) * 64, i * 64:(i + 1) * 64]
+            if bm.mean() > 0.5:
+                spreads.append(float(lum[j * 64:(j + 1) * 64, i * 64:(i + 1) * 64][bm].mean()))
+    spread = float(np.std(spreads)) if len(spreads) > 8 else 99.0
+    if hf / max(spread, 0.01) < 0.4:
+        return None
+    if float((d[bg] > 25).mean()) > 0.30:
+        return None
+    return (med,)
+
+
+def _trace_bg_matted(a: dict, params: dict) -> str:
+    """Bg-mottle fix (2026-10-09): replace fine bg TEXTURE with its smooth
+    local-mean field (subject untouched): per 64x64 block, the bg pixels get
+    their block mean color, the field is radius-blurred once, then subject
+    pixels are re-instated sharp. vtracer then sees noise-free bg: mottle
+    becomes a gentle field instead of ~2k stone/paper patches. The smooth
+    candidate still has to beat the routed candidate on the calibrated A/B
+    judge (within 2 points) AND drop >= 30% paths before it ships — the
+    gate alone re-normalized icon-08's intended star-field speckle, so the
+    judge keeps a veto; see bgm-redo evidence."""
+    img = a["img"].convert("RGB")
+    arr = np.asarray(img, dtype=np.float32)
+    h, w = arr.shape[:2]
+    ring = np.concatenate([arr[:8].reshape(-1, 3), arr[-8:].reshape(-1, 3),
+                           arr[:, :8].reshape(-1, 3), arr[:, -8:].reshape(-1, 3)])
+    med = np.median(ring, axis=0)
+    d = np.linalg.norm(arr - med[None, None, :], axis=2)
+    bg = d < 45
+    by, bx = 64, 64
+    comp = arr.copy()
+    for j in range(0, h, by):
+        for i in range(0, w, bx):
+            bm = bg[j:j + by, i:i + bx]
+            if bm.any():
+                block = arr[j:j + by, i:i + bx]
+                comp[j:j + by, i:i + bx][bm] = block[bm].mean(0)
+    from PIL import ImageFilter
+    blurred = np.asarray(Image.fromarray(comp.astype(np.uint8)).filter(
+        ImageFilter.GaussianBlur(radius=13)), dtype=np.float32)
+    out = arr.copy()
+    out[bg] = blurred[bg]
+    a2 = dict(a)
+    a2["img"] = Image.fromarray(out.astype(np.uint8)).convert("RGBA") if img.mode == "RGBA" else \
+                Image.fromarray(np.asarray(out, dtype=np.uint8))
+    svg = _trace_color_soft_stack(a2, params)
+    return re.sub(r'data-engine="color-soft-stack"', 'data-engine="soft-stack-bgm"', svg, count=1)
+
+
 def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | None = None) -> dict:
     """Convert raster bytes to a clean SVG. Returns {svg, meta}.
 
@@ -1680,6 +1764,16 @@ def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | No
         params = dict(params or {})
         params["engine"] = engine
     svg = trace_with(a, params)
+    # Bg-mottle rescue (hx-07-stone/paper-family, 2026-10-09): gate-detect
+    # mottled opaque bg, trace the bg-matted working copy through the same
+    # soft-stack engine, then let the calibrated A/B judge arbitrate:
+    # bgm ships only when it scores within 2 pts of the normal route AND
+    # cuts >=30% of paths (keeps star-field speckle + photo blur intact).
+    if not engine and 'data-engine="color-soft-stack"' in svg and _bg_mottle_probe(a):
+        svg_b = _trace_bg_matted(a, params)
+        s_a, s_b = _ab_svg_score(a["img"], svg), _ab_svg_score(a["img"], svg_b)
+        if s_b >= s_a - 2.0 and svg_b.count("<path") <= 0.7 * svg.count("<path"):
+            svg = svg_b
     fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
     if len(set(fills)) > 512:
         svg = _collapse_palette(svg)
