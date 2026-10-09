@@ -22,3 +22,10 @@ null: r24/r36 change nothing beyond r13 on this engine.
 Guard provenance: speckle icon-08 gate-excluded (midshare 0.434 > 0.30);
 photo dog no-fire (resid 0.50 < 0.6); flat/gradient/holos no-fire. Battery
 3165/3165 with engine allowlist updated (soft-stack-bgm).
+
+Known cosmetic term: the smooth field ends at the strict bg-mask boundary,
+so a ~30px darker-teal ring reads around the subject (bg-median mask
+excludes near-subject pixels). It renders as a soft drop shadow; judged
+harmless here (judge -1.0) but recorded for the next cycle. The checker-
+board texture inside the rocket body (halftone dots) is INTACT; only the
+background texture got smoothed.
