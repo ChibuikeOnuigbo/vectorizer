@@ -29,3 +29,17 @@ excludes near-subject pixels). It renders as a soft drop shadow; judged
 harmless here (judge -1.0) but recorded for the next cycle. The checker-
 board texture inside the rocket body (halftone dots) is INTACT; only the
 background texture got smoothed.
+
+## measured null: subject-side despeckle for iridescent/foil (x2-08)
+Attempt (2026-10-09, probe-grid sibling of the bgm route): 5x5 median
+despeckle blended 50% on the subject mask (dist>45 from bg median),
+retraced through soft-stack, A/B + path-cut arbitration (same rule):
+  x2-08 holo  : judge +2.0 but paths 1645 -> 3146..3188 (191-194%)  VETO
+  x2-05 stone : judge  0.0 but paths 2321 -> 6172..6225 (266-268%)  VETO
+Numbers identical across k=3/5/7: vtracer soft-stack traces BANDS, and
+smooth band-transitions create MORE traceable edges, not fewer. Conclusion
+(standing rule): smoothing a mid-frequency color field is never
+envelope-positive under this engine. Iridescence/foil stays as traced
+(WEAK-PASS); the true lever for this class is the colors-knob
+(colors=8..16 coarsens palette bands measurably) — product-track item,
+not a fidelity fix.
