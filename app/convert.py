@@ -1779,16 +1779,26 @@ def vectorize(img_bytes: bytes, params: dict | None = None, mode_opts: dict | No
         svg = _collapse_palette(svg)
         fills = re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg)
     flat = (params or {}).get("profile", "flat" if a["is_flat"] else "photo") == "flat"
+    inks = len(set(fills))
     meta = {
         "width": a["w"],
         "height": a["h"],
-        "colors": len(set(fills)),
+        "colors": inks,
         "paths": svg.count("<path"),
         "kb": round(len(svg.encode("utf-8")) / 1024, 1),
         "flat": flat,
         "transparent_bg": bool(a["has_alpha"] and not a["keep_bg"]),
         "seconds": round(time.time() - t0, 2),
     }
+    # Heavy-palette envelope hint (2026-10-09, measured on holo/stone/T5):
+    # auto-coarsening is NOT a fidelity-safe auto-route (A/B judge delta
+    # -2.6 at colors=16 on iridescence - outside the within-2 rule), so it
+    # stays a user choice; but the caller should KNOW the lever exists.
+    # Measured: x2-08 colors=16 -> paths -87%, kb -81%, judge -2.6.
+    if meta["paths"] >= 1500 and inks >= 200:
+        meta["hint"] = ("heavy palette output; if size matters more than "
+                        "perfect fidelity, re-run with colors=16 "
+                        "(measured ~85% fewer paths on this class)")
     if opts.get("enhance"):
         meta["enhanced"] = True
     return {"svg": svg, "meta": meta}
