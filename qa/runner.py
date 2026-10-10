@@ -168,7 +168,7 @@ def run_case(case: dict, allow_retries: int = 1) -> dict:
                 eng = ar["engines"]["engine"]
                 sim, verdict = eng["visual_similarity_pct"], eng["verdict"]
                 res["strict_similarity"] = sim
-                res["strict_channels"] = {k: eng[k] for k in ("mae", "ssim12", "silhouette_iou", "edge_f1")}
+                res["strict_channels"] = {k: eng[k] for k in ("mae", "ssim12", "silhouette_iou", "edge_f1", "midfreq_rec50")}
                 res["strict_verdict"] = verdict
                 res.setdefault("notes", [])
                 if verdict != "PASS":
