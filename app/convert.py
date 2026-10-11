@@ -1025,8 +1025,11 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
     alp = np.asarray(img.getchannel("A"), dtype=np.float32) / 255.0
     h, w = alp.shape
 
-    if max(w, h) > 640:
-        max_down = 640.0 / max(w, h)
+    # Trace-cap: 640px measured floor for the soft-stack (QA knob _softcap
+    # is experiment-only; the hardlock strip drops it from client params).
+    cap = int(params.get("_softcap") or 640)
+    if max(w, h) > cap:
+        max_down = cap / max(w, h)
         work_img = img.resize((max(1, round(w * max_down)), max(1, round(h * max_down))),
                               Image.LANCZOS)
         alp_s = np.asarray(work_img.getchannel("A"), dtype=np.float32) / 255.0

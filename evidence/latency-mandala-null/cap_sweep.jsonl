@@ -1,0 +1,15 @@
+{"row": "cx-04-mandala", "cap": 640, "ms": 4900, "paths": 5220, "kb": 5134.8, "sha": "9cd10ac0e2fc", "identical_to_shipped": true}
+{"row": "cx-04-mandala", "cap": 512, "ms": 1944, "paths": 3329, "kb": 3002.8, "sha": "9459d7a6bc5b", "identical_to_shipped": false}
+{"row": "cx-04-mandala", "cap": 448, "ms": 1936, "paths": 2622, "kb": 2253.6, "sha": "0226315dd064", "identical_to_shipped": false}
+{"row": "cx-05-falcon", "cap": 640, "ms": 4583, "paths": 3194, "kb": 3250.2, "sha": "024c89634bf3", "identical_to_shipped": true}
+{"row": "cx-05-falcon", "cap": 512, "ms": 2610, "paths": 2040, "kb": 1996.2, "sha": "2c19de16ea78", "identical_to_shipped": false}
+{"row": "cx-05-falcon", "cap": 448, "ms": 2205, "paths": 1554, "kb": 1488.0, "sha": "c9e4f0909226", "identical_to_shipped": false}
+{"row": "x2-04-mug", "cap": 640, "ms": 3861, "paths": 1494, "kb": 1335.9, "sha": "5e31e15b9b46", "identical_to_shipped": true}
+{"row": "x2-04-mug", "cap": 512, "ms": 2965, "paths": 937, "kb": 844.3, "sha": "d4a146bf62f8", "identical_to_shipped": false}
+{"row": "x2-04-mug", "cap": 448, "ms": 2540, "paths": 689, "kb": 622.1, "sha": "5ffafc350f3f", "identical_to_shipped": false}
+{"row": "x2-05-pin", "cap": 640, "ms": 2884, "paths": 2321, "kb": 1871.6, "sha": "8cedd78bd0ea", "identical_to_shipped": true}
+{"row": "x2-05-pin", "cap": 512, "ms": 2013, "paths": 2592, "kb": 984.6, "sha": "28bd8329e246", "identical_to_shipped": false}
+{"row": "x2-05-pin", "cap": 448, "ms": 1600, "paths": 2065, "kb": 782.3, "sha": "7d05797edede", "identical_to_shipped": false}
+{"row": "x2-06-castle", "cap": 640, "ms": 5189, "paths": 7755, "kb": 3637.0, "sha": "dc7b8ad78fc1", "identical_to_shipped": true}
+{"row": "x2-06-castle", "cap": 512, "ms": 3375, "paths": 5402, "kb": 2447.4, "sha": "77969dce7130", "identical_to_shipped": false}
+{"row": "x2-06-castle", "cap": 448, "ms": 2793, "paths": 4278, "kb": 1804.3, "sha": "4af63955f2c7", "identical_to_shipped": false}
