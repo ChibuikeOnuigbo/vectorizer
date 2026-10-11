@@ -1489,6 +1489,21 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     if params.get("engine") == "color-soft-stack" or (
             params.get("engine") not in ("color-cutout",)
             and _color_soft_candidate(a)):
+        # micro-detail wash reroute (2026-10-11, evidence/mandala-tone-route):
+        # _color_soft rows split into two measured sub-classes. Glow/AA art
+        # (bird-class, melt<0.08): soft-stack owns it (97.2 PASS; tone-stack
+        # melts it to 63.5 FAIL). Micro-detail wash (mandala/falcon/pin,
+        # melt>=0.08): the family was mis-routed — soft-stack plates blob the
+        # fine structure (strict 49.2/71.9/75.2) while tone-stack keeps it
+        # legible (+8.1..+18.9, at 2-3x paths/ms). The shipped A/B judge
+        # cannot arbitrate this pair (128px PIL poly render favors blobby
+        # plates: -5.9..-17.9 wrong-side margins on every row), so the call
+        # is an input-side gate, melt threshold calibrated on the nearest
+        # measured gap (bird 0.055 vs mug 0.105) — engine-forced calls stay
+        # literal. Melt-route rows are untouched (blur4-6 calibration).
+        if (params.get("engine") != "color-soft-stack"
+                and _melt_share(a) >= 0.08):
+            return _trace_color_tone_stack(a, params)
         return _trace_color_soft_stack(a, params)
     # Melted-content route (deep-blur salvage): BEFORE the mono gate, because
     # blurred mono melts score 15-58 under binary-alpha but 59-87 under the
