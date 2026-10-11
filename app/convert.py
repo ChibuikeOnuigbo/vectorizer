@@ -1130,28 +1130,33 @@ def _trace_color_soft_stack(a: dict, params: dict) -> str:  # noqa: C901 - engin
 
     # Pop the flattened canvas' bg mass: plates whose bbox spans ~ the whole
     # viewBox AND whose fill is near-white (the synthetic flatten color).
+    # 2026-10-11 latency pass (byte-identical): the full coordinate scan
+    # (findall->float per path) is only needed for near-white candidates --
+    # the sentinel-drop decision uses rgb alone. On cx-04 this turns 5,220
+    # number scans into ~1, measured -0.36s of the route.
     kept = []
     for pth in re.findall(r'<path\b[^>]*>', svg):
         f = re.search(r'fill="(#[0-9A-Fa-f]{6})"', pth)
         d = re.search(r'd="([^"]+)"', pth)
-        t = re.search(r'translate\(([-0-9.]+)[, ]+([-0-9.]+)\)', pth)
         if f and d:
             r, g, b = (int(f.group(1)[i:i + 2], 16) for i in (1, 3, 5))
-            nums = [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?', d.group(1))]
             if sent is not None:
                 # sentinel-flooded inner cavities: drop vtracer buckets that
                 # landed near the sentinel color (the hole floods)
                 if abs(r - sent[0]) + abs(g - sent[1]) + abs(b - sent[2]) <= 96:
                     continue
             near_bg = abs(r - 255) + abs(g - 255) + abs(b - 255) <= 40
-            if near_bg and len(nums) >= 4:
-                xs, ys = nums[0::2], nums[1::2]
-                tx = float(t.group(1)) if t else 0.0
-                ty = float(t.group(2)) if t else 0.0
-                bw = (max(xs) + tx) - (min(xs) + tx)
-                bh = (max(ys) + ty) - (min(ys) + ty)
-                if bw / max(ws, 1) >= 0.94 and bh / max(hs, 1) >= 0.94:
-                    continue
+            if near_bg:
+                nums = [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?', d.group(1))]
+                if len(nums) >= 4:
+                    xs, ys = nums[0::2], nums[1::2]
+                    t = re.search(r'translate\(([-0-9.]+)[, ]+([-0-9.]+)\)', pth)
+                    tx = float(t.group(1)) if t else 0.0
+                    ty = float(t.group(2)) if t else 0.0
+                    bw = (max(xs) + tx) - (min(xs) + tx)
+                    bh = (max(ys) + ty) - (min(ys) + ty)
+                    if bw / max(ws, 1) >= 0.94 and bh / max(hs, 1) >= 0.94:
+                        continue
         kept.append(pth)
 
     # Re-attach the original alpha glow as honest-mean band plates UNDER the

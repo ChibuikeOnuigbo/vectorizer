@@ -46,3 +46,13 @@ pass at 640²). The honest remaining levers are (a) a faster native tracer
 backend (dependency-level work, blocked endpoints today) or (b) the
 corpus-retrain route cycle to move the class off soft-stack. Both are
 infra-scale; documented here as the terminus of cheap levers.
+
+## Adjunct shipped same turn (byte-identical perf): bg-pop scan reorder
+The soft-stack bg-mass pop reordered to scan coordinates only for near-white
+candidates (sentinel drop uses rgb alone; the -6-figure float scan hit all
+5,220 paths for ~1 candidate). cx-04 -13% (4.90->4.27s), castle -11%, pin
+-13%, others within noise; svg byte-identical on the whole 5-row fleet
+(sha12 pinned in turn log). `_round_path_data` kept as-is: measured
+301,923 substitutions on cx-04 change ZERO tokens (pp=10 output is already
+%g-clean); memoization measured slower (0.396 vs 0.305s on 178k uniques) —
+documented, not shipped.
