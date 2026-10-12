@@ -60,3 +60,9 @@ soft-stack. Measured: sealed soft-stack 47.9 FAIL -> tone-stack 73.0 WEAK
 (+25.1, visual: denim weave preserved vs chunky block melt). Seal replaced
 with today's tone-stack output; battery drift guard re-green at same count.
 icon-12-prism-stripes (unsealed): cutout-era 72.9 WEAK -> 86.8 PASS (+13.9).
+
+## seal refresh (2026-10-12, second): icon-08-star-texturebg
+Pinned-stack vendor restore after wipe #25 reflows tone-stack's k-means
+bytes (paths 14993 -> 14857, bg #769FBD -> #759FBD); strict quality
+unchanged (73.0 WEAK vs soft-stack 47.9 FAIL). See RESEAL-NOTE.md —
+same mechanism as the 2026-10-08 parrot reseal, one engine over.

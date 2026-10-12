@@ -1543,11 +1543,18 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         # corpus scan), and the no-alpha melt_cand exposure >=0.10 is zero
         # in-branch (the only 0.10+ row is gen-07jpeg, which routes via
         # color-soft where the 0.14 gate already protects it — measured
-        # 95.4 soft-stack vs 91.2 tone-stack). The measured in-branch row is
+        # 95.4 soft-stack vs 91.2 tone-stack). The measured in-branch rows:
         # x2-04 mug (melt 0.1047): arbitration keeps soft-stack (75.8, blind
-        # judge) while tone-stack scores 88.2 (+12.4). No corpus row sits
-        # between blur-max 0.0883 and this gate; fragility disclosed.
-        if not a["has_alpha"] and _melt_share(a) >= 0.10:
+        # judge) while tone-stack scores 88.2 (+12.4), and icon-07 knight —
+        # texture corridor: melt 0.070 sits INSIDE the blur band so the
+        # melt threshold cannot reach it, but its family marker is
+        # _texture_bg_regime (denim/paper full-bleed texture): soft-stack
+        # 48.8 FAIL vs tone-stack 76.5 (+27.7); texture-gate exposure across
+        # all 20 no-alpha melt_cand corpus rows: zero fires. No-alpha only:
+        # alpha texture rows own different routes (mono/halo family).
+        if not a["has_alpha"] and (
+                _melt_share(a) >= 0.10
+                or _texture_bg_regime(a["working"].convert("RGB"))):
             return _trace_color_tone_stack(a, params)
         ss_svg = _trace_color_soft_stack(a, params)
         # the honest BASE candidate is the whole fall-through chain (mono
@@ -1602,7 +1609,18 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             # same threshold; placed before the A/B so the falcon-class rows
             # skip the soft-stack-vs-cutout arbitration the blind judge
             # would always decide wrongly.
-            if (a["is_flat"] and not a["has_alpha"] and _melt_share(a) >= 0.14):
+            # Fox corridor (2026-10-12, same evidence): not-flat soft-wash
+            # art (aa 0.2..0.55, no alpha) is blind-arbitration prey here
+            # too — cx-02 watercolor fox: cutout 66.5 vs tone-stack 76.5
+            # (+10.0). Corridor exposure in the 2,757-row corpus: zero
+            # rows. castle-style dioramas (aa 0.709) stay OUT above the
+            # 0.55 cap (soft-stack owns them, 86.7 vs 81.0 measured) and
+            # mosaic-class rows (aa 0.736) are parked at FAIL ceiling on
+            # cutout by measurement (no engine passes; +4.7 single-row gain
+            # not worth a second corridor at this corpus size).
+            if ((a["is_flat"] and not a["has_alpha"] and _melt_share(a) >= 0.14)
+                    or (not a["is_flat"] and not a["has_alpha"]
+                        and 0.20 <= _aa_blend_share(a) < 0.55)):
                 return _trace_color_tone_stack(a, params)
             ss_svg = _trace_color_soft_stack(a, params)
             base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)

@@ -35,3 +35,13 @@ k-means over EVERY pixel at full input resolution.
 
 QA knobs: `_tsample` (override the 0.08 default), `_tonecap` (px cap —
 vetoed for this engine at 640/768 above; no-op default).
+
+## tone_bands sweep (2026-10-12): null — keep 7
+
+Pre-registered rule: adopt K != 7 only if no rerouted row regresses > 1
+strict sim and at least one row gains >= 3. Sweep on the six rerouted
+rows (bands_sweep.jsonl; default subsample kept): bands 8..10 all split
+the star weave (icon-08: -1.1 at 8, -0.9 at 9, -2.4 at 10); best gains
+elsewhere <= +1.7; mandala stays FAIL at every K <= 10 (68.2..69.9 —
+its residual is paper-wash flattening, not band count). Rule failed on
+every alternative -> default 7 unchanged; knob remains for QA sweeps.

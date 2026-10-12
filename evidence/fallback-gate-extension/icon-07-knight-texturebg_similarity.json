@@ -1,0 +1,38 @@
+{
+ "input": "evidence/bg-remove-set/inputs/icon-07-knight-texturebg.png",
+ "size": [
+  1024,
+  1024
+ ],
+ "engines": {
+  "old(color-soft-stack)": {
+   "visual_similarity_pct": 48.8,
+   "verdict": "FAIL",
+   "mae": 9.72,
+   "ssim12": 0.4885,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.1055,
+   "midfreq_rec50": 0.9665,
+   "channel_notes": {
+    "f_mae": 0.9619,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 4866355
+  },
+  "new(tone-stack)": {
+   "visual_similarity_pct": 76.5,
+   "verdict": "WEAK",
+   "mae": 8.04,
+   "ssim12": 0.765,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.2515,
+   "midfreq_rec50": 0.9984,
+   "channel_notes": {
+    "f_mae": 0.9685,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 10557380
+  }
+ },
+ "composite": "evidence/fallback-gate-extension/icon-07-knight-texturebg_similarity.png"
+}

@@ -72,3 +72,31 @@ soft-stack 75.8 WEAK → tone-stack **88.2 PASS (+12.4)** through the default
 route; composite `x2-04-doodle-crosshatch-mug_similarity.png` (hatching
 legible vs muddied). Fragility disclosed in code comment: blur-max 0.0883
 to gate 0.10 is a thin corridor.
+
+## knight + fox corridors (2026-10-12, second half)
+
+Fleet audit (evidence/fleet-audit) surfaced two more default-route FAILs
+of the same blind-arbitration family; both un-parked on measured rows
+with corpus exposure proof, same protocol as mug/falcon:
+
+- icon-07 knight (melt 0.070 — INSIDE the blur-winner band, unreachable
+  by the 0.10 melt gate): corridor = _texture_bg_regime(working) OR-ed
+  into the no-alpha melt branch. Fires on denim/paper full-bleed texture
+  backgrounds: knight soft-stack 48.8 FAIL -> tone-stack 76.5 WEAK
+  (+27.7; composites: icon-07-knight-texturebg_similarity.*). Exposure:
+  0 of the 20 no-alpha melt_cand corpus rows fires the texture regime.
+  icon-08 side effect discovered at battery: reflowed sealed bytes under
+  the post-wipe pinned stack (numpy k-means epsilon, not a route change —
+  same +25.1 measured class; resealed, fix-t3-speckle/RESEAL-NOTE.md).
+- cx-02 watercolor fox (not flat, no alpha, aa 0.232): corridor =
+  0.20 <= aa < 0.55 in the fallback block. Cutout 66.5 FAIL ->
+  tone-stack 76.5 WEAK (+10.0; composites: cx-02-watercolor-fox_*).
+  Exposure: 0 rows in the 2,757-row corpus. The < 0.55 cap keeps
+  castle-style dioramas OUT (x2-06 aa 0.709 stays soft-stack 86.7 PASS,
+  vs 81.0 if annexed) and leaves mosaic-class parked (phoenix aa 0.736;
+  no engine passes, no gate reaches it). Dog guard: flat=True melt 0.068
+  aa 0.164 — outside both corridors, stays soft-stack 91.9.
+
+Post-ship default route verified: knight 76.5, fox 76.5, castle 86.7,
+phoenix 59.6 (parked), mandala 68.2 (parked), mug 88.6, dog 91.9,
+bird 97.2. Battery 3171/3171 after seal refresh.

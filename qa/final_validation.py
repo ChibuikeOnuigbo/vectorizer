@@ -191,7 +191,7 @@ def strict(results):
                    if c not in ('none',)]
         check(f'{name} fill colors are #hex or none', not bad_hex, bad_hex[:3])
     # evidence manifests byte-integrity (catches accidental regen anywhere)
-    for mdir in ['evidence/complex-set', 'evidence/icon-hard-set', 'evidence/fix-t3-speckle', 'evidence/icon-x2-set', 'evidence/curve-cv-set', 'evidence/midfreq-judge', 'evidence/latency-mandala-null', 'evidence/mandala-tone-route', 'evidence/fallback-gate-extension', 'evidence/tone-stack-cost']:
+    for mdir in ['evidence/complex-set', 'evidence/icon-hard-set', 'evidence/fix-t3-speckle', 'evidence/icon-x2-set', 'evidence/curve-cv-set', 'evidence/midfreq-judge', 'evidence/latency-mandala-null', 'evidence/mandala-tone-route', 'evidence/fallback-gate-extension', 'evidence/tone-stack-cost', 'evidence/fleet-audit']:
         man = ROOT/mdir/'MANIFEST.sha256'
         if not man.exists():
             check(f'manifest {mdir} exists', False); continue
