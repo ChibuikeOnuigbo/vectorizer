@@ -61,3 +61,14 @@ battery, not just the changed-class fleet):
   stripes de-wobbled.
 Both visual-verified as gains before the seal write (zero-trust rule).
 The other five sealed rows byte-match after battery re-run.
+
+## mug un-parked (same turn): melt-branch sibling gate at >=0.10
+Cohort scan in the melt branch: blur4-6 calibrated winners max melt
+0.0883; no-alpha melt_cand exposure >=0.10 is exactly one row (gen-07jpeg
+0.1117) and it routes via COLOR-SOFT (protected there by the 0.14 gate) —
+the in-branch corridor is empty. Shipped: color_soft=False ∧ no-alpha ∧
+melt>=0.10 → tone-stack before the melt arbitration. Result: x2-04 mug
+soft-stack 75.8 WEAK → tone-stack **88.2 PASS (+12.4)** through the default
+route; composite `x2-04-doodle-crosshatch-mug_similarity.png` (hatching
+legible vs muddied). Fragility disclosed in code comment: blur-max 0.0883
+to gate 0.10 is a thin corridor.

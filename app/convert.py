@@ -434,6 +434,15 @@ def _trace_color_tone_stack(a: dict, params: dict) -> str:
     layers — gradients become smooth bands instead of cutout fragmentation."""
     img = a["img"].convert("RGBA")
     w, h = a["w"], a["h"]
+    # QA-only cost knobs (_tonecap px working cap, _tsample k-means sample
+    # share; hardlock strip drops both from client params; measured in
+    # evidence/tone-stack-cost). Search speedup of the micro-detail wash
+    # rows must clear the strict audit per row before either ships.
+    tcap = int(params.get("_tonecap") or 0)
+    if tcap and max(w, h) > tcap:
+        f = tcap / max(w, h)
+        img = img.resize((max(1, round(w * f)), max(1, round(h * f))), Image.LANCZOS)
+        w, h = img.size
     arr = np.asarray(img)
     rgb = arr[..., :3].astype(np.float32)
     alpha = arr[..., 3].astype(np.float32) / 255.0
@@ -442,16 +451,24 @@ def _trace_color_tone_stack(a: dict, params: dict) -> str:
     K = min(max(int(params.get("tone_bands", 7)), 3), 10)
     rng = np.random.default_rng(4)
     C = tones[rng.choice(len(tones), K, replace=False)].copy()
-    lab = None
+    # k-means on a subsample (2026-10-12, evidence/tone-stack-cost): 8% of
+    # pixels (floor 20k) is enough to pin 7 cluster centers — strict sim
+    # identical (delta -0.0..+0.4) on the whole rerouted fleet while latency
+    # drops 64-80% (mandala 13.5s -> 4.5s; the full-res assignment map below
+    # is what preserves micro detail). _tsample overrides for QA sweeps.
+    frac = float(params.get("_tsample") or 0.08)
+    tones_fit = tones[rng.choice(len(tones), min(len(tones), max(20000, int(len(tones) * frac))),
+                                 replace=False)]
     for _ in range(28):
-        d = ((tones[:, None, :] - C[None, :, :]) ** 2).sum(axis=2)
-        lab = d.argmin(axis=1)
-        NC = np.array([tones[lab == i].mean(axis=0) if (lab == i).any() else C[i]
+        d_fit = ((tones_fit[:, None, :] - C[None, :, :]) ** 2).sum(axis=2)
+        lab_fit = d_fit.argmin(axis=1)
+        NC = np.array([tones_fit[lab_fit == i].mean(axis=0) if (lab_fit == i).any() else C[i]
                        for i in range(K)])
         if np.abs(NC - C).max() < 0.6:
             C = NC
             break
         C = NC
+    lab = ((tones[:, None, :] - C[None, :, :]) ** 2).sum(axis=2).argmin(axis=1)
     lab_map = lab.reshape(h, w)
     lum = C.mean(axis=1)
     order = np.argsort(-lum)
@@ -1520,6 +1537,18 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             and not a.get("_melt_route_seen")
             and _melt_candidate(a)
             and _soft_alpha_boost(a) is None):
+        # micro-detail wash reroute, melt-branch sibling (2026-10-12,
+        # evidence/fallback-gate-extension addendum): the calibrated blur4-6
+        # winners this arbitration exists for sit at melt <= 0.0883 (456-row
+        # corpus scan), and the no-alpha melt_cand exposure >=0.10 is zero
+        # in-branch (the only 0.10+ row is gen-07jpeg, which routes via
+        # color-soft where the 0.14 gate already protects it — measured
+        # 95.4 soft-stack vs 91.2 tone-stack). The measured in-branch row is
+        # x2-04 mug (melt 0.1047): arbitration keeps soft-stack (75.8, blind
+        # judge) while tone-stack scores 88.2 (+12.4). No corpus row sits
+        # between blur-max 0.0883 and this gate; fragility disclosed.
+        if not a["has_alpha"] and _melt_share(a) >= 0.10:
+            return _trace_color_tone_stack(a, params)
         ss_svg = _trace_color_soft_stack(a, params)
         # the honest BASE candidate is the whole fall-through chain (mono
         # gate included): heavy/jit mono-elems sit in the melt band too and
