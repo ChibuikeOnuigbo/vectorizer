@@ -1,0 +1,66 @@
+{
+ "input": "model_result/inputs/gen-07jpeg.jpg.png",
+ "size": [
+  256,
+  256
+ ],
+ "engines": {
+  "shipped(now):color-tone-stack": {
+   "visual_similarity_pct": 91.2,
+   "verdict": "PASS",
+   "mae": 5.98,
+   "ssim12": 0.9117,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.7388,
+   "midfreq_rec50": 0.9162,
+   "channel_notes": {
+    "f_mae": 0.9765,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 75786
+  },
+  "color-soft-stack": {
+   "visual_similarity_pct": 95.4,
+   "verdict": "PASS",
+   "mae": 5.14,
+   "ssim12": 0.9564,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.8502,
+   "midfreq_rec50": 0.9541,
+   "channel_notes": {
+    "f_mae": 0.9799,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 239291
+  },
+  "color-tone-stack": {
+   "visual_similarity_pct": 91.2,
+   "verdict": "PASS",
+   "mae": 5.98,
+   "ssim12": 0.9117,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.7388,
+   "midfreq_rec50": 0.9162,
+   "channel_notes": {
+    "f_mae": 0.9765,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 75786
+  },
+  "color-cutout": {
+   "visual_similarity_pct": 89.1,
+   "verdict": "PASS",
+   "mae": 6.92,
+   "ssim12": 0.8984,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.6588,
+   "midfreq_rec50": 0.8912,
+   "channel_notes": {
+    "f_mae": 0.9729,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 15086
+  }
+ },
+ "composite": "evidence/fallback-gate-extension/gen-07jpeg.jpg_similarity.png"
+}

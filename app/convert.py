@@ -1489,20 +1489,25 @@ def trace_with(a: dict, params: dict | None = None) -> str:
     if params.get("engine") == "color-soft-stack" or (
             params.get("engine") not in ("color-cutout",)
             and _color_soft_candidate(a)):
-        # micro-detail wash reroute (2026-10-11, evidence/mandala-tone-route):
+        # micro-detail wash reroute (2026-10-11, evidence/mandala-tone-route;
+        # corpus-scale exposure measured 2026-10-12, fallback-gate-extension):
         # _color_soft rows split into two measured sub-classes. Glow/AA art
-        # (bird-class, melt<0.08): soft-stack owns it (97.2 PASS; tone-stack
+        # (bird-class, melt<0.14): soft-stack owns it (97.2 PASS; tone-stack
         # melts it to 63.5 FAIL). Micro-detail wash (mandala/falcon/pin,
-        # melt>=0.08): the family was mis-routed — soft-stack plates blob the
+        # melt>=0.14): the family was mis-routed — soft-stack plates blob the
         # fine structure (strict 49.2/71.9/75.2) while tone-stack keeps it
         # legible (+8.1..+18.9, at 2-3x paths/ms). The shipped A/B judge
         # cannot arbitrate this pair (128px PIL poly render favors blobby
         # plates: -5.9..-17.9 wrong-side margins on every row), so the call
-        # is an input-side gate, melt threshold calibrated on the nearest
-        # measured gap (bird 0.055 vs mug 0.105) — engine-forced calls stay
-        # literal. Melt-route rows are untouched (blur4-6 calibration).
+        # is an input-side gate. Threshold 0.14 centers the MEASURED 2,757-
+        # row exposure gap: excluded-side rows {bird .055, jpeg .112} both
+        # score better on soft-stack (97.2 / 95.4), included-side rows
+        # {pin .169, mandala .532} win on tone-stack (+8.1/+18.9); 0.08 was
+        # the first-calibration value, corrected upward by the jpeg row.
+        # Engine-forced calls stay literal. Melt-route rows are untouched
+        # (blur4-6 calibration).
         if (params.get("engine") != "color-soft-stack"
-                and _melt_share(a) >= 0.08):
+                and _melt_share(a) >= 0.14):
             return _trace_color_tone_stack(a, params)
         return _trace_color_soft_stack(a, params)
     # Melted-content route (deep-blur salvage): BEFORE the mono gate, because
@@ -1557,6 +1562,19 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             # soft-stack only when the calibrated judge (_ab_svg_score,
             # IoU*40+color*60) prefers it by the melt route's +5 margin;
             # measured per image, never fixed.
+            # Micro-detail wash reroute, fallback sibling (2026-10-12,
+            # evidence/fallback-gate-extension): corpus cohort scan of 2,757
+            # model_result inputs: 54 rows reach this block flat/no-alpha;
+            # max melt among them is 0.0326 — the >=0.14 gate CANNOT fire on
+            # any corpus row here. The only measured row is cx-05 falcon
+            # (melt 0.235): shipped soft-stack 71.9 WEAK via this A/B (the
+            # 128px judge always prefers blobby plates), tone-stack 81.4
+            # (+9.5). Same measured class as the color-soft reroute above;
+            # same threshold; placed before the A/B so the falcon-class rows
+            # skip the soft-stack-vs-cutout arbitration the blind judge
+            # would always decide wrongly.
+            if (a["is_flat"] and not a["has_alpha"] and _melt_share(a) >= 0.14):
+                return _trace_color_tone_stack(a, params)
             ss_svg = _trace_color_soft_stack(a, params)
             base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
             if _ab_svg_score(a["img"], ss_svg) > _ab_svg_score(a["img"], base_svg) + 5.0:

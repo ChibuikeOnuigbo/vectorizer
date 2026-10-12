@@ -59,3 +59,13 @@ plain-fallback A/B untouched.
   documented 2026-10-08 fixed routes (complex-set README), not this change.
 Files: this README, the two composites, `gate-table.json` (engine sweep +
 arbiter numbers).
+
+## 2026-10-12 addendum: threshold correction 0.08 -> 0.14 + falcon extension
+Corpus exposure (2,757 rows, evidence/fallback-gate-extension): the one
+color_soft row hit by 0.08 (gen-07jpeg, melt 0.1117) scores better on
+soft-stack (95.4 PASS vs 91.2 tone-stack) — gate retuned to 0.14, centered
+in the measured exposure gap {excluded .055/.112 better-on-soft |
+included .169/.532 better-on-tone}. Falcon extension shipped from the same
+scan: fallback-reach cohort's max melt is 0.0326, so the sibling gate in the
+plain-fallback block cannot fire on any corpus row; falcon un-parked
+71.9 -> 81.4. All else unchanged.

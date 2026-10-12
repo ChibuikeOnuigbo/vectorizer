@@ -52,3 +52,11 @@ unchanged; gating visible only via meta.paths drop.
   (sha b81b4d26924d / 6b0c26de522b, matching evidence/ai-arbiter/)
 - structural battery 1234/1234 PASS post-fix
 - T1/T2/T4/T5 ladder icons 01-06, 10-15: byte-identical outputs
+
+## seal refresh (2026-10-12): icon-08-star-texturebg
+The micro-detail wash reroute (evidence/mandala-tone-route +
+fallback-gate-extension, melt>=0.14 -> color-tone-stack) moves this row off
+soft-stack. Measured: sealed soft-stack 47.9 FAIL -> tone-stack 73.0 WEAK
+(+25.1, visual: denim weave preserved vs chunky block melt). Seal replaced
+with today's tone-stack output; battery drift guard re-green at same count.
+icon-12-prism-stripes (unsealed): cutout-era 72.9 WEAK -> 86.8 PASS (+13.9).
