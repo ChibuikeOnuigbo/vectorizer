@@ -1618,9 +1618,18 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             # mosaic-class rows (aa 0.736) are parked at FAIL ceiling on
             # cutout by measurement (no engine passes; +4.7 single-row gain
             # not worth a second corridor at this corpus size).
+            # Owl corridor (2026-10-12, evidence/fleet-audit-driven):
+            # extended to aa < 0.70 after the 200-color mosaic audit —
+            # icon-14 owl (aa 0.643): cutout 74.6 WEAK vs tone-stack 90.9
+            # PASS (+16.3); icon-13 skull (aa 0.636) comes along neutral
+            # (+0.3: 71.2 -> 71.5). Exposure: 0 rows in the 2,757-row
+            # corpus, 0 collateral rows in the 42-row evidence fleets.
+            # The 0.70 cap keeps castle OUT above (0.709; soft-stack owns
+            # it) and keeps the parked mosaic ceiling (phoenix aa 0.736)
+            # untouched.
             if ((a["is_flat"] and not a["has_alpha"] and _melt_share(a) >= 0.14)
                     or (not a["is_flat"] and not a["has_alpha"]
-                        and 0.20 <= _aa_blend_share(a) < 0.55)):
+                        and 0.20 <= _aa_blend_share(a) < 0.70)):
                 return _trace_color_tone_stack(a, params)
             ss_svg = _trace_color_soft_stack(a, params)
             base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
