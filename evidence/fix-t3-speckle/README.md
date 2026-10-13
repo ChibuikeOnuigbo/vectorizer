@@ -66,3 +66,10 @@ Pinned-stack vendor restore after wipe #25 reflows tone-stack's k-means
 bytes (paths 14993 -> 14857, bg #769FBD -> #759FBD); strict quality
 unchanged (73.0 WEAK vs soft-stack 47.9 FAIL). See RESEAL-NOTE.md —
 same mechanism as the 2026-10-08 parrot reseal, one engine over.
+
+## seal refresh (2026-10-13): icon-13-skull-200colors
+Owl corridor (evidence/fleet-audit, aa cap 0.55 -> 0.70 in fallback)
+migrates skull (aa 0.636, not flat, no alpha) from cutout to tone-stack.
+Measured neutral-positive BEFORE the cap extended (+0.3: 71.2 WEAK ->
+71.5 WEAK); disclosed in fleet-audit README as corridor collateral.
+Seal replaced with the corridor-era default-route output.
