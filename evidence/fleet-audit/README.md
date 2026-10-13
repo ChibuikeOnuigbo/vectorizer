@@ -40,3 +40,32 @@ cutout palette fragmentation). Shipped: owl 74.6 WEAK -> 90.9 PASS
 (+16.3). Remaining WEAK-band ceilings measured this round: skull 71.5
 (soft-stack 76.5 max — no no-regression corridor exists to it), star
 73.0 (bands-independent).
+
+## camera + voxel bands (2026-10-13): two more WEAK rows un-parked
+
+WEAK-band engine probes (cutout/soft/tone forced per row) surfaced two
+flat+no-alpha photo-content rows mis-owned by their current family, with
+the discriminator being distinct-color count (128px unique RGB):
+
+- camera band (in color-soft gate; flat, melt 0.05..0.10, aa >= 0.25,
+  colors128 >= 3000): icon-06 camera — shipped soft-stack 83.5 WEAK ->
+  tone-stack 92.9 PASS (+9.4). Exposure 0/2,757 corpus rows. Bird has
+  IDENTICAL aa (0.302) but colors128 721 -> glow regime protected (soft
+  97.2 vs tone 63.5 measured); dog excluded by aa floor (0.164; soft
+  owns 91.9 vs 89.5 if annexed, -2.4). Composites: icon-06-camera-*
+  (speckled bg -> smooth gradient bands).
+- voxel band (in fallback corridor; flat, melt 0.05..0.10, aa < 0.12,
+  colors128 >= 3000): x2-07 voxel-heart — shipped cutout 81.6 WEAK ->
+  92.0 PASS (+10.4). Post-ship mechanism: clause fires as melt-route
+  recursion base; judge picks soft-stack (engine-forced tone was 95.4).
+  Corpus exposure 1/2,757: gen-17jpeg measured 89.3 -> 95.9 PASS (+6.6,
+  no regression). Dog excluded by aa cap; bird/glow by color floor.
+  Composites: x2-07-voxel-heart_* (voxel face shading restored).
+
+Remaining measured ceilings, all parked (no collateral-free corridor or
+engine ceiling): skull 71.5 (soft 76.5 max measured), star 73.0
+(bands-independent), falcon 81.6 / pin 83.3 (already best engine),
+mandala 68.2 (paper-wash flattening), phoenix 59.6 (no engine passes —
+vtracer-core classwork). Battery 3172/3172 with server-restart-before-
+battery protocol (the 654d9e8da battery silently passed on a stale pre-
+owl server; skull migrated legitimately, seal refreshed 892d44b51).

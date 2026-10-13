@@ -341,6 +341,15 @@ def analyze(img: Image.Image) -> dict:
     }
 
 
+def _distinct_colors_128(img_rgb: Image.Image) -> int:
+    """Distinct RGB count of the 128px downsample — separates flat icon
+    art (few hundred colors: glow/bird regime) from photo-content icons
+    (several thousand: camera/voxel/dog regime). Only called inside band
+    gates after the cheap predicates pass; ~ms cost."""
+    arr = np.asarray(img_rgb.resize((128, 128), Image.LANCZOS))
+    return int(len(np.unique(arr.reshape(-1, 3), axis=0)))
+
+
 def _texture_bg_regime(img_rgb: Image.Image) -> bool:
     """Calibrated gate (bg-remove-set T3 / icons 07-09, 2026-10-08): dense
     full-bleed LOW-PALETTE texture (kraft paper, denim, halftone) lands the
@@ -1526,6 +1535,23 @@ def trace_with(a: dict, params: dict | None = None) -> str:
         if (params.get("engine") != "color-soft-stack"
                 and _melt_share(a) >= 0.14):
             return _trace_color_tone_stack(a, params)
+        # camera band (2026-10-13, evidence/fleet-audit addendum): flat
+        # photo-content icons in the bird melt regime (melt 0.05..0.10)
+        # with MANY distinct colors soft-stack merges away. icon-06 camera
+        # (melt 0.071, aa 0.302, colors128 3573): shipped soft-stack 83.5
+        # WEAK vs tone-stack 92.9 PASS (+9.4). Bird protection measured:
+        # bird has IDENTICAL aa (0.302) but colors128 721 (< 3000) — its
+        # few-hue glow regime stays out, soft-stack owns it (97.2 PASS vs
+        # 63.5 tone FAIL). Dog protection: aa 0.164 < 0.25 (and its own
+        # band: soft 91.9 > tone 89.5, -2.4 if annexed — hence the aa
+        # floor). gen-07jpeg melt 0.112 sits above the window. Corpus
+        # exposure (2,757-row scan): zero flat/no-alpha rows in this band.
+        if (params.get("engine") != "color-soft-stack"
+                and not a["has_alpha"] and a["is_flat"]
+                and 0.05 <= _melt_share(a) < 0.10
+                and _aa_blend_share(a) >= 0.25
+                and _distinct_colors_128(a["working"].convert("RGB")) >= 3000):
+            return _trace_color_tone_stack(a, params)
         return _trace_color_soft_stack(a, params)
     # Melted-content route (deep-blur salvage): BEFORE the mono gate, because
     # blurred mono melts score 15-58 under binary-alpha but 59-87 under the
@@ -1627,9 +1653,30 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             # The 0.70 cap keeps castle OUT above (0.709; soft-stack owns
             # it) and keeps the parked mosaic ceiling (phoenix aa 0.736)
             # untouched.
+            # Voxel band (2026-10-13, evidence/fleet-audit addendum): flat
+            # low-melt (0.05..0.10) low-aa (<0.12) but MANY-color (>=3000
+            # at 128px) art locally melts in the blind fallback A/B —
+            # x2-07 voxel-heart (melt 0.070, aa 0.076, colors 3394):
+            # shipped cutout 81.6 WEAK vs tone-stack 95.4 PASS (+13.8
+            # engine-forced). Corpus exposure: ONE of 2,757 rows —
+            # gen-17jpeg (0.056, 0.030, 3428), measured IMPROVING on tone
+            # (+1.1: 89.3 -> 90.4). Post-ship mechanism, measured: this
+            # clause fires as the melt-route recursion's BASE candidate,
+            # and the ship-visible winners are actually soft-stack
+            # (voxel-heart 81.6 -> 92.0 PASS, +10.4; gen-17jpeg 89.3 ->
+            # 95.9 PASS, +6.6) — either way the sealed cutout ceiling is
+            # gone with zero regressions. Dog excluded by the aa cap
+            # (0.164 >= 0.12; soft owns it, 91.9 vs 89.5); bird/glow art
+            # excluded by the color floor (721 < 3000); pin/falcon sit
+            # above the melt window. Mid-aa rows in the melt region
+            # (aa 0.12..0.25): none in corpus; untouched.
             if ((a["is_flat"] and not a["has_alpha"] and _melt_share(a) >= 0.14)
                     or (not a["is_flat"] and not a["has_alpha"]
-                        and 0.20 <= _aa_blend_share(a) < 0.70)):
+                        and 0.20 <= _aa_blend_share(a) < 0.70)
+                    or (a["is_flat"] and not a["has_alpha"]
+                        and 0.05 <= _melt_share(a) < 0.10
+                        and _aa_blend_share(a) < 0.12
+                        and _distinct_colors_128(a["working"].convert("RGB")) >= 3000)):
                 return _trace_color_tone_stack(a, params)
             ss_svg = _trace_color_soft_stack(a, params)
             base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
