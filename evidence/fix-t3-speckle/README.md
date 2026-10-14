@@ -73,3 +73,10 @@ migrates skull (aa 0.636, not flat, no alpha) from cutout to tone-stack.
 Measured neutral-positive BEFORE the cap extended (+0.3: 71.2 WEAK ->
 71.5 WEAK); disclosed in fleet-audit README as corridor collateral.
 Seal replaced with the corridor-era default-route output.
+
+## seal refresh (2026-10-13, second): icon-13-skull-200colors
+Skull sub-band (evidence/fleet-audit): the owl corridor's [0.55,0.70) aa
+band splits on melt at 0.88; skull (melt 0.792) routes to soft-stack
+(measured best: 76.5 WEAK vs tone 71.5, +5.0). Corpus exposure of the
+whole band: zero; owl stays tone (0.926). Seal replaced with the
+soft-stack output — this is the measured engine ceiling for this row.

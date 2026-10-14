@@ -69,3 +69,31 @@ mandala 68.2 (paper-wash flattening), phoenix 59.6 (no engine passes —
 vtracer-core classwork). Battery 3172/3172 with server-restart-before-
 battery protocol (the 654d9e8da battery silently passed on a stale pre-
 owl server; skull migrated legitimately, seal refreshed 892d44b51).
+
+## skull sub-band (2026-10-13): second split of the owl aa band, +5.0
+Inside the [0.55,0.70) aa corridor the engine winner splits on melt:
+skull (0.792) -> soft-stack 76.5 WEAK; owl (0.926) -> tone-stack 90.9
+PASS. Boundary 0.88 sits in the measured 0.792..0.926 gap; the whole
+band's corpus exposure is zero (2026-10-12), so the sub-split inherits
+the proof. Skull shipped tone 71.5 -> soft 76.5 (+5.0; seal refreshed
+in fix-t3-speckle with note; composite icon-13-skull-200colors_*).
+
+## final ceiling probes (2026-10-13): mandala + phoenix, two clean nulls
+- mandala (tone 68.2 FAIL): param sweep on tone-stack —
+  filter_speckle {0,1,2} x path_precision {8,10} x corner_threshold
+  {20..40} all land 68.2..69.6 (max +1.4). Combined with the earlier
+  tone_bands 7..10 null (68.2..69.9): the paper-wash hairline loss is
+  structural to the k-means band decomposition, not a trace-param or
+  band-count problem. Requires engine-class work (dual-scale or
+  wash-aware variant). Parked with two null sweeps documented.
+- phoenix (cutout 59.6 FAIL): the cutout `colors` knob is byte-inert
+  at 16/32/64/128 (59.6 all) — not plumbed to the engine at all. Best
+  measured remains soft 65.8 / tone 64.3, all FAIL. Mosaic-class rows
+  need a palette-faithful cutout path (vtracer-core classwork). Parked.
+
+## updated leaderboard (post camera/voxel/skull ships)
+FAIL: mandala 68.2, phoenix 59.6 (engine-class ceilings, nulls above).
+WEAK: skull 76.5 (measured best engine), star 73.0 (bands-independent),
+pin 83.3, falcon 81.6 (best engine measured), fox 76.5.
+PASS: remaining 34 rows >= 85 (incl. owl 90.9, camera 92.9, voxel 92.0,
+castle 86.7 un-parked this cycle).

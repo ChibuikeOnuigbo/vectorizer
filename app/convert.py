@@ -1670,13 +1670,26 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             # excluded by the color floor (721 < 3000); pin/falcon sit
             # above the melt window. Mid-aa rows in the melt region
             # (aa 0.12..0.25): none in corpus; untouched.
-            if ((a["is_flat"] and not a["has_alpha"] and _melt_share(a) >= 0.14)
-                    or (not a["is_flat"] and not a["has_alpha"]
-                        and 0.20 <= _aa_blend_share(a) < 0.70)
+            aa_share = _aa_blend_share(a)
+            melt_share = _melt_share(a)
+            if ((a["is_flat"] and not a["has_alpha"] and melt_share >= 0.14)
                     or (a["is_flat"] and not a["has_alpha"]
-                        and 0.05 <= _melt_share(a) < 0.10
-                        and _aa_blend_share(a) < 0.12
+                        and 0.05 <= melt_share < 0.10
+                        and aa_share < 0.12
                         and _distinct_colors_128(a["working"].convert("RGB")) >= 3000)):
+                return _trace_color_tone_stack(a, params)
+            # Skull sub-band (2026-10-13, fleet-audit addendum): inside
+            # the [0.55,0.70) owl band the engine winner splits on melt —
+            # skull (aa 0.636, melt 0.792): soft 76.5 > tone 71.5; owl
+            # (aa 0.643, melt 0.926): tone 90.9 > soft 81.8. Boundary
+            # 0.88 sits inside the measured 0.792..0.926 gap; corpus
+            # exposure of the WHOLE owl band is zero (2026-10-12 scan),
+            # so any sub-split inherits it. Explicit return — the blind
+            # A/B below would pick cutout again (skull cutout 71.2).
+            if (not a["is_flat"] and not a["has_alpha"]
+                    and 0.20 <= aa_share < 0.70):
+                if aa_share >= 0.55 and melt_share < 0.88:
+                    return _trace_color_soft_stack(a, params)
                 return _trace_color_tone_stack(a, params)
             ss_svg = _trace_color_soft_stack(a, params)
             base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
