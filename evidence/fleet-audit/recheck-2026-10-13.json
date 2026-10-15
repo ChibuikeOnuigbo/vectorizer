@@ -1,0 +1,257 @@
+{
+ "_note": "2026-10-13 recheck re-audit: post-apple-repair full-fleet default-route strict sims; supersedes drift notes in README (this IS the current truth)",
+ "rows": {
+  "icon-01-rocket-flatbg": {
+   "engine": "color-soft-stack",
+   "sim": 98.7,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-02-leaf-flatbg": {
+   "engine": "color-cutout",
+   "sim": 96.7,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-03-anchor-flatbg": {
+   "engine": "color-cutout",
+   "sim": 93.3,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-04-fox-gradientbg": {
+   "engine": "color-soft-stack",
+   "sim": 92.5,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-05-moon-gradientbg": {
+   "engine": "color-soft-stack",
+   "sim": 97.7,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-06-camera-gradientbg": {
+   "engine": "color-tone-stack",
+   "sim": 92.9,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-07-knight-texturebg": {
+   "engine": "color-tone-stack",
+   "sim": 76.5,
+   "verdict": "WEAK",
+   "fleet": "bg-remove-set"
+  },
+  "icon-08-star-texturebg": {
+   "engine": "color-tone-stack",
+   "sim": 73.0,
+   "verdict": "WEAK",
+   "fleet": "bg-remove-set"
+  },
+  "icon-09-apple-halftonebg": {
+   "engine": "color-soft-stack",
+   "sim": 88.7,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-10-chameleon-multicolor": {
+   "engine": "color-cutout",
+   "sim": 95.1,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-11-parrot-multicolor": {
+   "engine": "color-cutout",
+   "sim": 94.2,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-12-prism-stripes": {
+   "engine": "color-tone-stack",
+   "sim": 87.0,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-13-skull-200colors": {
+   "engine": "color-soft-stack",
+   "sim": 76.5,
+   "verdict": "WEAK",
+   "fleet": "bg-remove-set"
+  },
+  "icon-14-owl-200colors": {
+   "engine": "color-tone-stack",
+   "sim": 90.9,
+   "verdict": "PASS",
+   "fleet": "bg-remove-set"
+  },
+  "icon-15-mosaic-phoenix": {
+   "engine": "color-cutout",
+   "sim": 59.6,
+   "verdict": "FAIL",
+   "fleet": "bg-remove-set"
+  },
+  "cx-01-photo-dog": {
+   "engine": "color-soft-stack",
+   "sim": 91.9,
+   "verdict": "PASS",
+   "fleet": "complex-set"
+  },
+  "cx-02-watercolor-fox": {
+   "engine": "color-tone-stack",
+   "sim": 76.5,
+   "verdict": "WEAK",
+   "fleet": "complex-set"
+  },
+  "cx-03-comic-text-rocket": {
+   "engine": "color-cutout",
+   "sim": 89.2,
+   "verdict": "PASS",
+   "fleet": "complex-set"
+  },
+  "cx-04-mandala-microdetail": {
+   "engine": "color-tone-stack",
+   "sim": 68.2,
+   "verdict": "FAIL",
+   "fleet": "complex-set"
+  },
+  "cx-05-ink-sketch-falcon": {
+   "engine": "color-tone-stack",
+   "sim": 81.6,
+   "verdict": "WEAK",
+   "fleet": "complex-set"
+  },
+  "cx-06-pixelart-sword": {
+   "engine": "pixel-art-upscaled",
+   "sim": 100.0,
+   "verdict": "PASS",
+   "fleet": "complex-set"
+  },
+  "cx-07-soft-glow-orb": {
+   "engine": "glow-radial-alpha",
+   "sim": 96.4,
+   "verdict": "PASS",
+   "fleet": "complex-set"
+  },
+  "cx-08-lowcontrast-heart": {
+   "engine": "color-soft-stack",
+   "sim": 99.7,
+   "verdict": "PASS",
+   "fleet": "complex-set"
+  },
+  "cx-09-pixelart-sword-32": {
+   "engine": "pixel-art",
+   "sim": 100.0,
+   "verdict": "PASS",
+   "fleet": "complex-set"
+  },
+  "x2-01-neubrutalist-star": {
+   "engine": "color-tone-stack",
+   "sim": 94.1,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "x2-02-sticker-cutout-bee": {
+   "engine": "color-cutout",
+   "sim": 95.5,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "x2-03-lineal-color-anchor": {
+   "engine": "color-cutout",
+   "sim": 96.9,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "x2-04-doodle-crosshatch-mug": {
+   "engine": "color-tone-stack",
+   "sim": 88.6,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "x2-05-metallic-pin-lightning": {
+   "engine": "color-tone-stack",
+   "sim": 83.3,
+   "verdict": "WEAK",
+   "fleet": "icon-x2-set"
+  },
+  "x2-06-diorama-game-castle": {
+   "engine": "color-soft-stack",
+   "sim": 86.7,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "x2-07-voxel-heart": {
+   "engine": "color-soft-stack",
+   "sim": 92.0,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "x2-08-holo-iridescent-badge": {
+   "engine": "color-cutout",
+   "sim": 85.8,
+   "verdict": "PASS",
+   "fleet": "icon-x2-set"
+  },
+  "cv-01-thick-ribbon-logo": {
+   "engine": "color-cutout",
+   "sim": 94.3,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-02-spiral-swirl-logo": {
+   "engine": "color-cutout",
+   "sim": 91.2,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-03-organic-blob-circles": {
+   "engine": "color-cutout",
+   "sim": 97.3,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-04-calligraphic-flourish": {
+   "engine": "hairline",
+   "sim": 97.7,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-05-interlocking-loops": {
+   "engine": "color-cutout",
+   "sim": 88.7,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-06-wave-stack": {
+   "engine": "color-cutout",
+   "sim": 90.7,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-07-rings-ellipses": {
+   "engine": "color-cutout",
+   "sim": 93.5,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-08-tight-hooks-swirls": {
+   "engine": "color-tone-stack",
+   "sim": 89.9,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-09-gradient-ribbon": {
+   "engine": "color-cutout",
+   "sim": 94.9,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  },
+  "cv-10-glass-translucent-curves": {
+   "engine": "color-cutout-detail",
+   "sim": 91.9,
+   "verdict": "PASS",
+   "fleet": "curve-cv-set"
+  }
+ }
+}

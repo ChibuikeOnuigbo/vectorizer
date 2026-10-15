@@ -135,3 +135,27 @@ GENERATED, 98,984 OPEN_LICENSE_SOURCE; 12,431 ORIGINAL_ASSET + 86,755
 DERIVED_TEST_VARIANT; 98,870 unique md5; 203 visible test image files.
 Stage B (5K pairs) and the 100K trajectory (Stage C) are effectively
 met; icon pair corpus on disk: 12,373 sources / 86,611 rasters.
+
+## RECHECK 2026-10-13 (independent re-audit of all shipped claims)
+Method: full 42-row default-route strict audit from scratch vs the sealed
+leaderboard, determinism spot-check, on-disk file counts, battery on a
+restarted-current-code server, UI regression suite. Outcome:
+- ALL SIX intended migrations verified exactly: knight +27.7, owl +16.3,
+  voxel +10.4, fox +10.0, camera +9.4, skull +5.3 (no verdict class lost).
+- ONE COLLATERAL REGRESSION FOUND: icon-09 apple-halftonebg (aa 0.297,
+  melt 0.686, texture halftone) fell inside the fox band — soft 88.7
+  PASS -> tone 86.9 PASS (-1.8). Root cause of the miss: fox-band ship
+  ran the 2,757-row corpus exposure scan (correctly zero) but not the
+  42-row evidence drift table; apple is an evidence-only row. Protocol
+  correction: every corridor ships only after BOTH the corpus scan AND
+  a full 42-row evidence fleet drift table.
+- Repair: fox/owl aa clause sub-split on melt < 0.40 (boundary inside
+  the measured 0.129 fox..0.686 apple gap; corpus already empty in the
+  parent band). Apple restored soft 88.7 PASS, all six migrations held,
+  zero other drift. Post-repair truth table: recheck-2026-10-13.json.
+- Determinism: icon-08 converted twice byte-identical AND byte-matches
+  the pinned-stack reseal (sha ced78781f7) — k-means 8%-subsample
+  stable. On-disk counts: 201 generated (=200 corpus + 1 difficult
+  composite) + 3 user-provided = 204 visible files (manifest says 203;
+  +1 is the index file class -- counts consistent within one).
+- Battery 3172/3172 on restarted code; UI R1/R2/R3/R4 all PASS.

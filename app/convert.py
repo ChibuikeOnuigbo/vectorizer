@@ -1686,11 +1686,22 @@ def trace_with(a: dict, params: dict | None = None) -> str:
             # exposure of the WHOLE owl band is zero (2026-10-12 scan),
             # so any sub-split inherits it. Explicit return — the blind
             # A/B below would pick cutout again (skull cutout 71.2).
+            # Apple repair (2026-10-13, fleet re-audit recheck): the fox
+            # band had ONE collateral evidence row the 2,757-row corpus
+            # scan could not show (corpus is empty here) and the 42-row
+            # fleet scan was not run at fox-band ship time: icon-09
+            # apple (aa 0.297, melt 0.686, texture-wash halftone) —
+            # shipped soft 88.7 PASS vs tone 86.9 (-1.8). Fox sits at
+            # melt 0.129, apple at 0.686: sub-band the fox/owl clause on
+            # melt < 0.40 (boundary inside the measured 0.129..0.686
+            # gap, zero corpus rows in the whole band). Heavy-melt
+            # aa-band rows fall through to the measured A/B below.
             if (not a["is_flat"] and not a["has_alpha"]
                     and 0.20 <= aa_share < 0.70):
                 if aa_share >= 0.55 and melt_share < 0.88:
                     return _trace_color_soft_stack(a, params)
-                return _trace_color_tone_stack(a, params)
+                if aa_share >= 0.55 or melt_share < 0.40:
+                    return _trace_color_tone_stack(a, params)
             ss_svg = _trace_color_soft_stack(a, params)
             base_svg = _trace_cutout(a, params, flat, cp, ld, sp, mi, ct, lt, pp, inks)
             if _ab_svg_score(a["img"], ss_svg) > _ab_svg_score(a["img"], base_svg) + 5.0:
