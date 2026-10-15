@@ -97,3 +97,20 @@ WEAK: skull 76.5 (measured best engine), star 73.0 (bands-independent),
 pin 83.3, falcon 81.6 (best engine measured), fox 76.5.
 PASS: remaining 34 rows >= 85 (incl. owl 90.9, camera 92.9, voxel 92.0,
 castle 86.7 un-parked this cycle).
+
+## ceiling finalization (2026-10-13): mandala + phoenix null clusters
+- phoenix (59.6 FAIL): third null — vtracer color_precision 6/7/8 sweep
+  gives 59.6/59.3/59.2 (8.3k->8.6k paths, no strict gain). NOT palette-
+  quantization-starved: vtracer cutout segmentation itself collapses the
+  stained-glass mosaic class (dark lattice + 200 mid-tones). soft 65.8
+  remains the measured ceiling. Requires segmentation-aware engine
+  research; permanently parked at corridor level.
+- mandala (68.2 FAIL): dual-scale rescue attempt — local-contrast
+  hairline overlay (gray - gaussian(3) < t; t in {8,14,20,28} px-tones,
+  alpha {0.6,1.0}) lands 64.9..69.4 (max +1.2): the residual carries
+  27-33% pixel share at every threshold (wash texture energy, not
+  hairlines). Fourth null after bands/sp-pp-ct sweeps. Cap is
+  structural: global k-means bands spend capacity on the wash, and no
+  additive layer recovers the hairlines without wash blobbage. Would
+  need spatially-adaptive banding (new engine research). Parked.
+No further probes planned on either row without a new engine class.
