@@ -1,0 +1,24 @@
+{
+ "input": "evidence/complex-set/inputs/cx-04-mandala-microdetail.png",
+ "size": [
+  1024,
+  1024
+ ],
+ "engines": {
+  "tone-stack (shipped)": {
+   "visual_similarity_pct": 68.2,
+   "verdict": "FAIL",
+   "mae": 31.88,
+   "ssim12": 0.6823,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.9343,
+   "midfreq_rec50": 0.9968,
+   "channel_notes": {
+    "f_mae": 0.875,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 15250289
+  }
+ },
+ "composite": "evidence/fleet-audit/cx-04-mandala-microdetail_similarity.png"
+}

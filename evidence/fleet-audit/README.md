@@ -114,3 +114,24 @@ castle 86.7 un-parked this cycle).
   additive layer recovers the hairlines without wash blobbage. Would
   need spatially-adaptive banding (new engine research). Parked.
 No further probes planned on either row without a new engine class.
+
+## mandala anatomy (2026-10-13): the FAIL label is a texture-axis artifact, geometry solved
+Metric decomposition of the shipped tone-stack output (68.2 FAIL):
+edge_f1 0.9343, silhouette_iou 1.000, midfreq_rec50 0.9968, but ssim12
+0.6823 / mae 31.9. The killer axis is local patch statistics on the aged-
+paper wash — any finite-banding render of a stochastic texture is
+structurally impossible at ssim12>=0.85. Composite
+cx-04-mandala-microdetail_similarity.png shows the ink geometry near-
+fully preserved (radial hatch, hairline curves); the visual delta is
+paper grain density. Combined with nulls (bands 7..10, sp/pp/ct,
+dual-scale thresholds), the honest disposition: mandala measures the
+texture limit of band-limited vectorization, not a routing defect. The
+row stays FAIL-labeled by the calibrated thresholds (no threshold
+bending); class noted for any future spatially-adaptive banding engine.
+
+## dataset scale confirmation (2026-10-13, directive §9)
+test-assets/manifest.json totals: 99,187 entries — 3 USER_PROVIDED, 200
+GENERATED, 98,984 OPEN_LICENSE_SOURCE; 12,431 ORIGINAL_ASSET + 86,755
+DERIVED_TEST_VARIANT; 98,870 unique md5; 203 visible test image files.
+Stage B (5K pairs) and the 100K trajectory (Stage C) are effectively
+met; icon pair corpus on disk: 12,373 sources / 86,611 rasters.
