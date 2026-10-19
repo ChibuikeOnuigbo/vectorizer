@@ -99,8 +99,10 @@ window.initLucide = initLucide;
         <p>Source and vector result with essential controls</p>
       </div>
       <div class="studio-actions">
-        <button class="btn btn-ghost btn-sm" id="newBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
-        <button class="btn btn-ghost btn-sm" id="openAdvancedBtn" type="button"><i data-lucide="external-link"></i><span>Advanced</span></button>
+        <div class="btn-group" role="group" aria-label="Session actions">
+          <button class="btn btn-sm" id="newBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
+          <button class="btn btn-sm" id="openAdvancedBtn" type="button"><i data-lucide="external-link"></i><span>Advanced</span></button>
+        </div>
       </div>
     </div>
     <div class="studio-grid">
@@ -129,9 +131,11 @@ window.initLucide = initLucide;
         <div class="panel-meta" id="resultMeta"></div>
         <div class="panel-actions">
           <button class="btn btn-primary" id="downloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
-          <button class="btn btn-ghost" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
-          <button class="btn btn-secondary" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
-          <button class="btn btn-ghost" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
+          <div class="btn-group" role="group" aria-label="Result tools">
+            <button class="btn" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
+            <button class="btn" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+            <button class="btn" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
+          </div>
         </div>
       </div>
     </div>
@@ -176,8 +180,10 @@ window.initLucide = initLucide;
             <div class="panel-meta" id="advResultMeta"></div>
             <div class="panel-actions">
               <button class="btn btn-primary" id="advDownloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
-              <button class="btn btn-secondary" id="advViewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
-              <button class="btn btn-ghost" id="advCompareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+              <div class="btn-group" role="group" aria-label="Result tools">
+                <button class="btn" id="advViewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
+                <button class="btn" id="advCompareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+              </div>
             </div>
           </div>
         </div>
@@ -214,12 +220,10 @@ window.initLucide = initLucide;
       <span class="view-title" id="viewTitle">SVG preview</span>
     </div>
     <div class="view-toolbar-center">
-      <div class="view-zoom-group" role="group" aria-label="Zoom controls">
+      <div class="view-zoom-group" role="group" aria-label="Zoom and view controls">
         <button class="view-tool-btn" id="viewZoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
         <span class="view-zoom-level" id="viewZoomLevel">100%</span>
         <button class="view-tool-btn" id="viewZoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
-      </div>
-      <div class="view-zoom-group" role="group" aria-label="View tools">
         <button class="view-tool-btn" id="viewFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
         <button class="view-tool-btn" id="viewActualBtn" type="button" title="Actual size"><i data-lucide="maximize-2"></i></button>
         <button class="view-tool-btn" id="viewDragBtn" type="button" title="Drag to pan"><i data-lucide="hand"></i></button>
