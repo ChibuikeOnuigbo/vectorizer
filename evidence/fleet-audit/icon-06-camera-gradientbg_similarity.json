@@ -1,0 +1,38 @@
+{
+ "input": "evidence/bg-remove-set/inputs/icon-06-camera-gradientbg.png",
+ "size": [
+  1024,
+  1024
+ ],
+ "engines": {
+  "old(color-soft-stack)": {
+   "visual_similarity_pct": 83.5,
+   "verdict": "WEAK",
+   "mae": 9.84,
+   "ssim12": 0.8355,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.7501,
+   "midfreq_rec50": 1.0,
+   "channel_notes": {
+    "f_mae": 0.9614,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 607832
+  },
+  "new(default)": {
+   "visual_similarity_pct": 92.9,
+   "verdict": "PASS",
+   "mae": 4.18,
+   "ssim12": 0.9286,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.6999,
+   "midfreq_rec50": 0.9855,
+   "channel_notes": {
+    "f_mae": 0.9836,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 401128
+  }
+ },
+ "composite": "evidence/fleet-audit/icon-06-camera-gradientbg_similarity.png"
+}

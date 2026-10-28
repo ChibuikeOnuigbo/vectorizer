@@ -1,0 +1,90 @@
+{
+ "id": "assetsvg-gen-11jpeg.jpg",
+ "kind": "assetsvg",
+ "asset": "test-assets/images/generated/gen-11jpeg.jpg.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8",
+  "detail": "50",
+  "smoothness": "50"
+ },
+ "recorded_at": "2026-09-25 23:10:34",
+ "http_status": 200,
+ "latency_ms": 138.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 10167,
+  "sha1": "4c25ff4f539e",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#157029",
+    "count": 2
+   },
+   {
+    "color": "#020202",
+    "count": 1
+   },
+   {
+    "color": "#0a7d27",
+    "count": 1
+   },
+   {
+    "color": "#691636",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#157029",
+    "count": 2
+   },
+   {
+    "color": "#020202",
+    "count": 1
+   },
+   {
+    "color": "#0a7d27",
+    "count": 1
+   },
+   {
+    "color": "#691636",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 226,
+  "max_path_commands": 86,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 10167,
+ "svg_sha1": "4c25ff4f539e",
+ "svg_path": "test-assets/svg/gen-11jpeg.jpg.svg",
+ "status": "PASS"
+}

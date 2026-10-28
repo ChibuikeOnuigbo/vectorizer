@@ -1,0 +1,79 @@
+{
+ "id": "iconfull-fa-brands-optin-monster-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/brands/optin-monster/input-w256.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 21:26:55",
+ "http_status": 200,
+ "latency_ms": 249.4,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 16888,
+  "sha1": "3ddd25a6ba1f",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 14,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 15,
+   "paths": 14,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 12
+   },
+   {
+    "color": "#0c0c0c",
+    "count": 1
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 12
+   },
+   {
+    "color": "#0c0c0c",
+    "count": 1
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 392,
+  "max_path_commands": 184,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 16888,
+ "svg_sha1": "3ddd25a6ba1f",
+ "status": "PASS"
+}

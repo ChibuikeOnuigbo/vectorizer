@@ -1,0 +1,81 @@
+{
+ "id": "iconfull-fa-regular-grimace-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/regular/grimace/input-w256.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 21:26:14",
+ "http_status": 200,
+ "latency_ms": 209.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 7533,
+  "sha1": "ff3fcc0073b6",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 10,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 11,
+   "paths": 10,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 6
+   },
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#1b1b1b",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 6
+   },
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#1b1b1b",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 182,
+  "max_path_commands": 54,
+  "empty_elements": 0,
+  "duplicate_path_d": 4,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "4 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 7533,
+ "svg_sha1": "ff3fcc0073b6",
+ "status": "PASS"
+}

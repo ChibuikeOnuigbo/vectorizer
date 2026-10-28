@@ -1,0 +1,73 @@
+{
+ "id": "tabler-tabler-plus-equal-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/tabler/plus-equal/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:53:39",
+ "http_status": 200,
+ "latency_ms": 53.5,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 5083,
+  "sha1": "e264eb35d283",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 4
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 4
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 134,
+  "max_path_commands": 70,
+  "empty_elements": 0,
+  "duplicate_path_d": 1,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "1 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 5083,
+ "svg_sha1": "e264eb35d283",
+ "status": "PASS"
+}

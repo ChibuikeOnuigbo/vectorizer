@@ -1,0 +1,16 @@
+{
+ "id": "malformed-reject-exe",
+ "kind": "malformed",
+ "asset": null,
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 15:10:59",
+ "http_status": 415,
+ "latency_ms": 21.4,
+ "retries": 0,
+ "status": "PASS",
+ "note": "malformed/unprocessable input rejected gracefully (HTTP 415)",
+ "failure_class": "NONE"
+}

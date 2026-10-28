@@ -1,0 +1,55 @@
+{
+ "id": "det-edge-transparent-b",
+ "kind": "determinism",
+ "asset": "test-assets/images/generated/edge-transparent.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 15:17:42",
+ "http_status": 200,
+ "latency_ms": 80.5,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 134,
+  "sha1": "34a13b2e1b0a",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 1,
+   "paths": 0,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [],
+  "strokes": [],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": false,
+  "path_total_commands": 0,
+  "max_path_commands": 0,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "no drawable elements"
+  ]
+ },
+ "svg_bytes": 134,
+ "svg_sha1": "34a13b2e1b0a",
+ "status": "PASS",
+ "note": "degenerate input (0 opaque pixels) correctly produced empty SVG"
+}

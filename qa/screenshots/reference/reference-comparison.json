@@ -1,0 +1,19 @@
+{
+ "user_pipeline": {
+  "system": "this repository app (vtracer engine + trained model mode)",
+  "ms_total": 1687,
+  "svg_preview_url_len": 63,
+  "download": "#downloadBtn (in-page, blob URL of actual generated SVG)",
+  "upload_ui": "dropzone + file picker, auto-convert on select, workspace-choice modal"
+ },
+ "reference_mock": {
+  "system": "model/mock_site.py local reference mock (Cloudinary-inspired UX copycat; STATIC output)",
+  "ms_total": 2682,
+  "result_svg_bytes": 171,
+  "result_svg_sha_note": "single static path diamond - independent of uploaded image (by design of the mock)",
+  "download_link": "/result.svg",
+  "upload_ui": "plain <input type=file> + Convert button",
+  "waits": "artificial 2.5s conversion sleep inside the page"
+ },
+ "consoleErrors": []
+}

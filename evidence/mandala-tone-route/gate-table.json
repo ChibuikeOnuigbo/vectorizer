@@ -1,0 +1,93 @@
+{
+ "strict_sim": {
+  "cx-04-mandala": {
+   "soft-stack": 49.2,
+   "tone-stack": 68.1,
+   "cutout-photo": 50.0,
+   "cutout-flat": 30.8
+  },
+  "cx-05-falcon": {
+   "soft-stack": 71.9,
+   "tone-stack": 81.4
+  },
+  "x2-04-mug": {
+   "soft-stack": 75.8,
+   "tone-stack": 88.2
+  },
+  "x2-05-pin": {
+   "soft-stack": 75.2,
+   "tone-stack": 83.3
+  },
+  "x2-06-castle": {
+   "soft-stack": 86.7,
+   "tone-stack": 81.0
+  },
+  "download-bird": {
+   "soft-stack": 97.2,
+   "tone-stack": 63.5
+  }
+ },
+ "ab_judge": {
+  "cx-04-mandala": {
+   "soft-stack": 85.1,
+   "tone-stack": 67.2
+  },
+  "cx-05-falcon": {
+   "soft-stack": 90.9,
+   "tone-stack": 75.6
+  },
+  "x2-04-mug": {
+   "soft-stack": 93.2,
+   "tone-stack": 87.3
+  },
+  "x2-05-pin": {
+   "soft-stack": 93.3,
+   "tone-stack": 86.7
+  },
+  "x2-06-castle": {
+   "soft-stack": 95.0,
+   "tone-stack": 88.4
+  }
+ },
+ "melt_share": {
+  "download-bird": 0.0554,
+  "x2-04-mug": 0.1047,
+  "x2-05-pin": 0.1685,
+  "cx-05-falcon": 0.2353,
+  "cx-04-mandala": 0.5317
+ },
+ "threshold": 0.08,
+ "latency_ms_tone_stack": {
+  "cx-04-mandala": 13512,
+  "cx-05-falcon": 10854,
+  "x2-04-mug": 11866,
+  "x2-05-pin": 10683,
+  "x2-06-castle": 5332
+ },
+ "paths_tone_stack": {
+  "cx-04-mandala": 16771,
+  "cx-05-falcon": 7173,
+  "x2-04-mug": 12225,
+  "x2-05-pin": 4202,
+  "x2-06-castle": 493
+ },
+ "engine_drift_today": {
+  "cx-04-mandala-microdetail": [
+   "color-soft-stack",
+   "color-tone-stack"
+  ],
+  "x2-05-metallic-pin-lightning": [
+   "color-soft-stack",
+   "color-tone-stack"
+  ]
+ },
+ "historical_drift_explained": {
+  "cx-06-pixelart-sword": "fixed 2026-10-08 route (pixel-art-upscaled)",
+  "cx-07-soft-glow-orb": "fixed 2026-10-08 route (glow-radial-alpha)",
+  "cx-08-lowcontrast-heart": "fixed 2026-10-08 route (color-soft-stack)"
+ },
+ "parked": {
+  "cx-05-falcon": "+9.5 via plain-fallback A/B \u2014 blind arbiter; needs honest in-request judge or fallback-corpus strict re-sweep",
+  "x2-04-mug": "+12.4 via melt-route arbitration \u2014 blur4-6 calibrated; not touched"
+ }
+}

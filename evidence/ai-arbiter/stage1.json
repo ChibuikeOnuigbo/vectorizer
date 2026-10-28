@@ -1,0 +1,33 @@
+{
+ "generated_utc": "2026-10-07T19:49:44Z",
+ "cases": {
+  "teal-logo": {
+   "engine": "alpha-halo-stack",
+   "convert_ms": 583.5955379998268,
+   "wall_s": 1.28,
+   "svg_bytes": 57190,
+   "svg_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "render_png_sha256": "b7ec13e22e9fadf3bafd4f3899ba3f00ff5909f386c092fa35837b32404b0bd3",
+   "size": [
+    676,
+    369
+   ],
+   "prev_evidence_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "repro_matches_evidence": true
+  },
+  "blue-bird": {
+   "engine": "color-soft-stack",
+   "convert_ms": 839.9032810002609,
+   "wall_s": 1.38,
+   "svg_bytes": 91919,
+   "svg_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "render_png_sha256": "1b75e3f40d096ae6ef2fd013881bc039b9f945d6698f448c964a65983c22a15a",
+   "size": [
+    256,
+    256
+   ],
+   "prev_evidence_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "repro_matches_evidence": true
+  }
+ }
+}

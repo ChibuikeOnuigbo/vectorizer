@@ -1,0 +1,79 @@
+{
+ "id": "tabler-tabler-folder-user-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/tabler/folder-user/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:52:58",
+ "http_status": 200,
+ "latency_ms": 96.6,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 4462,
+  "sha1": "96d8b0b38abe",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 3,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 4,
+   "paths": 3,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 1
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   },
+   {
+    "color": "#0b0b0b",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 1
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   },
+   {
+    "color": "#0b0b0b",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 108,
+  "max_path_commands": 57,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 4462,
+ "svg_sha1": "96d8b0b38abe",
+ "status": "PASS"
+}

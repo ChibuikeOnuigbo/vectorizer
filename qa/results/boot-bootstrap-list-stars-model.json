@@ -1,0 +1,73 @@
+{
+ "id": "boot-bootstrap-list-stars-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/bootstrap/list-stars/input-w128.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 23:50:55",
+ "http_status": 200,
+ "latency_ms": 40.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 2814,
+  "sha1": "bd9c93224ebd",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 7,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 8,
+   "paths": 7,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 6
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 6
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 102,
+  "max_path_commands": 54,
+  "empty_elements": 0,
+  "duplicate_path_d": 4,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "4 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 2814,
+ "svg_sha1": "bd9c93224ebd",
+ "status": "PASS"
+}

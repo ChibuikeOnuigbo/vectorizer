@@ -1,0 +1,73 @@
+{
+ "id": "icon512-fa-solid-draw-polygon-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/solid/draw-polygon/input-w512.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:25:53",
+ "http_status": 200,
+ "latency_ms": 213.1,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 13782,
+  "sha1": "6a52ac635f2d",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 8,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 9,
+   "paths": 8,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 512 512",
+  "width": "512",
+  "height": "512",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 7
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 7
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 310,
+  "max_path_commands": 154,
+  "empty_elements": 0,
+  "duplicate_path_d": 4,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "4 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 13782,
+ "svg_sha1": "6a52ac635f2d",
+ "status": "PASS"
+}

@@ -1,0 +1,74 @@
+{
+ "id": "pix2-lucide-test-tubes",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/lucide/test-tubes/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:55:22",
+ "http_status": 200,
+ "latency_ms": 40.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 5904,
+  "sha1": "ebdca5f0d5ca",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 3
+   },
+   {
+    "color": "#111111",
+    "count": 2
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 3
+   },
+   {
+    "color": "#111111",
+    "count": 2
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 138,
+  "max_path_commands": 60,
+  "empty_elements": 0,
+  "duplicate_path_d": 1,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "1 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 5904,
+ "svg_sha1": "ebdca5f0d5ca",
+ "pixel_score": 93.6,
+ "status": "PASS"
+}

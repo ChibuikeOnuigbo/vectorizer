@@ -1,0 +1,12 @@
+# QA pin (2026-10-08): byte-seal fixture stability depends on these wheels.
+# vtracer releases reflow 200-color cutout internals between versions;
+# 05/08/13 seals stayed byte-stable under THIS set, parrot reflowed from
+# the unknown pre-wipe-#17 stack. Install with:
+#   pip install --target vendor -r requirements-qapin.txt
+vtracer==0.6.15
+pillow==12.3.0
+numpy==2.4.6
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+websocket-client==1.9.2

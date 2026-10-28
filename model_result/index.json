@@ -1,0 +1,6830 @@
+{
+ "generated_utc": "2026-10-07T19:18:39Z",
+ "reference": "absolute_test_svg.svg",
+ "smart_mode": "hardlocked params; images POST no fields (ui==sweep, 2026-10-05)",
+ "entries": [
+  {
+   "id": "mr-000",
+   "svg": "absolute_test_svg.svg",
+   "source": "user-approved external reference (uploaded teal-orbit logo)",
+   "strict_similarity_to_input_pct": 97.0,
+   "strict_verdict": "PASS"
+  },
+  {
+   "id": "mr-001",
+   "svg": "mr-001-teal-orbit-logo.svg",
+   "source": "test-assets/images/user-provided/teal-orbit-logo.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 87.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.7,
+    "ssim12": 0.9469,
+    "silhouette_iou": 0.8788,
+    "edge_f1": 0.6302
+   },
+   "svg_bytes": 57190,
+   "convert_ms": 258,
+   "similarity_to_reference_pct": 86.8
+  },
+  {
+   "id": "mr-002",
+   "svg": "mr-002-blue-bird-appicon.svg",
+   "source": "test-assets/images/user-provided/blue-bird-appicon.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 74.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.46,
+    "ssim12": 0.745,
+    "silhouette_iou": 0.984,
+    "edge_f1": 0.8237
+   },
+   "svg_bytes": 91919,
+   "convert_ms": 151
+  },
+  {
+   "id": "mr-003",
+   "svg": "mr-003-edge-1x1.svg",
+   "source": "test-assets/images/generated/edge-1x1.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.0,
+    "ssim12": 1.0,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 193,
+   "convert_ms": 3
+  },
+  {
+   "id": "mr-004",
+   "svg": "mr-004-edge-aspect-wide.svg",
+   "source": "test-assets/images/generated/edge-aspect-wide.png",
+   "status": "OK",
+   "engine": "hairline",
+   "strict_similarity_pct": 98.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.95,
+    "ssim12": 0.983,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.904
+   },
+   "svg_bytes": 4254,
+   "convert_ms": 15
+  },
+  {
+   "id": "mr-005",
+   "svg": "mr-005-edge-big1024.svg",
+   "source": "test-assets/images/generated/edge-big1024.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.76,
+    "ssim12": 0.8751,
+    "silhouette_iou": 0.989,
+    "edge_f1": 0.0887
+   },
+   "svg_bytes": 104962,
+   "convert_ms": 1267
+  },
+  {
+   "id": "mr-006",
+   "svg": "mr-006-edge-flat-color.svg",
+   "source": "test-assets/images/generated/edge-flat-color.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.0,
+    "ssim12": 1.0,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 337,
+   "convert_ms": 37
+  },
+  {
+   "id": "mr-007",
+   "svg": "mr-007-edge-text.svg",
+   "source": "test-assets/images/generated/edge-text.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 79.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.2,
+    "ssim12": 0.9926,
+    "silhouette_iou": 0.7963,
+    "edge_f1": 0.7916
+   },
+   "svg_bytes": 772,
+   "convert_ms": 44
+  },
+  {
+   "id": "mr-008",
+   "svg": "mr-008-edge-thin-strokes.svg",
+   "source": "test-assets/images/generated/edge-thin-strokes.png",
+   "status": "OK",
+   "engine": "hairline",
+   "strict_similarity_pct": 75.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.59,
+    "ssim12": 0.7595,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8862
+   },
+   "svg_bytes": 1519,
+   "convert_ms": 24
+  },
+  {
+   "id": "mr-009",
+   "svg": "mr-009-edge-transparent.svg",
+   "source": "test-assets/images/generated/edge-transparent.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.0,
+    "ssim12": 1.0,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 161,
+   "convert_ms": 35
+  },
+  {
+   "id": "mr-010",
+   "svg": "mr-010-gauntlet-x1024.svg",
+   "source": "test-assets/images/generated/gauntlet-x1024.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.64,
+    "ssim12": 0.8495,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.7276
+   },
+   "svg_bytes": 34685,
+   "convert_ms": 647
+  },
+  {
+   "id": "mr-011",
+   "svg": "mr-011-gen-00-base.svg",
+   "source": "test-assets/images/generated/gen-00-base.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.71,
+    "ssim12": 0.9723,
+    "silhouette_iou": 0.906,
+    "edge_f1": 0.5712
+   },
+   "svg_bytes": 1422,
+   "convert_ms": 45
+  },
+  {
+   "id": "mr-012",
+   "svg": "mr-012-gen-00blur.svg",
+   "source": "test-assets/images/generated/gen-00blur.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 91.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.2,
+    "ssim12": 0.9475,
+    "silhouette_iou": 0.9143,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 1835,
+   "convert_ms": 63
+  },
+  {
+   "id": "mr-013",
+   "svg": "mr-013-gen-00darkbg.svg",
+   "source": "test-assets/images/generated/gen-00darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 97.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.42,
+    "ssim12": 0.973,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6094
+   },
+   "svg_bytes": 1947,
+   "convert_ms": 67
+  },
+  {
+   "id": "mr-014",
+   "svg": "mr-014-gen-00downscale32.svg",
+   "source": "test-assets/images/generated/gen-00downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.08,
+    "ssim12": 0.9998,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.995
+   },
+   "svg_bytes": 7277,
+   "convert_ms": 4
+  },
+  {
+   "id": "mr-015",
+   "svg": "mr-015-gen-00gray.svg",
+   "source": "test-assets/images/generated/gen-00gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 97.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.59,
+    "ssim12": 0.9719,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6108
+   },
+   "svg_bytes": 1947,
+   "convert_ms": 93
+  },
+  {
+   "id": "mr-016",
+   "svg": "mr-016-gen-00jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-00jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 93.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.2,
+    "ssim12": 0.9323,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.3921
+   },
+   "svg_bytes": 3196,
+   "convert_ms": 95
+  },
+  {
+   "id": "mr-017",
+   "svg": "mr-017-gen-00noise.svg",
+   "source": "test-assets/images/generated/gen-00noise.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.96,
+    "ssim12": 0.9349,
+    "silhouette_iou": 0.906,
+    "edge_f1": 0.2594
+   },
+   "svg_bytes": 1422,
+   "convert_ms": 49
+  },
+  {
+   "id": "mr-018",
+   "svg": "mr-018-gen-00rot.svg",
+   "source": "test-assets/images/generated/gen-00rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 93.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.51,
+    "ssim12": 0.9801,
+    "silhouette_iou": 0.932,
+    "edge_f1": 0.6291
+   },
+   "svg_bytes": 1821,
+   "convert_ms": 63
+  },
+  {
+   "id": "mr-019",
+   "svg": "mr-019-gen-01-base.svg",
+   "source": "test-assets/images/generated/gen-01-base.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 93.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.43,
+    "ssim12": 0.9554,
+    "silhouette_iou": 0.9385,
+    "edge_f1": 0.624
+   },
+   "svg_bytes": 17296,
+   "convert_ms": 69
+  },
+  {
+   "id": "mr-020",
+   "svg": "mr-020-gen-01blur.svg",
+   "source": "test-assets/images/generated/gen-01blur.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 90.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 5.0,
+    "ssim12": 0.8997,
+    "silhouette_iou": 0.9063,
+    "edge_f1": 0.1567
+   },
+   "svg_bytes": 21768,
+   "convert_ms": 74
+  },
+  {
+   "id": "mr-021",
+   "svg": "mr-021-gen-01darkbg.svg",
+   "source": "test-assets/images/generated/gen-01darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.14,
+    "ssim12": 0.8765,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.3891
+   },
+   "svg_bytes": 7635,
+   "convert_ms": 92
+  },
+  {
+   "id": "mr-022",
+   "svg": "mr-022-gen-01downscale32.svg",
+   "source": "test-assets/images/generated/gen-01downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.19,
+    "ssim12": 0.9997,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9979
+   },
+   "svg_bytes": 15190,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-023",
+   "svg": "mr-023-gen-01gray.svg",
+   "source": "test-assets/images/generated/gen-01gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.9,
+    "ssim12": 0.8788,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.3982
+   },
+   "svg_bytes": 7635,
+   "convert_ms": 88
+  },
+  {
+   "id": "mr-024",
+   "svg": "mr-024-gen-01jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-01jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 83.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.45,
+    "ssim12": 0.8387,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4936
+   },
+   "svg_bytes": 9489,
+   "convert_ms": 242
+  },
+  {
+   "id": "mr-025",
+   "svg": "mr-025-gen-01noise.svg",
+   "source": "test-assets/images/generated/gen-01noise.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 93.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.74,
+    "ssim12": 0.9528,
+    "silhouette_iou": 0.9385,
+    "edge_f1": 0.6366
+   },
+   "svg_bytes": 17296,
+   "convert_ms": 74
+  },
+  {
+   "id": "mr-026",
+   "svg": "mr-026-gen-01rot.svg",
+   "source": "test-assets/images/generated/gen-01rot.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 94.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.61,
+    "ssim12": 0.95,
+    "silhouette_iou": 0.9405,
+    "edge_f1": 0.5919
+   },
+   "svg_bytes": 18122,
+   "convert_ms": 104
+  },
+  {
+   "id": "mr-027",
+   "svg": "mr-027-gen-02-base.svg",
+   "source": "test-assets/images/generated/gen-02-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.45,
+    "ssim12": 0.984,
+    "silhouette_iou": 0.9373,
+    "edge_f1": 0.9121
+   },
+   "svg_bytes": 4162,
+   "convert_ms": 163
+  },
+  {
+   "id": "mr-028",
+   "svg": "mr-028-gen-02blur.svg",
+   "source": "test-assets/images/generated/gen-02blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.47,
+    "ssim12": 0.8014,
+    "silhouette_iou": 0.9804,
+    "edge_f1": 0.0596
+   },
+   "svg_bytes": 29029,
+   "convert_ms": 169
+  },
+  {
+   "id": "mr-029",
+   "svg": "mr-029-gen-02darkbg.svg",
+   "source": "test-assets/images/generated/gen-02darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 89.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.62,
+    "ssim12": 0.8993,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5824
+   },
+   "svg_bytes": 6313,
+   "convert_ms": 90
+  },
+  {
+   "id": "mr-030",
+   "svg": "mr-030-gen-02downscale32.svg",
+   "source": "test-assets/images/generated/gen-02downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.38,
+    "ssim12": 0.9984,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9916
+   },
+   "svg_bytes": 15760,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-031",
+   "svg": "mr-031-gen-02gray.svg",
+   "source": "test-assets/images/generated/gen-02gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 89.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.13,
+    "ssim12": 0.892,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5829
+   },
+   "svg_bytes": 6313,
+   "convert_ms": 99
+  },
+  {
+   "id": "mr-032",
+   "svg": "mr-032-gen-02jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-02jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.52,
+    "ssim12": 0.8476,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5832
+   },
+   "svg_bytes": 9666,
+   "convert_ms": 267
+  },
+  {
+   "id": "mr-033",
+   "svg": "mr-033-gen-02noise.svg",
+   "source": "test-assets/images/generated/gen-02noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.9,
+    "ssim12": 0.9457,
+    "silhouette_iou": 0.9373,
+    "edge_f1": 0.563
+   },
+   "svg_bytes": 4162,
+   "convert_ms": 178
+  },
+  {
+   "id": "mr-034",
+   "svg": "mr-034-gen-02rot.svg",
+   "source": "test-assets/images/generated/gen-02rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.87,
+    "ssim12": 0.974,
+    "silhouette_iou": 0.9346,
+    "edge_f1": 0.8207
+   },
+   "svg_bytes": 16307,
+   "convert_ms": 279
+  },
+  {
+   "id": "mr-035",
+   "svg": "mr-035-gen-03-base.svg",
+   "source": "test-assets/images/generated/gen-03-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 98.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.13,
+    "ssim12": 0.9972,
+    "silhouette_iou": 0.9869,
+    "edge_f1": 0.9667
+   },
+   "svg_bytes": 1241,
+   "convert_ms": 148
+  },
+  {
+   "id": "mr-036",
+   "svg": "mr-036-gen-03blur.svg",
+   "source": "test-assets/images/generated/gen-03blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 5.94,
+    "ssim12": 0.8789,
+    "silhouette_iou": 0.9513,
+    "edge_f1": 0.0009
+   },
+   "svg_bytes": 5247,
+   "convert_ms": 242
+  },
+  {
+   "id": "mr-037",
+   "svg": "mr-037-gen-03darkbg.svg",
+   "source": "test-assets/images/generated/gen-03darkbg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 99.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.11,
+    "ssim12": 0.9973,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9666
+   },
+   "svg_bytes": 1406,
+   "convert_ms": 76
+  },
+  {
+   "id": "mr-038",
+   "svg": "mr-038-gen-03downscale32.svg",
+   "source": "test-assets/images/generated/gen-03downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.27,
+    "ssim12": 0.9996,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 14057,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-039",
+   "svg": "mr-039-gen-03gray.svg",
+   "source": "test-assets/images/generated/gen-03gray.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 99.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.15,
+    "ssim12": 0.9971,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9664
+   },
+   "svg_bytes": 1406,
+   "convert_ms": 78
+  },
+  {
+   "id": "mr-040",
+   "svg": "mr-040-gen-03jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-03jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 87.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.16,
+    "ssim12": 0.8718,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8519
+   },
+   "svg_bytes": 72031,
+   "convert_ms": 225
+  },
+  {
+   "id": "mr-041",
+   "svg": "mr-041-gen-03noise.svg",
+   "source": "test-assets/images/generated/gen-03noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 89.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.71,
+    "ssim12": 0.8936,
+    "silhouette_iou": 0.9869,
+    "edge_f1": 0.5289
+   },
+   "svg_bytes": 1241,
+   "convert_ms": 151
+  },
+  {
+   "id": "mr-042",
+   "svg": "mr-042-gen-03rot.svg",
+   "source": "test-assets/images/generated/gen-03rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.92,
+    "ssim12": 0.9695,
+    "silhouette_iou": 0.9297,
+    "edge_f1": 0.7584
+   },
+   "svg_bytes": 11796,
+   "convert_ms": 277
+  },
+  {
+   "id": "mr-043",
+   "svg": "mr-043-gen-04-base.svg",
+   "source": "test-assets/images/generated/gen-04-base.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 64.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 6.39,
+    "ssim12": 0.8362,
+    "silhouette_iou": 0.6491,
+    "edge_f1": 0.088
+   },
+   "svg_bytes": 5567,
+   "convert_ms": 120
+  },
+  {
+   "id": "mr-044",
+   "svg": "mr-044-gen-04blur.svg",
+   "source": "test-assets/images/generated/gen-04blur.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 86.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 6.37,
+    "ssim12": 0.8622,
+    "silhouette_iou": 0.9396,
+    "edge_f1": 0.0701
+   },
+   "svg_bytes": 9826,
+   "convert_ms": 250
+  },
+  {
+   "id": "mr-045",
+   "svg": "mr-045-gen-04darkbg.svg",
+   "source": "test-assets/images/generated/gen-04darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 90.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.02,
+    "ssim12": 0.9089,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5095
+   },
+   "svg_bytes": 7609,
+   "convert_ms": 88
+  },
+  {
+   "id": "mr-046",
+   "svg": "mr-046-gen-04downscale32.svg",
+   "source": "test-assets/images/generated/gen-04downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.55,
+    "ssim12": 0.999,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 15209,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-047",
+   "svg": "mr-047-gen-04gray.svg",
+   "source": "test-assets/images/generated/gen-04gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 91.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.65,
+    "ssim12": 0.9102,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5689
+   },
+   "svg_bytes": 9385,
+   "convert_ms": 90
+  },
+  {
+   "id": "mr-048",
+   "svg": "mr-048-gen-04jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-04jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.69,
+    "ssim12": 0.8728,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5286
+   },
+   "svg_bytes": 8950,
+   "convert_ms": 325
+  },
+  {
+   "id": "mr-049",
+   "svg": "mr-049-gen-04noise.svg",
+   "source": "test-assets/images/generated/gen-04noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 64.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 6.8,
+    "ssim12": 0.8247,
+    "silhouette_iou": 0.6472,
+    "edge_f1": 0.074
+   },
+   "svg_bytes": 5581,
+   "convert_ms": 126
+  },
+  {
+   "id": "mr-050",
+   "svg": "mr-050-gen-04rot.svg",
+   "source": "test-assets/images/generated/gen-04rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 68.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 4.78,
+    "ssim12": 0.8833,
+    "silhouette_iou": 0.6797,
+    "edge_f1": 0.1113
+   },
+   "svg_bytes": 7416,
+   "convert_ms": 216
+  },
+  {
+   "id": "mr-051",
+   "svg": "mr-051-gen-05-base.svg",
+   "source": "test-assets/images/generated/gen-05-base.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 10.36,
+    "ssim12": 0.7434,
+    "silhouette_iou": 0.7539,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 7108,
+   "convert_ms": 198
+  },
+  {
+   "id": "mr-052",
+   "svg": "mr-052-gen-05blur.svg",
+   "source": "test-assets/images/generated/gen-05blur.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 66.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 12.44,
+    "ssim12": 0.6602,
+    "silhouette_iou": 0.9593,
+    "edge_f1": 0.0008
+   },
+   "svg_bytes": 56461,
+   "convert_ms": 297
+  },
+  {
+   "id": "mr-053",
+   "svg": "mr-053-gen-05darkbg.svg",
+   "source": "test-assets/images/generated/gen-05darkbg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.63,
+    "ssim12": 0.9706,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9
+   },
+   "svg_bytes": 4551,
+   "convert_ms": 127
+  },
+  {
+   "id": "mr-054",
+   "svg": "mr-054-gen-05downscale32.svg",
+   "source": "test-assets/images/generated/gen-05downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.3,
+    "ssim12": 0.9999,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9947
+   },
+   "svg_bytes": 22705,
+   "convert_ms": 7
+  },
+  {
+   "id": "mr-055",
+   "svg": "mr-055-gen-05gray.svg",
+   "source": "test-assets/images/generated/gen-05gray.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.88,
+    "ssim12": 0.97,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8988
+   },
+   "svg_bytes": 4551,
+   "convert_ms": 132
+  },
+  {
+   "id": "mr-056",
+   "svg": "mr-056-gen-05jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-05jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 81.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.1,
+    "ssim12": 0.8112,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8635
+   },
+   "svg_bytes": 105822,
+   "convert_ms": 361
+  },
+  {
+   "id": "mr-057",
+   "svg": "mr-057-gen-05noise.svg",
+   "source": "test-assets/images/generated/gen-05noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 63.3,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 11.4,
+    "ssim12": 0.6329,
+    "silhouette_iou": 0.7564,
+    "edge_f1": 0.0037
+   },
+   "svg_bytes": 6977,
+   "convert_ms": 224
+  },
+  {
+   "id": "mr-058",
+   "svg": "mr-058-gen-05rot.svg",
+   "source": "test-assets/images/generated/gen-05rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.39,
+    "ssim12": 0.7849,
+    "silhouette_iou": 0.7639,
+    "edge_f1": 0.0255
+   },
+   "svg_bytes": 7173,
+   "convert_ms": 491
+  },
+  {
+   "id": "mr-059",
+   "svg": "mr-059-gen-06-base.svg",
+   "source": "test-assets/images/generated/gen-06-base.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 92.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.5,
+    "ssim12": 0.9455,
+    "silhouette_iou": 0.9201,
+    "edge_f1": 0.5466
+   },
+   "svg_bytes": 2472,
+   "convert_ms": 50
+  },
+  {
+   "id": "mr-060",
+   "svg": "mr-060-gen-06blur.svg",
+   "source": "test-assets/images/generated/gen-06blur.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.2,
+    "ssim12": 0.9094,
+    "silhouette_iou": 0.9355,
+    "edge_f1": 0.7155
+   },
+   "svg_bytes": 2324,
+   "convert_ms": 57
+  },
+  {
+   "id": "mr-061",
+   "svg": "mr-061-gen-06darkbg.svg",
+   "source": "test-assets/images/generated/gen-06darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 95.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.57,
+    "ssim12": 0.9502,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4953
+   },
+   "svg_bytes": 2919,
+   "convert_ms": 81
+  },
+  {
+   "id": "mr-062",
+   "svg": "mr-062-gen-06downscale32.svg",
+   "source": "test-assets/images/generated/gen-06downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.22,
+    "ssim12": 0.9999,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9971
+   },
+   "svg_bytes": 13731,
+   "convert_ms": 4
+  },
+  {
+   "id": "mr-063",
+   "svg": "mr-063-gen-06gray.svg",
+   "source": "test-assets/images/generated/gen-06gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 94.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.54,
+    "ssim12": 0.9412,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4829
+   },
+   "svg_bytes": 4823,
+   "convert_ms": 85
+  },
+  {
+   "id": "mr-064",
+   "svg": "mr-064-gen-06jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-06jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 89.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.16,
+    "ssim12": 0.8903,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.0287
+   },
+   "svg_bytes": 6040,
+   "convert_ms": 235
+  },
+  {
+   "id": "mr-065",
+   "svg": "mr-065-gen-06noise.svg",
+   "source": "test-assets/images/generated/gen-06noise.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 85.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.99,
+    "ssim12": 0.8518,
+    "silhouette_iou": 0.9201,
+    "edge_f1": 0.2306
+   },
+   "svg_bytes": 2472,
+   "convert_ms": 48
+  },
+  {
+   "id": "mr-066",
+   "svg": "mr-066-gen-06rot.svg",
+   "source": "test-assets/images/generated/gen-06rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 94.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.07,
+    "ssim12": 0.9693,
+    "silhouette_iou": 0.9421,
+    "edge_f1": 0.6064
+   },
+   "svg_bytes": 3182,
+   "convert_ms": 67
+  },
+  {
+   "id": "mr-067",
+   "svg": "mr-067-gen-07-base.svg",
+   "source": "test-assets/images/generated/gen-07-base.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 78.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.79,
+    "ssim12": 0.7872,
+    "silhouette_iou": 0.935,
+    "edge_f1": 0.4256
+   },
+   "svg_bytes": 6062,
+   "convert_ms": 159
+  },
+  {
+   "id": "mr-068",
+   "svg": "mr-068-gen-07blur.svg",
+   "source": "test-assets/images/generated/gen-07blur.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 80.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.98,
+    "ssim12": 0.8036,
+    "silhouette_iou": 0.9835,
+    "edge_f1": 0.0519
+   },
+   "svg_bytes": 36818,
+   "convert_ms": 414
+  },
+  {
+   "id": "mr-069",
+   "svg": "mr-069-gen-07darkbg.svg",
+   "source": "test-assets/images/generated/gen-07darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.22,
+    "ssim12": 0.8651,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6536
+   },
+   "svg_bytes": 6671,
+   "convert_ms": 115
+  },
+  {
+   "id": "mr-070",
+   "svg": "mr-070-gen-07downscale32.svg",
+   "source": "test-assets/images/generated/gen-07downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 98.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.84,
+    "ssim12": 0.9937,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9445
+   },
+   "svg_bytes": 26078,
+   "convert_ms": 6
+  },
+  {
+   "id": "mr-071",
+   "svg": "mr-071-gen-07gray.svg",
+   "source": "test-assets/images/generated/gen-07gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.93,
+    "ssim12": 0.8596,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6554
+   },
+   "svg_bytes": 6671,
+   "convert_ms": 121
+  },
+  {
+   "id": "mr-072",
+   "svg": "mr-072-gen-07jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-07jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 74.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 3.36,
+    "ssim12": 0.7439,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8497
+   },
+   "svg_bytes": 239291,
+   "convert_ms": 136
+  },
+  {
+   "id": "mr-073",
+   "svg": "mr-073-gen-07noise.svg",
+   "source": "test-assets/images/generated/gen-07noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 32.1,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 14.17,
+    "ssim12": 0.3215,
+    "silhouette_iou": 0.935,
+    "edge_f1": 0.1937
+   },
+   "svg_bytes": 7231,
+   "convert_ms": 194
+  },
+  {
+   "id": "mr-074",
+   "svg": "mr-074-gen-07rot.svg",
+   "source": "test-assets/images/generated/gen-07rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 83.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.77,
+    "ssim12": 0.83,
+    "silhouette_iou": 0.9364,
+    "edge_f1": 0.3984
+   },
+   "svg_bytes": 11853,
+   "convert_ms": 515
+  },
+  {
+   "id": "mr-075",
+   "svg": "mr-075-gen-08-base.svg",
+   "source": "test-assets/images/generated/gen-08-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.58,
+    "ssim12": 0.9892,
+    "silhouette_iou": 0.9469,
+    "edge_f1": 0.8794
+   },
+   "svg_bytes": 4279,
+   "convert_ms": 155
+  },
+  {
+   "id": "mr-076",
+   "svg": "mr-076-gen-08blur.svg",
+   "source": "test-assets/images/generated/gen-08blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 83.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.14,
+    "ssim12": 0.8305,
+    "silhouette_iou": 0.9531,
+    "edge_f1": 0.0584
+   },
+   "svg_bytes": 8491,
+   "convert_ms": 236
+  },
+  {
+   "id": "mr-077",
+   "svg": "mr-077-gen-08darkbg.svg",
+   "source": "test-assets/images/generated/gen-08darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 92.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.53,
+    "ssim12": 0.9256,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.3258
+   },
+   "svg_bytes": 5612,
+   "convert_ms": 83
+  },
+  {
+   "id": "mr-078",
+   "svg": "mr-078-gen-08downscale32.svg",
+   "source": "test-assets/images/generated/gen-08downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.53,
+    "ssim12": 0.9995,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 13753,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-079",
+   "svg": "mr-079-gen-08gray.svg",
+   "source": "test-assets/images/generated/gen-08gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 92.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.99,
+    "ssim12": 0.9255,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4214
+   },
+   "svg_bytes": 5612,
+   "convert_ms": 96
+  },
+  {
+   "id": "mr-080",
+   "svg": "mr-080-gen-08jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-08jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 74.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.34,
+    "ssim12": 0.7493,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6955
+   },
+   "svg_bytes": 67246,
+   "convert_ms": 209
+  },
+  {
+   "id": "mr-081",
+   "svg": "mr-081-gen-08noise.svg",
+   "source": "test-assets/images/generated/gen-08noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 92.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.0,
+    "ssim12": 0.9265,
+    "silhouette_iou": 0.9469,
+    "edge_f1": 0.5425
+   },
+   "svg_bytes": 4279,
+   "convert_ms": 164
+  },
+  {
+   "id": "mr-082",
+   "svg": "mr-082-gen-08rot.svg",
+   "source": "test-assets/images/generated/gen-08rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.99,
+    "ssim12": 0.9767,
+    "silhouette_iou": 0.9473,
+    "edge_f1": 0.8104
+   },
+   "svg_bytes": 16828,
+   "convert_ms": 280
+  },
+  {
+   "id": "mr-083",
+   "svg": "mr-083-gen-09-base.svg",
+   "source": "test-assets/images/generated/gen-09-base.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.17,
+    "ssim12": 0.7614,
+    "silhouette_iou": 0.877,
+    "edge_f1": 0.3088
+   },
+   "svg_bytes": 9397,
+   "convert_ms": 207
+  },
+  {
+   "id": "mr-084",
+   "svg": "mr-084-gen-09blur.svg",
+   "source": "test-assets/images/generated/gen-09blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.98,
+    "ssim12": 0.7444,
+    "silhouette_iou": 0.959,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 17394,
+   "convert_ms": 198
+  },
+  {
+   "id": "mr-085",
+   "svg": "mr-085-gen-09darkbg.svg",
+   "source": "test-assets/images/generated/gen-09darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.57,
+    "ssim12": 0.8733,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5463
+   },
+   "svg_bytes": 10870,
+   "convert_ms": 122
+  },
+  {
+   "id": "mr-086",
+   "svg": "mr-086-gen-09downscale32.svg",
+   "source": "test-assets/images/generated/gen-09downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.21,
+    "ssim12": 0.9972,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9914
+   },
+   "svg_bytes": 24029,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-087",
+   "svg": "mr-087-gen-09gray.svg",
+   "source": "test-assets/images/generated/gen-09gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.81,
+    "ssim12": 0.8633,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5483
+   },
+   "svg_bytes": 10870,
+   "convert_ms": 131
+  },
+  {
+   "id": "mr-088",
+   "svg": "mr-088-gen-09jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-09jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 73.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.98,
+    "ssim12": 0.7361,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5563
+   },
+   "svg_bytes": 18576,
+   "convert_ms": 421
+  },
+  {
+   "id": "mr-089",
+   "svg": "mr-089-gen-09noise.svg",
+   "source": "test-assets/images/generated/gen-09noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 61.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 8.32,
+    "ssim12": 0.6192,
+    "silhouette_iou": 0.877,
+    "edge_f1": 0.193
+   },
+   "svg_bytes": 9397,
+   "convert_ms": 198
+  },
+  {
+   "id": "mr-090",
+   "svg": "mr-090-gen-09rot.svg",
+   "source": "test-assets/images/generated/gen-09rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.36,
+    "ssim12": 0.8481,
+    "silhouette_iou": 0.8922,
+    "edge_f1": 0.2838
+   },
+   "svg_bytes": 9461,
+   "convert_ms": 333
+  },
+  {
+   "id": "mr-091",
+   "svg": "mr-091-gen-10-base.svg",
+   "source": "test-assets/images/generated/gen-10-base.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 92.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.78,
+    "ssim12": 0.9569,
+    "silhouette_iou": 0.9232,
+    "edge_f1": 0.5673
+   },
+   "svg_bytes": 2323,
+   "convert_ms": 44
+  },
+  {
+   "id": "mr-092",
+   "svg": "mr-092-gen-10blur.svg",
+   "source": "test-assets/images/generated/gen-10blur.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.86,
+    "ssim12": 0.9046,
+    "silhouette_iou": 0.9235,
+    "edge_f1": 0.2678
+   },
+   "svg_bytes": 3637,
+   "convert_ms": 55
+  },
+  {
+   "id": "mr-093",
+   "svg": "mr-093-gen-10darkbg.svg",
+   "source": "test-assets/images/generated/gen-10darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 96.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.73,
+    "ssim12": 0.9598,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5687
+   },
+   "svg_bytes": 3067,
+   "convert_ms": 73
+  },
+  {
+   "id": "mr-094",
+   "svg": "mr-094-gen-10downscale32.svg",
+   "source": "test-assets/images/generated/gen-10downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.16,
+    "ssim12": 0.9997,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9869
+   },
+   "svg_bytes": 9834,
+   "convert_ms": 4
+  },
+  {
+   "id": "mr-095",
+   "svg": "mr-095-gen-10gray.svg",
+   "source": "test-assets/images/generated/gen-10gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 96.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.92,
+    "ssim12": 0.9607,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5857
+   },
+   "svg_bytes": 4552,
+   "convert_ms": 73
+  },
+  {
+   "id": "mr-096",
+   "svg": "mr-096-gen-10jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-10jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 90.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.36,
+    "ssim12": 0.8996,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.248
+   },
+   "svg_bytes": 7483,
+   "convert_ms": 114
+  },
+  {
+   "id": "mr-097",
+   "svg": "mr-097-gen-10noise.svg",
+   "source": "test-assets/images/generated/gen-10noise.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.0,
+    "ssim12": 0.9001,
+    "silhouette_iou": 0.9232,
+    "edge_f1": 0.2643
+   },
+   "svg_bytes": 2323,
+   "convert_ms": 50
+  },
+  {
+   "id": "mr-098",
+   "svg": "mr-098-gen-10rot.svg",
+   "source": "test-assets/images/generated/gen-10rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 92.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.06,
+    "ssim12": 0.958,
+    "silhouette_iou": 0.9292,
+    "edge_f1": 0.5668
+   },
+   "svg_bytes": 3546,
+   "convert_ms": 63
+  },
+  {
+   "id": "mr-099",
+   "svg": "mr-099-gen-11-base.svg",
+   "source": "test-assets/images/generated/gen-11-base.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.74,
+    "ssim12": 0.8854,
+    "silhouette_iou": 0.8424,
+    "edge_f1": 0.007
+   },
+   "svg_bytes": 2352,
+   "convert_ms": 148
+  },
+  {
+   "id": "mr-100",
+   "svg": "mr-100-gen-11blur.svg",
+   "source": "test-assets/images/generated/gen-11blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 6.38,
+    "ssim12": 0.8534,
+    "silhouette_iou": 0.9674,
+    "edge_f1": 0.0176
+   },
+   "svg_bytes": 1360,
+   "convert_ms": 274
+  },
+  {
+   "id": "mr-101",
+   "svg": "mr-101-gen-11darkbg.svg",
+   "source": "test-assets/images/generated/gen-11darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 93.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.71,
+    "ssim12": 0.9348,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.537
+   },
+   "svg_bytes": 3845,
+   "convert_ms": 79
+  },
+  {
+   "id": "mr-102",
+   "svg": "mr-102-gen-11downscale32.svg",
+   "source": "test-assets/images/generated/gen-11downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.57,
+    "ssim12": 0.9996,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9789
+   },
+   "svg_bytes": 14262,
+   "convert_ms": 6
+  },
+  {
+   "id": "mr-103",
+   "svg": "mr-103-gen-11gray.svg",
+   "source": "test-assets/images/generated/gen-11gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 93.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.76,
+    "ssim12": 0.9326,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5106
+   },
+   "svg_bytes": 6821,
+   "convert_ms": 73
+  },
+  {
+   "id": "mr-104",
+   "svg": "mr-104-gen-11jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-11jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.17,
+    "ssim12": 0.844,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.0885
+   },
+   "svg_bytes": 8605,
+   "convert_ms": 208
+  },
+  {
+   "id": "mr-105",
+   "svg": "mr-105-gen-11noise.svg",
+   "source": "test-assets/images/generated/gen-11noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 81.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.29,
+    "ssim12": 0.8163,
+    "silhouette_iou": 0.8424,
+    "edge_f1": 0.0029
+   },
+   "svg_bytes": 2352,
+   "convert_ms": 162
+  },
+  {
+   "id": "mr-106",
+   "svg": "mr-106-gen-11rot.svg",
+   "source": "test-assets/images/generated/gen-11rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.58,
+    "ssim12": 0.913,
+    "silhouette_iou": 0.856,
+    "edge_f1": 0.0457
+   },
+   "svg_bytes": 3974,
+   "convert_ms": 221
+  },
+  {
+   "id": "mr-107",
+   "svg": "mr-107-gen-12-base.svg",
+   "source": "test-assets/images/generated/gen-12-base.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 89.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.11,
+    "ssim12": 0.894,
+    "silhouette_iou": 0.9275,
+    "edge_f1": 0.6274
+   },
+   "svg_bytes": 5231,
+   "convert_ms": 51
+  },
+  {
+   "id": "mr-108",
+   "svg": "mr-108-gen-12blur.svg",
+   "source": "test-assets/images/generated/gen-12blur.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 86.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.84,
+    "ssim12": 0.8652,
+    "silhouette_iou": 0.9427,
+    "edge_f1": 0.2606
+   },
+   "svg_bytes": 5650,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-109",
+   "svg": "mr-109-gen-12darkbg.svg",
+   "source": "test-assets/images/generated/gen-12darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 88.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.59,
+    "ssim12": 0.8893,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6522
+   },
+   "svg_bytes": 6314,
+   "convert_ms": 101
+  },
+  {
+   "id": "mr-110",
+   "svg": "mr-110-gen-12downscale32.svg",
+   "source": "test-assets/images/generated/gen-12downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.17,
+    "ssim12": 0.9999,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9964
+   },
+   "svg_bytes": 17858,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-111",
+   "svg": "mr-111-gen-12gray.svg",
+   "source": "test-assets/images/generated/gen-12gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 88.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.98,
+    "ssim12": 0.8871,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6569
+   },
+   "svg_bytes": 6314,
+   "convert_ms": 185
+  },
+  {
+   "id": "mr-112",
+   "svg": "mr-112-gen-12jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-12jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.51,
+    "ssim12": 0.8089,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.1666
+   },
+   "svg_bytes": 7708,
+   "convert_ms": 223
+  },
+  {
+   "id": "mr-113",
+   "svg": "mr-113-gen-12noise.svg",
+   "source": "test-assets/images/generated/gen-12noise.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 77.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.86,
+    "ssim12": 0.7792,
+    "silhouette_iou": 0.9275,
+    "edge_f1": 0.2684
+   },
+   "svg_bytes": 5231,
+   "convert_ms": 58
+  },
+  {
+   "id": "mr-114",
+   "svg": "mr-114-gen-12rot.svg",
+   "source": "test-assets/images/generated/gen-12rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 93.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.89,
+    "ssim12": 0.9342,
+    "silhouette_iou": 0.9356,
+    "edge_f1": 0.6103
+   },
+   "svg_bytes": 5559,
+   "convert_ms": 61
+  },
+  {
+   "id": "mr-115",
+   "svg": "mr-115-gen-13-base.svg",
+   "source": "test-assets/images/generated/gen-13-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.38,
+    "ssim12": 0.9782,
+    "silhouette_iou": 0.9737,
+    "edge_f1": 0.9302
+   },
+   "svg_bytes": 2587,
+   "convert_ms": 158
+  },
+  {
+   "id": "mr-116",
+   "svg": "mr-116-gen-13blur.svg",
+   "source": "test-assets/images/generated/gen-13blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.97,
+    "ssim12": 0.8418,
+    "silhouette_iou": 0.9664,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 4712,
+   "convert_ms": 211
+  },
+  {
+   "id": "mr-117",
+   "svg": "mr-117-gen-13darkbg.svg",
+   "source": "test-assets/images/generated/gen-13darkbg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.32,
+    "ssim12": 0.9779,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9295
+   },
+   "svg_bytes": 2752,
+   "convert_ms": 96
+  },
+  {
+   "id": "mr-118",
+   "svg": "mr-118-gen-13downscale32.svg",
+   "source": "test-assets/images/generated/gen-13downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.4,
+    "ssim12": 0.9996,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9925
+   },
+   "svg_bytes": 19110,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-119",
+   "svg": "mr-119-gen-13gray.svg",
+   "source": "test-assets/images/generated/gen-13gray.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.43,
+    "ssim12": 0.9765,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9292
+   },
+   "svg_bytes": 2752,
+   "convert_ms": 94
+  },
+  {
+   "id": "mr-120",
+   "svg": "mr-120-gen-13jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-13jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 86.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.47,
+    "ssim12": 0.8649,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8562
+   },
+   "svg_bytes": 101764,
+   "convert_ms": 250
+  },
+  {
+   "id": "mr-121",
+   "svg": "mr-121-gen-13noise.svg",
+   "source": "test-assets/images/generated/gen-13noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 85.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.27,
+    "ssim12": 0.8502,
+    "silhouette_iou": 0.9737,
+    "edge_f1": 0.4407
+   },
+   "svg_bytes": 2729,
+   "convert_ms": 182
+  },
+  {
+   "id": "mr-122",
+   "svg": "mr-122-gen-13rot.svg",
+   "source": "test-assets/images/generated/gen-13rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 79.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.88,
+    "ssim12": 0.8532,
+    "silhouette_iou": 0.7926,
+    "edge_f1": 0.0039
+   },
+   "svg_bytes": 4383,
+   "convert_ms": 257
+  },
+  {
+   "id": "mr-123",
+   "svg": "mr-123-gen-14-base.svg",
+   "source": "test-assets/images/generated/gen-14-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.57,
+    "ssim12": 0.9814,
+    "silhouette_iou": 0.9486,
+    "edge_f1": 0.8666
+   },
+   "svg_bytes": 4811,
+   "convert_ms": 188
+  },
+  {
+   "id": "mr-124",
+   "svg": "mr-124-gen-14blur.svg",
+   "source": "test-assets/images/generated/gen-14blur.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 80.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.22,
+    "ssim12": 0.8002,
+    "silhouette_iou": 0.9459,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 22387,
+   "convert_ms": 233
+  },
+  {
+   "id": "mr-125",
+   "svg": "mr-125-gen-14darkbg.svg",
+   "source": "test-assets/images/generated/gen-14darkbg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 98.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.52,
+    "ssim12": 0.9811,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8757
+   },
+   "svg_bytes": 4976,
+   "convert_ms": 151
+  },
+  {
+   "id": "mr-126",
+   "svg": "mr-126-gen-14downscale32.svg",
+   "source": "test-assets/images/generated/gen-14downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.44,
+    "ssim12": 0.9963,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9846
+   },
+   "svg_bytes": 20271,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-127",
+   "svg": "mr-127-gen-14gray.svg",
+   "source": "test-assets/images/generated/gen-14gray.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.74,
+    "ssim12": 0.9793,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8728
+   },
+   "svg_bytes": 4976,
+   "convert_ms": 116
+  },
+  {
+   "id": "mr-128",
+   "svg": "mr-128-gen-14jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-14jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 87.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.44,
+    "ssim12": 0.87,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.7899
+   },
+   "svg_bytes": 123858,
+   "convert_ms": 287
+  },
+  {
+   "id": "mr-129",
+   "svg": "mr-129-gen-14noise.svg",
+   "source": "test-assets/images/generated/gen-14noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 89.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.13,
+    "ssim12": 0.8989,
+    "silhouette_iou": 0.9493,
+    "edge_f1": 0.4665
+   },
+   "svg_bytes": 4832,
+   "convert_ms": 187
+  },
+  {
+   "id": "mr-130",
+   "svg": "mr-130-gen-14rot.svg",
+   "source": "test-assets/images/generated/gen-14rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.93,
+    "ssim12": 0.9633,
+    "silhouette_iou": 0.949,
+    "edge_f1": 0.7795
+   },
+   "svg_bytes": 20093,
+   "convert_ms": 282
+  },
+  {
+   "id": "mr-131",
+   "svg": "mr-131-gen-15-base.svg",
+   "source": "test-assets/images/generated/gen-15-base.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 81.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 11.23,
+    "ssim12": 0.8185,
+    "silhouette_iou": 0.8498,
+    "edge_f1": 0.5294
+   },
+   "svg_bytes": 7262,
+   "convert_ms": 50
+  },
+  {
+   "id": "mr-132",
+   "svg": "mr-132-gen-15blur.svg",
+   "source": "test-assets/images/generated/gen-15blur.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 81.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.27,
+    "ssim12": 0.811,
+    "silhouette_iou": 0.8417,
+    "edge_f1": 0.0543
+   },
+   "svg_bytes": 86238,
+   "convert_ms": 132
+  },
+  {
+   "id": "mr-133",
+   "svg": "mr-133-gen-15darkbg.svg",
+   "source": "test-assets/images/generated/gen-15darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.17,
+    "ssim12": 0.8473,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6335
+   },
+   "svg_bytes": 13782,
+   "convert_ms": 134
+  },
+  {
+   "id": "mr-134",
+   "svg": "mr-134-gen-15downscale32.svg",
+   "source": "test-assets/images/generated/gen-15downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.54,
+    "ssim12": 0.9995,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 22333,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-135",
+   "svg": "mr-135-gen-15gray.svg",
+   "source": "test-assets/images/generated/gen-15gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 3.09,
+    "ssim12": 0.8395,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6266
+   },
+   "svg_bytes": 13782,
+   "convert_ms": 135
+  },
+  {
+   "id": "mr-136",
+   "svg": "mr-136-gen-15jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-15jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.36,
+    "ssim12": 0.7413,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6151
+   },
+   "svg_bytes": 15284,
+   "convert_ms": 285
+  },
+  {
+   "id": "mr-137",
+   "svg": "mr-137-gen-15noise.svg",
+   "source": "test-assets/images/generated/gen-15noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 68.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 8.77,
+    "ssim12": 0.6802,
+    "silhouette_iou": 0.8241,
+    "edge_f1": 0.3609
+   },
+   "svg_bytes": 5450,
+   "convert_ms": 101
+  },
+  {
+   "id": "mr-138",
+   "svg": "mr-138-gen-15rot.svg",
+   "source": "test-assets/images/generated/gen-15rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 84.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.5,
+    "ssim12": 0.843,
+    "silhouette_iou": 0.8594,
+    "edge_f1": 0.5147
+   },
+   "svg_bytes": 11857,
+   "convert_ms": 66
+  },
+  {
+   "id": "mr-139",
+   "svg": "mr-139-gen-16-base.svg",
+   "source": "test-assets/images/generated/gen-16-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.46,
+    "ssim12": 0.9759,
+    "silhouette_iou": 0.9651,
+    "edge_f1": 0.8263
+   },
+   "svg_bytes": 3747,
+   "convert_ms": 151
+  },
+  {
+   "id": "mr-140",
+   "svg": "mr-140-gen-16blur.svg",
+   "source": "test-assets/images/generated/gen-16blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.29,
+    "ssim12": 0.8681,
+    "silhouette_iou": 0.9394,
+    "edge_f1": 0.0065
+   },
+   "svg_bytes": 3602,
+   "convert_ms": 182
+  },
+  {
+   "id": "mr-141",
+   "svg": "mr-141-gen-16darkbg.svg",
+   "source": "test-assets/images/generated/gen-16darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 93.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.96,
+    "ssim12": 0.9297,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4887
+   },
+   "svg_bytes": 5148,
+   "convert_ms": 84
+  },
+  {
+   "id": "mr-142",
+   "svg": "mr-142-gen-16downscale32.svg",
+   "source": "test-assets/images/generated/gen-16downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.51,
+    "ssim12": 0.9995,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9941
+   },
+   "svg_bytes": 14212,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-143",
+   "svg": "mr-143-gen-16gray.svg",
+   "source": "test-assets/images/generated/gen-16gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 92.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.1,
+    "ssim12": 0.9272,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4966
+   },
+   "svg_bytes": 7010,
+   "convert_ms": 100
+  },
+  {
+   "id": "mr-144",
+   "svg": "mr-144-gen-16jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-16jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.12,
+    "ssim12": 0.8653,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4954
+   },
+   "svg_bytes": 8621,
+   "convert_ms": 247
+  },
+  {
+   "id": "mr-145",
+   "svg": "mr-145-gen-16noise.svg",
+   "source": "test-assets/images/generated/gen-16noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 90.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.99,
+    "ssim12": 0.9017,
+    "silhouette_iou": 0.9651,
+    "edge_f1": 0.3541
+   },
+   "svg_bytes": 3747,
+   "convert_ms": 160
+  },
+  {
+   "id": "mr-146",
+   "svg": "mr-146-gen-16rot.svg",
+   "source": "test-assets/images/generated/gen-16rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.61,
+    "ssim12": 0.9738,
+    "silhouette_iou": 0.9646,
+    "edge_f1": 0.7851
+   },
+   "svg_bytes": 11241,
+   "convert_ms": 264
+  },
+  {
+   "id": "mr-147",
+   "svg": "mr-147-gen-17-base.svg",
+   "source": "test-assets/images/generated/gen-17-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.03,
+    "ssim12": 0.9641,
+    "silhouette_iou": 0.9805,
+    "edge_f1": 0.8051
+   },
+   "svg_bytes": 5330,
+   "convert_ms": 148
+  },
+  {
+   "id": "mr-148",
+   "svg": "mr-148-gen-17blur.svg",
+   "source": "test-assets/images/generated/gen-17blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.99,
+    "ssim12": 0.747,
+    "silhouette_iou": 0.9814,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 3142,
+   "convert_ms": 369
+  },
+  {
+   "id": "mr-149",
+   "svg": "mr-149-gen-17darkbg.svg",
+   "source": "test-assets/images/generated/gen-17darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 88.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.32,
+    "ssim12": 0.8858,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.6181
+   },
+   "svg_bytes": 3982,
+   "convert_ms": 95
+  },
+  {
+   "id": "mr-150",
+   "svg": "mr-150-gen-17downscale32.svg",
+   "source": "test-assets/images/generated/gen-17downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.66,
+    "ssim12": 0.997,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9892
+   },
+   "svg_bytes": 25536,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-151",
+   "svg": "mr-151-gen-17gray.svg",
+   "source": "test-assets/images/generated/gen-17gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 88.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.6,
+    "ssim12": 0.8887,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.7027
+   },
+   "svg_bytes": 10913,
+   "convert_ms": 87
+  },
+  {
+   "id": "mr-152",
+   "svg": "mr-152-gen-17jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-17jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.87,
+    "ssim12": 0.7678,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5494
+   },
+   "svg_bytes": 23044,
+   "convert_ms": 299
+  },
+  {
+   "id": "mr-153",
+   "svg": "mr-153-gen-17noise.svg",
+   "source": "test-assets/images/generated/gen-17noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 55.8,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 6.76,
+    "ssim12": 0.5583,
+    "silhouette_iou": 0.9139,
+    "edge_f1": 0.0034
+   },
+   "svg_bytes": 3549,
+   "convert_ms": 167
+  },
+  {
+   "id": "mr-154",
+   "svg": "mr-154-gen-17rot.svg",
+   "source": "test-assets/images/generated/gen-17rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.05,
+    "ssim12": 0.8758,
+    "silhouette_iou": 0.9176,
+    "edge_f1": 0.0016
+   },
+   "svg_bytes": 8251,
+   "convert_ms": 314
+  },
+  {
+   "id": "mr-155",
+   "svg": "mr-155-gen-18-base.svg",
+   "source": "test-assets/images/generated/gen-18-base.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 93.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.96,
+    "ssim12": 0.9634,
+    "silhouette_iou": 0.9367,
+    "edge_f1": 0.5867
+   },
+   "svg_bytes": 16778,
+   "convert_ms": 65
+  },
+  {
+   "id": "mr-156",
+   "svg": "mr-156-gen-18blur.svg",
+   "source": "test-assets/images/generated/gen-18blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.88,
+    "ssim12": 0.8546,
+    "silhouette_iou": 0.9456,
+    "edge_f1": 0.1182
+   },
+   "svg_bytes": 4327,
+   "convert_ms": 216
+  },
+  {
+   "id": "mr-157",
+   "svg": "mr-157-gen-18darkbg.svg",
+   "source": "test-assets/images/generated/gen-18darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 92.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.11,
+    "ssim12": 0.9277,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5497
+   },
+   "svg_bytes": 6099,
+   "convert_ms": 98
+  },
+  {
+   "id": "mr-158",
+   "svg": "mr-158-gen-18downscale32.svg",
+   "source": "test-assets/images/generated/gen-18downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.12,
+    "ssim12": 1.0,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 14661,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-159",
+   "svg": "mr-159-gen-18gray.svg",
+   "source": "test-assets/images/generated/gen-18gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 92.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.72,
+    "ssim12": 0.9232,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5588
+   },
+   "svg_bytes": 6099,
+   "convert_ms": 76
+  },
+  {
+   "id": "mr-160",
+   "svg": "mr-160-gen-18jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-18jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 82.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.01,
+    "ssim12": 0.8253,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.11
+   },
+   "svg_bytes": 10109,
+   "convert_ms": 257
+  },
+  {
+   "id": "mr-161",
+   "svg": "mr-161-gen-18noise.svg",
+   "source": "test-assets/images/generated/gen-18noise.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 93.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.23,
+    "ssim12": 0.9622,
+    "silhouette_iou": 0.9367,
+    "edge_f1": 0.6774
+   },
+   "svg_bytes": 16778,
+   "convert_ms": 69
+  },
+  {
+   "id": "mr-162",
+   "svg": "mr-162-gen-18rot.svg",
+   "source": "test-assets/images/generated/gen-18rot.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 93.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.19,
+    "ssim12": 0.9639,
+    "silhouette_iou": 0.9348,
+    "edge_f1": 0.5542
+   },
+   "svg_bytes": 17545,
+   "convert_ms": 85
+  },
+  {
+   "id": "mr-163",
+   "svg": "mr-163-gen-19-base.svg",
+   "source": "test-assets/images/generated/gen-19-base.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.16,
+    "ssim12": 0.7716,
+    "silhouette_iou": 0.7816,
+    "edge_f1": 0.1964
+   },
+   "svg_bytes": 8997,
+   "convert_ms": 178
+  },
+  {
+   "id": "mr-164",
+   "svg": "mr-164-gen-19blur.svg",
+   "source": "test-assets/images/generated/gen-19blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 70.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.05,
+    "ssim12": 0.7046,
+    "silhouette_iou": 0.9555,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 24248,
+   "convert_ms": 204
+  },
+  {
+   "id": "mr-165",
+   "svg": "mr-165-gen-19darkbg.svg",
+   "source": "test-assets/images/generated/gen-19darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 5.18,
+    "ssim12": 0.856,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5523
+   },
+   "svg_bytes": 13386,
+   "convert_ms": 108
+  },
+  {
+   "id": "mr-166",
+   "svg": "mr-166-gen-19downscale32.svg",
+   "source": "test-assets/images/generated/gen-19downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.83,
+    "ssim12": 0.998,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.99
+   },
+   "svg_bytes": 25000,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-167",
+   "svg": "mr-167-gen-19gray.svg",
+   "source": "test-assets/images/generated/gen-19gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.95,
+    "ssim12": 0.8624,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5536
+   },
+   "svg_bytes": 13386,
+   "convert_ms": 106
+  },
+  {
+   "id": "mr-168",
+   "svg": "mr-168-gen-19jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-19jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 70.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.57,
+    "ssim12": 0.7079,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5572
+   },
+   "svg_bytes": 16452,
+   "convert_ms": 348
+  },
+  {
+   "id": "mr-169",
+   "svg": "mr-169-gen-19noise.svg",
+   "source": "test-assets/images/generated/gen-19noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 62.8,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 5.19,
+    "ssim12": 0.6278,
+    "silhouette_iou": 0.7816,
+    "edge_f1": 0.1176
+   },
+   "svg_bytes": 8997,
+   "convert_ms": 178
+  },
+  {
+   "id": "mr-170",
+   "svg": "mr-170-gen-19rot.svg",
+   "source": "test-assets/images/generated/gen-19rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 3.14,
+    "ssim12": 0.8195,
+    "silhouette_iou": 0.8094,
+    "edge_f1": 0.2104
+   },
+   "svg_bytes": 9597,
+   "convert_ms": 321
+  },
+  {
+   "id": "mr-171",
+   "svg": "mr-171-gen-20-base.svg",
+   "source": "test-assets/images/generated/gen-20-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.69,
+    "ssim12": 0.9667,
+    "silhouette_iou": 0.9705,
+    "edge_f1": 0.8828
+   },
+   "svg_bytes": 3627,
+   "convert_ms": 148
+  },
+  {
+   "id": "mr-172",
+   "svg": "mr-172-gen-20blur.svg",
+   "source": "test-assets/images/generated/gen-20blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.84,
+    "ssim12": 0.762,
+    "silhouette_iou": 0.9634,
+    "edge_f1": 0.0657
+   },
+   "svg_bytes": 6209,
+   "convert_ms": 320
+  },
+  {
+   "id": "mr-173",
+   "svg": "mr-173-gen-20darkbg.svg",
+   "source": "test-assets/images/generated/gen-20darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 89.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.79,
+    "ssim12": 0.8956,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4988
+   },
+   "svg_bytes": 7071,
+   "convert_ms": 84
+  },
+  {
+   "id": "mr-174",
+   "svg": "mr-174-gen-20downscale32.svg",
+   "source": "test-assets/images/generated/gen-20downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.42,
+    "ssim12": 0.9997,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9848
+   },
+   "svg_bytes": 22079,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-175",
+   "svg": "mr-175-gen-20gray.svg",
+   "source": "test-assets/images/generated/gen-20gray.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 88.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.86,
+    "ssim12": 0.8842,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5795
+   },
+   "svg_bytes": 7071,
+   "convert_ms": 79
+  },
+  {
+   "id": "mr-176",
+   "svg": "mr-176-gen-20jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-20jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.14,
+    "ssim12": 0.7638,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.1282
+   },
+   "svg_bytes": 17919,
+   "convert_ms": 188
+  },
+  {
+   "id": "mr-177",
+   "svg": "mr-177-gen-20noise.svg",
+   "source": "test-assets/images/generated/gen-20noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 80.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.63,
+    "ssim12": 0.8075,
+    "silhouette_iou": 0.9706,
+    "edge_f1": 0.4037
+   },
+   "svg_bytes": 3894,
+   "convert_ms": 110
+  },
+  {
+   "id": "mr-178",
+   "svg": "mr-178-gen-20rot.svg",
+   "source": "test-assets/images/generated/gen-20rot.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 83.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.13,
+    "ssim12": 0.8549,
+    "silhouette_iou": 0.8318,
+    "edge_f1": 0.0286
+   },
+   "svg_bytes": 8555,
+   "convert_ms": 244
+  },
+  {
+   "id": "mr-179",
+   "svg": "mr-179-gen-21-base.svg",
+   "source": "test-assets/images/generated/gen-21-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.41,
+    "ssim12": 0.9768,
+    "silhouette_iou": 0.9683,
+    "edge_f1": 0.8223
+   },
+   "svg_bytes": 1829,
+   "convert_ms": 145
+  },
+  {
+   "id": "mr-180",
+   "svg": "mr-180-gen-21blur.svg",
+   "source": "test-assets/images/generated/gen-21blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.89,
+    "ssim12": 0.8736,
+    "silhouette_iou": 0.9721,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 590,
+   "convert_ms": 311
+  },
+  {
+   "id": "mr-181",
+   "svg": "mr-181-gen-21darkbg.svg",
+   "source": "test-assets/images/generated/gen-21darkbg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 93.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.74,
+    "ssim12": 0.9331,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5663
+   },
+   "svg_bytes": 1153,
+   "convert_ms": 65
+  },
+  {
+   "id": "mr-182",
+   "svg": "mr-182-gen-21downscale32.svg",
+   "source": "test-assets/images/generated/gen-21downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.29,
+    "ssim12": 0.9999,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 14086,
+   "convert_ms": 4
+  },
+  {
+   "id": "mr-183",
+   "svg": "mr-183-gen-21gray.svg",
+   "source": "test-assets/images/generated/gen-21gray.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 93.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.14,
+    "ssim12": 0.9342,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.5661
+   },
+   "svg_bytes": 1153,
+   "convert_ms": 72
+  },
+  {
+   "id": "mr-184",
+   "svg": "mr-184-gen-21jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-21jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 88.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.53,
+    "ssim12": 0.8894,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.566
+   },
+   "svg_bytes": 1520,
+   "convert_ms": 114
+  },
+  {
+   "id": "mr-185",
+   "svg": "mr-185-gen-21noise.svg",
+   "source": "test-assets/images/generated/gen-21noise.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 79.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.97,
+    "ssim12": 0.7957,
+    "silhouette_iou": 0.8619,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 687,
+   "convert_ms": 139
+  },
+  {
+   "id": "mr-186",
+   "svg": "mr-186-gen-21rot.svg",
+   "source": "test-assets/images/generated/gen-21rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.37,
+    "ssim12": 0.912,
+    "silhouette_iou": 0.8731,
+    "edge_f1": 0.009
+   },
+   "svg_bytes": 1496,
+   "convert_ms": 229
+  },
+  {
+   "id": "mr-187",
+   "svg": "mr-187-gen-22-base.svg",
+   "source": "test-assets/images/generated/gen-22-base.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.3,
+    "ssim12": 0.9831,
+    "silhouette_iou": 0.9462,
+    "edge_f1": 0.8995
+   },
+   "svg_bytes": 3348,
+   "convert_ms": 120
+  },
+  {
+   "id": "mr-188",
+   "svg": "mr-188-gen-22blur.svg",
+   "source": "test-assets/images/generated/gen-22blur.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.3,
+    "ssim12": 0.8784,
+    "silhouette_iou": 0.9536,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5074,
+   "convert_ms": 165
+  },
+  {
+   "id": "mr-189",
+   "svg": "mr-189-gen-22darkbg.svg",
+   "source": "test-assets/images/generated/gen-22darkbg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.47,
+    "ssim12": 0.9788,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8916
+   },
+   "svg_bytes": 3513,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-190",
+   "svg": "mr-190-gen-22downscale32.svg",
+   "source": "test-assets/images/generated/gen-22downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 98.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.49,
+    "ssim12": 0.9804,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9556
+   },
+   "svg_bytes": 12429,
+   "convert_ms": 4
+  },
+  {
+   "id": "mr-191",
+   "svg": "mr-191-gen-22gray.svg",
+   "source": "test-assets/images/generated/gen-22gray.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.57,
+    "ssim12": 0.9784,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.89
+   },
+   "svg_bytes": 3513,
+   "convert_ms": 50
+  },
+  {
+   "id": "mr-192",
+   "svg": "mr-192-gen-22jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-22jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 91.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.31,
+    "ssim12": 0.9148,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.7931
+   },
+   "svg_bytes": 83844,
+   "convert_ms": 114
+  },
+  {
+   "id": "mr-193",
+   "svg": "mr-193-gen-22noise.svg",
+   "source": "test-assets/images/generated/gen-22noise.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.72,
+    "ssim12": 0.9325,
+    "silhouette_iou": 0.948,
+    "edge_f1": 0.4927
+   },
+   "svg_bytes": 3391,
+   "convert_ms": 123
+  },
+  {
+   "id": "mr-194",
+   "svg": "mr-194-gen-22rot.svg",
+   "source": "test-assets/images/generated/gen-22rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.54,
+    "ssim12": 0.971,
+    "silhouette_iou": 0.9444,
+    "edge_f1": 0.7824
+   },
+   "svg_bytes": 15402,
+   "convert_ms": 185
+  },
+  {
+   "id": "mr-195",
+   "svg": "mr-195-gen-23-base.svg",
+   "source": "test-assets/images/generated/gen-23-base.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.32,
+    "ssim12": 0.9292,
+    "silhouette_iou": 0.9045,
+    "edge_f1": 0.6118
+   },
+   "svg_bytes": 2436,
+   "convert_ms": 44
+  },
+  {
+   "id": "mr-196",
+   "svg": "mr-196-gen-23blur.svg",
+   "source": "test-assets/images/generated/gen-23blur.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 87.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.98,
+    "ssim12": 0.8695,
+    "silhouette_iou": 0.8724,
+    "edge_f1": 0.4969
+   },
+   "svg_bytes": 6192,
+   "convert_ms": 154
+  },
+  {
+   "id": "mr-197",
+   "svg": "mr-197-gen-23darkbg.svg",
+   "source": "test-assets/images/generated/gen-23darkbg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 98.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.18,
+    "ssim12": 0.9844,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.8475
+   },
+   "svg_bytes": 2161,
+   "convert_ms": 84
+  },
+  {
+   "id": "mr-198",
+   "svg": "mr-198-gen-23downscale32.svg",
+   "source": "test-assets/images/generated/gen-23downscale32.png",
+   "status": "OK",
+   "engine": "pixel-art",
+   "strict_similarity_pct": 99.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.27,
+    "ssim12": 1.0,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 15726,
+   "convert_ms": 5
+  },
+  {
+   "id": "mr-199",
+   "svg": "mr-199-gen-23gray.svg",
+   "source": "test-assets/images/generated/gen-23gray.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 98.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.13,
+    "ssim12": 0.9825,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.9301
+   },
+   "svg_bytes": 2161,
+   "convert_ms": 72
+  },
+  {
+   "id": "mr-200",
+   "svg": "mr-200-gen-23jpeg.jpg.svg",
+   "source": "test-assets/images/generated/gen-23jpeg.jpg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 74.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.06,
+    "ssim12": 0.7492,
+    "silhouette_iou": 1.0,
+    "edge_f1": 0.4547
+   },
+   "svg_bytes": 89122,
+   "convert_ms": 257
+  },
+  {
+   "id": "mr-201",
+   "svg": "mr-201-gen-23noise.svg",
+   "source": "test-assets/images/generated/gen-23noise.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 84.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 3.89,
+    "ssim12": 0.8398,
+    "silhouette_iou": 0.9045,
+    "edge_f1": 0.3487
+   },
+   "svg_bytes": 2436,
+   "convert_ms": 52
+  },
+  {
+   "id": "mr-202",
+   "svg": "mr-202-gen-23rot.svg",
+   "source": "test-assets/images/generated/gen-23rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.71,
+    "ssim12": 0.9456,
+    "silhouette_iou": 0.9085,
+    "edge_f1": 0.6139
+   },
+   "svg_bytes": 5475,
+   "convert_ms": 61
+  },
+  {
+   "id": "mr-203",
+   "svg": "mr-203-palette-36tiles.svg",
+   "source": "test-assets/images/generated/palette-36tiles.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 100.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.0,
+    "ssim12": 1.0,
+    "silhouette_iou": 1.0,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 5188,
+   "convert_ms": 43
+  },
+  {
+   "id": "mr-204",
+   "svg": "mr-204-logo_e55000_0260.svg",
+   "source": "model/data/logos_notext/logo_e55000_0260.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 90.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.54,
+    "ssim12": 0.9773,
+    "silhouette_iou": 0.9038,
+    "edge_f1": 0.8765
+   },
+   "svg_bytes": 5100,
+   "convert_ms": 192
+  },
+  {
+   "id": "mr-205",
+   "svg": "mr-205-logo_e55000_0362.svg",
+   "source": "model/data/logos_notext/logo_e55000_0362.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 69.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 9.22,
+    "ssim12": 0.8175,
+    "silhouette_iou": 0.6904,
+    "edge_f1": 0.0436
+   },
+   "svg_bytes": 4100,
+   "convert_ms": 161
+  },
+  {
+   "id": "mr-206",
+   "svg": "mr-206-logo_e55000_0367.svg",
+   "source": "model/data/logos_notext/logo_e55000_0367.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.0,
+    "ssim12": 0.7441,
+    "silhouette_iou": 0.7586,
+    "edge_f1": 0.0035
+   },
+   "svg_bytes": 2568,
+   "convert_ms": 142
+  },
+  {
+   "id": "mr-207",
+   "svg": "mr-207-logo_e55000_0530.svg",
+   "source": "model/data/logos_notext/logo_e55000_0530.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 67.6,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 7.48,
+    "ssim12": 0.8037,
+    "silhouette_iou": 0.6763,
+    "edge_f1": 0.0021
+   },
+   "svg_bytes": 3085,
+   "convert_ms": 178
+  },
+  {
+   "id": "mr-208",
+   "svg": "mr-208-logo_e56800_0222.svg",
+   "source": "model/data/logos_notext/logo_e56800_0222.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 96.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.58,
+    "ssim12": 0.962,
+    "silhouette_iou": 0.9689,
+    "edge_f1": 0.6721
+   },
+   "svg_bytes": 21451,
+   "convert_ms": 88
+  },
+  {
+   "id": "mr-209",
+   "svg": "mr-209-logo_e56800_0396.svg",
+   "source": "model/data/logos_notext/logo_e56800_0396.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 91.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.04,
+    "ssim12": 0.9488,
+    "silhouette_iou": 0.9187,
+    "edge_f1": 0.765
+   },
+   "svg_bytes": 21471,
+   "convert_ms": 82
+  },
+  {
+   "id": "mr-210",
+   "svg": "mr-210-logo_e56800_0398.svg",
+   "source": "model/data/logos_notext/logo_e56800_0398.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.59,
+    "ssim12": 0.9774,
+    "silhouette_iou": 0.9309,
+    "edge_f1": 0.8839
+   },
+   "svg_bytes": 3765,
+   "convert_ms": 167
+  },
+  {
+   "id": "mr-211",
+   "svg": "mr-211-logo_e58600_0561.svg",
+   "source": "model/data/logos_notext/logo_e58600_0561.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.91,
+    "ssim12": 0.9596,
+    "silhouette_iou": 0.9834,
+    "edge_f1": 0.7084
+   },
+   "svg_bytes": 7784,
+   "convert_ms": 167
+  },
+  {
+   "id": "mr-212",
+   "svg": "mr-212-logo_e55600_0321.svg",
+   "source": "model/data/logos/logo_e55600_0321.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 85.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.15,
+    "ssim12": 0.8552,
+    "silhouette_iou": 0.9777,
+    "edge_f1": 0.2886
+   },
+   "svg_bytes": 24790,
+   "convert_ms": 87
+  },
+  {
+   "id": "mr-213",
+   "svg": "mr-213-logo_e57400_0088.svg",
+   "source": "model/data/logos/logo_e57400_0088.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 90.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.97,
+    "ssim12": 0.9574,
+    "silhouette_iou": 0.9022,
+    "edge_f1": 0.8703
+   },
+   "svg_bytes": 6963,
+   "convert_ms": 175
+  },
+  {
+   "id": "mr-214",
+   "svg": "mr-214-logo_e57400_0259.svg",
+   "source": "model/data/logos/logo_e57400_0259.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.2,
+    "ssim12": 0.8509,
+    "silhouette_iou": 0.9122,
+    "edge_f1": 0.3023
+   },
+   "svg_bytes": 8999,
+   "convert_ms": 183
+  },
+  {
+   "id": "mr-215",
+   "svg": "mr-215-logo_e57400_0539.svg",
+   "source": "model/data/logos/logo_e57400_0539.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.92,
+    "ssim12": 0.7673,
+    "silhouette_iou": 0.8233,
+    "edge_f1": 0.2058
+   },
+   "svg_bytes": 8242,
+   "convert_ms": 188
+  },
+  {
+   "id": "mr-216",
+   "svg": "mr-216-logo_e59200_0065.svg",
+   "source": "model/data/logos/logo_e59200_0065.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 75.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.47,
+    "ssim12": 0.7579,
+    "silhouette_iou": 0.7857,
+    "edge_f1": 0.0006
+   },
+   "svg_bytes": 5181,
+   "convert_ms": 184
+  },
+  {
+   "id": "mr-217",
+   "svg": "mr-217-logo_e59200_0435.svg",
+   "source": "model/data/logos/logo_e59200_0435.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 95.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.4,
+    "ssim12": 0.9802,
+    "silhouette_iou": 0.9517,
+    "edge_f1": 0.935
+   },
+   "svg_bytes": 5330,
+   "convert_ms": 98
+  },
+  {
+   "id": "mr-218",
+   "svg": "mr-218-text_56200_0049.svg",
+   "source": "model/data/logos_text/text_56200_0049.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 76.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.61,
+    "ssim12": 0.983,
+    "silhouette_iou": 0.7655,
+    "edge_f1": 0.8382
+   },
+   "svg_bytes": 1477,
+   "convert_ms": 42
+  },
+  {
+   "id": "mr-219",
+   "svg": "mr-219-text_56200_0251.svg",
+   "source": "model/data/logos_text/text_56200_0251.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 69.8,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 0.59,
+    "ssim12": 0.9789,
+    "silhouette_iou": 0.6984,
+    "edge_f1": 0.7474
+   },
+   "svg_bytes": 2930,
+   "convert_ms": 41
+  },
+  {
+   "id": "mr-220",
+   "svg": "mr-220-text_56200_0271.svg",
+   "source": "model/data/logos_text/text_56200_0271.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 87.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.99,
+    "ssim12": 0.9677,
+    "silhouette_iou": 0.8698,
+    "edge_f1": 0.3935
+   },
+   "svg_bytes": 1888,
+   "convert_ms": 42
+  },
+  {
+   "id": "mr-221",
+   "svg": "mr-221-text_56200_0458.svg",
+   "source": "model/data/logos_text/text_56200_0458.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 78.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.74,
+    "ssim12": 0.9811,
+    "silhouette_iou": 0.7889,
+    "edge_f1": 0.7521
+   },
+   "svg_bytes": 1853,
+   "convert_ms": 43
+  },
+  {
+   "id": "mr-222",
+   "svg": "mr-222-text_56200_0536.svg",
+   "source": "model/data/logos_text/text_56200_0536.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 83.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.91,
+    "ssim12": 0.9746,
+    "silhouette_iou": 0.8387,
+    "edge_f1": 0.8106
+   },
+   "svg_bytes": 1439,
+   "convert_ms": 46
+  },
+  {
+   "id": "mr-223",
+   "svg": "mr-223-text_58000_0035.svg",
+   "source": "model/data/logos_text/text_58000_0035.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 85.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.59,
+    "ssim12": 0.9505,
+    "silhouette_iou": 0.8558,
+    "edge_f1": 0.5423
+   },
+   "svg_bytes": 4099,
+   "convert_ms": 45
+  },
+  {
+   "id": "mr-224",
+   "svg": "mr-224-text_59800_0010.svg",
+   "source": "model/data/logos_text/text_59800_0010.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 73.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.19,
+    "ssim12": 0.9915,
+    "silhouette_iou": 0.7328,
+    "edge_f1": 0.7327
+   },
+   "svg_bytes": 475,
+   "convert_ms": 44
+  },
+  {
+   "id": "mr-225",
+   "svg": "mr-225-logo_e55000_0008_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55000_0008_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 55.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 4.52,
+    "ssim12": 0.9071,
+    "silhouette_iou": 0.557,
+    "edge_f1": 0.0334
+   },
+   "svg_bytes": 2782,
+   "convert_ms": 194
+  },
+  {
+   "id": "mr-226",
+   "svg": "mr-226-logo_e55000_0047_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e55000_0047_v14_blur5.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 77.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.92,
+    "ssim12": 0.7763,
+    "silhouette_iou": 0.8812,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 25593,
+   "convert_ms": 87
+  },
+  {
+   "id": "mr-227",
+   "svg": "mr-227-logo_e55000_0056_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e55000_0056_v09_jit2.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.85,
+    "ssim12": 0.988,
+    "silhouette_iou": 0.9483,
+    "edge_f1": 0.8178
+   },
+   "svg_bytes": 10692,
+   "convert_ms": 209
+  },
+  {
+   "id": "mr-228",
+   "svg": "mr-228-logo_e55000_0065_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e55000_0065_v12_heavy.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 91.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.98,
+    "ssim12": 0.9167,
+    "silhouette_iou": 0.9481,
+    "edge_f1": 0.0399
+   },
+   "svg_bytes": 1454,
+   "convert_ms": 155
+  },
+  {
+   "id": "mr-229",
+   "svg": "mr-229-logo_e55000_0072_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55000_0072_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 89.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.93,
+    "ssim12": 0.8939,
+    "silhouette_iou": 0.9824,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 3510,
+   "convert_ms": 223
+  },
+  {
+   "id": "mr-230",
+   "svg": "mr-230-logo_e55000_0090_v04_blur1.svg",
+   "source": "model/data/degraded/logo_e55000_0090_v04_blur1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 86.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.97,
+    "ssim12": 0.8631,
+    "silhouette_iou": 0.9217,
+    "edge_f1": 0.1235
+   },
+   "svg_bytes": 3344,
+   "convert_ms": 188
+  },
+  {
+   "id": "mr-231",
+   "svg": "mr-231-logo_e55000_0090_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55000_0090_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 79.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.7,
+    "ssim12": 0.7984,
+    "silhouette_iou": 0.9845,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 6896,
+   "convert_ms": 303
+  },
+  {
+   "id": "mr-232",
+   "svg": "mr-232-logo_e55000_0092_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e55000_0092_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 71.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.15,
+    "ssim12": 0.8626,
+    "silhouette_iou": 0.7163,
+    "edge_f1": 0.6923
+   },
+   "svg_bytes": 11836,
+   "convert_ms": 162
+  },
+  {
+   "id": "mr-233",
+   "svg": "mr-233-logo_e55000_0135_v03_rot.svg",
+   "source": "model/data/degraded/logo_e55000_0135_v03_rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 77.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.26,
+    "ssim12": 0.7715,
+    "silhouette_iou": 0.9814,
+    "edge_f1": 0.6626
+   },
+   "svg_bytes": 4097,
+   "convert_ms": 77
+  },
+  {
+   "id": "mr-234",
+   "svg": "mr-234-logo_e55000_0143_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55000_0143_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 93.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.74,
+    "ssim12": 0.9316,
+    "silhouette_iou": 0.9778,
+    "edge_f1": 0.4921
+   },
+   "svg_bytes": 2789,
+   "convert_ms": 50
+  },
+  {
+   "id": "mr-235",
+   "svg": "mr-235-logo_e55000_0145_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55000_0145_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.79,
+    "ssim12": 0.8585,
+    "silhouette_iou": 0.8843,
+    "edge_f1": 0.798
+   },
+   "svg_bytes": 8285,
+   "convert_ms": 189
+  },
+  {
+   "id": "mr-236",
+   "svg": "mr-236-logo_e55000_0173_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55000_0173_v07_blur2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 86.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.7,
+    "ssim12": 0.9431,
+    "silhouette_iou": 0.8615,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 1349,
+   "convert_ms": 45
+  },
+  {
+   "id": "mr-237",
+   "svg": "mr-237-logo_e55000_0193_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e55000_0193_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 34.6,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 18.95,
+    "ssim12": 0.3461,
+    "silhouette_iou": 0.8737,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 10348,
+   "convert_ms": 589
+  },
+  {
+   "id": "mr-238",
+   "svg": "mr-238-logo_e55000_0212_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55000_0212_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.34,
+    "ssim12": 0.9032,
+    "silhouette_iou": 0.8787,
+    "edge_f1": 0.6842
+   },
+   "svg_bytes": 33720,
+   "convert_ms": 163
+  },
+  {
+   "id": "mr-239",
+   "svg": "mr-239-logo_e55000_0250_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55000_0250_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 87.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.75,
+    "ssim12": 0.9109,
+    "silhouette_iou": 0.8748,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 197834,
+   "convert_ms": 427
+  },
+  {
+   "id": "mr-240",
+   "svg": "mr-240-logo_e55000_0252_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55000_0252_v15_blur6.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 84.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 3.88,
+    "ssim12": 0.8435,
+    "silhouette_iou": 0.893,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 28567,
+   "convert_ms": 110
+  },
+  {
+   "id": "mr-241",
+   "svg": "mr-241-logo_e55000_0277_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55000_0277_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 68.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 21.01,
+    "ssim12": 0.7197,
+    "silhouette_iou": 0.6886,
+    "edge_f1": 0.6597
+   },
+   "svg_bytes": 209285,
+   "convert_ms": 200
+  },
+  {
+   "id": "mr-242",
+   "svg": "mr-242-logo_e55000_0281_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55000_0281_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 91.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.81,
+    "ssim12": 0.9132,
+    "silhouette_iou": 0.9964,
+    "edge_f1": 0.4507
+   },
+   "svg_bytes": 4843,
+   "convert_ms": 150
+  },
+  {
+   "id": "mr-243",
+   "svg": "mr-243-logo_e55000_0298_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55000_0298_v05_scale.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 92.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.89,
+    "ssim12": 0.9711,
+    "silhouette_iou": 0.9199,
+    "edge_f1": 0.8132
+   },
+   "svg_bytes": 16645,
+   "convert_ms": 156
+  },
+  {
+   "id": "mr-244",
+   "svg": "mr-244-logo_e55000_0317_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e55000_0317_v08_blur3.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 76.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.68,
+    "ssim12": 0.7623,
+    "silhouette_iou": 0.8398,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5209,
+   "convert_ms": 48
+  },
+  {
+   "id": "mr-245",
+   "svg": "mr-245-logo_e55000_0339_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e55000_0339_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 45.1,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 58.91,
+    "ssim12": 0.4509,
+    "silhouette_iou": 0.6724,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 143189,
+   "convert_ms": 142
+  },
+  {
+   "id": "mr-246",
+   "svg": "mr-246-logo_e55000_0341_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55000_0341_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 89.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.72,
+    "ssim12": 0.8987,
+    "silhouette_iou": 0.8898,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 197806,
+   "convert_ms": 391
+  },
+  {
+   "id": "mr-247",
+   "svg": "mr-247-logo_e55000_0344_v04_blur1.svg",
+   "source": "model/data/degraded/logo_e55000_0344_v04_blur1.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 81.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.54,
+    "ssim12": 0.817,
+    "silhouette_iou": 0.8677,
+    "edge_f1": 0.1269
+   },
+   "svg_bytes": 8790,
+   "convert_ms": 171
+  },
+  {
+   "id": "mr-248",
+   "svg": "mr-248-logo_e55000_0358_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e55000_0358_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 82.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.39,
+    "ssim12": 0.9737,
+    "silhouette_iou": 0.8216,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 104714,
+   "convert_ms": 326
+  },
+  {
+   "id": "mr-249",
+   "svg": "mr-249-logo_e55000_0377_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55000_0377_v07_blur2.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 81.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.64,
+    "ssim12": 0.8106,
+    "silhouette_iou": 0.9362,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 25077,
+   "convert_ms": 86
+  },
+  {
+   "id": "mr-250",
+   "svg": "mr-250-logo_e55000_0384_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55000_0384_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 83.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.14,
+    "ssim12": 0.8368,
+    "silhouette_iou": 0.9048,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 252423,
+   "convert_ms": 199
+  },
+  {
+   "id": "mr-251",
+   "svg": "mr-251-logo_e55000_0399_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55000_0399_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 73.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.49,
+    "ssim12": 0.7372,
+    "silhouette_iou": 0.9915,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5045,
+   "convert_ms": 346
+  },
+  {
+   "id": "mr-252",
+   "svg": "mr-252-logo_e55000_0476_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e55000_0476_v12_heavy.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 94.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.93,
+    "ssim12": 0.9513,
+    "silhouette_iou": 0.9404,
+    "edge_f1": 0.7319
+   },
+   "svg_bytes": 32162,
+   "convert_ms": 156
+  },
+  {
+   "id": "mr-253",
+   "svg": "mr-253-logo_e55000_0481_v01_soft.svg",
+   "source": "model/data/degraded/logo_e55000_0481_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 58.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 12.32,
+    "ssim12": 0.5891,
+    "silhouette_iou": 0.8942,
+    "edge_f1": 0.0656
+   },
+   "svg_bytes": 45779,
+   "convert_ms": 473
+  },
+  {
+   "id": "mr-254",
+   "svg": "mr-254-logo_e55000_0506_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e55000_0506_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 79.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.95,
+    "ssim12": 0.7983,
+    "silhouette_iou": 0.8132,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 3119,
+   "convert_ms": 378
+  },
+  {
+   "id": "mr-255",
+   "svg": "mr-255-logo_e55000_0534_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55000_0534_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 87.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.09,
+    "ssim12": 0.8706,
+    "silhouette_iou": 0.8869,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 295625,
+   "convert_ms": 273
+  },
+  {
+   "id": "mr-256",
+   "svg": "mr-256-logo_e55000_0536_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55000_0536_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 85.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.85,
+    "ssim12": 0.8559,
+    "silhouette_iou": 0.9765,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 7141,
+   "convert_ms": 199
+  },
+  {
+   "id": "mr-257",
+   "svg": "mr-257-logo_e55000_0539_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55000_0539_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 79.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.13,
+    "ssim12": 0.7928,
+    "silhouette_iou": 0.9442,
+    "edge_f1": 0.1597
+   },
+   "svg_bytes": 30803,
+   "convert_ms": 86
+  },
+  {
+   "id": "mr-258",
+   "svg": "mr-258-logo_e55000_0565_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e55000_0565_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 84.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.66,
+    "ssim12": 0.9055,
+    "silhouette_iou": 0.8456,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 468637,
+   "convert_ms": 303
+  },
+  {
+   "id": "mr-259",
+   "svg": "mr-259-logo_e55000_0573_v03_rot.svg",
+   "source": "model/data/degraded/logo_e55000_0573_v03_rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 65.2,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 10.22,
+    "ssim12": 0.6524,
+    "silhouette_iou": 0.9311,
+    "edge_f1": 0.0099
+   },
+   "svg_bytes": 13549,
+   "convert_ms": 396
+  },
+  {
+   "id": "mr-260",
+   "svg": "mr-260-logo_e55000_0583_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55000_0583_v05_scale.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 90.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.15,
+    "ssim12": 0.9579,
+    "silhouette_iou": 0.9031,
+    "edge_f1": 0.5516
+   },
+   "svg_bytes": 14642,
+   "convert_ms": 80
+  },
+  {
+   "id": "mr-261",
+   "svg": "mr-261-logo_e55600_0033_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e55600_0033_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 66.1,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 12.3,
+    "ssim12": 0.6614,
+    "silhouette_iou": 0.7697,
+    "edge_f1": 0.0648
+   },
+   "svg_bytes": 4239,
+   "convert_ms": 122
+  },
+  {
+   "id": "mr-262",
+   "svg": "mr-262-logo_e55600_0041_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e55600_0041_v02_jpeg.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 96.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.51,
+    "ssim12": 0.9858,
+    "silhouette_iou": 0.961,
+    "edge_f1": 0.7872
+   },
+   "svg_bytes": 14467,
+   "convert_ms": 82
+  },
+  {
+   "id": "mr-263",
+   "svg": "mr-263-logo_e55600_0041_v03_rot.svg",
+   "source": "model/data/degraded/logo_e55600_0041_v03_rot.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 94.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.6,
+    "ssim12": 0.9677,
+    "silhouette_iou": 0.9477,
+    "edge_f1": 0.7709
+   },
+   "svg_bytes": 14807,
+   "convert_ms": 79
+  },
+  {
+   "id": "mr-264",
+   "svg": "mr-264-logo_e55600_0061_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e55600_0061_v09_jit2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.42,
+    "ssim12": 0.9076,
+    "silhouette_iou": 0.9504,
+    "edge_f1": 0.4145
+   },
+   "svg_bytes": 2720,
+   "convert_ms": 50
+  },
+  {
+   "id": "mr-265",
+   "svg": "mr-265-logo_e55600_0086_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e55600_0086_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 67.8,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 10.68,
+    "ssim12": 0.6924,
+    "silhouette_iou": 0.678,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 2540,
+   "convert_ms": 420
+  },
+  {
+   "id": "mr-266",
+   "svg": "mr-266-logo_e55600_0090_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55600_0090_v05_scale.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 96.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.12,
+    "ssim12": 0.9687,
+    "silhouette_iou": 0.9653,
+    "edge_f1": 0.8296
+   },
+   "svg_bytes": 22052,
+   "convert_ms": 88
+  },
+  {
+   "id": "mr-267",
+   "svg": "mr-267-logo_e55600_0095_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55600_0095_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 60.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 2.17,
+    "ssim12": 0.9092,
+    "silhouette_iou": 0.6067,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 502808,
+   "convert_ms": 289
+  },
+  {
+   "id": "mr-268",
+   "svg": "mr-268-logo_e55600_0115_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55600_0115_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.15,
+    "ssim12": 0.9345,
+    "silhouette_iou": 0.8566,
+    "edge_f1": 0.8735
+   },
+   "svg_bytes": 14280,
+   "convert_ms": 266
+  },
+  {
+   "id": "mr-269",
+   "svg": "mr-269-logo_e55600_0155_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e55600_0155_v06_jit1.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 88.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.45,
+    "ssim12": 0.8841,
+    "silhouette_iou": 0.9741,
+    "edge_f1": 0.6497
+   },
+   "svg_bytes": 7230,
+   "convert_ms": 48
+  },
+  {
+   "id": "mr-270",
+   "svg": "mr-270-logo_e55600_0155_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e55600_0155_v12_heavy.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 75.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.79,
+    "ssim12": 0.755,
+    "silhouette_iou": 0.9295,
+    "edge_f1": 0.1324
+   },
+   "svg_bytes": 9302,
+   "convert_ms": 52
+  },
+  {
+   "id": "mr-271",
+   "svg": "mr-271-logo_e55600_0177_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e55600_0177_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 77.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.62,
+    "ssim12": 0.7727,
+    "silhouette_iou": 0.976,
+    "edge_f1": 0.1667
+   },
+   "svg_bytes": 58613,
+   "convert_ms": 546
+  },
+  {
+   "id": "mr-272",
+   "svg": "mr-272-logo_e55600_0183_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55600_0183_v05_scale.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 92.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.64,
+    "ssim12": 0.9719,
+    "silhouette_iou": 0.9273,
+    "edge_f1": 0.8645
+   },
+   "svg_bytes": 11156,
+   "convert_ms": 171
+  },
+  {
+   "id": "mr-273",
+   "svg": "mr-273-logo_e55600_0191_v04_blur1.svg",
+   "source": "model/data/degraded/logo_e55600_0191_v04_blur1.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 93.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.32,
+    "ssim12": 0.9379,
+    "silhouette_iou": 0.95,
+    "edge_f1": 0.5417
+   },
+   "svg_bytes": 22407,
+   "convert_ms": 89
+  },
+  {
+   "id": "mr-274",
+   "svg": "mr-274-logo_e55600_0197_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e55600_0197_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 83.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.49,
+    "ssim12": 0.8326,
+    "silhouette_iou": 0.9309,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 318944,
+   "convert_ms": 228
+  },
+  {
+   "id": "mr-275",
+   "svg": "mr-275-logo_e55600_0224_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e55600_0224_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.03,
+    "ssim12": 0.9639,
+    "silhouette_iou": 0.9696,
+    "edge_f1": 1.0
+   },
+   "svg_bytes": 4832,
+   "convert_ms": 154
+  },
+  {
+   "id": "mr-276",
+   "svg": "mr-276-logo_e55600_0278_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e55600_0278_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 73.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.29,
+    "ssim12": 0.73,
+    "silhouette_iou": 0.9537,
+    "edge_f1": 0.0304
+   },
+   "svg_bytes": 38684,
+   "convert_ms": 166
+  },
+  {
+   "id": "mr-277",
+   "svg": "mr-277-logo_e55600_0284_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55600_0284_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 87.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.3,
+    "ssim12": 0.8751,
+    "silhouette_iou": 0.9197,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 425863,
+   "convert_ms": 265
+  },
+  {
+   "id": "mr-278",
+   "svg": "mr-278-logo_e55600_0306_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e55600_0306_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 67.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 10.1,
+    "ssim12": 0.7878,
+    "silhouette_iou": 0.6793,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 2238,
+   "convert_ms": 417
+  },
+  {
+   "id": "mr-279",
+   "svg": "mr-279-logo_e55600_0334_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55600_0334_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.18,
+    "ssim12": 0.8131,
+    "silhouette_iou": 0.8049,
+    "edge_f1": 0.0901
+   },
+   "svg_bytes": 6258,
+   "convert_ms": 176
+  },
+  {
+   "id": "mr-280",
+   "svg": "mr-280-logo_e55600_0343_v05_scale.svg",
+   "source": "model/data/degraded/logo_e55600_0343_v05_scale.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 94.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.11,
+    "ssim12": 0.981,
+    "silhouette_iou": 0.9488,
+    "edge_f1": 0.8477
+   },
+   "svg_bytes": 12154,
+   "convert_ms": 130
+  },
+  {
+   "id": "mr-281",
+   "svg": "mr-281-logo_e55600_0348_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e55600_0348_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.44,
+    "ssim12": 0.8353,
+    "silhouette_iou": 0.7745,
+    "edge_f1": 0.7232
+   },
+   "svg_bytes": 28527,
+   "convert_ms": 151
+  },
+  {
+   "id": "mr-282",
+   "svg": "mr-282-logo_e55600_0364_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e55600_0364_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 85.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.59,
+    "ssim12": 0.8698,
+    "silhouette_iou": 0.851,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 319775,
+   "convert_ms": 211
+  },
+  {
+   "id": "mr-283",
+   "svg": "mr-283-logo_e55600_0435_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e55600_0435_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 83.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.08,
+    "ssim12": 0.8408,
+    "silhouette_iou": 0.834,
+    "edge_f1": 0.8238
+   },
+   "svg_bytes": 59098,
+   "convert_ms": 117
+  },
+  {
+   "id": "mr-284",
+   "svg": "mr-284-logo_e55600_0438_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e55600_0438_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 86.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.39,
+    "ssim12": 0.8626,
+    "silhouette_iou": 0.9072,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 283690,
+   "convert_ms": 445
+  },
+  {
+   "id": "mr-285",
+   "svg": "mr-285-logo_e55600_0448_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e55600_0448_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 87.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.85,
+    "ssim12": 0.9452,
+    "silhouette_iou": 0.8767,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 160880,
+   "convert_ms": 329
+  },
+  {
+   "id": "mr-286",
+   "svg": "mr-286-logo_e55600_0474_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e55600_0474_v06_jit1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.39,
+    "ssim12": 0.7924,
+    "silhouette_iou": 0.7738,
+    "edge_f1": 0.043
+   },
+   "svg_bytes": 6246,
+   "convert_ms": 201
+  },
+  {
+   "id": "mr-287",
+   "svg": "mr-287-logo_e55600_0486_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e55600_0486_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 84.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.73,
+    "ssim12": 0.9682,
+    "silhouette_iou": 0.8473,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 152593,
+   "convert_ms": 406
+  },
+  {
+   "id": "mr-288",
+   "svg": "mr-288-logo_e55600_0541_v03_rot.svg",
+   "source": "model/data/degraded/logo_e55600_0541_v03_rot.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 94.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.19,
+    "ssim12": 0.9439,
+    "silhouette_iou": 0.9565,
+    "edge_f1": 0.8397
+   },
+   "svg_bytes": 24121,
+   "convert_ms": 83
+  },
+  {
+   "id": "mr-289",
+   "svg": "mr-289-logo_e55600_0543_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e55600_0543_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 82.8,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.08,
+    "ssim12": 0.962,
+    "silhouette_iou": 0.8278,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 105665,
+   "convert_ms": 187
+  },
+  {
+   "id": "mr-290",
+   "svg": "mr-290-logo_e56800_0025_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e56800_0025_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 78.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.74,
+    "ssim12": 0.9194,
+    "silhouette_iou": 0.7844,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 378913,
+   "convert_ms": 260
+  },
+  {
+   "id": "mr-291",
+   "svg": "mr-291-logo_e56800_0026_v05_scale.svg",
+   "source": "model/data/degraded/logo_e56800_0026_v05_scale.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 92.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.94,
+    "ssim12": 0.9816,
+    "silhouette_iou": 0.9211,
+    "edge_f1": 0.8119
+   },
+   "svg_bytes": 14337,
+   "convert_ms": 186
+  },
+  {
+   "id": "mr-292",
+   "svg": "mr-292-logo_e56800_0027_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e56800_0027_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 69.1,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 7.9,
+    "ssim12": 0.691,
+    "silhouette_iou": 0.8025,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 420779,
+   "convert_ms": 285
+  },
+  {
+   "id": "mr-293",
+   "svg": "mr-293-logo_e56800_0044_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e56800_0044_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 75.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 13.85,
+    "ssim12": 0.754,
+    "silhouette_iou": 0.9443,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 16237,
+   "convert_ms": 231
+  },
+  {
+   "id": "mr-294",
+   "svg": "mr-294-logo_e56800_0054_v03_rot.svg",
+   "source": "model/data/degraded/logo_e56800_0054_v03_rot.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 96.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.49,
+    "ssim12": 0.9834,
+    "silhouette_iou": 0.9645,
+    "edge_f1": 0.8376
+   },
+   "svg_bytes": 18794,
+   "convert_ms": 80
+  },
+  {
+   "id": "mr-295",
+   "svg": "mr-295-logo_e56800_0096_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e56800_0096_v12_heavy.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 91.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.35,
+    "ssim12": 0.9154,
+    "silhouette_iou": 0.9349,
+    "edge_f1": 0.8174
+   },
+   "svg_bytes": 29637,
+   "convert_ms": 238
+  },
+  {
+   "id": "mr-296",
+   "svg": "mr-296-logo_e56800_0106_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e56800_0106_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.1,
+    "ssim12": 0.8862,
+    "silhouette_iou": 0.8514,
+    "edge_f1": 0.0775
+   },
+   "svg_bytes": 7269,
+   "convert_ms": 209
+  },
+  {
+   "id": "mr-297",
+   "svg": "mr-297-logo_e56800_0121_v04_blur1.svg",
+   "source": "model/data/degraded/logo_e56800_0121_v04_blur1.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 61.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 14.46,
+    "ssim12": 0.6097,
+    "silhouette_iou": 0.8855,
+    "edge_f1": 0.1866
+   },
+   "svg_bytes": 32097,
+   "convert_ms": 306
+  },
+  {
+   "id": "mr-298",
+   "svg": "mr-298-logo_e56800_0133_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e56800_0133_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 55.2,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 66.96,
+    "ssim12": 0.5518,
+    "silhouette_iou": 0.5919,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 445893,
+   "convert_ms": 314
+  },
+  {
+   "id": "mr-299",
+   "svg": "mr-299-logo_e56800_0159_v01_soft.svg",
+   "source": "model/data/degraded/logo_e56800_0159_v01_soft.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 79.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.7,
+    "ssim12": 0.7949,
+    "silhouette_iou": 0.9869,
+    "edge_f1": 0.6313
+   },
+   "svg_bytes": 2070,
+   "convert_ms": 144
+  },
+  {
+   "id": "mr-300",
+   "svg": "mr-300-logo_e56800_0174_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e56800_0174_v07_blur2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 87.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.39,
+    "ssim12": 0.8845,
+    "silhouette_iou": 0.8705,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 1572,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-301",
+   "svg": "mr-301-logo_e56800_0187_v01_soft.svg",
+   "source": "model/data/degraded/logo_e56800_0187_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 65.3,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 13.37,
+    "ssim12": 0.6533,
+    "silhouette_iou": 0.8543,
+    "edge_f1": 0.1518
+   },
+   "svg_bytes": 5795,
+   "convert_ms": 356
+  },
+  {
+   "id": "mr-302",
+   "svg": "mr-302-logo_e56800_0193_v01_soft.svg",
+   "source": "model/data/degraded/logo_e56800_0193_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 57.3,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 10.69,
+    "ssim12": 0.5731,
+    "silhouette_iou": 0.8905,
+    "edge_f1": 0.0445
+   },
+   "svg_bytes": 4904,
+   "convert_ms": 358
+  },
+  {
+   "id": "mr-303",
+   "svg": "mr-303-logo_e56800_0196_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e56800_0196_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 88.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.94,
+    "ssim12": 0.8932,
+    "silhouette_iou": 0.8895,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 223141,
+   "convert_ms": 443
+  },
+  {
+   "id": "mr-304",
+   "svg": "mr-304-logo_e56800_0204_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e56800_0204_v09_jit2.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 95.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.85,
+    "ssim12": 0.9703,
+    "silhouette_iou": 0.9567,
+    "edge_f1": 0.5597
+   },
+   "svg_bytes": 20542,
+   "convert_ms": 80
+  },
+  {
+   "id": "mr-305",
+   "svg": "mr-305-logo_e56800_0206_v04_blur1.svg",
+   "source": "model/data/degraded/logo_e56800_0206_v04_blur1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 81.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.0,
+    "ssim12": 0.8114,
+    "silhouette_iou": 0.8328,
+    "edge_f1": 0.1728
+   },
+   "svg_bytes": 7583,
+   "convert_ms": 142
+  },
+  {
+   "id": "mr-306",
+   "svg": "mr-306-logo_e56800_0216_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e56800_0216_v02_jpeg.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 96.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.76,
+    "ssim12": 0.9646,
+    "silhouette_iou": 0.9622,
+    "edge_f1": 0.8072
+   },
+   "svg_bytes": 18366,
+   "convert_ms": 83
+  },
+  {
+   "id": "mr-307",
+   "svg": "mr-307-logo_e56800_0244_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e56800_0244_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.08,
+    "ssim12": 0.8949,
+    "silhouette_iou": 0.7463,
+    "edge_f1": 0.742
+   },
+   "svg_bytes": 10555,
+   "convert_ms": 227
+  },
+  {
+   "id": "mr-308",
+   "svg": "mr-308-logo_e56800_0265_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e56800_0265_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 69.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 9.63,
+    "ssim12": 0.6896,
+    "silhouette_iou": 0.804,
+    "edge_f1": 0.0734
+   },
+   "svg_bytes": 3795,
+   "convert_ms": 260
+  },
+  {
+   "id": "mr-309",
+   "svg": "mr-309-logo_e56800_0281_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e56800_0281_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.4,
+    "ssim12": 0.857,
+    "silhouette_iou": 0.974,
+    "edge_f1": 0.0158
+   },
+   "svg_bytes": 4002,
+   "convert_ms": 311
+  },
+  {
+   "id": "mr-310",
+   "svg": "mr-310-logo_e56800_0306_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e56800_0306_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.9,
+    "ssim12": 0.8056,
+    "silhouette_iou": 0.8657,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5318,
+   "convert_ms": 425
+  },
+  {
+   "id": "mr-311",
+   "svg": "mr-311-logo_e56800_0314_v01_soft.svg",
+   "source": "model/data/degraded/logo_e56800_0314_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 75.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.76,
+    "ssim12": 0.8714,
+    "silhouette_iou": 0.7595,
+    "edge_f1": 0.1124
+   },
+   "svg_bytes": 5506,
+   "convert_ms": 143
+  },
+  {
+   "id": "mr-312",
+   "svg": "mr-312-logo_e56800_0330_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e56800_0330_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 67.4,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 9.75,
+    "ssim12": 0.6741,
+    "silhouette_iou": 0.7458,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5534,
+   "convert_ms": 385
+  },
+  {
+   "id": "mr-313",
+   "svg": "mr-313-logo_e56800_0354_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e56800_0354_v09_jit2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 91.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.81,
+    "ssim12": 0.9138,
+    "silhouette_iou": 0.9611,
+    "edge_f1": 0.6245
+   },
+   "svg_bytes": 1714,
+   "convert_ms": 46
+  },
+  {
+   "id": "mr-314",
+   "svg": "mr-314-logo_e56800_0360_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e56800_0360_v14_blur5.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 49.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 13.79,
+    "ssim12": 0.6532,
+    "silhouette_iou": 0.4974,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 4532,
+   "convert_ms": 48
+  },
+  {
+   "id": "mr-315",
+   "svg": "mr-315-logo_e56800_0363_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e56800_0363_v09_jit2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.12,
+    "ssim12": 0.7731,
+    "silhouette_iou": 0.951,
+    "edge_f1": 0.0218
+   },
+   "svg_bytes": 9247,
+   "convert_ms": 293
+  },
+  {
+   "id": "mr-316",
+   "svg": "mr-316-logo_e56800_0377_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e56800_0377_v13_pixel.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 87.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.77,
+    "ssim12": 0.8763,
+    "silhouette_iou": 0.95,
+    "edge_f1": 0.3669
+   },
+   "svg_bytes": 28511,
+   "convert_ms": 83
+  },
+  {
+   "id": "mr-317",
+   "svg": "mr-317-logo_e56800_0393_v05_scale.svg",
+   "source": "model/data/degraded/logo_e56800_0393_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 5.62,
+    "ssim12": 0.8541,
+    "silhouette_iou": 0.8946,
+    "edge_f1": 0.1276
+   },
+   "svg_bytes": 3425,
+   "convert_ms": 159
+  },
+  {
+   "id": "mr-318",
+   "svg": "mr-318-logo_e56800_0430_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e56800_0430_v12_heavy.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 91.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.16,
+    "ssim12": 0.9128,
+    "silhouette_iou": 0.9291,
+    "edge_f1": 0.8068
+   },
+   "svg_bytes": 9062,
+   "convert_ms": 214
+  },
+  {
+   "id": "mr-319",
+   "svg": "mr-319-logo_e56800_0435_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e56800_0435_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 70.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 12.36,
+    "ssim12": 0.7008,
+    "silhouette_iou": 0.9416,
+    "edge_f1": 0.2854
+   },
+   "svg_bytes": 10565,
+   "convert_ms": 189
+  },
+  {
+   "id": "mr-320",
+   "svg": "mr-320-logo_e56800_0446_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e56800_0446_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 88.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.1,
+    "ssim12": 0.9261,
+    "silhouette_iou": 0.8822,
+    "edge_f1": 0.8504
+   },
+   "svg_bytes": 18064,
+   "convert_ms": 159
+  },
+  {
+   "id": "mr-321",
+   "svg": "mr-321-logo_e56800_0459_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e56800_0459_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.83,
+    "ssim12": 0.8454,
+    "silhouette_iou": 0.9218,
+    "edge_f1": 0.3985
+   },
+   "svg_bytes": 9248,
+   "convert_ms": 206
+  },
+  {
+   "id": "mr-322",
+   "svg": "mr-322-logo_e56800_0485_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e56800_0485_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 97.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.05,
+    "ssim12": 0.9733,
+    "silhouette_iou": 0.9941,
+    "edge_f1": 0.9984
+   },
+   "svg_bytes": 6022,
+   "convert_ms": 152
+  },
+  {
+   "id": "mr-323",
+   "svg": "mr-323-logo_e56800_0489_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e56800_0489_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 63.3,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 3.1,
+    "ssim12": 0.6326,
+    "silhouette_iou": 0.8396,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 327538,
+   "convert_ms": 221
+  },
+  {
+   "id": "mr-324",
+   "svg": "mr-324-logo_e56800_0492_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e56800_0492_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 86.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.82,
+    "ssim12": 0.9087,
+    "silhouette_iou": 0.8629,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 222012,
+   "convert_ms": 480
+  },
+  {
+   "id": "mr-325",
+   "svg": "mr-325-logo_e56800_0508_v04_blur1.svg",
+   "source": "model/data/degraded/logo_e56800_0508_v04_blur1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 84.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.42,
+    "ssim12": 0.8424,
+    "silhouette_iou": 0.8903,
+    "edge_f1": 0.1576
+   },
+   "svg_bytes": 7056,
+   "convert_ms": 204
+  },
+  {
+   "id": "mr-326",
+   "svg": "mr-326-logo_e56800_0509_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e56800_0509_v02_jpeg.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 87.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.89,
+    "ssim12": 0.8742,
+    "silhouette_iou": 0.9633,
+    "edge_f1": 0.4646
+   },
+   "svg_bytes": 29140,
+   "convert_ms": 111
+  },
+  {
+   "id": "mr-327",
+   "svg": "mr-327-logo_e56800_0513_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e56800_0513_v09_jit2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.01,
+    "ssim12": 0.7732,
+    "silhouette_iou": 0.95,
+    "edge_f1": 0.1308
+   },
+   "svg_bytes": 4988,
+   "convert_ms": 339
+  },
+  {
+   "id": "mr-328",
+   "svg": "mr-328-logo_e56800_0514_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e56800_0514_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.37,
+    "ssim12": 0.8011,
+    "silhouette_iou": 0.8082,
+    "edge_f1": 0.0829
+   },
+   "svg_bytes": 3917,
+   "convert_ms": 181
+  },
+  {
+   "id": "mr-329",
+   "svg": "mr-329-logo_e56800_0521_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e56800_0521_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 91.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.01,
+    "ssim12": 0.9163,
+    "silhouette_iou": 0.9837,
+    "edge_f1": 0.4716
+   },
+   "svg_bytes": 3133,
+   "convert_ms": 48
+  },
+  {
+   "id": "mr-330",
+   "svg": "mr-330-logo_e57400_0007_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e57400_0007_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 74.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 10.18,
+    "ssim12": 0.7458,
+    "silhouette_iou": 0.9569,
+    "edge_f1": 0.0551
+   },
+   "svg_bytes": 9248,
+   "convert_ms": 168
+  },
+  {
+   "id": "mr-331",
+   "svg": "mr-331-logo_e57400_0008_v03_rot.svg",
+   "source": "model/data/degraded/logo_e57400_0008_v03_rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 90.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.75,
+    "ssim12": 0.9082,
+    "silhouette_iou": 0.9339,
+    "edge_f1": 0.7599
+   },
+   "svg_bytes": 18337,
+   "convert_ms": 281
+  },
+  {
+   "id": "mr-332",
+   "svg": "mr-332-logo_e57400_0015_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e57400_0015_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 71.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 2.91,
+    "ssim12": 0.8635,
+    "silhouette_iou": 0.7105,
+    "edge_f1": 0.7345
+   },
+   "svg_bytes": 22345,
+   "convert_ms": 263
+  },
+  {
+   "id": "mr-333",
+   "svg": "mr-333-logo_e57400_0019_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e57400_0019_v06_jit1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.14,
+    "ssim12": 0.7735,
+    "silhouette_iou": 0.9419,
+    "edge_f1": 0.3101
+   },
+   "svg_bytes": 7080,
+   "convert_ms": 199
+  },
+  {
+   "id": "mr-334",
+   "svg": "mr-334-logo_e57400_0043_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e57400_0043_v06_jit1.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 96.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.92,
+    "ssim12": 0.9685,
+    "silhouette_iou": 0.9757,
+    "edge_f1": 0.8846
+   },
+   "svg_bytes": 1739,
+   "convert_ms": 145
+  },
+  {
+   "id": "mr-335",
+   "svg": "mr-335-logo_e57400_0062_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e57400_0062_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 59.3,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 38.06,
+    "ssim12": 0.7331,
+    "silhouette_iou": 0.5925,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 468908,
+   "convert_ms": 363
+  },
+  {
+   "id": "mr-336",
+   "svg": "mr-336-logo_e57400_0063_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0063_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.34,
+    "ssim12": 0.7762,
+    "silhouette_iou": 0.8625,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5571,
+   "convert_ms": 402
+  },
+  {
+   "id": "mr-337",
+   "svg": "mr-337-logo_e57400_0088_v01_soft.svg",
+   "source": "model/data/degraded/logo_e57400_0088_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 9.48,
+    "ssim12": 0.7701,
+    "silhouette_iou": 0.8606,
+    "edge_f1": 0.1608
+   },
+   "svg_bytes": 5092,
+   "convert_ms": 202
+  },
+  {
+   "id": "mr-338",
+   "svg": "mr-338-logo_e57400_0103_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0103_v05_scale.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 93.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.03,
+    "ssim12": 0.9524,
+    "silhouette_iou": 0.9384,
+    "edge_f1": 0.627
+   },
+   "svg_bytes": 4301,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-339",
+   "svg": "mr-339-logo_e57400_0114_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e57400_0114_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 86.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.18,
+    "ssim12": 0.93,
+    "silhouette_iou": 0.8621,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 288642,
+   "convert_ms": 200
+  },
+  {
+   "id": "mr-340",
+   "svg": "mr-340-logo_e57400_0151_v01_soft.svg",
+   "source": "model/data/degraded/logo_e57400_0151_v01_soft.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 92.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.19,
+    "ssim12": 0.9251,
+    "silhouette_iou": 0.9471,
+    "edge_f1": 0.23
+   },
+   "svg_bytes": 21080,
+   "convert_ms": 86
+  },
+  {
+   "id": "mr-341",
+   "svg": "mr-341-logo_e57400_0154_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e57400_0154_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 85.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.23,
+    "ssim12": 0.8559,
+    "silhouette_iou": 0.8652,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 300408,
+   "convert_ms": 582
+  },
+  {
+   "id": "mr-342",
+   "svg": "mr-342-logo_e57400_0163_v01_soft.svg",
+   "source": "model/data/degraded/logo_e57400_0163_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 76.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.12,
+    "ssim12": 0.8679,
+    "silhouette_iou": 0.7674,
+    "edge_f1": 0.075
+   },
+   "svg_bytes": 3761,
+   "convert_ms": 182
+  },
+  {
+   "id": "mr-343",
+   "svg": "mr-343-logo_e57400_0185_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e57400_0185_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 50.5,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 2.18,
+    "ssim12": 0.9352,
+    "silhouette_iou": 0.5054,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 338028,
+   "convert_ms": 252
+  },
+  {
+   "id": "mr-344",
+   "svg": "mr-344-logo_e57400_0202_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e57400_0202_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 88.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.51,
+    "ssim12": 0.8866,
+    "silhouette_iou": 0.9276,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 423451,
+   "convert_ms": 721
+  },
+  {
+   "id": "mr-345",
+   "svg": "mr-345-logo_e57400_0208_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0208_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 61.0,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 10.23,
+    "ssim12": 0.6102,
+    "silhouette_iou": 0.833,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 45520,
+   "convert_ms": 353
+  },
+  {
+   "id": "mr-346",
+   "svg": "mr-346-logo_e57400_0211_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e57400_0211_v14_blur5.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 78.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.46,
+    "ssim12": 0.7868,
+    "silhouette_iou": 0.9024,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 27537,
+   "convert_ms": 240
+  },
+  {
+   "id": "mr-347",
+   "svg": "mr-347-logo_e57400_0231_v03_rot.svg",
+   "source": "model/data/degraded/logo_e57400_0231_v03_rot.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 92.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.38,
+    "ssim12": 0.929,
+    "silhouette_iou": 0.9486,
+    "edge_f1": 0.5013
+   },
+   "svg_bytes": 4379,
+   "convert_ms": 48
+  },
+  {
+   "id": "mr-348",
+   "svg": "mr-348-logo_e57400_0232_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e57400_0232_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 68.2,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 10.68,
+    "ssim12": 0.6825,
+    "silhouette_iou": 0.9749,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 5145,
+   "convert_ms": 207
+  },
+  {
+   "id": "mr-349",
+   "svg": "mr-349-logo_e57400_0234_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0234_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 67.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 9.34,
+    "ssim12": 0.677,
+    "silhouette_iou": 0.8844,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 27010,
+   "convert_ms": 384
+  },
+  {
+   "id": "mr-350",
+   "svg": "mr-350-logo_e57400_0245_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e57400_0245_v02_jpeg.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 69.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 3.3,
+    "ssim12": 0.7871,
+    "silhouette_iou": 0.699,
+    "edge_f1": 0.7355
+   },
+   "svg_bytes": 23533,
+   "convert_ms": 155
+  },
+  {
+   "id": "mr-351",
+   "svg": "mr-351-logo_e57400_0259_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e57400_0259_v13_pixel.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 79.3,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 5.83,
+    "ssim12": 0.7933,
+    "silhouette_iou": 0.9315,
+    "edge_f1": 0.3178
+   },
+   "svg_bytes": 4468,
+   "convert_ms": 117
+  },
+  {
+   "id": "mr-352",
+   "svg": "mr-352-logo_e57400_0264_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0264_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 60.9,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 13.0,
+    "ssim12": 0.6092,
+    "silhouette_iou": 0.895,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 42698,
+   "convert_ms": 432
+  },
+  {
+   "id": "mr-353",
+   "svg": "mr-353-logo_e57400_0271_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0271_v08_blur3.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 82.6,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.26,
+    "ssim12": 0.8259,
+    "silhouette_iou": 0.8646,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 1049,
+   "convert_ms": 53
+  },
+  {
+   "id": "mr-354",
+   "svg": "mr-354-logo_e57400_0281_v02_jpeg.svg",
+   "source": "model/data/degraded/logo_e57400_0281_v02_jpeg.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 89.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.27,
+    "ssim12": 0.8899,
+    "silhouette_iou": 0.9737,
+    "edge_f1": 0.6433
+   },
+   "svg_bytes": 27610,
+   "convert_ms": 96
+  },
+  {
+   "id": "mr-355",
+   "svg": "mr-355-logo_e57400_0314_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e57400_0314_v09_jit2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.0,
+    "ssim12": 0.8601,
+    "silhouette_iou": 0.7714,
+    "edge_f1": 0.0478
+   },
+   "svg_bytes": 4450,
+   "convert_ms": 264
+  },
+  {
+   "id": "mr-356",
+   "svg": "mr-356-logo_e57400_0322_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0322_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 68.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 7.88,
+    "ssim12": 0.8474,
+    "silhouette_iou": 0.6872,
+    "edge_f1": 0.0293
+   },
+   "svg_bytes": 1420,
+   "convert_ms": 155
+  },
+  {
+   "id": "mr-357",
+   "svg": "mr-357-logo_e57400_0323_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e57400_0323_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 73.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 10.98,
+    "ssim12": 0.7391,
+    "silhouette_iou": 0.9428,
+    "edge_f1": 0.0005
+   },
+   "svg_bytes": 19640,
+   "convert_ms": 276
+  },
+  {
+   "id": "mr-358",
+   "svg": "mr-358-logo_e57400_0358_v03_rot.svg",
+   "source": "model/data/degraded/logo_e57400_0358_v03_rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 91.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.89,
+    "ssim12": 0.9182,
+    "silhouette_iou": 0.9306,
+    "edge_f1": 0.7246
+   },
+   "svg_bytes": 18704,
+   "convert_ms": 192
+  },
+  {
+   "id": "mr-359",
+   "svg": "mr-359-logo_e57400_0366_v03_rot.svg",
+   "source": "model/data/degraded/logo_e57400_0366_v03_rot.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 91.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.04,
+    "ssim12": 0.9648,
+    "silhouette_iou": 0.9116,
+    "edge_f1": 0.865
+   },
+   "svg_bytes": 18085,
+   "convert_ms": 210
+  },
+  {
+   "id": "mr-360",
+   "svg": "mr-360-logo_e57400_0387_v03_rot.svg",
+   "source": "model/data/degraded/logo_e57400_0387_v03_rot.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 77.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 10.91,
+    "ssim12": 0.7697,
+    "silhouette_iou": 0.9286,
+    "edge_f1": 0.0154
+   },
+   "svg_bytes": 14135,
+   "convert_ms": 293
+  },
+  {
+   "id": "mr-361",
+   "svg": "mr-361-logo_e57400_0391_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e57400_0391_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 85.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.07,
+    "ssim12": 0.8544,
+    "silhouette_iou": 0.9348,
+    "edge_f1": 0.197
+   },
+   "svg_bytes": 21466,
+   "convert_ms": 117
+  },
+  {
+   "id": "mr-362",
+   "svg": "mr-362-logo_e57400_0412_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e57400_0412_v12_heavy.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 41.7,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 85.79,
+    "ssim12": 0.4687,
+    "silhouette_iou": 0.4173,
+    "edge_f1": 0.5398
+   },
+   "svg_bytes": 209340,
+   "convert_ms": 197
+  },
+  {
+   "id": "mr-363",
+   "svg": "mr-363-logo_e57400_0413_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0413_v05_scale.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 93.2,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.53,
+    "ssim12": 0.9865,
+    "silhouette_iou": 0.9324,
+    "edge_f1": 0.884
+   },
+   "svg_bytes": 5809,
+   "convert_ms": 165
+  },
+  {
+   "id": "mr-364",
+   "svg": "mr-364-logo_e57400_0454_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e57400_0454_v12_heavy.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 90.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.34,
+    "ssim12": 0.9048,
+    "silhouette_iou": 0.946,
+    "edge_f1": 0.6135
+   },
+   "svg_bytes": 11641,
+   "convert_ms": 264
+  },
+  {
+   "id": "mr-365",
+   "svg": "mr-365-logo_e57400_0461_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e57400_0461_v09_jit2.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 94.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.59,
+    "ssim12": 0.943,
+    "silhouette_iou": 0.9613,
+    "edge_f1": 0.668
+   },
+   "svg_bytes": 20064,
+   "convert_ms": 82
+  },
+  {
+   "id": "mr-366",
+   "svg": "mr-366-logo_e57400_0484_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0484_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 64.5,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 2.89,
+    "ssim12": 0.9207,
+    "silhouette_iou": 0.6446,
+    "edge_f1": 0.0613
+   },
+   "svg_bytes": 2438,
+   "convert_ms": 192
+  },
+  {
+   "id": "mr-367",
+   "svg": "mr-367-logo_e57400_0493_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0493_v08_blur3.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 70.1,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 10.73,
+    "ssim12": 0.7011,
+    "silhouette_iou": 0.9038,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 8669,
+   "convert_ms": 423
+  },
+  {
+   "id": "mr-368",
+   "svg": "mr-368-logo_e57400_0493_v15_blur6.svg",
+   "source": "model/data/degraded/logo_e57400_0493_v15_blur6.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 83.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 1.19,
+    "ssim12": 0.8367,
+    "silhouette_iou": 0.8987,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 324731,
+   "convert_ms": 638
+  },
+  {
+   "id": "mr-369",
+   "svg": "mr-369-logo_e57400_0514_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e57400_0514_v06_jit1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 62.8,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 3.66,
+    "ssim12": 0.9495,
+    "silhouette_iou": 0.6278,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 2586,
+   "convert_ms": 175
+  },
+  {
+   "id": "mr-370",
+   "svg": "mr-370-logo_e57400_0518_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0518_v05_scale.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 95.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.33,
+    "ssim12": 0.9628,
+    "silhouette_iou": 0.9502,
+    "edge_f1": 0.8274
+   },
+   "svg_bytes": 11885,
+   "convert_ms": 200
+  },
+  {
+   "id": "mr-371",
+   "svg": "mr-371-logo_e57400_0525_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e57400_0525_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 88.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.52,
+    "ssim12": 0.8986,
+    "silhouette_iou": 0.8799,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 312510,
+   "convert_ms": 272
+  },
+  {
+   "id": "mr-372",
+   "svg": "mr-372-logo_e57400_0527_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0527_v08_blur3.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 71.9,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 4.76,
+    "ssim12": 0.7195,
+    "silhouette_iou": 0.8816,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 1584,
+   "convert_ms": 175
+  },
+  {
+   "id": "mr-373",
+   "svg": "mr-373-logo_e57400_0530_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e57400_0530_v07_blur2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 87.8,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.36,
+    "ssim12": 0.9026,
+    "silhouette_iou": 0.8784,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 4297,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-374",
+   "svg": "mr-374-logo_e57400_0548_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0548_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 68.4,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 7.5,
+    "ssim12": 0.8692,
+    "silhouette_iou": 0.684,
+    "edge_f1": 0.0074
+   },
+   "svg_bytes": 4539,
+   "convert_ms": 181
+  },
+  {
+   "id": "mr-375",
+   "svg": "mr-375-logo_e57400_0549_v05_scale.svg",
+   "source": "model/data/degraded/logo_e57400_0549_v05_scale.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 79.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.06,
+    "ssim12": 0.7899,
+    "silhouette_iou": 0.9196,
+    "edge_f1": 0.3376
+   },
+   "svg_bytes": 9198,
+   "convert_ms": 192
+  },
+  {
+   "id": "mr-376",
+   "svg": "mr-376-logo_e57400_0558_v01_soft.svg",
+   "source": "model/data/degraded/logo_e57400_0558_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 81.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.42,
+    "ssim12": 0.8124,
+    "silhouette_iou": 0.8547,
+    "edge_f1": 0.1669
+   },
+   "svg_bytes": 9125,
+   "convert_ms": 217
+  },
+  {
+   "id": "mr-377",
+   "svg": "mr-377-logo_e57400_0586_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e57400_0586_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 8.43,
+    "ssim12": 0.8756,
+    "silhouette_iou": 0.961,
+    "edge_f1": 0.0142
+   },
+   "svg_bytes": 3239,
+   "convert_ms": 241
+  },
+  {
+   "id": "mr-378",
+   "svg": "mr-378-logo_e57400_0591_v08_blur3.svg",
+   "source": "model/data/degraded/logo_e57400_0591_v08_blur3.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 85.7,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.13,
+    "ssim12": 0.8572,
+    "silhouette_iou": 0.927,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 21716,
+   "convert_ms": 104
+  },
+  {
+   "id": "mr-379",
+   "svg": "mr-379-logo_e58600_0023_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e58600_0023_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 84.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 0.6,
+    "ssim12": 0.9222,
+    "silhouette_iou": 0.8398,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 174748,
+   "convert_ms": 527
+  },
+  {
+   "id": "mr-380",
+   "svg": "mr-380-logo_e58600_0024_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e58600_0024_v12_heavy.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 85.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 6.86,
+    "ssim12": 0.853,
+    "silhouette_iou": 0.9638,
+    "edge_f1": 0.0035
+   },
+   "svg_bytes": 585,
+   "convert_ms": 258
+  },
+  {
+   "id": "mr-381",
+   "svg": "mr-381-logo_e58600_0056_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e58600_0056_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 68.6,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 8.87,
+    "ssim12": 0.7838,
+    "silhouette_iou": 0.6864,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 2220,
+   "convert_ms": 430
+  },
+  {
+   "id": "mr-382",
+   "svg": "mr-382-logo_e58600_0066_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e58600_0066_v06_jit1.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.05,
+    "ssim12": 0.9094,
+    "silhouette_iou": 0.9716,
+    "edge_f1": 0.3327
+   },
+   "svg_bytes": 3549,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-383",
+   "svg": "mr-383-logo_e58600_0088_v06_jit1.svg",
+   "source": "model/data/degraded/logo_e58600_0088_v06_jit1.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.5,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.26,
+    "ssim12": 0.8363,
+    "silhouette_iou": 0.8052,
+    "edge_f1": 0.0978
+   },
+   "svg_bytes": 5342,
+   "convert_ms": 149
+  },
+  {
+   "id": "mr-384",
+   "svg": "mr-384-logo_e58600_0092_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e58600_0092_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 80.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.14,
+    "ssim12": 0.8035,
+    "silhouette_iou": 0.9581,
+    "edge_f1": 0.0065
+   },
+   "svg_bytes": 4848,
+   "convert_ms": 219
+  },
+  {
+   "id": "mr-385",
+   "svg": "mr-385-logo_e58600_0112_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e58600_0112_v14_blur5.png",
+   "status": "OK",
+   "engine": "color-soft-stack",
+   "strict_similarity_pct": 86.0,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.64,
+    "ssim12": 0.9328,
+    "silhouette_iou": 0.8596,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 161347,
+   "convert_ms": 271
+  },
+  {
+   "id": "mr-386",
+   "svg": "mr-386-logo_e58600_0132_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e58600_0132_v13_pixel.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 90.1,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.01,
+    "ssim12": 0.9377,
+    "silhouette_iou": 0.9014,
+    "edge_f1": 0.608
+   },
+   "svg_bytes": 1498,
+   "convert_ms": 47
+  },
+  {
+   "id": "mr-387",
+   "svg": "mr-387-logo_e58600_0144_v14_blur5.svg",
+   "source": "model/data/degraded/logo_e58600_0144_v14_blur5.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 90.9,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.55,
+    "ssim12": 0.9391,
+    "silhouette_iou": 0.9089,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 22822,
+   "convert_ms": 108
+  },
+  {
+   "id": "mr-388",
+   "svg": "mr-388-logo_e58600_0166_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e58600_0166_v07_blur2.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 82.2,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.87,
+    "ssim12": 0.8216,
+    "silhouette_iou": 0.9452,
+    "edge_f1": 0.0059
+   },
+   "svg_bytes": 24904,
+   "convert_ms": 213
+  },
+  {
+   "id": "mr-389",
+   "svg": "mr-389-logo_e58600_0170_v11_jpeghard.svg",
+   "source": "model/data/degraded/logo_e58600_0170_v11_jpeghard.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 87.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 2.04,
+    "ssim12": 0.9502,
+    "silhouette_iou": 0.8739,
+    "edge_f1": 0.6629
+   },
+   "svg_bytes": 24714,
+   "convert_ms": 181
+  },
+  {
+   "id": "mr-390",
+   "svg": "mr-390-logo_e58600_0210_v01_soft.svg",
+   "source": "model/data/degraded/logo_e58600_0210_v01_soft.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 93.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.25,
+    "ssim12": 0.9346,
+    "silhouette_iou": 0.9654,
+    "edge_f1": 0.6362
+   },
+   "svg_bytes": 1128,
+   "convert_ms": 49
+  },
+  {
+   "id": "mr-391",
+   "svg": "mr-391-logo_e58600_0216_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e58600_0216_v10_blur4.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 77.7,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 8.19,
+    "ssim12": 0.7769,
+    "silhouette_iou": 0.8875,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 27217,
+   "convert_ms": 112
+  },
+  {
+   "id": "mr-392",
+   "svg": "mr-392-logo_e58600_0228_v12_heavy.svg",
+   "source": "model/data/degraded/logo_e58600_0228_v12_heavy.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 88.3,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 4.16,
+    "ssim12": 0.8831,
+    "silhouette_iou": 0.9735,
+    "edge_f1": 0.1638
+   },
+   "svg_bytes": 4326,
+   "convert_ms": 149
+  },
+  {
+   "id": "mr-393",
+   "svg": "mr-393-logo_e58600_0233_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e58600_0233_v09_jit2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 86.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.8,
+    "ssim12": 0.8644,
+    "silhouette_iou": 0.9362,
+    "edge_f1": 0.6301
+   },
+   "svg_bytes": 2029,
+   "convert_ms": 78
+  },
+  {
+   "id": "mr-394",
+   "svg": "mr-394-logo_e58600_0242_v01_soft.svg",
+   "source": "model/data/degraded/logo_e58600_0242_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 71.4,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 7.3,
+    "ssim12": 0.8852,
+    "silhouette_iou": 0.7142,
+    "edge_f1": 0.1197
+   },
+   "svg_bytes": 5601,
+   "convert_ms": 200
+  },
+  {
+   "id": "mr-395",
+   "svg": "mr-395-logo_e58600_0305_v09_jit2.svg",
+   "source": "model/data/degraded/logo_e58600_0305_v09_jit2.png",
+   "status": "OK",
+   "engine": "alpha-halo-stack",
+   "strict_similarity_pct": 89.5,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 0.63,
+    "ssim12": 0.8954,
+    "silhouette_iou": 0.9689,
+    "edge_f1": 0.7199
+   },
+   "svg_bytes": 26064,
+   "convert_ms": 105
+  },
+  {
+   "id": "mr-396",
+   "svg": "mr-396-logo_e58600_0312_v07_blur2.svg",
+   "source": "model/data/degraded/logo_e58600_0312_v07_blur2.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 87.4,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 3.48,
+    "ssim12": 0.8741,
+    "silhouette_iou": 0.9472,
+    "edge_f1": 0.279
+   },
+   "svg_bytes": 5050,
+   "convert_ms": 52
+  },
+  {
+   "id": "mr-397",
+   "svg": "mr-397-logo_e58600_0323_v13_pixel.svg",
+   "source": "model/data/degraded/logo_e58600_0323_v13_pixel.png",
+   "status": "OK",
+   "engine": "binary-alpha-mono",
+   "strict_similarity_pct": 89.6,
+   "strict_verdict": "PASS",
+   "channels": {
+    "mae": 1.27,
+    "ssim12": 0.9485,
+    "silhouette_iou": 0.8959,
+    "edge_f1": 0.612
+   },
+   "svg_bytes": 1041,
+   "convert_ms": 46
+  },
+  {
+   "id": "mr-398",
+   "svg": "mr-398-logo_e58600_0327_v10_blur4.svg",
+   "source": "model/data/degraded/logo_e58600_0327_v10_blur4.png",
+   "status": "OK",
+   "engine": "color-cutout-detail",
+   "strict_similarity_pct": 62.5,
+   "strict_verdict": "FAIL",
+   "channels": {
+    "mae": 13.51,
+    "ssim12": 0.6247,
+    "silhouette_iou": 0.9292,
+    "edge_f1": 0.0
+   },
+   "svg_bytes": 42028,
+   "convert_ms": 580
+  },
+  {
+   "id": "mr-399",
+   "svg": "mr-399-logo_e58600_0368_v01_soft.svg",
+   "source": "model/data/degraded/logo_e58600_0368_v01_soft.png",
+   "status": "OK",
+   "engine": "color-cutout",
+   "strict_similarity_pct": 79.0,
+   "strict_verdict": "WEAK",
+   "channels": {
+    "mae": 6.22,
+    "ssim12": 0.8686,
+    "silhouette_iou": 0.7902,
+    "edge_f1": 0.1007
+   },
+   "svg_bytes": 6422,
+   "convert_ms": 154
+  }
+ ],
+ "ladder": [
+  {
+   "label": "reference (target)",
+   "vs_input": 97.0,
+   "vs_reference": 100.0,
+   "file": "absolute_test_svg.svg"
+  },
+  {
+   "label": "alpha-halo-stack (NEW radial engine)",
+   "vs_input": 87.9,
+   "vs_reference": 86.8,
+   "file": "ladder-alpha-halo-stack.svg"
+  },
+  {
+   "label": "binary-alpha-mono (auto route)",
+   "vs_input": 87.9,
+   "vs_reference": 86.8,
+   "file": "ladder-binary-alpha-mono.svg"
+  },
+  {
+   "label": "alpha-tone-stack (multi-tone engine)",
+   "vs_input": 79.1,
+   "vs_reference": 78.3,
+   "file": "ladder-alpha-tone-stack.svg"
+  },
+  {
+   "label": "color-cutout (classic engine)",
+   "vs_input": 71.9,
+   "vs_reference": 71.3,
+   "file": "ladder-color-cutout.svg"
+  }
+ ]
+}

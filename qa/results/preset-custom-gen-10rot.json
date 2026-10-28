@@ -1,0 +1,63 @@
+{
+ "id": "preset-custom-gen-10rot",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-10rot.png",
+ "mode": "preset:custom",
+ "params": {
+  "preset": "custom"
+ },
+ "recorded_at": "2026-09-25 15:10:29",
+ "http_status": 200,
+ "latency_ms": 409.1,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 2181,
+  "sha1": "e940b2a068f3",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "svg": 1,
+   "path": 1
+  },
+  "counts": {
+   "total_elements": 2,
+   "paths": 1,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 302 302",
+  "width": "302",
+  "height": "302",
+  "fills": [
+   {
+    "color": "#3f955c",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#3f955c",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 46,
+  "max_path_commands": 46,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 2181,
+ "svg_sha1": "e940b2a068f3",
+ "status": "PASS"
+}

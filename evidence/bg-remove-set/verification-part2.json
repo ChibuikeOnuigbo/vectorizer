@@ -1,0 +1,92 @@
+{
+ "spec": {
+  "icon-11-parrot-multicolor": [
+   "T4",
+   "parrot many flat color regions"
+  ],
+  "icon-12-prism-stripes": [
+   "T4",
+   "monochrome stripes + amber accent"
+  ],
+  "icon-13-skull-200colors": [
+   "T5",
+   "graffiti skull ~200 colors full-bleed"
+  ],
+  "icon-14-owl-200colors": [
+   "T5",
+   "kaleidoscope owl stained-glass full-bleed"
+  ],
+  "icon-15-mosaic-phoenix": [
+   "T5",
+   "mosaic tile phoenix full-bleed"
+  ]
+ },
+ "results": {
+  "icon-11-parrot-multicolor": {
+   "ms": 853,
+   "paths_svg": 73,
+   "fills": 44,
+   "kb": 100.8,
+   "mae": 10.07,
+   "f_mae": 0.9605,
+   "ssim12": 0.3813,
+   "edge_f1": 0.2127,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "render_s": 1.7
+  },
+  "icon-12-prism-stripes": {
+   "ms": 1940,
+   "paths_svg": 53,
+   "fills": 4,
+   "kb": 240.3,
+   "mae": 24.06,
+   "f_mae": 0.9056,
+   "ssim12": 0.6977,
+   "edge_f1": 0.5556,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "render_s": 1.8
+  },
+  "icon-13-skull-200colors": {
+   "ms": 13498,
+   "paths_svg": 7939,
+   "fills": 7908,
+   "kb": 4578.8,
+   "mae": 22.91,
+   "f_mae": 0.9102,
+   "ssim12": 0.7591,
+   "edge_f1": 0.6938,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "render_s": 2.5
+  },
+  "icon-14-owl-200colors": {
+   "ms": 21574,
+   "paths_svg": 6234,
+   "fills": 6190,
+   "kb": 3540.6,
+   "mae": 30.14,
+   "f_mae": 0.8818,
+   "ssim12": 0.7608,
+   "edge_f1": 0.7843,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "render_s": 2.4
+  },
+  "icon-15-mosaic-phoenix": {
+   "ms": 30749,
+   "paths_svg": 8327,
+   "fills": 8285,
+   "kb": 4790.1,
+   "mae": 21.66,
+   "f_mae": 0.9151,
+   "ssim12": 0.6617,
+   "edge_f1": 0.6768,
+   "ring_ink": 1.0,
+   "center_ink": 1.0,
+   "render_s": 2.4
+  }
+ },
+ "note": "renders via file:// CDP transport (part 1 data-URL cap lesson); same metric code as part 1"
+}

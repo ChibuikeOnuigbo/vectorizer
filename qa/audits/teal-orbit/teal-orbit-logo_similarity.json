@@ -1,0 +1,36 @@
+{
+ "input": "test-assets/images/user-provided/teal-orbit-logo.png",
+ "size": [
+  676,
+  369
+ ],
+ "engines": {
+  "teal-model": {
+   "visual_similarity_pct": 87.0,
+   "verdict": "PASS",
+   "mae": 2.51,
+   "ssim12": 0.9441,
+   "silhouette_iou": 0.8704,
+   "edge_f1": 0.6207,
+   "channel_notes": {
+    "f_mae": 0.9901,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou) * 100; edge_f1 diagnostic only"
+   },
+   "svg_bytes": 12951
+  },
+  "teal-classic": {
+   "visual_similarity_pct": 86.9,
+   "verdict": "PASS",
+   "mae": 2.52,
+   "ssim12": 0.944,
+   "silhouette_iou": 0.8695,
+   "edge_f1": 0.619,
+   "channel_notes": {
+    "f_mae": 0.9901,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou) * 100; edge_f1 diagnostic only"
+   },
+   "svg_bytes": 13618
+  }
+ },
+ "composite": "qa/audits/teal-orbit/teal-orbit-logo_similarity.png"
+}

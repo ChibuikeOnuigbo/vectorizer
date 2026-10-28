@@ -1,0 +1,56 @@
+{
+ "total_executions": 39797,
+ "by_status": {
+  "UNSUPPORTED_WITH_REASON": 13,
+  "PASS": 39778,
+  "FAIL": 6
+ },
+ "by_failure_class": {
+  "SVG_QUALITY_FAILURE": 6
+ },
+ "by_mode": {
+  "ai": {
+   "UNSUPPORTED_WITH_REASON": 13
+  },
+  "classic": {
+   "PASS": 26454,
+   "FAIL": 3
+  },
+  "model": {
+   "PASS": 12718,
+   "FAIL": 3
+  },
+  "preset:logo": {
+   "PASS": 202
+  },
+  "preset:icon": {
+   "PASS": 242
+  },
+  "preset:artistic": {
+   "PASS": 40
+  },
+  "preset:custom": {
+   "PASS": 40
+  },
+  "preset:illustration": {
+   "PASS": 42
+  },
+  "preset:lqip": {
+   "PASS": 40
+  }
+ },
+ "determinism_pairs": 150,
+ "determinism_identical": 150,
+ "pixel_score_stats": {
+  "cases": 12373,
+  "avg": 95.2,
+  "min": 70.7,
+  "p05": 86.1
+ },
+ "latency_ms": {
+  "avg": 87.8,
+  "p95": 224.2,
+  "max": 3186.8
+ },
+ "updated": "2026-09-26 08:37:27"
+}

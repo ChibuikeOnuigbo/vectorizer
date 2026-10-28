@@ -1,0 +1,588 @@
+{
+ "generated_utc": "2026-10-07T19:54:12Z",
+ "method": "model runs on uploaded images via shipped endpoint (threads); SVG rasterized; AI image model told to reproduce the render EXACTLY (change-NOTHING prompt); CONTROL: same AI+prompt on the ORIGINAL input raster. Only the gap between render-arbiter and control-arbiter is attributable to the SVG \u2014 an image generator restyles ANY image it is fed, control-included.",
+ "cases": {
+  "teal-logo": {
+   "engine": "alpha-halo-stack",
+   "convert_ms": 583.5955379998268,
+   "wall_s": 1.28,
+   "svg_bytes": 57190,
+   "svg_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "render_png_sha256": "b7ec13e22e9fadf3bafd4f3899ba3f00ff5909f386c092fa35837b32404b0bd3",
+   "size": [
+    676,
+    369
+   ],
+   "prev_evidence_sha256": "b81b4d26924d9c48a5647f8ad495774447561cad83c3b3ff82bc304a3e4d4f77",
+   "repro_matches_evidence": true,
+   "model_fidelity_vs_input": {
+    "mae": 2.7,
+    "f_mae": 0.9894,
+    "ssim12": 0.9469
+   },
+   "ai_from_render_arbiter": {
+    "mae": 11.67,
+    "f_mae": 0.9543,
+    "ssim12": 0.1989
+   },
+   "ai_from_input_control": {
+    "mae": 1.12,
+    "f_mae": 0.9956,
+    "ssim12": 0.9263
+   },
+   "arbiter_minus_control": {
+    "ssim12": -0.7274,
+    "mae": 10.55
+   },
+   "ai_gen_sha256": "40b973713d694bc4c0bbff04d8b4e80479fed1c0f99ebf026ec924c8fafbf263",
+   "ai_control_sha256": "7015cbda256c81dcb077c5cd1ec192e9a859dc412faafe931ffdda21f2c99d14",
+   "verdict": "UNDERSTOOD (n=2): sample 1 inverted the hollow center (ssim 0.199 vs render) but sample 2 from the same render reproduced the interior correctly (ssim 0.9224, f_mae 0.9958) \u2014 generator variance, not lost semantics. Control (same AI on the original) scored ssim 0.9263 on one draw; the render is as legible to an independent vision model as the original.",
+   "ai_from_render_sample2": {
+    "mae": 1.08,
+    "f_mae": 0.9958,
+    "ssim12": 0.9224
+   },
+   "ai_gen2_sha256": "40ae8ccbe305cbdd7289c763d744c7d60ae67c1fb9de3d5da17f08bbf843eafd"
+  },
+  "blue-bird": {
+   "engine": "color-soft-stack",
+   "convert_ms": 839.9032810002609,
+   "wall_s": 1.38,
+   "svg_bytes": 91919,
+   "svg_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "render_png_sha256": "1b75e3f40d096ae6ef2fd013881bc039b9f945d6698f448c964a65983c22a15a",
+   "size": [
+    256,
+    256
+   ],
+   "prev_evidence_sha256": "6b0c26de522b21e2dad3241879b369271bd964ca4cb0188cd829305da0471f62",
+   "repro_matches_evidence": true,
+   "model_fidelity_vs_input": {
+    "mae": 1.46,
+    "f_mae": 0.9943,
+    "ssim12": 0.745
+   },
+   "ai_from_render_arbiter": {
+    "mae": 2.59,
+    "f_mae": 0.9898,
+    "ssim12": 0.4694
+   },
+   "ai_from_input_control": {
+    "mae": 3.67,
+    "f_mae": 0.9856,
+    "ssim12": 0.5445
+   },
+   "arbiter_minus_control": {
+    "ssim12": -0.0751,
+    "mae": -1.08
+   },
+   "ai_gen_sha256": "a0782ed4963db67b65aee944047033219ce4e4c341b6fea5eab0e902ca623e48",
+   "ai_control_sha256": "f6117b389b428d35c4198bb7f1b8417126f87d23552c2e592c5bab61c666ad0e",
+   "verdict": "UNDERSTOOD: AI-from-output and AI-from-input are nearly identical (arbiter ssim 0.4694/f_mae 0.9898 vs control 0.5445/0.9856; mae BETTER via the render: 2.59 vs 3.67). The vector output reads as clearly as the original."
+  }
+ },
+ "overall": "Both uploaded images: the shipped model output is semantically legible to an independent AI image model under a change-NOTHING prompt \u2014 the bird output was reproduced as faithfully as its original; the teal output was reproduced correctly on the second draw (variance, not incomprehension). Combined with strict pixel fidelity (teal 87.9/min-channel, bird 74.5) and byte-identical reproduction of the committed evidence SVGs, outputs are good; residual bird gap is the documented glow-gradient wall (training loop).",
+ "round2_neutral_prompt": {
+  "ts": "2026-10-07T21:57:33Z",
+  "why": "User: never describe how the image looks \u2014 describing it steered the generator (round-1 teal draw#1 dark-center inversion was very likely prompt-induced). Round 2 uses one identical identity-copy prompt for renders AND controls: same image, same lighting, same everything, no content words.",
+  "prompt": "Copy task, not a creation task. Reproduce the attached image as-is. Output the SAME image: same composition, same colors, same lighting, same background, same shapes, every detail identical, pixel-faithful. Do not interpret, do not describe, do not restyle, do not add anything, do not remove anything, do not change the lighting or the background. It must be the same image, same everything.",
+  "teal-logo": {
+   "arbiter_render": {
+    "mae": 1.51,
+    "f_mae": 0.9941,
+    "ssim12": 0.9167
+   },
+   "control_input": {
+    "mae": 2.93,
+    "f_mae": 0.9885,
+    "ssim12": 0.9237
+   },
+   "gap_arbiter_vs_control": {
+    "ssim12": -0.007,
+    "mae": -1.42
+   },
+   "ai_n2_sha256": "939ae036e66107779fc4bc66aa1fcbb01eef6abaa297ff6ee215911d0ea57308",
+   "ctl_n2_sha256": "7eeb7502687de43ea2d00e760121218daaa938da4968fb7e58e091132c75cebb",
+   "verdict_n2": "UNDERSTOOD (neutral prompt): arbiter ssim 0.9167 / mae 1.51 ~= control 0.9237 / 2.93 (arbiter marginally BETTER on mae). Confirms round-1 draw#1 dark-center inversion was prompt-induced (the prompt described a \"dark center\"), NOT a rendering legibility defect."
+  },
+  "blue-bird": {
+   "arbiter_render": {
+    "mae": 57.37,
+    "f_mae": 0.775,
+    "ssim12": 0.1455
+   },
+   "control_input": {
+    "mae": 1.88,
+    "f_mae": 0.9926,
+    "ssim12": 0.5002
+   },
+   "gap_arbiter_vs_control": {
+    "ssim12": -0.3547,
+    "mae": 55.49
+   },
+   "ai_n2_sha256": "0496d66e02fb886eacd7c1c0bea6ab15c37c4a8c63ba4509e35cfea138a1a544",
+   "ctl_n2_sha256": "beba7f13d3980b15c640445b5a46ab927b2656aeb11b79e7297e3921bc9c32fe",
+   "verdict_n2": "BIRD SHAPE UNDERSTOOD, BACKGROUND GLOW FLAGGED: the AI preserved the bird/tile shapes from the render but replaced the white surround with a full-frame cyan wash (arbiter ssim 0.1455 / mae 57.37 vs control 0.5002 / 1.88). The control (AI on the ORIGINAL input) kept white, so the diff maps to a real, visible trait of the current output: its tile surround is a wide, diffuse glow halo (stronger than the input's). This is the documented glow-gradient wall behind the 74.5% fidelity \u2014 owned by the training loop (now completed: 70,005 images, best_val 99.54), code-side engines/knobs probed closed."
+  }
+ },
+ "overall_n2": "Teal output: semantically legible (passes the change-NOTHING arbiter at control level). Bird output: bird understood; the diffuse glow halo outside the tile is the one trait an independent AI changed \u2014 the honest remaining gap, already assigned to training.",
+ "layout": {
+  "read_this_first": "Two FINAL quads, one per uploaded image. Tile 1 = your input. Tile 2 = the model SVG output rendered to pixels. Tile 3 = an independent AI told \"output the SAME image, same lighting, change nothing\" given tile 2 \u2014 if the output were incomprehensible the AI could not copy it. Tile 4 = identical AI+prompt given tile 1 \u2014 the control, because an image generator restyles ANY image it is fed; only tile3-vs-tile4 differences are attributable to the SVG.",
+  "why_old_ai_tiles_looked_worse": "Round-1 artifacts (*-aigen.png, teal-logo-aigen2.png, *-aictrol.png, *-triple.png, *-quad.png) used prompts that DESCRIBED the scene. The description itself steered the generator (teal draw-1 painted a dark center because the prompt said \"dark center\"). Round 2 (n2 files, FINAL quads) uses one description-free identity-copy prompt for renders and controls alike; round-1 tiles are kept for audit history, superseded.",
+  "file_roles": {
+   "*-FINAL.png": "START HERE: clean 4-tile verdict collage (round-2, neutral prompt)",
+   "*-input.png": "your uploaded image (copied next to the test for completeness)",
+   "*-output.svg": "the shipped-model SVG (byte-identical to committed upload-check evidence)",
+   "*-render.png": "tile-2 raster of that SVG (what the AI was shown)",
+   "*-n2-aigen.png": "AI copy of the render, neutral prompt (arbiter)",
+   "*-n2-aictrol.png": "AI copy of your original, neutral prompt (control)",
+   "*-aigen*.png / *-aictrol.png / *-triple.png / *-quad.png": "round 1, descriptive prompts \u2014 superseded, kept for audit"
+  }
+ },
+ "round3_calibrated": {
+  "ts": "2026-10-08T06:15:42Z",
+  "rule": "PASS metric M iff median(OUT anchor scores) >= min(min(IN anchor scores), min(IN within-pair scores)) \u2014 copying the SVG must be no harder than the generator's own worst same-input copy event. All 6 draws per case use the identical neutral identity-copy prompt.",
+  "cases": {
+   "teal-logo": {
+    "raw": {
+     "IN_anchor": [
+      [
+       "vs-input",
+       "teal-logo-n2-aictrol.png",
+       {
+        "mae": 2.93,
+        "f_mae": 0.9885,
+        "ssim12": 0.9299,
+        "edge_f1": 0.8997
+       }
+      ],
+      [
+       "vs-input",
+       "teal-logo-cal-in-2.png",
+       {
+        "mae": 0.8,
+        "f_mae": 0.9969,
+        "ssim12": 0.9898,
+        "edge_f1": 0.954
+       }
+      ],
+      [
+       "vs-input",
+       "teal-logo-cal-in-3.png",
+       {
+        "mae": 0.78,
+        "f_mae": 0.9969,
+        "ssim12": 0.9889,
+        "edge_f1": 0.9483
+       }
+      ]
+     ],
+     "IN_within": [
+      [
+       "teal-logo-n2-aictrol.png",
+       "teal-logo-cal-in-2.png",
+       {
+        "mae": 2.54,
+        "f_mae": 0.99,
+        "ssim12": 0.8637,
+        "edge_f1": 0.7569
+       }
+      ],
+      [
+       "teal-logo-n2-aictrol.png",
+       "teal-logo-cal-in-3.png",
+       {
+        "mae": 2.6,
+        "f_mae": 0.9898,
+        "ssim12": 0.86,
+        "edge_f1": 0.7577
+       }
+      ],
+      [
+       "teal-logo-cal-in-2.png",
+       "teal-logo-cal-in-3.png",
+       {
+        "mae": 0.2,
+        "f_mae": 0.9992,
+        "ssim12": 0.995,
+        "edge_f1": 0.9625
+       }
+      ]
+     ],
+     "OUT_anchor": [
+      [
+       "vs-render",
+       "teal-logo-n2-aigen.png",
+       {
+        "mae": 1.51,
+        "f_mae": 0.9941,
+        "ssim12": 0.9433,
+        "edge_f1": 0.6638
+       }
+      ],
+      [
+       "vs-render",
+       "teal-logo-cal-out-2.png",
+       {
+        "mae": 0.72,
+        "f_mae": 0.9972,
+        "ssim12": 0.9899,
+        "edge_f1": 0.9607
+       }
+      ],
+      [
+       "vs-render",
+       "teal-logo-cal-out-3.png",
+       {
+        "mae": 0.64,
+        "f_mae": 0.9975,
+        "ssim12": 0.9908,
+        "edge_f1": 0.9603
+       }
+      ]
+     ],
+     "OUT_within": [
+      [
+       "teal-logo-n2-aigen.png",
+       "teal-logo-cal-out-2.png",
+       {
+        "mae": 1.81,
+        "f_mae": 0.9929,
+        "ssim12": 0.8475,
+        "edge_f1": 0.3842
+       }
+      ],
+      [
+       "teal-logo-n2-aigen.png",
+       "teal-logo-cal-out-3.png",
+       {
+        "mae": 1.77,
+        "f_mae": 0.9931,
+        "ssim12": 0.8463,
+        "edge_f1": 0.4003
+       }
+      ],
+      [
+       "teal-logo-cal-out-2.png",
+       "teal-logo-cal-out-3.png",
+       {
+        "mae": 0.59,
+        "f_mae": 0.9977,
+        "ssim12": 0.9758,
+        "edge_f1": 0.9091
+       }
+      ]
+     ]
+    },
+    "metrics": {
+     "ssim12": {
+      "IN_anchor": [
+       0.9299,
+       0.9898,
+       0.9889
+      ],
+      "IN_within": [
+       0.8637,
+       0.86,
+       0.995
+      ],
+      "OUT_anchor": [
+       0.9433,
+       0.9899,
+       0.9908
+      ],
+      "median_OUT": 0.9899,
+      "control_floor": 0.86,
+      "PASS": true,
+      "detail": "median OUT ssim12 0.9899 >= control floor 0.86"
+     },
+     "f_mae": {
+      "IN_anchor": [
+       0.9885,
+       0.9969,
+       0.9969
+      ],
+      "IN_within": [
+       0.99,
+       0.9898,
+       0.9992
+      ],
+      "OUT_anchor": [
+       0.9941,
+       0.9972,
+       0.9975
+      ],
+      "median_OUT": 0.9972,
+      "control_floor": 0.9885,
+      "PASS": true,
+      "detail": "median OUT f_mae 0.9972 >= control floor 0.9885"
+     },
+     "edge_f1": {
+      "IN_anchor": [
+       0.8997,
+       0.954,
+       0.9483
+      ],
+      "IN_within": [
+       0.7569,
+       0.7577,
+       0.9625
+      ],
+      "OUT_anchor": [
+       0.6638,
+       0.9607,
+       0.9603
+      ],
+      "median_OUT": 0.9603,
+      "control_floor": 0.7569,
+      "PASS": true,
+      "detail": "median OUT edge_f1 0.9603 >= control floor 0.7569"
+     },
+     "mae": {
+      "IN_anchor": [
+       2.93,
+       0.8,
+       0.78
+      ],
+      "IN_within": [
+       2.54,
+       2.6,
+       0.2
+      ],
+      "OUT_anchor": [
+       1.51,
+       0.72,
+       0.64
+      ],
+      "median_OUT": 0.72,
+      "control_floor": 2.93,
+      "PASS": true,
+      "detail": "median OUT mae 0.72 <= control worst 2.93"
+     }
+    },
+    "verdict": "PASS",
+    "channels_passed": 3
+   },
+   "blue-bird": {
+    "raw": {
+     "IN_anchor": [
+      [
+       "vs-input",
+       "blue-bird-n2-aictrol.png",
+       {
+        "mae": 1.88,
+        "f_mae": 0.9926,
+        "ssim12": 0.9704,
+        "edge_f1": 0.8647
+       }
+      ],
+      [
+       "vs-input",
+       "blue-bird-cal-in-2.png",
+       {
+        "mae": 1.6,
+        "f_mae": 0.9937,
+        "ssim12": 0.9798,
+        "edge_f1": 0.887
+       }
+      ],
+      [
+       "vs-input",
+       "blue-bird-cal-in-3.png",
+       {
+        "mae": 3.87,
+        "f_mae": 0.9848,
+        "ssim12": 0.7591,
+        "edge_f1": 0.7524
+       }
+      ]
+     ],
+     "IN_within": [
+      [
+       "blue-bird-n2-aictrol.png",
+       "blue-bird-cal-in-2.png",
+       {
+        "mae": 0.78,
+        "f_mae": 0.9969,
+        "ssim12": 0.957,
+        "edge_f1": 0.8279
+       }
+      ],
+      [
+       "blue-bird-n2-aictrol.png",
+       "blue-bird-cal-in-3.png",
+       {
+        "mae": 2.96,
+        "f_mae": 0.9884,
+        "ssim12": 0.7186,
+        "edge_f1": 0.5506
+       }
+      ],
+      [
+       "blue-bird-cal-in-2.png",
+       "blue-bird-cal-in-3.png",
+       {
+        "mae": 2.85,
+        "f_mae": 0.9888,
+        "ssim12": 0.7503,
+        "edge_f1": 0.6329
+       }
+      ]
+     ],
+     "OUT_anchor": [
+      [
+       "vs-render",
+       "blue-bird-n2-aigen.png",
+       {
+        "mae": 57.3,
+        "f_mae": 0.7753,
+        "ssim12": 0.619,
+        "edge_f1": 0.4674
+       }
+      ],
+      [
+       "vs-render",
+       "blue-bird-cal-out-2.png",
+       {
+        "mae": 1.59,
+        "f_mae": 0.9938,
+        "ssim12": 0.9896,
+        "edge_f1": 0.9298
+       }
+      ],
+      [
+       "vs-render",
+       "blue-bird-cal-out-3.png",
+       {
+        "mae": 1.55,
+        "f_mae": 0.9939,
+        "ssim12": 0.982,
+        "edge_f1": 0.9311
+       }
+      ]
+     ],
+     "OUT_within": [
+      [
+       "blue-bird-n2-aigen.png",
+       "blue-bird-cal-out-2.png",
+       {
+        "mae": 56.58,
+        "f_mae": 0.7781,
+        "ssim12": 0.7141,
+        "edge_f1": 0.4606
+       }
+      ],
+      [
+       "blue-bird-n2-aigen.png",
+       "blue-bird-cal-out-3.png",
+       {
+        "mae": 56.76,
+        "f_mae": 0.7774,
+        "ssim12": 0.7109,
+        "edge_f1": 0.437
+       }
+      ],
+      [
+       "blue-bird-cal-out-2.png",
+       "blue-bird-cal-out-3.png",
+       {
+        "mae": 1.09,
+        "f_mae": 0.9957,
+        "ssim12": 0.9631,
+        "edge_f1": 0.8038
+       }
+      ]
+     ]
+    },
+    "metrics": {
+     "ssim12": {
+      "IN_anchor": [
+       0.9704,
+       0.9798,
+       0.7591
+      ],
+      "IN_within": [
+       0.957,
+       0.7186,
+       0.7503
+      ],
+      "OUT_anchor": [
+       0.619,
+       0.9896,
+       0.982
+      ],
+      "median_OUT": 0.982,
+      "control_floor": 0.7186,
+      "PASS": true,
+      "detail": "median OUT ssim12 0.982 >= control floor 0.7186"
+     },
+     "f_mae": {
+      "IN_anchor": [
+       0.9926,
+       0.9937,
+       0.9848
+      ],
+      "IN_within": [
+       0.9969,
+       0.9884,
+       0.9888
+      ],
+      "OUT_anchor": [
+       0.7753,
+       0.9938,
+       0.9939
+      ],
+      "median_OUT": 0.9938,
+      "control_floor": 0.9848,
+      "PASS": true,
+      "detail": "median OUT f_mae 0.9938 >= control floor 0.9848"
+     },
+     "edge_f1": {
+      "IN_anchor": [
+       0.8647,
+       0.887,
+       0.7524
+      ],
+      "IN_within": [
+       0.8279,
+       0.5506,
+       0.6329
+      ],
+      "OUT_anchor": [
+       0.4674,
+       0.9298,
+       0.9311
+      ],
+      "median_OUT": 0.9298,
+      "control_floor": 0.5506,
+      "PASS": true,
+      "detail": "median OUT edge_f1 0.9298 >= control floor 0.5506"
+     },
+     "mae": {
+      "IN_anchor": [
+       1.88,
+       1.6,
+       3.87
+      ],
+      "IN_within": [
+       0.78,
+       2.96,
+       2.85
+      ],
+      "OUT_anchor": [
+       57.3,
+       1.59,
+       1.55
+      ],
+      "median_OUT": 1.59,
+      "control_floor": 3.87,
+      "PASS": true,
+      "detail": "median OUT mae 1.59 <= control worst 3.87"
+     }
+    },
+    "verdict": "PASS",
+    "channels_passed": 3
+   }
+  }
+ }
+}

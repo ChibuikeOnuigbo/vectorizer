@@ -1,0 +1,73 @@
+{
+ "id": "iconfull-fa-solid-fax-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/solid/fax/input-w256.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 21:25:57",
+ "http_status": 200,
+ "latency_ms": 221.2,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 11172,
+  "sha1": "4c2a3d86b543",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 8,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 9,
+   "paths": 8,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 6
+   },
+   {
+    "color": "#000000",
+    "count": 2
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 6
+   },
+   {
+    "color": "#000000",
+    "count": 2
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 250,
+  "max_path_commands": 92,
+  "empty_elements": 0,
+  "duplicate_path_d": 3,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "3 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 11172,
+ "svg_sha1": "4c2a3d86b543",
+ "status": "PASS"
+}

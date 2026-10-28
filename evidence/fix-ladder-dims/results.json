@@ -1,0 +1,167 @@
+{
+ "icon-01-rocket-flatbg": {
+  "ms": 650,
+  "paths": 402,
+  "fills": 377,
+  "kb": 104.3,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 1.25,
+  "ssim12": 0.9361,
+  "edge_f1": 0.7735
+ },
+ "icon-02-leaf-flatbg": {
+  "ms": 2010,
+  "paths": 6,
+  "fills": 3,
+  "kb": 21.4,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 1.46,
+  "ssim12": 0.6953,
+  "edge_f1": 0.2319
+ },
+ "icon-03-anchor-flatbg": {
+  "ms": 2736,
+  "paths": 7,
+  "fills": 3,
+  "kb": 34.6,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 4.65,
+  "ssim12": 0.5267,
+  "edge_f1": 0.1696
+ },
+ "icon-04-fox-gradientbg": {
+  "ms": 12780,
+  "paths": 1042,
+  "fills": 31,
+  "kb": 451.7,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 4.73,
+  "ssim12": 0.8711,
+  "edge_f1": 0.7178
+ },
+ "icon-05-moon-gradientbg": {
+  "ms": 1376,
+  "paths": 799,
+  "fills": 18,
+  "kb": 402.0,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 4.17,
+  "ssim12": 0.8833,
+  "edge_f1": 0.777
+ },
+ "icon-06-camera-gradientbg": {
+  "ms": 11393,
+  "paths": 1652,
+  "fills": 20,
+  "kb": 593.6,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 9.84,
+  "ssim12": 0.8031,
+  "edge_f1": 0.7501
+ },
+ "icon-07-knight-texturebg": {
+  "ms": 9398,
+  "paths": 16272,
+  "fills": 17,
+  "kb": 6987.9,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 9.18,
+  "ssim12": 0.6318,
+  "edge_f1": 0.1538
+ },
+ "icon-08-star-texturebg": {
+  "ms": 12774,
+  "paths": 14704,
+  "fills": 32,
+  "kb": 7664.2,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 21.42,
+  "ssim12": 0.6085,
+  "edge_f1": 0.605
+ },
+ "icon-09-apple-halftonebg": {
+  "ms": 6607,
+  "paths": 14187,
+  "fills": 36,
+  "kb": 4543.4,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 20.13,
+  "ssim12": 0.8813,
+  "edge_f1": 0.8282
+ },
+ "icon-10-chameleon-multicolor": {
+  "ms": 1598,
+  "paths": 159,
+  "fills": 158,
+  "kb": 153.0,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 3.04,
+  "ssim12": 0.9059,
+  "edge_f1": 0.7198
+ },
+ "icon-11-parrot-multicolor": {
+  "ms": 5080,
+  "paths": 73,
+  "fills": 44,
+  "kb": 100.8,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 10.07,
+  "ssim12": 0.3813,
+  "edge_f1": 0.2127
+ },
+ "icon-12-prism-stripes": {
+  "ms": 1815,
+  "paths": 53,
+  "fills": 4,
+  "kb": 240.3,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 24.06,
+  "ssim12": 0.6977,
+  "edge_f1": 0.5556
+ },
+ "icon-13-skull-200colors": {
+  "ms": 25653,
+  "paths": 7939,
+  "fills": 636,
+  "kb": 4578.8,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 23.62,
+  "ssim12": 0.7575,
+  "edge_f1": 0.6945
+ },
+ "icon-14-owl-200colors": {
+  "ms": 12994,
+  "paths": 6234,
+  "fills": 550,
+  "kb": 3540.6,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 30.0,
+  "ssim12": 0.7637,
+  "edge_f1": 0.7855
+ },
+ "icon-15-mosaic-phoenix": {
+  "ms": 32133,
+  "paths": 8327,
+  "fills": 414,
+  "kb": 4790.1,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "mae": 22.61,
+  "ssim12": 0.6603,
+  "edge_f1": 0.6794
+ }
+}

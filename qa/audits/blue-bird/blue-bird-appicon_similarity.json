@@ -1,0 +1,36 @@
+{
+ "input": "test-assets/images/user-provided/blue-bird-appicon.png",
+ "size": [
+  256,
+  256
+ ],
+ "engines": {
+  "model": {
+   "visual_similarity_pct": 50.6,
+   "verdict": "FAIL",
+   "mae": 4.77,
+   "ssim12": 0.506,
+   "silhouette_iou": 0.9311,
+   "edge_f1": 0.556,
+   "channel_notes": {
+    "f_mae": 0.9813,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou) * 100; edge_f1 diagnostic only"
+   },
+   "svg_bytes": 10477
+  },
+  "classic": {
+   "visual_similarity_pct": 50.7,
+   "verdict": "FAIL",
+   "mae": 4.82,
+   "ssim12": 0.5069,
+   "silhouette_iou": 0.9307,
+   "edge_f1": 0.5467,
+   "channel_notes": {
+    "f_mae": 0.9811,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou) * 100; edge_f1 diagnostic only"
+   },
+   "svg_bytes": 11568
+  }
+ },
+ "composite": "qa/audits/blue-bird/blue-bird-appicon_similarity.png"
+}

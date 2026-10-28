@@ -1,0 +1,73 @@
+{
+ "id": "icon-fa-solid-border-none-w256-preseticon",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/solid/border-none/input-w256.png",
+ "mode": "preset:icon",
+ "params": {
+  "preset": "icon"
+ },
+ "recorded_at": "2026-09-25 15:10:13",
+ "http_status": 200,
+ "latency_ms": 177.2,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 24188,
+  "sha1": "66724a3769f3",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 22,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 23,
+   "paths": 22,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 21
+   },
+   {
+    "color": "#ffffff",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 21
+   },
+   {
+    "color": "#ffffff",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 594,
+  "max_path_commands": 300,
+  "empty_elements": 0,
+  "duplicate_path_d": 20,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "20 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 24188,
+ "svg_sha1": "66724a3769f3",
+ "status": "PASS"
+}

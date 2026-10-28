@@ -1,0 +1,38 @@
+{
+ "input": "evidence/bg-remove-set/inputs/icon-08-star-texturebg.png",
+ "size": [
+  1024,
+  1024
+ ],
+ "engines": {
+  "sealed(color-soft-stack)": {
+   "visual_similarity_pct": 47.9,
+   "verdict": "FAIL",
+   "mae": 23.57,
+   "ssim12": 0.479,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.5107,
+   "midfreq_rec50": 0.9986,
+   "channel_notes": {
+    "f_mae": 0.9076,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 5810036
+  },
+  "new(color-tone-stack)": {
+   "visual_similarity_pct": 73.0,
+   "verdict": "WEAK",
+   "mae": 17.77,
+   "ssim12": 0.7305,
+   "silhouette_iou": 1.0,
+   "edge_f1": 0.7094,
+   "midfreq_rec50": 0.997,
+   "channel_notes": {
+    "f_mae": 0.9303,
+    "note": "similarity = min(f_mae, ssim12, silhouette_iou, midfreq_rec50) * 100; edge_f1 diagnostic only; midfreq_rec50 calibrated 2026-10-10 (evidence/midfreq-judge)"
+   },
+   "svg_bytes": 14620530
+  }
+ },
+ "composite": "evidence/fallback-gate-extension/icon-08-star-texturebg_similarity.png"
+}

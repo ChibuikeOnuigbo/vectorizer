@@ -1,0 +1,5 @@
+Lucide Icons — ISC License
+https://lucide.dev/license
+Obtained from the application's own bundled app/static/lucide/lucide.min.js
+(official UMD build, ISC license header included in the same file).
+Bundle version: lucide v1.47.0

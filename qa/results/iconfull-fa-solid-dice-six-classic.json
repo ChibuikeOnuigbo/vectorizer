@@ -1,0 +1,73 @@
+{
+ "id": "iconfull-fa-solid-dice-six-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/solid/dice-six/input-w256.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:25:51",
+ "http_status": 200,
+ "latency_ms": 193.2,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 8833,
+  "sha1": "a1b3cf41fa3f",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 8,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 9,
+   "paths": 8,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 7
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 7
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 194,
+  "max_path_commands": 94,
+  "empty_elements": 0,
+  "duplicate_path_d": 5,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "5 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 8833,
+ "svg_sha1": "a1b3cf41fa3f",
+ "status": "PASS"
+}

@@ -1,0 +1,73 @@
+{
+ "id": "sweep-gen-17downscale32-c2-d25",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-17downscale32.png",
+ "mode": "classic",
+ "params": {
+  "colors": "2",
+  "detail": "25",
+  "smoothness": "50"
+ },
+ "recorded_at": "2026-09-25 15:20:56",
+ "http_status": 200,
+ "latency_ms": 327.8,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 1331,
+  "sha1": "48e48053f900",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 2,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 3,
+   "paths": 2,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 32 32",
+  "width": "32",
+  "height": "32",
+  "fills": [
+   {
+    "color": "#48c3a2",
+    "count": 1
+   },
+   {
+    "color": "#f7edbe",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#48c3a2",
+    "count": 1
+   },
+   {
+    "color": "#f7edbe",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 27,
+  "max_path_commands": 17,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 1331,
+ "svg_sha1": "48e48053f900",
+ "status": "PASS"
+}

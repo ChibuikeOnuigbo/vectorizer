@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vectorizer image to SVG</title>
+<meta name="description" content="Convert PNG JPG WebP GIF BMP to clean scalable SVG">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F8CFF'/%3E%3Cpath d='M8 22 C 12 8, 20 8, 24 14 M20 14 L24 14 L24 10' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- Tailwind self-hosted to avoid CDN block, Lucide SVG icons (shadcn uses Lucide) -->
+<link rel="stylesheet" href="/static/tailwind/tailwind.css">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/fontawesome/all.min.css">
+<script src="/static/lucide/lucide.min.js"></script>
+<script>
+// Init Lucide icons - SVG, no rectangles, shadcn uses Lucide, Tailwind compatible
+function initLucide() {
+  if (window.lucide) {
+    try { lucide.createIcons(); } catch(e) { console.log("lucide error", e); }
+  }
+}
+document.addEventListener('DOMContentLoaded', initLucide);
+window.addEventListener('load', initLucide);
+// Expose for app.js to call after view changes
+window.initLucide = initLucide;
+</script>
+<script src="/static/fontawesome/all.min.js" defer></script>
+</head>
+<body>
+<div class="app-bg" aria-hidden="true"></div>
+<div class="app-bg-overlay" aria-hidden="true"></div>
+
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="brand" href="/" id="brandHome">
+      <span class="brand-mark"><i data-lucide="pen-tool"></i></span>
+      <span class="brand-name">Vectorizer</span>
+    </a>
+    <nav class="top-nav-actions" aria-label="Primary"></nav>
+  </div>
+</header>
+
+<main class="app-main">
+  <!-- LANDING simplified no hero image no overlay only upload -->
+  <section class="view view-landing" id="landing">
+    <div class="landing-inner">
+      <div class="landing-copy">
+        <h1>Image to SVG in one click</h1>
+        <p class="sub">Upload a raster image and get a clean scalable vector ready to use</p>
+        <div class="landing-actions">
+          <button class="btn btn-primary btn-lg" id="startBtn" type="button"><i data-lucide="cloud-upload"></i><span>Upload an image</span></button>
+        </div>
+        <div class="landing-meta">
+          <span><i data-lucide="check"></i> PNG JPG WebP GIF BMP</span>
+          <span><i data-lucide="check"></i> Up to 20 MB</span>
+          <span><i data-lucide="check"></i> Smart default tuned for your image</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPLOAD with two ways to vectorize model and best tier method -->
+  <section class="view view-upload" id="upload" hidden>
+    <div class="upload-inner">
+      <div class="upload-header">
+        <button class="btn btn-secondary btn-sm" id="backBtn" type="button" title="Back" aria-label="Back"><i data-lucide="arrow-left"></i></button>
+        <h2>Upload image</h2>
+      </div>
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload image">
+        <div class="dropzone-icon"><i data-lucide="cloud-upload"></i></div>
+        <p class="dz-main">Drop an image here or click to browse</p>
+        <p class="dz-hint">PNG JPG WebP GIF BMP up to 20 MB</p>
+        <p class="dz-hint">You can also paste from clipboard</p>
+      </div>
+      <div class="upload-controls">
+        <div class="upload-methods upload-methods-single">
+          <div class="method-card active" id="methodModel" data-method="model">
+            <h4><i data-lucide="brain"></i> Smart</h4>
+            <p>One smart default tuned for your image free</p>
+          </div>
+        </div>
+        <div class="mode-settings" id="modelOptions">
+          <div class="field slider-field">
+            <div class="slider-header"><span class="slider-label"><i data-lucide="palette"></i> Colors</span><span class="slider-value" id="mColorsVal">Auto</span></div>
+            <div class="slider-wrap"><input type="range" class="slider" id="mColors" min="0" max="6" value="0"></div>
+            <div class="slider-meta"><span>Auto</span><span>More colors</span></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="convertBtn" type="button"><i data-lucide="zap"></i><span class="btn-label">Convert</span></button>
+      </div>
+      <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.webp,.gif,.bmp" hidden>
+    </div>
+  </section>
+
+  <!-- SIMPLE STUDIO -->
+  <section class="view view-result" id="result" hidden>
+    <div class="studio-header">
+      <div class="studio-title">
+        <h2>Simple Studio</h2>
+        <p>Source and vector result with essential controls</p>
+      </div>
+      <div class="studio-actions">
+        <div class="btn-group" role="group" aria-label="Session actions">
+          <button class="btn btn-sm" id="newBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
+          <button class="btn btn-sm" id="openAdvancedBtn" type="button"><i data-lucide="external-link"></i><span>Advanced</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="studio-grid">
+      <div class="studio-panel">
+        <div class="panel-head">
+          <h3><i data-lucide="image"></i> Source</h3>
+          <div class="panel-tools">
+            <button class="icon-btn" id="srcFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+          </div>
+        </div>
+        <div class="preview-box" id="srcPreviewBox"><img id="resultOriginal" alt="Original image"></div>
+        <div class="panel-meta" id="srcMeta"></div>
+      </div>
+      <div class="studio-panel studio-panel-result">
+        <div class="panel-head">
+          <h3><i data-lucide="pen-tool"></i> Vector result</h3>
+          <div class="panel-tools zoom-group" role="group" aria-label="Zoom controls">
+            <button class="icon-btn" id="zoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
+            <span class="zoom-level" id="zoomLevel">100%</span>
+            <button class="icon-btn" id="zoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
+            <button class="icon-btn" id="zoomFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+            <button class="icon-btn" id="zoomResetBtn" type="button" title="Reset view"><i data-lucide="rotate-ccw"></i></button>
+          </div>
+        </div>
+        <div class="preview-box checker result-box" id="resultSvgBox"><img id="resultSvg" alt="Vectorized SVG"></div>
+        <div class="panel-meta" id="resultMeta"></div>
+        <div class="panel-actions">
+          <button class="btn btn-primary" id="downloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+          <div class="btn-group" role="group" aria-label="Result tools">
+            <button class="btn" id="viewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
+            <button class="btn" id="compareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+            <button class="btn" id="bgToggleBtn" type="button"><i data-lucide="contrast"></i><span>Background</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANCED STUDIO -->
+  <section class="view view-advanced" id="advanced" hidden>
+    <div class="studio-header">
+      <div class="studio-title">
+        <h2>Advanced Studio</h2>
+        <p>Deeper control for detailed inspection and export</p>
+      </div>
+      <div class="studio-actions">
+        <button class="btn btn-secondary btn-sm" id="advBackSimpleBtn" type="button" title="Back to Simple" aria-label="Back to Simple"><i data-lucide="arrow-left"></i></button>
+        <button class="btn btn-ghost btn-sm" id="advNewBtn" type="button"><i data-lucide="plus"></i><span>New image</span></button>
+      </div>
+    </div>
+    <div class="advanced-grid">
+      <div class="advanced-main">
+        <div class="studio-grid">
+          <div class="studio-panel">
+            <div class="panel-head">
+              <h3><i data-lucide="image"></i> Source</h3>
+              <div class="panel-tools">
+                <button class="icon-btn" id="advSrcFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+              </div>
+            </div>
+            <div class="preview-box" id="advSrcPreviewBox"><img id="advResultOriginal" alt="Original image"></div>
+          </div>
+          <div class="studio-panel studio-panel-result">
+            <div class="panel-head">
+              <h3><i data-lucide="pen-tool"></i> Vector result</h3>
+              <div class="panel-tools zoom-group">
+                <button class="icon-btn" id="advZoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
+                <span class="zoom-level" id="advZoomLevel">100%</span>
+                <button class="icon-btn" id="advZoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
+                <button class="icon-btn" id="advZoomFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+                <button class="icon-btn" id="advZoomResetBtn" type="button" title="Reset view"><i data-lucide="rotate-ccw"></i></button>
+              </div>
+            </div>
+            <div class="preview-box checker result-box" id="advResultSvgBox"><img id="advResultSvg" alt="Vectorized SVG"></div>
+            <div class="panel-meta" id="advResultMeta"></div>
+            <div class="panel-actions">
+              <button class="btn btn-primary" id="advDownloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+              <div class="btn-group" role="group" aria-label="Result tools">
+                <button class="btn" id="advViewBtn" type="button"><i data-lucide="eye"></i><span>Fullscreen</span></button>
+                <button class="btn" id="advCompareBtn" type="button"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="advanced-sidebar">
+        <div class="sidebar-card">
+          <button class="sidebar-head" type="button" data-toggle="inspect"><h3><i data-lucide="search"></i> Inspection</h3><i data-lucide="chevron-down"></i></button>
+          <div class="sidebar-body" id="inspectBody">
+            <div class="inspect-row"><span>Colors</span><strong id="inspectColors">—</strong></div>
+            <div class="inspect-row"><span>Paths</span><strong id="inspectPaths">—</strong></div>
+            <div class="inspect-row"><span>Size</span><strong id="inspectKb">—</strong></div>
+            <div class="inspect-row"><span>Time</span><strong id="inspectTime">—</strong></div>
+            <div class="inspect-row"><span>Transparent</span><strong id="inspectTrans">—</strong></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<div class="drop-overlay" id="dropOverlay" hidden>
+  <div class="drop-inner">
+    <i data-lucide="cloud-upload"></i>
+    <p>Drop your image to convert</p>
+    <small>Only when you want to upload a new image</small>
+  </div>
+</div>
+
+<div class="view-overlay" id="viewOverlay" hidden>
+  <div class="view-toolbar">
+    <div class="view-toolbar-left">
+      <button class="view-close-btn" id="viewCloseBtn" type="button" aria-label="Close fullscreen" title="Close fullscreen Esc"><i data-lucide="x"></i></button>
+      <span class="view-title" id="viewTitle">SVG preview</span>
+    </div>
+    <div class="view-toolbar-center">
+      <div class="view-zoom-group" role="group" aria-label="Zoom and view controls">
+        <button class="view-tool-btn" id="viewZoomOutBtn" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
+        <span class="view-zoom-level" id="viewZoomLevel">100%</span>
+        <button class="view-tool-btn" id="viewZoomInBtn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
+        <button class="view-tool-btn" id="viewFitBtn" type="button" title="Fit to screen"><i data-lucide="maximize"></i></button>
+        <button class="view-tool-btn" id="viewActualBtn" type="button" title="Actual size"><i data-lucide="maximize-2"></i></button>
+        <button class="view-tool-btn" id="viewDragBtn" type="button" title="Drag to pan"><i data-lucide="hand"></i></button>
+      </div>
+    </div>
+    <div class="view-actions">
+      <button class="btn btn-primary btn-sm" id="viewDownloadBtn" type="button"><i data-lucide="download"></i><span>Download SVG</span></button>
+      <button class="btn btn-ghost btn-sm" id="viewCloseBtn2" type="button"><i data-lucide="x"></i><span>Exit</span></button>
+    </div>
+  </div>
+  <div class="view-stage checker" id="viewStage">
+    <div class="view-stage-inner" id="viewStageInner"></div>
+    <div class="view-stage-hint" id="viewHint">
+      <span><i data-lucide="hand"></i> Drag to pan</span>
+      <span><i data-lucide="search"></i> Scroll to zoom</span>
+      <span><i data-lucide="keyboard"></i> Esc to exit</span>
+    </div>
+    <div class="view-floating-tools" id="viewFloatingTools">
+      <button class="view-tool-btn" id="viewFloatZoomOut" type="button" title="Zoom out"><i data-lucide="zoom-out"></i></button>
+      <button class="view-tool-btn" id="viewFloatZoomIn" type="button" title="Zoom in"><i data-lucide="zoom-in"></i></button>
+      <div style="width:1px; height:18px; background:var(--line); margin:0 2px;"></div>
+      <button class="view-tool-btn" id="viewFloatDrag" type="button" title="Drag"><i data-lucide="external-link"></i></button>
+      <button class="view-tool-btn" id="viewFloatFit" type="button" title="Fit"><i data-lucide="maximize"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="compare-overlay" id="compareOverlay" hidden>
+  <div class="compare-toolbar">
+    <span>Compare drag slider to see source and vector difference</span>
+    <button class="icon-btn" id="compareCloseBtn" type="button" title="Close"><i data-lucide="x"></i></button>
+  </div>
+  <div class="compare-stage" id="compareStage">
+    <div class="compare-img"><img id="compareSrc" alt="Source"></div>
+    <div class="compare-img compare-vector"><img id="compareVec" alt="Vector"></div>
+    <div class="compare-divider" id="compareDivider"></div>
+    <div class="compare-handle" id="compareHandle"><i data-lucide="git-compare-arrows"></i></div>
+    <input type="range" class="compare-slider-custom" id="compareSlider" min="0" max="100" value="50" aria-label="Compare slider">
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

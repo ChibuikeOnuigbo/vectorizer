@@ -1,0 +1,82 @@
+{
+ "hx-01-badge-shield-text": {
+  "ms": 2831,
+  "paths": 194,
+  "fills": 91,
+  "kb": 281.6,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-cutout",
+  "ssim12": 0.6063
+ },
+ "hx-02-isometric-chest": {
+  "ms": 1343,
+  "paths": 90,
+  "fills": 58,
+  "kb": 156.5,
+  "tag_w": 1408,
+  "tag_h": 768,
+  "engine": "color-cutout",
+  "ssim12": 0.4919
+ },
+ "hx-03-glass-sun-icon": {
+  "ms": 4676,
+  "paths": 1577,
+  "fills": 56,
+  "kb": 873.9,
+  "tag_w": 1408,
+  "tag_h": 768,
+  "engine": "color-soft-stack",
+  "ssim12": 0.9043
+ },
+ "hx-04-monoline-hummingbird": {
+  "ms": 4126,
+  "paths": 15,
+  "fills": 11,
+  "kb": 52.1,
+  "tag_w": 1408,
+  "tag_h": 768,
+  "engine": "color-cutout",
+  "ssim12": 0.6953
+ },
+ "hx-05-negativespace-fox": {
+  "ms": 3876,
+  "paths": 4,
+  "fills": 3,
+  "kb": 17.7,
+  "tag_w": 1408,
+  "tag_h": 768,
+  "engine": "color-cutout",
+  "ssim12": 0.7016
+ },
+ "hx-06-duotone-coffee": {
+  "ms": 3019,
+  "paths": 25,
+  "fills": 17,
+  "kb": 35.0,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-cutout",
+  "ssim12": 0.7284
+ },
+ "hx-07-halftone-rocket-pin": {
+  "ms": 4608,
+  "paths": 3399,
+  "fills": 87,
+  "kb": 1442.7,
+  "tag_w": 1408,
+  "tag_h": 768,
+  "engine": "color-soft-stack",
+  "ssim12": 0.8058
+ },
+ "hx-08-emoji-lion-detail": {
+  "ms": 2157,
+  "paths": 3777,
+  "fills": 96,
+  "kb": 1542.6,
+  "tag_w": 1024,
+  "tag_h": 1024,
+  "engine": "color-soft-stack",
+  "ssim12": 0.8833
+ }
+}

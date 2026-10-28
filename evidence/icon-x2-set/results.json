@@ -1,0 +1,74 @@
+{
+ "x2-01-neubrutalist-star": {
+  "engine": "color-cutout",
+  "paths": 114,
+  "fills": 54,
+  "kb": 153.7,
+  "ms": 1780,
+  "ssim12": 0.998,
+  "sha": "f4238c8cbc55"
+ },
+ "x2-02-sticker-cutout-bee": {
+  "engine": "color-cutout",
+  "paths": 18,
+  "fills": 9,
+  "kb": 37.1,
+  "ms": 3235,
+  "ssim12": 0.916,
+  "sha": "00797ce958e1"
+ },
+ "x2-03-lineal-color-anchor": {
+  "engine": "color-cutout",
+  "paths": 5,
+  "fills": 4,
+  "kb": 34.5,
+  "ms": 2440,
+  "ssim12": 0.966,
+  "sha": "fc77d2d45402"
+ },
+ "x2-04-doodle-crosshatch-mug": {
+  "engine": "color-soft-stack",
+  "paths": 1494,
+  "fills": 417,
+  "kb": 1335.9,
+  "ms": 2780,
+  "ssim12": 0.971,
+  "sha": "5e31e15b9b46"
+ },
+ "x2-05-metallic-pin-lightning": {
+  "engine": "color-soft-stack",
+  "paths": 2321,
+  "fills": 52,
+  "kb": 1871.6,
+  "ms": 7955,
+  "ssim12": 0.902,
+  "sha": "8cedd78bd0ea"
+ },
+ "x2-06-diorama-game-castle": {
+  "engine": "color-soft-stack",
+  "paths": 7755,
+  "fills": 407,
+  "kb": 3637.0,
+  "ms": 5008,
+  "ssim12": 1.0,
+  "sha": "dc7b8ad78fc1"
+ },
+ "x2-07-voxel-heart": {
+  "engine": "color-cutout",
+  "paths": 57,
+  "fills": 42,
+  "kb": 118.9,
+  "ms": 3121,
+  "ssim12": 0.889,
+  "sha": "0b965a467a28"
+ },
+ "x2-08-holo-iridescent-badge": {
+  "engine": "color-cutout",
+  "paths": 1645,
+  "fills": 411,
+  "kb": 1067.3,
+  "ms": 3350,
+  "ssim12": 0.973,
+  "sha": "c56b80640b1d"
+ }
+}

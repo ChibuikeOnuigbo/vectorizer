@@ -1,0 +1,50 @@
+{
+ "checks": [
+  "uploaded file; upload view visible=true (selecting a file auto-converts: convert() runs on input change)",
+  "workspace choice overlay shown after convert: true",
+  "conversion done; result view visible. svg probe: {\"view\":\"result\",\"svgSrcLen\":63}",
+  "fullscreen viewer opened by result click: true",
+  "viewer closed after Escape: true",
+  "R1 upload-bug: resultVisible=true uploadVisible=false landingVisible=false fileDialogClicks=0 viewerOpened=true afterEsc=0 -> PASS",
+  "R3 zoom: 100% -> 125% -> reset 100%; compare overlay visible=true -> PASS",
+  "R2 persistence: svgLen=63 origLen=63 reconvertCalls=0 -> PASS",
+  "new-image returns to upload (explicit action): PASS"
+ ],
+ "consoleErrors": [],
+ "networkErrors": [],
+ "screenshots": [
+  "/home/user/research/qa-screens/regressions/01-after-upload.png",
+  "/home/user/research/qa-screens/regressions/02a-workspace-choice.png",
+  "/home/user/research/qa-screens/regressions/02-result.png",
+  "/home/user/research/qa-screens/regressions/03-zoom-compare.png",
+  "/home/user/research/qa-screens/regressions/04-after-reload.png"
+ ],
+ "verdict": {
+  "convertCalls_initial": 0,
+  "R1_upload_bug": "PASS",
+  "R1_detail": {
+   "before": {
+    "uploadVisible": false,
+    "landingVisible": false
+   },
+   "r1": {
+    "uploadVisible": false,
+    "landingVisible": false,
+    "resultVisible": true
+   },
+   "spyCount": 0
+  },
+  "R3_interactions": "PASS",
+  "R2_persistence": "PASS",
+  "R2_detail": {
+   "restored": {
+    "resultVisible": true,
+    "advancedVisible": false,
+    "svgSrcLen": 63,
+    "origSrcLen": 63
+   },
+   "reconvertCalls": 0
+  },
+  "R4_new_image": "PASS"
+ }
+}

@@ -1,0 +1,159 @@
+[forever 08:23:13] forever training program start, goals: 70K images / 2M steps
+[forever 08:23:13] progress: {"steps_total": 14700, "best_val": 97.64378378378376, "seed_clean": 33400, "last_push": 1791075069.604625, "last_snap": 0, "committed_val": 97.64378378378376, "started": "2026-09-26 10:48:02", "best_val_time": "2026-09-27 15:29:06"}
+[forever 08:23:14] gen logos_notext +600 (seed 33400) wrote 600 logos (no_text=True) to /home/user/vectorizer/model/data/logos_notext
+[forever 08:23:16] gen logos +600 (seed 34000) wrote 600 logos (no_text=False) to /home/user/vectorizer/model/data/logos
+[forever 08:23:24] gen logos_text +600 (seed 34600) wrote 600 text no bg to /home/user/vectorizer/model/data/logos_text
+[forever 08:23:29] degraded +600 so far total 600
+[forever 08:23:34] degraded +1200 so far total 1200
+[forever 08:23:38] degraded +1800 so far total 1800
+[forever 08:23:43] degraded +2400 so far total 2400
+[forever 08:23:48] degraded +3000 so far total 3000
+[forever 08:23:53] degraded +3600 so far total 3600
+[forever 08:23:59] degraded +4200 so far total 4200
+[forever 08:24:04] degraded +4800 so far total 4800
+[forever 08:24:09] degraded +5400 so far total 5400
+[forever 08:24:14] degraded +6000 so far total 6000
+[forever 08:24:19] degraded +6600 so far total 6600
+[forever 08:24:24] degraded +7200 so far total 7200
+[forever 08:24:29] degraded +7800 so far total 7800
+[forever 08:24:34] degraded +8400 so far total 8400
+[forever 08:24:39] degraded +9000 so far total 9000
+[forever 08:24:44] degraded +9600 so far total 9600
+[forever 08:24:48] degraded +10200 so far total 10200
+[forever 08:24:53] degraded +10800 so far total 10800
+[forever 08:24:58] degraded +11400 so far total 11400
+[forever 08:25:03] degraded +12000 so far total 12000
+[forever 08:25:08] degraded +12600 so far total 12600
+[forever 08:25:14] degraded +13200 so far total 13200
+[forever 08:25:18] degraded +13800 so far total 13800
+[forever 08:25:23] degraded +14400 so far total 14400
+[forever 08:25:28] degraded +15000 so far total 15000
+[forever 08:25:34] degraded +15600 so far total 15600
+[forever 08:25:39] degraded +16200 so far total 16200
+[forever 08:25:45] degraded +16800 so far total 16800
+[forever 08:25:50] degraded +17400 so far total 17400
+[forever 08:25:56] degraded +18000 so far total 18000
+[forever 08:26:00] degraded +18600 so far total 18600
+[forever 08:26:03] degraded +19200 so far total 19200
+[forever 08:26:07] degraded +19800 so far total 19800
+[forever 08:26:12] degraded +20400 so far total 20400
+[forever 08:26:16] degraded +21000 so far total 21000
+[forever 08:26:20] degraded +21600 so far total 21600
+[forever 08:26:24] degraded +22200 so far total 22200
+[forever 08:26:28] degraded +22800 so far total 22800
+[forever 08:26:32] degraded +23400 so far total 23400
+[forever 08:26:36] degraded +24000 so far total 24000
+[forever 08:26:40] degraded +24600 so far total 24600
+[forever 08:26:44] degraded +25200 so far total 25200
+[forever 08:26:48] degraded +25800 so far total 25800
+[forever 08:26:52] degraded +26400 so far total 26400
+[forever 08:26:56] degraded +27000 so far total 27000
+[forever 08:26:56] degraded +27000 total 27000
+  [20/250] 1.26s/img last best=96.8 avg20=98.8
+  [40/250] 1.33s/img last best=99.6 avg20=99.4
+  [60/250] 1.23s/img last best=99.3 avg20=99.0
+  [80/250] 1.15s/img last best=96.8 avg20=98.8
+  [100/250] 1.16s/img last best=98.9 avg20=99.2
+  [120/250] 1.22s/img last best=99.7 avg20=99.6
+  [140/250] 1.26s/img last best=99.8 avg20=99.7
+  [160/250] 1.24s/img last best=98.7 avg20=99.2
+  [180/250] 1.23s/img last best=100.0 avg20=97.9
+  [200/250] 1.24s/img last best=100.0 avg20=98.8
+  [220/250] 1.25s/img last best=99.7 avg20=99.3
+  [240/250] 1.26s/img last best=99.4 avg20=98.6
+  [250/250] 1.27s/img last best=94.3 avg20=98.5
+dataset: 250 images, 7250 candidates -> /home/user/vectorizer/model/data/dataset.json  (317s)
+[forever 08:32:17] dataset +250 scored -> 250 records (window cap 6000)
+[forever 08:32:52] train +300 steps (34s) val=99.29 param-dist=0.389 prof=92% n=213
+[forever 08:32:52] iter 0: images=28800/70000 {'logos_notext': 600, 'logos': 600, 'logos_text': 600, 'degraded': 27000} recs=250 steps=15000/2000000 best_val=99.29 (579s)
+[forever 08:32:52] onnx export: copied -> app/static/model/params.onnx
+[forever 08:33:01] git push OK: val 99.29
+[forever 08:33:08] gen logos_notext +600 (seed 35200) wrote 600 logos (no_text=True) to /home/user/vectorizer/model/data/logos_notext
+[forever 08:33:10] gen logos +600 (seed 35800) wrote 600 logos (no_text=False) to /home/user/vectorizer/model/data/logos
+[forever 08:33:19] gen logos_text +600 (seed 36400) wrote 600 text no bg to /home/user/vectorizer/model/data/logos_text
+[forever 08:33:24] degraded +600 so far total 27600
+[forever 08:33:30] degraded +1200 so far total 28200
+[forever 08:33:36] degraded +1800 so far total 28800
+[forever 08:33:41] degraded +2400 so far total 29400
+[forever 08:33:47] degraded +3000 so far total 30000
+[forever 08:33:53] degraded +3600 so far total 30600
+[forever 08:33:58] degraded +4200 so far total 31200
+[forever 08:34:04] degraded +4800 so far total 31800
+[forever 08:34:09] degraded +5400 so far total 32400
+[forever 08:34:15] degraded +6000 so far total 33000
+[forever 08:34:20] degraded +6600 so far total 33600
+[forever 08:34:26] degraded +7200 so far total 34200
+[forever 08:34:32] degraded +7800 so far total 34800
+[forever 08:34:38] degraded +8400 so far total 35400
+[forever 08:34:44] degraded +9000 so far total 36000
+[forever 08:34:49] degraded +9600 so far total 36600
+[forever 08:34:55] degraded +10200 so far total 37200
+[forever 08:35:01] degraded +10800 so far total 37800
+[forever 08:35:07] degraded +11400 so far total 38400
+[forever 08:35:12] degraded +12000 so far total 39000
+[forever 08:35:18] degraded +12600 so far total 39600
+[forever 08:35:24] degraded +13200 so far total 40200
+[forever 08:35:30] degraded +13800 so far total 40800
+[forever 08:35:36] degraded +14400 so far total 41400
+[forever 08:35:41] degraded +15000 so far total 42000
+[forever 08:35:47] degraded +15600 so far total 42600
+[forever 08:35:53] degraded +16200 so far total 43200
+[forever 08:35:59] degraded +16800 so far total 43800
+[forever 08:36:05] degraded +17400 so far total 44400
+[forever 08:36:10] degraded +18000 so far total 45000
+[forever 08:36:15] degraded +18600 so far total 45600
+[forever 08:36:19] degraded +19200 so far total 46200
+[forever 08:36:23] degraded +19800 so far total 46800
+[forever 08:36:27] degraded +20400 so far total 47400
+[forever 08:36:32] degraded +21000 so far total 48000
+[forever 08:36:36] degraded +21600 so far total 48600
+[forever 08:36:40] degraded +22200 so far total 49200
+[forever 08:36:44] degraded +22800 so far total 49800
+[forever 08:36:49] degraded +23400 so far total 50400
+[forever 08:36:53] degraded +24000 so far total 51000
+[forever 08:36:57] degraded +24600 so far total 51600
+[forever 08:37:01] degraded +25200 so far total 52200
+[forever 08:37:06] degraded +25800 so far total 52800
+[forever 08:37:10] degraded +26400 so far total 53400
+[forever 08:37:15] degraded +27000 so far total 54000
+[forever 08:37:15] degraded +27000 total 54000
+  [20/250] 1.53s/img last best=99.8 avg20=99.6
+  [40/250] 1.44s/img last best=90.6 avg20=98.5
+  [60/250] 1.44s/img last best=99.5 avg20=99.4
+  [80/250] 1.44s/img last best=100.0 avg20=99.5
+  [100/250] 1.44s/img last best=95.5 avg20=98.7
+  [120/250] 1.45s/img last best=99.0 avg20=99.2
+  [140/250] 1.43s/img last best=100.0 avg20=99.8
+  [160/250] 1.39s/img last best=99.9 avg20=99.4
+  [180/250] 1.38s/img last best=99.7 avg20=99.6
+  [200/250] 1.37s/img last best=99.3 avg20=99.4
+  [220/250] 1.35s/img last best=99.8 avg20=99.2
+  [240/250] 1.35s/img last best=97.1 avg20=99.4
+  [250/250] 1.32s/img last best=100.0 avg20=99.5
+dataset: 250 images, 7250 candidates -> /home/user/vectorizer/model/data/dataset.json  (331s)
+[forever 08:42:47] dataset +250 scored -> 500 records (window cap 6000)
+[forever 08:44:39] train +600 steps (111s) val=99.21 param-dist=0.395 prof=92% n=425
+[forever 08:44:39] iter 1: images=57600/70000 {'logos_notext': 1200, 'logos': 1200, 'logos_text': 1200, 'degraded': 54000} recs=500 steps=15600/2000000 best_val=99.29 (693s)
+[forever 08:44:45] gen logos_notext +600 (seed 37000) wrote 600 logos (no_text=True) to /home/user/vectorizer/model/data/logos_notext
+[forever 08:44:47] gen logos +600 (seed 37600) wrote 600 logos (no_text=False) to /home/user/vectorizer/model/data/logos
+[forever 08:44:55] gen logos_text +600 (seed 38200) wrote 600 text no bg to /home/user/vectorizer/model/data/logos_text
+[forever 08:45:00] degraded +600 so far total 54600
+[forever 08:45:06] degraded +1200 so far total 55200
+[forever 08:45:11] degraded +1800 so far total 55800
+[forever 08:45:17] degraded +2400 so far total 56400
+[forever 08:45:23] degraded +3000 so far total 57000
+[forever 08:45:29] degraded +3600 so far total 57600
+[forever 08:45:34] degraded +4200 so far total 58200
+[forever 08:45:40] degraded +4800 so far total 58800
+[forever 08:45:45] degraded +5400 so far total 59400
+[forever 08:45:51] degraded +6000 so far total 60000
+[forever 08:45:56] degraded +6600 so far total 60600
+[forever 08:46:02] degraded +7200 so far total 61200
+[forever 08:46:07] degraded +7800 so far total 61800
+[forever 08:46:13] degraded +8400 so far total 62400
+[forever 08:46:19] degraded +9000 so far total 63000
+[forever 08:46:24] degraded +9600 so far total 63600
+[forever 08:46:29] degraded +10200 so far total 64200
+[forever 08:46:33] degraded +10605 total 64605
+  [20/250] 1.13s/img last best=99.3 avg20=99.4
+  [40/250] 1.10s/img last best=100.0 avg20=99.6

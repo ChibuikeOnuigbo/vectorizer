@@ -1,0 +1,119 @@
+{
+ "id": "iconfull-fa-brands-cc-amex-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/brands/cc-amex/input-w256.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 21:26:29",
+ "http_status": 200,
+ "latency_ms": 227.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 23033,
+  "sha1": "388446df31ca",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 16,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 17,
+   "paths": 16,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 5
+   },
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#2e2e2e",
+    "count": 1
+   },
+   {
+    "color": "#040404",
+    "count": 1
+   },
+   {
+    "color": "#050505",
+    "count": 1
+   },
+   {
+    "color": "#f5f5f5",
+    "count": 1
+   },
+   {
+    "color": "#141414",
+    "count": 1
+   },
+   {
+    "color": "#131313",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 5
+   },
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#2e2e2e",
+    "count": 1
+   },
+   {
+    "color": "#040404",
+    "count": 1
+   },
+   {
+    "color": "#050505",
+    "count": 1
+   },
+   {
+    "color": "#f5f5f5",
+    "count": 1
+   },
+   {
+    "color": "#141414",
+    "count": 1
+   },
+   {
+    "color": "#131313",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 606,
+  "max_path_commands": 133,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 23033,
+ "svg_sha1": "388446df31ca",
+ "status": "PASS"
+}

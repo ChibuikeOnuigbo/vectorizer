@@ -1,0 +1,79 @@
+{
+ "id": "tabler-tabler-cash-banknote-move-back-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/tabler/cash-banknote-move-back/input-w128.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-26 03:52:26",
+ "http_status": 200,
+ "latency_ms": 43.4,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 5321,
+  "sha1": "f9987c3a2fee",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 5,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 6,
+   "paths": 5,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#fcfcfc",
+    "count": 1
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#fcfcfc",
+    "count": 1
+   },
+   {
+    "color": "#fefefe",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 130,
+  "max_path_commands": 61,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 5321,
+ "svg_sha1": "f9987c3a2fee",
+ "status": "PASS"
+}

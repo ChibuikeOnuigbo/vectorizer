@@ -1,0 +1,1066 @@
+{
+ "edge-big1024.png": {
+  "cur cp3 ld19 sp2": 87.5,
+  "cp2 ld19 sp2": 87.5,
+  "cp4 ld19 sp2": 87.5,
+  "cp2 ld19 sp4": 87.5,
+  "cp3 ld19 sp4": 87.5,
+  "cp2 ld12 sp2": 87.5
+ },
+ "edge-flat-color.png": {
+  "cur cp3 ld19 sp2": 100.0,
+  "cp2 ld19 sp2": 100.0,
+  "cp4 ld19 sp2": 100.0,
+  "cp2 ld19 sp4": 100.0,
+  "cp3 ld19 sp4": 100.0,
+  "cp2 ld12 sp2": 100.0
+ },
+ "edge-transparent.png": {
+  "cur cp3 ld19 sp2": 100.0,
+  "cp2 ld19 sp2": 100.0,
+  "cp4 ld19 sp2": 100.0,
+  "cp2 ld19 sp4": 100.0,
+  "cp3 ld19 sp4": 100.0,
+  "cp2 ld12 sp2": 100.0
+ },
+ "gauntlet-x1024.png": {
+  "cur cp3 ld19 sp2": 84.9,
+  "cp2 ld19 sp2": 80.3,
+  "cp4 ld19 sp2": 84.8,
+  "cp2 ld19 sp4": 80.3,
+  "cp3 ld19 sp4": 84.9,
+  "cp2 ld12 sp2": 80.3
+ },
+ "gen-00darkbg.png": {
+  "cur cp3 ld19 sp2": 97.3,
+  "cp2 ld19 sp2": 97.3,
+  "cp4 ld19 sp2": 97.3,
+  "cp2 ld19 sp4": 97.3,
+  "cp3 ld19 sp4": 97.3,
+  "cp2 ld12 sp2": 97.3
+ },
+ "gen-00gray.png": {
+  "cur cp3 ld19 sp2": 97.2,
+  "cp2 ld19 sp2": 97.2,
+  "cp4 ld19 sp2": 97.2,
+  "cp2 ld19 sp4": 97.2,
+  "cp3 ld19 sp4": 97.2,
+  "cp2 ld12 sp2": 97.2
+ },
+ "gen-00jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 93.2,
+  "cp2 ld19 sp2": 93.2,
+  "cp4 ld19 sp2": 93.2,
+  "cp2 ld19 sp4": 93.2,
+  "cp3 ld19 sp4": 93.2,
+  "cp2 ld12 sp2": 93.2
+ },
+ "gen-01darkbg.png": {
+  "cur cp3 ld19 sp2": 87.6,
+  "cp2 ld19 sp2": 87.6,
+  "cp4 ld19 sp2": 87.6,
+  "cp2 ld19 sp4": 87.6,
+  "cp3 ld19 sp4": 87.6,
+  "cp2 ld12 sp2": 87.6
+ },
+ "gen-01gray.png": {
+  "cur cp3 ld19 sp2": 87.9,
+  "cp2 ld19 sp2": 91.4,
+  "cp4 ld19 sp2": 87.9,
+  "cp2 ld19 sp4": 91.4,
+  "cp3 ld19 sp4": 87.9,
+  "cp2 ld12 sp2": 91.4
+ },
+ "gen-01jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 83.9,
+  "cp2 ld19 sp2": 83.9,
+  "cp4 ld19 sp2": 83.9,
+  "cp2 ld19 sp4": 83.9,
+  "cp3 ld19 sp4": 83.9,
+  "cp2 ld12 sp2": 83.9
+ },
+ "gen-02-base.png": {
+  "cur cp3 ld19 sp2": 68.3,
+  "cp2 ld19 sp2": 68.3,
+  "cp4 ld19 sp2": 68.3,
+  "cp2 ld19 sp4": 68.3,
+  "cp3 ld19 sp4": 68.3,
+  "cp2 ld12 sp2": 68.3
+ },
+ "gen-02blur.png": {
+  "cur cp3 ld19 sp2": 80.1,
+  "cp2 ld19 sp2": 85.2,
+  "cp4 ld19 sp2": 80.5,
+  "cp2 ld19 sp4": 85.2,
+  "cp3 ld19 sp4": 80.1,
+  "cp2 ld12 sp2": 85.2
+ },
+ "gen-02darkbg.png": {
+  "cur cp3 ld19 sp2": 89.9,
+  "cp2 ld19 sp2": 89.6,
+  "cp4 ld19 sp2": 89.9,
+  "cp2 ld19 sp4": 89.6,
+  "cp3 ld19 sp4": 89.9,
+  "cp2 ld12 sp2": 89.6
+ },
+ "gen-02gray.png": {
+  "cur cp3 ld19 sp2": 89.2,
+  "cp2 ld19 sp2": 89.2,
+  "cp4 ld19 sp2": 89.2,
+  "cp2 ld19 sp4": 89.2,
+  "cp3 ld19 sp4": 89.2,
+  "cp2 ld12 sp2": 89.2
+ },
+ "gen-02jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 84.8,
+  "cp2 ld19 sp2": 84.8,
+  "cp4 ld19 sp2": 84.8,
+  "cp2 ld19 sp4": 84.8,
+  "cp3 ld19 sp4": 84.8,
+  "cp2 ld12 sp2": 84.8
+ },
+ "gen-02noise.png": {
+  "cur cp3 ld19 sp2": 69.0,
+  "cp2 ld19 sp2": 69.0,
+  "cp4 ld19 sp2": 69.0,
+  "cp2 ld19 sp4": 69.0,
+  "cp3 ld19 sp4": 69.0,
+  "cp2 ld12 sp2": 69.0
+ },
+ "gen-02rot.png": {
+  "cur cp3 ld19 sp2": 70.9,
+  "cp2 ld19 sp2": 70.9,
+  "cp4 ld19 sp2": 70.9,
+  "cp2 ld19 sp4": 70.9,
+  "cp3 ld19 sp4": 70.9,
+  "cp2 ld12 sp2": 70.9
+ },
+ "gen-03-base.png": {
+  "cur cp3 ld19 sp2": 75.2,
+  "cp2 ld19 sp2": 75.2,
+  "cp4 ld19 sp2": 75.2,
+  "cp2 ld19 sp4": 75.2,
+  "cp3 ld19 sp4": 75.2,
+  "cp2 ld12 sp2": 75.2
+ },
+ "gen-03blur.png": {
+  "cur cp3 ld19 sp2": 87.9,
+  "cp2 ld19 sp2": 87.9,
+  "cp4 ld19 sp2": 87.9,
+  "cp2 ld19 sp4": 87.9,
+  "cp3 ld19 sp4": 87.9,
+  "cp2 ld12 sp2": 87.9
+ },
+ "gen-03darkbg.png": {
+  "cur cp3 ld19 sp2": 90.5,
+  "cp2 ld19 sp2": 90.5,
+  "cp4 ld19 sp2": 90.5,
+  "cp2 ld19 sp4": 90.5,
+  "cp3 ld19 sp4": 90.5,
+  "cp2 ld12 sp2": 90.5
+ },
+ "gen-03gray.png": {
+  "cur cp3 ld19 sp2": 90.5,
+  "cp2 ld19 sp2": 90.5,
+  "cp4 ld19 sp2": 90.5,
+  "cp2 ld19 sp4": 90.5,
+  "cp3 ld19 sp4": 90.5,
+  "cp2 ld12 sp2": 90.5
+ },
+ "gen-03noise.png": {
+  "cur cp3 ld19 sp2": 75.2,
+  "cp2 ld19 sp2": 75.2,
+  "cp4 ld19 sp2": 75.2,
+  "cp2 ld19 sp4": 75.2,
+  "cp3 ld19 sp4": 75.2,
+  "cp2 ld12 sp2": 75.2
+ },
+ "gen-03rot.png": {
+  "cur cp3 ld19 sp2": 76.5,
+  "cp2 ld19 sp2": 76.5,
+  "cp4 ld19 sp2": 76.5,
+  "cp2 ld19 sp4": 76.5,
+  "cp3 ld19 sp4": 76.5,
+  "cp2 ld12 sp2": 76.5
+ },
+ "gen-04-base.png": {
+  "cur cp3 ld19 sp2": 64.9,
+  "cp2 ld19 sp2": 64.9,
+  "cp4 ld19 sp2": 64.9,
+  "cp2 ld19 sp4": 64.9,
+  "cp3 ld19 sp4": 64.9,
+  "cp2 ld12 sp2": 64.9
+ },
+ "gen-04blur.png": {
+  "cur cp3 ld19 sp2": 86.2,
+  "cp2 ld19 sp2": 86.2,
+  "cp4 ld19 sp2": 86.2,
+  "cp2 ld19 sp4": 86.2,
+  "cp3 ld19 sp4": 86.2,
+  "cp2 ld12 sp2": 86.2
+ },
+ "gen-04darkbg.png": {
+  "cur cp3 ld19 sp2": 90.9,
+  "cp2 ld19 sp2": 91.5,
+  "cp4 ld19 sp2": 90.9,
+  "cp2 ld19 sp4": 91.5,
+  "cp3 ld19 sp4": 90.9,
+  "cp2 ld12 sp2": 91.5
+ },
+ "gen-04gray.png": {
+  "cur cp3 ld19 sp2": 91.0,
+  "cp2 ld19 sp2": 91.0,
+  "cp4 ld19 sp2": 90.8,
+  "cp2 ld19 sp4": 91.0,
+  "cp3 ld19 sp4": 91.0,
+  "cp2 ld12 sp2": 91.0
+ },
+ "gen-04jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 87.3,
+  "cp2 ld19 sp2": 87.1,
+  "cp4 ld19 sp2": 87.3,
+  "cp2 ld19 sp4": 87.1,
+  "cp3 ld19 sp4": 87.3,
+  "cp2 ld12 sp2": 87.1
+ },
+ "gen-04noise.png": {
+  "cur cp3 ld19 sp2": 64.7,
+  "cp2 ld19 sp2": 64.7,
+  "cp4 ld19 sp2": 64.7,
+  "cp2 ld19 sp4": 64.7,
+  "cp3 ld19 sp4": 64.7,
+  "cp2 ld12 sp2": 64.7
+ },
+ "gen-04rot.png": {
+  "cur cp3 ld19 sp2": 68.0,
+  "cp2 ld19 sp2": 68.0,
+  "cp4 ld19 sp2": 68.0,
+  "cp2 ld19 sp4": 68.0,
+  "cp3 ld19 sp4": 68.0,
+  "cp2 ld12 sp2": 68.0
+ },
+ "gen-05-base.png": {
+  "cur cp3 ld19 sp2": 74.3,
+  "cp2 ld19 sp2": 74.3,
+  "cp4 ld19 sp2": 74.3,
+  "cp2 ld19 sp4": 74.3,
+  "cp3 ld19 sp4": 74.3,
+  "cp2 ld12 sp2": 74.3
+ },
+ "gen-05blur.png": {
+  "cur cp3 ld19 sp2": 66.0,
+  "cp2 ld19 sp2": 66.0,
+  "cp4 ld19 sp2": 72.2,
+  "cp2 ld19 sp4": 66.0,
+  "cp3 ld19 sp4": 66.0,
+  "cp2 ld12 sp2": 66.0
+ },
+ "gen-05darkbg.png": {
+  "cur cp3 ld19 sp2": 88.4,
+  "cp2 ld19 sp2": 88.4,
+  "cp4 ld19 sp2": 88.4,
+  "cp2 ld19 sp4": 88.4,
+  "cp3 ld19 sp4": 88.4,
+  "cp2 ld12 sp2": 88.4
+ },
+ "gen-05gray.png": {
+  "cur cp3 ld19 sp2": 88.5,
+  "cp2 ld19 sp2": 87.9,
+  "cp4 ld19 sp2": 88.5,
+  "cp2 ld19 sp4": 87.9,
+  "cp3 ld19 sp4": 88.5,
+  "cp2 ld12 sp2": 87.9
+ },
+ "gen-05noise.png": {
+  "cur cp3 ld19 sp2": 63.3,
+  "cp2 ld19 sp2": 63.3,
+  "cp4 ld19 sp2": 63.3,
+  "cp2 ld19 sp4": 63.3,
+  "cp3 ld19 sp4": 63.3,
+  "cp2 ld12 sp2": 63.3
+ },
+ "gen-05rot.png": {
+  "cur cp3 ld19 sp2": 76.4,
+  "cp2 ld19 sp2": 76.4,
+  "cp4 ld19 sp2": 76.4,
+  "cp2 ld19 sp4": 76.4,
+  "cp3 ld19 sp4": 76.4,
+  "cp2 ld12 sp2": 76.4
+ },
+ "gen-06darkbg.png": {
+  "cur cp3 ld19 sp2": 95.0,
+  "cp2 ld19 sp2": 95.0,
+  "cp4 ld19 sp2": 95.0,
+  "cp2 ld19 sp4": 95.0,
+  "cp3 ld19 sp4": 95.0,
+  "cp2 ld12 sp2": 95.0
+ },
+ "gen-06gray.png": {
+  "cur cp3 ld19 sp2": 94.1,
+  "cp2 ld19 sp2": 94.1,
+  "cp4 ld19 sp2": 94.5,
+  "cp2 ld19 sp4": 94.1,
+  "cp3 ld19 sp4": 94.1,
+  "cp2 ld12 sp2": 94.1
+ },
+ "gen-06jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 89.0,
+  "cp2 ld19 sp2": 89.0,
+  "cp4 ld19 sp2": 89.0,
+  "cp2 ld19 sp4": 89.0,
+  "cp3 ld19 sp4": 89.0,
+  "cp2 ld12 sp2": 89.0
+ },
+ "gen-07-base.png": {
+  "cur cp3 ld19 sp2": 78.7,
+  "cp2 ld19 sp2": 78.7,
+  "cp4 ld19 sp2": 78.7,
+  "cp2 ld19 sp4": 78.7,
+  "cp3 ld19 sp4": 78.7,
+  "cp2 ld12 sp2": 78.7
+ },
+ "gen-07blur.png": {
+  "cur cp3 ld19 sp2": 80.4,
+  "cp2 ld19 sp2": 80.4,
+  "cp4 ld19 sp2": 80.4,
+  "cp2 ld19 sp4": 80.4,
+  "cp3 ld19 sp4": 80.4,
+  "cp2 ld12 sp2": 80.4
+ },
+ "gen-07darkbg.png": {
+  "cur cp3 ld19 sp2": 86.5,
+  "cp2 ld19 sp2": 86.5,
+  "cp4 ld19 sp2": 86.5,
+  "cp2 ld19 sp4": 86.5,
+  "cp3 ld19 sp4": 86.5,
+  "cp2 ld12 sp2": 86.5
+ },
+ "gen-07gray.png": {
+  "cur cp3 ld19 sp2": 86.0,
+  "cp2 ld19 sp2": 58.2,
+  "cp4 ld19 sp2": 86.0,
+  "cp2 ld19 sp4": 58.2,
+  "cp3 ld19 sp4": 86.0,
+  "cp2 ld12 sp2": 58.2
+ },
+ "gen-07noise.png": {
+  "cur cp3 ld19 sp2": 32.1,
+  "cp2 ld19 sp2": 32.1,
+  "cp4 ld19 sp2": 32.1,
+  "cp2 ld19 sp4": 32.2,
+  "cp3 ld19 sp4": 32.2,
+  "cp2 ld12 sp2": 32.1
+ },
+ "gen-07rot.png": {
+  "cur cp3 ld19 sp2": 83.0,
+  "cp2 ld19 sp2": 83.0,
+  "cp4 ld19 sp2": 83.0,
+  "cp2 ld19 sp4": 83.0,
+  "cp3 ld19 sp4": 83.0,
+  "cp2 ld12 sp2": 83.0
+ },
+ "gen-08-base.png": {
+  "cur cp3 ld19 sp2": 76.5,
+  "cp2 ld19 sp2": 76.0,
+  "cp4 ld19 sp2": 76.5,
+  "cp2 ld19 sp4": 76.0,
+  "cp3 ld19 sp4": 76.5,
+  "cp2 ld12 sp2": 76.0
+ },
+ "gen-08blur.png": {
+  "cur cp3 ld19 sp2": 83.1,
+  "cp2 ld19 sp2": 83.2,
+  "cp4 ld19 sp2": 83.1,
+  "cp2 ld19 sp4": 83.2,
+  "cp3 ld19 sp4": 83.1,
+  "cp2 ld12 sp2": 83.2
+ },
+ "gen-08darkbg.png": {
+  "cur cp3 ld19 sp2": 92.6,
+  "cp2 ld19 sp2": 92.6,
+  "cp4 ld19 sp2": 92.6,
+  "cp2 ld19 sp4": 92.6,
+  "cp3 ld19 sp4": 92.6,
+  "cp2 ld12 sp2": 92.6
+ },
+ "gen-08gray.png": {
+  "cur cp3 ld19 sp2": 92.6,
+  "cp2 ld19 sp2": 92.7,
+  "cp4 ld19 sp2": 92.6,
+  "cp2 ld19 sp4": 92.7,
+  "cp3 ld19 sp4": 92.6,
+  "cp2 ld12 sp2": 92.7
+ },
+ "gen-08noise.png": {
+  "cur cp3 ld19 sp2": 76.7,
+  "cp2 ld19 sp2": 76.2,
+  "cp4 ld19 sp2": 76.7,
+  "cp2 ld19 sp4": 76.2,
+  "cp3 ld19 sp4": 76.7,
+  "cp2 ld12 sp2": 76.2
+ },
+ "gen-08rot.png": {
+  "cur cp3 ld19 sp2": 78.1,
+  "cp2 ld19 sp2": 78.1,
+  "cp4 ld19 sp2": 78.1,
+  "cp2 ld19 sp4": 78.1,
+  "cp3 ld19 sp4": 78.1,
+  "cp2 ld12 sp2": 78.1
+ },
+ "gen-09-base.png": {
+  "cur cp3 ld19 sp2": 76.1,
+  "cp2 ld19 sp2": 76.1,
+  "cp4 ld19 sp2": 76.1,
+  "cp2 ld19 sp4": 76.1,
+  "cp3 ld19 sp4": 76.1,
+  "cp2 ld12 sp2": 76.1
+ },
+ "gen-09blur.png": {
+  "cur cp3 ld19 sp2": 74.4,
+  "cp2 ld19 sp2": 74.9,
+  "cp4 ld19 sp2": 74.4,
+  "cp2 ld19 sp4": 74.9,
+  "cp3 ld19 sp4": 74.4,
+  "cp2 ld12 sp2": 74.9
+ },
+ "gen-09darkbg.png": {
+  "cur cp3 ld19 sp2": 87.3,
+  "cp2 ld19 sp2": 87.3,
+  "cp4 ld19 sp2": 87.3,
+  "cp2 ld19 sp4": 87.3,
+  "cp3 ld19 sp4": 87.3,
+  "cp2 ld12 sp2": 87.3
+ },
+ "gen-09gray.png": {
+  "cur cp3 ld19 sp2": 86.3,
+  "cp2 ld19 sp2": 86.0,
+  "cp4 ld19 sp2": 86.3,
+  "cp2 ld19 sp4": 86.0,
+  "cp3 ld19 sp4": 86.3,
+  "cp2 ld12 sp2": 86.0
+ },
+ "gen-09jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 73.6,
+  "cp2 ld19 sp2": 73.6,
+  "cp4 ld19 sp2": 73.6,
+  "cp2 ld19 sp4": 73.6,
+  "cp3 ld19 sp4": 73.6,
+  "cp2 ld12 sp2": 73.6
+ },
+ "gen-09noise.png": {
+  "cur cp3 ld19 sp2": 61.9,
+  "cp2 ld19 sp2": 61.9,
+  "cp4 ld19 sp2": 61.9,
+  "cp2 ld19 sp4": 61.9,
+  "cp3 ld19 sp4": 61.9,
+  "cp2 ld12 sp2": 61.9
+ },
+ "gen-09rot.png": {
+  "cur cp3 ld19 sp2": 84.8,
+  "cp2 ld19 sp2": 84.8,
+  "cp4 ld19 sp2": 84.8,
+  "cp2 ld19 sp4": 84.8,
+  "cp3 ld19 sp4": 84.8,
+  "cp2 ld12 sp2": 84.8
+ },
+ "gen-10darkbg.png": {
+  "cur cp3 ld19 sp2": 96.0,
+  "cp2 ld19 sp2": 96.1,
+  "cp4 ld19 sp2": 96.0,
+  "cp2 ld19 sp4": 96.1,
+  "cp3 ld19 sp4": 96.0,
+  "cp2 ld12 sp2": 96.1
+ },
+ "gen-10gray.png": {
+  "cur cp3 ld19 sp2": 96.1,
+  "cp2 ld19 sp2": 96.1,
+  "cp4 ld19 sp2": 95.9,
+  "cp2 ld19 sp4": 96.1,
+  "cp3 ld19 sp4": 96.1,
+  "cp2 ld12 sp2": 96.1
+ },
+ "gen-10jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 90.0,
+  "cp2 ld19 sp2": 90.5,
+  "cp4 ld19 sp2": 90.0,
+  "cp2 ld19 sp4": 90.5,
+  "cp3 ld19 sp4": 90.0,
+  "cp2 ld12 sp2": 90.5
+ },
+ "gen-11-base.png": {
+  "cur cp3 ld19 sp2": 84.2,
+  "cp2 ld19 sp2": 84.2,
+  "cp4 ld19 sp2": 84.2,
+  "cp2 ld19 sp4": 84.2,
+  "cp3 ld19 sp4": 84.2,
+  "cp2 ld12 sp2": 84.2
+ },
+ "gen-11blur.png": {
+  "cur cp3 ld19 sp2": 85.3,
+  "cp2 ld19 sp2": 85.3,
+  "cp4 ld19 sp2": 85.3,
+  "cp2 ld19 sp4": 85.3,
+  "cp3 ld19 sp4": 85.3,
+  "cp2 ld12 sp2": 85.3
+ },
+ "gen-11darkbg.png": {
+  "cur cp3 ld19 sp2": 93.5,
+  "cp2 ld19 sp2": 93.3,
+  "cp4 ld19 sp2": 93.5,
+  "cp2 ld19 sp4": 93.3,
+  "cp3 ld19 sp4": 93.5,
+  "cp2 ld12 sp2": 93.3
+ },
+ "gen-11gray.png": {
+  "cur cp3 ld19 sp2": 93.3,
+  "cp2 ld19 sp2": 93.3,
+  "cp4 ld19 sp2": 93.5,
+  "cp2 ld19 sp4": 93.3,
+  "cp3 ld19 sp4": 93.3,
+  "cp2 ld12 sp2": 93.3
+ },
+ "gen-11jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 84.4,
+  "cp2 ld19 sp2": 83.7,
+  "cp4 ld19 sp2": 84.4,
+  "cp2 ld19 sp4": 83.7,
+  "cp3 ld19 sp4": 84.4,
+  "cp2 ld12 sp2": 83.7
+ },
+ "gen-11noise.png": {
+  "cur cp3 ld19 sp2": 81.6,
+  "cp2 ld19 sp2": 81.6,
+  "cp4 ld19 sp2": 81.6,
+  "cp2 ld19 sp4": 81.6,
+  "cp3 ld19 sp4": 81.6,
+  "cp2 ld12 sp2": 81.6
+ },
+ "gen-11rot.png": {
+  "cur cp3 ld19 sp2": 85.6,
+  "cp2 ld19 sp2": 85.6,
+  "cp4 ld19 sp2": 85.6,
+  "cp2 ld19 sp4": 85.6,
+  "cp3 ld19 sp4": 85.6,
+  "cp2 ld12 sp2": 85.6
+ },
+ "gen-12darkbg.png": {
+  "cur cp3 ld19 sp2": 88.9,
+  "cp2 ld19 sp2": 88.9,
+  "cp4 ld19 sp2": 88.9,
+  "cp2 ld19 sp4": 88.9,
+  "cp3 ld19 sp4": 88.9,
+  "cp2 ld12 sp2": 88.9
+ },
+ "gen-12gray.png": {
+  "cur cp3 ld19 sp2": 88.7,
+  "cp2 ld19 sp2": 88.3,
+  "cp4 ld19 sp2": 88.7,
+  "cp2 ld19 sp4": 88.3,
+  "cp3 ld19 sp4": 88.7,
+  "cp2 ld12 sp2": 88.3
+ },
+ "gen-12jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 80.9,
+  "cp2 ld19 sp2": 80.9,
+  "cp4 ld19 sp2": 80.9,
+  "cp2 ld19 sp4": 80.9,
+  "cp3 ld19 sp4": 80.9,
+  "cp2 ld12 sp2": 80.9
+ },
+ "gen-13-base.png": {
+  "cur cp3 ld19 sp2": 78.0,
+  "cp2 ld19 sp2": 78.0,
+  "cp4 ld19 sp2": 78.0,
+  "cp2 ld19 sp4": 78.0,
+  "cp3 ld19 sp4": 78.0,
+  "cp2 ld12 sp2": 78.0
+ },
+ "gen-13blur.png": {
+  "cur cp3 ld19 sp2": 84.2,
+  "cp2 ld19 sp2": 84.2,
+  "cp4 ld19 sp2": 84.2,
+  "cp2 ld19 sp4": 84.2,
+  "cp3 ld19 sp4": 84.2,
+  "cp2 ld12 sp2": 84.2
+ },
+ "gen-13darkbg.png": {
+  "cur cp3 ld19 sp2": 91.5,
+  "cp2 ld19 sp2": 91.5,
+  "cp4 ld19 sp2": 91.5,
+  "cp2 ld19 sp4": 91.5,
+  "cp3 ld19 sp4": 91.5,
+  "cp2 ld12 sp2": 91.5
+ },
+ "gen-13gray.png": {
+  "cur cp3 ld19 sp2": 92.1,
+  "cp2 ld19 sp2": 92.1,
+  "cp4 ld19 sp2": 92.1,
+  "cp2 ld19 sp4": 92.1,
+  "cp3 ld19 sp4": 92.1,
+  "cp2 ld12 sp2": 92.1
+ },
+ "gen-13noise.png": {
+  "cur cp3 ld19 sp2": 71.0,
+  "cp2 ld19 sp2": 71.0,
+  "cp4 ld19 sp2": 71.0,
+  "cp2 ld19 sp4": 71.0,
+  "cp3 ld19 sp4": 71.0,
+  "cp2 ld12 sp2": 71.0
+ },
+ "gen-13rot.png": {
+  "cur cp3 ld19 sp2": 79.3,
+  "cp2 ld19 sp2": 79.3,
+  "cp4 ld19 sp2": 79.3,
+  "cp2 ld19 sp4": 79.3,
+  "cp3 ld19 sp4": 79.3,
+  "cp2 ld12 sp2": 79.3
+ },
+ "gen-14-base.png": {
+  "cur cp3 ld19 sp2": 74.2,
+  "cp2 ld19 sp2": 74.0,
+  "cp4 ld19 sp2": 74.2,
+  "cp2 ld19 sp4": 74.0,
+  "cp3 ld19 sp4": 74.2,
+  "cp2 ld12 sp2": 74.0
+ },
+ "gen-14blur.png": {
+  "cur cp3 ld19 sp2": 80.0,
+  "cp2 ld19 sp2": 80.0,
+  "cp4 ld19 sp2": 80.2,
+  "cp2 ld19 sp4": 80.0,
+  "cp3 ld19 sp4": 80.0,
+  "cp2 ld12 sp2": 80.0
+ },
+ "gen-14darkbg.png": {
+  "cur cp3 ld19 sp2": 90.6,
+  "cp2 ld19 sp2": 90.6,
+  "cp4 ld19 sp2": 90.6,
+  "cp2 ld19 sp4": 90.6,
+  "cp3 ld19 sp4": 90.6,
+  "cp2 ld12 sp2": 90.6
+ },
+ "gen-14gray.png": {
+  "cur cp3 ld19 sp2": 90.1,
+  "cp2 ld19 sp2": 89.9,
+  "cp4 ld19 sp2": 90.1,
+  "cp2 ld19 sp4": 89.9,
+  "cp3 ld19 sp4": 90.1,
+  "cp2 ld12 sp2": 89.9
+ },
+ "gen-14noise.png": {
+  "cur cp3 ld19 sp2": 72.5,
+  "cp2 ld19 sp2": 72.5,
+  "cp4 ld19 sp2": 72.5,
+  "cp2 ld19 sp4": 72.5,
+  "cp3 ld19 sp4": 72.5,
+  "cp2 ld12 sp2": 72.5
+ },
+ "gen-14rot.png": {
+  "cur cp3 ld19 sp2": 76.2,
+  "cp2 ld19 sp2": 76.0,
+  "cp4 ld19 sp2": 76.2,
+  "cp2 ld19 sp4": 76.0,
+  "cp3 ld19 sp4": 76.2,
+  "cp2 ld12 sp2": 76.0
+ },
+ "gen-15darkbg.png": {
+  "cur cp3 ld19 sp2": 84.7,
+  "cp2 ld19 sp2": 84.7,
+  "cp4 ld19 sp2": 84.7,
+  "cp2 ld19 sp4": 84.7,
+  "cp3 ld19 sp4": 84.7,
+  "cp2 ld12 sp2": 84.7
+ },
+ "gen-15gray.png": {
+  "cur cp3 ld19 sp2": 84.0,
+  "cp2 ld19 sp2": 83.2,
+  "cp4 ld19 sp2": 84.0,
+  "cp2 ld19 sp4": 83.2,
+  "cp3 ld19 sp4": 84.0,
+  "cp2 ld12 sp2": 83.2
+ },
+ "gen-15jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 74.1,
+  "cp2 ld19 sp2": 74.1,
+  "cp4 ld19 sp2": 74.1,
+  "cp2 ld19 sp4": 74.1,
+  "cp3 ld19 sp4": 74.1,
+  "cp2 ld12 sp2": 74.1
+ },
+ "gen-16-base.png": {
+  "cur cp3 ld19 sp2": 79.7,
+  "cp2 ld19 sp2": 79.7,
+  "cp4 ld19 sp2": 79.7,
+  "cp2 ld19 sp4": 79.7,
+  "cp3 ld19 sp4": 79.7,
+  "cp2 ld12 sp2": 79.7
+ },
+ "gen-16blur.png": {
+  "cur cp3 ld19 sp2": 86.8,
+  "cp2 ld19 sp2": 86.8,
+  "cp4 ld19 sp2": 86.8,
+  "cp2 ld19 sp4": 86.8,
+  "cp3 ld19 sp4": 86.8,
+  "cp2 ld12 sp2": 86.8
+ },
+ "gen-16darkbg.png": {
+  "cur cp3 ld19 sp2": 93.0,
+  "cp2 ld19 sp2": 93.0,
+  "cp4 ld19 sp2": 93.0,
+  "cp2 ld19 sp4": 93.0,
+  "cp3 ld19 sp4": 93.0,
+  "cp2 ld12 sp2": 93.0
+ },
+ "gen-16gray.png": {
+  "cur cp3 ld19 sp2": 92.7,
+  "cp2 ld19 sp2": 92.7,
+  "cp4 ld19 sp2": 92.9,
+  "cp2 ld19 sp4": 92.7,
+  "cp3 ld19 sp4": 92.7,
+  "cp2 ld12 sp2": 92.7
+ },
+ "gen-16jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 86.5,
+  "cp2 ld19 sp2": 86.5,
+  "cp4 ld19 sp2": 86.5,
+  "cp2 ld19 sp4": 86.5,
+  "cp3 ld19 sp4": 86.5,
+  "cp2 ld12 sp2": 86.5
+ },
+ "gen-16noise.png": {
+  "cur cp3 ld19 sp2": 79.8,
+  "cp2 ld19 sp2": 79.8,
+  "cp4 ld19 sp2": 79.8,
+  "cp2 ld19 sp4": 79.8,
+  "cp3 ld19 sp4": 79.8,
+  "cp2 ld12 sp2": 79.8
+ },
+ "gen-16rot.png": {
+  "cur cp3 ld19 sp2": 81.3,
+  "cp2 ld19 sp2": 81.3,
+  "cp4 ld19 sp2": 81.3,
+  "cp2 ld19 sp4": 81.3,
+  "cp3 ld19 sp4": 81.3,
+  "cp2 ld12 sp2": 81.3
+ },
+ "gen-17-base.png": {
+  "cur cp3 ld19 sp2": 82.4,
+  "cp2 ld19 sp2": 82.4,
+  "cp4 ld19 sp2": 82.4,
+  "cp2 ld19 sp4": 82.4,
+  "cp3 ld19 sp4": 82.4,
+  "cp2 ld12 sp2": 82.4
+ },
+ "gen-17blur.png": {
+  "cur cp3 ld19 sp2": 74.7,
+  "cp2 ld19 sp2": 70.9,
+  "cp4 ld19 sp2": 74.7,
+  "cp2 ld19 sp4": 70.9,
+  "cp3 ld19 sp4": 74.7,
+  "cp2 ld12 sp2": 70.9
+ },
+ "gen-17darkbg.png": {
+  "cur cp3 ld19 sp2": 88.6,
+  "cp2 ld19 sp2": 88.6,
+  "cp4 ld19 sp2": 88.6,
+  "cp2 ld19 sp4": 88.6,
+  "cp3 ld19 sp4": 88.6,
+  "cp2 ld12 sp2": 88.6
+ },
+ "gen-17gray.png": {
+  "cur cp3 ld19 sp2": 88.9,
+  "cp2 ld19 sp2": 88.9,
+  "cp4 ld19 sp2": 88.9,
+  "cp2 ld19 sp4": 88.9,
+  "cp3 ld19 sp4": 88.9,
+  "cp2 ld12 sp2": 88.9
+ },
+ "gen-17jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 76.8,
+  "cp2 ld19 sp2": 76.8,
+  "cp4 ld19 sp2": 76.8,
+  "cp2 ld19 sp4": 76.8,
+  "cp3 ld19 sp4": 76.8,
+  "cp2 ld12 sp2": 76.8
+ },
+ "gen-17noise.png": {
+  "cur cp3 ld19 sp2": 55.8,
+  "cp2 ld19 sp2": 55.8,
+  "cp4 ld19 sp2": 55.8,
+  "cp2 ld19 sp4": 55.8,
+  "cp3 ld19 sp4": 55.8,
+  "cp2 ld12 sp2": 55.8
+ },
+ "gen-17rot.png": {
+  "cur cp3 ld19 sp2": 87.6,
+  "cp2 ld19 sp2": 87.6,
+  "cp4 ld19 sp2": 87.6,
+  "cp2 ld19 sp4": 87.6,
+  "cp3 ld19 sp4": 87.6,
+  "cp2 ld12 sp2": 87.6
+ },
+ "gen-18blur.png": {
+  "cur cp3 ld19 sp2": 85.5,
+  "cp2 ld19 sp2": 85.5,
+  "cp4 ld19 sp2": 85.5,
+  "cp2 ld19 sp4": 85.5,
+  "cp3 ld19 sp4": 85.5,
+  "cp2 ld12 sp2": 85.5
+ },
+ "gen-18darkbg.png": {
+  "cur cp3 ld19 sp2": 92.8,
+  "cp2 ld19 sp2": 92.8,
+  "cp4 ld19 sp2": 92.8,
+  "cp2 ld19 sp4": 92.8,
+  "cp3 ld19 sp4": 92.8,
+  "cp2 ld12 sp2": 92.8
+ },
+ "gen-18gray.png": {
+  "cur cp3 ld19 sp2": 92.3,
+  "cp2 ld19 sp2": 92.3,
+  "cp4 ld19 sp2": 91.3,
+  "cp2 ld19 sp4": 92.3,
+  "cp3 ld19 sp4": 92.3,
+  "cp2 ld12 sp2": 92.3
+ },
+ "gen-18jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 82.5,
+  "cp2 ld19 sp2": 82.5,
+  "cp4 ld19 sp2": 82.5,
+  "cp2 ld19 sp4": 82.5,
+  "cp3 ld19 sp4": 82.5,
+  "cp2 ld12 sp2": 82.5
+ },
+ "gen-19-base.png": {
+  "cur cp3 ld19 sp2": 77.2,
+  "cp2 ld19 sp2": 77.2,
+  "cp4 ld19 sp2": 77.2,
+  "cp2 ld19 sp4": 77.2,
+  "cp3 ld19 sp4": 77.2,
+  "cp2 ld12 sp2": 77.2
+ },
+ "gen-19blur.png": {
+  "cur cp3 ld19 sp2": 70.5,
+  "cp2 ld19 sp2": 75.1,
+  "cp4 ld19 sp2": 70.5,
+  "cp2 ld19 sp4": 75.1,
+  "cp3 ld19 sp4": 70.5,
+  "cp2 ld12 sp2": 75.2
+ },
+ "gen-19darkbg.png": {
+  "cur cp3 ld19 sp2": 85.6,
+  "cp2 ld19 sp2": 85.6,
+  "cp4 ld19 sp2": 85.6,
+  "cp2 ld19 sp4": 86.0,
+  "cp3 ld19 sp4": 86.0,
+  "cp2 ld12 sp2": 85.6
+ },
+ "gen-19gray.png": {
+  "cur cp3 ld19 sp2": 86.2,
+  "cp2 ld19 sp2": 87.6,
+  "cp4 ld19 sp2": 86.2,
+  "cp2 ld19 sp4": 87.6,
+  "cp3 ld19 sp4": 86.1,
+  "cp2 ld12 sp2": 87.6
+ },
+ "gen-19jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 70.8,
+  "cp2 ld19 sp2": 70.8,
+  "cp4 ld19 sp2": 70.8,
+  "cp2 ld19 sp4": 70.8,
+  "cp3 ld19 sp4": 70.8,
+  "cp2 ld12 sp2": 70.8
+ },
+ "gen-19noise.png": {
+  "cur cp3 ld19 sp2": 62.8,
+  "cp2 ld19 sp2": 62.8,
+  "cp4 ld19 sp2": 62.8,
+  "cp2 ld19 sp4": 62.8,
+  "cp3 ld19 sp4": 62.8,
+  "cp2 ld12 sp2": 62.8
+ },
+ "gen-19rot.png": {
+  "cur cp3 ld19 sp2": 80.9,
+  "cp2 ld19 sp2": 80.9,
+  "cp4 ld19 sp2": 80.9,
+  "cp2 ld19 sp4": 80.9,
+  "cp3 ld19 sp4": 80.9,
+  "cp2 ld12 sp2": 80.9
+ },
+ "gen-20-base.png": {
+  "cur cp3 ld19 sp2": 82.4,
+  "cp2 ld19 sp2": 82.4,
+  "cp4 ld19 sp2": 81.7,
+  "cp2 ld19 sp4": 82.4,
+  "cp3 ld19 sp4": 82.4,
+  "cp2 ld12 sp2": 82.4
+ },
+ "gen-20blur.png": {
+  "cur cp3 ld19 sp2": 76.2,
+  "cp2 ld19 sp2": 77.1,
+  "cp4 ld19 sp2": 77.0,
+  "cp2 ld19 sp4": 77.1,
+  "cp3 ld19 sp4": 76.2,
+  "cp2 ld12 sp2": 77.1
+ },
+ "gen-20darkbg.png": {
+  "cur cp3 ld19 sp2": 89.6,
+  "cp2 ld19 sp2": 89.6,
+  "cp4 ld19 sp2": 89.0,
+  "cp2 ld19 sp4": 89.6,
+  "cp3 ld19 sp4": 89.6,
+  "cp2 ld12 sp2": 89.6
+ },
+ "gen-20gray.png": {
+  "cur cp3 ld19 sp2": 88.4,
+  "cp2 ld19 sp2": 88.4,
+  "cp4 ld19 sp2": 88.4,
+  "cp2 ld19 sp4": 88.4,
+  "cp3 ld19 sp4": 88.4,
+  "cp2 ld12 sp2": 88.4
+ },
+ "gen-20jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 76.4,
+  "cp2 ld19 sp2": 79.7,
+  "cp4 ld19 sp2": 76.9,
+  "cp2 ld19 sp4": 79.7,
+  "cp3 ld19 sp4": 76.4,
+  "cp2 ld12 sp2": 79.7
+ },
+ "gen-20rot.png": {
+  "cur cp3 ld19 sp2": 83.2,
+  "cp2 ld19 sp2": 83.2,
+  "cp4 ld19 sp2": 83.2,
+  "cp2 ld19 sp4": 83.2,
+  "cp3 ld19 sp4": 83.2,
+  "cp2 ld12 sp2": 83.2
+ },
+ "gen-21-base.png": {
+  "cur cp3 ld19 sp2": 86.3,
+  "cp2 ld19 sp2": 86.3,
+  "cp4 ld19 sp2": 86.3,
+  "cp2 ld19 sp4": 86.3,
+  "cp3 ld19 sp4": 86.3,
+  "cp2 ld12 sp2": 86.3
+ },
+ "gen-21blur.png": {
+  "cur cp3 ld19 sp2": 87.4,
+  "cp2 ld19 sp2": 87.4,
+  "cp4 ld19 sp2": 87.4,
+  "cp2 ld19 sp4": 87.4,
+  "cp3 ld19 sp4": 87.4,
+  "cp2 ld12 sp2": 87.4
+ },
+ "gen-21darkbg.png": {
+  "cur cp3 ld19 sp2": 93.3,
+  "cp2 ld19 sp2": 93.3,
+  "cp4 ld19 sp2": 93.3,
+  "cp2 ld19 sp4": 93.3,
+  "cp3 ld19 sp4": 93.3,
+  "cp2 ld12 sp2": 93.3
+ },
+ "gen-21gray.png": {
+  "cur cp3 ld19 sp2": 93.4,
+  "cp2 ld19 sp2": 92.9,
+  "cp4 ld19 sp2": 93.4,
+  "cp2 ld19 sp4": 92.9,
+  "cp3 ld19 sp4": 93.4,
+  "cp2 ld12 sp2": 92.9
+ },
+ "gen-21jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 88.9,
+  "cp2 ld19 sp2": 88.9,
+  "cp4 ld19 sp2": 88.9,
+  "cp2 ld19 sp4": 88.9,
+  "cp3 ld19 sp4": 88.9,
+  "cp2 ld12 sp2": 88.9
+ },
+ "gen-21noise.png": {
+  "cur cp3 ld19 sp2": 79.6,
+  "cp2 ld19 sp2": 79.6,
+  "cp4 ld19 sp2": 79.6,
+  "cp2 ld19 sp4": 79.6,
+  "cp3 ld19 sp4": 79.6,
+  "cp2 ld12 sp2": 79.6
+ },
+ "gen-21rot.png": {
+  "cur cp3 ld19 sp2": 87.3,
+  "cp2 ld19 sp2": 87.3,
+  "cp4 ld19 sp2": 87.3,
+  "cp2 ld19 sp4": 87.3,
+  "cp3 ld19 sp4": 87.3,
+  "cp2 ld12 sp2": 87.3
+ },
+ "gen-22-base.png": {
+  "cur cp3 ld19 sp2": 71.3,
+  "cp2 ld19 sp2": 71.3,
+  "cp4 ld19 sp2": 71.3,
+  "cp2 ld19 sp4": 71.3,
+  "cp3 ld19 sp4": 71.3,
+  "cp2 ld12 sp2": 71.3
+ },
+ "gen-22blur.png": {
+  "cur cp3 ld19 sp2": 87.8,
+  "cp2 ld19 sp2": 87.8,
+  "cp4 ld19 sp2": 87.8,
+  "cp2 ld19 sp4": 87.9,
+  "cp3 ld19 sp4": 87.9,
+  "cp2 ld12 sp2": 87.8
+ },
+ "gen-22darkbg.png": {
+  "cur cp3 ld19 sp2": 92.3,
+  "cp2 ld19 sp2": 92.3,
+  "cp4 ld19 sp2": 92.3,
+  "cp2 ld19 sp4": 92.3,
+  "cp3 ld19 sp4": 92.3,
+  "cp2 ld12 sp2": 92.3
+ },
+ "gen-22gray.png": {
+  "cur cp3 ld19 sp2": 91.9,
+  "cp2 ld19 sp2": 91.5,
+  "cp4 ld19 sp2": 91.9,
+  "cp2 ld19 sp4": 91.5,
+  "cp3 ld19 sp4": 91.9,
+  "cp2 ld12 sp2": 91.5
+ },
+ "gen-22jpeg.jpg.png": {
+  "cur cp3 ld19 sp2": 86.3,
+  "cp2 ld19 sp2": 86.3,
+  "cp4 ld19 sp2": 86.3,
+  "cp2 ld19 sp4": 86.3,
+  "cp3 ld19 sp4": 86.3,
+  "cp2 ld12 sp2": 86.3
+ },
+ "gen-22noise.png": {
+  "cur cp3 ld19 sp2": 71.3,
+  "cp2 ld19 sp2": 71.3,
+  "cp4 ld19 sp2": 71.3,
+  "cp2 ld19 sp4": 71.3,
+  "cp3 ld19 sp4": 71.3,
+  "cp2 ld12 sp2": 71.3
+ },
+ "gen-22rot.png": {
+  "cur cp3 ld19 sp2": 73.6,
+  "cp2 ld19 sp2": 73.6,
+  "cp4 ld19 sp2": 73.6,
+  "cp2 ld19 sp4": 73.6,
+  "cp3 ld19 sp4": 73.6,
+  "cp2 ld12 sp2": 73.6
+ },
+ "gen-23darkbg.png": {
+  "cur cp3 ld19 sp2": 92.9,
+  "cp2 ld19 sp2": 92.9,
+  "cp4 ld19 sp2": 92.9,
+  "cp2 ld19 sp4": 92.9,
+  "cp3 ld19 sp4": 92.9,
+  "cp2 ld12 sp2": 92.9
+ },
+ "gen-23gray.png": {
+  "cur cp3 ld19 sp2": 92.2,
+  "cp2 ld19 sp2": 92.2,
+  "cp4 ld19 sp2": 92.1,
+  "cp2 ld19 sp4": 92.2,
+  "cp3 ld19 sp4": 92.2,
+  "cp2 ld12 sp2": 92.2
+ }
+}

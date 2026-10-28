@@ -1,0 +1,74 @@
+{
+ "id": "pix-hero-list-bullet-24outline",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/hero/list-bullet-24outline/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 04:36:00",
+ "http_status": 200,
+ "latency_ms": 85.3,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 1203,
+  "sha1": "943028879004",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 4,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 5,
+   "paths": 4,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#fdfdfd",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 3
+   },
+   {
+    "color": "#fdfdfd",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 42,
+  "max_path_commands": 24,
+  "empty_elements": 0,
+  "duplicate_path_d": 2,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "2 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 1203,
+ "svg_sha1": "943028879004",
+ "pixel_score": 96.4,
+ "status": "PASS"
+}

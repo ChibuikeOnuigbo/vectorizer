@@ -1,0 +1,15 @@
+{"row": "cx-04-mandala", "cap": 640, "sim": 49.2, "verdict": "FAIL", "ssim12": 0.492, "mae": 38.11, "iou": 1.0, "mfr": 0.9964}
+{"row": "cx-04-mandala", "cap": 512, "sim": 41.7, "verdict": "FAIL", "ssim12": 0.4166, "mae": 40.49, "iou": 1.0, "mfr": 0.9968}
+{"row": "cx-04-mandala", "cap": 448, "sim": 38.0, "verdict": "FAIL", "ssim12": 0.3795, "mae": 41.97, "iou": 1.0, "mfr": 0.9956}
+{"row": "cx-05-falcon", "cap": 640, "sim": 71.9, "verdict": "WEAK", "ssim12": 0.7189, "mae": 15.94, "iou": 1.0, "mfr": 0.9922}
+{"row": "cx-05-falcon", "cap": 512, "sim": 68.7, "verdict": "FAIL", "ssim12": 0.6869, "mae": 17.24, "iou": 1.0, "mfr": 0.9892}
+{"row": "cx-05-falcon", "cap": 448, "sim": 66.4, "verdict": "FAIL", "ssim12": 0.6639, "mae": 18.19, "iou": 1.0, "mfr": 0.9884}
+{"row": "x2-04-mug", "cap": 640, "sim": 75.8, "verdict": "WEAK", "ssim12": 0.7575, "mae": 10.1, "iou": 0.8959, "mfr": 0.9917}
+{"row": "x2-04-mug", "cap": 512, "sim": 74.3, "verdict": "WEAK", "ssim12": 0.7431, "mae": 10.67, "iou": 0.9543, "mfr": 0.9909}
+{"row": "x2-04-mug", "cap": 448, "sim": 73.9, "verdict": "WEAK", "ssim12": 0.7394, "mae": 10.96, "iou": 0.9326, "mfr": 0.9859}
+{"row": "x2-05-pin", "cap": 640, "sim": 75.2, "verdict": "WEAK", "ssim12": 0.7522, "mae": 10.33, "iou": 1.0, "mfr": 0.9847}
+{"row": "x2-05-pin", "cap": 512, "sim": 69.7, "verdict": "FAIL", "ssim12": 0.6975, "mae": 12.28, "iou": 1.0, "mfr": 0.9459}
+{"row": "x2-05-pin", "cap": 448, "sim": 67.9, "verdict": "FAIL", "ssim12": 0.6791, "mae": 12.33, "iou": 1.0, "mfr": 0.9459}
+{"row": "x2-06-castle", "cap": 640, "sim": 86.7, "verdict": "PASS", "ssim12": 0.8671, "mae": 6.99, "iou": 1.0, "mfr": 1.0}
+{"row": "x2-06-castle", "cap": 512, "sim": 86.3, "verdict": "PASS", "ssim12": 0.8626, "mae": 7.59, "iou": 1.0, "mfr": 0.9999}
+{"row": "x2-06-castle", "cap": 448, "sim": 83.6, "verdict": "WEAK", "ssim12": 0.8356, "mae": 8.92, "iou": 1.0, "mfr": 0.999}

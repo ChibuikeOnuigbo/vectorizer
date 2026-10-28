@@ -1,0 +1,80 @@
+{
+ "id": "pix-lucide-book-image",
+ "kind": "pixcompare",
+ "asset": "dataset/icons/lucide/book-image/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-25 23:10:30",
+ "http_status": 200,
+ "latency_ms": 43.0,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 7496,
+  "sha1": "9da450f7b41f",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 6,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 7,
+   "paths": 6,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#fefefe",
+    "count": 4
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   },
+   {
+    "color": "#121212",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#fefefe",
+    "count": 4
+   },
+   {
+    "color": "#000000",
+    "count": 1
+   },
+   {
+    "color": "#121212",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 161,
+  "max_path_commands": 69,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 7496,
+ "svg_sha1": "9da450f7b41f",
+ "pixel_score": 91.0,
+ "status": "PASS"
+}

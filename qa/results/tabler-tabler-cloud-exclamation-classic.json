@@ -1,0 +1,71 @@
+{
+ "id": "tabler-tabler-cloud-exclamation-classic",
+ "kind": "iconpair",
+ "asset": "dataset/icons/tabler/cloud-exclamation/input-w128.png",
+ "mode": "classic",
+ "params": {
+  "colors": "8"
+ },
+ "recorded_at": "2026-09-26 03:52:33",
+ "http_status": 200,
+ "latency_ms": 47.9,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 3696,
+  "sha1": "1e06d8ef7240",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 3,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 4,
+   "paths": 3,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 128 128",
+  "width": "128",
+  "height": "128",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 2
+   },
+   {
+    "color": "#fdfdfd",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 2
+   },
+   {
+    "color": "#fdfdfd",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 94,
+  "max_path_commands": 50,
+  "empty_elements": 0,
+  "duplicate_path_d": 0,
+  "extreme_coord_over_1e5": 0,
+  "warnings": []
+ },
+ "svg_bytes": 3696,
+ "svg_sha1": "1e06d8ef7240",
+ "status": "PASS"
+}

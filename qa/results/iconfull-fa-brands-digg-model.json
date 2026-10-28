@@ -1,0 +1,73 @@
+{
+ "id": "iconfull-fa-brands-digg-model",
+ "kind": "iconpair",
+ "asset": "dataset/icons/fontawesome/brands/digg/input-w256.png",
+ "mode": "model",
+ "params": {
+  "use_model": "1"
+ },
+ "recorded_at": "2026-09-25 21:26:35",
+ "http_status": 200,
+ "latency_ms": 220.7,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 3325,
+  "sha1": "6aa7b0c2ed9a",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 9,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 10,
+   "paths": 9,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#ffffff",
+    "count": 4
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#000000",
+    "count": 5
+   },
+   {
+    "color": "#ffffff",
+    "count": 4
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 122,
+  "max_path_commands": 46,
+  "empty_elements": 0,
+  "duplicate_path_d": 1,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "1 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 3325,
+ "svg_sha1": "6aa7b0c2ed9a",
+ "status": "PASS"
+}

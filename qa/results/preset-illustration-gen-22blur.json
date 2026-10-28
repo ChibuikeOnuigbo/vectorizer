@@ -1,0 +1,73 @@
+{
+ "id": "preset-illustration-gen-22blur",
+ "kind": "convert",
+ "asset": "test-assets/images/generated/gen-22blur.png",
+ "mode": "preset:illustration",
+ "params": {
+  "preset": "illustration"
+ },
+ "recorded_at": "2026-09-25 15:10:34",
+ "http_status": 200,
+ "latency_ms": 201.6,
+ "retries": 0,
+ "meta": {},
+ "svg_analysis": {
+  "bytes": 5835,
+  "sha1": "ebf5a642706e",
+  "xml_valid": true,
+  "root_is_svg": true,
+  "elements": {
+   "path": 9,
+   "svg": 1
+  },
+  "counts": {
+   "total_elements": 10,
+   "paths": 9,
+   "groups": 0,
+   "circles": 0,
+   "rects": 0,
+   "ellipses": 0,
+   "polygons": 0,
+   "polylines": 0,
+   "lines": 0
+  },
+  "viewBox": "0 0 256 256",
+  "width": "256",
+  "height": "256",
+  "fills": [
+   {
+    "color": "#34a5ad",
+    "count": 8
+   },
+   {
+    "color": "#d5e06a",
+    "count": 1
+   }
+  ],
+  "strokes": [
+   {
+    "color": "#34a5ad",
+    "count": 8
+   },
+   {
+    "color": "#d5e06a",
+    "count": 1
+   }
+  ],
+  "uses_gradients": false,
+  "uses_clip": false,
+  "uses_mask": false,
+  "uses_transform": true,
+  "path_total_commands": 122,
+  "max_path_commands": 27,
+  "empty_elements": 0,
+  "duplicate_path_d": 2,
+  "extreme_coord_over_1e5": 0,
+  "warnings": [
+   "2 duplicate path geometries"
+  ]
+ },
+ "svg_bytes": 5835,
+ "svg_sha1": "ebf5a642706e",
+ "status": "PASS"
+}

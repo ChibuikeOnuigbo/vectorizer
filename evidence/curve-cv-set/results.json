@@ -1,0 +1,92 @@
+{
+ "cv-01-thick-ribbon-logo": {
+  "engine": "color-cutout",
+  "paths": 2,
+  "fills": 2,
+  "kb": 8.2,
+  "ms": 797,
+  "ssim12": 0.964,
+  "sha": "3f170d4723ab"
+ },
+ "cv-02-spiral-swirl-logo": {
+  "engine": "color-cutout",
+  "paths": 2,
+  "fills": 2,
+  "kb": 67.0,
+  "ms": 4553,
+  "ssim12": 0.998,
+  "sha": "51d3fa6d1968"
+ },
+ "cv-03-organic-blob-circles": {
+  "engine": "color-cutout",
+  "paths": 7,
+  "fills": 5,
+  "kb": 12.3,
+  "ms": 1870,
+  "ssim12": 1.0,
+  "sha": "88db93908736"
+ },
+ "cv-04-calligraphic-flourish": {
+  "engine": "hairline",
+  "paths": 92,
+  "fills": 1,
+  "kb": 33.7,
+  "ms": 2555,
+  "ssim12": 0.998,
+  "sha": "78413a69800e"
+ },
+ "cv-05-interlocking-loops": {
+  "engine": "color-cutout",
+  "paths": 6,
+  "fills": 6,
+  "kb": 53.2,
+  "ms": 2972,
+  "ssim12": 0.932,
+  "sha": "b40d67dfa09b"
+ },
+ "cv-06-wave-stack": {
+  "engine": "color-cutout",
+  "paths": 5,
+  "fills": 4,
+  "kb": 33.3,
+  "ms": 1758,
+  "ssim12": 0.938,
+  "sha": "17ff1a96f8b6"
+ },
+ "cv-07-rings-ellipses": {
+  "engine": "color-cutout",
+  "paths": 9,
+  "fills": 3,
+  "kb": 80.3,
+  "ms": 3283,
+  "ssim12": 0.999,
+  "sha": "5ac9576c00e2"
+ },
+ "cv-08-tight-hooks-swirls": {
+  "engine": "color-cutout",
+  "paths": 53,
+  "fills": 4,
+  "kb": 328.9,
+  "ms": 4342,
+  "ssim12": 0.92,
+  "sha": "d7ee610419b4"
+ },
+ "cv-09-gradient-ribbon": {
+  "engine": "color-cutout",
+  "paths": 17,
+  "fills": 17,
+  "kb": 68.4,
+  "ms": 1290,
+  "ssim12": 0.98,
+  "sha": "ab9f70a92f7c"
+ },
+ "cv-10-glass-translucent-curves": {
+  "engine": "color-cutout-detail",
+  "paths": 77,
+  "fills": 34,
+  "kb": 197.6,
+  "ms": 2733,
+  "ssim12": 0.987,
+  "sha": "d6db48b125ec"
+ }
+}
